@@ -1,19 +1,21 @@
 $(document).ready(function () {
     $('.progress-bar').hide();
     steps(1);
+
+    $("#pax-register").on('click', function() {
+        register_form($('#select_users').val())
+    });
 });
 
 var step = 1;
 
 function volver(){
     step--;
-
     steps(step);
 }
 
 function next(){
     step++;
-
     steps(step);
 }
 
@@ -78,6 +80,7 @@ function steps(step){
 function select_user(user){
 
     $('.progress-bar').hide();
+    var user = $('#select_users').val();
 
     switch(user){
         case "1":
@@ -123,5 +126,40 @@ function select_user(user){
             step--;
             console.log(step);
             break;
+    }
+}
+
+function register_form(user){
+    let datos;
+
+       switch(user){
+        case "1":
+            datos = {
+                "CI": document.getElementById('CI').value,
+                "CORREO": document.getElementById('correo').value,
+                "NOMBRE": document.getElementById('nombre').value,
+                "APELLIDO": document.getElementById('apellido').value,
+                "DIRECCION": document.getElementById('direccion').value,
+                "BARRIO": document.getElementById('barrio').value,
+                "DEPARTAMENTO": document.getElementById('departamento').value,
+                "TELEFONO": document.getElementById('telefono').value,
+                "PIN": document.getElementById('password').value,
+                "RE-PIN": document.getElementById('re-password').value
+            };
+          $.ajax({
+            type: "POST",
+            url: "../PHP/procedimientosForm.php",
+            data: { tipo:user, datos:JSON.stringify(datos) },
+            success: function (response) {
+                console.log(response)
+            },
+        });
+            break;
+        case "2":
+;
+            break;
+        case "3":
+            break; 
+
     }
 }
