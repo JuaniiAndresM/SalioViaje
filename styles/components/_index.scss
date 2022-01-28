@@ -1,0 +1,103 @@
+//------[Colores]------
+
+$main_1: #3844bc;
+$main_2: #2b3179;
+$main_3: #6d76db;
+
+$contraste_1: #333333;
+$contraste_2: #ffffff;
+
+@mixin button{
+    background: linear-gradient(to right, $main_1, $main_2);
+    color: $contraste_2;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 2em;
+    margin-top: 10px;
+    transition: .5s;
+    cursor: pointer;
+
+    i{
+        margin-right: 5px;
+    }
+
+}
+@mixin button-hover{
+    transform: scale(1.1);
+}
+
+.landing{
+    width: 100%;
+    min-height: 100vh;
+    margin-top: -80px;
+
+    background-color: #fff;
+
+    display: grid;
+
+    .landing-wrapper-grid{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+
+        margin: 0 auto;
+
+        .landing-left{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            text-align: left;
+
+            .landing-info{
+                text-align: left;
+
+                h1{
+                    font-size: 4.2em;
+                    font-weight: bold;
+                    color: $contraste_1;
+                    margin-bottom: 10px;
+
+                    span{
+                        color: $main_1;
+                    }
+                }
+                p{
+                    color: $main_1;
+                    font-size: 1.2em;
+                    max-width: 450px; 
+                    width: 100%;
+                    margin-bottom: 20px;
+                }
+                .button-landing{
+                    @include button();
+                    border-radius: 0 2em 2em 2em;
+                }
+                .button-landing:hover{
+                    @include button-hover();
+                }
+            }
+        }
+        .landing-right{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .landing-img-wrapper{
+                width: 500px;
+                height: 450px;
+
+                border-radius: 6em 6em 0 6em;
+                overflow: hidden;
+
+                background-color: $main_2;
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+}

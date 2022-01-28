@@ -1,0 +1,141 @@
+    .login, .register{
+        width: 100%;
+        min-height: calc(100vh - 80px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .login-wrapper, .register-wrapper{
+            max-width: 330px;
+            width: 100%;
+            padding: 30px 0;
+
+            box-shadow: 10px 0px 20px 0 rgba($color: #000000, $alpha: .3);
+
+            border-radius: 3em 0 3em 3em;
+
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-direction: column;
+
+            h1{
+                color: $contraste_1;
+                font-size: 2em;
+
+                span{
+                    color: $main_1;
+                }
+            }
+
+            .progress-bar{
+                position: relative;
+                width: 90%;
+                height: 15px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 20px;
+
+                .line{
+                    position: relative;
+                    width: 100%;
+                    height: 5px;
+
+                    border-radius: 2em;
+                    background-color: #aaa;
+                }
+                .circle1,.circle2,.circle3{
+                    width: 15px;
+                    height: 15px;
+                    border-radius: 50%;
+                    background-color: #aaa;
+                    position: absolute;
+                    left: 0;
+                }
+                .circle1{
+                    background-color: $main_1;
+                }
+                .circle2{
+                    left: calc(50% - 10px);
+                }
+                .circle3{
+                    left: calc(100% - 10px);
+                }
+            }
+
+            .inputs-wrapper{
+                width: 100%;
+                .input{
+                    position: relative;
+                    width: calc(100% - 60px);
+                    margin: 30px auto;
+        
+                    input{
+                        width: 100%;
+                        height: 40px;
+                        background-color: transparent;
+                        border: none;
+                        border-bottom: 1px solid #aaa;
+                        outline: none;
+                        padding-left: 25px;
+                        color: #555;
+                        font-size: .85em;
+                    }
+                    input::placeholder{
+                        color: #888;
+                    }
+        
+                    #icon{
+                        position: absolute;
+                        top: 10px;
+                        left: 0;
+                        color: #555;
+                    }
+                    #passeye{
+                        position: absolute;
+                        top: 12px;
+                        right: 0;
+                        color: #555;
+                        cursor: pointer;
+                        transition: .3s;
+                    }
+                    #passeye:hover{
+                        transform: scale(1.2);
+                    }
+                }
+                .input:nth-child(3){
+                    input{
+                        padding-right: 30px;
+                        margin-bottom: 0;
+                    }
+                }
+            }
+            .button-login, .button-register{
+                @include button();
+                margin-top: 0;
+            }
+
+            .login-bottom, .register-bottom{
+                text-align: center;
+                margin-top: 20px;
+                p{
+                    max-width: 280px;
+                    width: 100%;
+                    margin: 10px 0;
+
+                    color: $main_2;
+                    font-size: .8em;
+
+                    a{
+                        text-decoration: none;
+                        color: $main_1;
+                    }
+                    a:hover{
+                        color: $main_3;
+                    }
+                }
+            }
+            
+        }
+    }

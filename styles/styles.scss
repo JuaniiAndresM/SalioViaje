@@ -1,0 +1,58 @@
+//------[Colores]------
+
+$main_1: #3844bc;
+$main_2: #2b3179;
+$main_3: #6d76db;
+
+$contraste_1: #333333;
+$contraste_2: #ffffff;
+
+//------[Imports]------
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500;600;700;900&display=swap');
+
+@import 'components/index';
+@import 'components/header';
+@import 'components/form';
+
+
+//------[Basics]------
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', 'sans-serif';
+}
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: $contraste_2;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: $main_1;
+    border-radius: 1em;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: $main_2;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+
+body{
+  background-color: $contraste_2;
+}
+
+

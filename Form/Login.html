@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head> 
-    <title>SalióViaje - Ecoagencia de Transporte</title>
+    <title>SalióViaje - Login</title>
 
     <!-- // Meta Etiquetas -->
 
@@ -17,14 +17,14 @@
         <!-- Open Graph / Facebook -->
         <meta property="og:type" content="website">
         <meta property="og:url" content="https://www.salioviaje.com/">
-        <meta property="og:title" content="SalióViaje - Ecoagencia de Transporte">
+        <meta property="og:title" content="SalióViaje - Login">
         <meta property="og:description" content="Plataforma que optimiza el traslado ocasional de personas.">
         <meta property="og:image" content="https://www.website.com/media/MetaImage.png">
 
         <!-- Twitter -->
         <meta property="twitter:card" content="summary_large_image">
         <meta property="twitter:url" content="https://www.salioviaje.com/">
-        <meta property="twitter:title" content="SalióViaje - Ecoagencia de Transporte">
+        <meta property="twitter:title" content="SalióViaje - Login">
         <meta property="twitter:description" content="Plataforma que optimiza el traslado ocasional de personas.">
         <meta property="twitter:image" content="https://www.website.com/media/MetaImage.png">
 
@@ -32,38 +32,43 @@
 
     <!-- Links -->
     <link rel="shortcut icon" href="media/svg/Favicon-SalioViaje.svg" type="image/x-icon">
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="/SalioViaje/styles/styles.css">
 
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/1e193e3a23.js" crossorigin="anonymous"></script>    
 
-    <script src="Javascript/web.js"></script>
+    <script src="/SalioViaje/Javascript/web.js"></script>
 
 </head>
 <body>
     <div id="header"></div>
 
-    <section class="landing">
-        <div class="landing-wrapper-grid">
-            <div class="landing-left">
-                <div class="landing-info">
-                    <h1>Salió<span>Viaje</span></h1>
-                    <p>Plataforma que optimiza el traslado ocasional de personas.</p>
-                    <button class="button-landing"><i class="fas fa-bus"></i> ¡Quiero viajar barato!</button>
+    <section class="login">
+        <div class="login-wrapper">
+            <h1>Salió<span>Viaje</span></h1>
+
+            <div class="inputs-wrapper">
+                <div class="input">
+                    <i class="fas fa-user" id="icon"></i>
+                    <input type="text" placeholder="C.I o RUT">
+                </div>
+                <div class="input">
+                    <i class="fas fa-key" id="icon"></i>
+                    <input type="password" placeholder="Contraseña">
+                    <i id="passeye" class="fas fa-eye-slash"></i>
                 </div>
             </div>
-            <div class="landing-right">
-                <div class="landing-img-wrapper">
-                    <img class="" src="media/images/Van.jpg" alt="">
-                </div>
+
+            <button class="button-login"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</button>
+
+            <div class="login-bottom">
+                <p><a href="#">¿Olvidaste tu contraseña?</a></p>
+                <p>¿Aún no tienes una cuenta? <a href="/SalioViaje/Form/Register.html">Registrate</a>.</p>
             </div>
+
         </div>
     </section>
-
-    <section class="servicios"></section>
-
-    <section class="nosotros"></section> <!-- Breve -->
 
     <div id="footer"></div>
 </body>
