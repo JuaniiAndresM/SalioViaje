@@ -186,7 +186,8 @@ header .header-wrapper .header-links .links-session .login_button:hover {
   background-color: red !important;
 }
 
-.login, .register {
+.login,
+.register {
   width: 100%;
   min-height: calc(100vh - 80px);
   display: -webkit-box;
@@ -200,7 +201,10 @@ header .header-wrapper .header-links .links-session .login_button:hover {
           align-items: center;
 }
 
-.login .login-wrapper, .login .register-wrapper, .register .login-wrapper, .register .register-wrapper {
+.login .login-wrapper,
+.login .register-wrapper,
+.register .login-wrapper,
+.register .register-wrapper {
   max-width: 330px;
   width: 100%;
   padding: 30px 0;
@@ -222,16 +226,49 @@ header .header-wrapper .header-links .links-session .login_button:hover {
           flex-direction: column;
 }
 
-.login .login-wrapper h1, .login .register-wrapper h1, .register .login-wrapper h1, .register .register-wrapper h1 {
+.login .login-wrapper h1,
+.login .register-wrapper h1,
+.register .login-wrapper h1,
+.register .register-wrapper h1 {
   color: #333333;
   font-size: 2em;
 }
 
-.login .login-wrapper h1 span, .login .register-wrapper h1 span, .register .login-wrapper h1 span, .register .register-wrapper h1 span {
+.login .login-wrapper h1 span,
+.login .register-wrapper h1 span,
+.register .login-wrapper h1 span,
+.register .register-wrapper h1 span {
   color: #3844bc;
 }
 
-.login .login-wrapper .progress-bar, .login .register-wrapper .progress-bar, .register .login-wrapper .progress-bar, .register .register-wrapper .progress-bar {
+.login .login-wrapper #login,
+.login .login-wrapper #step_1,
+.login .login-wrapper #step_2,
+.login .register-wrapper #login,
+.login .register-wrapper #step_1,
+.login .register-wrapper #step_2,
+.register .login-wrapper #login,
+.register .login-wrapper #step_1,
+.register .login-wrapper #step_2,
+.register .register-wrapper #login,
+.register .register-wrapper #step_1,
+.register .register-wrapper #step_2 {
+  width: 100%;
+  text-align: center;
+}
+
+.login .login-wrapper #login .progress-bar,
+.login .login-wrapper #step_1 .progress-bar,
+.login .login-wrapper #step_2 .progress-bar,
+.login .register-wrapper #login .progress-bar,
+.login .register-wrapper #step_1 .progress-bar,
+.login .register-wrapper #step_2 .progress-bar,
+.register .login-wrapper #login .progress-bar,
+.register .login-wrapper #step_1 .progress-bar,
+.register .login-wrapper #step_2 .progress-bar,
+.register .register-wrapper #login .progress-bar,
+.register .register-wrapper #step_1 .progress-bar,
+.register .register-wrapper #step_2 .progress-bar {
   position: relative;
   width: 90%;
   height: 15px;
@@ -244,10 +281,23 @@ header .header-wrapper .header-links .links-session .login_button:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin: 0 auto;
+  text-align: center;
   margin-top: 20px;
 }
 
-.login .login-wrapper .progress-bar .line, .login .register-wrapper .progress-bar .line, .register .login-wrapper .progress-bar .line, .register .register-wrapper .progress-bar .line {
+.login .login-wrapper #login .progress-bar .line,
+.login .login-wrapper #step_1 .progress-bar .line,
+.login .login-wrapper #step_2 .progress-bar .line,
+.login .register-wrapper #login .progress-bar .line,
+.login .register-wrapper #step_1 .progress-bar .line,
+.login .register-wrapper #step_2 .progress-bar .line,
+.register .login-wrapper #login .progress-bar .line,
+.register .login-wrapper #step_1 .progress-bar .line,
+.register .login-wrapper #step_2 .progress-bar .line,
+.register .register-wrapper #login .progress-bar .line,
+.register .register-wrapper #step_1 .progress-bar .line,
+.register .register-wrapper #step_2 .progress-bar .line {
   position: relative;
   width: 100%;
   height: 5px;
@@ -255,7 +305,42 @@ header .header-wrapper .header-links .links-session .login_button:hover {
   background-color: #aaa;
 }
 
-.login .login-wrapper .progress-bar .circle1, .login .login-wrapper .progress-bar .circle2, .login .login-wrapper .progress-bar .circle3, .login .register-wrapper .progress-bar .circle1, .login .register-wrapper .progress-bar .circle2, .login .register-wrapper .progress-bar .circle3, .register .login-wrapper .progress-bar .circle1, .register .login-wrapper .progress-bar .circle2, .register .login-wrapper .progress-bar .circle3, .register .register-wrapper .progress-bar .circle1, .register .register-wrapper .progress-bar .circle2, .register .register-wrapper .progress-bar .circle3 {
+.login .login-wrapper #login .progress-bar .circle1,
+.login .login-wrapper #login .progress-bar .circle2,
+.login .login-wrapper #login .progress-bar .circle3,
+.login .login-wrapper #step_1 .progress-bar .circle1,
+.login .login-wrapper #step_1 .progress-bar .circle2,
+.login .login-wrapper #step_1 .progress-bar .circle3,
+.login .login-wrapper #step_2 .progress-bar .circle1,
+.login .login-wrapper #step_2 .progress-bar .circle2,
+.login .login-wrapper #step_2 .progress-bar .circle3,
+.login .register-wrapper #login .progress-bar .circle1,
+.login .register-wrapper #login .progress-bar .circle2,
+.login .register-wrapper #login .progress-bar .circle3,
+.login .register-wrapper #step_1 .progress-bar .circle1,
+.login .register-wrapper #step_1 .progress-bar .circle2,
+.login .register-wrapper #step_1 .progress-bar .circle3,
+.login .register-wrapper #step_2 .progress-bar .circle1,
+.login .register-wrapper #step_2 .progress-bar .circle2,
+.login .register-wrapper #step_2 .progress-bar .circle3,
+.register .login-wrapper #login .progress-bar .circle1,
+.register .login-wrapper #login .progress-bar .circle2,
+.register .login-wrapper #login .progress-bar .circle3,
+.register .login-wrapper #step_1 .progress-bar .circle1,
+.register .login-wrapper #step_1 .progress-bar .circle2,
+.register .login-wrapper #step_1 .progress-bar .circle3,
+.register .login-wrapper #step_2 .progress-bar .circle1,
+.register .login-wrapper #step_2 .progress-bar .circle2,
+.register .login-wrapper #step_2 .progress-bar .circle3,
+.register .register-wrapper #login .progress-bar .circle1,
+.register .register-wrapper #login .progress-bar .circle2,
+.register .register-wrapper #login .progress-bar .circle3,
+.register .register-wrapper #step_1 .progress-bar .circle1,
+.register .register-wrapper #step_1 .progress-bar .circle2,
+.register .register-wrapper #step_1 .progress-bar .circle3,
+.register .register-wrapper #step_2 .progress-bar .circle1,
+.register .register-wrapper #step_2 .progress-bar .circle2,
+.register .register-wrapper #step_2 .progress-bar .circle3 {
   width: 15px;
   height: 15px;
   border-radius: 50%;
@@ -264,29 +349,154 @@ header .header-wrapper .header-links .links-session .login_button:hover {
   left: 0;
 }
 
-.login .login-wrapper .progress-bar .circle1, .login .register-wrapper .progress-bar .circle1, .register .login-wrapper .progress-bar .circle1, .register .register-wrapper .progress-bar .circle1 {
+.login .login-wrapper #login .progress-bar .circle1,
+.login .login-wrapper #step_1 .progress-bar .circle1,
+.login .login-wrapper #step_2 .progress-bar .circle1,
+.login .register-wrapper #login .progress-bar .circle1,
+.login .register-wrapper #step_1 .progress-bar .circle1,
+.login .register-wrapper #step_2 .progress-bar .circle1,
+.register .login-wrapper #login .progress-bar .circle1,
+.register .login-wrapper #step_1 .progress-bar .circle1,
+.register .login-wrapper #step_2 .progress-bar .circle1,
+.register .register-wrapper #login .progress-bar .circle1,
+.register .register-wrapper #step_1 .progress-bar .circle1,
+.register .register-wrapper #step_2 .progress-bar .circle1 {
   background-color: #3844bc;
 }
 
-.login .login-wrapper .progress-bar .circle2, .login .register-wrapper .progress-bar .circle2, .register .login-wrapper .progress-bar .circle2, .register .register-wrapper .progress-bar .circle2 {
+.login .login-wrapper #login .progress-bar .circle2,
+.login .login-wrapper #step_1 .progress-bar .circle2,
+.login .login-wrapper #step_2 .progress-bar .circle2,
+.login .register-wrapper #login .progress-bar .circle2,
+.login .register-wrapper #step_1 .progress-bar .circle2,
+.login .register-wrapper #step_2 .progress-bar .circle2,
+.register .login-wrapper #login .progress-bar .circle2,
+.register .login-wrapper #step_1 .progress-bar .circle2,
+.register .login-wrapper #step_2 .progress-bar .circle2,
+.register .register-wrapper #login .progress-bar .circle2,
+.register .register-wrapper #step_1 .progress-bar .circle2,
+.register .register-wrapper #step_2 .progress-bar .circle2 {
   left: calc(50% - 10px);
 }
 
-.login .login-wrapper .progress-bar .circle3, .login .register-wrapper .progress-bar .circle3, .register .login-wrapper .progress-bar .circle3, .register .register-wrapper .progress-bar .circle3 {
+.login .login-wrapper #login .progress-bar .circle3,
+.login .login-wrapper #step_1 .progress-bar .circle3,
+.login .login-wrapper #step_2 .progress-bar .circle3,
+.login .register-wrapper #login .progress-bar .circle3,
+.login .register-wrapper #step_1 .progress-bar .circle3,
+.login .register-wrapper #step_2 .progress-bar .circle3,
+.register .login-wrapper #login .progress-bar .circle3,
+.register .login-wrapper #step_1 .progress-bar .circle3,
+.register .login-wrapper #step_2 .progress-bar .circle3,
+.register .register-wrapper #login .progress-bar .circle3,
+.register .register-wrapper #step_1 .progress-bar .circle3,
+.register .register-wrapper #step_2 .progress-bar .circle3 {
   left: calc(100% - 10px);
 }
 
-.login .login-wrapper .inputs-wrapper, .login .register-wrapper .inputs-wrapper, .register .login-wrapper .inputs-wrapper, .register .register-wrapper .inputs-wrapper {
+.login .login-wrapper #login .inputs-wrapper,
+.login .login-wrapper #login .inputs-wrapper-register,
+.login .login-wrapper #step_1 .inputs-wrapper,
+.login .login-wrapper #step_1 .inputs-wrapper-register,
+.login .login-wrapper #step_2 .inputs-wrapper,
+.login .login-wrapper #step_2 .inputs-wrapper-register,
+.login .register-wrapper #login .inputs-wrapper,
+.login .register-wrapper #login .inputs-wrapper-register,
+.login .register-wrapper #step_1 .inputs-wrapper,
+.login .register-wrapper #step_1 .inputs-wrapper-register,
+.login .register-wrapper #step_2 .inputs-wrapper,
+.login .register-wrapper #step_2 .inputs-wrapper-register,
+.register .login-wrapper #login .inputs-wrapper,
+.register .login-wrapper #login .inputs-wrapper-register,
+.register .login-wrapper #step_1 .inputs-wrapper,
+.register .login-wrapper #step_1 .inputs-wrapper-register,
+.register .login-wrapper #step_2 .inputs-wrapper,
+.register .login-wrapper #step_2 .inputs-wrapper-register,
+.register .register-wrapper #login .inputs-wrapper,
+.register .register-wrapper #login .inputs-wrapper-register,
+.register .register-wrapper #step_1 .inputs-wrapper,
+.register .register-wrapper #step_1 .inputs-wrapper-register,
+.register .register-wrapper #step_2 .inputs-wrapper,
+.register .register-wrapper #step_2 .inputs-wrapper-register {
   width: 100%;
 }
 
-.login .login-wrapper .inputs-wrapper .input, .login .register-wrapper .inputs-wrapper .input, .register .login-wrapper .inputs-wrapper .input, .register .register-wrapper .inputs-wrapper .input {
+.login .login-wrapper #login .inputs-wrapper .input,
+.login .login-wrapper #login .inputs-wrapper-register .input,
+.login .login-wrapper #step_1 .inputs-wrapper .input,
+.login .login-wrapper #step_1 .inputs-wrapper-register .input,
+.login .login-wrapper #step_2 .inputs-wrapper .input,
+.login .login-wrapper #step_2 .inputs-wrapper-register .input,
+.login .register-wrapper #login .inputs-wrapper .input,
+.login .register-wrapper #login .inputs-wrapper-register .input,
+.login .register-wrapper #step_1 .inputs-wrapper .input,
+.login .register-wrapper #step_1 .inputs-wrapper-register .input,
+.login .register-wrapper #step_2 .inputs-wrapper .input,
+.login .register-wrapper #step_2 .inputs-wrapper-register .input,
+.register .login-wrapper #login .inputs-wrapper .input,
+.register .login-wrapper #login .inputs-wrapper-register .input,
+.register .login-wrapper #step_1 .inputs-wrapper .input,
+.register .login-wrapper #step_1 .inputs-wrapper-register .input,
+.register .login-wrapper #step_2 .inputs-wrapper .input,
+.register .login-wrapper #step_2 .inputs-wrapper-register .input,
+.register .register-wrapper #login .inputs-wrapper .input,
+.register .register-wrapper #login .inputs-wrapper-register .input,
+.register .register-wrapper #step_1 .inputs-wrapper .input,
+.register .register-wrapper #step_1 .inputs-wrapper-register .input,
+.register .register-wrapper #step_2 .inputs-wrapper .input,
+.register .register-wrapper #step_2 .inputs-wrapper-register .input {
   position: relative;
   width: calc(100% - 60px);
   margin: 30px auto;
 }
 
-.login .login-wrapper .inputs-wrapper .input input, .login .register-wrapper .inputs-wrapper .input input, .register .login-wrapper .inputs-wrapper .input input, .register .register-wrapper .inputs-wrapper .input input {
+.login .login-wrapper #login .inputs-wrapper .input input, .login .login-wrapper #login .inputs-wrapper .input select,
+.login .login-wrapper #login .inputs-wrapper-register .input input,
+.login .login-wrapper #login .inputs-wrapper-register .input select,
+.login .login-wrapper #step_1 .inputs-wrapper .input input,
+.login .login-wrapper #step_1 .inputs-wrapper .input select,
+.login .login-wrapper #step_1 .inputs-wrapper-register .input input,
+.login .login-wrapper #step_1 .inputs-wrapper-register .input select,
+.login .login-wrapper #step_2 .inputs-wrapper .input input,
+.login .login-wrapper #step_2 .inputs-wrapper .input select,
+.login .login-wrapper #step_2 .inputs-wrapper-register .input input,
+.login .login-wrapper #step_2 .inputs-wrapper-register .input select,
+.login .register-wrapper #login .inputs-wrapper .input input,
+.login .register-wrapper #login .inputs-wrapper .input select,
+.login .register-wrapper #login .inputs-wrapper-register .input input,
+.login .register-wrapper #login .inputs-wrapper-register .input select,
+.login .register-wrapper #step_1 .inputs-wrapper .input input,
+.login .register-wrapper #step_1 .inputs-wrapper .input select,
+.login .register-wrapper #step_1 .inputs-wrapper-register .input input,
+.login .register-wrapper #step_1 .inputs-wrapper-register .input select,
+.login .register-wrapper #step_2 .inputs-wrapper .input input,
+.login .register-wrapper #step_2 .inputs-wrapper .input select,
+.login .register-wrapper #step_2 .inputs-wrapper-register .input input,
+.login .register-wrapper #step_2 .inputs-wrapper-register .input select,
+.register .login-wrapper #login .inputs-wrapper .input input,
+.register .login-wrapper #login .inputs-wrapper .input select,
+.register .login-wrapper #login .inputs-wrapper-register .input input,
+.register .login-wrapper #login .inputs-wrapper-register .input select,
+.register .login-wrapper #step_1 .inputs-wrapper .input input,
+.register .login-wrapper #step_1 .inputs-wrapper .input select,
+.register .login-wrapper #step_1 .inputs-wrapper-register .input input,
+.register .login-wrapper #step_1 .inputs-wrapper-register .input select,
+.register .login-wrapper #step_2 .inputs-wrapper .input input,
+.register .login-wrapper #step_2 .inputs-wrapper .input select,
+.register .login-wrapper #step_2 .inputs-wrapper-register .input input,
+.register .login-wrapper #step_2 .inputs-wrapper-register .input select,
+.register .register-wrapper #login .inputs-wrapper .input input,
+.register .register-wrapper #login .inputs-wrapper .input select,
+.register .register-wrapper #login .inputs-wrapper-register .input input,
+.register .register-wrapper #login .inputs-wrapper-register .input select,
+.register .register-wrapper #step_1 .inputs-wrapper .input input,
+.register .register-wrapper #step_1 .inputs-wrapper .input select,
+.register .register-wrapper #step_1 .inputs-wrapper-register .input input,
+.register .register-wrapper #step_1 .inputs-wrapper-register .input select,
+.register .register-wrapper #step_2 .inputs-wrapper .input input,
+.register .register-wrapper #step_2 .inputs-wrapper .input select,
+.register .register-wrapper #step_2 .inputs-wrapper-register .input input,
+.register .register-wrapper #step_2 .inputs-wrapper-register .input select {
   width: 100%;
   height: 40px;
   background-color: transparent;
@@ -295,53 +505,370 @@ header .header-wrapper .header-links .links-session .login_button:hover {
   outline: none;
   padding-left: 25px;
   color: #555;
-  font-size: .85em;
+  font-size: 0.85em;
 }
 
-.login .login-wrapper .inputs-wrapper .input input::-webkit-input-placeholder, .login .register-wrapper .inputs-wrapper .input input::-webkit-input-placeholder, .register .login-wrapper .inputs-wrapper .input input::-webkit-input-placeholder, .register .register-wrapper .inputs-wrapper .input input::-webkit-input-placeholder {
+.login .login-wrapper #login .inputs-wrapper .input input::-webkit-input-placeholder, .login .login-wrapper #login .inputs-wrapper .input select::-webkit-input-placeholder,
+.login .login-wrapper #login .inputs-wrapper-register .input input::-webkit-input-placeholder,
+.login .login-wrapper #login .inputs-wrapper-register .input select::-webkit-input-placeholder,
+.login .login-wrapper #step_1 .inputs-wrapper .input input::-webkit-input-placeholder,
+.login .login-wrapper #step_1 .inputs-wrapper .input select::-webkit-input-placeholder,
+.login .login-wrapper #step_1 .inputs-wrapper-register .input input::-webkit-input-placeholder,
+.login .login-wrapper #step_1 .inputs-wrapper-register .input select::-webkit-input-placeholder,
+.login .login-wrapper #step_2 .inputs-wrapper .input input::-webkit-input-placeholder,
+.login .login-wrapper #step_2 .inputs-wrapper .input select::-webkit-input-placeholder,
+.login .login-wrapper #step_2 .inputs-wrapper-register .input input::-webkit-input-placeholder,
+.login .login-wrapper #step_2 .inputs-wrapper-register .input select::-webkit-input-placeholder,
+.login .register-wrapper #login .inputs-wrapper .input input::-webkit-input-placeholder,
+.login .register-wrapper #login .inputs-wrapper .input select::-webkit-input-placeholder,
+.login .register-wrapper #login .inputs-wrapper-register .input input::-webkit-input-placeholder,
+.login .register-wrapper #login .inputs-wrapper-register .input select::-webkit-input-placeholder,
+.login .register-wrapper #step_1 .inputs-wrapper .input input::-webkit-input-placeholder,
+.login .register-wrapper #step_1 .inputs-wrapper .input select::-webkit-input-placeholder,
+.login .register-wrapper #step_1 .inputs-wrapper-register .input input::-webkit-input-placeholder,
+.login .register-wrapper #step_1 .inputs-wrapper-register .input select::-webkit-input-placeholder,
+.login .register-wrapper #step_2 .inputs-wrapper .input input::-webkit-input-placeholder,
+.login .register-wrapper #step_2 .inputs-wrapper .input select::-webkit-input-placeholder,
+.login .register-wrapper #step_2 .inputs-wrapper-register .input input::-webkit-input-placeholder,
+.login .register-wrapper #step_2 .inputs-wrapper-register .input select::-webkit-input-placeholder,
+.register .login-wrapper #login .inputs-wrapper .input input::-webkit-input-placeholder,
+.register .login-wrapper #login .inputs-wrapper .input select::-webkit-input-placeholder,
+.register .login-wrapper #login .inputs-wrapper-register .input input::-webkit-input-placeholder,
+.register .login-wrapper #login .inputs-wrapper-register .input select::-webkit-input-placeholder,
+.register .login-wrapper #step_1 .inputs-wrapper .input input::-webkit-input-placeholder,
+.register .login-wrapper #step_1 .inputs-wrapper .input select::-webkit-input-placeholder,
+.register .login-wrapper #step_1 .inputs-wrapper-register .input input::-webkit-input-placeholder,
+.register .login-wrapper #step_1 .inputs-wrapper-register .input select::-webkit-input-placeholder,
+.register .login-wrapper #step_2 .inputs-wrapper .input input::-webkit-input-placeholder,
+.register .login-wrapper #step_2 .inputs-wrapper .input select::-webkit-input-placeholder,
+.register .login-wrapper #step_2 .inputs-wrapper-register .input input::-webkit-input-placeholder,
+.register .login-wrapper #step_2 .inputs-wrapper-register .input select::-webkit-input-placeholder,
+.register .register-wrapper #login .inputs-wrapper .input input::-webkit-input-placeholder,
+.register .register-wrapper #login .inputs-wrapper .input select::-webkit-input-placeholder,
+.register .register-wrapper #login .inputs-wrapper-register .input input::-webkit-input-placeholder,
+.register .register-wrapper #login .inputs-wrapper-register .input select::-webkit-input-placeholder,
+.register .register-wrapper #step_1 .inputs-wrapper .input input::-webkit-input-placeholder,
+.register .register-wrapper #step_1 .inputs-wrapper .input select::-webkit-input-placeholder,
+.register .register-wrapper #step_1 .inputs-wrapper-register .input input::-webkit-input-placeholder,
+.register .register-wrapper #step_1 .inputs-wrapper-register .input select::-webkit-input-placeholder,
+.register .register-wrapper #step_2 .inputs-wrapper .input input::-webkit-input-placeholder,
+.register .register-wrapper #step_2 .inputs-wrapper .input select::-webkit-input-placeholder,
+.register .register-wrapper #step_2 .inputs-wrapper-register .input input::-webkit-input-placeholder,
+.register .register-wrapper #step_2 .inputs-wrapper-register .input select::-webkit-input-placeholder {
   color: #888;
 }
 
-.login .login-wrapper .inputs-wrapper .input input:-ms-input-placeholder, .login .register-wrapper .inputs-wrapper .input input:-ms-input-placeholder, .register .login-wrapper .inputs-wrapper .input input:-ms-input-placeholder, .register .register-wrapper .inputs-wrapper .input input:-ms-input-placeholder {
+.login .login-wrapper #login .inputs-wrapper .input input:-ms-input-placeholder, .login .login-wrapper #login .inputs-wrapper .input select:-ms-input-placeholder,
+.login .login-wrapper #login .inputs-wrapper-register .input input:-ms-input-placeholder,
+.login .login-wrapper #login .inputs-wrapper-register .input select:-ms-input-placeholder,
+.login .login-wrapper #step_1 .inputs-wrapper .input input:-ms-input-placeholder,
+.login .login-wrapper #step_1 .inputs-wrapper .input select:-ms-input-placeholder,
+.login .login-wrapper #step_1 .inputs-wrapper-register .input input:-ms-input-placeholder,
+.login .login-wrapper #step_1 .inputs-wrapper-register .input select:-ms-input-placeholder,
+.login .login-wrapper #step_2 .inputs-wrapper .input input:-ms-input-placeholder,
+.login .login-wrapper #step_2 .inputs-wrapper .input select:-ms-input-placeholder,
+.login .login-wrapper #step_2 .inputs-wrapper-register .input input:-ms-input-placeholder,
+.login .login-wrapper #step_2 .inputs-wrapper-register .input select:-ms-input-placeholder,
+.login .register-wrapper #login .inputs-wrapper .input input:-ms-input-placeholder,
+.login .register-wrapper #login .inputs-wrapper .input select:-ms-input-placeholder,
+.login .register-wrapper #login .inputs-wrapper-register .input input:-ms-input-placeholder,
+.login .register-wrapper #login .inputs-wrapper-register .input select:-ms-input-placeholder,
+.login .register-wrapper #step_1 .inputs-wrapper .input input:-ms-input-placeholder,
+.login .register-wrapper #step_1 .inputs-wrapper .input select:-ms-input-placeholder,
+.login .register-wrapper #step_1 .inputs-wrapper-register .input input:-ms-input-placeholder,
+.login .register-wrapper #step_1 .inputs-wrapper-register .input select:-ms-input-placeholder,
+.login .register-wrapper #step_2 .inputs-wrapper .input input:-ms-input-placeholder,
+.login .register-wrapper #step_2 .inputs-wrapper .input select:-ms-input-placeholder,
+.login .register-wrapper #step_2 .inputs-wrapper-register .input input:-ms-input-placeholder,
+.login .register-wrapper #step_2 .inputs-wrapper-register .input select:-ms-input-placeholder,
+.register .login-wrapper #login .inputs-wrapper .input input:-ms-input-placeholder,
+.register .login-wrapper #login .inputs-wrapper .input select:-ms-input-placeholder,
+.register .login-wrapper #login .inputs-wrapper-register .input input:-ms-input-placeholder,
+.register .login-wrapper #login .inputs-wrapper-register .input select:-ms-input-placeholder,
+.register .login-wrapper #step_1 .inputs-wrapper .input input:-ms-input-placeholder,
+.register .login-wrapper #step_1 .inputs-wrapper .input select:-ms-input-placeholder,
+.register .login-wrapper #step_1 .inputs-wrapper-register .input input:-ms-input-placeholder,
+.register .login-wrapper #step_1 .inputs-wrapper-register .input select:-ms-input-placeholder,
+.register .login-wrapper #step_2 .inputs-wrapper .input input:-ms-input-placeholder,
+.register .login-wrapper #step_2 .inputs-wrapper .input select:-ms-input-placeholder,
+.register .login-wrapper #step_2 .inputs-wrapper-register .input input:-ms-input-placeholder,
+.register .login-wrapper #step_2 .inputs-wrapper-register .input select:-ms-input-placeholder,
+.register .register-wrapper #login .inputs-wrapper .input input:-ms-input-placeholder,
+.register .register-wrapper #login .inputs-wrapper .input select:-ms-input-placeholder,
+.register .register-wrapper #login .inputs-wrapper-register .input input:-ms-input-placeholder,
+.register .register-wrapper #login .inputs-wrapper-register .input select:-ms-input-placeholder,
+.register .register-wrapper #step_1 .inputs-wrapper .input input:-ms-input-placeholder,
+.register .register-wrapper #step_1 .inputs-wrapper .input select:-ms-input-placeholder,
+.register .register-wrapper #step_1 .inputs-wrapper-register .input input:-ms-input-placeholder,
+.register .register-wrapper #step_1 .inputs-wrapper-register .input select:-ms-input-placeholder,
+.register .register-wrapper #step_2 .inputs-wrapper .input input:-ms-input-placeholder,
+.register .register-wrapper #step_2 .inputs-wrapper .input select:-ms-input-placeholder,
+.register .register-wrapper #step_2 .inputs-wrapper-register .input input:-ms-input-placeholder,
+.register .register-wrapper #step_2 .inputs-wrapper-register .input select:-ms-input-placeholder {
   color: #888;
 }
 
-.login .login-wrapper .inputs-wrapper .input input::-ms-input-placeholder, .login .register-wrapper .inputs-wrapper .input input::-ms-input-placeholder, .register .login-wrapper .inputs-wrapper .input input::-ms-input-placeholder, .register .register-wrapper .inputs-wrapper .input input::-ms-input-placeholder {
+.login .login-wrapper #login .inputs-wrapper .input input::-ms-input-placeholder, .login .login-wrapper #login .inputs-wrapper .input select::-ms-input-placeholder,
+.login .login-wrapper #login .inputs-wrapper-register .input input::-ms-input-placeholder,
+.login .login-wrapper #login .inputs-wrapper-register .input select::-ms-input-placeholder,
+.login .login-wrapper #step_1 .inputs-wrapper .input input::-ms-input-placeholder,
+.login .login-wrapper #step_1 .inputs-wrapper .input select::-ms-input-placeholder,
+.login .login-wrapper #step_1 .inputs-wrapper-register .input input::-ms-input-placeholder,
+.login .login-wrapper #step_1 .inputs-wrapper-register .input select::-ms-input-placeholder,
+.login .login-wrapper #step_2 .inputs-wrapper .input input::-ms-input-placeholder,
+.login .login-wrapper #step_2 .inputs-wrapper .input select::-ms-input-placeholder,
+.login .login-wrapper #step_2 .inputs-wrapper-register .input input::-ms-input-placeholder,
+.login .login-wrapper #step_2 .inputs-wrapper-register .input select::-ms-input-placeholder,
+.login .register-wrapper #login .inputs-wrapper .input input::-ms-input-placeholder,
+.login .register-wrapper #login .inputs-wrapper .input select::-ms-input-placeholder,
+.login .register-wrapper #login .inputs-wrapper-register .input input::-ms-input-placeholder,
+.login .register-wrapper #login .inputs-wrapper-register .input select::-ms-input-placeholder,
+.login .register-wrapper #step_1 .inputs-wrapper .input input::-ms-input-placeholder,
+.login .register-wrapper #step_1 .inputs-wrapper .input select::-ms-input-placeholder,
+.login .register-wrapper #step_1 .inputs-wrapper-register .input input::-ms-input-placeholder,
+.login .register-wrapper #step_1 .inputs-wrapper-register .input select::-ms-input-placeholder,
+.login .register-wrapper #step_2 .inputs-wrapper .input input::-ms-input-placeholder,
+.login .register-wrapper #step_2 .inputs-wrapper .input select::-ms-input-placeholder,
+.login .register-wrapper #step_2 .inputs-wrapper-register .input input::-ms-input-placeholder,
+.login .register-wrapper #step_2 .inputs-wrapper-register .input select::-ms-input-placeholder,
+.register .login-wrapper #login .inputs-wrapper .input input::-ms-input-placeholder,
+.register .login-wrapper #login .inputs-wrapper .input select::-ms-input-placeholder,
+.register .login-wrapper #login .inputs-wrapper-register .input input::-ms-input-placeholder,
+.register .login-wrapper #login .inputs-wrapper-register .input select::-ms-input-placeholder,
+.register .login-wrapper #step_1 .inputs-wrapper .input input::-ms-input-placeholder,
+.register .login-wrapper #step_1 .inputs-wrapper .input select::-ms-input-placeholder,
+.register .login-wrapper #step_1 .inputs-wrapper-register .input input::-ms-input-placeholder,
+.register .login-wrapper #step_1 .inputs-wrapper-register .input select::-ms-input-placeholder,
+.register .login-wrapper #step_2 .inputs-wrapper .input input::-ms-input-placeholder,
+.register .login-wrapper #step_2 .inputs-wrapper .input select::-ms-input-placeholder,
+.register .login-wrapper #step_2 .inputs-wrapper-register .input input::-ms-input-placeholder,
+.register .login-wrapper #step_2 .inputs-wrapper-register .input select::-ms-input-placeholder,
+.register .register-wrapper #login .inputs-wrapper .input input::-ms-input-placeholder,
+.register .register-wrapper #login .inputs-wrapper .input select::-ms-input-placeholder,
+.register .register-wrapper #login .inputs-wrapper-register .input input::-ms-input-placeholder,
+.register .register-wrapper #login .inputs-wrapper-register .input select::-ms-input-placeholder,
+.register .register-wrapper #step_1 .inputs-wrapper .input input::-ms-input-placeholder,
+.register .register-wrapper #step_1 .inputs-wrapper .input select::-ms-input-placeholder,
+.register .register-wrapper #step_1 .inputs-wrapper-register .input input::-ms-input-placeholder,
+.register .register-wrapper #step_1 .inputs-wrapper-register .input select::-ms-input-placeholder,
+.register .register-wrapper #step_2 .inputs-wrapper .input input::-ms-input-placeholder,
+.register .register-wrapper #step_2 .inputs-wrapper .input select::-ms-input-placeholder,
+.register .register-wrapper #step_2 .inputs-wrapper-register .input input::-ms-input-placeholder,
+.register .register-wrapper #step_2 .inputs-wrapper-register .input select::-ms-input-placeholder {
   color: #888;
 }
 
-.login .login-wrapper .inputs-wrapper .input input::placeholder, .login .register-wrapper .inputs-wrapper .input input::placeholder, .register .login-wrapper .inputs-wrapper .input input::placeholder, .register .register-wrapper .inputs-wrapper .input input::placeholder {
+.login .login-wrapper #login .inputs-wrapper .input input::placeholder, .login .login-wrapper #login .inputs-wrapper .input select::placeholder,
+.login .login-wrapper #login .inputs-wrapper-register .input input::placeholder,
+.login .login-wrapper #login .inputs-wrapper-register .input select::placeholder,
+.login .login-wrapper #step_1 .inputs-wrapper .input input::placeholder,
+.login .login-wrapper #step_1 .inputs-wrapper .input select::placeholder,
+.login .login-wrapper #step_1 .inputs-wrapper-register .input input::placeholder,
+.login .login-wrapper #step_1 .inputs-wrapper-register .input select::placeholder,
+.login .login-wrapper #step_2 .inputs-wrapper .input input::placeholder,
+.login .login-wrapper #step_2 .inputs-wrapper .input select::placeholder,
+.login .login-wrapper #step_2 .inputs-wrapper-register .input input::placeholder,
+.login .login-wrapper #step_2 .inputs-wrapper-register .input select::placeholder,
+.login .register-wrapper #login .inputs-wrapper .input input::placeholder,
+.login .register-wrapper #login .inputs-wrapper .input select::placeholder,
+.login .register-wrapper #login .inputs-wrapper-register .input input::placeholder,
+.login .register-wrapper #login .inputs-wrapper-register .input select::placeholder,
+.login .register-wrapper #step_1 .inputs-wrapper .input input::placeholder,
+.login .register-wrapper #step_1 .inputs-wrapper .input select::placeholder,
+.login .register-wrapper #step_1 .inputs-wrapper-register .input input::placeholder,
+.login .register-wrapper #step_1 .inputs-wrapper-register .input select::placeholder,
+.login .register-wrapper #step_2 .inputs-wrapper .input input::placeholder,
+.login .register-wrapper #step_2 .inputs-wrapper .input select::placeholder,
+.login .register-wrapper #step_2 .inputs-wrapper-register .input input::placeholder,
+.login .register-wrapper #step_2 .inputs-wrapper-register .input select::placeholder,
+.register .login-wrapper #login .inputs-wrapper .input input::placeholder,
+.register .login-wrapper #login .inputs-wrapper .input select::placeholder,
+.register .login-wrapper #login .inputs-wrapper-register .input input::placeholder,
+.register .login-wrapper #login .inputs-wrapper-register .input select::placeholder,
+.register .login-wrapper #step_1 .inputs-wrapper .input input::placeholder,
+.register .login-wrapper #step_1 .inputs-wrapper .input select::placeholder,
+.register .login-wrapper #step_1 .inputs-wrapper-register .input input::placeholder,
+.register .login-wrapper #step_1 .inputs-wrapper-register .input select::placeholder,
+.register .login-wrapper #step_2 .inputs-wrapper .input input::placeholder,
+.register .login-wrapper #step_2 .inputs-wrapper .input select::placeholder,
+.register .login-wrapper #step_2 .inputs-wrapper-register .input input::placeholder,
+.register .login-wrapper #step_2 .inputs-wrapper-register .input select::placeholder,
+.register .register-wrapper #login .inputs-wrapper .input input::placeholder,
+.register .register-wrapper #login .inputs-wrapper .input select::placeholder,
+.register .register-wrapper #login .inputs-wrapper-register .input input::placeholder,
+.register .register-wrapper #login .inputs-wrapper-register .input select::placeholder,
+.register .register-wrapper #step_1 .inputs-wrapper .input input::placeholder,
+.register .register-wrapper #step_1 .inputs-wrapper .input select::placeholder,
+.register .register-wrapper #step_1 .inputs-wrapper-register .input input::placeholder,
+.register .register-wrapper #step_1 .inputs-wrapper-register .input select::placeholder,
+.register .register-wrapper #step_2 .inputs-wrapper .input input::placeholder,
+.register .register-wrapper #step_2 .inputs-wrapper .input select::placeholder,
+.register .register-wrapper #step_2 .inputs-wrapper-register .input input::placeholder,
+.register .register-wrapper #step_2 .inputs-wrapper-register .input select::placeholder {
   color: #888;
 }
 
-.login .login-wrapper .inputs-wrapper .input #icon, .login .register-wrapper .inputs-wrapper .input #icon, .register .login-wrapper .inputs-wrapper .input #icon, .register .register-wrapper .inputs-wrapper .input #icon {
+.login .login-wrapper #login .inputs-wrapper .input #icon,
+.login .login-wrapper #login .inputs-wrapper-register .input #icon,
+.login .login-wrapper #step_1 .inputs-wrapper .input #icon,
+.login .login-wrapper #step_1 .inputs-wrapper-register .input #icon,
+.login .login-wrapper #step_2 .inputs-wrapper .input #icon,
+.login .login-wrapper #step_2 .inputs-wrapper-register .input #icon,
+.login .register-wrapper #login .inputs-wrapper .input #icon,
+.login .register-wrapper #login .inputs-wrapper-register .input #icon,
+.login .register-wrapper #step_1 .inputs-wrapper .input #icon,
+.login .register-wrapper #step_1 .inputs-wrapper-register .input #icon,
+.login .register-wrapper #step_2 .inputs-wrapper .input #icon,
+.login .register-wrapper #step_2 .inputs-wrapper-register .input #icon,
+.register .login-wrapper #login .inputs-wrapper .input #icon,
+.register .login-wrapper #login .inputs-wrapper-register .input #icon,
+.register .login-wrapper #step_1 .inputs-wrapper .input #icon,
+.register .login-wrapper #step_1 .inputs-wrapper-register .input #icon,
+.register .login-wrapper #step_2 .inputs-wrapper .input #icon,
+.register .login-wrapper #step_2 .inputs-wrapper-register .input #icon,
+.register .register-wrapper #login .inputs-wrapper .input #icon,
+.register .register-wrapper #login .inputs-wrapper-register .input #icon,
+.register .register-wrapper #step_1 .inputs-wrapper .input #icon,
+.register .register-wrapper #step_1 .inputs-wrapper-register .input #icon,
+.register .register-wrapper #step_2 .inputs-wrapper .input #icon,
+.register .register-wrapper #step_2 .inputs-wrapper-register .input #icon {
   position: absolute;
   top: 10px;
   left: 0;
   color: #555;
 }
 
-.login .login-wrapper .inputs-wrapper .input #passeye, .login .register-wrapper .inputs-wrapper .input #passeye, .register .login-wrapper .inputs-wrapper .input #passeye, .register .register-wrapper .inputs-wrapper .input #passeye {
+.login .login-wrapper #login .inputs-wrapper .input #passeye,
+.login .login-wrapper #login .inputs-wrapper-register .input #passeye,
+.login .login-wrapper #step_1 .inputs-wrapper .input #passeye,
+.login .login-wrapper #step_1 .inputs-wrapper-register .input #passeye,
+.login .login-wrapper #step_2 .inputs-wrapper .input #passeye,
+.login .login-wrapper #step_2 .inputs-wrapper-register .input #passeye,
+.login .register-wrapper #login .inputs-wrapper .input #passeye,
+.login .register-wrapper #login .inputs-wrapper-register .input #passeye,
+.login .register-wrapper #step_1 .inputs-wrapper .input #passeye,
+.login .register-wrapper #step_1 .inputs-wrapper-register .input #passeye,
+.login .register-wrapper #step_2 .inputs-wrapper .input #passeye,
+.login .register-wrapper #step_2 .inputs-wrapper-register .input #passeye,
+.register .login-wrapper #login .inputs-wrapper .input #passeye,
+.register .login-wrapper #login .inputs-wrapper-register .input #passeye,
+.register .login-wrapper #step_1 .inputs-wrapper .input #passeye,
+.register .login-wrapper #step_1 .inputs-wrapper-register .input #passeye,
+.register .login-wrapper #step_2 .inputs-wrapper .input #passeye,
+.register .login-wrapper #step_2 .inputs-wrapper-register .input #passeye,
+.register .register-wrapper #login .inputs-wrapper .input #passeye,
+.register .register-wrapper #login .inputs-wrapper-register .input #passeye,
+.register .register-wrapper #step_1 .inputs-wrapper .input #passeye,
+.register .register-wrapper #step_1 .inputs-wrapper-register .input #passeye,
+.register .register-wrapper #step_2 .inputs-wrapper .input #passeye,
+.register .register-wrapper #step_2 .inputs-wrapper-register .input #passeye {
   position: absolute;
   top: 12px;
   right: 0;
   color: #555;
   cursor: pointer;
-  -webkit-transition: .3s;
-  transition: .3s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
-.login .login-wrapper .inputs-wrapper .input #passeye:hover, .login .register-wrapper .inputs-wrapper .input #passeye:hover, .register .login-wrapper .inputs-wrapper .input #passeye:hover, .register .register-wrapper .inputs-wrapper .input #passeye:hover {
+.login .login-wrapper #login .inputs-wrapper .input #passeye:hover,
+.login .login-wrapper #login .inputs-wrapper-register .input #passeye:hover,
+.login .login-wrapper #step_1 .inputs-wrapper .input #passeye:hover,
+.login .login-wrapper #step_1 .inputs-wrapper-register .input #passeye:hover,
+.login .login-wrapper #step_2 .inputs-wrapper .input #passeye:hover,
+.login .login-wrapper #step_2 .inputs-wrapper-register .input #passeye:hover,
+.login .register-wrapper #login .inputs-wrapper .input #passeye:hover,
+.login .register-wrapper #login .inputs-wrapper-register .input #passeye:hover,
+.login .register-wrapper #step_1 .inputs-wrapper .input #passeye:hover,
+.login .register-wrapper #step_1 .inputs-wrapper-register .input #passeye:hover,
+.login .register-wrapper #step_2 .inputs-wrapper .input #passeye:hover,
+.login .register-wrapper #step_2 .inputs-wrapper-register .input #passeye:hover,
+.register .login-wrapper #login .inputs-wrapper .input #passeye:hover,
+.register .login-wrapper #login .inputs-wrapper-register .input #passeye:hover,
+.register .login-wrapper #step_1 .inputs-wrapper .input #passeye:hover,
+.register .login-wrapper #step_1 .inputs-wrapper-register .input #passeye:hover,
+.register .login-wrapper #step_2 .inputs-wrapper .input #passeye:hover,
+.register .login-wrapper #step_2 .inputs-wrapper-register .input #passeye:hover,
+.register .register-wrapper #login .inputs-wrapper .input #passeye:hover,
+.register .register-wrapper #login .inputs-wrapper-register .input #passeye:hover,
+.register .register-wrapper #step_1 .inputs-wrapper .input #passeye:hover,
+.register .register-wrapper #step_1 .inputs-wrapper-register .input #passeye:hover,
+.register .register-wrapper #step_2 .inputs-wrapper .input #passeye:hover,
+.register .register-wrapper #step_2 .inputs-wrapper-register .input #passeye:hover {
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
 }
 
-.login .login-wrapper .inputs-wrapper .input:nth-child(3) input, .login .register-wrapper .inputs-wrapper .input:nth-child(3) input, .register .login-wrapper .inputs-wrapper .input:nth-child(3) input, .register .register-wrapper .inputs-wrapper .input:nth-child(3) input {
+.login .login-wrapper #login .inputs-wrapper .input:nth-child(3) input,
+.login .login-wrapper #login .inputs-wrapper-register .input:nth-child(3) input,
+.login .login-wrapper #step_1 .inputs-wrapper .input:nth-child(3) input,
+.login .login-wrapper #step_1 .inputs-wrapper-register .input:nth-child(3) input,
+.login .login-wrapper #step_2 .inputs-wrapper .input:nth-child(3) input,
+.login .login-wrapper #step_2 .inputs-wrapper-register .input:nth-child(3) input,
+.login .register-wrapper #login .inputs-wrapper .input:nth-child(3) input,
+.login .register-wrapper #login .inputs-wrapper-register .input:nth-child(3) input,
+.login .register-wrapper #step_1 .inputs-wrapper .input:nth-child(3) input,
+.login .register-wrapper #step_1 .inputs-wrapper-register .input:nth-child(3) input,
+.login .register-wrapper #step_2 .inputs-wrapper .input:nth-child(3) input,
+.login .register-wrapper #step_2 .inputs-wrapper-register .input:nth-child(3) input,
+.register .login-wrapper #login .inputs-wrapper .input:nth-child(3) input,
+.register .login-wrapper #login .inputs-wrapper-register .input:nth-child(3) input,
+.register .login-wrapper #step_1 .inputs-wrapper .input:nth-child(3) input,
+.register .login-wrapper #step_1 .inputs-wrapper-register .input:nth-child(3) input,
+.register .login-wrapper #step_2 .inputs-wrapper .input:nth-child(3) input,
+.register .login-wrapper #step_2 .inputs-wrapper-register .input:nth-child(3) input,
+.register .register-wrapper #login .inputs-wrapper .input:nth-child(3) input,
+.register .register-wrapper #login .inputs-wrapper-register .input:nth-child(3) input,
+.register .register-wrapper #step_1 .inputs-wrapper .input:nth-child(3) input,
+.register .register-wrapper #step_1 .inputs-wrapper-register .input:nth-child(3) input,
+.register .register-wrapper #step_2 .inputs-wrapper .input:nth-child(3) input,
+.register .register-wrapper #step_2 .inputs-wrapper-register .input:nth-child(3) input {
   padding-right: 30px;
   margin-bottom: 0;
 }
 
-.login .login-wrapper .button-login, .login .login-wrapper .button-register, .login .register-wrapper .button-login, .login .register-wrapper .button-register, .register .login-wrapper .button-login, .register .login-wrapper .button-register, .register .register-wrapper .button-login, .register .register-wrapper .button-register {
+.login .login-wrapper #login .inputs-wrapper-register,
+.login .login-wrapper #step_1 .inputs-wrapper-register,
+.login .login-wrapper #step_2 .inputs-wrapper-register,
+.login .register-wrapper #login .inputs-wrapper-register,
+.login .register-wrapper #step_1 .inputs-wrapper-register,
+.login .register-wrapper #step_2 .inputs-wrapper-register,
+.register .login-wrapper #login .inputs-wrapper-register,
+.register .login-wrapper #step_1 .inputs-wrapper-register,
+.register .login-wrapper #step_2 .inputs-wrapper-register,
+.register .register-wrapper #login .inputs-wrapper-register,
+.register .register-wrapper #step_1 .inputs-wrapper-register,
+.register .register-wrapper #step_2 .inputs-wrapper-register {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+.login .login-wrapper #login .button-login,
+.login .login-wrapper #login .button-register,
+.login .login-wrapper #step_1 .button-login,
+.login .login-wrapper #step_1 .button-register,
+.login .login-wrapper #step_2 .button-login,
+.login .login-wrapper #step_2 .button-register,
+.login .register-wrapper #login .button-login,
+.login .register-wrapper #login .button-register,
+.login .register-wrapper #step_1 .button-login,
+.login .register-wrapper #step_1 .button-register,
+.login .register-wrapper #step_2 .button-login,
+.login .register-wrapper #step_2 .button-register,
+.register .login-wrapper #login .button-login,
+.register .login-wrapper #login .button-register,
+.register .login-wrapper #step_1 .button-login,
+.register .login-wrapper #step_1 .button-register,
+.register .login-wrapper #step_2 .button-login,
+.register .login-wrapper #step_2 .button-register,
+.register .register-wrapper #login .button-login,
+.register .register-wrapper #login .button-register,
+.register .register-wrapper #step_1 .button-login,
+.register .register-wrapper #step_1 .button-register,
+.register .register-wrapper #step_2 .button-login,
+.register .register-wrapper #step_2 .button-register {
   background: -webkit-gradient(linear, left top, right top, from(#3844bc), to(#2b3179));
   background: linear-gradient(to right, #3844bc, #2b3179);
   color: #ffffff;
@@ -355,30 +882,240 @@ header .header-wrapper .header-links .links-session .login_button:hover {
   margin-top: 0;
 }
 
-.login .login-wrapper .button-login i, .login .login-wrapper .button-register i, .login .register-wrapper .button-login i, .login .register-wrapper .button-register i, .register .login-wrapper .button-login i, .register .login-wrapper .button-register i, .register .register-wrapper .button-login i, .register .register-wrapper .button-register i {
+.login .login-wrapper #login .button-login i,
+.login .login-wrapper #login .button-register i,
+.login .login-wrapper #step_1 .button-login i,
+.login .login-wrapper #step_1 .button-register i,
+.login .login-wrapper #step_2 .button-login i,
+.login .login-wrapper #step_2 .button-register i,
+.login .register-wrapper #login .button-login i,
+.login .register-wrapper #login .button-register i,
+.login .register-wrapper #step_1 .button-login i,
+.login .register-wrapper #step_1 .button-register i,
+.login .register-wrapper #step_2 .button-login i,
+.login .register-wrapper #step_2 .button-register i,
+.register .login-wrapper #login .button-login i,
+.register .login-wrapper #login .button-register i,
+.register .login-wrapper #step_1 .button-login i,
+.register .login-wrapper #step_1 .button-register i,
+.register .login-wrapper #step_2 .button-login i,
+.register .login-wrapper #step_2 .button-register i,
+.register .register-wrapper #login .button-login i,
+.register .register-wrapper #login .button-register i,
+.register .register-wrapper #step_1 .button-login i,
+.register .register-wrapper #step_1 .button-register i,
+.register .register-wrapper #step_2 .button-login i,
+.register .register-wrapper #step_2 .button-register i {
   margin-right: 5px;
 }
 
-.login .login-wrapper .login-bottom, .login .login-wrapper .register-bottom, .login .register-wrapper .login-bottom, .login .register-wrapper .register-bottom, .register .login-wrapper .login-bottom, .register .login-wrapper .register-bottom, .register .register-wrapper .login-bottom, .register .register-wrapper .register-bottom {
+.login .login-wrapper #login .login-bottom,
+.login .login-wrapper #login .register-bottom,
+.login .login-wrapper #step_1 .login-bottom,
+.login .login-wrapper #step_1 .register-bottom,
+.login .login-wrapper #step_2 .login-bottom,
+.login .login-wrapper #step_2 .register-bottom,
+.login .register-wrapper #login .login-bottom,
+.login .register-wrapper #login .register-bottom,
+.login .register-wrapper #step_1 .login-bottom,
+.login .register-wrapper #step_1 .register-bottom,
+.login .register-wrapper #step_2 .login-bottom,
+.login .register-wrapper #step_2 .register-bottom,
+.register .login-wrapper #login .login-bottom,
+.register .login-wrapper #login .register-bottom,
+.register .login-wrapper #step_1 .login-bottom,
+.register .login-wrapper #step_1 .register-bottom,
+.register .login-wrapper #step_2 .login-bottom,
+.register .login-wrapper #step_2 .register-bottom,
+.register .register-wrapper #login .login-bottom,
+.register .register-wrapper #login .register-bottom,
+.register .register-wrapper #step_1 .login-bottom,
+.register .register-wrapper #step_1 .register-bottom,
+.register .register-wrapper #step_2 .login-bottom,
+.register .register-wrapper #step_2 .register-bottom {
   text-align: center;
   margin-top: 20px;
 }
 
-.login .login-wrapper .login-bottom p, .login .login-wrapper .register-bottom p, .login .register-wrapper .login-bottom p, .login .register-wrapper .register-bottom p, .register .login-wrapper .login-bottom p, .register .login-wrapper .register-bottom p, .register .register-wrapper .login-bottom p, .register .register-wrapper .register-bottom p {
+.login .login-wrapper #login .login-bottom p,
+.login .login-wrapper #login .register-bottom p,
+.login .login-wrapper #step_1 .login-bottom p,
+.login .login-wrapper #step_1 .register-bottom p,
+.login .login-wrapper #step_2 .login-bottom p,
+.login .login-wrapper #step_2 .register-bottom p,
+.login .register-wrapper #login .login-bottom p,
+.login .register-wrapper #login .register-bottom p,
+.login .register-wrapper #step_1 .login-bottom p,
+.login .register-wrapper #step_1 .register-bottom p,
+.login .register-wrapper #step_2 .login-bottom p,
+.login .register-wrapper #step_2 .register-bottom p,
+.register .login-wrapper #login .login-bottom p,
+.register .login-wrapper #login .register-bottom p,
+.register .login-wrapper #step_1 .login-bottom p,
+.register .login-wrapper #step_1 .register-bottom p,
+.register .login-wrapper #step_2 .login-bottom p,
+.register .login-wrapper #step_2 .register-bottom p,
+.register .register-wrapper #login .login-bottom p,
+.register .register-wrapper #login .register-bottom p,
+.register .register-wrapper #step_1 .login-bottom p,
+.register .register-wrapper #step_1 .register-bottom p,
+.register .register-wrapper #step_2 .login-bottom p,
+.register .register-wrapper #step_2 .register-bottom p {
   max-width: 280px;
   width: 100%;
-  margin: 10px 0;
+  margin: 10px auto;
   color: #2b3179;
-  font-size: .8em;
+  font-size: 0.8em;
 }
 
-.login .login-wrapper .login-bottom p a, .login .login-wrapper .register-bottom p a, .login .register-wrapper .login-bottom p a, .login .register-wrapper .register-bottom p a, .register .login-wrapper .login-bottom p a, .register .login-wrapper .register-bottom p a, .register .register-wrapper .login-bottom p a, .register .register-wrapper .register-bottom p a {
+.login .login-wrapper #login .login-bottom p a,
+.login .login-wrapper #login .register-bottom p a,
+.login .login-wrapper #step_1 .login-bottom p a,
+.login .login-wrapper #step_1 .register-bottom p a,
+.login .login-wrapper #step_2 .login-bottom p a,
+.login .login-wrapper #step_2 .register-bottom p a,
+.login .register-wrapper #login .login-bottom p a,
+.login .register-wrapper #login .register-bottom p a,
+.login .register-wrapper #step_1 .login-bottom p a,
+.login .register-wrapper #step_1 .register-bottom p a,
+.login .register-wrapper #step_2 .login-bottom p a,
+.login .register-wrapper #step_2 .register-bottom p a,
+.register .login-wrapper #login .login-bottom p a,
+.register .login-wrapper #login .register-bottom p a,
+.register .login-wrapper #step_1 .login-bottom p a,
+.register .login-wrapper #step_1 .register-bottom p a,
+.register .login-wrapper #step_2 .login-bottom p a,
+.register .login-wrapper #step_2 .register-bottom p a,
+.register .register-wrapper #login .login-bottom p a,
+.register .register-wrapper #login .register-bottom p a,
+.register .register-wrapper #step_1 .login-bottom p a,
+.register .register-wrapper #step_1 .register-bottom p a,
+.register .register-wrapper #step_2 .login-bottom p a,
+.register .register-wrapper #step_2 .register-bottom p a {
   text-decoration: none;
   color: #3844bc;
 }
 
-.login .login-wrapper .login-bottom p a:hover, .login .login-wrapper .register-bottom p a:hover, .login .register-wrapper .login-bottom p a:hover, .login .register-wrapper .register-bottom p a:hover, .register .login-wrapper .login-bottom p a:hover, .register .login-wrapper .register-bottom p a:hover, .register .register-wrapper .login-bottom p a:hover, .register .register-wrapper .register-bottom p a:hover {
+.login .login-wrapper #login .login-bottom p a:hover,
+.login .login-wrapper #login .register-bottom p a:hover,
+.login .login-wrapper #step_1 .login-bottom p a:hover,
+.login .login-wrapper #step_1 .register-bottom p a:hover,
+.login .login-wrapper #step_2 .login-bottom p a:hover,
+.login .login-wrapper #step_2 .register-bottom p a:hover,
+.login .register-wrapper #login .login-bottom p a:hover,
+.login .register-wrapper #login .register-bottom p a:hover,
+.login .register-wrapper #step_1 .login-bottom p a:hover,
+.login .register-wrapper #step_1 .register-bottom p a:hover,
+.login .register-wrapper #step_2 .login-bottom p a:hover,
+.login .register-wrapper #step_2 .register-bottom p a:hover,
+.register .login-wrapper #login .login-bottom p a:hover,
+.register .login-wrapper #login .register-bottom p a:hover,
+.register .login-wrapper #step_1 .login-bottom p a:hover,
+.register .login-wrapper #step_1 .register-bottom p a:hover,
+.register .login-wrapper #step_2 .login-bottom p a:hover,
+.register .login-wrapper #step_2 .register-bottom p a:hover,
+.register .register-wrapper #login .login-bottom p a:hover,
+.register .register-wrapper #login .register-bottom p a:hover,
+.register .register-wrapper #step_1 .login-bottom p a:hover,
+.register .register-wrapper #step_1 .register-bottom p a:hover,
+.register .register-wrapper #step_2 .login-bottom p a:hover,
+.register .register-wrapper #step_2 .register-bottom p a:hover {
   color: #6d76db;
+}
+
+.login .login-wrapper #step_1,
+.login .register-wrapper #step_1,
+.register .login-wrapper #step_1,
+.register .register-wrapper #step_1 {
+  max-width: 300px;
+}
+
+.login .login-wrapper #step_1 .input,
+.login .register-wrapper #step_1 .input,
+.register .login-wrapper #step_1 .input,
+.register .register-wrapper #step_1 .input {
+  position: relative;
+  width: calc(100% - 60px);
+  margin: 30px auto;
+}
+
+.login .login-wrapper #step_1 .input select,
+.login .register-wrapper #step_1 .input select,
+.register .login-wrapper #step_1 .input select,
+.register .register-wrapper #step_1 .input select {
+  width: 100%;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #aaa;
+  outline: none;
+  padding-left: 25px;
+  color: #555;
+  font-size: 0.85em;
+}
+
+.login .login-wrapper #step_1 .input select::-webkit-input-placeholder,
+.login .register-wrapper #step_1 .input select::-webkit-input-placeholder,
+.register .login-wrapper #step_1 .input select::-webkit-input-placeholder,
+.register .register-wrapper #step_1 .input select::-webkit-input-placeholder {
+  color: #888;
+}
+
+.login .login-wrapper #step_1 .input select:-ms-input-placeholder,
+.login .register-wrapper #step_1 .input select:-ms-input-placeholder,
+.register .login-wrapper #step_1 .input select:-ms-input-placeholder,
+.register .register-wrapper #step_1 .input select:-ms-input-placeholder {
+  color: #888;
+}
+
+.login .login-wrapper #step_1 .input select::-ms-input-placeholder,
+.login .register-wrapper #step_1 .input select::-ms-input-placeholder,
+.register .login-wrapper #step_1 .input select::-ms-input-placeholder,
+.register .register-wrapper #step_1 .input select::-ms-input-placeholder {
+  color: #888;
+}
+
+.login .login-wrapper #step_1 .input select::placeholder,
+.login .register-wrapper #step_1 .input select::placeholder,
+.register .login-wrapper #step_1 .input select::placeholder,
+.register .register-wrapper #step_1 .input select::placeholder {
+  color: #888;
+}
+
+.login .login-wrapper #step_1 .input #icon,
+.login .register-wrapper #step_1 .input #icon,
+.register .login-wrapper #step_1 .input #icon,
+.register .register-wrapper #step_1 .input #icon {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  color: #555;
+}
+
+.login .login-wrapper #step_1 .input #passeye,
+.login .register-wrapper #step_1 .input #passeye,
+.register .login-wrapper #step_1 .input #passeye,
+.register .register-wrapper #step_1 .input #passeye {
+  position: absolute;
+  top: 12px;
+  right: 0;
+  color: #555;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.login .login-wrapper #step_1 .input #passeye:hover,
+.login .register-wrapper #step_1 .input #passeye:hover,
+.register .login-wrapper #step_1 .input #passeye:hover,
+.register .register-wrapper #step_1 .input #passeye:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.login .register-wrapper,
+.register .register-wrapper {
+  max-width: 600px;
 }
 
 * {

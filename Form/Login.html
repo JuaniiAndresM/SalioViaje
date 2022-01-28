@@ -48,24 +48,28 @@
         <div class="login-wrapper">
             <h1>Salió<span>Viaje</span></h1>
 
-            <div class="inputs-wrapper">
-                <div class="input">
-                    <i class="fas fa-user" id="icon"></i>
-                    <input type="text" placeholder="C.I o RUT">
+            <div id="login">
+                <div class="inputs-wrapper">
+                    <div class="input">
+                        <i class="fas fa-user" id="icon"></i>
+                        <input type="number" name="usuario" placeholder="C.I o RUT">
+                    </div>
+                    <div class="input">
+                        <i class="fas fa-key" id="icon"></i>
+                        <input type="password" name="pin" placeholder="PIN" maxlength="4" pattern="[0-9]{4}">
+                        <i id="passeye" class="fas fa-eye-slash"></i>
+                    </div>
                 </div>
-                <div class="input">
-                    <i class="fas fa-key" id="icon"></i>
-                    <input type="password" placeholder="Contraseña">
-                    <i id="passeye" class="fas fa-eye-slash"></i>
+                
+                <button class="button-login"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</button>
+
+                <div class="login-bottom">
+                    <p><a href="#">¿Olvidaste tu contraseña?</a></p>
+                    <p>¿Aún no tienes una cuenta? <a href="/SalioViaje/Form/Register.html">Registrate</a>.</p>
                 </div>
             </div>
 
-            <button class="button-login"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</button>
-
-            <div class="login-bottom">
-                <p><a href="#">¿Olvidaste tu contraseña?</a></p>
-                <p>¿Aún no tienes una cuenta? <a href="/SalioViaje/Form/Register.html">Registrate</a>.</p>
-            </div>
+            
 
         </div>
     </section>
