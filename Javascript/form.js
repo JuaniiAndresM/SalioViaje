@@ -3,7 +3,11 @@ $(document).ready(function () {
     $('#step_2').hide();
 });
 
+var step = 0;
 function select_user(){
+
+    step++;
+
     var user = $('#select_users').val();
     console.log(user);
 
@@ -51,4 +55,11 @@ function select_user(){
             console.log("No Funciona.");
             break;
     }
+}
+
+function volver(){
+    step--;
+    
+    $('#step_1').show();
+    $('#step_2').hide();
 }
