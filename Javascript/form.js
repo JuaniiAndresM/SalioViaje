@@ -7,8 +7,14 @@ $(document).ready(function () {
     });
 });
 
+var step = 0;
 function select_user(){
 
+<<<<<<< HEAD
+=======
+    step++;
+
+>>>>>>> caa1d2a40fa77213bba030fe2ca73bd104da2e52
     var user = $('#select_users').val();
 
     switch(user){
@@ -57,6 +63,7 @@ function select_user(){
     }
 }
 
+<<<<<<< HEAD
 function register_form(user){
     let datos;
 
@@ -90,4 +97,11 @@ function register_form(user){
             break; 
 
     }
+=======
+function volver(){
+    step--;
+    
+    $('#step_1').show();
+    $('#step_2').hide();
+>>>>>>> caa1d2a40fa77213bba030fe2ca73bd104da2e52
 }
