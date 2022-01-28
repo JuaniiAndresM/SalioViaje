@@ -8,11 +8,15 @@
 
   .login-wrapper,
   .register-wrapper {
+    position: relative;
+    z-index: 10;
     max-width: 330px;
     width: 100%;
     padding: 30px 0;
+    margin: 0 20px;
 
     box-shadow: 10px 0px 20px 0 rgba($color: #000000, $alpha: 0.3);
+    background-color: $contraste_2;
 
     border-radius: 3em 0 3em 3em;
 
@@ -29,53 +33,67 @@
         color: $main_1;
       }
     }
+
+    .progress-bar {
+      position: relative;
+      width: 90%;
+      height: 15px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      margin: 0 auto;
+      text-align: center;
+      margin-top: 20px;
+
+      .line {
+        position: relative;
+        width: 100%;
+        height: 5px;
+
+        border-radius: 2em;
+        background-color: #aaa;
+      }
+      .progress{
+        position: absolute;
+        left: 0;
+
+        width: 0%;
+        height: 5px;
+
+        border-radius: 2em;
+        background: linear-gradient(to right, $main_1, $main_2);
+        transition: .8s;
+      }
+      .circle1,
+      .circle2,
+      .circle3 {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background-color: #aaa;
+        position: absolute;
+        left: 0;
+      }
+      .circle1 {
+        background-color: $main_1;
+      }
+      .circle2 {
+        left: calc(50% - 10px);
+      }
+      .circle3 {
+        left: calc(100% - 10px);
+      }
+    }
+
     #login,
     #step_1,
-    #step_2 {
+    #step_2,
+    #step_3,
+    #step_4 {
       width: 100%;
       text-align: center;
-
-      .progress-bar {
-        position: relative;
-        width: 90%;
-        height: 15px;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        margin: 0 auto;
-        text-align: center;
-        margin-top: 20px;
-
-        .line {
-          position: relative;
-          width: 100%;
-          height: 5px;
-
-          border-radius: 2em;
-          background-color: #aaa;
-        }
-        .circle1,
-        .circle2,
-        .circle3 {
-          width: 15px;
-          height: 15px;
-          border-radius: 50%;
-          background-color: #aaa;
-          position: absolute;
-          left: 0;
-        }
-        .circle1 {
-          background-color: $main_1;
-        }
-        .circle2 {
-          left: calc(50% - 10px);
-        }
-        .circle3 {
-          left: calc(100% - 10px);
-        }
-      }
 
       .inputs-wrapper,
       .inputs-wrapper-register {
@@ -85,7 +103,8 @@
           width: calc(100% - 60px);
           margin: 30px auto;
 
-          input, select {
+          input,
+          select {
             width: 100%;
             height: 40px;
             background-color: transparent;
@@ -96,7 +115,8 @@
             color: #555;
             font-size: 0.85em;
           }
-          input::placeholder, select::placeholder {
+          input::placeholder,
+          select::placeholder {
             color: #888;
           }
 
@@ -202,5 +222,7 @@
   }
   .register-wrapper {
     max-width: 600px;
+    position: relative;
+    z-index: 10;
   }
 }

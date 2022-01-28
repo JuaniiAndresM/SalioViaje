@@ -1,15 +1,83 @@
 $(document).ready(function () {
     $('.progress-bar').hide();
-    $('#step_2').hide();
+    steps(1);
 });
 
-var step = 0;
-function select_user(){
+var step = 1;
 
+function volver(){
+    step--;
+
+    steps(step);
+}
+
+function next(){
     step++;
 
-    var user = $('#select_users').val();
-    console.log(user);
+    steps(step);
+}
+
+function steps(step){
+    console.log(step);
+
+    switch(step){
+        case 1:         
+            $('.progress-bar').hide();
+            $('#step_1').show();
+            $('#step_2').hide();
+            $('#step_3').hide();
+            $('#step_4').hide();
+            break;
+
+        case 2:
+            $('.progress').css('width', '0%');
+
+            $('.circle1').css('background-color', '#2b3179');
+            $('.circle2').css('background-color', '#aaa');
+            $('.circle3').css('background-color', '#aaa');
+
+            var user = $('#select_users').val();
+            select_user(user);
+
+            if(user != null){
+                $('#step_1').hide();
+                $('#step_2').show();
+                $('#step_3').hide();
+                $('#step_4').hide();
+            }
+            break;
+
+        case 3:
+            $('.progress').css('width', '50%');
+            
+            $('.circle1').css('background-color', '#2b3179');
+            $('.circle2').css('background-color', '#2b3179');
+            $('.circle3').css('background-color', '#aaa');
+
+            $('#step_1').hide();
+            $('#step_2').hide();
+            $('#step_3').show();
+            $('#step_4').hide();
+            break;
+
+        case 4:
+            $('.progress').css('width', '100%');
+
+            $('.circle1').css('background-color', '#2b3179');
+            $('.circle2').css('background-color', '#2b3179');
+            $('.circle3').css('background-color', '#2b3179');
+
+            $('#step_1').hide();
+            $('#step_2').hide();
+            $('#step_3').hide();
+            $('#step_4').show();
+            break;
+    }
+}
+
+function select_user(user){
+
+    $('.progress-bar').hide();
 
     switch(user){
         case "1":
@@ -52,14 +120,8 @@ function select_user(){
             break;
 
         default:
-            console.log("No Funciona.");
+            step--;
+            console.log(step);
             break;
     }
-}
-
-function volver(){
-    step--;
-    
-    $('#step_1').show();
-    $('#step_2').hide();
 }
