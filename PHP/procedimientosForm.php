@@ -23,11 +23,9 @@ class procedimientosForm extends procedimientosBD
 
 			$this->register_empresa("TTA",$this->idUsuario,$empresa[$x]);
 
-			/*
 			for ($i=0; $i < count($empresa[$x]["VEHICULOS"]); $i++) { 
-				$this->register_vehiculo($empresa[$x]["RUT"],$empresa[$x]["VEHICULOS"][$i]);
+				$this->register_vehiculo($empresa[$x]["RUT"],"0",$empresa[$x]["VEHICULOS"][$i]);
 			}
-			*/
 
 		}
 		//echo json_encode($empresa);
