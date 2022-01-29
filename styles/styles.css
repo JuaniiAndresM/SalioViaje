@@ -989,6 +989,7 @@ footer .totum p a:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin: 20px 0;
 }
 
 .login .login-wrapper,
@@ -2401,7 +2402,8 @@ footer .totum p a:hover {
   color: #555;
 }
 
-.login .login-wrapper #step_1 .input #passeye, .login .login-wrapper #step_1 .input #passeye2,
+.login .login-wrapper #step_1 .input #passeye,
+.login .login-wrapper #step_1 .input #passeye2,
 .login .register-wrapper #step_1 .input #passeye,
 .login .register-wrapper #step_1 .input #passeye2,
 .register .login-wrapper #step_1 .input #passeye,
@@ -2417,7 +2419,8 @@ footer .totum p a:hover {
   transition: 0.3s;
 }
 
-.login .login-wrapper #step_1 .input #passeye:hover, .login .login-wrapper #step_1 .input #passeye2:hover,
+.login .login-wrapper #step_1 .input #passeye:hover,
+.login .login-wrapper #step_1 .input #passeye2:hover,
 .login .register-wrapper #step_1 .input #passeye:hover,
 .login .register-wrapper #step_1 .input #passeye2:hover,
 .register .login-wrapper #step_1 .input #passeye:hover,
@@ -2641,6 +2644,27 @@ footer .totum p a:hover {
 .login .register-wrapper .vehiculos-wrapper .finalizar-button i,
 .register .register-wrapper .vehiculos-wrapper .finalizar-button i {
   margin-right: 5px;
+}
+
+@media screen and (max-width: 1260px) {
+  .register .register-wrapper .vehiculos-wrapper {
+    position: relative;
+    right: 0;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .register .register-wrapper #login .inputs-wrapper-register,
+  .register .register-wrapper #step_1 .inputs-wrapper-register,
+  .register .register-wrapper #step_2 .inputs-wrapper-register,
+  .register .register-wrapper #step_3 .inputs-wrapper-register,
+  .register .register-wrapper #step_4 .inputs-wrapper-register,
+  .register .register-wrapper #step_5 .inputs-wrapper-register {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
 }
 
 .panel-header {

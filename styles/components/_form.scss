@@ -5,6 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 20px 0;
 
   .login-wrapper,
   .register-wrapper {
@@ -179,10 +180,10 @@
       }
     }
 
-    #login{
-      .inputs-wrapper{
-        .input{
-          input{
+    #login {
+      .inputs-wrapper {
+        .input {
+          input {
             padding-right: 25px;
           }
         }
@@ -217,7 +218,8 @@
           left: 0;
           color: #555;
         }
-        #passeye, #passeye2 {
+        #passeye,
+        #passeye2 {
           position: absolute;
           top: 12px;
           right: 0;
@@ -225,19 +227,20 @@
           cursor: pointer;
           transition: 0.3s;
         }
-        #passeye:hover, #passeye2:hover {
+        #passeye:hover,
+        #passeye2:hover {
           transform: scale(1.2);
         }
       }
     }
-    #step_5{
-      .button-wrapper{
+    #step_5 {
+      .button-wrapper {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
 
-        button{
+        button {
           @include button();
         }
       }
@@ -343,6 +346,35 @@
       }
       .finalizar-button {
         @include button();
+      }
+    }
+  }
+}
+
+@media screen and(max-width: 1260px) {
+  .register {
+    .register-wrapper {
+      .vehiculos-wrapper{
+        position: relative;
+        right: 0;
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+@media screen and(max-width: 470px) {
+  .register {
+    .register-wrapper {
+      #login,
+      #step_1,
+      #step_2,
+      #step_3,
+      #step_4,
+      #step_5 {
+        .inputs-wrapper-register {
+          grid-template-columns: 1fr;
+        }
       }
     }
   }

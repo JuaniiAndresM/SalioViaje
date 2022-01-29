@@ -116,6 +116,16 @@ function select_user(user){
     $('.progress-bar').hide();
     var user = $('#select_users').val();
 
+    $('#telefono-hotel').hide();
+    $('#supervisor').hide();
+    $('#nombrehotel').hide();
+    $('#direccionhotel').hide();
+
+    $('#direccion-input').show();
+    $('#barrio-input').show();
+    $('#departamento-input').show();
+    $('#telefono-input').show();
+
     switch(user){
         case "1":
             $('.progress-bar').hide();
@@ -164,6 +174,28 @@ function select_user(user){
             $('#ci').hide();
             $('#rut').show();
             $('#contratista').hide();
+            
+            $('#pax-register').show();
+            $('#step-next').hide();
+            break;
+
+        case "5":
+            $('.progress-bar').hide();
+            $('#step_1').hide();
+
+            $('#step_2').show();
+            $('#ci').show();
+            $('#rut').hide();
+            $('#contratista').hide();
+            
+            $('#telefono-hotel').show();
+            $('#supervisor').show();
+            $('#nombrehotel').show();
+            $('#direccionhotel').show();
+            $('#direccion-input').hide();
+            $('#barrio-input').hide();
+            $('#departamento-input').hide();
+            $('#telefono-input').hide();
             
             $('#pax-register').show();
             $('#step-next').hide();
