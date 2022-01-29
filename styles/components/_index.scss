@@ -37,6 +37,7 @@ $contraste_2: #ffffff;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     width: 100%;
+    gap: 20px;
 
     margin: 0 auto;
     padding: 0 20px;
@@ -112,10 +113,15 @@ $contraste_2: #ffffff;
   h2 {
     color: $contraste_1;
     font-size: 2.3em;
+    text-align: center;
 
     span {
       color: $main_1;
     }
+  }
+
+  #hr{
+    margin: 10px auto;
   }
   hr {
     width: 100px;
@@ -257,6 +263,7 @@ $contraste_2: #ffffff;
     display: grid;
     grid-template-columns: 40% 1fr;
     width: 100%;
+    gap: 20px;
 
     margin: 0 auto;
     padding: 0 20px;
@@ -484,7 +491,7 @@ $contraste_2: #ffffff;
 .separador_2 {
   width: 50%;
   min-width: 300px;
-  height: 40px;
+  height: 20px;
   margin: 20px 0;
   background: linear-gradient(45deg, $main_1, $main_2);
   position: relative;
@@ -567,12 +574,17 @@ $contraste_2: #ffffff;
         .nosotros-info {
           width: 100%;
           margin-top: 20px;
+          text-align: center;
 
           h1 {
             font-size: 3.4em;
           }
+          hr{
+            margin: 10px auto;
+          }
           p {
             font-size: 1em;
+            margin: 10px auto;
           }
           .button-nosotros {
             margin-top: 0;
