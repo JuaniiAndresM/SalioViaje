@@ -7,97 +7,283 @@ $main_3: #6d76db;
 $contraste_1: #333333;
 $contraste_2: #ffffff;
 
-@mixin button{
-    background: linear-gradient(to right, $main_1, $main_2);
-    color: $contraste_2;
-    padding: 15px 20px;
-    border: none;
-    border-radius: 2em;
-    margin-top: 10px;
-    transition: .5s;
-    cursor: pointer;
+@mixin button {
+  background: linear-gradient(to right, $main_1, $main_2);
+  color: $contraste_2;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 2em;
+  margin-top: 10px;
+  transition: 0.5s;
+  cursor: pointer;
 
-    i{
-        margin-right: 5px;
-    }
-
+  i {
+    margin-right: 5px;
+  }
 }
-@mixin button-hover{
-    transform: scale(1.1);
+@mixin button-hover {
+  transform: scale(1.1);
 }
 
-.landing{
-    width: 100%;
-    min-height: 100vh;
-    margin-top: -80px;
+.landing {
+  width: 100%;
+  height: calc(100vh - 80px);
 
-    background-color: #fff;
+  background-color: #fff;
 
+  display: grid;
+
+  .landing-wrapper-grid {
     display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
 
-    .landing-wrapper-grid{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
 
+    .landing-left {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      text-align: left;
+
+      .landing-info {
+        text-align: left;
+
+        h1 {
+          font-size: 4.2em;
+          font-weight: bold;
+          color: $contraste_1;
+          margin-bottom: 10px;
+
+          span {
+            color: $main_1;
+          }
+        }
+        p {
+          color: $main_1;
+          font-size: 1.2em;
+          max-width: 450px;
+          width: 100%;
+          margin-bottom: 20px;
+        }
+        .button-landing {
+          @include button();
+          border-radius: 0 2em 2em 2em;
+        }
+        .button-landing:hover {
+          @include button-hover();
+        }
+      }
+    }
+    .landing-right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .landing-img-wrapper {
+        width: 500px;
+        height: 450px;
+
+        border-radius: 6em 6em 0 6em;
+        overflow: hidden;
+
+        background-color: $main_2;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
+
+.servicios {
+  max-width: 1500px;
+  width: 100%;
+
+  margin: 0 auto;
+
+  padding: 10px 20px;
+
+  h2 {
+    color: $contraste_1;
+    font-size: 2.3em;
+
+    span {
+      color: $main_1;
+    }
+  }
+  hr{
+    width: 100px;
+    border: 1px solid $main_1;
+    margin: 10px 0;
+  }
+  .description{
+    color: $main_2;
+  }
+
+  .servicios-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    margin: 20px 0;
+
+    .card{
+      max-width: 300px;
+      width: 100%;
+      height: 420px;
+
+      background: linear-gradient(45deg, $main_1, $main_2);
+      box-shadow: 10px 0px 20px 0 rgba($color: #000000, $alpha: .3);
+      border-radius: 3em 3em 0 3em;
+
+      margin: 10px;
+      padding: 20px 20px;
+
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+
+      transition: .3s;
+
+      .card-top{
+        .card-icon{
+          i{
+            color: $contraste_2;
+            font-size: 3em;
+            margin-bottom: 10px;
+          }
+        }
+        .card-info{
+          h3{
+            color: $contraste_2;
+            font-size: 1.6em;
+          }
+          hr{
+            border: 1px solid $contraste_2;
+          }
+          .info_1{
+            color: $contraste_2;
+            margin: 20px 0;
+            font-size: 1.1em;
+          }
+        }
+      }
+      
+      .card-bottom{
+
+        .info_2, .info_3{
+          color: $contraste_2;
+          font-size: .8em;
+          margin: 10px 0;
+
+          a{
+            color: #aaa;
+            text-decoration: none;
+          }
+        }
+
+        .button-whatsapp{
+          width: 100%;
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+
+          .whatsapp{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: $main_1;
+    
+            padding: 10px;
+    
+            display: flex;
+            justify-content: center;
+            align-items: center;
+    
+            img{
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+        }
+        
+      }
+      
+    }
+    .card:hover{
+      background: $contraste_2;
+      transform: scale(1.01);
+
+      .card-top{
+        .card-icon{
+          i{
+            color: $main_1;
+          }
+        }
+        .card-info{
+          h3{
+            color: $main_1;
+          }
+          hr{
+            border: 1px solid $main_1;
+          }
+          .info_1{
+            color: $main_2;
+          }
+        }
+      }
+      .card-bottom{
+        .info_2, .info_3{
+          color: $main_1;
+
+          a{
+            color: #aaa;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and(max-width: 950px) {
+  .landing {
+    .landing-wrapper-grid {
+      grid-template-columns: 1fr;
+
+      .landing-left {
+        width: calc(100% - 20px);
         margin: 0 auto;
 
-        .landing-left{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
+        .landing-info {
+          width: 100%;
 
-            text-align: left;
-
-            .landing-info{
-                text-align: left;
-
-                h1{
-                    font-size: 4.2em;
-                    font-weight: bold;
-                    color: $contraste_1;
-                    margin-bottom: 10px;
-
-                    span{
-                        color: $main_1;
-                    }
-                }
-                p{
-                    color: $main_1;
-                    font-size: 1.2em;
-                    max-width: 450px; 
-                    width: 100%;
-                    margin-bottom: 20px;
-                }
-                .button-landing{
-                    @include button();
-                    border-radius: 0 2em 2em 2em;
-                }
-                .button-landing:hover{
-                    @include button-hover();
-                }
-            }
+          h1 {
+            font-size: 3.4em;
+          }
+          p {
+            font-size: 1em;
+          }
+          .button-landing {
+            margin-top: 0;
+          }
         }
-        .landing-right{
-            display: flex;
-            justify-content: center;
-            align-items: center;
+      }
 
-            .landing-img-wrapper{
-                width: 500px;
-                height: 450px;
-
-                border-radius: 6em 6em 0 6em;
-                overflow: hidden;
-
-                background-color: $main_2;
-                img{
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
-            }
+      .landing-right {
+        .landing-img-wrapper {
+          max-width: 400px;
+          width: calc(100% - 20px);
+          height: 300px;
         }
+      }
     }
+  }
 }

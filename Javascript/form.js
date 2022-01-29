@@ -1,20 +1,114 @@
 $(document).ready(function () {
     $('.progress-bar').hide();
-    $('#step_2').hide();
+    $('.vehiculos-wrapper').hide();
+    steps(1);
 
     $("#pax-register").on('click', function() {
-       register_form($('#select_users').val())
+        register_form($('#select_users').val())
     });
 });
 
-var step = 0;
-function select_user(){
+var step = 1;
 
-<<<<<<< HEAD
-=======
+function volver(){
+    step--;
+    steps(step);
+}
+
+function next(){
     step++;
+    steps(step);
+}
 
->>>>>>> caa1d2a40fa77213bba030fe2ca73bd104da2e52
+function steps(step){
+    console.log(step);
+
+    switch(step){
+        case 1:         
+            $('.progress-bar').hide();
+            $('#step_1').show();
+            $('#step_2').hide();
+            $('#step_3').hide();
+            $('#step_4').hide();
+            $('#step_5').hide();
+
+            $('.vehiculos-wrapper').hide();
+            break;
+
+        case 2:
+            $('.progress').css('width', '0%');
+
+            $('.circle1').css('background-color', '#2b3179');
+            $('.circle2').css('background-color', '#aaa');
+            $('.circle3').css('background-color', '#aaa');
+
+            var user = $('#select_users').val();
+            select_user(user);
+
+            if(user != null){
+                $('#step_1').hide();
+                $('#step_2').show();
+                $('#step_3').hide();
+                $('#step_4').hide();
+                $('#step_5').hide();
+            }
+
+            $('.vehiculos-wrapper').hide();
+            break;
+
+        case 3:
+            $('.progress').css('width', '50%');
+            
+            $('.circle1').css('background-color', '#2b3179');
+            $('.circle2').css('background-color', '#2b3179');
+            $('.circle3').css('background-color', '#aaa');
+
+            $('#step_1').hide();
+            $('#step_2').hide();
+            $('#step_3').show();
+            $('#step_4').hide();
+            $('#step_5').hide();
+
+            $('.vehiculos-wrapper').hide();
+            break;
+
+        case 4:
+            $('.progress').css('width', '100%');
+
+            $('.circle1').css('background-color', '#2b3179');
+            $('.circle2').css('background-color', '#2b3179');
+            $('.circle3').css('background-color', '#2b3179');
+
+            $('#step_1').hide();
+            $('#step_2').hide();
+            $('#step_3').hide();
+            $('#step_4').show();
+            $('#step_5').hide();
+
+            $('.vehiculos-wrapper').show();
+            break;
+
+        case 5:
+            $('.progress').css('width', '100%');
+
+            $('.circle1').css('background-color', '#2b3179');
+            $('.circle2').css('background-color', '#2b3179');
+            $('.circle3').css('background-color', '#2b3179');
+
+            $('#step_1').hide();
+            $('#step_2').hide();
+            $('#step_3').hide();
+            $('#step_4').hide();
+            $('#step_5').show();
+
+            $('.vehiculos-wrapper').hide();
+            break;
+    }
+}
+
+function select_user(user){
+
+    $('.progress-bar').hide();
     var user = $('#select_users').val();
 
     switch(user){
@@ -58,12 +152,12 @@ function select_user(){
             break;
 
         default:
-            console.log("No Funciona.");
+            step--;
+            console.log(step);
             break;
     }
 }
 
-<<<<<<< HEAD
 function register_form(user){
     let datos;
 
@@ -97,11 +191,11 @@ function register_form(user){
             break; 
 
     }
-=======
-function volver(){
-    step--;
-    
-    $('#step_1').show();
-    $('#step_2').hide();
->>>>>>> caa1d2a40fa77213bba030fe2ca73bd104da2e52
+}
+
+function new_company(){
+    step = 3;
+    steps(3);
+
+    $('#company_volver').hide();
 }
