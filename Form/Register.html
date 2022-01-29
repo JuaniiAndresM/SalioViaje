@@ -223,27 +223,28 @@
             <div class="column">
               <div class="input">
                 <i class="fas fa-address-card" id="icon"></i>
-                <input type="number" maxlength="12" placeholder="RUT" />
+                <input type="number" id="rutt" maxlength="12" placeholder="RUT" />
               </div>
 
               <div class="input">
                 <i class="fas fa-signature" id="icon"></i>
-                <input type="text" placeholder="Nombre Comercial" />
+                <input type="text" id="nombre_comercial" placeholder="Nombre Comercial" />
               </div>
 
               <div class="input">
                 <i class="fas fa-building" id="icon"></i>
-                <input type="text" placeholder="Razón Social" />
+                <input type="text" id="razon_social" placeholder="Razón Social" />
               </div>
             </div>
             <div class="column">
               <div class="input">
                 <i class="fas fa-user-lock" id="icon"></i>
-                <input type="number" placeholder="N° MTOP" />
+                <input type="number" id="numero_mtop" placeholder="N° MTOP" />
               </div>
               <div class="input">
                 <i class="fas fa-key" id="icon"></i>
                 <input
+                  id="password_mtop"
                   type="password"
                   name="PassMTOP"
                   placeholder="Contraseña MTOP"
@@ -266,22 +267,22 @@
             <div class="column">
               <div class="input">
                 <i class="fas fa-font" id="icon"></i>
-                <input type="text" maxlength="7" placeholder="Matrícula"/>
+                <input type="text" id="matricula" maxlength="7" placeholder="Matrícula"/>
               </div>
 
               <div class="input">
                 <i class="fas fa-car" id="icon"></i>
-                <input type="text" placeholder="Marca" />
+                <input type="text" id="marca" placeholder="Marca" />
               </div>
 
               <div class="input">
                 <i class="fas fa-list" id="icon"></i>
-                <input type="text" placeholder="Modelo" />
+                <input type="text" id="modelo" placeholder="Modelo" />
               </div>
 
               <div class="input">
                 <i class="fas fa-gas-pump" id="icon"></i>
-                <input type="text" placeholder="Combustible" />
+                <input type="text" id="combustible" placeholder="Combustible" />
               </div>
 
             </div>
@@ -289,17 +290,17 @@
 
               <div class="input">
                 <i class="fas fa-users" id="icon"></i>
-                <input type="number" placeholder="Capacidad Pasajeros" />
+                <input type="number" id="capacidad_pasajeros" placeholder="Capacidad Pasajeros" />
               </div>
 
               <div class="input">
                 <i class="fas fa-luggage-cart" id="icon"></i>
-                <input type="text" placeholder="Capacidad Equipaje" />
+                <input type="text" id="capacidad_equipaje" placeholder="Capacidad Equipaje" />
               </div>
 
               <div class="input">
                 <i id="icon" class="fas fa-dog"></i>
-                <select name="" id="">
+                <select name="" id="pet_friendly">
                   <option value="0" selected disabled>Pet Friendly</option>
                   <option value="1">No</option>
                   <option value="2">Si</option>
@@ -363,13 +364,13 @@
             </div>
 
           </div>
-          <button class="finalizar-button" onclick="next()"><i class="fas fa-building"></i> Finalizar Empresa</button>
+          <button class="finalizar-button" onclick="next()" id="finalizar_empresa"><i class="fas fa-building"></i> Finalizar Empresa</button>
         </div>
 
         <div id="step_5">
           <div class="button-wrapper">
             <button onclick="new_company()"><i class="fas fa-plus"></i> Agregar Nueva Empresa</button>
-            <button><i class="fas fa-check"></i> Finalizar</button>
+            <button id="finalizar-registro-TTA" onclick="mostrar_Empresas()"><i class="fas fa-check"></i> Finalizar</button>
           </div>
         </div>
 
