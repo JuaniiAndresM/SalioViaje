@@ -39,6 +39,7 @@
     <script src="https://kit.fontawesome.com/1e193e3a23.js" crossorigin="anonymous"></script>    
 
     <script src="/SalioViaje/Javascript/web.js"></script>
+    <script src="/SalioViaje/Javascript/form.js"></script>
 
 </head>
 <body>
@@ -56,8 +57,8 @@
                     </div>
                     <div class="input">
                         <i class="fas fa-key" id="icon"></i>
-                        <input type="password" name="pin" placeholder="PIN" maxlength="4" pattern="[0-9]{4}">
-                        <i id="passeye" class="fas fa-eye-slash"></i>
+                        <input type="password" id="passwd" name="pin" placeholder="PIN" maxlength="4" pattern="[0-9]{4}">
+                        <button onclick="passwd()"><i id="passeye" class="fas fa-eye-slash"></i></button>
                     </div>
                 </div>
                 

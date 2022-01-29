@@ -236,3 +236,30 @@ function new_company(){
 
     $('#company_volver').hide();
 }
+
+function passwd(){
+
+    if($('#passeye').hasClass('show')){
+        $('#passwd').attr('type', 'password');
+        $('#passeye').html('<i class="fas fa-eye-slash"></i>');
+        $('#passeye').attr('class','hidden');
+    }else{
+        $('#passwd').attr('type', 'text');
+        $('#passeye').html('<i class="fas fa-eye"></i>');
+        $('#passeye').attr('class','show');
+    }
+    
+}
+function passwd2(){
+
+    if($('#passeye2').hasClass('show')){
+        $('#passwd2').attr('type', 'password');
+        $('#passeye2').html('<i class="fas fa-eye-slash"></i>');
+        $('#passeye2').attr('class','hidden');
+    }else{
+        $('#passwd2').attr('type', 'text');
+        $('#passeye2').html('<i class="fas fa-eye"></i>');
+        $('#passeye2').attr('class','show');
+    }
+    
+}

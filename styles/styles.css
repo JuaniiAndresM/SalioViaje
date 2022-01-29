@@ -2028,10 +2028,13 @@ footer .totum p a:hover {
   color: #555;
 }
 
-.login .login-wrapper #step_1 .input #passeye,
+.login .login-wrapper #step_1 .input #passeye, .login .login-wrapper #step_1 .input #passeye2,
 .login .register-wrapper #step_1 .input #passeye,
+.login .register-wrapper #step_1 .input #passeye2,
 .register .login-wrapper #step_1 .input #passeye,
-.register .register-wrapper #step_1 .input #passeye {
+.register .login-wrapper #step_1 .input #passeye2,
+.register .register-wrapper #step_1 .input #passeye,
+.register .register-wrapper #step_1 .input #passeye2 {
   position: absolute;
   top: 12px;
   right: 0;
@@ -2041,10 +2044,13 @@ footer .totum p a:hover {
   transition: 0.3s;
 }
 
-.login .login-wrapper #step_1 .input #passeye:hover,
+.login .login-wrapper #step_1 .input #passeye:hover, .login .login-wrapper #step_1 .input #passeye2:hover,
 .login .register-wrapper #step_1 .input #passeye:hover,
+.login .register-wrapper #step_1 .input #passeye2:hover,
 .register .login-wrapper #step_1 .input #passeye:hover,
-.register .register-wrapper #step_1 .input #passeye:hover {
+.register .login-wrapper #step_1 .input #passeye2:hover,
+.register .register-wrapper #step_1 .input #passeye:hover,
+.register .register-wrapper #step_1 .input #passeye2:hover {
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
 }

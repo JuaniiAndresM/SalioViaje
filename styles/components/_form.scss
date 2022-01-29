@@ -217,7 +217,7 @@
           left: 0;
           color: #555;
         }
-        #passeye {
+        #passeye, #passeye2 {
           position: absolute;
           top: 12px;
           right: 0;
@@ -225,7 +225,7 @@
           cursor: pointer;
           transition: 0.3s;
         }
-        #passeye:hover {
+        #passeye:hover, #passeye2:hover {
           transform: scale(1.2);
         }
       }
