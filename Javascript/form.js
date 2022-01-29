@@ -262,7 +262,7 @@ function reset_vehicle_inputs(){
 }
 
 function reset_vehicles(){
-    $('.vehiculos').html('');
+    $('.vehiculos').html('<div id="no-vehicle"><p>No hay vehiculos agregados.</p></div>');
     $('#no-vehicle').show();
 }
 
