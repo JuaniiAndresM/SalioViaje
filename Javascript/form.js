@@ -156,6 +156,19 @@ function select_user(user){
             $('#step-next').show();
             break;
 
+        case "4":
+            $('.progress-bar').hide();
+            $('#step_1').hide();
+
+            $('#step_2').show();
+            $('#ci').hide();
+            $('#rut').show();
+            $('#contratista').hide();
+            
+            $('#pax-register').show();
+            $('#step-next').hide();
+            break;
+
         default:
             step--;
             break;

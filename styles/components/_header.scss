@@ -36,21 +36,31 @@ header{
                 }
             }
             .links-session{
+                transition: .3s;
                 .login_button{
-                    @include button();
+                    background: $main_1;
+                    color: $contraste_2;
+                    padding: 15px 20px;
+                    border: none;
                     border-radius: 2em 0 2em 2em;
+                    margin-top: 10px;
+                    transition: 0.5s;
+                    cursor: pointer;
                     text-decoration: none;
-                    font-size: 1em;
+
+                    i {
+                        margin-right: 5px;
+                    }
                 }
-                .login_button:hover{
-                    background-color: red !important;
-                }
+            }
+            .links-session:hover{
+                transform: scale(1.1);
             }
         }
     }
 }
 
-@media screen and(max-width: 800px) {
+@media screen and(max-width: 1000px) {
     header{
         .header-wrapper{
             .header-links{
