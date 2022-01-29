@@ -7,7 +7,7 @@ $(document).ready(function () {
         register_form($('#select_users').val())
     });
     $("#finalizar-registro-TTA").on('click', function() {
-        //register_form($('#select_users').val())
+        register_form($('#select_users').val())
     });
     $("#finalizar_empresa").on('click', function() {
         crear_empresa();
@@ -255,6 +255,7 @@ function passwd2(){
 
 /*-------------------------------------------------------------------------------------------*/
 
+let ID_USUARIO;
 let datos_Usuario;
 let datos_Empresa;
 let datos_Vehiculo;
@@ -277,16 +278,14 @@ function register_form(opcion){
                 "PIN": document.getElementById('password').value,
                 "RE-PIN": document.getElementById('re-password').value
             };
-            /*
             $.ajax({
                 type: "POST",
                 url: "../PHP/procedimientosForm.php",
-                data: { tipo:opcion, datos:JSON.stringify(datos) },
+                data: { tipo:opcion, datos:JSON.stringify(datos_Usuario) },
                 success: function (response) {
-                    console.log(response)
+                    ID_USUARIO = response;
                 },
             });
-            */
             break;
         case "2":
             datos_Usuario = {
@@ -301,16 +300,15 @@ function register_form(opcion){
                 "PIN": document.getElementById('password').value,
                 "RE-PIN": document.getElementById('re-password').value
             };
-            /*
+
             $.ajax({
                 type: "POST",
                 url: "../PHP/procedimientosForm.php",
-                data: { tipo:user, datos:JSON.stringify(datos) },
+                data: { tipo:opcion,idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas) },
                 success: function (response) {
                     console.log(response)
                 },
             });
-            */
             break;
         case "3":
 
@@ -330,6 +328,17 @@ function add_vehicle(){
     };
 
     vehiculos.push(datos_Vehiculo)
+    $.ajax({
+        type: "POST",
+        url: "../PHP/agregarVehiculo.php",
+        data: {datos:JSON.stringify(datos_Vehiculo) },
+        success: function (response) {
+            $('.vehiculos').append(response);
+        },
+    });
+    /*
+
+    */
 }
 
 function crear_empresa(){
