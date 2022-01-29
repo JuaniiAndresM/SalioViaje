@@ -272,6 +272,19 @@
         margin-bottom: 0;
         overflow-y: auto;
 
+        #no-vehicle{
+          width: 100%;
+          height: 100%;
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          p{
+            color: $main_1;
+          }
+        }
+
         .vehiculo {
           background-color: $main_1;
           border-radius: 0 2em 2em 2em;

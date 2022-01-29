@@ -2504,6 +2504,26 @@ footer .totum p a:hover {
   overflow-y: auto;
 }
 
+.login .register-wrapper .vehiculos-wrapper .vehiculos #no-vehicle,
+.register .register-wrapper .vehiculos-wrapper .vehiculos #no-vehicle {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.login .register-wrapper .vehiculos-wrapper .vehiculos #no-vehicle p,
+.register .register-wrapper .vehiculos-wrapper .vehiculos #no-vehicle p {
+  color: #3844bc;
+}
+
 .login .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo,
 .register .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo {
   background-color: #3844bc;
