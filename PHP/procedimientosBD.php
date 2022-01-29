@@ -50,5 +50,19 @@ class procedimientosBD
         $stmt->execute();
         $stmt->close();
     }
+
+    public function empresas(){
+        $conn = $this->conexion();
+        $query = "CALL register_usuario()";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($idUsuario);
+            while ($stmt->fetch()) {
+               return $idUsuario;
+            }
+         }
+        $stmt->close();
+    }
 }
 ?>
