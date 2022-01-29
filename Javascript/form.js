@@ -3,7 +3,7 @@ $(document).ready(function () {
     $('.vehiculos-wrapper').hide();
     steps(1);
 
-    $("#pax-register").on('click', function() {
+    $("#finalizar-registro").on('click', function() {
         register_form($('#select_users').val())
     });
 });
@@ -160,12 +160,16 @@ function select_user(user){
 
 /*-------------------------------------------------------------------------------------------*/
 
-function register_form(user){
-    let datos;
+let datos_Usuario;
+let datos_Empresa;
+let datos_Vehiculo;
+let vehiculos;
 
-       switch(user){
+function register_form(opcion){
+
+       switch(opcion){
         case "1":
-            datos = {
+            datos_Usuario = {
                 "CI": document.getElementById('CI').value,
                 "CORREO": document.getElementById('correo').value,
                 "NOMBRE": document.getElementById('nombre').value,
@@ -187,12 +191,43 @@ function register_form(user){
         });
             break;
         case "2":
-;
+            datos_Usuario = {
+                "CI": document.getElementById('CI').value,
+                "CORREO": document.getElementById('correo').value,
+                "NOMBRE": document.getElementById('nombre').value,
+                "APELLIDO": document.getElementById('apellido').value,
+                "DIRECCION": document.getElementById('direccion').value,
+                "BARRIO": document.getElementById('barrio').value,
+                "DEPARTAMENTO": document.getElementById('departamento').value,
+                "TELEFONO": document.getElementById('telefono').value,
+                "PIN": document.getElementById('password').value,
+                "RE-PIN": document.getElementById('re-password').value
+            };
+            datos_Empresa = {
+                "RUT": document.getElementById('CI').value,
+                "NOMBRE_COMERCIAL": document.getElementById('correo').value,
+                "RAZON_SOCIAL": document.getElementById('nombre').value,
+                "NUMERO_MTOP": document.getElementById('apellido').value,
+                "PASSWORD_MTOP": document.getElementById('direccion').value,
+                "VEHICULOS": vehiculos
+            };
+            $.ajax({
+                type: "POST",
+                url: "../PHP/procedimientosForm.php",
+                data: { tipo:user, datos:JSON.stringify(datos) },
+                success: function (response) {
+                    console.log(response)
+                },
+            });
             break;
         case "3":
-            break; 
 
+            break; 
     }
+}
+
+function agregar_vehiculo(){
+
 }
 
 function new_company(){
