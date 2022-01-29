@@ -24,14 +24,13 @@ function navbar(){
     panel.classList.toggle('active');
 }
 
-function buscarPropiedades() {
+function buscarUsuarios() {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("searchbar");
     filter = input.value.toUpperCase();
 
     table = document.getElementById("search-table");
     tr = table.getElementsByTagName("tr");
-
     
 
     for (i = 0; i < tr.length; i++) {

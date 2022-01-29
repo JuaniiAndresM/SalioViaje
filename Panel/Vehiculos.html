@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <title>SalióViaje - Usuarios</title>
+    <title>SalióViaje - Vehículos</title>
 
     <!-- // Meta Etiquetas -->
 
@@ -85,7 +85,7 @@
           <button onclick="navbar()"><i class="fas fa-bars"></i></button>
         </div>
         <div class="header-title">
-          <h2>Usuarios</h2>
+          <h2>Vehículos</h2>
         </div>
       </div>
       <div class="header-right">
@@ -106,7 +106,7 @@
       <div class="section-usuarios">
         <div class="usuarios-recientes">
           <div class="usuarios-info">
-            <h2><i class="fas fa-user-friends"></i> Usuarios</h2>
+            <h2><i class="fas fa-bus"></i> Vehículos</h2>
           </div>
           <div class="filters">
             <div class="search">
@@ -118,61 +118,36 @@
                 onkeyup="buscarUsuarios()"
               />
             </div>
-
-            <div class="checkboxs">
-              <div class="checkbox">
-                <input type="checkbox" name="" id="" checked />
-                <p>PAX</p>
-              </div>
-              <div class="checkbox">
-                <input type="checkbox" name="" id="" checked />
-                <p>TTA</p>
-              </div>
-              <div class="checkbox">
-                <input type="checkbox" name="" id="" checked />
-                <p>CHO</p>
-              </div>
-              <div class="checkbox">
-                <input type="checkbox" name="" id="" checked />
-                <p>ANF</p>
-              </div>
-              <div class="checkbox">
-                <input type="checkbox" name="" id="" checked />
-                <p>HTL</p>
-              </div>
-            </div>
           </div>
           <div class="table-overflow">
             <table class="usuarios-table" id="search-table">
               <thead>
                 <tr>
                   <th>ID <i class="fas fa-angle-down"></i></th>
-                  <th>Tipo <i class="fas fa-angle-down"></i></th>
-                  <th>CI <i class="fas fa-angle-down"></i></th>
-                  <th>Email <i class="fas fa-angle-down"></i></th>
-                  <th>Nombre <i class="fas fa-angle-down"></i></th>
-                  <th>Apellido <i class="fas fa-angle-down"></i></th>
-                  <th>Dirección <i class="fas fa-angle-down"></i></th>
-                  <th>Barrio <i class="fas fa-angle-down"></i></th>
-                  <th>Departamento <i class="fas fa-angle-down"></i></th>
-                  <th>Teléfono <i class="fas fa-angle-down"></i></th>
-                  <th>Agencia <i class="fas fa-angle-down"></i></th>
+                  <th>Matrícula <i class="fas fa-angle-down"></i></th>
+                  <th>Marca <i class="fas fa-angle-down"></i></th>
+                  <th>Modelo <i class="fas fa-angle-down"></i></th>
+                  <th>Combustible <i class="fas fa-angle-down"></i></th>
+                  <th>Capacidad <i class="fas fa-angle-down"></i></th>
+                  <th>Equipaje <i class="fas fa-angle-down"></i></th>
+                  <th>RUT EM <i class="fas fa-angle-down"></i></th>
+                  <th>RUT E <i class="fas fa-angle-down"></i></th>
+                  <th>Pet Friendly <i class="fas fa-angle-down"></i></th>
                   <th></th>
                 </tr>
               </thead>
 
               <tr>
                 <td data-title="ID:">1</td>
-                <td data-title="Tipo:">PAX</td>
-                <td data-title="CI:">12345678</td>
-                <td data-title="Email:">thewolfmodzyt@gmail.com</td>
-                <td data-title="Nombre:">Juan Andrés</td>
-                <td data-title="Apellido:">Morena</td>
-                <td data-title="Dirección:">Alguna</td>
-                <td data-title="Barrio:">El Pinar</td>
-                <td data-title="Departamento:">Canelones</td>
-                <td data-title="Teléfono:">098234717</td>
-                <td data-title="Agencia:">No Aplica</td>
+                <td data-title="Matrícula:">STU4763</td>
+                <td data-title="Marca:">Hyundai</td>
+                <td data-title="Moelo:">I10 2001</td>
+                <td data-title="Combustible:">Diesel</td>
+                <td data-title="Capacidad:">45</td>
+                <td data-title="Equipaje:">300 Kg</td>
+                <td data-title="RUT EM:">123456123456</td>
+                <td data-title="RUT E:">123456123456</td>
+                <td data-title="Pet Friendly:">Si</td>
                 <td>
                   <button>Ver</button>
                 </td>
@@ -180,16 +155,15 @@
 
               <tr>
                 <td data-title="ID:">1</td>
-                <td data-title="Tipo:">PAX</td>
-                <td data-title="CI:">12345678</td>
-                <td data-title="Email:">thewolfmodzyt@gmail.com</td>
-                <td data-title="Nombre:">Juan Andrés</td>
-                <td data-title="Apellido:">Morena</td>
-                <td data-title="Dirección:">Alguna</td>
-                <td data-title="Barrio:">El Pinar</td>
-                <td data-title="Departamento:">Canelones</td>
-                <td data-title="Teléfono:">098234717</td>
-                <td data-title="Agencia:">No Aplica</td>
+                <td data-title="Matrícula:">STU4763</td>
+                <td data-title="Marca:">Hyundai</td>
+                <td data-title="Moelo:">I10 2001</td>
+                <td data-title="Combustible:">Diesel</td>
+                <td data-title="Capacidad:">45</td>
+                <td data-title="Equipaje:">300 Kg</td>
+                <td data-title="RUT EM:">123456123456</td>
+                <td data-title="RUT E:">123456123456</td>
+                <td data-title="Pet Friendly:">Si</td>
                 <td>
                   <button>Ver</button>
                 </td>
@@ -197,16 +171,15 @@
 
               <tr>
                 <td data-title="ID:">1</td>
-                <td data-title="Tipo:">PAX</td>
-                <td data-title="CI:">12345678</td>
-                <td data-title="Email:">thewolfmodzyt@gmail.com</td>
-                <td data-title="Nombre:">Juan Andrés</td>
-                <td data-title="Apellido:">Morena</td>
-                <td data-title="Dirección:">Alguna</td>
-                <td data-title="Barrio:">El Pinar</td>
-                <td data-title="Departamento:">Canelones</td>
-                <td data-title="Teléfono:">098234717</td>
-                <td data-title="Agencia:">No Aplica</td>
+                <td data-title="Matrícula:">STU4763</td>
+                <td data-title="Marca:">Hyundai</td>
+                <td data-title="Moelo:">I10 2001</td>
+                <td data-title="Combustible:">Diesel</td>
+                <td data-title="Capacidad:">45</td>
+                <td data-title="Equipaje:">300 Kg</td>
+                <td data-title="RUT EM:">123456123456</td>
+                <td data-title="RUT E:">123456123456</td>
+                <td data-title="Pet Friendly:">Si</td>
                 <td>
                   <button>Ver</button>
                 </td>
@@ -214,20 +187,36 @@
 
               <tr>
                 <td data-title="ID:">1</td>
-                <td data-title="Tipo:">PAX</td>
-                <td data-title="CI:">12345678</td>
-                <td data-title="Email:">thewolfmodzyt@gmail.com</td>
-                <td data-title="Nombre:">Juan Andrés</td>
-                <td data-title="Apellido:">Morena</td>
-                <td data-title="Dirección:">Alguna</td>
-                <td data-title="Barrio:">El Pinar</td>
-                <td data-title="Departamento:">Canelones</td>
-                <td data-title="Teléfono:">098234717</td>
-                <td data-title="Agencia:">No Aplica</td>
+                <td data-title="Matrícula:">STU4763</td>
+                <td data-title="Marca:">Hyundai</td>
+                <td data-title="Moelo:">I10 2001</td>
+                <td data-title="Combustible:">Diesel</td>
+                <td data-title="Capacidad:">45</td>
+                <td data-title="Equipaje:">300 Kg</td>
+                <td data-title="RUT EM:">123456123456</td>
+                <td data-title="RUT E:">123456123456</td>
+                <td data-title="Pet Friendly:">Si</td>
                 <td>
                   <button>Ver</button>
                 </td>
               </tr>
+
+              <tr>
+                <td data-title="ID:">1</td>
+                <td data-title="Matrícula:">STU4763</td>
+                <td data-title="Marca:">Hyundai</td>
+                <td data-title="Moelo:">I10 2001</td>
+                <td data-title="Combustible:">Diesel</td>
+                <td data-title="Capacidad:">45</td>
+                <td data-title="Equipaje:">300 Kg</td>
+                <td data-title="RUT EM:">123456123456</td>
+                <td data-title="RUT E:">123456123456</td>
+                <td data-title="Pet Friendly:">Si</td>
+                <td>
+                  <button>Ver</button>
+                </td>
+              </tr>
+
             </table>
           </div>
         </div>
