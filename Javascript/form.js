@@ -12,9 +12,33 @@ $(document).ready(function () {
     $("#finalizar_empresa").on('click', function() {
         crear_empresa();
     });
+
+    
+
+    let inputs = document.querySelectorAll("input");
+        inputs.forEach(box => {
+        box.addEventListener('keyup', function(event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+
+                switch(step){
+                    case 2:
+                        document.getElementById("step-next").click();
+                        break;
+
+                    case 3:
+                        document.getElementById("add-vehicle").click();
+                        break;
+                }
+                
+            }
+        });
+    });
 });
 
 var step = 1;
+
+
 
 function volver(){
     step--;
