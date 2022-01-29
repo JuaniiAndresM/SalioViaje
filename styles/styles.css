@@ -2264,6 +2264,1371 @@ footer .totum p a:hover {
   margin-right: 5px;
 }
 
+.panel-header {
+  width: calc(100% - 80px);
+  height: 80px;
+  margin-left: 80px;
+  position: relative;
+  z-index: 10;
+  background-color: white;
+  -webkit-box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.2);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.panel-header .header-left {
+  margin-left: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.panel-header .header-left button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+}
+
+.panel-header .header-left button i {
+  font-size: 2em;
+  color: #2b3179;
+}
+
+.panel-header .header-left h2 {
+  margin: 0 20px;
+  color: #2b3179;
+}
+
+.panel-header .header-right .header-user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 20px;
+}
+
+.panel-header .header-right .header-user .icon {
+  width: 50px;
+  height: 50px;
+  background-color: #2b3179;
+  border-radius: 50%;
+  margin-right: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.panel-header .header-right .header-user .icon img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.panel-header .header-right .header-user .icon i {
+  color: white;
+  font-size: 1.5em;
+}
+
+.panel-header .header-right .header-user .user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.panel-header .header-right .header-user .user h2 {
+  font-size: 1.3em;
+  margin: 0;
+  line-height: 20px;
+  color: #2b3179;
+  width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.panel-header .header-right .header-user .user p {
+  margin: 0;
+  color: #888;
+}
+
+.panel-header .header-right .header-user button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  margin-left: 30px;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.panel-header .header-right .header-user button i {
+  font-size: 2em;
+  color: #2b3179;
+}
+
+.panel-header .header-right .header-user button:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.panel-header.active {
+  width: calc(100vw - 300px);
+  margin-left: 300px;
+}
+
+#panel-navbar {
+  position: fixed;
+  margin-top: -80px;
+  width: 300px;
+  height: 100%;
+  background-color: #3844bc;
+  border-left: 10px solid #3844bc;
+  overflow: hidden;
+  -webkit-animation: none !important;
+          animation: none !important;
+  opacity: 1;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  z-index: 20;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+#panel-navbar .navbar-responsive-button {
+  display: none;
+  position: absolute;
+  top: 25px;
+  right: 20px;
+  background-color: transparent;
+  border: none;
+  z-index: 20;
+}
+
+#panel-navbar .navbar-responsive-button i {
+  color: white;
+  font-size: 2em;
+}
+
+#panel-navbar ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+#panel-navbar ul li {
+  position: relative;
+  width: 100%;
+  list-style: none;
+  border-radius: 30px 0 0 30px;
+}
+
+#panel-navbar ul li a {
+  position: relative;
+  display: block;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-decoration: none;
+  color: white;
+}
+
+#panel-navbar ul li a .icon {
+  position: relative;
+  display: block;
+  min-width: 60px;
+  height: 60px;
+  line-height: 65px;
+  text-align: center;
+}
+
+#panel-navbar ul li a .icon img {
+  width: 40px;
+  margin-top: 10px;
+}
+
+#panel-navbar ul li a .icon i {
+  font-size: 1.5em;
+}
+
+#panel-navbar ul li a .title {
+  position: relative;
+  display: block;
+  padding: 0 10px;
+  height: 60px;
+  line-height: 60px;
+  text-align: start;
+  white-space: nowrap;
+}
+
+#panel-navbar ul li:hover,
+#panel-navbar ul li.hovered {
+  background-color: white;
+}
+
+#panel-navbar ul li:hover a,
+#panel-navbar ul li.hovered a {
+  color: #3844bc;
+}
+
+#panel-navbar ul li:hover a::before,
+#panel-navbar ul li.hovered a::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -50px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  -webkit-box-shadow: 35px 35px 0 10px #fff;
+          box-shadow: 35px 35px 0 10px #fff;
+  pointer-events: none;
+}
+
+#panel-navbar ul li:hover a::after,
+#panel-navbar ul li.hovered a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -50px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  -webkit-box-shadow: 35px -35px 0 10px #fff;
+          box-shadow: 35px -35px 0 10px #fff;
+  pointer-events: none;
+}
+
+#panel-navbar ul li:nth-child(1) {
+  margin-bottom: 40px;
+  margin-top: 10px;
+  pointer-events: none;
+}
+
+#panel-navbar.active {
+  width: 80px;
+}
+
+.panel {
+  width: calc(100vw - 80px);
+  min-height: calc(100vh - 80px);
+  margin-left: 80px;
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.panel .panel-cards {
+  width: calc(100% - 40px);
+  margin: 20px 0;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+.panel .panel-cards .card {
+  width: 100%;
+  height: 150px;
+  background-color: white;
+  padding: 20px 40px;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.2);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.panel .panel-cards .card .number {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 auto;
+}
+
+.panel .panel-cards .card .number h2 {
+  font-size: 2em;
+  color: #2b3179;
+}
+
+.panel .panel-cards .card .number i {
+  font-size: 2em;
+  color: #3844bc;
+}
+
+.panel .panel-cards .card p {
+  color: #666;
+}
+
+.panel .panel-cards .card:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.panel .panel-cards .card:nth-child(1) {
+  background-color: #3844bc;
+}
+
+.panel .panel-cards .card:nth-child(1) .number h2 {
+  color: white;
+}
+
+.panel .panel-cards .card:nth-child(1) .number i {
+  color: white;
+}
+
+.panel .panel-cards .card:nth-child(1) p {
+  color: white;
+}
+
+.panel .panel-tables {
+  width: calc(100% - 40px);
+  margin: 20px 0;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 60% 1fr;
+      grid-template-columns: 60% 1fr;
+  gap: 40px;
+}
+
+.panel .panel-tables .usuarios-recientes,
+.panel .panel-tables .usuarios-propietarios {
+  background-color: white;
+  -webkit-box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.panel .panel-tables .usuarios-recientes .usuarios-info,
+.panel .panel-tables .usuarios-propietarios .usuarios-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.panel .panel-tables .usuarios-recientes .usuarios-info h2,
+.panel .panel-tables .usuarios-propietarios .usuarios-info h2 {
+  font-size: 1.4em;
+  color: #2b3179;
+}
+
+.panel .panel-tables .usuarios-recientes .usuarios-info a,
+.panel .panel-tables .usuarios-propietarios .usuarios-info a {
+  width: 150px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  background-color: #3844bc;
+  padding: 10px;
+  margin-left: 20px;
+  color: white;
+  text-decoration: none;
+  border-radius: 3em 0 3em 3em;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.panel .panel-tables .usuarios-recientes .usuarios-info a:hover,
+.panel .panel-tables .usuarios-propietarios .usuarios-info a:hover {
+  background-color: #2b3179;
+}
+
+.panel .panel-tables .usuarios-recientes .search,
+.panel .panel-tables .usuarios-propietarios .search {
+  margin-top: 20px;
+  position: relative;
+}
+
+.panel .panel-tables .usuarios-recientes .search i,
+.panel .panel-tables .usuarios-propietarios .search i {
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  color: #2b3179;
+}
+
+.panel .panel-tables .usuarios-recientes .search input,
+.panel .panel-tables .usuarios-propietarios .search input {
+  max-width: 200px;
+  width: 100%;
+  height: 30px;
+  border: none;
+  outline: none;
+  padding: 10px;
+  padding-left: 30px;
+  color: #2b3179;
+  border-radius: 10px;
+}
+
+.panel .panel-tables .usuarios-recientes .search input:focus,
+.panel .panel-tables .usuarios-propietarios .search input:focus {
+  outline: 1px solid rgba(43, 49, 121, 0.3);
+}
+
+.panel .panel-tables .usuarios-recientes .usuarios-table,
+.panel .panel-tables .usuarios-propietarios .usuarios-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.9em;
+  margin-top: 10px;
+}
+
+.panel .panel-tables .usuarios-recientes .usuarios-table tr th,
+.panel .panel-tables .usuarios-propietarios .usuarios-table tr th {
+  text-align: left;
+  color: #2b3179;
+  height: 30px;
+  border-bottom: 1px solid rgba(43, 49, 121, 0.3);
+  padding: 5px;
+}
+
+.panel .panel-tables .usuarios-recientes .usuarios-table tr td,
+.panel .panel-tables .usuarios-propietarios .usuarios-table tr td {
+  padding: 5px;
+  color: #2b3179;
+}
+
+.panel .panel-tables .usuarios-recientes .usuarios-table tr td .estado,
+.panel .panel-tables .usuarios-propietarios .usuarios-table tr td .estado {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.panel .panel-tables .usuarios-recientes .usuarios-table tr td .estado i,
+.panel .panel-tables .usuarios-propietarios .usuarios-table tr td .estado i {
+  font-size: 8px;
+  margin-right: 10px;
+}
+
+.panel .panel-tables .usuarios-recientes .usuarios-table tr td button,
+.panel .panel-tables .usuarios-propietarios .usuarios-table tr td button {
+  background-color: #3844bc;
+  width: 60px;
+  height: 30px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 2em 2em 2em 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.panel .panel-tables .usuarios-recientes .usuarios-table tr td button:hover,
+.panel .panel-tables .usuarios-propietarios .usuarios-table tr td button:hover {
+  background-color: #2b3179;
+}
+
+.panel .panel-tables .usuarios-recientes .usuarios-table tr:hover,
+.panel .panel-tables .usuarios-propietarios .usuarios-table tr:hover {
+  background-color: #eee;
+}
+
+.panel .panel-tables .usuarios-propietarios .propietarios {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.panel .panel-tables .usuarios-propietarios .propietarios .propietario {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5px;
+  border-radius: 30px;
+  margin: 5px 0;
+}
+
+.panel .panel-tables .usuarios-propietarios .propietarios .propietario .propietario-left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.panel .panel-tables .usuarios-propietarios .propietarios .propietario .propietario-left .propietario-icon {
+  width: 40px;
+  height: 40px;
+  background-color: #2b3179;
+  color: white;
+  border-radius: 50%;
+  margin-right: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.panel .panel-tables .usuarios-propietarios .propietarios .propietario .propietario-left .propietario-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.panel .panel-tables .usuarios-propietarios .propietarios .propietario .propietario-left .propietario-info h3 {
+  color: #2b3179;
+  line-height: 15px;
+}
+
+.panel .panel-tables .usuarios-propietarios .propietarios .propietario .propietario-left .propietario-info p {
+  color: #444;
+  margin: 0;
+}
+
+.panel .panel-tables .usuarios-propietarios .propietarios .propietario .propietario-button button {
+  background-color: #3844bc;
+  border: none;
+  width: 60px;
+  height: 30px;
+  cursor: pointer;
+  color: white;
+  border-radius: 2em 2em 2em 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.panel .panel-tables .usuarios-propietarios .propietarios .propietario .propietario-button button:hover {
+  background-color: #2b3179;
+}
+
+.panel .panel-tables .usuarios-propietarios .propietarios .propietario:hover {
+  background-color: #eee;
+}
+
+.panel .panel-settings-header {
+  width: 100%;
+  padding: 20px;
+  margin: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.panel .panel-settings-header .settings-icon {
+  margin-right: 10px;
+}
+
+.panel .panel-settings-header .settings-icon i {
+  color: #3844bc;
+  font-size: 3em;
+}
+
+.panel .panel-settings-header .settings-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.panel .panel-settings-header .settings-info h2 {
+  color: #2b3179;
+  line-height: 20px;
+}
+
+.panel .panel-settings-header .settings-info p {
+  color: #444;
+}
+
+.panel .panel-settings {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  padding: 0 20px;
+  -ms-grid-columns: (minmax(200px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-auto-columns: auto;
+  gap: 20px;
+}
+
+.panel .panel-settings .settings-button {
+  height: 150px;
+  padding: 10px;
+  border-radius: 20px;
+  background-color: #3844bc;
+  border: none;
+  margin: 5px;
+  cursor: pointer;
+  color: white;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.panel .panel-settings .settings-button i {
+  font-size: 2em;
+}
+
+.panel .panel-settings .settings-button p {
+  margin-top: 10px;
+  font-size: 1.2em;
+  line-height: 20px;
+}
+
+.panel .panel-settings .settings-button:hover {
+  background-color: #2b3179;
+}
+
+.panel.active {
+  width: calc(100vw - 300px);
+  margin-left: 300px;
+}
+
+#settings-menu {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 30;
+  background-color: #3844bc;
+  -webkit-clip-path: circle(0% at 100% 0);
+          clip-path: circle(0% at 100% 0);
+  -webkit-transition: -webkit-clip-path 0.5s ease-in-out;
+  transition: -webkit-clip-path 0.5s ease-in-out;
+  transition: clip-path 0.5s ease-in-out;
+  transition: clip-path 0.5s ease-in-out, -webkit-clip-path 0.5s ease-in-out;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#settings-menu #close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: white;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+#settings-menu #close i {
+  font-size: 2.5em;
+}
+
+#settings-menu #close:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+#settings-menu #editar-info,
+#settings-menu #editar-contra,
+#settings-menu #editar-idioma,
+#settings-menu #administrar-usuarios {
+  max-width: 350px;
+  width: 100%;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#settings-menu #editar-info h2,
+#settings-menu #editar-contra h2,
+#settings-menu #editar-idioma h2,
+#settings-menu #administrar-usuarios h2 {
+  color: white;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+#settings-menu #editar-info label,
+#settings-menu #editar-contra label,
+#settings-menu #editar-idioma label,
+#settings-menu #administrar-usuarios label {
+  width: 100%;
+  color: white;
+  text-align: left;
+}
+
+#settings-menu #editar-info .input,
+#settings-menu #editar-contra .input,
+#settings-menu #editar-idioma .input,
+#settings-menu #administrar-usuarios .input {
+  position: relative;
+  width: 100%;
+}
+
+#settings-menu #editar-info .input i,
+#settings-menu #editar-contra .input i,
+#settings-menu #editar-idioma .input i,
+#settings-menu #administrar-usuarios .input i {
+  position: absolute;
+  top: 17px;
+  left: 5px;
+  color: #3844bc;
+}
+
+#settings-menu #editar-info .input input,
+#settings-menu #editar-info .input select,
+#settings-menu #editar-contra .input input,
+#settings-menu #editar-contra .input select,
+#settings-menu #editar-idioma .input input,
+#settings-menu #editar-idioma .input select,
+#settings-menu #administrar-usuarios .input input,
+#settings-menu #administrar-usuarios .input select {
+  width: 100%;
+  height: 40px;
+  margin: 5px 0;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 10px;
+  padding-left: 30px;
+  color: #3844bc;
+  background-color: #fff;
+}
+
+#settings-menu #editar-info button,
+#settings-menu #editar-contra button,
+#settings-menu #editar-idioma button,
+#settings-menu #administrar-usuarios button {
+  background-color: #2b3179;
+  width: 100%;
+  height: 40px;
+  margin: 5px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 10px;
+  color: #fff;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+#settings-menu #editar-info button:hover,
+#settings-menu #editar-contra button:hover,
+#settings-menu #editar-idioma button:hover,
+#settings-menu #administrar-usuarios button:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+#settings-menu #editar-contra .input input {
+  padding-left: 10px;
+  padding-right: 30px;
+}
+
+#settings-menu #editar-contra .input #passeye1,
+#settings-menu #editar-contra .input #passeye2,
+#settings-menu #editar-contra .input #passeye3 {
+  position: absolute;
+  top: 11px;
+  right: 10px;
+  width: auto;
+  height: auto;
+  background-color: transparent;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#settings-menu #editar-contra .input #passeye1 i,
+#settings-menu #editar-contra .input #passeye2 i,
+#settings-menu #editar-contra .input #passeye3 i {
+  top: auto;
+  left: auto;
+}
+
+#settings-menu #administrar-usuarios {
+  max-width: none;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#settings-menu #administrar-usuarios .administrar-usuarios-grid {
+  max-width: 900px;
+  width: calc(100% - 40px);
+  margin: 0 auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+}
+
+#settings-menu #administrar-usuarios .administrar-usuarios-grid .users-list {
+  max-width: 400px;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 2em;
+  overflow-y: auto;
+}
+
+#settings-menu #administrar-usuarios .administrar-usuarios-grid .users-list .usuario {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+  margin: 10px;
+}
+
+#settings-menu #administrar-usuarios .administrar-usuarios-grid .users-list .usuario .user-left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#settings-menu #administrar-usuarios .administrar-usuarios-grid .users-list .usuario .user-left .user-img {
+  background-color: #3844bc;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 10px;
+}
+
+#settings-menu #administrar-usuarios .administrar-usuarios-grid .users-list .usuario .user-left .user-img i {
+  color: white;
+}
+
+#settings-menu #administrar-usuarios .administrar-usuarios-grid .users-list .usuario .user-left .user-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#settings-menu #administrar-usuarios .administrar-usuarios-grid .users-list .usuario .user-left .user-info h3 {
+  color: #2b3179;
+  line-height: 14px;
+}
+
+#settings-menu #administrar-usuarios .administrar-usuarios-grid .users-list .usuario .user-left .user-info p {
+  color: #2b3179;
+}
+
+#settings-menu #administrar-usuarios .administrar-usuarios-grid .users-list .usuario .user-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#settings-menu #administrar-usuarios .administrar-usuarios-grid .users-list .usuario .user-buttons button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 0 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#settings-menu #administrar-usuarios .administrar-usuarios-grid .users-list .usuario .user-buttons button i {
+  color: white;
+}
+
+#settings-menu #administrar-usuarios .administrar-usuarios-grid .add-user {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+#settings-menu.active {
+  -webkit-clip-path: circle(150% at 100% 0);
+          clip-path: circle(150% at 100% 0);
+}
+
+.section-usuarios {
+  width: calc(100% - 40px);
+  margin: 20px auto;
+}
+
+.section-usuarios .usuarios-recientes {
+  background-color: white;
+  -webkit-box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.section-usuarios .usuarios-recientes .usuarios-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.section-usuarios .usuarios-recientes .usuarios-info h2 {
+  font-size: 1.4em;
+  color: #2b3179;
+}
+
+.section-usuarios .usuarios-recientes .usuarios-info a {
+  width: 150px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  background-color: #3844bc;
+  padding: 10px;
+  margin-left: 20px;
+  color: white;
+  text-decoration: none;
+  border-radius: 3em 0 3em 3em;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.section-usuarios .usuarios-recientes .usuarios-info a:hover {
+  background-color: #2b3179;
+}
+
+.section-usuarios .usuarios-recientes .search {
+  margin-top: 20px;
+  position: relative;
+}
+
+.section-usuarios .usuarios-recientes .search i {
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  color: #2b3179;
+}
+
+.section-usuarios .usuarios-recientes .search input {
+  max-width: 200px;
+  width: 100%;
+  height: 30px;
+  border: none;
+  outline: none;
+  padding: 10px;
+  padding-left: 30px;
+  color: #2b3179;
+  border-radius: 10px;
+}
+
+.section-usuarios .usuarios-recientes .search input:focus {
+  outline: 1px solid rgba(43, 49, 121, 0.3);
+}
+
+.section-usuarios .usuarios-recientes .usuarios-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.9em;
+  margin-top: 10px;
+}
+
+.section-usuarios .usuarios-recientes .usuarios-table tr th {
+  text-align: left;
+  color: #2b3179;
+  height: 30px;
+  border-bottom: 1px solid rgba(43, 49, 121, 0.3);
+  padding: 5px;
+}
+
+.section-usuarios .usuarios-recientes .usuarios-table tr td {
+  padding: 5px;
+  color: #2b3179;
+}
+
+.section-usuarios .usuarios-recientes .usuarios-table tr td .estado {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.section-usuarios .usuarios-recientes .usuarios-table tr td .estado i {
+  font-size: 8px;
+  margin-right: 10px;
+}
+
+.section-usuarios .usuarios-recientes .usuarios-table tr td button {
+  background-color: #3844bc;
+  width: 60px;
+  height: 30px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 2em 2em 2em 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.section-usuarios .usuarios-recientes .usuarios-table tr td button:hover {
+  background-color: #2b3179;
+}
+
+.section-usuarios .usuarios-recientes .usuarios-table tr:hover {
+  background-color: #eee;
+}
+
+@media screen and (max-width: 1100px) {
+  .panel .panel-cards {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+  .panel .panel-tables {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 830px) {
+  #panel-navbar.active {
+    left: -80px;
+  }
+  #panel-navbar {
+    left: 0;
+  }
+  .panel-header {
+    width: 100%;
+    margin-left: 0;
+  }
+  .panel-header.active .header-left .header-title {
+    display: none;
+  }
+  .panel {
+    width: 100%;
+    margin-left: 0;
+  }
+  .panel .panel-tables .usuarios-recientes {
+    overflow-x: auto;
+  }
+  .panel.active .panel-cards {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  #panel-navbar {
+    width: 100%;
+  }
+  #panel-navbar .navbar-responsive-button {
+    display: block;
+  }
+  #panel-navbar.active .navbar-responsive-button {
+    display: none;
+  }
+  .panel-header .header-left .header-title {
+    display: none;
+  }
+  .panel .panel-cards {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .panel-tables {
+    table-layout: fixed;
+  }
+  .panel-tables .usuarios-recientes {
+    padding: 20px 0 !important;
+  }
+  .panel-tables .usuarios-recientes .usuarios-info {
+    width: calc(100% - 20px);
+    margin: 0 auto;
+  }
+  .panel-tables .usuarios-recientes .search {
+    width: calc(100% - 20px);
+    margin: 0 auto;
+  }
+  .panel-tables .usuarios-recientes .search input {
+    width: 100%;
+    max-width: none !important;
+  }
+  .panel-tables .usuarios-recientes .usuarios-table {
+    width: calc(100% - 20px) !important;
+    margin: 0 auto;
+  }
+  .panel-tables .usuarios-recientes .usuarios-table tr {
+    margin-bottom: 8px;
+    border: none;
+    display: block;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.3);
+  }
+  .panel-tables .usuarios-recientes .usuarios-table thead {
+    display: none;
+  }
+  .panel-tables .usuarios-recientes .usuarios-table th {
+    border: none !important;
+    display: none;
+  }
+  .panel-tables .usuarios-recientes .usuarios-table td {
+    display: block;
+    border-bottom: 1px solid rgba(43, 49, 121, 0.2);
+    text-align: right;
+    margin: 10px;
+  }
+  .panel-tables .usuarios-recientes .usuarios-table td:last-child {
+    border-bottom: 0;
+  }
+  .panel-tables .usuarios-recientes .usuarios-table td:before {
+    content: attr(data-title);
+    font-weight: 600;
+    float: left;
+  }
+  .panel-tables .usuarios-recientes .usuarios-table th,
+  .panel-tables .usuarios-recientes .usuarios-table td {
+    font-size: 12px;
+  }
+  .panel-tables .usuarios-recientes .usuarios-table th .estado,
+  .panel-tables .usuarios-recientes .usuarios-table td .estado {
+    -webkit-box-pack: end !important;
+        -ms-flex-pack: end !important;
+            justify-content: flex-end !important;
+  }
+}
+
+@-webkit-keyframes left-fade {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes left-fade {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
