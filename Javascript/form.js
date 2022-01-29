@@ -3,8 +3,14 @@ $(document).ready(function () {
     $('.vehiculos-wrapper').hide();
     steps(1);
 
-    $("#finalizar-registro").on('click', function() {
+    $("#pax-register").on('click', function() {
         register_form($('#select_users').val())
+    });
+    $("#finalizar-registro-TTA").on('click', function() {
+        //register_form($('#select_users').val())
+    });
+    $("#finalizar_empresa").on('click', function() {
+        crear_empresa();
     });
 });
 
@@ -21,7 +27,6 @@ function next(){
 }
 
 function steps(step){
-    console.log(step);
 
     switch(step){
         case 1:         
@@ -153,81 +158,8 @@ function select_user(user){
 
         default:
             step--;
-            console.log(step);
             break;
     }
-}
-
-/*-------------------------------------------------------------------------------------------*/
-
-let datos_Usuario;
-let datos_Empresa;
-let datos_Vehiculo;
-let vehiculos;
-
-function register_form(opcion){
-
-       switch(opcion){
-        case "1":
-            datos_Usuario = {
-                "CI": document.getElementById('CI').value,
-                "CORREO": document.getElementById('correo').value,
-                "NOMBRE": document.getElementById('nombre').value,
-                "APELLIDO": document.getElementById('apellido').value,
-                "DIRECCION": document.getElementById('direccion').value,
-                "BARRIO": document.getElementById('barrio').value,
-                "DEPARTAMENTO": document.getElementById('departamento').value,
-                "TELEFONO": document.getElementById('telefono').value,
-                "PIN": document.getElementById('password').value,
-                "RE-PIN": document.getElementById('re-password').value
-            };
-          $.ajax({
-            type: "POST",
-            url: "../PHP/procedimientosForm.php",
-            data: { tipo:user, datos:JSON.stringify(datos) },
-            success: function (response) {
-                console.log(response)
-            },
-        });
-            break;
-        case "2":
-            datos_Usuario = {
-                "CI": document.getElementById('CI').value,
-                "CORREO": document.getElementById('correo').value,
-                "NOMBRE": document.getElementById('nombre').value,
-                "APELLIDO": document.getElementById('apellido').value,
-                "DIRECCION": document.getElementById('direccion').value,
-                "BARRIO": document.getElementById('barrio').value,
-                "DEPARTAMENTO": document.getElementById('departamento').value,
-                "TELEFONO": document.getElementById('telefono').value,
-                "PIN": document.getElementById('password').value,
-                "RE-PIN": document.getElementById('re-password').value
-            };
-            datos_Empresa = {
-                "RUT": document.getElementById('CI').value,
-                "NOMBRE_COMERCIAL": document.getElementById('correo').value,
-                "RAZON_SOCIAL": document.getElementById('nombre').value,
-                "NUMERO_MTOP": document.getElementById('apellido').value,
-                "PASSWORD_MTOP": document.getElementById('direccion').value,
-                "VEHICULOS": vehiculos
-            };
-            $.ajax({
-                type: "POST",
-                url: "../PHP/procedimientosForm.php",
-                data: { tipo:user, datos:JSON.stringify(datos) },
-                success: function (response) {
-                    console.log(response)
-                },
-            });
-            break;
-        case "3":
-
-            break; 
-    }
-}
-
-function agregar_vehiculo(){
-
 }
 
 function new_company(){
@@ -235,6 +167,18 @@ function new_company(){
     steps(3);
 
     $('#company_volver').hide();
+    $('#rutt').val('');
+    $('#nombre_comercial').val('');
+    $('#razon_social').val('');
+    $('#numero_mtop').val('');
+    $('#password_mtop').val('');
+    $('#matricula').val('');
+    $('#marca').val('');
+    $('#modelo').val('');
+    $('#combustible').val('');
+    $('#capacidad_pasajeros').val('');
+    $('#capacidad_equipaje').val('');
+    $('#pet_friendly').val('0');
 }
 
 function passwd(){
@@ -262,4 +206,102 @@ function passwd2(){
         $('#passeye2').attr('class','show');
     }
     
+} 
+
+/*-------------------------------------------------------------------------------------------*/
+
+let datos_Usuario;
+let datos_Empresa;
+let datos_Vehiculo;
+let empresas = new Array();
+let vehiculos = new Array();
+
+function register_form(opcion){
+
+       switch(opcion){
+        case "1":
+            datos_Usuario = {
+                "CI": document.getElementById('CI').value,
+                "CORREO": document.getElementById('correo').value,
+                "NOMBRE": document.getElementById('nombre').value,
+                "APELLIDO": document.getElementById('apellido').value,
+                "DIRECCION": document.getElementById('direccion').value,
+                "BARRIO": document.getElementById('barrio').value,
+                "DEPARTAMENTO": document.getElementById('departamento').value,
+                "TELEFONO": document.getElementById('telefono').value,
+                "PIN": document.getElementById('password').value,
+                "RE-PIN": document.getElementById('re-password').value
+            };
+            /*
+            $.ajax({
+                type: "POST",
+                url: "../PHP/procedimientosForm.php",
+                data: { tipo:opcion, datos:JSON.stringify(datos) },
+                success: function (response) {
+                    console.log(response)
+                },
+            });
+            */
+            break;
+        case "2":
+            datos_Usuario = {
+                "CI": document.getElementById('CI').value,
+                "CORREO": document.getElementById('correo').value,
+                "NOMBRE": document.getElementById('nombre').value,
+                "APELLIDO": document.getElementById('apellido').value,
+                "DIRECCION": document.getElementById('direccion').value,
+                "BARRIO": document.getElementById('barrio').value,
+                "DEPARTAMENTO": document.getElementById('departamento').value,
+                "TELEFONO": document.getElementById('telefono').value,
+                "PIN": document.getElementById('password').value,
+                "RE-PIN": document.getElementById('re-password').value
+            };
+            /*
+            $.ajax({
+                type: "POST",
+                url: "../PHP/procedimientosForm.php",
+                data: { tipo:user, datos:JSON.stringify(datos) },
+                success: function (response) {
+                    console.log(response)
+                },
+            });
+            */
+            break;
+        case "3":
+
+            break; 
+    }
+}
+
+function add_vehicle(){
+    datos_Vehiculo = {
+        "MATRICULA": document.getElementById('matricula').value,
+        "MARCA": document.getElementById('marca').value,
+        "MODELO": document.getElementById('modelo').value,
+        "COMBUSTIBLE": document.getElementById('combustible').value,
+        "CAPACIDAD_PASAJEROS": document.getElementById('capacidad_pasajeros').value,
+        "CAPACIDAD_EQUIPAJE": document.getElementById('capacidad_equipaje').value,
+        "PET_FRIENDLY": document.getElementById('pet_friendly').value
+    };
+
+    vehiculos.push(datos_Vehiculo)
+}
+
+function crear_empresa(){
+    datos_Empresa = {
+        "RUT": document.getElementById('rutt').value,
+        "NOMBRE_COMERCIAL": document.getElementById('nombre_comercial').value,
+        "RAZON_SOCIAL": document.getElementById('razon_social').value,
+        "NUMERO_MTOP": document.getElementById('numero_mtop').value,
+        "PASSWORD_MTOP": document.getElementById('password_mtop').value,
+        "VEHICULOS": vehiculos
+    };
+
+    empresas.push(datos_Empresa)
+    datos_Empresa = {};
+    vehiculos = [];
+}
+
+function mostrar_Empresas(){
+    console.log(empresas)
 }
