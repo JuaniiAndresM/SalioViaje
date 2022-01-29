@@ -1,5 +1,4 @@
 function settings(setting_name){
-    document.getElementById('settings-menu').classList.toggle('active');
 
     $('#editar-info').hide();
     $('#editar-contra').hide();

@@ -1,7 +1,6 @@
 $(document).ready(function () {
     let list = document.querySelectorAll('#panel-navbar li');
-    document.getElementById('pre-loader').classList.toggle('load');
-    
+
     function activateLink(){
         list.forEach((item) => 
         item.classList.remove('hovered'));
@@ -10,8 +9,6 @@ $(document).ready(function () {
 
     list.forEach((item) => 
     item.addEventListener('mouseover', activateLink));
-
-    document.getElementById('pre-loader').classList.toggle('load');
     $('#panel-navbar').load('/SalioViaje/web/panel-navbar.html');
 });
 
