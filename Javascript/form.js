@@ -158,6 +158,8 @@ function select_user(user){
     }
 }
 
+/*-------------------------------------------------------------------------------------------*/
+
 function register_form(user){
     let datos;
 
