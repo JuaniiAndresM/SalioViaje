@@ -130,12 +130,13 @@
 }
 
 .servicios .servicios-wrapper {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -164,8 +165,8 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-transition: .3s;
-  transition: .3s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .servicios .servicios-wrapper .card .card-top .card-icon i {
@@ -189,13 +190,15 @@
   font-size: 1.1em;
 }
 
-.servicios .servicios-wrapper .card .card-bottom .info_2, .servicios .servicios-wrapper .card .card-bottom .info_3 {
+.servicios .servicios-wrapper .card .card-bottom .info_2,
+.servicios .servicios-wrapper .card .card-bottom .info_3 {
   color: #ffffff;
-  font-size: .8em;
+  font-size: 0.8em;
   margin: 10px 0;
 }
 
-.servicios .servicios-wrapper .card .card-bottom .info_2 a, .servicios .servicios-wrapper .card .card-bottom .info_3 a {
+.servicios .servicios-wrapper .card .card-bottom .info_2 a,
+.servicios .servicios-wrapper .card .card-bottom .info_3 a {
   color: #aaa;
   text-decoration: none;
 }
@@ -259,11 +262,13 @@
   color: #2b3179;
 }
 
-.servicios .servicios-wrapper .card:hover .card-bottom .info_2, .servicios .servicios-wrapper .card:hover .card-bottom .info_3 {
+.servicios .servicios-wrapper .card:hover .card-bottom .info_2,
+.servicios .servicios-wrapper .card:hover .card-bottom .info_3 {
   color: #3844bc;
 }
 
-.servicios .servicios-wrapper .card:hover .card-bottom .info_2 a, .servicios .servicios-wrapper .card:hover .card-bottom .info_3 a {
+.servicios .servicios-wrapper .card:hover .card-bottom .info_2 a,
+.servicios .servicios-wrapper .card:hover .card-bottom .info_3 a {
   color: #aaa;
 }
 
@@ -376,6 +381,180 @@
           transform: scale(1.1);
 }
 
+.oportunidades {
+  margin: 90px auto;
+  margin-bottom: 150px;
+  padding: 0 20px;
+  max-width: 1300px;
+  width: 100%;
+  text-align: center;
+}
+
+.oportunidades h2 {
+  color: #333333;
+  font-size: 2.3em;
+}
+
+.oportunidades h2 span {
+  color: #3844bc;
+}
+
+.oportunidades hr {
+  width: 100px;
+  border: 1px solid #3844bc;
+  margin: 10px auto;
+}
+
+.oportunidades .oportunidades-wrapper {
+  max-width: 1300px;
+  width: 100%;
+  height: 300px;
+  padding: 20px;
+  margin-top: 30px;
+  border-radius: 3em 0 3em 3em;
+  background-color: #ffffff;
+  -webkit-box-shadow: 10px 0 20px 0 rgba(0, 0, 0, 0.3);
+          box-shadow: 10px 0 20px 0 rgba(0, 0, 0, 0.3);
+}
+
+.oportunidades .oportunidades-wrapper .search {
+  position: relative;
+  width: 200px;
+  height: 40px;
+}
+
+.oportunidades .oportunidades-wrapper .search input {
+  width: 100%;
+  height: 40px;
+  padding-left: 25px;
+  background-color: transparent;
+  border: none;
+  color: #666;
+}
+
+.oportunidades .oportunidades-wrapper .search input::-webkit-input-placeholder {
+  color: #aaa;
+}
+
+.oportunidades .oportunidades-wrapper .search input:-ms-input-placeholder {
+  color: #aaa;
+}
+
+.oportunidades .oportunidades-wrapper .search input::-ms-input-placeholder {
+  color: #aaa;
+}
+
+.oportunidades .oportunidades-wrapper .search input::placeholder {
+  color: #aaa;
+}
+
+.oportunidades .oportunidades-wrapper .search input:focus {
+  outline: 1px solid #aaa;
+  border-radius: 10px;
+}
+
+.oportunidades .oportunidades-wrapper .search i {
+  position: absolute;
+  top: 12px;
+  left: 5px;
+  color: #aaa;
+}
+
+.oportunidades .oportunidades-wrapper .list-empty {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: -25px;
+}
+
+.oportunidades .oportunidades-wrapper .list-empty p {
+  color: #3844bc;
+  margin: auto;
+}
+
+.oportunidades .oportunidades-wrapper .oportunidades-list {
+  width: 100%;
+  display: none;
+  margin-top: 10px;
+}
+
+.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad {
+  width: 100%;
+  min-height: 80px;
+  border-radius: 0 3em 3em 3em;
+  background-color: #ffffff;
+  -webkit-box-shadow: 10px 0 20px 0 rgba(0, 0, 0, 0.3);
+          box-shadow: 10px 0 20px 0 rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .collide-hide {
+  width: calc(100% - 40px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 auto;
+}
+
+.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .collide-hide .oportunidad-icon {
+  width: 80px;
+  height: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .collide-hide .oportunidad-icon i {
+  color: #3844bc;
+  font-size: 3em;
+}
+
+.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .collide-hide .travel, .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .collide-hide .time {
+  text-align: left;
+  margin: 0 10px;
+}
+
+.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .collide-hide .travel p, .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .collide-hide .time p {
+  margin: 5px 10px;
+  color: #2b3179;
+}
+
+.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .collide-hide .travel p i, .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .collide-hide .time p i {
+  color: #3844bc;
+  font-size: 1.1em;
+}
+
+.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .collide-hide .discount {
+  margin-left: 10px;
+}
+
+.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .collide-hide .discount h3 {
+  font-size: 2em;
+  color: #3844bc;
+}
+
 .separador_wrapper {
   width: 100%;
   overflow: hidden;
@@ -390,7 +569,8 @@
           align-items: center;
 }
 
-.separador_1, .separador_2 {
+.separador_1,
+.separador_2 {
   width: 50%;
   min-width: 300px;
   height: 40px;
@@ -400,7 +580,8 @@
   overflow: hidden;
 }
 
-.separador_1 .triangle, .separador_2 .triangle {
+.separador_1 .triangle,
+.separador_2 .triangle {
   top: 0;
   right: 0;
   position: absolute;
@@ -430,12 +611,15 @@
   }
   .landing .landing-wrapper-grid .landing-left .landing-info {
     width: 100%;
+    text-align: center;
   }
   .landing .landing-wrapper-grid .landing-left .landing-info h1 {
     font-size: 3.4em;
   }
   .landing .landing-wrapper-grid .landing-left .landing-info p {
     font-size: 1em;
+    margin: 20px auto;
+    max-width: 400px;
   }
   .landing .landing-wrapper-grid .landing-left .landing-info .button-landing {
     margin-top: 0;
@@ -460,6 +644,7 @@
   }
   .nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info {
     width: 100%;
+    margin-top: 20px;
   }
   .nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info h1 {
     font-size: 3.4em;

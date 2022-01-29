@@ -117,27 +117,28 @@ $contraste_2: #ffffff;
       color: $main_1;
     }
   }
-  hr{
+  hr {
     width: 100px;
     border: 1px solid $main_1;
     margin: 10px 0;
   }
 
-  .servicios-wrapper{
+  .servicios-wrapper {
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
 
     margin: 20px 0;
 
-    .card{
+    .card {
       max-width: 300px;
       width: 100%;
       height: 420px;
 
       background: linear-gradient(45deg, $main_1, $main_2);
-      box-shadow: 10px 0px 20px 0 rgba($color: #000000, $alpha: .3);
+      box-shadow: 10px 0px 20px 0 rgba($color: #000000, $alpha: 0.3);
       border-radius: 3em 3em 0 3em;
 
       margin: 10px;
@@ -147,101 +148,100 @@ $contraste_2: #ffffff;
       justify-content: space-between;
       flex-direction: column;
 
-      transition: .3s;
+      transition: 0.3s;
 
-      .card-top{
-        .card-icon{
-          i{
+      .card-top {
+        .card-icon {
+          i {
             color: $contraste_2;
             font-size: 3em;
             margin-bottom: 10px;
           }
         }
-        .card-info{
-          h3{
+        .card-info {
+          h3 {
             color: $contraste_2;
             font-size: 1.6em;
           }
-          hr{
+          hr {
             border: 1px solid $contraste_2;
           }
-          .info_1{
+          .info_1 {
             color: $contraste_2;
             margin: 20px 0;
             font-size: 1.1em;
           }
         }
       }
-      
-      .card-bottom{
 
-        .info_2, .info_3{
+      .card-bottom {
+        .info_2,
+        .info_3 {
           color: $contraste_2;
-          font-size: .8em;
+          font-size: 0.8em;
           margin: 10px 0;
 
-          a{
+          a {
             color: #aaa;
             text-decoration: none;
           }
         }
 
-        .button-whatsapp{
+        .button-whatsapp {
           width: 100%;
           display: flex;
           justify-content: flex-end;
           align-items: center;
 
-          .whatsapp{
+          .whatsapp {
             width: 50px;
             height: 50px;
             border-radius: 50%;
             background: $main_1;
-    
+
             padding: 10px;
-    
+
             display: flex;
             justify-content: center;
             align-items: center;
-    
-            img{
+
+            img {
               width: 100%;
               height: 100%;
               object-fit: cover;
             }
           }
         }
-        
       }
-      
     }
-    .card:hover{
+    .card:hover {
       background: $contraste_2;
       transform: scale(1.01);
 
-      .card-top{
-        .card-icon{
-          i{
+      .card-top {
+        .card-icon {
+          i {
             color: $main_1;
           }
         }
-        .card-info{
-          h3{
+        .card-info {
+          h3 {
             color: $main_1;
           }
-          hr{
+          hr {
             border: 1px solid $main_1;
           }
-          .info_1{
+          .info_1 {
             color: $main_2;
           }
         }
       }
-      .card-bottom{
-        .info_2, .info_3{
+      .card-bottom {
+        .info_2,
+        .info_3 {
           color: $main_1;
 
-          a{
+          a {
             color: #aaa;
           }
         }
@@ -250,7 +250,7 @@ $contraste_2: #ffffff;
   }
 }
 
-.nosotros{
+.nosotros {
   margin: 90px 0;
   margin-bottom: 100px;
   .nosotros-wrapper-grid {
@@ -296,12 +296,12 @@ $contraste_2: #ffffff;
         h2 {
           color: $contraste_1;
           font-size: 2.3em;
-      
+
           span {
             color: $main_1;
           }
         }
-        hr{
+        hr {
           width: 100px;
           border: 1px solid $main_1;
           margin: 10px 0;
@@ -325,7 +325,154 @@ $contraste_2: #ffffff;
   }
 }
 
-.separador_wrapper{
+.oportunidades {
+  margin: 90px auto;
+  margin-bottom: 150px;
+
+  padding: 0 20px;
+
+  max-width: 1300px;
+  width: 100%;
+
+  text-align: center;
+
+  h2 {
+    color: $contraste_1;
+    font-size: 2.3em;
+
+    span {
+      color: $main_1;
+    }
+  }
+  hr {
+    width: 100px;
+    border: 1px solid $main_1;
+    margin: 10px auto;
+  }
+
+  .oportunidades-wrapper{
+    max-width: 1300px;
+    width: 100%;
+    height: 300px;
+    padding: 20px;
+    margin-top: 30px;
+
+    border-radius: 3em 0 3em 3em;
+
+    background-color: $contraste_2;
+    box-shadow: 10px 0 20px 0 rgba($color: #000000, $alpha: .3);
+
+    .search{
+      position: relative;
+
+      width: 200px;
+      height: 40px;
+
+      input{
+        width: 100%;
+        height: 40px;
+        padding-left: 25px;
+        background-color: transparent;
+        border: none;
+        color: #666;
+      }
+      input::placeholder{
+        color: #aaa;
+      }
+      input:focus{
+        outline: 1px solid #aaa;
+        border-radius: 10px;
+      }
+
+      i{
+        position: absolute;
+        top: 12px;
+        left: 5px;
+
+        color: #aaa;
+      }
+    }
+
+    .list-empty{
+      width: 100%;
+      height: 100%;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: -25px;
+      p{
+        color: $main_1;
+        margin: auto;
+      }
+    }
+
+    .oportunidades-list{
+      width: 100%;
+      display: none;
+      margin-top: 10px;
+
+      .oportunidad{
+        width: 100%;
+        min-height: 80px;
+        border-radius: 0 3em 3em 3em;
+        background-color: $contraste_2;
+        box-shadow: 10px 0 20px 0 rgba($color: #000000, $alpha: .3);
+
+        cursor: pointer;
+
+        border: none;
+        outline: none;
+
+        .collide-hide{
+          width: calc(100% - 40px);
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+
+          margin: 0 auto;
+
+          .oportunidad-icon{
+            width: 80px;
+            height: 80px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            i{
+              color: $main_1;
+              font-size: 3em;
+            }
+          }
+          .travel, .time{
+            text-align: left;
+            margin: 0 10px;
+
+            p{
+              margin: 5px 10px;
+              color: $main_2;
+              i{
+                color: $main_1;
+                font-size: 1.1em;
+              }
+            }
+            
+          }
+          .discount{
+            margin-left: 10px;
+            h3{
+              font-size: 2em;
+              color: $main_1;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.separador_wrapper {
   width: 100%;
   overflow: hidden;
 
@@ -333,7 +480,8 @@ $contraste_2: #ffffff;
   justify-content: flex-end;
   align-items: center;
 }
-.separador_1, .separador_2{
+.separador_1,
+.separador_2 {
   width: 50%;
   min-width: 300px;
   height: 40px;
@@ -342,7 +490,7 @@ $contraste_2: #ffffff;
   position: relative;
   overflow: hidden;
 
-  .triangle{
+  .triangle {
     top: 0;
     right: 0;
     position: absolute;
@@ -354,16 +502,14 @@ $contraste_2: #ffffff;
     border-color: transparent $contraste_2 transparent transparent;
   }
 }
-.separador_2{
-  .triangle{
+.separador_2 {
+  .triangle {
     top: 0;
     left: 0;
     border-width: 0 40px 40px 0;
     transform: rotate(180deg);
   }
 }
-
-
 
 @media screen and(max-width: 950px) {
   .landing {
@@ -376,12 +522,15 @@ $contraste_2: #ffffff;
 
         .landing-info {
           width: 100%;
+          text-align: center;
 
           h1 {
             font-size: 3.4em;
           }
           p {
             font-size: 1em;
+            margin: 20px auto;
+            max-width: 400px;
           }
           .button-landing {
             margin-top: 0;
@@ -399,7 +548,7 @@ $contraste_2: #ffffff;
     }
   }
 
-  .nosotros{
+  .nosotros {
     .nosotros-wrapper-grid {
       grid-template-columns: 1fr;
 
@@ -410,13 +559,14 @@ $contraste_2: #ffffff;
           height: 300px;
         }
       }
-    
+
       .nosotros-right {
         width: calc(100% - 20px);
         margin: 0 auto;
 
         .nosotros-info {
           width: 100%;
+          margin-top: 20px;
 
           h1 {
             font-size: 3.4em;
