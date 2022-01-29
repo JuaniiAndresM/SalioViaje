@@ -2,6 +2,7 @@ $(document).ready(function () {
     $('.progress-bar').hide();
     $('.vehiculos-wrapper').hide();
     steps(1);
+    Empresas()
 
     $("#pax-register").on('click', function() {
         register_form($('#select_users').val())
@@ -351,7 +352,29 @@ function register_form(opcion){
             });
             break;
         case "3":
+            datos_Usuario = {
+                "RUT": document.getElementById('rut').value,
+                "CORREO": document.getElementById('correo').value,
+                "NOMBRE": document.getElementById('nombre').value,
+                "APELLIDO": document.getElementById('apellido').value,
+                "DIRECCION": document.getElementById('direccion').value,
+                "AGENCIA_CONTRATISTA": document.getElementById('empresas').value,
+                "BARRIO": document.getElementById('barrio').value,
+                "DEPARTAMENTO": document.getElementById('departamento').value,
+                "TELEFONO": document.getElementById('telefono').value,
+                "PIN": document.getElementById('password').value,
+                "RE-PIN": document.getElementById('re-password').value
+            };
 
+            $.ajax({
+                type: "POST",
+                url: "../PHP/procedimientosForm.php",
+                data: { tipo:opcion,idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas) },
+                success: function (response) {
+                    console.log(response)
+                },
+            });
+            break;
             break; 
     }
 }
@@ -398,6 +421,27 @@ function crear_empresa(){
     vehiculos = [];
 }
 
-function mostrar_Empresas(){
-    console.log(empresas)
+function Empresas(){
+    //
+    $.ajax({
+        type: "POST",
+        url: "../PHP/procedimientosForm.php",
+        data: {tipo: "empresas"},
+        success: function (response) {
+            console.log(response)
+           let empresas = JSON.parse(response);
+            var selectEmpresas = document.getElementById('empresas');
+            $("#empresas").empty().append($("<option></option>").attr({"value": 0,"selected": true, 'disabled': true}).text('Agencia Contratista'));
+            for (var i = 0; i < empresas.length; i++){
+
+            var opt = document.createElement('option');
+
+            opt.value = empresas[i]["RUT"];
+
+            opt.text = empresas[i]["NOMBRE_COMERCIAL"]+" "+empresas[i]["RAZON_SOCIAL"];
+ 
+            selectEmpresas.appendChild(opt);
+            }
+        }
+    });
 }

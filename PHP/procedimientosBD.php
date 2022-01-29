@@ -20,9 +20,9 @@ class procedimientosBD
 
     	echo "Tipo Usuario: ".$tipo."    Datos:  ".json_encode($datos);
     	$conn = $this->conexion();
-        $query = "CALL register_usuario(?,?,?,?,?,?,?,?,?,?)";
+        $query = "CALL register_usuario(?,?,?,?,?,?,?,?,?,?,?,?)";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("sissssssii", $tipo, $datos["CI"], $datos["CORREO"], $datos["NOMBRE"], $datos["APELLIDO"], $datos["DIRECCION"], $datos["BARRIO"], $datos["DEPARTAMENTO"], $datos["TELEFONO"], $datos["PIN"]);
+        $stmt->bind_param("sissssssiiss", $tipo, $datos["CI"], $datos["CORREO"], $datos["NOMBRE"], $datos["APELLIDO"], $datos["DIRECCION"], $datos["BARRIO"], $datos["DEPARTAMENTO"], $datos["TELEFONO"],$datos["PIN"],$datos['AGENCIA_CONTRATISTA'],$datos['RUT']);
        	if ($stmt->execute()) {
             $stmt->store_result();
             $stmt->bind_result($idUsuario);
@@ -50,19 +50,23 @@ class procedimientosBD
         $stmt->execute();
         $stmt->close();
     }
-
+//rut ec la del chofer
+    //rut es la de contratista
     public function empresas(){
+        $empresas = array();
         $conn = $this->conexion();
-        $query = "CALL register_usuario()";
+        $query = "CALL traigo_empresas()";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($idUsuario);
+            $stmt->bind_result($nombre_empresa,$razon_social,$rut);
             while ($stmt->fetch()) {
-               return $idUsuario;
+               $result = array('NOMBRE_COMERCIAL' => $nombre_empresa,'RAZON_SOCIAL' => $razon_social, 'RUT' => $rut);
+               $empresas[] = $result;
             }
          }
         $stmt->close();
+        return json_encode($empresas);
     }
 }
 ?>
