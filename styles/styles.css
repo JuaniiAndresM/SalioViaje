@@ -3967,6 +3967,14 @@ footer .totum p a:hover {
   background-color: #2b3179;
 }
 
+.section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td #supervisor {
+  color: #41B883;
+}
+
+.section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td #no-supervisor {
+  color: #d83030;
+}
+
 .section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr:hover {
   background-color: #eee;
 }
