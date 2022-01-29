@@ -1,6 +1,7 @@
 $(document).ready(function () {
     let list = document.querySelectorAll('#panel-navbar li');
-
+    document.getElementById('pre-loader').classList.toggle('load');
+    
     function activateLink(){
         list.forEach((item) => 
         item.classList.remove('hovered'));
