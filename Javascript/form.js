@@ -11,6 +11,7 @@ $(document).ready(function () {
     });
     $("#finalizar_empresa").on('click', function() {
         crear_empresa();
+        reset_vehicles();
     });
 
     
@@ -250,6 +251,21 @@ function new_company(){
     $('#pet_friendly').val('0');
 }
 
+function reset_vehicle_inputs(){
+    $('#matricula').val('');
+    $('#marca').val('');
+    $('#modelo').val('');
+    $('#combustible').val('');
+    $('#capacidad_pasajeros').val('');
+    $('#capacidad_equipaje').val('');
+    $('#pet_friendly').val('0');
+}
+
+function reset_vehicles(){
+    $('.vehiculos').html('<div id="no-vehicle"><p>No hay vehiculos agregados.</p></div>');
+    $('#no-vehicle').show();
+}
+
 function passwd(){
 
     if($('#passeye').hasClass('show')){
@@ -342,7 +358,7 @@ function register_form(opcion){
 
 function add_vehicle(){
     datos_Vehiculo = {
-        "MATRICULA": document.getElementById('matricula').value,
+        "MATRICULA": document.getElementById('matricula').value.toUpperCase(),
         "MARCA": document.getElementById('marca').value,
         "MODELO": document.getElementById('modelo').value,
         "COMBUSTIBLE": document.getElementById('combustible').value,
@@ -358,6 +374,8 @@ function add_vehicle(){
         data: {datos:JSON.stringify(datos_Vehiculo) },
         success: function (response) {
             $('.vehiculos').append(response);
+            $('#no-vehicle').hide();
+            reset_vehicle_inputs();
         },
     });
     /*
