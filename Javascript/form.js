@@ -1,5 +1,6 @@
 $(document).ready(function () {
     $('.progress-bar').hide();
+    $('.vehiculos-wrapper').hide();
     steps(1);
 
     $("#pax-register").on('click', function() {
@@ -29,6 +30,9 @@ function steps(step){
             $('#step_2').hide();
             $('#step_3').hide();
             $('#step_4').hide();
+            $('#step_5').hide();
+
+            $('.vehiculos-wrapper').hide();
             break;
 
         case 2:
@@ -46,7 +50,10 @@ function steps(step){
                 $('#step_2').show();
                 $('#step_3').hide();
                 $('#step_4').hide();
+                $('#step_5').hide();
             }
+
+            $('.vehiculos-wrapper').hide();
             break;
 
         case 3:
@@ -60,6 +67,9 @@ function steps(step){
             $('#step_2').hide();
             $('#step_3').show();
             $('#step_4').hide();
+            $('#step_5').hide();
+
+            $('.vehiculos-wrapper').hide();
             break;
 
         case 4:
@@ -73,6 +83,25 @@ function steps(step){
             $('#step_2').hide();
             $('#step_3').hide();
             $('#step_4').show();
+            $('#step_5').hide();
+
+            $('.vehiculos-wrapper').show();
+            break;
+
+        case 5:
+            $('.progress').css('width', '100%');
+
+            $('.circle1').css('background-color', '#2b3179');
+            $('.circle2').css('background-color', '#2b3179');
+            $('.circle3').css('background-color', '#2b3179');
+
+            $('#step_1').hide();
+            $('#step_2').hide();
+            $('#step_3').hide();
+            $('#step_4').hide();
+            $('#step_5').show();
+
+            $('.vehiculos-wrapper').hide();
             break;
     }
 }
@@ -162,4 +191,11 @@ function register_form(user){
             break; 
 
     }
+}
+
+function new_company(){
+    step = 3;
+    steps(3);
+
+    $('#company_volver').hide();
 }

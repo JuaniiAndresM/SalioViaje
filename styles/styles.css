@@ -705,8 +705,8 @@ footer .totum p a:hover {
   border-radius: 2em;
   background: -webkit-gradient(linear, left top, right top, from(#3844bc), to(#2b3179));
   background: linear-gradient(to right, #3844bc, #2b3179);
-  -webkit-transition: .8s;
-  transition: .8s;
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
 }
 
 .login .login-wrapper .progress-bar .circle1,
@@ -755,21 +755,25 @@ footer .totum p a:hover {
 .login .login-wrapper #step_2,
 .login .login-wrapper #step_3,
 .login .login-wrapper #step_4,
+.login .login-wrapper #step_5,
 .login .register-wrapper #login,
 .login .register-wrapper #step_1,
 .login .register-wrapper #step_2,
 .login .register-wrapper #step_3,
 .login .register-wrapper #step_4,
+.login .register-wrapper #step_5,
 .register .login-wrapper #login,
 .register .login-wrapper #step_1,
 .register .login-wrapper #step_2,
 .register .login-wrapper #step_3,
 .register .login-wrapper #step_4,
+.register .login-wrapper #step_5,
 .register .register-wrapper #login,
 .register .register-wrapper #step_1,
 .register .register-wrapper #step_2,
 .register .register-wrapper #step_3,
-.register .register-wrapper #step_4 {
+.register .register-wrapper #step_4,
+.register .register-wrapper #step_5 {
   width: 100%;
   text-align: center;
 }
@@ -784,6 +788,8 @@ footer .totum p a:hover {
 .login .login-wrapper #step_3 .inputs-wrapper-register,
 .login .login-wrapper #step_4 .inputs-wrapper,
 .login .login-wrapper #step_4 .inputs-wrapper-register,
+.login .login-wrapper #step_5 .inputs-wrapper,
+.login .login-wrapper #step_5 .inputs-wrapper-register,
 .login .register-wrapper #login .inputs-wrapper,
 .login .register-wrapper #login .inputs-wrapper-register,
 .login .register-wrapper #step_1 .inputs-wrapper,
@@ -794,6 +800,8 @@ footer .totum p a:hover {
 .login .register-wrapper #step_3 .inputs-wrapper-register,
 .login .register-wrapper #step_4 .inputs-wrapper,
 .login .register-wrapper #step_4 .inputs-wrapper-register,
+.login .register-wrapper #step_5 .inputs-wrapper,
+.login .register-wrapper #step_5 .inputs-wrapper-register,
 .register .login-wrapper #login .inputs-wrapper,
 .register .login-wrapper #login .inputs-wrapper-register,
 .register .login-wrapper #step_1 .inputs-wrapper,
@@ -804,6 +812,8 @@ footer .totum p a:hover {
 .register .login-wrapper #step_3 .inputs-wrapper-register,
 .register .login-wrapper #step_4 .inputs-wrapper,
 .register .login-wrapper #step_4 .inputs-wrapper-register,
+.register .login-wrapper #step_5 .inputs-wrapper,
+.register .login-wrapper #step_5 .inputs-wrapper-register,
 .register .register-wrapper #login .inputs-wrapper,
 .register .register-wrapper #login .inputs-wrapper-register,
 .register .register-wrapper #step_1 .inputs-wrapper,
@@ -813,7 +823,9 @@ footer .totum p a:hover {
 .register .register-wrapper #step_3 .inputs-wrapper,
 .register .register-wrapper #step_3 .inputs-wrapper-register,
 .register .register-wrapper #step_4 .inputs-wrapper,
-.register .register-wrapper #step_4 .inputs-wrapper-register {
+.register .register-wrapper #step_4 .inputs-wrapper-register,
+.register .register-wrapper #step_5 .inputs-wrapper,
+.register .register-wrapper #step_5 .inputs-wrapper-register {
   width: 100%;
 }
 
@@ -827,6 +839,8 @@ footer .totum p a:hover {
 .login .login-wrapper #step_3 .inputs-wrapper-register .input,
 .login .login-wrapper #step_4 .inputs-wrapper .input,
 .login .login-wrapper #step_4 .inputs-wrapper-register .input,
+.login .login-wrapper #step_5 .inputs-wrapper .input,
+.login .login-wrapper #step_5 .inputs-wrapper-register .input,
 .login .register-wrapper #login .inputs-wrapper .input,
 .login .register-wrapper #login .inputs-wrapper-register .input,
 .login .register-wrapper #step_1 .inputs-wrapper .input,
@@ -837,6 +851,8 @@ footer .totum p a:hover {
 .login .register-wrapper #step_3 .inputs-wrapper-register .input,
 .login .register-wrapper #step_4 .inputs-wrapper .input,
 .login .register-wrapper #step_4 .inputs-wrapper-register .input,
+.login .register-wrapper #step_5 .inputs-wrapper .input,
+.login .register-wrapper #step_5 .inputs-wrapper-register .input,
 .register .login-wrapper #login .inputs-wrapper .input,
 .register .login-wrapper #login .inputs-wrapper-register .input,
 .register .login-wrapper #step_1 .inputs-wrapper .input,
@@ -847,6 +863,8 @@ footer .totum p a:hover {
 .register .login-wrapper #step_3 .inputs-wrapper-register .input,
 .register .login-wrapper #step_4 .inputs-wrapper .input,
 .register .login-wrapper #step_4 .inputs-wrapper-register .input,
+.register .login-wrapper #step_5 .inputs-wrapper .input,
+.register .login-wrapper #step_5 .inputs-wrapper-register .input,
 .register .register-wrapper #login .inputs-wrapper .input,
 .register .register-wrapper #login .inputs-wrapper-register .input,
 .register .register-wrapper #step_1 .inputs-wrapper .input,
@@ -856,7 +874,9 @@ footer .totum p a:hover {
 .register .register-wrapper #step_3 .inputs-wrapper .input,
 .register .register-wrapper #step_3 .inputs-wrapper-register .input,
 .register .register-wrapper #step_4 .inputs-wrapper .input,
-.register .register-wrapper #step_4 .inputs-wrapper-register .input {
+.register .register-wrapper #step_4 .inputs-wrapper-register .input,
+.register .register-wrapper #step_5 .inputs-wrapper .input,
+.register .register-wrapper #step_5 .inputs-wrapper-register .input {
   position: relative;
   width: calc(100% - 60px);
   margin: 30px auto;
@@ -882,6 +902,10 @@ footer .totum p a:hover {
 .login .login-wrapper #step_4 .inputs-wrapper .input select,
 .login .login-wrapper #step_4 .inputs-wrapper-register .input input,
 .login .login-wrapper #step_4 .inputs-wrapper-register .input select,
+.login .login-wrapper #step_5 .inputs-wrapper .input input,
+.login .login-wrapper #step_5 .inputs-wrapper .input select,
+.login .login-wrapper #step_5 .inputs-wrapper-register .input input,
+.login .login-wrapper #step_5 .inputs-wrapper-register .input select,
 .login .register-wrapper #login .inputs-wrapper .input input,
 .login .register-wrapper #login .inputs-wrapper .input select,
 .login .register-wrapper #login .inputs-wrapper-register .input input,
@@ -902,6 +926,10 @@ footer .totum p a:hover {
 .login .register-wrapper #step_4 .inputs-wrapper .input select,
 .login .register-wrapper #step_4 .inputs-wrapper-register .input input,
 .login .register-wrapper #step_4 .inputs-wrapper-register .input select,
+.login .register-wrapper #step_5 .inputs-wrapper .input input,
+.login .register-wrapper #step_5 .inputs-wrapper .input select,
+.login .register-wrapper #step_5 .inputs-wrapper-register .input input,
+.login .register-wrapper #step_5 .inputs-wrapper-register .input select,
 .register .login-wrapper #login .inputs-wrapper .input input,
 .register .login-wrapper #login .inputs-wrapper .input select,
 .register .login-wrapper #login .inputs-wrapper-register .input input,
@@ -922,6 +950,10 @@ footer .totum p a:hover {
 .register .login-wrapper #step_4 .inputs-wrapper .input select,
 .register .login-wrapper #step_4 .inputs-wrapper-register .input input,
 .register .login-wrapper #step_4 .inputs-wrapper-register .input select,
+.register .login-wrapper #step_5 .inputs-wrapper .input input,
+.register .login-wrapper #step_5 .inputs-wrapper .input select,
+.register .login-wrapper #step_5 .inputs-wrapper-register .input input,
+.register .login-wrapper #step_5 .inputs-wrapper-register .input select,
 .register .register-wrapper #login .inputs-wrapper .input input,
 .register .register-wrapper #login .inputs-wrapper .input select,
 .register .register-wrapper #login .inputs-wrapper-register .input input,
@@ -941,7 +973,11 @@ footer .totum p a:hover {
 .register .register-wrapper #step_4 .inputs-wrapper .input input,
 .register .register-wrapper #step_4 .inputs-wrapper .input select,
 .register .register-wrapper #step_4 .inputs-wrapper-register .input input,
-.register .register-wrapper #step_4 .inputs-wrapper-register .input select {
+.register .register-wrapper #step_4 .inputs-wrapper-register .input select,
+.register .register-wrapper #step_5 .inputs-wrapper .input input,
+.register .register-wrapper #step_5 .inputs-wrapper .input select,
+.register .register-wrapper #step_5 .inputs-wrapper-register .input input,
+.register .register-wrapper #step_5 .inputs-wrapper-register .input select {
   width: 100%;
   height: 40px;
   background-color: transparent;
@@ -973,6 +1009,10 @@ footer .totum p a:hover {
 .login .login-wrapper #step_4 .inputs-wrapper .input select::-webkit-input-placeholder,
 .login .login-wrapper #step_4 .inputs-wrapper-register .input input::-webkit-input-placeholder,
 .login .login-wrapper #step_4 .inputs-wrapper-register .input select::-webkit-input-placeholder,
+.login .login-wrapper #step_5 .inputs-wrapper .input input::-webkit-input-placeholder,
+.login .login-wrapper #step_5 .inputs-wrapper .input select::-webkit-input-placeholder,
+.login .login-wrapper #step_5 .inputs-wrapper-register .input input::-webkit-input-placeholder,
+.login .login-wrapper #step_5 .inputs-wrapper-register .input select::-webkit-input-placeholder,
 .login .register-wrapper #login .inputs-wrapper .input input::-webkit-input-placeholder,
 .login .register-wrapper #login .inputs-wrapper .input select::-webkit-input-placeholder,
 .login .register-wrapper #login .inputs-wrapper-register .input input::-webkit-input-placeholder,
@@ -993,6 +1033,10 @@ footer .totum p a:hover {
 .login .register-wrapper #step_4 .inputs-wrapper .input select::-webkit-input-placeholder,
 .login .register-wrapper #step_4 .inputs-wrapper-register .input input::-webkit-input-placeholder,
 .login .register-wrapper #step_4 .inputs-wrapper-register .input select::-webkit-input-placeholder,
+.login .register-wrapper #step_5 .inputs-wrapper .input input::-webkit-input-placeholder,
+.login .register-wrapper #step_5 .inputs-wrapper .input select::-webkit-input-placeholder,
+.login .register-wrapper #step_5 .inputs-wrapper-register .input input::-webkit-input-placeholder,
+.login .register-wrapper #step_5 .inputs-wrapper-register .input select::-webkit-input-placeholder,
 .register .login-wrapper #login .inputs-wrapper .input input::-webkit-input-placeholder,
 .register .login-wrapper #login .inputs-wrapper .input select::-webkit-input-placeholder,
 .register .login-wrapper #login .inputs-wrapper-register .input input::-webkit-input-placeholder,
@@ -1013,6 +1057,10 @@ footer .totum p a:hover {
 .register .login-wrapper #step_4 .inputs-wrapper .input select::-webkit-input-placeholder,
 .register .login-wrapper #step_4 .inputs-wrapper-register .input input::-webkit-input-placeholder,
 .register .login-wrapper #step_4 .inputs-wrapper-register .input select::-webkit-input-placeholder,
+.register .login-wrapper #step_5 .inputs-wrapper .input input::-webkit-input-placeholder,
+.register .login-wrapper #step_5 .inputs-wrapper .input select::-webkit-input-placeholder,
+.register .login-wrapper #step_5 .inputs-wrapper-register .input input::-webkit-input-placeholder,
+.register .login-wrapper #step_5 .inputs-wrapper-register .input select::-webkit-input-placeholder,
 .register .register-wrapper #login .inputs-wrapper .input input::-webkit-input-placeholder,
 .register .register-wrapper #login .inputs-wrapper .input select::-webkit-input-placeholder,
 .register .register-wrapper #login .inputs-wrapper-register .input input::-webkit-input-placeholder,
@@ -1032,7 +1080,11 @@ footer .totum p a:hover {
 .register .register-wrapper #step_4 .inputs-wrapper .input input::-webkit-input-placeholder,
 .register .register-wrapper #step_4 .inputs-wrapper .input select::-webkit-input-placeholder,
 .register .register-wrapper #step_4 .inputs-wrapper-register .input input::-webkit-input-placeholder,
-.register .register-wrapper #step_4 .inputs-wrapper-register .input select::-webkit-input-placeholder {
+.register .register-wrapper #step_4 .inputs-wrapper-register .input select::-webkit-input-placeholder,
+.register .register-wrapper #step_5 .inputs-wrapper .input input::-webkit-input-placeholder,
+.register .register-wrapper #step_5 .inputs-wrapper .input select::-webkit-input-placeholder,
+.register .register-wrapper #step_5 .inputs-wrapper-register .input input::-webkit-input-placeholder,
+.register .register-wrapper #step_5 .inputs-wrapper-register .input select::-webkit-input-placeholder {
   color: #888;
 }
 
@@ -1056,6 +1108,10 @@ footer .totum p a:hover {
 .login .login-wrapper #step_4 .inputs-wrapper .input select:-ms-input-placeholder,
 .login .login-wrapper #step_4 .inputs-wrapper-register .input input:-ms-input-placeholder,
 .login .login-wrapper #step_4 .inputs-wrapper-register .input select:-ms-input-placeholder,
+.login .login-wrapper #step_5 .inputs-wrapper .input input:-ms-input-placeholder,
+.login .login-wrapper #step_5 .inputs-wrapper .input select:-ms-input-placeholder,
+.login .login-wrapper #step_5 .inputs-wrapper-register .input input:-ms-input-placeholder,
+.login .login-wrapper #step_5 .inputs-wrapper-register .input select:-ms-input-placeholder,
 .login .register-wrapper #login .inputs-wrapper .input input:-ms-input-placeholder,
 .login .register-wrapper #login .inputs-wrapper .input select:-ms-input-placeholder,
 .login .register-wrapper #login .inputs-wrapper-register .input input:-ms-input-placeholder,
@@ -1076,6 +1132,10 @@ footer .totum p a:hover {
 .login .register-wrapper #step_4 .inputs-wrapper .input select:-ms-input-placeholder,
 .login .register-wrapper #step_4 .inputs-wrapper-register .input input:-ms-input-placeholder,
 .login .register-wrapper #step_4 .inputs-wrapper-register .input select:-ms-input-placeholder,
+.login .register-wrapper #step_5 .inputs-wrapper .input input:-ms-input-placeholder,
+.login .register-wrapper #step_5 .inputs-wrapper .input select:-ms-input-placeholder,
+.login .register-wrapper #step_5 .inputs-wrapper-register .input input:-ms-input-placeholder,
+.login .register-wrapper #step_5 .inputs-wrapper-register .input select:-ms-input-placeholder,
 .register .login-wrapper #login .inputs-wrapper .input input:-ms-input-placeholder,
 .register .login-wrapper #login .inputs-wrapper .input select:-ms-input-placeholder,
 .register .login-wrapper #login .inputs-wrapper-register .input input:-ms-input-placeholder,
@@ -1096,6 +1156,10 @@ footer .totum p a:hover {
 .register .login-wrapper #step_4 .inputs-wrapper .input select:-ms-input-placeholder,
 .register .login-wrapper #step_4 .inputs-wrapper-register .input input:-ms-input-placeholder,
 .register .login-wrapper #step_4 .inputs-wrapper-register .input select:-ms-input-placeholder,
+.register .login-wrapper #step_5 .inputs-wrapper .input input:-ms-input-placeholder,
+.register .login-wrapper #step_5 .inputs-wrapper .input select:-ms-input-placeholder,
+.register .login-wrapper #step_5 .inputs-wrapper-register .input input:-ms-input-placeholder,
+.register .login-wrapper #step_5 .inputs-wrapper-register .input select:-ms-input-placeholder,
 .register .register-wrapper #login .inputs-wrapper .input input:-ms-input-placeholder,
 .register .register-wrapper #login .inputs-wrapper .input select:-ms-input-placeholder,
 .register .register-wrapper #login .inputs-wrapper-register .input input:-ms-input-placeholder,
@@ -1115,7 +1179,11 @@ footer .totum p a:hover {
 .register .register-wrapper #step_4 .inputs-wrapper .input input:-ms-input-placeholder,
 .register .register-wrapper #step_4 .inputs-wrapper .input select:-ms-input-placeholder,
 .register .register-wrapper #step_4 .inputs-wrapper-register .input input:-ms-input-placeholder,
-.register .register-wrapper #step_4 .inputs-wrapper-register .input select:-ms-input-placeholder {
+.register .register-wrapper #step_4 .inputs-wrapper-register .input select:-ms-input-placeholder,
+.register .register-wrapper #step_5 .inputs-wrapper .input input:-ms-input-placeholder,
+.register .register-wrapper #step_5 .inputs-wrapper .input select:-ms-input-placeholder,
+.register .register-wrapper #step_5 .inputs-wrapper-register .input input:-ms-input-placeholder,
+.register .register-wrapper #step_5 .inputs-wrapper-register .input select:-ms-input-placeholder {
   color: #888;
 }
 
@@ -1139,6 +1207,10 @@ footer .totum p a:hover {
 .login .login-wrapper #step_4 .inputs-wrapper .input select::-ms-input-placeholder,
 .login .login-wrapper #step_4 .inputs-wrapper-register .input input::-ms-input-placeholder,
 .login .login-wrapper #step_4 .inputs-wrapper-register .input select::-ms-input-placeholder,
+.login .login-wrapper #step_5 .inputs-wrapper .input input::-ms-input-placeholder,
+.login .login-wrapper #step_5 .inputs-wrapper .input select::-ms-input-placeholder,
+.login .login-wrapper #step_5 .inputs-wrapper-register .input input::-ms-input-placeholder,
+.login .login-wrapper #step_5 .inputs-wrapper-register .input select::-ms-input-placeholder,
 .login .register-wrapper #login .inputs-wrapper .input input::-ms-input-placeholder,
 .login .register-wrapper #login .inputs-wrapper .input select::-ms-input-placeholder,
 .login .register-wrapper #login .inputs-wrapper-register .input input::-ms-input-placeholder,
@@ -1159,6 +1231,10 @@ footer .totum p a:hover {
 .login .register-wrapper #step_4 .inputs-wrapper .input select::-ms-input-placeholder,
 .login .register-wrapper #step_4 .inputs-wrapper-register .input input::-ms-input-placeholder,
 .login .register-wrapper #step_4 .inputs-wrapper-register .input select::-ms-input-placeholder,
+.login .register-wrapper #step_5 .inputs-wrapper .input input::-ms-input-placeholder,
+.login .register-wrapper #step_5 .inputs-wrapper .input select::-ms-input-placeholder,
+.login .register-wrapper #step_5 .inputs-wrapper-register .input input::-ms-input-placeholder,
+.login .register-wrapper #step_5 .inputs-wrapper-register .input select::-ms-input-placeholder,
 .register .login-wrapper #login .inputs-wrapper .input input::-ms-input-placeholder,
 .register .login-wrapper #login .inputs-wrapper .input select::-ms-input-placeholder,
 .register .login-wrapper #login .inputs-wrapper-register .input input::-ms-input-placeholder,
@@ -1179,6 +1255,10 @@ footer .totum p a:hover {
 .register .login-wrapper #step_4 .inputs-wrapper .input select::-ms-input-placeholder,
 .register .login-wrapper #step_4 .inputs-wrapper-register .input input::-ms-input-placeholder,
 .register .login-wrapper #step_4 .inputs-wrapper-register .input select::-ms-input-placeholder,
+.register .login-wrapper #step_5 .inputs-wrapper .input input::-ms-input-placeholder,
+.register .login-wrapper #step_5 .inputs-wrapper .input select::-ms-input-placeholder,
+.register .login-wrapper #step_5 .inputs-wrapper-register .input input::-ms-input-placeholder,
+.register .login-wrapper #step_5 .inputs-wrapper-register .input select::-ms-input-placeholder,
 .register .register-wrapper #login .inputs-wrapper .input input::-ms-input-placeholder,
 .register .register-wrapper #login .inputs-wrapper .input select::-ms-input-placeholder,
 .register .register-wrapper #login .inputs-wrapper-register .input input::-ms-input-placeholder,
@@ -1198,7 +1278,11 @@ footer .totum p a:hover {
 .register .register-wrapper #step_4 .inputs-wrapper .input input::-ms-input-placeholder,
 .register .register-wrapper #step_4 .inputs-wrapper .input select::-ms-input-placeholder,
 .register .register-wrapper #step_4 .inputs-wrapper-register .input input::-ms-input-placeholder,
-.register .register-wrapper #step_4 .inputs-wrapper-register .input select::-ms-input-placeholder {
+.register .register-wrapper #step_4 .inputs-wrapper-register .input select::-ms-input-placeholder,
+.register .register-wrapper #step_5 .inputs-wrapper .input input::-ms-input-placeholder,
+.register .register-wrapper #step_5 .inputs-wrapper .input select::-ms-input-placeholder,
+.register .register-wrapper #step_5 .inputs-wrapper-register .input input::-ms-input-placeholder,
+.register .register-wrapper #step_5 .inputs-wrapper-register .input select::-ms-input-placeholder {
   color: #888;
 }
 
@@ -1222,6 +1306,10 @@ footer .totum p a:hover {
 .login .login-wrapper #step_4 .inputs-wrapper .input select::placeholder,
 .login .login-wrapper #step_4 .inputs-wrapper-register .input input::placeholder,
 .login .login-wrapper #step_4 .inputs-wrapper-register .input select::placeholder,
+.login .login-wrapper #step_5 .inputs-wrapper .input input::placeholder,
+.login .login-wrapper #step_5 .inputs-wrapper .input select::placeholder,
+.login .login-wrapper #step_5 .inputs-wrapper-register .input input::placeholder,
+.login .login-wrapper #step_5 .inputs-wrapper-register .input select::placeholder,
 .login .register-wrapper #login .inputs-wrapper .input input::placeholder,
 .login .register-wrapper #login .inputs-wrapper .input select::placeholder,
 .login .register-wrapper #login .inputs-wrapper-register .input input::placeholder,
@@ -1242,6 +1330,10 @@ footer .totum p a:hover {
 .login .register-wrapper #step_4 .inputs-wrapper .input select::placeholder,
 .login .register-wrapper #step_4 .inputs-wrapper-register .input input::placeholder,
 .login .register-wrapper #step_4 .inputs-wrapper-register .input select::placeholder,
+.login .register-wrapper #step_5 .inputs-wrapper .input input::placeholder,
+.login .register-wrapper #step_5 .inputs-wrapper .input select::placeholder,
+.login .register-wrapper #step_5 .inputs-wrapper-register .input input::placeholder,
+.login .register-wrapper #step_5 .inputs-wrapper-register .input select::placeholder,
 .register .login-wrapper #login .inputs-wrapper .input input::placeholder,
 .register .login-wrapper #login .inputs-wrapper .input select::placeholder,
 .register .login-wrapper #login .inputs-wrapper-register .input input::placeholder,
@@ -1262,6 +1354,10 @@ footer .totum p a:hover {
 .register .login-wrapper #step_4 .inputs-wrapper .input select::placeholder,
 .register .login-wrapper #step_4 .inputs-wrapper-register .input input::placeholder,
 .register .login-wrapper #step_4 .inputs-wrapper-register .input select::placeholder,
+.register .login-wrapper #step_5 .inputs-wrapper .input input::placeholder,
+.register .login-wrapper #step_5 .inputs-wrapper .input select::placeholder,
+.register .login-wrapper #step_5 .inputs-wrapper-register .input input::placeholder,
+.register .login-wrapper #step_5 .inputs-wrapper-register .input select::placeholder,
 .register .register-wrapper #login .inputs-wrapper .input input::placeholder,
 .register .register-wrapper #login .inputs-wrapper .input select::placeholder,
 .register .register-wrapper #login .inputs-wrapper-register .input input::placeholder,
@@ -1281,7 +1377,11 @@ footer .totum p a:hover {
 .register .register-wrapper #step_4 .inputs-wrapper .input input::placeholder,
 .register .register-wrapper #step_4 .inputs-wrapper .input select::placeholder,
 .register .register-wrapper #step_4 .inputs-wrapper-register .input input::placeholder,
-.register .register-wrapper #step_4 .inputs-wrapper-register .input select::placeholder {
+.register .register-wrapper #step_4 .inputs-wrapper-register .input select::placeholder,
+.register .register-wrapper #step_5 .inputs-wrapper .input input::placeholder,
+.register .register-wrapper #step_5 .inputs-wrapper .input select::placeholder,
+.register .register-wrapper #step_5 .inputs-wrapper-register .input input::placeholder,
+.register .register-wrapper #step_5 .inputs-wrapper-register .input select::placeholder {
   color: #888;
 }
 
@@ -1295,6 +1395,8 @@ footer .totum p a:hover {
 .login .login-wrapper #step_3 .inputs-wrapper-register .input #icon,
 .login .login-wrapper #step_4 .inputs-wrapper .input #icon,
 .login .login-wrapper #step_4 .inputs-wrapper-register .input #icon,
+.login .login-wrapper #step_5 .inputs-wrapper .input #icon,
+.login .login-wrapper #step_5 .inputs-wrapper-register .input #icon,
 .login .register-wrapper #login .inputs-wrapper .input #icon,
 .login .register-wrapper #login .inputs-wrapper-register .input #icon,
 .login .register-wrapper #step_1 .inputs-wrapper .input #icon,
@@ -1305,6 +1407,8 @@ footer .totum p a:hover {
 .login .register-wrapper #step_3 .inputs-wrapper-register .input #icon,
 .login .register-wrapper #step_4 .inputs-wrapper .input #icon,
 .login .register-wrapper #step_4 .inputs-wrapper-register .input #icon,
+.login .register-wrapper #step_5 .inputs-wrapper .input #icon,
+.login .register-wrapper #step_5 .inputs-wrapper-register .input #icon,
 .register .login-wrapper #login .inputs-wrapper .input #icon,
 .register .login-wrapper #login .inputs-wrapper-register .input #icon,
 .register .login-wrapper #step_1 .inputs-wrapper .input #icon,
@@ -1315,6 +1419,8 @@ footer .totum p a:hover {
 .register .login-wrapper #step_3 .inputs-wrapper-register .input #icon,
 .register .login-wrapper #step_4 .inputs-wrapper .input #icon,
 .register .login-wrapper #step_4 .inputs-wrapper-register .input #icon,
+.register .login-wrapper #step_5 .inputs-wrapper .input #icon,
+.register .login-wrapper #step_5 .inputs-wrapper-register .input #icon,
 .register .register-wrapper #login .inputs-wrapper .input #icon,
 .register .register-wrapper #login .inputs-wrapper-register .input #icon,
 .register .register-wrapper #step_1 .inputs-wrapper .input #icon,
@@ -1324,7 +1430,9 @@ footer .totum p a:hover {
 .register .register-wrapper #step_3 .inputs-wrapper .input #icon,
 .register .register-wrapper #step_3 .inputs-wrapper-register .input #icon,
 .register .register-wrapper #step_4 .inputs-wrapper .input #icon,
-.register .register-wrapper #step_4 .inputs-wrapper-register .input #icon {
+.register .register-wrapper #step_4 .inputs-wrapper-register .input #icon,
+.register .register-wrapper #step_5 .inputs-wrapper .input #icon,
+.register .register-wrapper #step_5 .inputs-wrapper-register .input #icon {
   position: absolute;
   top: 10px;
   left: 0;
@@ -1341,6 +1449,8 @@ footer .totum p a:hover {
 .login .login-wrapper #step_3 .inputs-wrapper-register .input #passeye,
 .login .login-wrapper #step_4 .inputs-wrapper .input #passeye,
 .login .login-wrapper #step_4 .inputs-wrapper-register .input #passeye,
+.login .login-wrapper #step_5 .inputs-wrapper .input #passeye,
+.login .login-wrapper #step_5 .inputs-wrapper-register .input #passeye,
 .login .register-wrapper #login .inputs-wrapper .input #passeye,
 .login .register-wrapper #login .inputs-wrapper-register .input #passeye,
 .login .register-wrapper #step_1 .inputs-wrapper .input #passeye,
@@ -1351,6 +1461,8 @@ footer .totum p a:hover {
 .login .register-wrapper #step_3 .inputs-wrapper-register .input #passeye,
 .login .register-wrapper #step_4 .inputs-wrapper .input #passeye,
 .login .register-wrapper #step_4 .inputs-wrapper-register .input #passeye,
+.login .register-wrapper #step_5 .inputs-wrapper .input #passeye,
+.login .register-wrapper #step_5 .inputs-wrapper-register .input #passeye,
 .register .login-wrapper #login .inputs-wrapper .input #passeye,
 .register .login-wrapper #login .inputs-wrapper-register .input #passeye,
 .register .login-wrapper #step_1 .inputs-wrapper .input #passeye,
@@ -1361,6 +1473,8 @@ footer .totum p a:hover {
 .register .login-wrapper #step_3 .inputs-wrapper-register .input #passeye,
 .register .login-wrapper #step_4 .inputs-wrapper .input #passeye,
 .register .login-wrapper #step_4 .inputs-wrapper-register .input #passeye,
+.register .login-wrapper #step_5 .inputs-wrapper .input #passeye,
+.register .login-wrapper #step_5 .inputs-wrapper-register .input #passeye,
 .register .register-wrapper #login .inputs-wrapper .input #passeye,
 .register .register-wrapper #login .inputs-wrapper-register .input #passeye,
 .register .register-wrapper #step_1 .inputs-wrapper .input #passeye,
@@ -1370,7 +1484,9 @@ footer .totum p a:hover {
 .register .register-wrapper #step_3 .inputs-wrapper .input #passeye,
 .register .register-wrapper #step_3 .inputs-wrapper-register .input #passeye,
 .register .register-wrapper #step_4 .inputs-wrapper .input #passeye,
-.register .register-wrapper #step_4 .inputs-wrapper-register .input #passeye {
+.register .register-wrapper #step_4 .inputs-wrapper-register .input #passeye,
+.register .register-wrapper #step_5 .inputs-wrapper .input #passeye,
+.register .register-wrapper #step_5 .inputs-wrapper-register .input #passeye {
   position: absolute;
   top: 12px;
   right: 0;
@@ -1390,6 +1506,8 @@ footer .totum p a:hover {
 .login .login-wrapper #step_3 .inputs-wrapper-register .input #passeye:hover,
 .login .login-wrapper #step_4 .inputs-wrapper .input #passeye:hover,
 .login .login-wrapper #step_4 .inputs-wrapper-register .input #passeye:hover,
+.login .login-wrapper #step_5 .inputs-wrapper .input #passeye:hover,
+.login .login-wrapper #step_5 .inputs-wrapper-register .input #passeye:hover,
 .login .register-wrapper #login .inputs-wrapper .input #passeye:hover,
 .login .register-wrapper #login .inputs-wrapper-register .input #passeye:hover,
 .login .register-wrapper #step_1 .inputs-wrapper .input #passeye:hover,
@@ -1400,6 +1518,8 @@ footer .totum p a:hover {
 .login .register-wrapper #step_3 .inputs-wrapper-register .input #passeye:hover,
 .login .register-wrapper #step_4 .inputs-wrapper .input #passeye:hover,
 .login .register-wrapper #step_4 .inputs-wrapper-register .input #passeye:hover,
+.login .register-wrapper #step_5 .inputs-wrapper .input #passeye:hover,
+.login .register-wrapper #step_5 .inputs-wrapper-register .input #passeye:hover,
 .register .login-wrapper #login .inputs-wrapper .input #passeye:hover,
 .register .login-wrapper #login .inputs-wrapper-register .input #passeye:hover,
 .register .login-wrapper #step_1 .inputs-wrapper .input #passeye:hover,
@@ -1410,6 +1530,8 @@ footer .totum p a:hover {
 .register .login-wrapper #step_3 .inputs-wrapper-register .input #passeye:hover,
 .register .login-wrapper #step_4 .inputs-wrapper .input #passeye:hover,
 .register .login-wrapper #step_4 .inputs-wrapper-register .input #passeye:hover,
+.register .login-wrapper #step_5 .inputs-wrapper .input #passeye:hover,
+.register .login-wrapper #step_5 .inputs-wrapper-register .input #passeye:hover,
 .register .register-wrapper #login .inputs-wrapper .input #passeye:hover,
 .register .register-wrapper #login .inputs-wrapper-register .input #passeye:hover,
 .register .register-wrapper #step_1 .inputs-wrapper .input #passeye:hover,
@@ -1419,7 +1541,9 @@ footer .totum p a:hover {
 .register .register-wrapper #step_3 .inputs-wrapper .input #passeye:hover,
 .register .register-wrapper #step_3 .inputs-wrapper-register .input #passeye:hover,
 .register .register-wrapper #step_4 .inputs-wrapper .input #passeye:hover,
-.register .register-wrapper #step_4 .inputs-wrapper-register .input #passeye:hover {
+.register .register-wrapper #step_4 .inputs-wrapper-register .input #passeye:hover,
+.register .register-wrapper #step_5 .inputs-wrapper .input #passeye:hover,
+.register .register-wrapper #step_5 .inputs-wrapper-register .input #passeye:hover {
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
 }
@@ -1434,6 +1558,8 @@ footer .totum p a:hover {
 .login .login-wrapper #step_3 .inputs-wrapper-register .input:nth-child(3) input,
 .login .login-wrapper #step_4 .inputs-wrapper .input:nth-child(3) input,
 .login .login-wrapper #step_4 .inputs-wrapper-register .input:nth-child(3) input,
+.login .login-wrapper #step_5 .inputs-wrapper .input:nth-child(3) input,
+.login .login-wrapper #step_5 .inputs-wrapper-register .input:nth-child(3) input,
 .login .register-wrapper #login .inputs-wrapper .input:nth-child(3) input,
 .login .register-wrapper #login .inputs-wrapper-register .input:nth-child(3) input,
 .login .register-wrapper #step_1 .inputs-wrapper .input:nth-child(3) input,
@@ -1444,6 +1570,8 @@ footer .totum p a:hover {
 .login .register-wrapper #step_3 .inputs-wrapper-register .input:nth-child(3) input,
 .login .register-wrapper #step_4 .inputs-wrapper .input:nth-child(3) input,
 .login .register-wrapper #step_4 .inputs-wrapper-register .input:nth-child(3) input,
+.login .register-wrapper #step_5 .inputs-wrapper .input:nth-child(3) input,
+.login .register-wrapper #step_5 .inputs-wrapper-register .input:nth-child(3) input,
 .register .login-wrapper #login .inputs-wrapper .input:nth-child(3) input,
 .register .login-wrapper #login .inputs-wrapper-register .input:nth-child(3) input,
 .register .login-wrapper #step_1 .inputs-wrapper .input:nth-child(3) input,
@@ -1454,6 +1582,8 @@ footer .totum p a:hover {
 .register .login-wrapper #step_3 .inputs-wrapper-register .input:nth-child(3) input,
 .register .login-wrapper #step_4 .inputs-wrapper .input:nth-child(3) input,
 .register .login-wrapper #step_4 .inputs-wrapper-register .input:nth-child(3) input,
+.register .login-wrapper #step_5 .inputs-wrapper .input:nth-child(3) input,
+.register .login-wrapper #step_5 .inputs-wrapper-register .input:nth-child(3) input,
 .register .register-wrapper #login .inputs-wrapper .input:nth-child(3) input,
 .register .register-wrapper #login .inputs-wrapper-register .input:nth-child(3) input,
 .register .register-wrapper #step_1 .inputs-wrapper .input:nth-child(3) input,
@@ -1463,7 +1593,9 @@ footer .totum p a:hover {
 .register .register-wrapper #step_3 .inputs-wrapper .input:nth-child(3) input,
 .register .register-wrapper #step_3 .inputs-wrapper-register .input:nth-child(3) input,
 .register .register-wrapper #step_4 .inputs-wrapper .input:nth-child(3) input,
-.register .register-wrapper #step_4 .inputs-wrapper-register .input:nth-child(3) input {
+.register .register-wrapper #step_4 .inputs-wrapper-register .input:nth-child(3) input,
+.register .register-wrapper #step_5 .inputs-wrapper .input:nth-child(3) input,
+.register .register-wrapper #step_5 .inputs-wrapper-register .input:nth-child(3) input {
   padding-right: 30px;
   margin-bottom: 0;
 }
@@ -1473,21 +1605,25 @@ footer .totum p a:hover {
 .login .login-wrapper #step_2 .inputs-wrapper-register,
 .login .login-wrapper #step_3 .inputs-wrapper-register,
 .login .login-wrapper #step_4 .inputs-wrapper-register,
+.login .login-wrapper #step_5 .inputs-wrapper-register,
 .login .register-wrapper #login .inputs-wrapper-register,
 .login .register-wrapper #step_1 .inputs-wrapper-register,
 .login .register-wrapper #step_2 .inputs-wrapper-register,
 .login .register-wrapper #step_3 .inputs-wrapper-register,
 .login .register-wrapper #step_4 .inputs-wrapper-register,
+.login .register-wrapper #step_5 .inputs-wrapper-register,
 .register .login-wrapper #login .inputs-wrapper-register,
 .register .login-wrapper #step_1 .inputs-wrapper-register,
 .register .login-wrapper #step_2 .inputs-wrapper-register,
 .register .login-wrapper #step_3 .inputs-wrapper-register,
 .register .login-wrapper #step_4 .inputs-wrapper-register,
+.register .login-wrapper #step_5 .inputs-wrapper-register,
 .register .register-wrapper #login .inputs-wrapper-register,
 .register .register-wrapper #step_1 .inputs-wrapper-register,
 .register .register-wrapper #step_2 .inputs-wrapper-register,
 .register .register-wrapper #step_3 .inputs-wrapper-register,
-.register .register-wrapper #step_4 .inputs-wrapper-register {
+.register .register-wrapper #step_4 .inputs-wrapper-register,
+.register .register-wrapper #step_5 .inputs-wrapper-register {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr;
@@ -1504,6 +1640,8 @@ footer .totum p a:hover {
 .login .login-wrapper #step_3 .button-register,
 .login .login-wrapper #step_4 .button-login,
 .login .login-wrapper #step_4 .button-register,
+.login .login-wrapper #step_5 .button-login,
+.login .login-wrapper #step_5 .button-register,
 .login .register-wrapper #login .button-login,
 .login .register-wrapper #login .button-register,
 .login .register-wrapper #step_1 .button-login,
@@ -1514,6 +1652,8 @@ footer .totum p a:hover {
 .login .register-wrapper #step_3 .button-register,
 .login .register-wrapper #step_4 .button-login,
 .login .register-wrapper #step_4 .button-register,
+.login .register-wrapper #step_5 .button-login,
+.login .register-wrapper #step_5 .button-register,
 .register .login-wrapper #login .button-login,
 .register .login-wrapper #login .button-register,
 .register .login-wrapper #step_1 .button-login,
@@ -1524,6 +1664,8 @@ footer .totum p a:hover {
 .register .login-wrapper #step_3 .button-register,
 .register .login-wrapper #step_4 .button-login,
 .register .login-wrapper #step_4 .button-register,
+.register .login-wrapper #step_5 .button-login,
+.register .login-wrapper #step_5 .button-register,
 .register .register-wrapper #login .button-login,
 .register .register-wrapper #login .button-register,
 .register .register-wrapper #step_1 .button-login,
@@ -1533,7 +1675,9 @@ footer .totum p a:hover {
 .register .register-wrapper #step_3 .button-login,
 .register .register-wrapper #step_3 .button-register,
 .register .register-wrapper #step_4 .button-login,
-.register .register-wrapper #step_4 .button-register {
+.register .register-wrapper #step_4 .button-register,
+.register .register-wrapper #step_5 .button-login,
+.register .register-wrapper #step_5 .button-register {
   background: -webkit-gradient(linear, left top, right top, from(#3844bc), to(#2b3179));
   background: linear-gradient(to right, #3844bc, #2b3179);
   color: #ffffff;
@@ -1557,6 +1701,8 @@ footer .totum p a:hover {
 .login .login-wrapper #step_3 .button-register i,
 .login .login-wrapper #step_4 .button-login i,
 .login .login-wrapper #step_4 .button-register i,
+.login .login-wrapper #step_5 .button-login i,
+.login .login-wrapper #step_5 .button-register i,
 .login .register-wrapper #login .button-login i,
 .login .register-wrapper #login .button-register i,
 .login .register-wrapper #step_1 .button-login i,
@@ -1567,6 +1713,8 @@ footer .totum p a:hover {
 .login .register-wrapper #step_3 .button-register i,
 .login .register-wrapper #step_4 .button-login i,
 .login .register-wrapper #step_4 .button-register i,
+.login .register-wrapper #step_5 .button-login i,
+.login .register-wrapper #step_5 .button-register i,
 .register .login-wrapper #login .button-login i,
 .register .login-wrapper #login .button-register i,
 .register .login-wrapper #step_1 .button-login i,
@@ -1577,6 +1725,8 @@ footer .totum p a:hover {
 .register .login-wrapper #step_3 .button-register i,
 .register .login-wrapper #step_4 .button-login i,
 .register .login-wrapper #step_4 .button-register i,
+.register .login-wrapper #step_5 .button-login i,
+.register .login-wrapper #step_5 .button-register i,
 .register .register-wrapper #login .button-login i,
 .register .register-wrapper #login .button-register i,
 .register .register-wrapper #step_1 .button-login i,
@@ -1586,7 +1736,9 @@ footer .totum p a:hover {
 .register .register-wrapper #step_3 .button-login i,
 .register .register-wrapper #step_3 .button-register i,
 .register .register-wrapper #step_4 .button-login i,
-.register .register-wrapper #step_4 .button-register i {
+.register .register-wrapper #step_4 .button-register i,
+.register .register-wrapper #step_5 .button-login i,
+.register .register-wrapper #step_5 .button-register i {
   margin-right: 5px;
 }
 
@@ -1600,6 +1752,8 @@ footer .totum p a:hover {
 .login .login-wrapper #step_3 .register-bottom,
 .login .login-wrapper #step_4 .login-bottom,
 .login .login-wrapper #step_4 .register-bottom,
+.login .login-wrapper #step_5 .login-bottom,
+.login .login-wrapper #step_5 .register-bottom,
 .login .register-wrapper #login .login-bottom,
 .login .register-wrapper #login .register-bottom,
 .login .register-wrapper #step_1 .login-bottom,
@@ -1610,6 +1764,8 @@ footer .totum p a:hover {
 .login .register-wrapper #step_3 .register-bottom,
 .login .register-wrapper #step_4 .login-bottom,
 .login .register-wrapper #step_4 .register-bottom,
+.login .register-wrapper #step_5 .login-bottom,
+.login .register-wrapper #step_5 .register-bottom,
 .register .login-wrapper #login .login-bottom,
 .register .login-wrapper #login .register-bottom,
 .register .login-wrapper #step_1 .login-bottom,
@@ -1620,6 +1776,8 @@ footer .totum p a:hover {
 .register .login-wrapper #step_3 .register-bottom,
 .register .login-wrapper #step_4 .login-bottom,
 .register .login-wrapper #step_4 .register-bottom,
+.register .login-wrapper #step_5 .login-bottom,
+.register .login-wrapper #step_5 .register-bottom,
 .register .register-wrapper #login .login-bottom,
 .register .register-wrapper #login .register-bottom,
 .register .register-wrapper #step_1 .login-bottom,
@@ -1629,7 +1787,9 @@ footer .totum p a:hover {
 .register .register-wrapper #step_3 .login-bottom,
 .register .register-wrapper #step_3 .register-bottom,
 .register .register-wrapper #step_4 .login-bottom,
-.register .register-wrapper #step_4 .register-bottom {
+.register .register-wrapper #step_4 .register-bottom,
+.register .register-wrapper #step_5 .login-bottom,
+.register .register-wrapper #step_5 .register-bottom {
   text-align: center;
   margin-top: 20px;
 }
@@ -1644,6 +1804,8 @@ footer .totum p a:hover {
 .login .login-wrapper #step_3 .register-bottom p,
 .login .login-wrapper #step_4 .login-bottom p,
 .login .login-wrapper #step_4 .register-bottom p,
+.login .login-wrapper #step_5 .login-bottom p,
+.login .login-wrapper #step_5 .register-bottom p,
 .login .register-wrapper #login .login-bottom p,
 .login .register-wrapper #login .register-bottom p,
 .login .register-wrapper #step_1 .login-bottom p,
@@ -1654,6 +1816,8 @@ footer .totum p a:hover {
 .login .register-wrapper #step_3 .register-bottom p,
 .login .register-wrapper #step_4 .login-bottom p,
 .login .register-wrapper #step_4 .register-bottom p,
+.login .register-wrapper #step_5 .login-bottom p,
+.login .register-wrapper #step_5 .register-bottom p,
 .register .login-wrapper #login .login-bottom p,
 .register .login-wrapper #login .register-bottom p,
 .register .login-wrapper #step_1 .login-bottom p,
@@ -1664,6 +1828,8 @@ footer .totum p a:hover {
 .register .login-wrapper #step_3 .register-bottom p,
 .register .login-wrapper #step_4 .login-bottom p,
 .register .login-wrapper #step_4 .register-bottom p,
+.register .login-wrapper #step_5 .login-bottom p,
+.register .login-wrapper #step_5 .register-bottom p,
 .register .register-wrapper #login .login-bottom p,
 .register .register-wrapper #login .register-bottom p,
 .register .register-wrapper #step_1 .login-bottom p,
@@ -1673,7 +1839,9 @@ footer .totum p a:hover {
 .register .register-wrapper #step_3 .login-bottom p,
 .register .register-wrapper #step_3 .register-bottom p,
 .register .register-wrapper #step_4 .login-bottom p,
-.register .register-wrapper #step_4 .register-bottom p {
+.register .register-wrapper #step_4 .register-bottom p,
+.register .register-wrapper #step_5 .login-bottom p,
+.register .register-wrapper #step_5 .register-bottom p {
   max-width: 280px;
   width: 100%;
   margin: 10px auto;
@@ -1691,6 +1859,8 @@ footer .totum p a:hover {
 .login .login-wrapper #step_3 .register-bottom p a,
 .login .login-wrapper #step_4 .login-bottom p a,
 .login .login-wrapper #step_4 .register-bottom p a,
+.login .login-wrapper #step_5 .login-bottom p a,
+.login .login-wrapper #step_5 .register-bottom p a,
 .login .register-wrapper #login .login-bottom p a,
 .login .register-wrapper #login .register-bottom p a,
 .login .register-wrapper #step_1 .login-bottom p a,
@@ -1701,6 +1871,8 @@ footer .totum p a:hover {
 .login .register-wrapper #step_3 .register-bottom p a,
 .login .register-wrapper #step_4 .login-bottom p a,
 .login .register-wrapper #step_4 .register-bottom p a,
+.login .register-wrapper #step_5 .login-bottom p a,
+.login .register-wrapper #step_5 .register-bottom p a,
 .register .login-wrapper #login .login-bottom p a,
 .register .login-wrapper #login .register-bottom p a,
 .register .login-wrapper #step_1 .login-bottom p a,
@@ -1711,6 +1883,8 @@ footer .totum p a:hover {
 .register .login-wrapper #step_3 .register-bottom p a,
 .register .login-wrapper #step_4 .login-bottom p a,
 .register .login-wrapper #step_4 .register-bottom p a,
+.register .login-wrapper #step_5 .login-bottom p a,
+.register .login-wrapper #step_5 .register-bottom p a,
 .register .register-wrapper #login .login-bottom p a,
 .register .register-wrapper #login .register-bottom p a,
 .register .register-wrapper #step_1 .login-bottom p a,
@@ -1720,7 +1894,9 @@ footer .totum p a:hover {
 .register .register-wrapper #step_3 .login-bottom p a,
 .register .register-wrapper #step_3 .register-bottom p a,
 .register .register-wrapper #step_4 .login-bottom p a,
-.register .register-wrapper #step_4 .register-bottom p a {
+.register .register-wrapper #step_4 .register-bottom p a,
+.register .register-wrapper #step_5 .login-bottom p a,
+.register .register-wrapper #step_5 .register-bottom p a {
   text-decoration: none;
   color: #3844bc;
 }
@@ -1735,6 +1911,8 @@ footer .totum p a:hover {
 .login .login-wrapper #step_3 .register-bottom p a:hover,
 .login .login-wrapper #step_4 .login-bottom p a:hover,
 .login .login-wrapper #step_4 .register-bottom p a:hover,
+.login .login-wrapper #step_5 .login-bottom p a:hover,
+.login .login-wrapper #step_5 .register-bottom p a:hover,
 .login .register-wrapper #login .login-bottom p a:hover,
 .login .register-wrapper #login .register-bottom p a:hover,
 .login .register-wrapper #step_1 .login-bottom p a:hover,
@@ -1745,6 +1923,8 @@ footer .totum p a:hover {
 .login .register-wrapper #step_3 .register-bottom p a:hover,
 .login .register-wrapper #step_4 .login-bottom p a:hover,
 .login .register-wrapper #step_4 .register-bottom p a:hover,
+.login .register-wrapper #step_5 .login-bottom p a:hover,
+.login .register-wrapper #step_5 .register-bottom p a:hover,
 .register .login-wrapper #login .login-bottom p a:hover,
 .register .login-wrapper #login .register-bottom p a:hover,
 .register .login-wrapper #step_1 .login-bottom p a:hover,
@@ -1755,6 +1935,8 @@ footer .totum p a:hover {
 .register .login-wrapper #step_3 .register-bottom p a:hover,
 .register .login-wrapper #step_4 .login-bottom p a:hover,
 .register .login-wrapper #step_4 .register-bottom p a:hover,
+.register .login-wrapper #step_5 .login-bottom p a:hover,
+.register .login-wrapper #step_5 .register-bottom p a:hover,
 .register .register-wrapper #login .login-bottom p a:hover,
 .register .register-wrapper #login .register-bottom p a:hover,
 .register .register-wrapper #step_1 .login-bottom p a:hover,
@@ -1764,8 +1946,17 @@ footer .totum p a:hover {
 .register .register-wrapper #step_3 .login-bottom p a:hover,
 .register .register-wrapper #step_3 .register-bottom p a:hover,
 .register .register-wrapper #step_4 .login-bottom p a:hover,
-.register .register-wrapper #step_4 .register-bottom p a:hover {
+.register .register-wrapper #step_4 .register-bottom p a:hover,
+.register .register-wrapper #step_5 .login-bottom p a:hover,
+.register .register-wrapper #step_5 .register-bottom p a:hover {
   color: #6d76db;
+}
+
+.login .login-wrapper #login .inputs-wrapper .input input,
+.login .register-wrapper #login .inputs-wrapper .input input,
+.register .login-wrapper #login .inputs-wrapper .input input,
+.register .register-wrapper #login .inputs-wrapper .input input {
+  padding-right: 25px;
 }
 
 .login .login-wrapper #step_1,
@@ -1858,11 +2049,219 @@ footer .totum p a:hover {
           transform: scale(1.2);
 }
 
+.login .login-wrapper #step_5 .button-wrapper,
+.login .register-wrapper #step_5 .button-wrapper,
+.register .login-wrapper #step_5 .button-wrapper,
+.register .register-wrapper #step_5 .button-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.login .login-wrapper #step_5 .button-wrapper button,
+.login .register-wrapper #step_5 .button-wrapper button,
+.register .login-wrapper #step_5 .button-wrapper button,
+.register .register-wrapper #step_5 .button-wrapper button {
+  background: -webkit-gradient(linear, left top, right top, from(#3844bc), to(#2b3179));
+  background: linear-gradient(to right, #3844bc, #2b3179);
+  color: #ffffff;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 2em;
+  margin-top: 10px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.login .login-wrapper #step_5 .button-wrapper button i,
+.login .register-wrapper #step_5 .button-wrapper button i,
+.register .login-wrapper #step_5 .button-wrapper button i,
+.register .register-wrapper #step_5 .button-wrapper button i {
+  margin-right: 5px;
+}
+
 .login .register-wrapper,
 .register .register-wrapper {
   max-width: 600px;
   position: relative;
   z-index: 10;
+}
+
+.login .register-wrapper .vehiculos-wrapper,
+.register .register-wrapper .vehiculos-wrapper {
+  position: absolute;
+  display: none;
+  z-index: -1;
+  width: 300px;
+  height: 490px;
+  background-color: #ffffff;
+  border-radius: 0 2em 2em 2em;
+  -webkit-box-shadow: 10px 0 20px 0 rgba(0, 0, 0, 0.3);
+          box-shadow: 10px 0 20px 0 rgba(0, 0, 0, 0.3);
+  text-align: center;
+  right: -320px;
+}
+
+.login .register-wrapper .vehiculos-wrapper .vehiculos,
+.register .register-wrapper .vehiculos-wrapper .vehiculos {
+  width: calc(100% - 20px);
+  height: 410px;
+  margin: 10px auto;
+  margin-bottom: 0;
+  overflow-y: auto;
+}
+
+.login .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo,
+.register .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo {
+  background-color: #3844bc;
+  border-radius: 0 2em 2em 2em;
+  padding: 10px;
+  margin: 10px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.login .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-icon,
+.register .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #2b3179;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.login .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-icon i,
+.register .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-icon i {
+  color: #ffffff;
+  font-size: 2em;
+}
+
+.login .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-info,
+.register .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-info {
+  text-align: right;
+}
+
+.login .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-info h3,
+.register .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-info h3 {
+  color: #ffffff;
+  font-weight: 400;
+  margin-bottom: 5px;
+  font-size: 1em;
+}
+
+.login .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-info p,
+.register .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-info p {
+  color: #ffffff;
+  font-weight: 400;
+}
+
+.login .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-info p i,
+.register .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-info p i {
+  margin-right: 10px;
+}
+
+.login .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .edit-button,
+.register .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .edit-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.login .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .edit-button button,
+.register .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .edit-button button {
+  background: -webkit-gradient(linear, left top, right top, from(#3844bc), to(#2b3179));
+  background: linear-gradient(to right, #3844bc, #2b3179);
+  color: #ffffff;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 2em;
+  margin-top: 10px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  font-size: 0.6em;
+  background: #2b3179;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 2px;
+}
+
+.login .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .edit-button button i,
+.register .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .edit-button button i {
+  margin-right: 5px;
+}
+
+.login .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .edit-button button i,
+.register .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .edit-button button i {
+  margin: 0;
+}
+
+.login .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .edit-button button:hover,
+.register .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .edit-button button:hover {
+  background: #ffffff;
+  color: #2b3179;
+}
+
+.login .register-wrapper .vehiculos-wrapper .finalizar-button,
+.register .register-wrapper .vehiculos-wrapper .finalizar-button {
+  background: -webkit-gradient(linear, left top, right top, from(#3844bc), to(#2b3179));
+  background: linear-gradient(to right, #3844bc, #2b3179);
+  color: #ffffff;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 2em;
+  margin-top: 10px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.login .register-wrapper .vehiculos-wrapper .finalizar-button i,
+.register .register-wrapper .vehiculos-wrapper .finalizar-button i {
+  margin-right: 5px;
 }
 
 * {
