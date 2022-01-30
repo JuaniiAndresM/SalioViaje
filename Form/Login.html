@@ -35,11 +35,13 @@
     <link rel="stylesheet" href="/SalioViaje/styles/styles.css">
 
     <!-- Scripts -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/1e193e3a23.js" crossorigin="anonymous"></script>    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script src="/SalioViaje/Javascript/web.js"></script>
     <script src="/SalioViaje/Javascript/form.js"></script>
+
+
 
 </head>
 <body>
@@ -62,7 +64,7 @@
                 <div class="inputs-wrapper">
                     <div class="input">
                         <i class="fas fa-user" id="icon"></i>
-                        <input type="number" name="usuario" placeholder="C.I o RUT">
+                        <input type="number" id="usuario" name="usuario" placeholder="C.I o RUT">
                     </div>
                     <div class="input">
                         <i class="fas fa-key" id="icon"></i>
@@ -71,7 +73,7 @@
                     </div>
                 </div>
                 
-                <button class="button-login"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</button>
+                <button class="button-login" onclick="login()"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</button>
 
                 <div class="login-bottom">
                     <p><a href="#">¿Olvidaste tu contraseña?</a></p>

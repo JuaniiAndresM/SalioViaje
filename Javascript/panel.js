@@ -1,3 +1,5 @@
+let NOMBRE_USUARIO;
+
 $(document).ready(function () {
     let list = document.querySelectorAll('#panel-navbar li');
 
@@ -6,6 +8,9 @@ $(document).ready(function () {
         item.classList.remove('hovered'));
         this.classList.add('hovered');
     }
+
+    NOMBRE_USUARIO = sessionStorage.getItem('usuario');
+    $(".user").html(`<h2>${NOMBRE_USUARIO}</h2> <p><i class="fas fa-user-tie"></i> Administrador</p>`)
 
     list.forEach((item) => 
     item.addEventListener('mouseover', activateLink));

@@ -5,8 +5,7 @@
 class procedimientosBD
 {
 	
-    private function conexion()
-    {
+    private function conexion(){
         $conexion = mysqli_connect("localhost", "root", "root", "salioViaje");
         if (!$conexion) {
             echo "Error al conectar con la Base de datos.";
@@ -20,9 +19,9 @@ class procedimientosBD
 
     	echo "Tipo Usuario: ".$tipo."    Datos:  ".json_encode($datos);
     	$conn = $this->conexion();
-        $query = "CALL register_usuario(?,?,?,?,?,?,?,?,?,?,?,?)";
+        $query = "CALL register_usuario(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("sissssssiiss", $tipo, $datos["CI"], $datos["CORREO"], $datos["NOMBRE"], $datos["APELLIDO"], $datos["DIRECCION"], $datos["BARRIO"], $datos["DEPARTAMENTO"], $datos["TELEFONO"],$datos["PIN"],$datos['AGENCIA_CONTRATISTA'],$datos['RUT']);
+        $stmt->bind_param("sissssssiisssss", $tipo, $datos["CI"], $datos["CORREO"], $datos["NOMBRE"], $datos["APELLIDO"], $datos["DIRECCION"], $datos["BARRIO"], $datos["DEPARTAMENTO"], $datos["TELEFONO"],$datos["PIN"],$datos['AGENCIA_CONTRATISTA'],$datos['RUT'],$datos['SUPERVISOR'], $datos['NOMBRE_HOTEL'],$datos['DIRECCION_HOTEL']);
        	if ($stmt->execute()) {
             $stmt->store_result();
             $stmt->bind_result($idUsuario);
@@ -50,8 +49,7 @@ class procedimientosBD
         $stmt->execute();
         $stmt->close();
     }
-//rut ec la del chofer
-    //rut es la de contratista
+
     public function empresas(){
         $empresas = array();
         $conn = $this->conexion();
@@ -67,6 +65,26 @@ class procedimientosBD
          }
         $stmt->close();
         return json_encode($empresas);
+    }
+
+    public function login($usuario, $pin){
+        $conn = $this->conexion();
+        $query = "CALL login(?)";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("s", $usuario);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($id,$pin_bd,$nombre,$apellido);
+            while ($stmt->fetch()) {
+                if($pin_bd == $pin){
+                    $usuario = $nombre." ".$apellido;
+                    session_start();
+                    $_SESSION['usuario'] = $usuario;
+                    return $_SESSION['usuario'];
+                }
+            }
+         }
+        $stmt->close();
     }
 }
 ?>

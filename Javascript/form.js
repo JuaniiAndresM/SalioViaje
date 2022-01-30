@@ -295,6 +295,8 @@ function passwd2(){
 } 
 
 /*-------------------------------------------------------------------------------------------*/
+//                                     Register                                              //
+/*-------------------------------------------------------------------------------------------*/
 
 let ID_USUARIO;
 let datos_Usuario;
@@ -353,7 +355,7 @@ function register_form(opcion){
             break;
         case "3":
             datos_Usuario = {
-                "RUT": document.getElementById('rut').value,
+                "RUT": document.getElementById('rut_usuario').value,
                 "CORREO": document.getElementById('correo').value,
                 "NOMBRE": document.getElementById('nombre').value,
                 "APELLIDO": document.getElementById('apellido').value,
@@ -375,7 +377,50 @@ function register_form(opcion){
                 },
             });
             break;
-            break; 
+        case "4":
+            datos_Usuario = {
+                "RUT": document.getElementById('rut_usuario').value,
+                "CORREO": document.getElementById('correo').value,
+                "NOMBRE": document.getElementById('nombre').value,
+                "APELLIDO": document.getElementById('apellido').value,
+                "DIRECCION": document.getElementById('direccion').value,
+                "BARRIO": document.getElementById('barrio').value,
+                "DEPARTAMENTO": document.getElementById('departamento').value,
+                "TELEFONO": document.getElementById('telefono').value,
+                "PIN": document.getElementById('password').value,
+                "RE-PIN": document.getElementById('re-password').value
+            };
+            $.ajax({
+                type: "POST",
+                url: "../PHP/procedimientosForm.php",
+                data: { tipo:opcion, datos:JSON.stringify(datos_Usuario) },
+                success: function (response) {
+                    console.log(response)
+                },
+            });
+            break;
+        case "5":
+            datos_Hotel = {
+                "CI": document.getElementById('CI').value,
+                "CORREO": document.getElementById('correo').value,
+                "NOMBRE": document.getElementById('nombre').value,
+                "APELLIDO": document.getElementById('apellido').value,
+                "TELEFONO": document.getElementById('telefono').value,
+                "SUPERVISOR": document.getElementById('es_supervisor').value,
+                "NOMBRE_HOTEL": document.getElementById('nombre-hotel').value,
+                "DIRECCION_HOTEL": document.getElementById('direccion-hotel').value,
+                "PIN": document.getElementById('password').value,
+                "RE-PIN": document.getElementById('re-password').value
+            };
+            $.ajax({
+                type: "POST",
+                url: "../PHP/procedimientosForm.php",
+                data: { tipo:opcion, datos:JSON.stringify(datos_Hotel) },
+                success: function (response) {
+                    console.log(response)
+                },
+            });
+            break;
     }
 }
 
@@ -428,20 +473,39 @@ function Empresas(){
         url: "../PHP/procedimientosForm.php",
         data: {tipo: "empresas"},
         success: function (response) {
-            console.log(response)
-           let empresas = JSON.parse(response);
+            let empresas = JSON.parse(response);
             var selectEmpresas = document.getElementById('empresas');
             $("#empresas").empty().append($("<option></option>").attr({"value": 0,"selected": true, 'disabled': true}).text('Agencia Contratista'));
             for (var i = 0; i < empresas.length; i++){
-
             var opt = document.createElement('option');
-
             opt.value = empresas[i]["RUT"];
-
             opt.text = empresas[i]["NOMBRE_COMERCIAL"]+" "+empresas[i]["RAZON_SOCIAL"];
- 
             selectEmpresas.appendChild(opt);
             }
         }
+    });
+}
+
+/*-------------------------------------------------------------------------------------------*/
+//                                     Log in                                                //
+/*-------------------------------------------------------------------------------------------*/
+
+function login(){
+
+    let usuario = document.getElementById('usuario').value;
+    let pin = document.getElementById('passwd').value;
+
+    $.ajax({
+        type: "POST",
+        url: "../PHP/procedimientosForm.php",
+        data: {tipo:"login", usuario:usuario, pin:pin},
+        success: function (response) {
+            if (response != '') {
+                sessionStorage.setItem('usuario', response);
+                window.location = "../Panel/Dashboard.html";
+            }else{
+                console.log("Usuario o contraseña incorrectos...");
+            }
+        },
     });
 }

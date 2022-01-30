@@ -7,6 +7,12 @@ class procedimientosForm extends procedimientosBD
 {
 	private $idUsuario = null;
 
+	public function registrar_usuarios($tipo,$datos){
+		/*
+		Hago un if para validar y si todos los datos son correctos mando los datos a los procedimientos de la BD
+		*/	
+		return $this->register_usuario($tipo, $datos);
+	}
 
 	public function register_transportista($usuario,$empresa){
 
@@ -27,14 +33,14 @@ class procedimientosForm extends procedimientosBD
 		/*
 		Hago un if para validar y si todos los datos son correctos mando los datos a los procedimientos de la BD
 		*/	
-		$this->register("ANF", $datos);
+		$this->registrar_usuarios("ANF",$datos);
 	}
 
 	public function register_hotel($datos){
 		/*
 		Hago un if para validar y si todos los datos son correctos mando los datos a los procedimientos de la BD
 		*/	
-		$this->register("AGT", $datos);
+		$this->registrar_usuarios("HTL", $datos);
 	}
 
 	private function registrar_empresa($tipoUsuario,$contratista,$empresa){
@@ -48,6 +54,8 @@ class procedimientosForm extends procedimientosBD
 
 			for ($i=0; $i < count($empresa[$x]["VEHICULOS"]); $i++) { 
 				if ($tipoUsuario == "CHO") {
+					 //rut_ec = RUT de la empresa creada por el chofer.
+    				//rut = RUT de la agencia contratista del chofer.
 					$rut_ec = $empresa[$x]["RUT"];
 					$rut = $contratista;
 				}else{
@@ -58,13 +66,6 @@ class procedimientosForm extends procedimientosBD
 			}
 
 		}
-	}
-
-	private function registrar_usuarios($tipo,$datos){
-		/*
-		Hago un if para validar y si todos los datos son correctos mando los datos a los procedimientos de la BD
-		*/	
-		return $this->register_usuario($tipo, $datos);
 	}
 }
 
@@ -95,6 +96,9 @@ switch ($_POST['tipo']) {
 		break;
 	case 'empresas':
 		echo $procedimientosForm->empresas();
+		break;
+	case 'login':
+		echo $procedimientosForm->login($_POST['usuario'],$_POST['pin']);
 		break;
 }
 
