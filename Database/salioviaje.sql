@@ -34,7 +34,7 @@ CREATE TABLE `empresas` (
   PRIMARY KEY (`ID`),
   KEY `IDUsuario_idx` (`Usuario_ID`),
   CONSTRAINT `IDUsu` FOREIGN KEY (`Usuario_ID`) REFERENCES `usuarios` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,6 +43,7 @@ CREATE TABLE `empresas` (
 
 LOCK TABLES `empresas` WRITE;
 /*!40000 ALTER TABLE `empresas` DISABLE KEYS */;
+INSERT INTO `empresas` VALUES (47,'2345234','sdfgsdfg','S.A','1234','1234',93,'TTA'),(48,'43252345','umbulu','S.A','23452345','23452345',94,'CHO');
 /*!40000 ALTER TABLE `empresas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -71,7 +72,6 @@ CREATE TABLE `usuario-empresa` (
 
 LOCK TABLES `usuario-empresa` WRITE;
 /*!40000 ALTER TABLE `usuario-empresa` DISABLE KEYS */;
-INSERT INTO `usuario-empresa` VALUES (1,1,1),(2,2,1);
 /*!40000 ALTER TABLE `usuario-empresa` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -103,7 +103,7 @@ CREATE TABLE `usuarios` (
   `Direccion_Hotel` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `Usuario_UNIQUE` (`Usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=96 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -112,6 +112,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
+INSERT INTO `usuarios` VALUES (91,'PAX','53493317','medicenfirpito@gmail.com','Gaston','Firpo','Ombu','Solymar','Canelones','91446483',NULL,'1234',NULL,NULL,NULL,NULL,NULL,NULL),(92,'HTL','12345612','medicenfirpito@gmail.com','Gaston','Firpo','','','','99667766',NULL,'1234',NULL,NULL,NULL,'NO','nombre hotel','dir hotel'),(93,'TTA','2345326','medicenfirpito@gmail.com','sdfgsdfg','sdfg','Ombu','Solymar','Canelones','12351234',NULL,'1234',NULL,NULL,NULL,NULL,NULL,NULL),(94,'CHO','','medicenfirpito@gmail.com','sdfgsdfg','sdfg','Ombu','Solymar','Canelones','85674566','2345234','1233','748920194838',NULL,NULL,NULL,NULL,NULL),(95,'ANF','','medicenfirpito@gmail.com','sdfgsdfg','sdfg','23','Solymar','Canelones','77456888',NULL,'3453','659483740291',NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -134,7 +135,7 @@ CREATE TABLE `vehiculos` (
   `RUT_EM` varchar(12) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   `RUT_EC` varchar(12) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -143,12 +144,32 @@ CREATE TABLE `vehiculos` (
 
 LOCK TABLES `vehiculos` WRITE;
 /*!40000 ALTER TABLE `vehiculos` DISABLE KEYS */;
+INSERT INTO `vehiculos` VALUES (32,'SJT6155','wert','2345','2345',2345,2345,1,'2345234','0'),(33,'SJT6567','2345','2345','2345',2345,235,2,'2345234','43252345');
 /*!40000 ALTER TABLE `vehiculos` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
 -- Dumping routines for database 'salioviaje'
 --
+/*!50003 DROP PROCEDURE IF EXISTS `login` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `login`(usuario varchar(12))
+BEGIN
+	SELECT ID,PIN,Nombre,Apellido FROM usuarios where CI = usuario or RUT = usuario;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `register_empresa` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -179,13 +200,15 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `register_usuario`(tipoUsuario varchar(3), ci int, email varchar(45), nombre varchar(45), apellido varchar(45),direccion varchar(45),barrio varchar(45), departamento varchar(45),telefono int, pin int,RUT_AGENCIA_CONTRATISTA varchar(12),rut varchar(12))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `register_usuario`(tipoUsuario varchar(3), ci int, email varchar(45), nombre varchar(45), apellido varchar(45),direccion varchar(45),barrio varchar(45), departamento varchar(45),telefono int, pin int,RUT_AGENCIA_CONTRATISTA varchar(12),rut varchar(12), supervisor varchar(2), nombre_hotel varchar(45), direccion_hotel varchar(100))
 BEGIN
 
 IF tipoUsuario = "PAX" || tipoUsuario = "TTA" THEN
     INSERT INTO salioviaje.usuarios (Tipo_Usuario, CI, Email, Nombre, Apellido, Direccion, Barrio, Departamento, Telefono, PIN) VALUES (tipoUsuario, ci, email, nombre, apellido, direccion, barrio, departamento, telefono, pin);
-ELSEIF tipoUsuario = "CHO" THEN
+ELSEIF tipoUsuario = "CHO" || tipoUsuario = "ANF" THEN
 	INSERT INTO salioviaje.usuarios (Tipo_Usuario, RUT, Email, Nombre, Apellido, Direccion, Barrio, Departamento, Telefono, Agencia_C, PIN) VALUES (tipoUsuario, rut, email, nombre, apellido, direccion, barrio, departamento, telefono, RUT_AGENCIA_CONTRATISTA, pin);
+ELSEIF tipoUsuario = "HTL" THEN
+	INSERT INTO salioviaje.usuarios (Tipo_Usuario, CI, Email, Nombre, Apellido, Telefono, Supervisor, Nombre_Hotel, Direccion_Hotel, PIN) VALUES (tipoUsuario, ci, email, nombre, apellido, telefono, supervisor, nombre_hotel, direccion_hotel, pin);
 END IF;
 
 SELECT LAST_INSERT_ID();
@@ -262,4 +285,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-01-29 19:44:55
+-- Dump completed on 2022-01-30 19:36:43
