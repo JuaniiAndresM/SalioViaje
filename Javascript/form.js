@@ -317,7 +317,7 @@ function register_form(opcion){
                 "DIRECCION": document.getElementById('direccion').value,
                 "BARRIO": document.getElementById('barrio').value,
                 "DEPARTAMENTO": document.getElementById('departamento').value,
-                "TELEFONO": document.getElementById('telefono').value,
+                "TELEFONO": document.getElementById('numero_telefono').value,
                 "PIN": document.getElementById('password').value,
                 "RE-PIN": document.getElementById('re-password').value
             };
@@ -326,6 +326,7 @@ function register_form(opcion){
                 url: "../PHP/procedimientosForm.php",
                 data: { tipo:opcion, datos:JSON.stringify(datos_Usuario) },
                 success: function (response) {
+                    console.log(response)
                     ID_USUARIO = response;
                 },
             });
@@ -339,7 +340,7 @@ function register_form(opcion){
                 "DIRECCION": document.getElementById('direccion').value,
                 "BARRIO": document.getElementById('barrio').value,
                 "DEPARTAMENTO": document.getElementById('departamento').value,
-                "TELEFONO": document.getElementById('telefono').value,
+                "TELEFONO": document.getElementById('numero_telefono').value,
                 "PIN": document.getElementById('password').value,
                 "RE-PIN": document.getElementById('re-password').value
             };
@@ -363,7 +364,7 @@ function register_form(opcion){
                 "AGENCIA_CONTRATISTA": document.getElementById('empresas').value,
                 "BARRIO": document.getElementById('barrio').value,
                 "DEPARTAMENTO": document.getElementById('departamento').value,
-                "TELEFONO": document.getElementById('telefono').value,
+                "TELEFONO": document.getElementById('numero_telefono').value,
                 "PIN": document.getElementById('password').value,
                 "RE-PIN": document.getElementById('re-password').value
             };
@@ -386,7 +387,7 @@ function register_form(opcion){
                 "DIRECCION": document.getElementById('direccion').value,
                 "BARRIO": document.getElementById('barrio').value,
                 "DEPARTAMENTO": document.getElementById('departamento').value,
-                "TELEFONO": document.getElementById('telefono').value,
+                "TELEFONO": document.getElementById('numero_telefono').value,
                 "PIN": document.getElementById('password').value,
                 "RE-PIN": document.getElementById('re-password').value
             };
@@ -405,7 +406,7 @@ function register_form(opcion){
                 "CORREO": document.getElementById('correo').value,
                 "NOMBRE": document.getElementById('nombre').value,
                 "APELLIDO": document.getElementById('apellido').value,
-                "TELEFONO": document.getElementById('telefono').value,
+                "TELEFONO": document.getElementById('numero_telefono_hotel').value,
                 "SUPERVISOR": document.getElementById('es_supervisor').value,
                 "NOMBRE_HOTEL": document.getElementById('nombre-hotel').value,
                 "DIRECCION_HOTEL": document.getElementById('direccion-hotel').value,

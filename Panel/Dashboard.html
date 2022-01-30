@@ -69,6 +69,12 @@
         <script src="/SalioViaje/Javascript/panel.js"></script>
         <script src="/SalioViaje/Javascript/settings.js"></script>
         <script src="/SalioViaje/Javascript/loader.js"></script>
+        <script type="text/javascript">
+            window.onload = function(){
+              let seccion = "Dashboard"
+              traerUsuarios(seccion)
+            }
+        </script>
       </head>
       <body>
          
@@ -104,9 +110,8 @@
         <section class="panel" id="panel">
           <div class="panel-cards">
             <div class="card">
-              <div class="number">
-                <h2>54</h2>
-                <i class="fas fa-user-friends"></i>
+              <div class="number" id="cantidad-usuarios">
+
               </div>
               <p>Usuarios</p>
             </div>
@@ -143,7 +148,7 @@
                 <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarUsuarios()"/>
               </div>
               <table class="usuarios-table" id="search-table">
-                <thead>
+                <!-- antes:
                   <tr>
                     <th>
                       Nombre <i class="fas fa-angle-down"></i>
@@ -154,35 +159,20 @@
                     <th>Teléfono <i class="fas fa-angle-down"></i></th>
                     <th></th>
                   </tr>
+                -->
+                <thead>
+                  <tr>
+                    <th>Tipo <i class="fas fa-angle-down"></i></th>
+                    <th>
+                      Nombre <i class="fas fa-angle-down"></i>
+                    </th>
+                    <th>Apellido <i class="fas fa-angle-down"></i></th>
+                    <th>Departamento <i class="fas fa-angle-down"></i></th>
+                    <th>Teléfono <i class="fas fa-angle-down"></i></th>
+                    <th></th>
+                  </tr>
                 </thead>
-
-                <tr>
-                  <td data-title="Nombre:">
-                    Juan Andrés
-                  </td>
-                  <td data-title="Apellido:">Morena</td>
-                  <td data-title="Tipo:">PAX</td>
-                  <td data-title="Departamento:">Canelones</td>
-                  <td data-title="Teléfono:">098234717</td>
-                  <td>
-                    <button>Ver</button>
-                  </td>
-                </tr>
-                
-
-                <tr>
-                  <td data-title="Nombre:">
-                    Manuel
-                  </td>
-                  <td data-title="Apellido:">Alonso Fernández</td>
-                  <td data-title="Tipo:">PAX</td>
-                  <td data-title="Departamento:">Canelones</td>
-                  <td data-title="Teléfono:">098234717</td>
-                  <td>
-                    <button>Ver</button>
-                  </td>
-                </tr>
-
+                <tbody id="tbody"></tbody>
               </table>
             </div>
             <div class="usuarios-propietarios">

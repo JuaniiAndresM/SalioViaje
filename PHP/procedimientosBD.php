@@ -86,5 +86,56 @@ class procedimientosBD
          }
         $stmt->close();
     }
+
+    public function datos_usuarios(){
+        $usuarios = array();
+        $conn = $this->conexion();
+        $query = "SELECT ID,Tipo_Usuario,CI,Email,Nombre,Apellido,Direccion,Barrio,Departamento,Telefono,Agencia_C,RUT,Supervisor,Nombre_Hotel,Direccion_Hotel FROM salioviaje.usuarios";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($id_usuario,$tipo_usuario,$ci,$mail,$nombre,$apellido,$direccion,$barrio,$departamento,$telefono,$agencia_contratista,$rut,$supervisor,$nombre_hotel,$direccion_hotel);
+            while ($stmt->fetch()) {
+               $result = array('ID' => $id_usuario,'TIPO_USUARIO' => $tipo_usuario, 'CI' => $ci, 'EMAIL' => $mail, 'NOMBRE' => $nombre, 'APELLIDO' => $apellido, 'DIRECCION' => $direccion, 'BARRIO' => $barrio, 'DEPARTAMENTO' => $departamento, 'TELEFONO' => $telefono, 'AGENCIA_CONTRATISTA' => $agencia_contratista, 'NOMBRE_HOTEL' => $nombre_hotel, 'DIRECCION_HOTEL' => $direccion_hotel, 'SUPERVISOR' => $supervisor, 'RUT' => $rut);
+               $usuarios[] = $result;
+            }
+         }
+        $stmt->close();
+        return $usuarios;
+    }
+
+    public function datos_empresas(){
+        $empresas = array();
+        $conn = $this->conexion();
+        $query = `SELECT * FROM empresas`;
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($nombre_empresa,$razon_social,$rut);
+            while ($stmt->fetch()) {
+               $result = array('ID' => $nombre_empresa,'TIPO_USUARIO' => $razon_social, 'RUT' => $rut);
+               $empresas[] = $result;
+            }
+         }
+        $stmt->close();
+        return $empresas;
+    }
+
+    public function datos_vehiculos(){
+        $vehiculos = array();
+        $conn = $this->conexion();
+        $query = `SELECT * FROM vehiculos`;
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($nombre_empresa,$razon_social,$rut);
+            while ($stmt->fetch()) {
+               $result = array('NOMBRE_COMERCIAL' => $nombre_empresa,'RAZON_SOCIAL' => $razon_social, 'RUT' => $rut);
+               $vehiculos[] = $result;
+            }
+         }
+        $stmt->close();
+        return json_encode($vehiculos);
+    }
 }
 ?>
