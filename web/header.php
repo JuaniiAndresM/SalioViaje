@@ -17,7 +17,7 @@
 
             session_start();
 
-            if($_SESSION['usuario']){
+            if(isset($_SESSION['usuario'])){
                 echo '  <div class="session">
 
                             <div class="close-session">
@@ -40,9 +40,3 @@
         </div>
     </div>
 </header>
-
-<?php
-if($_SESSION['usuario']){
-    
-}
-?>

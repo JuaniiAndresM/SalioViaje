@@ -725,7 +725,6 @@ header .header-wrapper .header-links .links a:hover {
 }
 
 header .header-wrapper .header-links .links-session {
-  display: none;
   -webkit-transition: .3s;
   transition: .3s;
 }
