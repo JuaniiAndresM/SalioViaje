@@ -753,7 +753,7 @@ header .header-wrapper .header-links .links-session:hover {
 }
 
 header .header-wrapper .header-links .session {
-  width: 260px;
+  max-width: 260px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -765,17 +765,8 @@ header .header-wrapper .header-links .session {
           align-items: center;
 }
 
-header .header-wrapper .header-links .session .user h3 {
-  color: #3844bc;
-  width: 200px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-header .header-wrapper .header-links .session .user p {
-  text-align: left;
-  color: #666;
+header .header-wrapper .header-links .session .close-session {
+  margin-right: 10px;
 }
 
 header .header-wrapper .header-links .session .close-session button {
@@ -807,6 +798,41 @@ header .header-wrapper .header-links .session .close-session button i {
 header .header-wrapper .header-links .session .close-session button:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
+}
+
+header .header-wrapper .header-links .session .user {
+  width: 250px;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: transparent;
+  border: none;
+}
+
+header .header-wrapper .header-links .session .user h3 {
+  color: #3844bc;
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 1.5em;
+}
+
+header .header-wrapper .header-links .session .user p {
+  text-align: left;
+  color: #666;
+  font-size: 1.1em;
 }
 
 @media screen and (max-width: 1060px) {

@@ -59,27 +59,15 @@ header{
             }
 
             .session{
-                width: 260px;
+                max-width: 260px;
 
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
 
-                .user{
-                    h3{
-                        color: $main_1;
-                        width: 200px;
-                        white-space: nowrap;
-                        overflow: hidden;
-                        text-overflow: ellipsis;
-                    }
-                    p{
-                        text-align: left;
-                        color: #666;
-                    }
-                }
-
                 .close-session{
+
+                    margin-right: 10px;
                     button{
                         width: 50px;
                         height: 50px;
@@ -103,6 +91,35 @@ header{
                         transform: scale(1.1);
                     }
                 }
+
+                .user{
+                    width: 250px;
+                    height: 50px;
+
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-start;
+                    flex-direction: column;
+
+                    background-color: transparent;
+                    border: none;
+
+                    h3{
+                        color: $main_1;
+                        max-width: 200px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        font-size: 1.5em;
+                    }
+                    p{
+                        text-align: left;
+                        color: #666;
+                        font-size: 1.1em;
+                    }
+                }
+
+                
             }
         }
     }
