@@ -107,13 +107,13 @@ class procedimientosBD
     public function datos_empresas(){
         $empresas = array();
         $conn = $this->conexion();
-        $query = `SELECT * FROM empresas`;
+        $query = "SELECT ID,RUT,Nombre_C,Razon_S,Usuario_ID,Tipo_Usuario FROM salioviaje.empresas";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($nombre_empresa,$razon_social,$rut);
+            $stmt->bind_result($id,$rut,$nombre_empresa,$razon_social,$id_owner,$tipo_usuario);
             while ($stmt->fetch()) {
-               $result = array('ID' => $nombre_empresa,'TIPO_USUARIO' => $razon_social, 'RUT' => $rut);
+               $result = array('ID' => $id, 'RUT' => $rut, 'NOMBRE_EMPRESA' => $nombre_empresa, 'RAZON_SOCIAL' => $razon_social, 'ID_OWNER' => $id_owner, 'TIPO_USUARIO' => $tipo_usuario);
                $empresas[] = $result;
             }
          }
@@ -124,18 +124,18 @@ class procedimientosBD
     public function datos_vehiculos(){
         $vehiculos = array();
         $conn = $this->conexion();
-        $query = `SELECT * FROM vehiculos`;
+        $query = "SELECT * FROM salioviaje.vehiculos";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($nombre_empresa,$razon_social,$rut);
+            $stmt->bind_result($id,$matricula,$marca,$modelo,$combustible,$capacidad,$equipaje,$rut_em,$rut_e,$pet_friendly);
             while ($stmt->fetch()) {
-               $result = array('NOMBRE_COMERCIAL' => $nombre_empresa,'RAZON_SOCIAL' => $razon_social, 'RUT' => $rut);
+               $result = array('ID' => $id,'MATRICULA' => $matricula, 'MARCA' => $marca, 'MODELO' => $modelo, 'COMBUSTIBLE' => $combustible, 'CAPACIDAD' => $capacidad, 'EQUIPAJE' => $equipaje, 'RUT_E' => $rut_e, 'PET_FRIENDLY' => $pet_friendly,'RUT_EM' => $rut_em);
                $vehiculos[] = $result;
             }
          }
         $stmt->close();
-        return json_encode($vehiculos);
+        return $vehiculos;
     }
 }
 ?>

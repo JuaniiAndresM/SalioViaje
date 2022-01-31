@@ -16,6 +16,12 @@ class Backend extends procedimientosBD
 			case 'usr':
 				$this->usuarios = $this->datos_usuarios();
 				break;
+			case 'emp':
+				$this->empresas = $this->datos_empresas();
+				break;
+			case 'vih':
+				$this->vehiculos = $this->datos_vehiculos();
+				break;
 		}
 	}
 
@@ -36,16 +42,26 @@ class Backend extends procedimientosBD
 		/*
 			Panel de administrador
 		*/
+		return json_encode($this->empresas);
 	}
 
 	public function getVehiculos(){
 		/*
 			Panel de administrador
 		*/
+		return json_encode($this->vehiculos);
 	}
 }
 
 $Backend = new Backend($_POST['opcion']);
 
-echo $Backend->getUsuarios();
+if ($_POST['opcion'] == "usr") {
+	echo $Backend->getUsuarios();
+} else if($_POST['opcion'] == "emp") {
+	echo $Backend->getEmpresas();
+} else {
+	echo $Backend->getVehiculos();
+}
+
+
  ?>

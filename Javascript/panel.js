@@ -1,5 +1,4 @@
 let NOMBRE_USUARIO;
-let orden = 1;
 $(document).ready(function () {
     let list = document.querySelectorAll('#panel-navbar li');
 
@@ -69,6 +68,10 @@ function buscarUsuarios() {
 /*-------------------------------------------------------------------------------------------*/
 //                                     Opciones                                              //
 /*-------------------------------------------------------------------------------------------*/
+
+/*-------------------------------------------------------------------------------------------*/
+//                                     Usuarios                                              //
+/*-------------------------------------------------------------------------------------------*/
 let usuarios
 
 function traerUsuarios(seccion){
@@ -85,66 +88,25 @@ function traerUsuarios(seccion){
                     }).responseText;
 
     usuarios = JSON.parse(usuarios)
-    ordenarId(orden,seccion);
+    tablas_usuarios(seccion);
 }
 
-function ordenarId(orden,seccion){
+function tablas_usuarios(seccion){
     console.log(seccion)
-    if (orden == 0) {
-        for (var i = usuarios.length - 1; i >= 0; i--) {
-            switch(seccion){
-                case "Dashboard":
-                    usuarios_dashboard(usuarios[i])
+    for (var i = 0;i < usuarios.length; i++) {
+        switch(seccion){
+            case "Dashboard":
+                    tabla_usuarios_dashboard(usuarios[i])
                 break;
 
-                case "usuarios":
-                    seccion_usuarios(usuarios[i])
+            case "usuarios":
+                    tabla_seccion_usuarios(usuarios[i])
                 break;
-
-                case "3":
-                    seccion_usuarios(usuarios[i])
-                break;
-
-                case "4":
-                    seccion_usuarios(usuarios[i])
-                break;
-
-                case "5":
-                    seccion_usuarios(usuarios[i])
-                break;
-            }
-        }
-            
-        }else{
-        for (var i = 0;i < usuarios.length; i++) {
-            switch(seccion){
-                case "Dashboard":
-                    usuarios_dashboard(usuarios[i])
-                break;
-
-                case "usuarios":
-                    seccion_usuarios(usuarios[i])
-                break;
-
-                case "3":
-                    seccion_usuarios(usuarios[i])
-                break;
-
-                case "4":
-                    seccion_usuarios(usuarios[i])
-                break;
-
-                case "5":
-                    seccion_usuarios(usuarios[i])
-                break;
-            }
         }
     }
 }
 
-
-
-function usuarios_dashboard(usuario){
+function tabla_usuarios_dashboard(usuario){
     $("#cantidad-usuarios").html('<h2>'+usuarios.length+'</h2><i class="fas fa-user-friends"></i>')
     var tabla = document.getElementById('tbody')
     var row = document.createElement("tr")
@@ -163,18 +125,20 @@ function usuarios_dashboard(usuario){
     }
 
     let td = document.createElement("td");
-
     td.innerHTML += '<button id="'+ID_USUARIO+'">Ver</button>'
-
     row.appendChild(td);
-
+    //
+    //agrego la fila a la tabla
+    //
     tabla.appendChild(row);
 }
 
-function seccion_usuarios(usuario){
+function tabla_seccion_usuarios(usuario){
+
     var tabla = document.getElementById('tbody')
     var row = document.createElement("tr")
     let contador = 0;
+
     for (const property in usuario) {
         let td = document.createElement("td");
         if (contador != 14) {
@@ -195,22 +159,143 @@ function seccion_usuarios(usuario){
     let td = document.createElement("td");
     td.innerHTML += '<button id="'+ID_USUARIO+'">Ver</button>'
     row.appendChild(td);
+    //
+    //agrego la fila a la tabla
+    //
+    tabla.appendChild(row);
+}
+/*-------------------------------------------------------------------------------------------*/
+//                                     Empresas                                              //
+/*-------------------------------------------------------------------------------------------*/
+let empresas
+
+function traerEmpresas(seccion){
+    empresas = $.ajax({
+                        type: 'POST',       
+                        url: "../PHP/Backend.php",
+                        data: {opcion:"emp"},
+                        global: false,
+                        async:false,
+                        success: function(response) {
+                            return response;
+                        }
+                    }).responseText;
+    empresas = JSON.parse(empresas)
+    tablas_empresas(seccion);
+}
+
+function tablas_empresas(seccion){
+    console.log(seccion)
+    for (var i = 0;i < empresas.length; i++) {
+        switch(seccion){
+            case "Dashboard":
+                    tabla_empresas_dashboard(empresas[i])
+                break;
+
+            case "empresas":
+                    tabla_seccion_empresas(empresas[i])
+                break;
+        }
+    }
+}
+
+function tabla_empresas_dashboard(empresa){
+    $.ajax({
+        type: 'POST',       
+        url: "../PHP/agregarEmpresaDashboard.php",
+        data: {NOMBRE_EMPRESA:empresa['NOMBRE_EMPRESA'], ID_EMPRESA:empresa['ID']},
+        success: function(response) {
+            $(".propietarios").append(response);
+        }
+    })
+}
+
+function tabla_seccion_empresas(empresa){
+    var tabla = document.getElementById('tbody')
+    var row = document.createElement("tr")
+    let contador = 0;
+
+    for (const property in empresa) {
+        let td = document.createElement("td");
+            console.log(empresa[property])
+        if(property == "ID"){
+                ID_EMPRESA = empresa[property]
+                td.innerHTML = empresa[property]
+        }else{
+                td.innerHTML = empresa[property]
+        }
+            row.appendChild(td);
+        contador++
+    }
+    /*
+    let td = document.createElement("td");
+    td.innerHTML += '<button id="'+ID_EMPRESA+'">Ver</button>'
+    row.appendChild(td);
+    */
+    //
+    //agrego la fila a la tabla
+    //
     tabla.appendChild(row);
 }
 
-function seccion_empresas(){
+/*-------------------------------------------------------------------------------------------*/
+//                                     Vehiculos                                             //
+/*-------------------------------------------------------------------------------------------*/
+let vehiculos
 
+function traerVehiculos(){
+    vehiculos = $.ajax({
+                        type: 'POST',       
+                        url: "../PHP/Backend.php",
+                        data: {opcion:"vih"},
+                        global: false,
+                        async:false,
+                        success: function(response) {
+                            return response;
+                        }
+                    }).responseText;
+    vehiculos = JSON.parse(vehiculos)
+     console.log(vehiculos)
+    tablas_vehiculos();
 }
 
-function seccion_vehiculos(){
-
-}
-
-function cambiarOrden(){
-    if (orden == 1) {
-        orden = 0
-    }else{
-        orden = 1
+function tablas_vehiculos(){
+    for (var i = 0;i < vehiculos.length; i++) {
+        tabla_seccion_vehiculos(vehiculos[i])
     }
-    return orden;
+}
+
+
+function tabla_seccion_vehiculos(vehiculo){
+    var tabla = document.getElementById('tbody')
+    var row = document.createElement("tr")
+    let contador = 0;
+    let ID_VEHICULO
+
+    for (const property in vehiculo) {
+        let td = document.createElement("td"); 
+
+        if(property == "ID"){
+                ID_VEHICULO = vehiculo[property]
+                td.innerHTML = vehiculo[property]
+        }else if(property == "RUT_EM" && vehiculo[property] == "1"){
+                td.innerHTML = "NO"
+        }else if(property == "RUT_EM" && vehiculo[property] == "2"){
+                td.innerHTML = "SI"
+        }else{
+            td.innerHTML = vehiculo[property]
+        }
+
+        row.appendChild(td);
+        contador++
+    }
+    /*
+    let td = document.createElement("td");
+    td.innerHTML += '<button id="'+ID_EMPRESA+'">Ver</button>'
+    row.appendChild(td);
+    */
+    //
+    //agrego la fila a la tabla
+    //
+    tabla.appendChild(row);
 }

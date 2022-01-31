@@ -69,6 +69,12 @@
     <script src="/SalioViaje/Javascript/panel.js"></script>
     <script src="/SalioViaje/Javascript/settings.js"></script>
     <script src="/SalioViaje/Javascript/loader.js"></script>
+        <script type="text/javascript">
+            window.onload = function(){
+              let seccion = "empresas"
+              traerEmpresas(seccion)
+            }
+    </script>
   </head>
   <body>
     <div id="pre-loader">
@@ -146,6 +152,7 @@
                   <th></th>
                 </tr>
               </thead>
+              <tbody id="tbody"></tbody>
             </table>
           </div>
         </div>
