@@ -844,6 +844,9 @@ header .header-wrapper .header-links .session .user p {
   header .header-wrapper .header-links .links-session {
     display: none;
   }
+  header .header-wrapper .header-links .session {
+    display: none;
+  }
 }
 
 footer {
