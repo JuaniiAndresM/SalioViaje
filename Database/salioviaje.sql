@@ -43,7 +43,6 @@ CREATE TABLE `empresas` (
 
 LOCK TABLES `empresas` WRITE;
 /*!40000 ALTER TABLE `empresas` DISABLE KEYS */;
-INSERT INTO `empresas` VALUES (47,'2345234','sdfgsdfg','S.A','1234','1234',93,'TTA'),(48,'43252345','umbulu','S.A','23452345','23452345',94,'CHO');
 /*!40000 ALTER TABLE `empresas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -112,7 +111,6 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (91,'PAX','53493317','medicenfirpito@gmail.com','Gaston','Firpo','Ombu','Solymar','Canelones','91446483',NULL,'1234',NULL,NULL,NULL,NULL,NULL,NULL),(92,'HTL','12345612','medicenfirpito@gmail.com','Gaston','Firpo','','','','99667766',NULL,'1234',NULL,NULL,NULL,'NO','nombre hotel','dir hotel'),(93,'TTA','2345326','medicenfirpito@gmail.com','sdfgsdfg','sdfg','Ombu','Solymar','Canelones','12351234',NULL,'1234',NULL,NULL,NULL,NULL,NULL,NULL),(94,'CHO','','medicenfirpito@gmail.com','sdfgsdfg','sdfg','Ombu','Solymar','Canelones','85674566','2345234','1233','748920194838',NULL,NULL,NULL,NULL,NULL),(95,'ANF','','medicenfirpito@gmail.com','sdfgsdfg','sdfg','23','Solymar','Canelones','77456888',NULL,'3453','659483740291',NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -144,7 +142,6 @@ CREATE TABLE `vehiculos` (
 
 LOCK TABLES `vehiculos` WRITE;
 /*!40000 ALTER TABLE `vehiculos` DISABLE KEYS */;
-INSERT INTO `vehiculos` VALUES (32,'SJT6155','wert','2345','2345',2345,2345,1,'2345234','0'),(33,'SJT6567','2345','2345','2345',2345,235,2,'2345234','43252345');
 /*!40000 ALTER TABLE `vehiculos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -285,4 +282,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-01-30 19:36:43
+-- Dump completed on 2022-01-30 22:35:05
