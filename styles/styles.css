@@ -2326,6 +2326,34 @@ footer .totum p a:hover {
   color: #6d76db;
 }
 
+.login .login-wrapper #login .mensaje-error,
+.login .login-wrapper #step_1 .mensaje-error,
+.login .login-wrapper #step_2 .mensaje-error,
+.login .login-wrapper #step_3 .mensaje-error,
+.login .login-wrapper #step_4 .mensaje-error,
+.login .login-wrapper #step_5 .mensaje-error,
+.login .register-wrapper #login .mensaje-error,
+.login .register-wrapper #step_1 .mensaje-error,
+.login .register-wrapper #step_2 .mensaje-error,
+.login .register-wrapper #step_3 .mensaje-error,
+.login .register-wrapper #step_4 .mensaje-error,
+.login .register-wrapper #step_5 .mensaje-error,
+.register .login-wrapper #login .mensaje-error,
+.register .login-wrapper #step_1 .mensaje-error,
+.register .login-wrapper #step_2 .mensaje-error,
+.register .login-wrapper #step_3 .mensaje-error,
+.register .login-wrapper #step_4 .mensaje-error,
+.register .login-wrapper #step_5 .mensaje-error,
+.register .register-wrapper #login .mensaje-error,
+.register .register-wrapper #step_1 .mensaje-error,
+.register .register-wrapper #step_2 .mensaje-error,
+.register .register-wrapper #step_3 .mensaje-error,
+.register .register-wrapper #step_4 .mensaje-error,
+.register .register-wrapper #step_5 .mensaje-error {
+  color: #ff635a;
+  margin-bottom: 20px;
+}
+
 .login .login-wrapper #login .inputs-wrapper .input input,
 .login .register-wrapper #login .inputs-wrapper .input input,
 .register .login-wrapper #login .inputs-wrapper .input input,
