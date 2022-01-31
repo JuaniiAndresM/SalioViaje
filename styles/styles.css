@@ -725,6 +725,7 @@ header .header-wrapper .header-links .links a:hover {
 }
 
 header .header-wrapper .header-links .links-session {
+  display: none;
   -webkit-transition: .3s;
   transition: .3s;
 }
@@ -751,7 +752,64 @@ header .header-wrapper .header-links .links-session:hover {
           transform: scale(1.1);
 }
 
-@media screen and (max-width: 1000px) {
+header .header-wrapper .header-links .session {
+  width: 260px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header .header-wrapper .header-links .session .user h3 {
+  color: #3844bc;
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+header .header-wrapper .header-links .session .user p {
+  text-align: left;
+  color: #666;
+}
+
+header .header-wrapper .header-links .session .close-session button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: -webkit-gradient(linear, left top, right top, from(#3844bc), to(#2b3179));
+  background: linear-gradient(to right, #3844bc, #2b3179);
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+header .header-wrapper .header-links .session .close-session button i {
+  font-size: 1.2em;
+}
+
+header .header-wrapper .header-links .session .close-session button:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+@media screen and (max-width: 1060px) {
   header .header-wrapper .header-links .links {
     display: none;
   }

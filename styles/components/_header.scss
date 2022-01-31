@@ -36,6 +36,7 @@ header{
                 }
             }
             .links-session{
+                display: none;
                 transition: .3s;
                 .login_button{
                     background: $main_1;
@@ -56,11 +57,58 @@ header{
             .links-session:hover{
                 transform: scale(1.1);
             }
+
+            .session{
+                width: 260px;
+
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .user{
+                    h3{
+                        color: $main_1;
+                        width: 200px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                    p{
+                        text-align: left;
+                        color: #666;
+                    }
+                }
+
+                .close-session{
+                    button{
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        background: linear-gradient(to right, $main_1, $main_2);
+                        color: $contraste_2;
+                        border: none;
+                        cursor: pointer;
+                        transition: .3s;
+
+                        i{
+                            font-size: 1.2em;
+                        }
+                    }
+                    button:hover{
+                        transform: scale(1.1);
+                    }
+                }
+            }
         }
     }
 }
 
-@media screen and(max-width: 1000px) {
+@media screen and(max-width: 1060px) {
     header{
         .header-wrapper{
             .header-links{
