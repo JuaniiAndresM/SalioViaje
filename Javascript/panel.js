@@ -36,7 +36,7 @@ function buscarUsuarios() {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("searchbar");
     filter = input.value.toUpperCase();
-
+    
     table = document.getElementById("search-table");
     tr = table.getElementsByTagName("tr");
     
