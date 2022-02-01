@@ -115,7 +115,7 @@ class Validaciones
 		}
 
 		if (count($VALIDACION) != 10) {
-			$DATOS_VACIOS = "Hay campos vacios...";
+			$DATOS_VACIOS = "Err-1";
 		}
 
 		foreach ($VALIDACION as $clave => $valor){
@@ -389,7 +389,7 @@ class Validaciones
 		}
 
 		if (count($VALIDACION) != 5) {
-			$DATOS_VACIOS = "Hay campos vacios...";
+			$DATOS_VACIOS = "Err-1";
 		}
 
 		foreach ($VALIDACION as $clave => $valor){
@@ -446,7 +446,7 @@ class Validaciones
 		}
 
 		if (count($VALIDACION) != 7) {
-			$DATOS_VACIOS = "Hay campos vacios...";
+			$DATOS_VACIOS = "Err-1";
 		}
 
 
