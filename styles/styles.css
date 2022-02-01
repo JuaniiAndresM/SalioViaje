@@ -71,6 +71,21 @@
   transition: 0.5s;
   cursor: pointer;
   border-radius: 0 2em 2em 2em;
+  text-decoration: none;
+  margin-top: 20px;
+  padding: 0;
+  width: 220px;
+  height: 45px;
+  font-size: .9em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .landing .landing-wrapper-grid .landing-left .landing-info .button-landing i {
@@ -378,6 +393,20 @@
   transition: 0.5s;
   cursor: pointer;
   border-radius: 0 2em 2em 2em;
+  padding: 0;
+  text-decoration: none;
+  font-size: .9em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 160px;
+  height: 45px;
 }
 
 .nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info .button-nosotros i {
@@ -1167,6 +1196,13 @@ footer .footer-wrapper .column_3 .suscribirse-mail {
 
 footer .footer-wrapper .column_3 .suscribirse-mail i {
   margin-right: 5px;
+}
+
+footer .footer-wrapper .column_3 .suscribirse-mail:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  background-color: #3844bc;
+  color: #ffffff;
 }
 
 footer .totum {
