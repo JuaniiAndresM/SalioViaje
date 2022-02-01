@@ -310,9 +310,9 @@ function filtros(){
     $(".checkboxs").on('click', function() {
         if(!$("#pax").prop("checked")){ $(".PAX").hide() }else{ $(".PAX").show() }
         if(!$("#tta").prop("checked")){ $(".TTA").hide() }else{ $(".TTA").show() }
-        if(!$("#CHO").prop("checked")){ $(".CHO").hide() }else{ $(".CHO").show() }
-        if(!$("#ANF").prop("checked")){ $(".ANF").hide() }else{ $(".ANF").show() }
-        if(!$("#HTL").prop("checked")){ $(".HTL").hide() }else{ $(".HTL").show() }
+        if(!$("#cho").prop("checked")){ $(".CHO").hide() }else{ $(".CHO").show() }
+        if(!$("#anf").prop("checked")){ $(".ANF").hide() }else{ $(".ANF").show() }
+        if(!$("#htl").prop("checked")){ $(".HTL").hide() }else{ $(".HTL").show() }
         //if(!$("#").prop("checked")){ console.log("Oculto") }else{ console.log("Muestro") }
     });
 }
