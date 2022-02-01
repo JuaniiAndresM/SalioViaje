@@ -25,28 +25,31 @@
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.salioviaje.com/" />
-    <meta property="og:title" content="SalióViaje - Register" />
+    <meta property="og:url" content="https://www.salioviaje.com.uy/Vehiculos" />
+    <meta property="og:title" content="SalióViaje - Vehiculos" />
     <meta
       property="og:description"
       content="Plataforma que optimiza el traslado ocasional de personas."
     />
     <meta
       property="og:image"
-      content="https://www.website.com/media/MetaImage.png"
+      content="https://www.salioviaje.com.uy/media/images/MetaImagen.png"
     />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://www.salioviaje.com/" />
-    <meta property="twitter:title" content="SalióViaje - Register" />
+    <meta property="twitter:url" content="https://www.salioviaje.com.uy/Vehiculos" />
+    <meta
+      property="twitter:title"
+      content="SalióViaje - Vehiculos"
+    />
     <meta
       property="twitter:description"
       content="Plataforma que optimiza el traslado ocasional de personas."
     />
     <meta
       property="twitter:image"
-      content="https://www.website.com/media/MetaImage.png"
+      content="https://www.salioviaje.com.uy/media/images/MetaImagen.png"
     />
 
     <!-- // Fin de Meta Etiquetas -->

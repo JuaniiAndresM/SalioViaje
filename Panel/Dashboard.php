@@ -13,52 +13,55 @@
          ?>
     
         <!-- // Meta Etiquetas -->
-    
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-        />
-    
-        <meta name="author" content="TotumDev" />
-    
-        <meta
-          name="description"
-          content="Plataforma que optimiza el traslado ocasional de personas."
-        />
-        <meta
-          name="keywords"
-          content="SalióViaje, transporte, transfer, alquiler con chofer, combis para fiestas, Salió Viaje, traslados"
-        />
-    
-        <!-- Open Graph / Facebook -->
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.salioviaje.com/" />
-        <meta property="og:title" content="SalióViaje - Register" />
-        <meta
-          property="og:description"
-          content="Plataforma que optimiza el traslado ocasional de personas."
-        />
-        <meta
-          property="og:image"
-          content="https://www.website.com/media/MetaImage.png"
-        />
-    
-        <!-- Twitter -->
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://www.salioviaje.com/" />
-        <meta property="twitter:title" content="SalióViaje - Register" />
-        <meta
-          property="twitter:description"
-          content="Plataforma que optimiza el traslado ocasional de personas."
-        />
-        <meta
-          property="twitter:image"
-          content="https://www.website.com/media/MetaImage.png"
-        />
-    
-        <!-- // Fin de Meta Etiquetas -->
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <meta name="author" content="TotumDev" />
+
+    <meta
+      name="description"
+      content="Plataforma que optimiza el traslado ocasional de personas."
+    />
+    <meta
+      name="keywords"
+      content="SalióViaje, transporte, transfer, alquiler con chofer, combis para fiestas, Salió Viaje, traslados"
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.salioviaje.com.uy/Dashboard" />
+    <meta property="og:title" content="SalióViaje - Dashboard" />
+    <meta
+      property="og:description"
+      content="Plataforma que optimiza el traslado ocasional de personas."
+    />
+    <meta
+      property="og:image"
+      content="https://www.salioviaje.com.uy/media/images/MetaImagen.png"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.salioviaje.com.uy/Dashboard" />
+    <meta
+      property="twitter:title"
+      content="SalióViaje - Dashboard"
+    />
+    <meta
+      property="twitter:description"
+      content="Plataforma que optimiza el traslado ocasional de personas."
+    />
+    <meta
+      property="twitter:image"
+      content="https://www.salioviaje.com.uy/media/images/MetaImagen.png"
+    />
+
+    <!-- // Fin de Meta Etiquetas -->
     
         <!-- Links -->
         <link
