@@ -1,4 +1,9 @@
 $(document).ready(function () {
+    $('#mensaje-error1').hide();
+    $('#mensaje-error2').hide();
+    $('#mensaje-error3').hide();
+    $('#mensaje-error4').hide();
+    $('#mensaje-error5').hide();
     $('.progress-bar').hide();
     $('.vehiculos-wrapper').hide();
     steps(1);
@@ -349,7 +354,7 @@ function register_form(opcion){
             };
             
             if (validacion("USUARIO-PAX-TTA",datos_Usuario)) {
-                if (empresas.length != 0) {
+                if (empresas.length != 0 && ID_USUARIO != null) {
                     console.log("valido...")
                     $.ajax({
                         type: "POST",
@@ -359,7 +364,7 @@ function register_form(opcion){
                             console.log(response)
                         },
                     });
-                } else {next()}
+                } else { next() }
             }else{ console.log("No valido...") }
             break;
         case "3":
@@ -377,7 +382,7 @@ function register_form(opcion){
                 "RE-PIN": document.getElementById('re-password').value
             };
             if (validacion("USUARIO-CHO",datos_Usuario)) {
-                 if (empresas.length != 0) {
+                 if (empresas.length != 0  && ID_USUARIO != null) {
                     $.ajax({
                         type: "POST",
                         url: "../PHP/procedimientosForm.php",
@@ -386,7 +391,7 @@ function register_form(opcion){
                             console.log(response)
                         },
                     });
-                } else {next()}
+                } else { next() }
             }else{ console.log("No valido...") }
             break;
         case "4":
@@ -539,6 +544,8 @@ function validacion(TIPO,DATOS){
     let validacion;
     let VALIDO = false;
 
+    reset_errores()
+
     switch(TIPO){
         case "USUARIO-PAX-TTA":
                 validacion = $.ajax({
@@ -553,6 +560,11 @@ function validacion(TIPO,DATOS){
                             }).responseText;
                 console.log(validacion)
                 if (validacion == "VALIDO") {VALIDO = true}
+                else if(validacion == "Err-1"){
+                    $('#mensaje-error1').show();
+                    $('#mensaje-error2').show();
+                    $('#mensaje-error3').show();
+                } else {marcar_errores(validacion)}
             break;
         case "USUARIO-CHO":
                 validacion = $.ajax({
@@ -566,6 +578,11 @@ function validacion(TIPO,DATOS){
                                 }
                             }).responseText;
                 if (validacion == "VALIDO") {VALIDO = true}
+                else if(validacion == "Err-1"){
+                    $('#mensaje-error1').show();
+                    $('#mensaje-error2').show();
+                    $('#mensaje-error3').show(); 
+                } else {marcar_errores(validacion)}
             break;
         case "EMPRESA":
                 validacion = $.ajax({
@@ -580,6 +597,11 @@ function validacion(TIPO,DATOS){
                             }).responseText;
                 console.log(validacion)
                 if (validacion == "VALIDO") {VALIDO = true}
+                else if(validacion == "Err-1"){
+                    $('#mensaje-error1').show();
+                    $('#mensaje-error2').show();
+                    $('#mensaje-error3').show();
+                } else {marcar_errores(validacion)}
             break;
         case "VEHICULO":
                 validacion = $.ajax({
@@ -594,6 +616,11 @@ function validacion(TIPO,DATOS){
                             }).responseText;
                 console.log(validacion)
                 if (validacion == "VALIDO") {VALIDO = true}
+                else if(validacion == "Err-1"){
+                    $('#mensaje-error1').show();
+                    $('#mensaje-error2').show();
+                    $('#mensaje-error3').show();
+                } else {marcar_errores(validacion)}
             break;
         case "USUARIO-HTL":
                 validacion = $.ajax({
@@ -607,6 +634,11 @@ function validacion(TIPO,DATOS){
                                 }
                             }).responseText;
                 if (validacion == "VALIDO") {VALIDO = true}
+                else if(validacion == "Err-1"){
+                    $('#mensaje-error1').show();
+                    $('#mensaje-error2').show();
+                    $('#mensaje-error3').show();
+                } else {marcar_errores(validacion)}
             break;
         case "USUARIO-ANF":
                 validacion = $.ajax({
@@ -619,10 +651,172 @@ function validacion(TIPO,DATOS){
                                     return response;
                                 }
                             }).responseText;
-                console.log(validacion)
                 if (validacion == "VALIDO") {VALIDO = true}
+                else if(validacion == "Err-1"){
+                    $('#mensaje-error1').show();
+                    $('#mensaje-error2').show();
+                    $('#mensaje-error3').show();
+                }
             break;
     }
 
     return VALIDO
+}
+
+function marcar_errores(resultado_validacion){
+
+    let resultado = JSON.parse(resultado_validacion)
+
+    for (const property in resultado) {
+        switch(property){
+        case "CI":
+                if (resultado[property] == 0) {$('#CI').css('border-bottom', '1px solid #ff635a') }       
+                
+            break;
+        case "NOMBRE":
+                if (resultado[property] == 0) {$('#nombre').css('border-bottom', '1px solid #ff635a')} 
+                 
+            break;
+        case "APELLIDO":
+                if (resultado[property] == 0) {$('#apellido').css('border-bottom', '1px solid #ff635a') } 
+                 
+            break;
+        case "MAIL":
+                if (resultado[property] == 0) {$('#correo').css('border-bottom', '1px solid #ff635a')  } 
+                
+            break;
+        case "DIRECCION":
+                if (resultado[property] == 0) {$('#direccion').css('border-bottom', '1px solid #ff635a') } 
+                 
+            break;
+        case "BARRIO":
+                if (resultado[property] == 0) { $('#barrio').css('border-bottom', '1px solid #ff635a')} 
+                 
+            break;
+        case "DEPARTAMENTO":
+                if (resultado[property] == 0) { $('#departamento').css('border-bottom', '1px solid #ff635a') } 
+                
+            break;
+        case "TELEFONO":
+                if (resultado[property] == 0) { 
+                $('#numero_telefono').css('border-bottom', '1px solid #ff635a') 
+                $('#numero_telefono_hotel').css('border-bottom', '1px solid #ff635a')
+                } 
+
+            break;
+        case "RUT":
+                if (resultado[property] == 0) {
+                $('#rutt').css('border-bottom', '1px solid #ff635a') 
+                $('#rut_usuario').css('border-bottom', '1px solid #ff635a')
+                }  
+            break;
+        case "AGENCIA_CONTRATISTA":
+                if (resultado[property] == 0) { $('#empresas').css('border-bottom', '1px solid #ff635a') } 
+                 
+            break;
+        case "NOMBRE_HOTEL":
+                if (resultado[property] == 0) { $('#nombre-hotel').css('border-bottom', '1px solid #ff635a') } 
+                 
+            break;
+        case "DIRECCION_HOTEL":
+                if (resultado[property] == 0) { $('#direccion-hotel').css('border-bottom', '1px solid #ff635a') } 
+                 
+            break;
+        case "SUPERVISOR":
+                if (resultado[property] == 0) {$('#es_supervisor').css('border-bottom', '1px solid #ff635a') } 
+                
+            break;
+        case "NOMBRE_COMERCIAL":
+                if (resultado[property] == 0) { $('#nombre_comercial').css('border-bottom', '1px solid #ff635a')  } 
+                
+            break;
+        case "RAZON_SOCIAL":
+                if (resultado[property] == 0) { $('#razon_social').css('border-bottom', '1px solid #ff635a') } 
+                
+            break;
+        case "NUMERO_MTOP":
+                if (resultado[property] == 0) { $('#numero_mtop').css('border-bottom', '1px solid #ff635a') } 
+                
+            break;
+        case "PASSWORD_MTOP":
+                if (resultado[property] == 0) {$('#password_mtop').css('border-bottom', '1px solid #ff635a') } 
+                
+            break;
+        case "MATRICULA":
+                if (resultado[property] == 0) { $('#matricula').css('border-bottom', '1px solid #ff635a')  } 
+                
+            break;
+        case "MARCA":
+                if (resultado[property] == 0) { $('#marca').css('border-bottom', '1px solid #ff635a')  } 
+                
+            break;
+        case "MODELO":
+                if (resultado[property] == 0) { $('#modelo').css('border-bottom', '1px solid #ff635a')  } 
+                
+            break;
+        case "COMBUSTIBLE":
+                if (resultado[property] == 0) { $('#combustible').css('border-bottom', '1px solid #ff635a')  } 
+                
+            break;
+        case "CAPACIDAD_PASAJEROS":
+                if (resultado[property] == 0) { $('#capacidad_pasajeros').css('border-bottom', '1px solid #ff635a')  } 
+                
+            break;
+        case "CAPACIDAD_EQUIPAJE":
+                if (resultado[property] == 0) { $('#capacidad_equipaje').css('border-bottom', '1px solid #ff635a')  } 
+                
+            break;
+        case "PET_FRIENDLY":
+                if (resultado[property] == 0) { $('#pet_friendly').css('border-bottom', '1px solid #ff635a')  } 
+                
+            break;
+        }   
+    }
+
+    if (resultado['PIN'] == 0) { 
+        $('#mensaje-error4').show();
+        $('#password').css('border-bottom', '1px solid #ff635a') 
+    }
+    else if (resultado['PIN-MATCH'] == 0) { 
+        $('#mensaje-error5').show(); 
+        $('#password').css('border-bottom', '1px solid #ff635a') 
+        $('#re-password').css('border-bottom', '1px solid #ff635a') 
+    }
+}
+
+function reset_errores(){
+
+    $('#mensaje-error1').hide();
+    $('#mensaje-error2').hide();
+    $('#mensaje-error3').hide();
+    $('#mensaje-error4').hide();
+    $('#mensaje-error5').hide();
+
+    $('#CI').css('border-bottom', '1px solid #aaaaaa')
+    $('#nombre').css('border-bottom', '1px solid #aaaaaa')
+    $('#apellido').css('border-bottom', '1px solid #aaaaaa')
+    $('#correo').css('border-bottom', '1px solid #aaaaaa')
+    $('#direccion').css('border-bottom', '1px solid #aaaaaa')
+    $('#barrio').css('border-bottom', '1px solid #aaaaaa')
+    $('#departamento').css('border-bottom', '1px solid #aaaaaa')
+    $('#numero_telefono').css('border-bottom', '1px solid #aaaaaa')
+    $('#numero_telefono_hotel').css('border-bottom', '1px solid #aaaaaa')
+    $('#direccion-hotel').css('border-bottom', '1px solid #aaaaaa')
+    $('#password').css('border-bottom', '1px solid #aaaaaa')
+    $('#re-password').css('border-bottom', '1px solid #aaaaaa')
+    $('#rutt').css('border-bottom', '1px solid #aaaaaa')
+    $('#rut_usuario').css('border-bottom', '1px solid #aaaaaa')
+    $('#es_supervisor').css('border-bottom', '1px solid #aaaaaa')
+    $('#nombre-hotel').css('border-bottom', '1px solid #aaaaaa')
+    $('#matricula').css('border-bottom', '1px solid #aaaaaa')
+    $('#marca').css('border-bottom', '1px solid #aaaaaa')
+    $('#pet_friendly').css('border-bottom', '1px solid #aaaaaa')
+    $('#empresas').css('border-bottom', '1px solid #aaaaaa')
+    $('#modelo').css('border-bottom', '1px solid #aaaaaa')
+    $('#razon_social').css('border-bottom', '1px solid #aaaaaa')
+    $('#nombre_comercial').css('border-bottom', '1px solid #aaaaaa')
+    $('#numero_mtop').css('border-bottom', '1px solid #aaaaaa')
+    $('#password_mtop').css('border-bottom', '1px solid #aaaaaa')
+    $('#combustible').css('border-bottom', '1px solid #aaaaaa')
+
 }
