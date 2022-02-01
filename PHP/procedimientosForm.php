@@ -8,50 +8,33 @@ class procedimientosForm extends procedimientosBD
 	private $idUsuario = null;
 
 	public function registrar_usuarios($tipo,$datos){
-		/*
-		Hago un if para validar y si todos los datos son correctos mando los datos a los procedimientos de la BD
-		*/	
 		return $this->register_usuario($tipo, $datos);
 	}
 
 	public function register_transportista($usuario,$empresa){
-
-		//echo json_encode($empresa);
 		$this->idUsuario = $this->registrar_usuarios("TTA",$usuario);
 		$this->registrar_empresa("TTA",null,$empresa);
 	}
 
 	public function register_chofer($usuario,$contratista,$empresa){
-		/*
-		Hago un if para validar y si todos los datos son correctos mando los datos a los procedimientos de la BD
-		*/	
 		$this->idUsuario = $this->registrar_usuarios("CHO",$usuario);
 		$this->registrar_empresa("CHO",$contratista,$empresa);
 	}
 
 	public function register_anfitrion($datos){
-		/*
-		Hago un if para validar y si todos los datos son correctos mando los datos a los procedimientos de la BD
-		*/	
 		$this->registrar_usuarios("ANF",$datos);
 	}
 
 	public function register_hotel($datos){
-		/*
-		Hago un if para validar y si todos los datos son correctos mando los datos a los procedimientos de la BD
-		*/	
 		$this->registrar_usuarios("HTL", $datos);
 	}
 
 	private function registrar_empresa($tipoUsuario,$contratista,$empresa){
+
+		$idUsuario = $this->idUsuario;
+		$this->register_empresa($tipoUsuario,$idUsuario,$empresa);
 		/*
-		Hago un if para validar y si todos los datos son correctos mando los datos a los procedimientos de la BD
-		*/
-		echo $this->idUsuario;
 		for ($x=0; $x < count($empresa); $x++) {
-
-			$this->register_empresa($tipoUsuario,$this->idUsuario,$empresa[$x]);
-
 			for ($i=0; $i < count($empresa[$x]["VEHICULOS"]); $i++) { 
 				if ($tipoUsuario == "CHO") {
 					 //rut_ec = RUT de la empresa creada por el chofer.
@@ -64,8 +47,8 @@ class procedimientosForm extends procedimientosBD
 				}
 				$this->register_vehiculo($rut,$rut_ec,$empresa[$x]["VEHICULOS"][$i]);
 			}
-
 		}
+		*/
 	}
 }
 

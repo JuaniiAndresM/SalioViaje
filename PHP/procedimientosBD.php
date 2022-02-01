@@ -33,11 +33,17 @@ class procedimientosBD
     }
 
     public function register_empresa($tipo_usuario,$id_usuario,$datos){
-    	$conn = $this->conexion();
-        $query = "CALL register_empresa(?,?,?,?,?,?,?)";
+
+        $conn = $this->conexion();
+        $query = "call salioviaje.register_empresa(?, ?, ?, ?, ?, ?, ?);";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("ississi", $datos["RUT"], $datos["NOMBRE_COMERCIAL"], $datos["RAZON_SOCIAL"], $datos["NUMERO_MTOP"], $datos["PASSWORD_MTOP"], $tipo_usuario, $id_usuario);
+
+        for ($x=0; $x < count($datos); $x++) {
+        echo "\n".$datos[$x]["RUT"]." ".$datos[$x]["NOMBRE_COMERCIAL"]." ".$datos[$x]["RAZON_SOCIAL"]." ".$datos[$x]["NUMERO_MTOP"]." ".$datos[$x]["PASSWORD_MTOP"]." ".$tipo_usuario." ".$id_usuario."\n";
+        $stmt->bind_param("sssissi", $datos[$x]["RUT"], $datos[$x]["NOMBRE_COMERCIAL"], $datos[$x]["RAZON_SOCIAL"], $datos[$x]["NUMERO_MTOP"], $datos[$x]["PASSWORD_MTOP"], $tipo_usuario, $id_usuario);
         $stmt->execute();
+        }
+        
         $stmt->close();
     }
 

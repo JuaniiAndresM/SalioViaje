@@ -4,3 +4,12 @@ $(document).ready(function () {
 
     document.getElementById('pre-loader').classList.toggle('load');
 });
+
+function cerrarsesion(){
+    $.ajax({ 
+        url: "PHP/cerrarSession.php",
+        success: function(response){
+            location.reload();
+        }
+    });
+}

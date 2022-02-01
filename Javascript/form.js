@@ -15,10 +15,6 @@ $(document).ready(function () {
     $("#finalizar-registro-TTA").on('click', function() {
         register_form($('#select_users').val())
     });
-    $("#finalizar_empresa").on('click', function() {
-        crear_empresa();
-        reset_vehicles();
-    });
     $("#step-next").on('click', function() {
         register_form($('#select_users').val())
     });
@@ -353,13 +349,15 @@ function register_form(opcion){
                 "PIN": document.getElementById('password').value,
                 "RE-PIN": document.getElementById('re-password').value
             };
-            if (validacion("USUARIO-PAX-TTA",datos_Usuario)) {
+            if (validacion("USUARIO-PAX-TTA",datos_Usuario) == true) {
+                console.log("registra usuario")
                 $.ajax({
                     type: "POST",
                     url: "../PHP/procedimientosForm.php",
                     data: { tipo:opcion, datos:JSON.stringify(datos_Usuario) },
                     success: function (response) {
                         console.log(response)
+                        window.location = "/SalioViaje/Form/Success.html";
                         ID_USUARIO = response;
                     },
                 });
@@ -379,15 +377,28 @@ function register_form(opcion){
                 "RE-PIN": document.getElementById('re-password').value
             };
             
+            $.ajax({
+                    type: "POST",
+                    url: "../PHP/procedimientosForm.php",
+                    data: { tipo:opcion, datos_Usuario:datos_Usuario, empresas:null },
+                    success: function (response) {
+                        ID_USUARIO = response;
+                },
+            });
+
             if (validacion("USUARIO-PAX-TTA",datos_Usuario)) {
+                console.log("hola")
+                console.log(empresas)
+                console.log(vehiculos)
                 if (empresas.length != 0 && ID_USUARIO != null) {
-                    console.log("valido...")
+                    console.log("hola")
                     $.ajax({
                         type: "POST",
                         url: "../PHP/procedimientosForm.php",
                         data: { tipo:opcion,idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas) },
                         success: function (response) {
                             console.log(response)
+                            //window.location = "/SalioViaje/Form/Success.html";
                         },
                     });
                 } else { next() }
@@ -409,12 +420,14 @@ function register_form(opcion){
             };
             if (validacion("USUARIO-CHO",datos_Usuario)) {
                  if (empresas.length != 0  && ID_USUARIO != null) {
+                    console.log("hola")
                     $.ajax({
                         type: "POST",
                         url: "../PHP/procedimientosForm.php",
                         data: { tipo:opcion,idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas) },
                         success: function (response) {
                             console.log(response)
+                            window.location = "/SalioViaje/Form/Success.html";
                         },
                     });
                 } else { next() }
@@ -440,6 +453,7 @@ function register_form(opcion){
                     data: { tipo:opcion, datos:JSON.stringify(datos_Usuario) },
                     success: function (response) {
                         console.log(response)
+                        window.location = "/SalioViaje/Form/Success.html";
                 },
             });
             }else{ console.log("No valido...") }
@@ -464,12 +478,13 @@ function register_form(opcion){
                     data: { tipo:opcion, datos:JSON.stringify(datos_Hotel) },
                     success: function (response) {
                         console.log(response)
+                        window.location = "/SalioViaje/Form/Success.html";
                     },
                 });
             }else{ console.log("No valido...") }
             break;
     }
-    window.location = "/SalioViaje/Form/Success.html";
+
 }
 
 function add_vehicle(){
@@ -515,6 +530,7 @@ function crear_empresa(){
         empresas.push(datos_Empresa)
         datos_Empresa = {};
         vehiculos = [];
+        reset_vehicles();
         next();
     }else{ console.log("No valido...") }
 }
@@ -536,6 +552,19 @@ function Empresas(){
             }
         }
     });
+}
+
+function valido_Empresa_sin_crearla(){
+    datos_Empresa = {
+        "RUT": document.getElementById('rutt').value,
+        "NOMBRE_COMERCIAL": document.getElementById('nombre_comercial').value,
+        "RAZON_SOCIAL": document.getElementById('razon_social').value,
+        "NUMERO_MTOP": document.getElementById('numero_mtop').value,
+        "PASSWORD_MTOP": document.getElementById('password_mtop').value,
+    };
+    if (validacion("EMPRESA",datos_Empresa)) {        
+        next();
+    }else{ console.log("No valido...") }
 }
 
 /*-------------------------------------------------------------------------------------------*/
@@ -567,6 +596,7 @@ function login(){
 /*-------------------------------------------------------------------------------------------*/
 
 function validacion(TIPO,DATOS){
+    console.log(DATOS)
     let validacion;
     let VALIDO = false;
 
@@ -621,7 +651,6 @@ function validacion(TIPO,DATOS){
                                     return response;
                                 }
                             }).responseText;
-                console.log(validacion)
                 if (validacion == "VALIDO") {VALIDO = true}
                 else if(validacion == "Err-1"){
                     $('#mensaje-error1').show();
@@ -640,7 +669,6 @@ function validacion(TIPO,DATOS){
                                     return response;
                                 }
                             }).responseText;
-                console.log(validacion)
                 if (validacion == "VALIDO") {VALIDO = true}
                 else if(validacion == "Err-1"){
                     $('#mensaje-error1').show();
@@ -691,6 +719,7 @@ function validacion(TIPO,DATOS){
 
 function marcar_errores(resultado_validacion){
 
+    console.log(resultado_validacion)
     let resultado = JSON.parse(resultado_validacion)
 
     for (const property in resultado) {
@@ -760,7 +789,7 @@ function marcar_errores(resultado_validacion){
                 if (resultado[property] == 0) { $('#razon_social').css('border-bottom', '1px solid #ff635a') } 
                 
             break;
-        case "NUMERO_MTOP":
+        case "MTOP":
                 if (resultado[property] == 0) { $('#numero_mtop').css('border-bottom', '1px solid #ff635a') } 
                 
             break;
