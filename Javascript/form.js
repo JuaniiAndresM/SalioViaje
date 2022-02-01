@@ -14,8 +14,9 @@ $(document).ready(function () {
         crear_empresa();
         reset_vehicles();
     });
-
-    
+    $("#step-next").on('click', function() {
+        register_form($('#select_users').val())
+    });
 
     let inputs = document.querySelectorAll("input");
         inputs.forEach(box => {
@@ -321,15 +322,17 @@ function register_form(opcion){
                 "PIN": document.getElementById('password').value,
                 "RE-PIN": document.getElementById('re-password').value
             };
-            $.ajax({
-                type: "POST",
-                url: "../PHP/procedimientosForm.php",
-                data: { tipo:opcion, datos:JSON.stringify(datos_Usuario) },
-                success: function (response) {
-                    console.log(response)
-                    ID_USUARIO = response;
-                },
-            });
+            if (validacion("USUARIO-PAX-TTA",datos_Usuario)) {
+                $.ajax({
+                    type: "POST",
+                    url: "../PHP/procedimientosForm.php",
+                    data: { tipo:opcion, datos:JSON.stringify(datos_Usuario) },
+                    success: function (response) {
+                        console.log(response)
+                        ID_USUARIO = response;
+                    },
+                });
+            }else{ console.log("No valido...") }
             break;
         case "2":
             datos_Usuario = {
@@ -344,15 +347,20 @@ function register_form(opcion){
                 "PIN": document.getElementById('password').value,
                 "RE-PIN": document.getElementById('re-password').value
             };
-
-            $.ajax({
-                type: "POST",
-                url: "../PHP/procedimientosForm.php",
-                data: { tipo:opcion,idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas) },
-                success: function (response) {
-                    console.log(response)
-                },
-            });
+            
+            if (validacion("USUARIO-PAX-TTA",datos_Usuario)) {
+                if (empresas.length != 0) {
+                    console.log("valido...")
+                    $.ajax({
+                        type: "POST",
+                        url: "../PHP/procedimientosForm.php",
+                        data: { tipo:opcion,idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas) },
+                        success: function (response) {
+                            console.log(response)
+                        },
+                    });
+                } else {next()}
+            }else{ console.log("No valido...") }
             break;
         case "3":
             datos_Usuario = {
@@ -368,15 +376,18 @@ function register_form(opcion){
                 "PIN": document.getElementById('password').value,
                 "RE-PIN": document.getElementById('re-password').value
             };
-
-            $.ajax({
-                type: "POST",
-                url: "../PHP/procedimientosForm.php",
-                data: { tipo:opcion,idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas) },
-                success: function (response) {
-                    console.log(response)
-                },
-            });
+            if (validacion("USUARIO-CHO",datos_Usuario)) {
+                 if (empresas.length != 0) {
+                    $.ajax({
+                        type: "POST",
+                        url: "../PHP/procedimientosForm.php",
+                        data: { tipo:opcion,idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas) },
+                        success: function (response) {
+                            console.log(response)
+                        },
+                    });
+                } else {next()}
+            }else{ console.log("No valido...") }
             break;
         case "4":
             datos_Usuario = {
@@ -391,14 +402,16 @@ function register_form(opcion){
                 "PIN": document.getElementById('password').value,
                 "RE-PIN": document.getElementById('re-password').value
             };
-            $.ajax({
-                type: "POST",
-                url: "../PHP/procedimientosForm.php",
-                data: { tipo:opcion, datos:JSON.stringify(datos_Usuario) },
-                success: function (response) {
-                    console.log(response)
+            if (validacion("USUARIO-ANF",datos_Usuario)) {
+                $.ajax({
+                    type: "POST",
+                    url: "../PHP/procedimientosForm.php",
+                    data: { tipo:opcion, datos:JSON.stringify(datos_Usuario) },
+                    success: function (response) {
+                        console.log(response)
                 },
             });
+            }else{ console.log("No valido...") }
             break;
         case "5":
             datos_Hotel = {
@@ -413,14 +426,16 @@ function register_form(opcion){
                 "PIN": document.getElementById('password').value,
                 "RE-PIN": document.getElementById('re-password').value
             };
-            $.ajax({
-                type: "POST",
-                url: "../PHP/procedimientosForm.php",
-                data: { tipo:opcion, datos:JSON.stringify(datos_Hotel) },
-                success: function (response) {
-                    console.log(response)
-                },
-            });
+            if (validacion("USUARIO-HTL",datos_Hotel)) {
+                $.ajax({
+                    type: "POST",
+                    url: "../PHP/procedimientosForm.php",
+                    data: { tipo:opcion, datos:JSON.stringify(datos_Hotel) },
+                    success: function (response) {
+                        console.log(response)
+                    },
+                });
+            }else{ console.log("No valido...") }
             break;
     }
     window.location = "/SalioViaje/Form/Success.html";
@@ -437,17 +452,20 @@ function add_vehicle(){
         "PET_FRIENDLY": document.getElementById('pet_friendly').value
     };
 
-    vehiculos.push(datos_Vehiculo)
-    $.ajax({
-        type: "POST",
-        url: "../PHP/agregarVehiculo.php",
-        data: {datos:JSON.stringify(datos_Vehiculo) },
-        success: function (response) {
-            $('.vehiculos').append(response);
-            $('#no-vehicle').hide();
-            reset_vehicle_inputs();
-        },
-    });
+    if (validacion("VEHICULO",datos_Vehiculo)) {        
+        vehiculos.push(datos_Vehiculo)
+        $.ajax({
+            type: "POST",
+            url: "../PHP/agregarVehiculo.php",
+            data: {datos:JSON.stringify(datos_Vehiculo) },
+            success: function (response) {
+                $('.vehiculos').append(response);
+                $('#no-vehicle').hide();
+                reset_vehicle_inputs();
+            },
+        });
+    }else{ console.log("No valido...") }
+
     /*
 
     */
@@ -462,14 +480,15 @@ function crear_empresa(){
         "PASSWORD_MTOP": document.getElementById('password_mtop').value,
         "VEHICULOS": vehiculos
     };
-
-    empresas.push(datos_Empresa)
-    datos_Empresa = {};
-    vehiculos = [];
+    if (validacion("EMPRESA",datos_Empresa)) {        
+        empresas.push(datos_Empresa)
+        datos_Empresa = {};
+        vehiculos = [];
+        next();
+    }else{ console.log("No valido...") }
 }
 
 function Empresas(){
-    //
     $.ajax({
         type: "POST",
         url: "../PHP/procedimientosForm.php",
@@ -510,4 +529,100 @@ function login(){
             }
         },
     });
+}
+
+/*-------------------------------------------------------------------------------------------*/
+//                                   Validacion                                              //
+/*-------------------------------------------------------------------------------------------*/
+
+function validacion(TIPO,DATOS){
+    let validacion;
+    let VALIDO = false;
+
+    switch(TIPO){
+        case "USUARIO-PAX-TTA":
+                validacion = $.ajax({
+                                type: 'POST',       
+                                url: "../PHP/Validaciones.php",
+                                data: {tipo:"PAX-TTA",datos:JSON.stringify(DATOS)},
+                                global: false,
+                                async:false,
+                                success: function(response) {
+                                    return response;
+                                }
+                            }).responseText;
+                console.log(validacion)
+                if (validacion == "VALIDO") {VALIDO = true}
+            break;
+        case "USUARIO-CHO":
+                validacion = $.ajax({
+                                type: 'POST',       
+                                url: "../PHP/Validaciones.php",
+                                data: {tipo:"CHO",datos:JSON.stringify(DATOS)},
+                                global: false,
+                                async:false,
+                                success: function(response) {
+                                    return response;
+                                }
+                            }).responseText;
+                if (validacion == "VALIDO") {VALIDO = true}
+            break;
+        case "EMPRESA":
+                validacion = $.ajax({
+                                type: 'POST',       
+                                url: "../PHP/Validaciones.php",
+                                data: {tipo:"EMP",datos:JSON.stringify(DATOS)},
+                                global: false,
+                                async:false,
+                                success: function(response) {
+                                    return response;
+                                }
+                            }).responseText;
+                console.log(validacion)
+                if (validacion == "VALIDO") {VALIDO = true}
+            break;
+        case "VEHICULO":
+                validacion = $.ajax({
+                                type: 'POST',       
+                                url: "../PHP/Validaciones.php",
+                                data: {tipo:"VIH",datos:JSON.stringify(DATOS)},
+                                global: false,
+                                async:false,
+                                success: function(response) {
+                                    return response;
+                                }
+                            }).responseText;
+                console.log(validacion)
+                if (validacion == "VALIDO") {VALIDO = true}
+            break;
+        case "USUARIO-HTL":
+                validacion = $.ajax({
+                                type: 'POST',       
+                                url: "../PHP/Validaciones.php",
+                                data: {tipo:"HTL",datos:JSON.stringify(DATOS)},
+                                global: false,
+                                async:false,
+                                success: function(response) {
+                                    return response;
+                                }
+                            }).responseText;
+                if (validacion == "VALIDO") {VALIDO = true}
+            break;
+        case "USUARIO-ANF":
+                validacion = $.ajax({
+                                type: 'POST',       
+                                url: "../PHP/Validaciones.php",
+                                data: {tipo:"ANF",datos:JSON.stringify(DATOS)},
+                                global: false,
+                                async:false,
+                                success: function(response) {
+                                    return response;
+                                }
+                            }).responseText;
+                console.log(validacion)
+                if (validacion == "VALIDO") {VALIDO = true}
+            break;
+    }
+
+    return VALIDO
 }
