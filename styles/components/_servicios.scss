@@ -1,0 +1,153 @@
+.servicios-section {
+    max-width: 1500px;
+    width: 100%;
+  
+    margin: 0 auto;
+  
+    padding: 30px 10px;
+    margin-top: 70px;
+    h2 {
+      color: $contraste_1;
+      font-size: 2.3em;
+      text-align: center;
+  
+      span {
+        color: $main_1;
+      }
+    }
+  
+    #hr{
+      margin: 10px auto;
+    }
+    hr {
+      width: 100px;
+      border: 1px solid $main_1;
+      margin: 10px 0;
+    }
+  
+    .servicios-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      flex-wrap: wrap;
+  
+      margin: 20px 0;
+  
+      .card {
+        max-width: 300px;
+        width: 100%;
+        min-height: 420px;
+  
+        background: linear-gradient(45deg, $main_1, $main_2);
+        box-shadow: 10px 0px 20px 0 rgba($color: #000000, $alpha: 0.3);
+        border-radius: 3em 3em 0 3em;
+  
+        margin: 10px;
+        padding: 20px 20px;
+  
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+  
+        transition: 0.3s;
+  
+        .card-top {
+          .card-icon {
+            i {
+              color: $contraste_2;
+              font-size: 3em;
+              margin-bottom: 10px;
+            }
+          }
+          .card-info {
+            h3 {
+              color: $contraste_2;
+              font-size: 1.6em;
+            }
+            hr {
+              border: 1px solid $contraste_2;
+            }
+            .info_1 {
+              color: $contraste_2;
+              margin: 20px 0;
+              font-size: 1.1em;
+            }
+          }
+        }
+  
+        .card-bottom {
+          .info_2,
+          .info_3 {
+            color: $contraste_2;
+            font-size: 0.8em;
+            margin: 10px 0;
+  
+            a {
+              color: #aaa;
+              text-decoration: none;
+            }
+          }
+  
+          .button-whatsapp {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+  
+            .whatsapp {
+              width: 50px;
+              height: 50px;
+              border-radius: 50%;
+              background: $main_1;
+  
+              padding: 10px;
+  
+              display: flex;
+              justify-content: center;
+              align-items: center;
+  
+              img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+              }
+            }
+          }
+        }
+      }
+      .card:hover {
+        background: $contraste_2;
+        transform: scale(1.01);
+  
+        .card-top {
+          .card-icon {
+            i {
+              color: $main_1;
+            }
+          }
+          .card-info {
+            h3 {
+              color: $main_1;
+            }
+            hr {
+              border: 1px solid $main_1;
+            }
+            .info_1 {
+              color: $main_2;
+            }
+          }
+        }
+        .card-bottom {
+          .info_2,
+          .info_3 {
+            color: $main_1;
+  
+            a {
+              color: #aaa;
+            }
+          }
+        }
+      }
+    }
+  }

@@ -17,6 +17,8 @@ $contraste_2: #ffffff;
 @import 'components/form';
 @import 'components/panel';
 @import 'components/loader';
+@import 'components/about';
+@import 'components/servicios';
 
 
 //------[Basics]------
@@ -56,6 +58,21 @@ $contraste_2: #ffffff;
 
 body{
   background-color: $contraste_2;
+}
+
+
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {
+  opacity: 0;
+}
+
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-8px, -8px);
 }
 
 

@@ -443,6 +443,7 @@ function register_form(opcion){
             }else{ console.log("No valido...") }
             break;
     }
+    window.location = "/SalioViaje/Form/Success.html";
 }
 
 function add_vehicle(){
@@ -500,7 +501,7 @@ function Empresas(){
         success: function (response) {
             let empresas = JSON.parse(response);
             var selectEmpresas = document.getElementById('empresas');
-            $("#empresas").empty().append($("<option></option>").attr({"value": 0,"selected": true, 'disabled': true}).text('Agencia Contratista'));
+            $("#empresas").empty().append($("<option></option>").attr({"value": 0,"selected": true, 'disabled': true, 'hidden': true}).text('Agencia Contratista'));
             for (var i = 0; i < empresas.length; i++){
             var opt = document.createElement('option');
             opt.value = empresas[i]["RUT"];
