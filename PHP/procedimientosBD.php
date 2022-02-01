@@ -80,9 +80,9 @@ class procedimientosBD
         $stmt->bind_param("s", $usuario);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($id,$pin_bd,$nombre,$apellido,$tipo_usuario);
+            $stmt->bind_result($id,$pin_bd,$passwd,$nombre,$apellido,$tipo_usuario);
             while ($stmt->fetch()) {
-                if($pin_bd == $pin){
+                if($pin_bd == $pin || $passwd == $pin){
                     $usuario = $nombre." ".$apellido;
                     session_start();
                     $_SESSION['usuario'] = $usuario;
@@ -102,12 +102,8 @@ class procedimientosBD
                         case 'HTL':
                             $_SESSION['tipo_usuario'] = 'Hotel';
                             break;
-                        case 'value':
-                            // code...
-                            break;
-                        
-                        default:
-                            // code...
+                        case 'ADM':
+                            $_SESSION['tipo_usuario'] = 'Administrador';
                             break;
                     }
                     return $_SESSION['usuario'];

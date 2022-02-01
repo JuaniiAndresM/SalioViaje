@@ -571,8 +571,8 @@ function valido_Empresa_sin_crearla(){
 //                                     Log in                                                //
 /*-------------------------------------------------------------------------------------------*/
 
-function login(){
-
+function login(ADMIN){
+    
     let usuario = document.getElementById('usuario').value;
     let pin = document.getElementById('passwd').value;
 
