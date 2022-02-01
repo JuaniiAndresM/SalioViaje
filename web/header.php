@@ -21,7 +21,7 @@
                                 <div class="close-session">
                                     <button onclick="cerrarsesion()"><i class="fas fa-sign-out-alt"></i></button>
                                 </div>
-                                <button class="user">
+                                <button class="user" onclick="dashboard()">
                                     <h3 id="user-name">'.$_SESSION['usuario'].'</h3>
                                     <p id="rol"><i class="fas fa-bus"></i> Transportista</p>
                                 </button>
