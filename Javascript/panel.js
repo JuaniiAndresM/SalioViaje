@@ -18,14 +18,14 @@ $(document).ready(function () {
         $.ajax({ 
             url: "../PHP/cerrarSession.php",
             success: function(response){
-                window.location = "/SalioViaje/";
+                window.location = "https://www.salioviaje.com.uy/";
             }
         });
     });
 
     list.forEach((item) => 
     item.addEventListener('mouseover', activateLink));
-    $('#panel-navbar').load('/SalioViaje/web/panel-navbar.html');
+    $('#panel-navbar').load('/web/panel-navbar.html');
 });
 
 function navbar(){

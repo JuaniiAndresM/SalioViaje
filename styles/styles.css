@@ -660,6 +660,7 @@
   }
   .landing .landing-wrapper-grid .landing-left .landing-info .button-landing {
     margin-top: 0;
+    margin: 0 auto;
   }
   .landing .landing-wrapper-grid .landing-right .landing-img-wrapper {
     max-width: 400px;
@@ -696,6 +697,7 @@
   }
   .nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info .button-nosotros {
     margin-top: 0;
+    margin: 0 auto;
   }
 }
 
@@ -712,8 +714,9 @@ header {
 header .header-wrapper {
   max-width: 1200px;
   width: 100%;
+  height: 100%;
   margin: 0 auto;
-  padding: 10px 20px;
+  padding: 0 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -726,8 +729,8 @@ header .header-wrapper {
 }
 
 header .header-wrapper .header-logo {
-  width: 75px;
-  height: 75px;
+  width: 70px;
+  height: 70px;
 }
 
 header .header-wrapper .header-right {
