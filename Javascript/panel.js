@@ -92,7 +92,6 @@ function traerUsuarios(seccion){
                             return response;
                         }
                     }).responseText;
-
     usuarios = JSON.parse(usuarios)
     tablas_usuarios(seccion);
 }
@@ -143,12 +142,12 @@ function tabla_seccion_usuarios(usuario){
 
     var tabla = document.getElementById('tbody')
     var row = document.createElement("tr")
+        row.setAttribute('class',usuario['TIPO_USUARIO'])
     let contador = 0;
 
     for (const property in usuario) {
         let td = document.createElement("td");
         if (contador != 14) {
-            console.log(usuario[property])
             if (usuario[property] == null || usuario[property] == '' || usuario[property] == undefined) {
                 td.innerHTML = "-"
             }else if(property == "ID"){
@@ -219,6 +218,7 @@ function tabla_empresas_dashboard(empresa){
 function tabla_seccion_empresas(empresa){
     var tabla = document.getElementById('tbody')
     var row = document.createElement("tr")
+    row.setAttribute('id',empresa['ID'])
     let contador = 0;
 
     for (const property in empresa) {
@@ -304,4 +304,15 @@ function tabla_seccion_vehiculos(vehiculo){
     //agrego la fila a la tabla
     //
     tabla.appendChild(row);
+}
+
+function filtros(){
+    $(".checkboxs").on('click', function() {
+        if(!$("#pax").prop("checked")){ $(".PAX").hide() }else{ $(".PAX").show() }
+        if(!$("#tta").prop("checked")){ $(".TTA").hide() }else{ $(".TTA").show() }
+        if(!$("#CHO").prop("checked")){ $(".CHO").hide() }else{ $(".CHO").show() }
+        if(!$("#ANF").prop("checked")){ $(".ANF").hide() }else{ $(".ANF").show() }
+        if(!$("#HTL").prop("checked")){ $(".HTL").hide() }else{ $(".HTL").show() }
+        //if(!$("#").prop("checked")){ console.log("Oculto") }else{ console.log("Muestro") }
+    });
 }

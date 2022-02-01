@@ -6,7 +6,7 @@ class procedimientosBD
 {
 	
     private function conexion(){
-        $conexion = mysqli_connect("localhost", "root", "root", "salioviajeuy_salioviajeuy");
+        $conexion = mysqli_connect("localhost", "root", "root", "salioviaje");
         if (!$conexion) {
             echo "Error al conectar con la Base de datos.";
             exit();
