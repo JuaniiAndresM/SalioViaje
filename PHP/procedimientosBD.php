@@ -80,12 +80,36 @@ class procedimientosBD
         $stmt->bind_param("s", $usuario);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($id,$pin_bd,$nombre,$apellido);
+            $stmt->bind_result($id,$pin_bd,$nombre,$apellido,$tipo_usuario);
             while ($stmt->fetch()) {
                 if($pin_bd == $pin){
                     $usuario = $nombre." ".$apellido;
                     session_start();
                     $_SESSION['usuario'] = $usuario;
+                    switch ($tipo_usuario) {
+                        case 'PAX':
+                            $_SESSION['tipo_usuario'] = 'Pasajero';
+                            break;
+                        case 'TTA':
+                            $_SESSION['tipo_usuario'] = 'Transportista';
+                            break;
+                        case 'CHO':
+                            $_SESSION['tipo_usuario'] = 'Chofer';
+                            break;
+                        case 'ANF':
+                            $_SESSION['tipo_usuario'] = 'Anfitrion';
+                            break;
+                        case 'HTL':
+                            $_SESSION['tipo_usuario'] = 'Hotel';
+                            break;
+                        case 'value':
+                            // code...
+                            break;
+                        
+                        default:
+                            // code...
+                            break;
+                    }
                     return $_SESSION['usuario'];
                 }
             }

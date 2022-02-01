@@ -583,7 +583,7 @@ function login(){
         success: function (response) {
             if (response != '') {
                 sessionStorage.setItem('usuario', response);
-                window.location = "../Panel/Dashboard.html";
+                window.location = "../Panel/Dashboard.php";
             }else{
                 console.log("Usuario o contraseña incorrectos...");
             }

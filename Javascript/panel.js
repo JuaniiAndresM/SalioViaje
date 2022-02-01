@@ -8,9 +8,6 @@ $(document).ready(function () {
         this.classList.add('hovered');
     }
 
-    NOMBRE_USUARIO = sessionStorage.getItem('usuario');
-    $(".user").html(`<h2>${NOMBRE_USUARIO}</h2> <p><i class="fas fa-user-tie"></i> Administrador</p>`)
-
 
     $("#ID").on('click', function() {
         console.log(cambiarOrden(orden))

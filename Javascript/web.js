@@ -2,10 +2,6 @@ $(document).ready(function () {
     $('#header').load('/SalioViaje/web/header.php');
     $('#footer').load('/SalioViaje/web/footer.html');
 
-    $(".user").on('click', function() {
-        window.location = "/SalioViaje/Panel/Dashboard.html";
-    });
-
 
     document.getElementById('pre-loader').classList.toggle('load');
 });
@@ -20,5 +16,5 @@ function cerrarsesion(){
 }
 
 function dashboard(){
-    window.location = "/SalioViaje/Panel/Dashboard.html";
+    window.location = "/SalioViaje/Panel/Dashboard.php";
 }
