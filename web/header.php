@@ -9,7 +9,7 @@
             <div class="header-links">
                 <div class="links">
                     <a href="/SalioViaje/">Home</a>
-                    <a href="/SalioViaje/#Servicios">Servicios</a>
+                    <a href="/SalioViaje/About/Servicios.html">Servicios</a>
                     <a href="/SalioViaje/About/Nosotros.html">Sobre Nosotros</a>
                     <a href="/SalioViaje/#Oportunidades">Oportunidades</a>
                 </div>
@@ -59,8 +59,8 @@
                     }
 
                     echo '  <a href="/SalioViaje/"><i class="fas fa-home"></i> Home</a>
-                            <a href="/SalioViaje/#Servicios"><i class="fas fa-list"></i> Servicios</a>
-                            <a href="/SalioViaje/About/Nosotros.html"><i class="fas fa-info"></i> Sobre Nosotros</a>
+                            <a href="/SalioViaje/About/Servicios.html">Servicios</a>
+                            <a href="/SalioViaje/About/Nosotros.html">Sobre Nosotros</a>
                             <a href="/SalioViaje/#Oportunidades"><i class="fas fa-book"></i> Oportunidades</a>';
 
 
