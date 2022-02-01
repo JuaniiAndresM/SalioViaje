@@ -8,7 +8,7 @@
         <?php 
           session_start(); 
           if(!isset($_SESSION['usuario'])){
-            header('Location: https://www.salioviaje.com.uy/Form/Login.html');
+            header('Location: https://www.salioviaje.com.uy/Login');
           }
          ?>
     

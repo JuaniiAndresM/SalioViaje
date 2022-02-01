@@ -6,7 +6,8 @@ class procedimientosBD
 {
 	
     private function conexion(){
-        $conexion = mysqli_connect("localhost", "root", "root", "salioviajeuy_salioviajeuy");
+        //$conexion = mysqli_connect("localhost", "root", "root", "salioviajeuy_salioviajeuy");
+        $conexion = mysqli_connect("158.106.136.183", "salioviajeuy", "La_medusa_2022", "salioviajeuy_salioviajeuy");
         if (!$conexion) {
             echo "Error al conectar con la Base de datos.";
             exit();
@@ -120,7 +121,7 @@ class procedimientosBD
     public function datos_usuarios(){
         $usuarios = array();
         $conn = $this->conexion();
-        $query = "SELECT ID,Tipo_Usuario,CI,Email,Nombre,Apellido,Direccion,Barrio,Departamento,Telefono,Agencia_C,RUT,Supervisor,Nombre_Hotel,Direccion_Hotel FROM salioviaje.usuarios";
+        $query = "SELECT ID,Tipo_Usuario,CI,Email,Nombre,Apellido,Direccion,Barrio,Departamento,Telefono,Agencia_C,RUT,Supervisor,Nombre_Hotel,Direccion_Hotel FROM salioviajeuy_salioviajeuy.usuarios";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
@@ -137,7 +138,7 @@ class procedimientosBD
     public function datos_empresas(){
         $empresas = array();
         $conn = $this->conexion();
-        $query = "SELECT ID,RUT,Nombre_C,Razon_S,Usuario_ID,Tipo_Usuario FROM salioviaje.empresas";
+        $query = "SELECT ID,RUT,Nombre_C,Razon_S,Usuario_ID,Tipo_Usuario FROM salioviajeuy_salioviajeuy.empresas";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
@@ -154,7 +155,7 @@ class procedimientosBD
     public function datos_vehiculos(){
         $vehiculos = array();
         $conn = $this->conexion();
-        $query = "SELECT * FROM salioviaje.vehiculos";
+        $query = "SELECT * FROM salioviajeuy_salioviajeuy.vehiculos";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();

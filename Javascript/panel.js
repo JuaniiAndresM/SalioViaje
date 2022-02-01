@@ -16,7 +16,7 @@ $(document).ready(function () {
 
     $("#cerrar_session_dashboard").on('click', function() {
         $.ajax({ 
-            url: "../PHP/cerrarSession.php",
+            url: "/PHP/cerrarSession.php",
             success: function(response){
                 window.location = "https://www.salioviaje.com.uy/";
             }
@@ -83,22 +83,22 @@ let usuarios
 function traerUsuarios(seccion){
 
         usuarios = $.ajax({
-                        type: 'POST',       
-                        url: "../PHP/Backend.php",
-                        data: {opcion:"usr"},
-                        global: false,
-                        async:false,
-                        success: function(response) {
-                            return response;
-                        }
-                    }).responseText;
+            type: 'POST',      
+            url: "PHP/Backend.php",
+            data: {opcion:"usr"},
+            global: false,
+            async:false,
+            success: function(response) {
+                return response;
+            }
+        }).responseText;
 
     usuarios = JSON.parse(usuarios)
     tablas_usuarios(seccion);
 }
 
 function tablas_usuarios(seccion){
-    console.log(seccion)
+    console.log(seccion);
     for (var i = 0;i < usuarios.length; i++) {
         switch(seccion){
             case "Dashboard":
@@ -178,7 +178,7 @@ let empresas
 function traerEmpresas(seccion){
     empresas = $.ajax({
                         type: 'POST',       
-                        url: "../PHP/Backend.php",
+                        url: "/PHP/Backend.php",
                         data: {opcion:"emp"},
                         global: false,
                         async:false,
@@ -208,7 +208,7 @@ function tablas_empresas(seccion){
 function tabla_empresas_dashboard(empresa){
     $.ajax({
         type: 'POST',       
-        url: "../PHP/agregarEmpresaDashboard.php",
+        url: "/PHP/agregarEmpresaDashboard.php",
         data: {NOMBRE_EMPRESA:empresa['NOMBRE_EMPRESA'], ID_EMPRESA:empresa['ID']},
         success: function(response) {
             $(".propietarios").append(response);
@@ -252,7 +252,7 @@ let vehiculos
 function traerVehiculos(){
     vehiculos = $.ajax({
                         type: 'POST',       
-                        url: "../PHP/Backend.php",
+                        url: "/PHP/Backend.php",
                         data: {opcion:"vih"},
                         global: false,
                         async:false,

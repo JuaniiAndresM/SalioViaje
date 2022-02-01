@@ -3,6 +3,15 @@
   <head>
     <title>SalióViaje - Dashboard</title>
 
+    <!-- // Verifico sesion -->
+
+    <?php 
+          session_start(); 
+          if(!isset($_SESSION['usuario'])){
+            header('Location: https://www.salioviaje.com.uy/Login');
+          }
+         ?>
+
     <!-- // Meta Etiquetas -->
 
     <meta charset="UTF-8" />
