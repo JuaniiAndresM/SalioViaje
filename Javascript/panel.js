@@ -17,6 +17,15 @@ $(document).ready(function () {
         ordenarId(orden)
     });
 
+    $("#cerrar_session_dashboard").on('click', function() {
+        $.ajax({ 
+            url: "../PHP/cerrarSession.php",
+            success: function(response){
+                window.location = "/SalioViaje/";
+            }
+        });
+    });
+
     list.forEach((item) => 
     item.addEventListener('mouseover', activateLink));
     $('#panel-navbar').load('/SalioViaje/web/panel-navbar.html');
