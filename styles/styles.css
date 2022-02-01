@@ -5519,6 +5519,108 @@ footer .totum p a:hover {
   color: #aaa;
 }
 
+.viajar-wrapper {
+  margin-top: 120px;
+}
+
+.viajar-wrapper .oportunidades-viajar, .viajar-wrapper .ofertas-viajar {
+  margin: 20px auto;
+  padding: 0 20px;
+  max-width: 1300px;
+  width: 100%;
+  text-align: center;
+}
+
+.viajar-wrapper .oportunidades-viajar h2, .viajar-wrapper .ofertas-viajar h2 {
+  color: #333333;
+  font-size: 2.3em;
+}
+
+.viajar-wrapper .oportunidades-viajar h2 span, .viajar-wrapper .ofertas-viajar h2 span {
+  color: #3844bc;
+}
+
+.viajar-wrapper .oportunidades-viajar hr, .viajar-wrapper .ofertas-viajar hr {
+  width: 100px;
+  border: 1px solid #3844bc;
+  margin: 10px auto;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper, .viajar-wrapper .oportunidades-viajar .ofertas-wrapper, .viajar-wrapper .ofertas-viajar .oportunidades-wrapper, .viajar-wrapper .ofertas-viajar .ofertas-wrapper {
+  max-width: 1300px;
+  width: 100%;
+  height: 600px;
+  padding: 20px;
+  margin-top: 30px;
+  border-radius: 3em 0 3em 3em;
+  background-color: #ffffff;
+  -webkit-box-shadow: 10px 0 20px 0 rgba(0, 0, 0, 0.3);
+          box-shadow: 10px 0 20px 0 rgba(0, 0, 0, 0.3);
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .search, .viajar-wrapper .oportunidades-viajar .ofertas-wrapper .search, .viajar-wrapper .ofertas-viajar .oportunidades-wrapper .search, .viajar-wrapper .ofertas-viajar .ofertas-wrapper .search {
+  position: relative;
+  width: 200px;
+  height: 40px;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .search input, .viajar-wrapper .oportunidades-viajar .ofertas-wrapper .search input, .viajar-wrapper .ofertas-viajar .oportunidades-wrapper .search input, .viajar-wrapper .ofertas-viajar .ofertas-wrapper .search input {
+  width: 100%;
+  height: 40px;
+  padding-left: 25px;
+  background-color: transparent;
+  border: none;
+  color: #666;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .search input::-webkit-input-placeholder, .viajar-wrapper .oportunidades-viajar .ofertas-wrapper .search input::-webkit-input-placeholder, .viajar-wrapper .ofertas-viajar .oportunidades-wrapper .search input::-webkit-input-placeholder, .viajar-wrapper .ofertas-viajar .ofertas-wrapper .search input::-webkit-input-placeholder {
+  color: #aaa;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .search input:-ms-input-placeholder, .viajar-wrapper .oportunidades-viajar .ofertas-wrapper .search input:-ms-input-placeholder, .viajar-wrapper .ofertas-viajar .oportunidades-wrapper .search input:-ms-input-placeholder, .viajar-wrapper .ofertas-viajar .ofertas-wrapper .search input:-ms-input-placeholder {
+  color: #aaa;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .search input::-ms-input-placeholder, .viajar-wrapper .oportunidades-viajar .ofertas-wrapper .search input::-ms-input-placeholder, .viajar-wrapper .ofertas-viajar .oportunidades-wrapper .search input::-ms-input-placeholder, .viajar-wrapper .ofertas-viajar .ofertas-wrapper .search input::-ms-input-placeholder {
+  color: #aaa;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .search input::placeholder, .viajar-wrapper .oportunidades-viajar .ofertas-wrapper .search input::placeholder, .viajar-wrapper .ofertas-viajar .oportunidades-wrapper .search input::placeholder, .viajar-wrapper .ofertas-viajar .ofertas-wrapper .search input::placeholder {
+  color: #aaa;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .search input:focus, .viajar-wrapper .oportunidades-viajar .ofertas-wrapper .search input:focus, .viajar-wrapper .ofertas-viajar .oportunidades-wrapper .search input:focus, .viajar-wrapper .ofertas-viajar .ofertas-wrapper .search input:focus {
+  outline: 1px solid #aaa;
+  border-radius: 10px;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .search i, .viajar-wrapper .oportunidades-viajar .ofertas-wrapper .search i, .viajar-wrapper .ofertas-viajar .oportunidades-wrapper .search i, .viajar-wrapper .ofertas-viajar .ofertas-wrapper .search i {
+  position: absolute;
+  top: 12px;
+  left: 5px;
+  color: #aaa;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .list-empty, .viajar-wrapper .oportunidades-viajar .ofertas-wrapper .list-empty, .viajar-wrapper .ofertas-viajar .oportunidades-wrapper .list-empty, .viajar-wrapper .ofertas-viajar .ofertas-wrapper .list-empty {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: -25px;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .list-empty p, .viajar-wrapper .oportunidades-viajar .ofertas-wrapper .list-empty p, .viajar-wrapper .ofertas-viajar .oportunidades-wrapper .list-empty p, .viajar-wrapper .ofertas-viajar .ofertas-wrapper .list-empty p {
+  color: #3844bc;
+  margin: auto;
+}
+
 * {
   margin: 0;
   padding: 0;
