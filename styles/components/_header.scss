@@ -1,153 +1,262 @@
-header{
+header {
+  width: 100%;
+  height: 80px;
+  position: fixed;
+  z-index: 50;
+  background-color: white;
+
+  top: 0;
+  left: 0;
+
+  .header-wrapper {
+    max-width: 1200px;
     width: 100%;
-    height: 80px;
-    position: relative;
-    z-index: 50;
+    margin: 0 auto;
+    padding: 10px 20px;
 
-    .header-wrapper{
-        max-width: 1200px;
-        width: 100%;
-        margin: 0 auto;
-        padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
+    .header-logo {
+      width: 75px;
+      height: 75px;
+    }
+
+    .header-right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .header-links {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
+        .links {
+          margin-right: 3em;
+          a {
+            margin-left: 3em;
+            text-decoration: none;
+            color: $main_1;
+            font-size: 1.1em;
+          }
+          a:hover {
+            color: $main_3;
+          }
+        }
+        .links-session {
+          transition: 0.3s;
+          .login_button {
+            background: $main_1;
+            color: $contraste_2;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 2em 0 2em 2em;
+            margin-top: 10px;
+            transition: 0.5s;
+            cursor: pointer;
+            text-decoration: none;
 
-        .header-logo{
-            width: 75px;
-            height: 75px;
+            i {
+              margin-right: 5px;
+            }
+          }
+        }
+        .links-session:hover {
+          transform: scale(1.1);
         }
 
-        .header-links{
+        .session {
+          max-width: 260px;
+
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          .close-session {
+            margin-right: 10px;
+            button {
+              width: 50px;
+              height: 50px;
+              border-radius: 50%;
+
+              display: flex;
+              justify-content: center;
+              align-items: center;
+
+              background: linear-gradient(to right, $main_1, $main_2);
+              color: $contraste_2;
+              border: none;
+              cursor: pointer;
+              transition: 0.3s;
+
+              i {
+                font-size: 1.2em;
+              }
+            }
+            button:hover {
+              transform: scale(1.1);
+            }
+          }
+
+          .user {
+            width: 250px;
+            height: 50px;
+
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-direction: column;
+
+            background-color: transparent;
+            border: none;
+
+            h3 {
+              color: $main_1;
+              max-width: 200px;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              font-size: 1.5em;
+            }
+            p {
+              text-align: left;
+              color: #666;
+              font-size: 1.1em;
+            }
+          }
+        }
+      }
+      .burger-mobile {
+        position: relative;
+        z-index: 50;
+        display: none;
+        cursor: pointer;
+        margin: 0 20px;
+
+        .bar1,
+        .bar2,
+        .bar3 {
+          width: 35px;
+          height: 5px;
+          background-color: $main_1;
+          margin: 6px 0;
+          transition: 0.4s;
+        }
+      }
+      #links-mobile {
+        display: none;
+        transform: translateY(-120%);
+        position: absolute;
+        z-index: 5;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(255, 255, 255, 0.95);
+        transition: ease-in 0.6s;
+
+        .links-wrapper {
+          width: 100%;
+          height: 100%;
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          margin-top: 20px;
+
+          img {
+            max-width: 150px;
+            width: 100%;
+            margin: 10px;
+            margin-bottom: 20px;
+          }
+
+          .usuario {
             display: flex;
             justify-content: center;
             align-items: center;
-            .links{
-                margin-right: 3em;
-                a{
-                    margin-left: 3em;
-                    text-decoration: none;
-                    color: $main_1;
-                    font-size: 1.1em;
-                }
-                a:hover{
-                    color: $main_3;
-                }
+            flex-direction: column;
+
+            margin-bottom: 20px;
+            h3 {
+              color: $main_1;
+              max-width: 300px;
+              font-size: 1.5em;
+
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
             }
-            .links-session{
-                transition: .3s;
-                .login_button{
-                    background: $main_1;
-                    color: $contraste_2;
-                    padding: 15px 20px;
-                    border: none;
-                    border-radius: 2em 0 2em 2em;
-                    margin-top: 10px;
-                    transition: 0.5s;
-                    cursor: pointer;
-                    text-decoration: none;
-
-                    i {
-                        margin-right: 5px;
-                    }
-                }
+            p {
+              color: #555;
             }
-            .links-session:hover{
-                transform: scale(1.1);
+          }
+
+          a,
+          button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            width: 80%;
+            height: 50px;
+            margin: 10px 20px;
+
+            text-align: center;
+            background: linear-gradient(to right, $main_1, $main_2);
+            color: white;
+            font-size: 20px;
+            text-decoration: none;
+            border-radius: 1em;
+
+            i {
+              margin-right: 10px;
             }
-
-            .session{
-                max-width: 260px;
-
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-
-                .close-session{
-
-                    margin-right: 10px;
-                    button{
-                        width: 50px;
-                        height: 50px;
-                        border-radius: 50%;
-
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-
-                        background: linear-gradient(to right, $main_1, $main_2);
-                        color: $contraste_2;
-                        border: none;
-                        cursor: pointer;
-                        transition: .3s;
-
-                        i{
-                            font-size: 1.2em;
-                        }
-                    }
-                    button:hover{
-                        transform: scale(1.1);
-                    }
-                }
-
-                .user{
-                    width: 250px;
-                    height: 50px;
-
-                    display: flex;
-                    justify-content: center;
-                    align-items: flex-start;
-                    flex-direction: column;
-
-                    background-color: transparent;
-                    border: none;
-
-                    h3{
-                        color: $main_1;
-                        max-width: 200px;
-                        white-space: nowrap;
-                        overflow: hidden;
-                        text-overflow: ellipsis;
-                        font-size: 1.5em;
-                    }
-                    p{
-                        text-align: left;
-                        color: #666;
-                        font-size: 1.1em;
-                    }
-                }
-
-                
-            }
+          }
+          a:hover,
+          button:hover {
+            background-color: rgba(0, 0, 0, 0.2);
+          }
         }
+      }
     }
+  }
 }
 
 @media screen and(max-width: 1060px) {
-    header{
-        .header-wrapper{
-            .header-links{
-                .links{
-                    display: none;
-                }
-            }
+  header {
+    .header-wrapper {
+      .header-right {
+        .header-links {
+          .links {
+            display: none;
+          }
         }
+        .burger-mobile {
+          display: block;
+        }
+        #links-mobile {
+          display: flex;
+        }
+      }
     }
-    
+  }
 }
 @media screen and(max-width: 600px) {
-    header{
-        .header-wrapper{
-            .header-links{
-                .links-session{
-                    display: none;
-                }
-                .session{
-                    display: none;
-                }
-            }
+  header {
+    .header-wrapper {
+      .header-right {
+        .header-links {
+          .links-session {
+            display: none;
+          }
+          .session {
+            display: none;
+          }
         }
+      }
     }
-    
+  }
 }
