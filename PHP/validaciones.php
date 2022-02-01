@@ -424,8 +424,9 @@ class Validaciones
      						$VALIDACION['MODELO'] = $MODELO;
      					break;
      				case 'COMBUSTIBLE':
-     						$COMBUSTIBLE = preg_match($this->PATTERN_COMBUSTIBLE, $valor);
-     						$VALIDACION['COMBUSTIBLE'] = $COMBUSTIBLE;
+     						if ($valor == 0) {
+     							$VALIDACION['COMBUSTIBLE'] = 0;
+     						}else { $VALIDACION['COMBUSTIBLE'] = 1; }
      					break;
      				case 'CAPACIDAD_PASAJEROS':
      						$CAPACIDAD_PASAJEROS = preg_match($this->PATTERN_CAPACIDAD_PASAJEROS, $valor);

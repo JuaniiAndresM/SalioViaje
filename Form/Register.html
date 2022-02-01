@@ -226,13 +226,9 @@
             </div>
           </div>
 
-<<<<<<< HEAD
           <p id="mensaje-error1" class="mensaje-error">Debe completar todos los campos.</p>
           <p id="mensaje-error4" class="mensaje-error">El PIN debe ser numerico y de 4 digitos.</p>
           <p id="mensaje-error5" class="mensaje-error">Ambas claves deben coincidir.</p>
-=======
-          <!-- <p id="mensaje-error">Debe completar todos los campos.</p> -->
->>>>>>> 287ccd52f5bac6e881f5db27844d542715d2a12b
 
           <button class="button-register" onclick="volver()">
             <i class="fas fa-arrow-circle-left"></i> Volver
@@ -280,20 +276,13 @@
               </div>
             </div>
           </div>
-<<<<<<< HEAD
  
           <p id="mensaje-error2" class="mensaje-error">Debe completar todos los campos.</p>
-=======
-
-          <!-- <p id="mensaje-error">Debe completar todos los campos.</p> -->
-
-          
->>>>>>> 287ccd52f5bac6e881f5db27844d542715d2a12b
 
           <button class="button-register" id="company_volver" onclick="volver()">
             <i class="fas fa-arrow-circle-left"></i> Volver
           </button>
-          <button class="button-register" id="add-vehicle" onclick="crear_empresa()">
+          <button class="button-register" id="add-vehicle" onclick="valido_Empresa_sin_crearla()">
             <i class="fas fa-car-side"></i> Agregar Vehículo
           </button>
         </div>
@@ -320,10 +309,10 @@
                 <i id="icon" class="fas fa-dog"></i>
                 <select name="" id="combustible">
                   <option value="0" selected disabled hidden>Combustible</option>
-                  <option value="1">Nafta</option>
-                  <option value="2">Gasoil</option>
-                  <option value="3">Electrico</option>
-                  <option value="4">Híbrido</option>
+                  <option value="Nafta">Nafta</option>
+                  <option value="Gasoil">Gasoil</option>
+                  <option value="Electico">Electrico</option>
+                  <option value="Hibrido">Híbrido</option>
                 </select>
               </div>
 
@@ -351,11 +340,9 @@
             </div>
           </div>
 
-<<<<<<< HEAD
           <p id="mensaje-error3" class="mensaje-error">Debe completar todos los campos.</p>
-=======
-          <!-- <p id="mensaje-error">Debe completar todos los campos.</p> -->
->>>>>>> 287ccd52f5bac6e881f5db27844d542715d2a12b
+ 
+
 
           <button class="button-register" onclick="volver()">
             <i class="fas fa-arrow-circle-left"></i> Volver
@@ -369,7 +356,7 @@
           <div class="vehiculos">
             <div id="no-vehicle"><p>No hay vehiculos agregados.</p></div>
           </div>
-          <button class="finalizar-button" onclick="" id="finalizar_empresa"><i class="fas fa-building"></i> Finalizar Empresa</button>
+           <button class="finalizar-button" onclick="crear_empresa()" id="finalizar_empresa"><i class="fas fa-building"></i> Finalizar Empresa</button>
         </div>
 
         <div id="step_5">
