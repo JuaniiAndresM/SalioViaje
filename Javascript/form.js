@@ -582,7 +582,6 @@ function login(){
         data: {tipo:"login", usuario:usuario, pin:pin},
         success: function (response) {
             if (response != '') {
-                sessionStorage.setItem('usuario', response);
                 window.location = "../Panel/Dashboard.php";
             }else{
                 console.log("Usuario o contraseña incorrectos...");
