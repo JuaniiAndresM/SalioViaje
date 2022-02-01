@@ -76,6 +76,7 @@
             window.onload = function(){
               let seccion = "empresas"
               traerEmpresas(seccion)
+              filtros()
             }
     </script>
   </head>
@@ -132,11 +133,11 @@
             <div class="checkboxs">
 
               <div class="checkbox">
-                <input type="checkbox" name="" id="" checked />
+                <input type="checkbox" name="" id="tta" checked />
                 <p>TTA</p>
               </div>
               <div class="checkbox">
-                <input type="checkbox" name="" id="" checked />
+                <input type="checkbox" name="" id="cho" checked />
                 <p>CHO</p>
               </div>
 

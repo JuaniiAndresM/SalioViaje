@@ -218,7 +218,7 @@ function tabla_empresas_dashboard(empresa){
 function tabla_seccion_empresas(empresa){
     var tabla = document.getElementById('tbody')
     var row = document.createElement("tr")
-    row.setAttribute('id',empresa['ID'])
+    row.setAttribute('class',empresa['TIPO_USUARIO'])
     let contador = 0;
 
     for (const property in empresa) {
