@@ -9,7 +9,7 @@ function cerrarsesion(){
     $.ajax({ 
         url: "PHP/cerrarSession.php",
         success: function(response){
-            location.reload();
+            $('#header').load('/SalioViaje/web/header.php');
         }
     });
 }
