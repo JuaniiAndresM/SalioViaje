@@ -356,15 +356,15 @@ function register_form(opcion){
                 console.log("registra usuario")
                 $.ajax({
                     type: "POST",
-                    url: "../PHP/procedimientosForm.php",
+                    url: "/PHP/procedimientosForm.php",
                     data: { tipo:opcion, datos:JSON.stringify(datos_Usuario) },
                     success: function (response) {
                         console.log(response)
-                        window.location = "/SalioViaje/Form/Success.html";
+                        window.location = "https://www.salioviaje.com.uy/Success";
                         ID_USUARIO = response;
                     },
                 });
-            }else{ console.log("No valido...") }
+            }else{ console.log("No valido.") }
             break;
         case "2":
             datos_Usuario = {
@@ -382,7 +382,7 @@ function register_form(opcion){
             
             $.ajax({
                     type: "POST",
-                    url: "../PHP/procedimientosForm.php",
+                    url: "/PHP/procedimientosForm.php",
                     data: { tipo:opcion, datos_Usuario:datos_Usuario, empresas:null },
                     success: function (response) {
                         ID_USUARIO = response;
@@ -397,15 +397,15 @@ function register_form(opcion){
                     console.log("hola")
                     $.ajax({
                         type: "POST",
-                        url: "../PHP/procedimientosForm.php",
+                        url: "/PHP/procedimientosForm.php",
                         data: { tipo:opcion,idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas) },
                         success: function (response) {
                             console.log(response)
-                            //window.location = "/SalioViaje/Form/Success.html";
+                            //window.location = "https://www.salioviaje.com.uy/Success";
                         },
                     });
                 } else { next() }
-            }else{ console.log("No valido...") }
+            }else{ console.log("No valido.") }
             break;
         case "3":
             datos_Usuario = {
@@ -426,15 +426,15 @@ function register_form(opcion){
                     console.log("hola")
                     $.ajax({
                         type: "POST",
-                        url: "../PHP/procedimientosForm.php",
+                        url: "/PHP/procedimientosForm.php",
                         data: { tipo:opcion,idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas) },
                         success: function (response) {
                             console.log(response)
-                            window.location = "/SalioViaje/Form/Success.html";
+                            window.location = "https://www.salioviaje.com.uy/Success";
                         },
                     });
                 } else { next() }
-            }else{ console.log("No valido...") }
+            }else{ console.log("No valido.") }
             break;
         case "4":
             datos_Usuario = {
@@ -452,14 +452,14 @@ function register_form(opcion){
             if (validacion("USUARIO-ANF",datos_Usuario)) {
                 $.ajax({
                     type: "POST",
-                    url: "../PHP/procedimientosForm.php",
+                    url: "/PHP/procedimientosForm.php",
                     data: { tipo:opcion, datos:JSON.stringify(datos_Usuario) },
                     success: function (response) {
                         console.log(response)
-                        window.location = "/SalioViaje/Form/Success.html";
+                        window.location = "https://www.salioviaje.com.uy/Success";
                 },
             });
-            }else{ console.log("No valido...") }
+            }else{ console.log("No valido.") }
             break;
         case "5":
             datos_Hotel = {
@@ -477,14 +477,14 @@ function register_form(opcion){
             if (validacion("USUARIO-HTL",datos_Hotel)) {
                 $.ajax({
                     type: "POST",
-                    url: "../PHP/procedimientosForm.php",
+                    url: "/PHP/procedimientosForm.php",
                     data: { tipo:opcion, datos:JSON.stringify(datos_Hotel) },
                     success: function (response) {
                         console.log(response)
-                        window.location = "/SalioViaje/Form/Success.html";
+                        window.location = "https://www.salioviaje.com.uy/Success";
                     },
                 });
-            }else{ console.log("No valido...") }
+            }else{ console.log("No valido.") }
             break;
     }
 
@@ -505,7 +505,7 @@ function add_vehicle(){
         vehiculos.push(datos_Vehiculo)
         $.ajax({
             type: "POST",
-            url: "../PHP/agregarVehiculo.php",
+            url: "/PHP/agregarVehiculo.php",
             data: {datos:JSON.stringify(datos_Vehiculo) },
             success: function (response) {
                 $('.vehiculos').append(response);
@@ -513,7 +513,7 @@ function add_vehicle(){
                 reset_vehicle_inputs();
             },
         });
-    }else{ console.log("No valido...") }
+    }else{ console.log("No valido.") }
 
     /*
 
@@ -535,13 +535,13 @@ function crear_empresa(){
         vehiculos = [];
         reset_vehicles();
         next();
-    }else{ console.log("No valido...") }
+    }else{ console.log("No valido.") }
 }
 
 function Empresas(){
     $.ajax({
         type: "POST",
-        url: "../PHP/procedimientosForm.php",
+        url: "/PHP/procedimientosForm.php",
         data: {tipo: "empresas"},
         success: function (response) {
             let empresas = JSON.parse(response);
@@ -567,7 +567,7 @@ function valido_Empresa_sin_crearla(){
     };
     if (validacion("EMPRESA",datos_Empresa)) {        
         next();
-    }else{ console.log("No valido...") }
+    }else{ console.log("No valido.") }
 }
 
 /*-------------------------------------------------------------------------------------------*/
@@ -575,23 +575,25 @@ function valido_Empresa_sin_crearla(){
 /*-------------------------------------------------------------------------------------------*/
 
 function login(ADMIN){
+
+    
     
     let usuario = document.getElementById('usuario').value;
     let pin = document.getElementById('passwd').value;
 
+    console.log(usuario);
+
     $.ajax({
         type: "POST",
-        url: "../PHP/procedimientosForm.php",
+        url: "/PHP/procedimientosForm.php",
         data: {tipo:"login", usuario:usuario, pin:pin},
         success: function (response) {
             if (response != '') {
-                $("#mensaje-error").text("");
-                console.log(response);
-                window.location = "../Panel/Dashboard.php";
+                $(".mensaje-error").text("");
+                window.location = "/Dashboard";
                 
             }else{
-                $("#mensaje-error").text("Usuario o Contraseña Incorrectos.");
-                console.log("Usuario o contraseña incorrectos...");
+                $(".mensaje-error").text("Usuario o Contraseña Incorrectos.");
             }
         },
     });
@@ -612,7 +614,7 @@ function validacion(TIPO,DATOS){
         case "USUARIO-PAX-TTA":
                 validacion = $.ajax({
                                 type: 'POST',       
-                                url: "../PHP/Validaciones.php",
+                                url: "/PHP/Validaciones.php",
                                 data: {tipo:"PAX-TTA",datos:JSON.stringify(DATOS)},
                                 global: false,
                                 async:false,
@@ -631,7 +633,7 @@ function validacion(TIPO,DATOS){
         case "USUARIO-CHO":
                 validacion = $.ajax({
                                 type: 'POST',       
-                                url: "../PHP/Validaciones.php",
+                                url: "/PHP/Validaciones.php",
                                 data: {tipo:"CHO",datos:JSON.stringify(DATOS)},
                                 global: false,
                                 async:false,
@@ -649,7 +651,7 @@ function validacion(TIPO,DATOS){
         case "EMPRESA":
                 validacion = $.ajax({
                                 type: 'POST',       
-                                url: "../PHP/Validaciones.php",
+                                url: "/PHP/Validaciones.php",
                                 data: {tipo:"EMP",datos:JSON.stringify(DATOS)},
                                 global: false,
                                 async:false,
@@ -667,7 +669,7 @@ function validacion(TIPO,DATOS){
         case "VEHICULO":
                 validacion = $.ajax({
                                 type: 'POST',       
-                                url: "../PHP/Validaciones.php",
+                                url: "/PHP/Validaciones.php",
                                 data: {tipo:"VIH",datos:JSON.stringify(DATOS)},
                                 global: false,
                                 async:false,
@@ -685,7 +687,7 @@ function validacion(TIPO,DATOS){
         case "USUARIO-HTL":
                 validacion = $.ajax({
                                 type: 'POST',       
-                                url: "../PHP/Validaciones.php",
+                                url: "/PHP/Validaciones.php",
                                 data: {tipo:"HTL",datos:JSON.stringify(DATOS)},
                                 global: false,
                                 async:false,
@@ -703,7 +705,7 @@ function validacion(TIPO,DATOS){
         case "USUARIO-ANF":
                 validacion = $.ajax({
                                 type: 'POST',       
-                                url: "../PHP/Validaciones.php",
+                                url: "/PHP/Validaciones.php",
                                 data: {tipo:"ANF",datos:JSON.stringify(DATOS)},
                                 global: false,
                                 async:false,
