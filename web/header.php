@@ -23,13 +23,13 @@
                                 </div>
                                 <button class="user" onclick="dashboard()">
                                     <h3 id="user-name">'.$_SESSION['usuario'].'</h3>
-                                    <p id="rol"><i class="fas fa-bus"></i>'.$_SESSION['tipo_usuario'].'</p>
+                                    <p id="rol"><i class="fas fa-bus"></i> '.$_SESSION['tipo_usuario'].'</p>
                                 </button>
             
                             </div>';
                 }else{
                     echo '  <div class="links-session">
-                                <a class="login_button" id="button" href="/SalioViaje/Form/Login.html"><i class="fas fa-user"></i> Iniciar Sesión</a>
+                                <a class="login_button" id="button" href="/SalioViaje/Form/Login.php"><i class="fas fa-user"></i> Iniciar Sesión</a>
                             </div>';
                 }
                 ?>
@@ -67,7 +67,7 @@
                     if(isset($_SESSION['usuario'])){
                         echo '  <button><i class="fas fa-sign-in-alt"></i> Cerrar Sesión</button>';
                     }else{
-                        echo '<a href="/SalioViaje/Form/Login.html"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a>';
+                        echo '<a href="/SalioViaje/Form/Login.php"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a>';
                     }
                     ?>
 

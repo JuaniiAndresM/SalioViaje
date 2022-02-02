@@ -83,15 +83,16 @@ let usuarios
 function traerUsuarios(seccion){
 
         usuarios = $.ajax({
-                        type: 'POST',       
-                        url: "../PHP/Backend.php",
-                        data: {opcion:"usr"},
-                        global: false,
-                        async:false,
-                        success: function(response) {
-                            return response;
-                        }
-                    }).responseText;
+            type: 'POST',       
+            url: "../PHP/Backend.php",
+            data: {opcion:"usr"},
+            global: false,
+            async:false,
+            success: function(response) {
+                return response;
+            }
+        }).responseText;
+        
     usuarios = JSON.parse(usuarios)
     tablas_usuarios(seccion);
 }

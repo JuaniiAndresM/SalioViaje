@@ -1,3 +1,17 @@
+<?php 
+
+  session_start(); 
+
+  if(isset($_SESSION['usuario'])){
+    if($_SESSION['tipo_usuario'] == "Administrador"){
+      header('Location: /SalioViaje/Panel/Dashboard.php');
+    }else{
+      header('Location: /SalioViaje/');
+    }
+  }
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head> 

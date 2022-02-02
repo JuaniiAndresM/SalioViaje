@@ -154,6 +154,8 @@ function select_user(user){
     $('#departamento-input').show();
     $('#telefono-input').show();
 
+    $('.progress-bar2').hide();
+
     switch(user){
         case "1":
             $('.progress-bar').hide();
@@ -196,6 +198,7 @@ function select_user(user){
 
         case "4":
             $('.progress-bar').hide();
+            $('.progress-bar2').show();
             $('#step_1').hide();
 
             $('#step_2').show();

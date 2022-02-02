@@ -1,3 +1,18 @@
+<?php 
+
+  session_start(); 
+
+  if(!isset($_SESSION['usuario'])){
+    header('Location: /SalioViaje/Form/Login.php');
+
+  }else{
+    if($_SESSION['tipo_usuario'] != "Administrador"){
+      header('Location: /SalioViaje/');
+    }
+  }
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
   <head>

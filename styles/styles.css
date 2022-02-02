@@ -1310,11 +1310,15 @@ footer .totum p a:hover {
   color: #3844bc;
 }
 
-.login .login-wrapper .progress-bar,
+.login .login-wrapper .progress-bar, .login .login-wrapper .progress-bar2,
 .login .register-wrapper .progress-bar,
+.login .register-wrapper .progress-bar2,
 .register .login-wrapper .progress-bar,
-.register .register-wrapper .progress-bar, .success .login-wrapper .progress-bar,
-.success .register-wrapper .progress-bar {
+.register .login-wrapper .progress-bar2,
+.register .register-wrapper .progress-bar,
+.register .register-wrapper .progress-bar2, .success .login-wrapper .progress-bar, .success .login-wrapper .progress-bar2,
+.success .register-wrapper .progress-bar,
+.success .register-wrapper .progress-bar2 {
   position: relative;
   width: 90%;
   height: 15px;
@@ -1332,11 +1336,15 @@ footer .totum p a:hover {
   margin-top: 20px;
 }
 
-.login .login-wrapper .progress-bar .line,
+.login .login-wrapper .progress-bar .line, .login .login-wrapper .progress-bar2 .line,
 .login .register-wrapper .progress-bar .line,
+.login .register-wrapper .progress-bar2 .line,
 .register .login-wrapper .progress-bar .line,
-.register .register-wrapper .progress-bar .line, .success .login-wrapper .progress-bar .line,
-.success .register-wrapper .progress-bar .line {
+.register .login-wrapper .progress-bar2 .line,
+.register .register-wrapper .progress-bar .line,
+.register .register-wrapper .progress-bar2 .line, .success .login-wrapper .progress-bar .line, .success .login-wrapper .progress-bar2 .line,
+.success .register-wrapper .progress-bar .line,
+.success .register-wrapper .progress-bar2 .line {
   position: relative;
   width: 100%;
   height: 5px;
@@ -1344,11 +1352,15 @@ footer .totum p a:hover {
   background-color: #aaa;
 }
 
-.login .login-wrapper .progress-bar .progress,
+.login .login-wrapper .progress-bar .progress, .login .login-wrapper .progress-bar2 .progress,
 .login .register-wrapper .progress-bar .progress,
+.login .register-wrapper .progress-bar2 .progress,
 .register .login-wrapper .progress-bar .progress,
-.register .register-wrapper .progress-bar .progress, .success .login-wrapper .progress-bar .progress,
-.success .register-wrapper .progress-bar .progress {
+.register .login-wrapper .progress-bar2 .progress,
+.register .register-wrapper .progress-bar .progress,
+.register .register-wrapper .progress-bar2 .progress, .success .login-wrapper .progress-bar .progress, .success .login-wrapper .progress-bar2 .progress,
+.success .register-wrapper .progress-bar .progress,
+.success .register-wrapper .progress-bar2 .progress {
   position: absolute;
   left: 0;
   width: 0%;
@@ -1362,21 +1374,37 @@ footer .totum p a:hover {
 
 .login .login-wrapper .progress-bar .circle1,
 .login .login-wrapper .progress-bar .circle2,
-.login .login-wrapper .progress-bar .circle3,
+.login .login-wrapper .progress-bar .circle3, .login .login-wrapper .progress-bar2 .circle1,
+.login .login-wrapper .progress-bar2 .circle2,
+.login .login-wrapper .progress-bar2 .circle3,
 .login .register-wrapper .progress-bar .circle1,
 .login .register-wrapper .progress-bar .circle2,
 .login .register-wrapper .progress-bar .circle3,
+.login .register-wrapper .progress-bar2 .circle1,
+.login .register-wrapper .progress-bar2 .circle2,
+.login .register-wrapper .progress-bar2 .circle3,
 .register .login-wrapper .progress-bar .circle1,
 .register .login-wrapper .progress-bar .circle2,
 .register .login-wrapper .progress-bar .circle3,
+.register .login-wrapper .progress-bar2 .circle1,
+.register .login-wrapper .progress-bar2 .circle2,
+.register .login-wrapper .progress-bar2 .circle3,
 .register .register-wrapper .progress-bar .circle1,
 .register .register-wrapper .progress-bar .circle2,
-.register .register-wrapper .progress-bar .circle3, .success .login-wrapper .progress-bar .circle1,
+.register .register-wrapper .progress-bar .circle3,
+.register .register-wrapper .progress-bar2 .circle1,
+.register .register-wrapper .progress-bar2 .circle2,
+.register .register-wrapper .progress-bar2 .circle3, .success .login-wrapper .progress-bar .circle1,
 .success .login-wrapper .progress-bar .circle2,
-.success .login-wrapper .progress-bar .circle3,
+.success .login-wrapper .progress-bar .circle3, .success .login-wrapper .progress-bar2 .circle1,
+.success .login-wrapper .progress-bar2 .circle2,
+.success .login-wrapper .progress-bar2 .circle3,
 .success .register-wrapper .progress-bar .circle1,
 .success .register-wrapper .progress-bar .circle2,
-.success .register-wrapper .progress-bar .circle3 {
+.success .register-wrapper .progress-bar .circle3,
+.success .register-wrapper .progress-bar2 .circle1,
+.success .register-wrapper .progress-bar2 .circle2,
+.success .register-wrapper .progress-bar2 .circle3 {
   width: 15px;
   height: 15px;
   border-radius: 50%;
@@ -1385,28 +1413,56 @@ footer .totum p a:hover {
   left: 0;
 }
 
-.login .login-wrapper .progress-bar .circle1,
+.login .login-wrapper .progress-bar .circle1, .login .login-wrapper .progress-bar2 .circle1,
 .login .register-wrapper .progress-bar .circle1,
+.login .register-wrapper .progress-bar2 .circle1,
 .register .login-wrapper .progress-bar .circle1,
-.register .register-wrapper .progress-bar .circle1, .success .login-wrapper .progress-bar .circle1,
-.success .register-wrapper .progress-bar .circle1 {
+.register .login-wrapper .progress-bar2 .circle1,
+.register .register-wrapper .progress-bar .circle1,
+.register .register-wrapper .progress-bar2 .circle1, .success .login-wrapper .progress-bar .circle1, .success .login-wrapper .progress-bar2 .circle1,
+.success .register-wrapper .progress-bar .circle1,
+.success .register-wrapper .progress-bar2 .circle1 {
   background-color: #3844bc;
 }
 
-.login .login-wrapper .progress-bar .circle2,
+.login .login-wrapper .progress-bar .circle2, .login .login-wrapper .progress-bar2 .circle2,
 .login .register-wrapper .progress-bar .circle2,
+.login .register-wrapper .progress-bar2 .circle2,
 .register .login-wrapper .progress-bar .circle2,
-.register .register-wrapper .progress-bar .circle2, .success .login-wrapper .progress-bar .circle2,
-.success .register-wrapper .progress-bar .circle2 {
+.register .login-wrapper .progress-bar2 .circle2,
+.register .register-wrapper .progress-bar .circle2,
+.register .register-wrapper .progress-bar2 .circle2, .success .login-wrapper .progress-bar .circle2, .success .login-wrapper .progress-bar2 .circle2,
+.success .register-wrapper .progress-bar .circle2,
+.success .register-wrapper .progress-bar2 .circle2 {
   left: calc(50% - 10px);
 }
 
-.login .login-wrapper .progress-bar .circle3,
+.login .login-wrapper .progress-bar .circle3, .login .login-wrapper .progress-bar2 .circle3,
 .login .register-wrapper .progress-bar .circle3,
+.login .register-wrapper .progress-bar2 .circle3,
 .register .login-wrapper .progress-bar .circle3,
-.register .register-wrapper .progress-bar .circle3, .success .login-wrapper .progress-bar .circle3,
-.success .register-wrapper .progress-bar .circle3 {
+.register .login-wrapper .progress-bar2 .circle3,
+.register .register-wrapper .progress-bar .circle3,
+.register .register-wrapper .progress-bar2 .circle3, .success .login-wrapper .progress-bar .circle3, .success .login-wrapper .progress-bar2 .circle3,
+.success .register-wrapper .progress-bar .circle3,
+.success .register-wrapper .progress-bar2 .circle3 {
   left: calc(100% - 10px);
+}
+
+.login .login-wrapper .progress-bar2 .circle1,
+.login .register-wrapper .progress-bar2 .circle1,
+.register .login-wrapper .progress-bar2 .circle1,
+.register .register-wrapper .progress-bar2 .circle1, .success .login-wrapper .progress-bar2 .circle1,
+.success .register-wrapper .progress-bar2 .circle1 {
+  background-color: #3844bc;
+}
+
+.login .login-wrapper .progress-bar2 .circle2,
+.login .register-wrapper .progress-bar2 .circle2,
+.register .login-wrapper .progress-bar2 .circle2,
+.register .register-wrapper .progress-bar2 .circle2, .success .login-wrapper .progress-bar2 .circle2,
+.success .register-wrapper .progress-bar2 .circle2 {
+  right: 0;
 }
 
 .login .login-wrapper #login,
