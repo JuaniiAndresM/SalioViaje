@@ -16,16 +16,16 @@ $(document).ready(function () {
 
     $("#cerrar_session_dashboard").on('click', function() {
         $.ajax({ 
-            url: "../PHP/cerrarSession.php",
+            url: "/PHP/cerrarSession.php",
             success: function(response){
-                window.location = "/SalioViaje/";
+                window.location = "https://www.salioviaje.com.uy/";
             }
         });
     });
 
     list.forEach((item) => 
     item.addEventListener('mouseover', activateLink));
-    $('#panel-navbar').load('/SalioViaje/web/panel-navbar.html');
+    $('#panel-navbar').load('https://www.salioviaje.com.uy/web/panel-navbar.html');
 });
 
 function navbar(){
@@ -84,7 +84,7 @@ function traerUsuarios(seccion){
 
         usuarios = $.ajax({
             type: 'POST',       
-            url: "../PHP/Backend.php",
+            url: "/PHP/Backend.php",
             data: {opcion:"usr"},
             global: false,
             async:false,
@@ -181,7 +181,7 @@ let empresas
 function traerEmpresas(seccion){
     empresas = $.ajax({
                         type: 'POST',       
-                        url: "../PHP/Backend.php",
+                        url: "/PHP/Backend.php",
                         data: {opcion:"emp"},
                         global: false,
                         async:false,
@@ -211,7 +211,7 @@ function tablas_empresas(seccion){
 function tabla_empresas_dashboard(empresa){
     $.ajax({
         type: 'POST',       
-        url: "../PHP/agregarEmpresaDashboard.php",
+        url: "/PHP/agregarEmpresaDashboard.php",
         data: {NOMBRE_EMPRESA:empresa['NOMBRE_EMPRESA'], ID_EMPRESA:empresa['ID']},
         success: function(response) {
             $(".propietarios").append(response);
@@ -256,7 +256,7 @@ let vehiculos
 function traerVehiculos(){
     vehiculos = $.ajax({
                         type: 'POST',       
-                        url: "../PHP/Backend.php",
+                        url: "/PHP/Backend.php",
                         data: {opcion:"vih"},
                         global: false,
                         async:false,
