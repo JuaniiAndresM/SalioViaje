@@ -69,7 +69,7 @@
 
 
                     if(isset($_SESSION['usuario'])){
-                        echo '  <button><i class="fas fa-sign-in-alt"></i> Cerrar Sesión</button>';
+                        echo '  <button onclick="cerrarsesion()"><i class="fas fa-sign-in-alt"></i> Cerrar Sesión</button>';
                     }else{
                         echo '<a href="https://www.salioviaje.com.uy/Login"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a>';
                     }

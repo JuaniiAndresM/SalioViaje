@@ -2,6 +2,7 @@
 .landing {
   width: 100%;
   height: calc(100vh - 80px);
+  max-height: 700px;
   background-color: #fff;
   margin-top: 80px;
   display: -ms-grid;
@@ -41,7 +42,7 @@
 }
 
 .landing .landing-wrapper-grid .landing-left .landing-info h1 {
-  font-size: 4.2em;
+  font-size: 5em;
   font-weight: bold;
   color: #333333;
   margin-bottom: 10px;
@@ -53,7 +54,7 @@
 
 .landing .landing-wrapper-grid .landing-left .landing-info p {
   color: #3844bc;
-  font-size: 1.2em;
+  font-size: 1.4em;
   max-width: 450px;
   width: 100%;
   margin-bottom: 20px;
@@ -76,7 +77,7 @@
   padding: 0;
   width: 220px;
   height: 45px;
-  font-size: .9em;
+  font-size: 1em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -221,7 +222,7 @@
 
 .servicios .servicios-wrapper .card .card-bottom .info_2 a,
 .servicios .servicios-wrapper .card .card-bottom .info_3 a {
-  color: #aaa;
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -242,7 +243,7 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: #3844bc;
+  background: #50c450;
   padding: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -518,8 +519,8 @@
 }
 
 .oportunidades .oportunidades-wrapper .oportunidades-list {
-  width: 100%;
   display: none;
+  width: 100%;
   margin-top: 10px;
 }
 
@@ -1466,7 +1467,7 @@ footer .totum p a:hover {
 .register .login-wrapper .progress-bar2 .circle2,
 .register .register-wrapper .progress-bar2 .circle2, .success .login-wrapper .progress-bar2 .circle2,
 .success .register-wrapper .progress-bar2 .circle2 {
-  right: 0;
+  left: calc(100% - 10px);
 }
 
 .login .login-wrapper #login,
@@ -5564,7 +5565,7 @@ footer .totum p a:hover {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: #3844bc;
+  background: #50c450;
   padding: 10px;
   display: -webkit-box;
   display: -ms-flexbox;

@@ -6,6 +6,8 @@ $(document).ready(function () {
     $('#mensaje-error5').hide();
     $('.progress-bar').hide();
     $('.vehiculos-wrapper').hide();
+    $('.progress-bar2').hide();
+
     steps(1);
     Empresas()
 
@@ -59,6 +61,7 @@ function steps(step){
     switch(step){
         case 1:         
             $('.progress-bar').hide();
+            $('.progress-bar2').hide();
             $('#step_1').show();
             $('#step_2').hide();
             $('#step_3').hide();
@@ -153,7 +156,6 @@ function select_user(user){
     $('#barrio-input').show();
     $('#departamento-input').show();
     $('#telefono-input').show();
-
     $('.progress-bar2').hide();
 
     switch(user){
@@ -206,8 +208,8 @@ function select_user(user){
             $('#rut').show();
             $('#contratista').hide();
             
-            $('#pax-register').show();
-            $('#step-next').hide();
+            $('#pax-register').hide();
+            $('#step-next').show();
             break;
 
         case "5":
@@ -287,7 +289,7 @@ function reset_vehicle_inputs(){
     $('#matricula').val('');
     $('#marca').val('');
     $('#modelo').val('');
-    $('#combustible').val('');
+    $('#combustible').val('0');
     $('#capacidad_pasajeros').val('');
     $('#capacidad_equipaje').val('');
     $('#pet_friendly').val('0');
@@ -401,7 +403,7 @@ function register_form(opcion){
                         data: { tipo:opcion,idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas) },
                         success: function (response) {
                             console.log(response)
-                            //window.location = "https://www.salioviaje.com.uy/Success";
+                            window.location = "/SalioViaje/Form/Success.html";
                         },
                     });
                 } else { next() }
@@ -421,6 +423,16 @@ function register_form(opcion){
                 "PIN": document.getElementById('password').value,
                 "RE-PIN": document.getElementById('re-password').value
             };
+
+            $.ajax({
+                type: "POST",
+                url: "../PHP/procedimientosForm.php",
+                data: { tipo:opcion, datos_Usuario:datos_Usuario, empresas:null },
+                    success: function (response) {
+                        ID_USUARIO = response;
+                },
+            });
+
             if (validacion("USUARIO-CHO",datos_Usuario)) {
                  if (empresas.length != 0  && ID_USUARIO != null) {
                     console.log("hola")
@@ -604,7 +616,6 @@ function login(ADMIN){
 /*-------------------------------------------------------------------------------------------*/
 
 function validacion(TIPO,DATOS){
-    console.log(DATOS)
     let validacion;
     let VALIDO = false;
 

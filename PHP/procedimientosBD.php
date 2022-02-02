@@ -19,6 +19,7 @@ class procedimientosBD
 
     public function register_usuario($tipo,$datos){ 
 
+        echo $datos['CI'];
     	echo "Tipo Usuario: ".$tipo."    Datos:  ".json_encode($datos);
     	$conn = $this->conexion();
         $query = "CALL register_usuario(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -37,15 +38,11 @@ class procedimientosBD
     public function register_empresa($tipo_usuario,$id_usuario,$datos){
 
         $conn = $this->conexion();
-        $query = "call salioviajeuy_salioviajeuy.register_empresa(?, ?, ?, ?, ?, ?, ?);";
+        $query = "call register_empresa(?,?,?,?,?,?,?);";
         $stmt = $conn->prepare($query);
-
-        for ($x=0; $x < count($datos); $x++) {
-        echo "\n".$datos[$x]["RUT"]." ".$datos[$x]["NOMBRE_COMERCIAL"]." ".$datos[$x]["RAZON_SOCIAL"]." ".$datos[$x]["NUMERO_MTOP"]." ".$datos[$x]["PASSWORD_MTOP"]." ".$tipo_usuario." ".$id_usuario."\n";
-        $stmt->bind_param("sssissi", $datos[$x]["RUT"], $datos[$x]["NOMBRE_COMERCIAL"], $datos[$x]["RAZON_SOCIAL"], $datos[$x]["NUMERO_MTOP"], $datos[$x]["PASSWORD_MTOP"], $tipo_usuario, $id_usuario);
+        echo "\n".$datos["RUT"]." ".$datos["NOMBRE_COMERCIAL"]." ".$datos["RAZON_SOCIAL"]." ".$datos["NUMERO_MTOP"]." ".$datos["PASSWORD_MTOP"]." ".$tipo_usuario." ".$id_usuario."\n";
+        $stmt->bind_param("sssissi", $datos["RUT"], $datos["NOMBRE_COMERCIAL"], $datos["RAZON_SOCIAL"], $datos["NUMERO_MTOP"], $datos["PASSWORD_MTOP"], $tipo_usuario, $id_usuario);
         $stmt->execute();
-        }
-        
         $stmt->close();
     }
 
