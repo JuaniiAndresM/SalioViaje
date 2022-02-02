@@ -582,8 +582,10 @@ function login(){
         data: {tipo:"login", usuario:usuario, pin:pin},
         success: function (response) {
             if (response != '') {
+                $("#mensaje-error").text("");
                 window.location = "../Panel/Dashboard.php";
             }else{
+                $("#mensaje-error").text("Usuario o Contraseña Incorrectos.");
                 console.log("Usuario o contraseña incorrectos...");
             }
         },
