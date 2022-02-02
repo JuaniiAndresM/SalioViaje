@@ -26,9 +26,11 @@ RewriteRule ^Success /Form/Success.html
 RewriteRule ^Failed /Form/Failed.html
 
 RewriteRule ^Viajar /Agenda/Viajar.html
+RewriteRule ^Oportunidades /Agenda/Oportunidades.html
 
 RewriteRule ^Servicios /About/Servicios.html
 RewriteRule ^Nosotros /About/Nosotros.html
+
 
 ErrorDocument 404 /Error/404.html
 ErrorDocument 403 /Error/403.html
