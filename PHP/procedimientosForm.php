@@ -31,10 +31,10 @@ class procedimientosForm extends procedimientosBD
 
 	private function registrar_empresa($tipoUsuario,$contratista,$empresa){
 
-		$idUsuario = $this->idUsuario;
-		$this->register_empresa($tipoUsuario,$idUsuario,$empresa);
-		/*
 		for ($x=0; $x < count($empresa); $x++) {
+
+		echo $this->idUsuario;
+		$this->register_empresa($tipoUsuario,$this->idUsuario,$empresa[$x]);
 			for ($i=0; $i < count($empresa[$x]["VEHICULOS"]); $i++) { 
 				if ($tipoUsuario == "CHO") {
 					 //rut_ec = RUT de la empresa creada por el chofer.
@@ -48,7 +48,6 @@ class procedimientosForm extends procedimientosBD
 				$this->register_vehiculo($rut,$rut_ec,$empresa[$x]["VEHICULOS"][$i]);
 			}
 		}
-		*/
 	}
 }
 
