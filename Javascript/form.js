@@ -586,7 +586,9 @@ function login(ADMIN){
         success: function (response) {
             if (response != '') {
                 $("#mensaje-error").text("");
+                console.log(response);
                 window.location = "../Panel/Dashboard.php";
+                
             }else{
                 $("#mensaje-error").text("Usuario o Contraseña Incorrectos.");
                 console.log("Usuario o contraseña incorrectos...");
