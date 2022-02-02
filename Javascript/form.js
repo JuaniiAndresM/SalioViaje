@@ -289,7 +289,7 @@ function reset_vehicle_inputs(){
     $('#matricula').val('');
     $('#marca').val('');
     $('#modelo').val('');
-    $('#combustible').val('');
+    $('#combustible').val('0');
     $('#capacidad_pasajeros').val('');
     $('#capacidad_equipaje').val('');
     $('#pet_friendly').val('0');
