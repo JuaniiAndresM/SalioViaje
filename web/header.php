@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    
+?>
+
 <header>
     <div class="header-wrapper">
         <div class="header-logo">
@@ -15,7 +20,6 @@
                 </div>
             
                 <?php
-                session_start();
                 if(isset($_SESSION['usuario'])){
                     echo '  <div class="session">
                                 <div class="close-session">

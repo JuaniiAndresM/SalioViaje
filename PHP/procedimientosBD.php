@@ -103,6 +103,9 @@ class procedimientosBD
                         case 'HTL':
                             $_SESSION['tipo_usuario'] = 'Hotel';
                             break;
+                        case 'ADM':
+                            $_SESSION['tipo_usuario'] = 'Administrador';
+                            break;
                         case 'value':
                             // code...
                             break;

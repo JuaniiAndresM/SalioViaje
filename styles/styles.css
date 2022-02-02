@@ -865,6 +865,7 @@ header .header-wrapper .header-right .header-links .session .user {
           flex-direction: column;
   background-color: transparent;
   border: none;
+  cursor: pointer;
 }
 
 header .header-wrapper .header-right .header-links .session .user h3 {

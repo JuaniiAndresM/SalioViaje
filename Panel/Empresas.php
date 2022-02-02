@@ -1,16 +1,22 @@
+<?php 
+
+  session_start(); 
+
+  if(!isset($_SESSION['usuario'])){
+    header('Location: https://www.salioviaje.com.uy/Login');
+
+  }else{
+    if($_SESSION['tipo_usuario'] != "Administrador"){
+      header('Location: https://www.salioviaje.com.uy/');
+    }
+  }
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
   <head>
     <title>SalióViaje - Usuarios</title>
-
-    <!-- // Verifico sesion -->
-
-    <?php 
-          session_start(); 
-          if(!isset($_SESSION['usuario'])){
-            header('Location: https://www.salioviaje.com.uy/Login');
-          }
-         ?>
 
     <!-- // Meta Etiquetas -->
 
