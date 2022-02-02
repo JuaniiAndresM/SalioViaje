@@ -157,6 +157,9 @@ function tabla_seccion_usuarios(usuario){
             }else if( property != "RUT"){
                 td.innerHTML = usuario[property]
             }
+
+            if (property == 'AGENCIA_CONTRATISTA') {td.setAttribute('class', 'CHO')} 
+            else if(property == 'NOMBRE_HOTEL' || property == 'DIRECCION_HOTEL' || property == 'SUPERVISOR') {td.setAttribute('class', 'HTL')}
             row.appendChild(td);
         }
         contador++
