@@ -139,21 +139,21 @@
             </div>
             <div class="card">
               <div class="number">
-                <h2>12</h2>
+                <h2>-</h2>
                 <i class="fas fa-hand-holding-usd"></i>
               </div>
               <p>Oportunidades Activas</p>
             </div>
             <div class="card">
               <div class="number">
-                <h2>6</h2>
+                <h2>-</h2>
                 <i class="fas fa-eye"></i>
               </div>
               <p>Visitas Hoy</p>
             </div>
             <div class="card">
               <div class="number">
-                <h2>36</h2>
+                <h2>-</h2>
                 <i class="fas fa-leaf"></i>
               </div>
               <p>Ahorrados</p>

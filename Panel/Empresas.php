@@ -118,10 +118,10 @@
         <div class="header-user">
           <div class="icon"><i class="fab fa-apple"></i></div>
           <div class="user">
-            <h2>John Doe</h2>
-            <p><i class="fas fa-user-tie"></i> Administrador</p>
+            <h2><?php echo $_SESSION['usuario']; ?></h2> 
+            <p><i class="fas fa-user-tie"></i> <?php echo $_SESSION['tipo_usuario'] ?></p>
           </div>
-          <button><i class="fas fa-sign-out-alt"></i></button>
+          <button id="cerrar_session_dashboard"><i class="fas fa-sign-out-alt"></i></button>
         </div>
       </div>
     </header>
