@@ -182,10 +182,10 @@
                   <th>Barrio <i class="fas fa-angle-down"></i></th>
                   <th>Departamento <i class="fas fa-angle-down"></i></th>
                   <th>Teléfono <i class="fas fa-angle-down"></i></th>
-                  <th>Agencia <i class="fas fa-angle-down"></i></th>
-                  <th>Nombre Hotel <i class="fas fa-angle-down"></i></th>
-                  <th>Dirección Hotel <i class="fas fa-angle-down"></i></th>
-                  <th>Supervisor <i class="fas fa-angle-down"></i></th>
+                  <th class="CHO">Agencia <i class="fas fa-angle-down"></i></th>
+                  <th class="HTL">Nombre Hotel <i class="fas fa-angle-down"></i></th>
+                  <th class="HTL">Dirección Hotel <i class="fas fa-angle-down"></i></th>
+                  <th class="HTL">Supervisor <i class="fas fa-angle-down"></i></th>
                   <th></th>
                 </tr>
               </thead>
