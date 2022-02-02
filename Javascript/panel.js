@@ -83,16 +83,15 @@ let usuarios
 function traerUsuarios(seccion){
 
         usuarios = $.ajax({
-            type: 'POST',       
-            url: "../PHP/Backend.php",
-            data: {opcion:"usr"},
-            global: false,
-            async:false,
-            success: function(response) {
-                return response;
-            }
-        }).responseText;
-        
+                        type: 'POST',       
+                        url: "../PHP/Backend.php",
+                        data: {opcion:"usr"},
+                        global: false,
+                        async:false,
+                        success: function(response) {
+                            return response;
+                        }
+                    }).responseText;
     usuarios = JSON.parse(usuarios)
     tablas_usuarios(seccion);
 }
@@ -149,13 +148,20 @@ function tabla_seccion_usuarios(usuario){
     for (const property in usuario) {
         let td = document.createElement("td");
         if (contador != 14) {
-            if (usuario[property] == null || usuario[property] == '' || usuario[property] == undefined) {
+            if (usuario[property] == null || usuario[property] == '' || usuario[property] == undefined ) {
                 td.innerHTML = "-"
             }else if(property == "ID"){
                 ID_USUARIO = usuario[property]
                 td.innerHTML = usuario[property]
             }else if( property != "RUT"){
                 td.innerHTML = usuario[property]
+            }
+
+            if(property == "NOMBRE_HOTEL" || property == "DIRECCION_HOTEL" || property == "SUPERVISOR"){
+                td.setAttribute('class', "HTL")
+            }
+            if(property == "AGENCIA_CONTRATISTA"){
+                td.setAttribute('class', "CHO")
             }
             row.appendChild(td);
         }
