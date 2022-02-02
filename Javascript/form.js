@@ -403,7 +403,7 @@ function register_form(opcion){
                         data: { tipo:opcion,idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas) },
                         success: function (response) {
                             console.log(response)
-                            //window.location = "/SalioViaje/Form/Success.html";
+                            window.location = "/SalioViaje/Form/Success.html";
                         },
                     });
                 } else { next() }
@@ -423,6 +423,16 @@ function register_form(opcion){
                 "PIN": document.getElementById('password').value,
                 "RE-PIN": document.getElementById('re-password').value
             };
+
+            $.ajax({
+                type: "POST",
+                url: "../PHP/procedimientosForm.php",
+                data: { tipo:opcion, datos_Usuario:datos_Usuario, empresas:null },
+                    success: function (response) {
+                        ID_USUARIO = response;
+                },
+            });
+
             if (validacion("USUARIO-CHO",datos_Usuario)) {
                  if (empresas.length != 0  && ID_USUARIO != null) {
                     console.log("hola")
@@ -602,7 +612,6 @@ function login(ADMIN){
 /*-------------------------------------------------------------------------------------------*/
 
 function validacion(TIPO,DATOS){
-    console.log(DATOS)
     let validacion;
     let VALIDO = false;
 
