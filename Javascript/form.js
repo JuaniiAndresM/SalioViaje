@@ -6,6 +6,8 @@ $(document).ready(function () {
     $('#mensaje-error5').hide();
     $('.progress-bar').hide();
     $('.vehiculos-wrapper').hide();
+    $('.progress-bar2').hide();
+
     steps(1);
     Empresas()
 
@@ -59,6 +61,7 @@ function steps(step){
     switch(step){
         case 1:         
             $('.progress-bar').hide();
+            $('.progress-bar2').hide();
             $('#step_1').show();
             $('#step_2').hide();
             $('#step_3').hide();
@@ -153,7 +156,6 @@ function select_user(user){
     $('#barrio-input').show();
     $('#departamento-input').show();
     $('#telefono-input').show();
-
     $('.progress-bar2').hide();
 
     switch(user){
@@ -206,8 +208,8 @@ function select_user(user){
             $('#rut').show();
             $('#contratista').hide();
             
-            $('#pax-register').show();
-            $('#step-next').hide();
+            $('#pax-register').hide();
+            $('#step-next').show();
             break;
 
         case "5":

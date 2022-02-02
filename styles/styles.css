@@ -1462,7 +1462,7 @@ footer .totum p a:hover {
 .register .login-wrapper .progress-bar2 .circle2,
 .register .register-wrapper .progress-bar2 .circle2, .success .login-wrapper .progress-bar2 .circle2,
 .success .register-wrapper .progress-bar2 .circle2 {
-  right: 0;
+  left: calc(100% - 10px);
 }
 
 .login .login-wrapper #login,

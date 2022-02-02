@@ -93,7 +93,7 @@
         background-color: $main_1;
       }
       .circle2 {
-        right: 0;
+        left: calc(100% - 10px);
       }
     }
 
