@@ -37,7 +37,7 @@ class procedimientosBD
     public function register_empresa($tipo_usuario,$id_usuario,$datos){
 
         $conn = $this->conexion();
-        $query = "call salioviaje.register_empresa(?, ?, ?, ?, ?, ?, ?);";
+        $query = "call salioviajeuy_salioviajeuy.register_empresa(?, ?, ?, ?, ?, ?, ?);";
         $stmt = $conn->prepare($query);
 
         for ($x=0; $x < count($datos); $x++) {
@@ -118,7 +118,7 @@ class procedimientosBD
     public function datos_usuarios(){
         $usuarios = array();
         $conn = $this->conexion();
-        $query = "SELECT ID,Tipo_Usuario,CI,Email,Nombre,Apellido,Direccion,Barrio,Departamento,Telefono,Agencia_C,RUT,Supervisor,Nombre_Hotel,Direccion_Hotel FROM salioviaje.usuarios";
+        $query = "SELECT ID,Tipo_Usuario,CI,Email,Nombre,Apellido,Direccion,Barrio,Departamento,Telefono,Agencia_C,RUT,Supervisor,Nombre_Hotel,Direccion_Hotel FROM salioviajeuy_salioviajeuy.usuarios";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
@@ -135,7 +135,7 @@ class procedimientosBD
     public function datos_empresas(){
         $empresas = array();
         $conn = $this->conexion();
-        $query = "SELECT ID,RUT,Nombre_C,Razon_S,Usuario_ID,Tipo_Usuario FROM salioviaje.empresas";
+        $query = "SELECT ID,RUT,Nombre_C,Razon_S,Usuario_ID,Tipo_Usuario FROM salioviajeuy_salioviajeuy.empresas";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
@@ -152,7 +152,7 @@ class procedimientosBD
     public function datos_vehiculos(){
         $vehiculos = array();
         $conn = $this->conexion();
-        $query = "SELECT * FROM salioviaje.vehiculos";
+        $query = "SELECT * FROM salioviajeuy_salioviajeuy.vehiculos";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();

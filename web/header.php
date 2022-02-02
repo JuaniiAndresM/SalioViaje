@@ -1,3 +1,8 @@
+<?php
+    session_start();
+?>
+
+
 <header>
     <div class="header-wrapper">
         <div class="header-logo">
@@ -15,7 +20,6 @@
                 </div>
             
                 <?php
-                session_start();
                 if(isset($_SESSION['usuario'])){
                     echo '  <div class="session">
                                 <div class="close-session">
@@ -54,13 +58,13 @@
                     if(isset($_SESSION['usuario'])){
                         echo '  <div class="usuario">
                                     <h3>'.$_SESSION["usuario"].'</h3>
-                                    <p><i class="fas fa-bus"></i> Transportista</p>
+                                    <p><i class="fas fa-bus"></i> '.$_SESSION['tipo_usuario'].'</p>
                                 </div>';
                     }
 
                     echo '  <a href="/SalioViaje/"><i class="fas fa-home"></i> Home</a>
-                            <a href="/SalioViaje/About/Servicios.html">Servicios</a>
-                            <a href="/SalioViaje/About/Nosotros.html">Sobre Nosotros</a>
+                            <a href="/SalioViaje/About/Servicios.html"><i class="fas fa-list-ul"></i> Servicios</a>
+                            <a href="/SalioViaje/About/Nosotros.html"><i class="fas fa-info"></i> Sobre Nosotros</a>
                             <a href="/SalioViaje/#Oportunidades"><i class="fas fa-book"></i> Oportunidades</a>';
 
 
