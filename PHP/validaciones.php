@@ -3,7 +3,7 @@
 /**
  * 
  */
-class Validaciones 
+class validaciones 
 {
 	private $PATTERN_NOMBRES = "/^([A-Z][a-z]+([ ]?[a-z]?['-]?[A-Z][a-z]+)*)$/i";
 	private $PATTERN_CI = "/^[0-9]{8}$/i";
@@ -12,9 +12,9 @@ class Validaciones
 	private $PATTERN_TELEFONO = "/[(?=091)(?=099)(?=091)(?=098)]{3}[0-9]{6}/i";
 	private $PATTERN_PIN = "/[0-9]{4}/i";
 
-	private $PATTERN_RUT = "/[0-9]{12}/i";
+	private $PATTERN_RUT = "/^[\d]{12}$/i";
 	private $PATTERN_RAZON_SOCIAL = "/^[a-zA-Z_]+([a-zA-Z0-9\s\.]*)$/i";
-	private $PATTERN_NUMERO_MTOP = "/[0-9]{10}/i";
+	private $PATTERN_NUMERO_MTOP = "/^[\d]{10}$/i";
 	private $PATTERN_PASSWORD_MTOP = "/^([\w\d]){10}$/i";
 
 	private $PATTERN_MATRICULA = "/^(\w){3}([0-9]){4}$/i";
@@ -359,6 +359,7 @@ class Validaciones
 
 		$VALIDACION = array();
 		$DATOS_VACIOS = null;
+		$TIENE_MTOP = null;
 		$errores = 0;
 
 		foreach (json_decode($datos) as $clave => $valor){
@@ -377,18 +378,25 @@ class Validaciones
      						$VALIDACION['RAZON_SOCIAL'] = $RAZON_SOCIAL;
      					break;
      				case 'NUMERO_MTOP':
-     						$MTOP = preg_match($this->PATTERN_NUMERO_MTOP, $valor);
-     						$VALIDACION['MTOP'] = $MTOP;
+     						if ($valor != null) {
+     							$TIENE_MTOP = 1;
+     							$MTOP = preg_match($this->PATTERN_NUMERO_MTOP, $valor);
+     							$VALIDACION['MTOP'] = $MTOP;
+     						}else{$TIENE_MTOP = 0;}
      					break;
      				case 'PASSWORD_MTOP':
-     						$PASSWORD_MTOP = preg_match($this->PATTERN_PASSWORD_MTOP, $valor);
-     						$VALIDACION['PASSWORD_MTOP'] = $PASSWORD_MTOP;
+     						if ($TIENE_MTOP == 1) {
+     					    	$PASSWORD_MTOP = preg_match($this->PATTERN_PASSWORD_MTOP, $valor);
+     							$VALIDACION['PASSWORD_MTOP'] = $PASSWORD_MTOP;
+     						}
      					break;
      			}
      		}
 		}
 
-		if (count($VALIDACION) != 5) {
+		if (count($VALIDACION) == 3 && $TIENE_MTOP == 0) {
+			$DATOS_VACIOS = null;
+		}else if(count($VALIDACION) != 5){
 			$DATOS_VACIOS = "Err-1";
 		}
 
@@ -463,6 +471,6 @@ class Validaciones
 
 }
 
-$Validar = new Validaciones($_POST['tipo'],$_POST['datos']);
+$Validar = new validaciones($_POST['tipo'],$_POST['datos']);
 
 ?>
