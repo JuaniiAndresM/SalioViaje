@@ -16,16 +16,16 @@ $(document).ready(function () {
 
     $("#cerrar_session_dashboard").on('click', function() {
         $.ajax({ 
-            url: "../PHP/cerrarSession.php",
+            url: "/PHP/cerrarSession.php",
             success: function(response){
-                window.location = "/SalioViaje/";
+                window.location = "https://www.salioviaje.com.uy/";
             }
         });
     });
 
     list.forEach((item) => 
     item.addEventListener('mouseover', activateLink));
-    $('#panel-navbar').load('/SalioViaje/web/panel-navbar.html');
+    $('#panel-navbar').load('https://www.salioviaje.com.uy/web/panel-navbar.html');
 });
 
 function navbar(){
@@ -83,15 +83,16 @@ let usuarios
 function traerUsuarios(seccion){
 
         usuarios = $.ajax({
-                        type: 'POST',       
-                        url: "../PHP/Backend.php",
-                        data: {opcion:"usr"},
-                        global: false,
-                        async:false,
-                        success: function(response) {
-                            return response;
-                        }
-                    }).responseText;
+            type: 'POST',       
+            url: "/PHP/Backend.php",
+            data: {opcion:"usr"},
+            global: false,
+            async:false,
+            success: function(response) {
+                return response;
+            }
+        }).responseText;
+        
     usuarios = JSON.parse(usuarios)
     tablas_usuarios(seccion);
 }
@@ -148,7 +149,7 @@ function tabla_seccion_usuarios(usuario){
     for (const property in usuario) {
         let td = document.createElement("td");
         if (contador != 14) {
-            if (usuario[property] == null || usuario[property] == '' || usuario[property] == undefined ) {
+            if (usuario[property] == null || usuario[property] == '' || usuario[property] == undefined) {
                 td.innerHTML = "-"
             }else if(property == "ID"){
                 ID_USUARIO = usuario[property]
@@ -157,12 +158,8 @@ function tabla_seccion_usuarios(usuario){
                 td.innerHTML = usuario[property]
             }
 
-            if(property == "NOMBRE_HOTEL" || property == "DIRECCION_HOTEL" || property == "SUPERVISOR"){
-                td.setAttribute('class', "HTL")
-            }
-            if(property == "AGENCIA_CONTRATISTA"){
-                td.setAttribute('class', "CHO")
-            }
+            if (property == 'AGENCIA_CONTRATISTA') {td.setAttribute('class', 'CHO')} 
+            else if(property == 'NOMBRE_HOTEL' || property == 'DIRECCION_HOTEL' || property == 'SUPERVISOR') {td.setAttribute('class', 'HTL')}
             row.appendChild(td);
         }
         contador++
@@ -184,7 +181,7 @@ let empresas
 function traerEmpresas(seccion){
     empresas = $.ajax({
                         type: 'POST',       
-                        url: "../PHP/Backend.php",
+                        url: "/PHP/Backend.php",
                         data: {opcion:"emp"},
                         global: false,
                         async:false,
@@ -214,7 +211,7 @@ function tablas_empresas(seccion){
 function tabla_empresas_dashboard(empresa){
     $.ajax({
         type: 'POST',       
-        url: "../PHP/agregarEmpresaDashboard.php",
+        url: "/PHP/agregarEmpresaDashboard.php",
         data: {NOMBRE_EMPRESA:empresa['NOMBRE_EMPRESA'], ID_EMPRESA:empresa['ID']},
         success: function(response) {
             $(".propietarios").append(response);
@@ -258,7 +255,7 @@ let vehiculos
 function traerVehiculos(){
     vehiculos = $.ajax({
                         type: 'POST',       
-                        url: "../PHP/Backend.php",
+                        url: "/PHP/Backend.php",
                         data: {opcion:"vih"},
                         global: false,
                         async:false,

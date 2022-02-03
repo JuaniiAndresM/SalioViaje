@@ -76,6 +76,14 @@ switch ($_POST['tipo']) {
 		$datos = json_decode($_POST["datos"],true);
 		$procedimientosForm->register_hotel($datos);
 		break;
+	case '6':
+		$datos = json_decode($_POST["datos"],true);
+		$procedimientosForm->register_usuarios('ASE',$datos);
+		break;
+	case '7':
+		$datos = json_decode($_POST["datos"],true);
+		$procedimientosForm->register_hotel($datos);
+		break;
 	case 'empresas':
 		echo $procedimientosForm->empresas();
 		break;
