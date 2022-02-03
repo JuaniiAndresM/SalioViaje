@@ -250,7 +250,6 @@ function tabla_seccion_empresas(empresa){
     //
     tabla.appendChild(row);
 }
-
 /*-------------------------------------------------------------------------------------------*/
 //                                     Vehiculos                                             //
 /*-------------------------------------------------------------------------------------------*/
@@ -277,7 +276,6 @@ function tablas_vehiculos(){
         tabla_seccion_vehiculos(vehiculos[i])
     }
 }
-
 
 function tabla_seccion_vehiculos(vehiculo){
     var tabla = document.getElementById('tbody')
