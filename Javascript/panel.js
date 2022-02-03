@@ -64,6 +64,7 @@ function buscarUsuarios(buscador) {
     
     
     tr = table.getElementsByTagName("tr");
+    console.log(tr);
     
 
     for (i = 0; i < tr.length; i++) {

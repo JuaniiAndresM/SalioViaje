@@ -167,7 +167,7 @@
               </div>
               <div class="search">
                 <i class="fas fa-search"></i>
-                <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarUsuarios()"/>
+                <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarUsuarios(1)"/>
               </div>
               <table class="usuarios-table" id="search-table-dashboard">
                 <!-- antes:
@@ -204,7 +204,7 @@
               </div>
               <div class="search">
                 <i class="fas fa-search"></i>
-                <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarusuarios(1)"/>
+                <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarusuarios()"/>
               </div>
               <div class="propietarios">
     
