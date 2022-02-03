@@ -29,7 +29,7 @@ $mail->Port = 465;
 $mail->CharSet = 'UTF-8';
 $mail->From = 'info@salioviaje.com.uy'; //  Editar
 $mail->FromName = 'SalióViaje';  //  Editar
-$mail->addAddress('thewolfmodzyt@gmail.com');  //  Editar
+$mail->addAddress($email);  //  Editar
 $mail->isHTML(true);
 $mail->Subject = "Suscripción SalióViaje";    //  Editar
 
