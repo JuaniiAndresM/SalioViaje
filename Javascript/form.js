@@ -484,7 +484,7 @@ function register_form(opcion){
                         data: { tipo:opcion,idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas)  },
                         success: function (response) {
                             console.log(response)
-                            //window.location = "/SalioViaje/Success";
+                            window.location = "/SalioViaje/Success";
                         },
                     });
                 } else { next() }
