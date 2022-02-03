@@ -11,7 +11,7 @@
                     <a href="/SalioViaje/">Home</a>
                     <a href="/SalioViaje/Servicios">Servicios</a>
                     <a href="/SalioViaje/Nosotros">Sobre Nosotros</a>
-                    <a href="/SalioViaje/Oportunidades">Oportunidades</a>
+                    <a href="/SalioViaje/Viajar">Oportunidades</a>
                 </div>
             
                 <?php
@@ -61,7 +61,7 @@
                     echo '  <a href="/SalioViaje/"><i class="fas fa-home"></i> Home</a>
                             <a href="/SalioViaje/Servicios">Servicios</a>
                             <a href="/SalioViaje/Nosotros">Sobre Nosotros</a>
-                            <a href="/SalioViaje/Oportunidades"><i class="fas fa-book"></i> Oportunidades</a>';
+                            <a href="/SalioViaje/Viajar"><i class="fas fa-book"></i> Oportunidades</a>';
 
 
                     if(isset($_SESSION['usuario'])){

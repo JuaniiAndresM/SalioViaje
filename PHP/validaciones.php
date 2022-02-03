@@ -287,57 +287,55 @@ class validaciones
 		$errores = 0;
 
 		foreach (json_decode($datos) as $clave => $valor){
-     		if ($valor != null || $valor != '') {
-     			switch ($clave) {
-     				case 'CI':
-     						$CI = preg_match($this->PATTERN_CI, $valor);
-     						$VALIDACION['CI'] = $CI;
-     					break;
-     				case 'NOMBRE':
-     						$NOMBRE = preg_match($this->PATTERN_NOMBRES, $valor);
-     						$VALIDACION['NOMBRE'] = $NOMBRE;
-     					break;
-     				case 'APELLIDO':
-     						$APELLIDO = preg_match($this->PATTERN_NOMBRES, $valor);
-     						$VALIDACION['APELLIDO'] = $APELLIDO;
-     					break;
-     				case 'CORREO':
-     						$MAIL = preg_match($this->PATTERN_MAIL, $valor);
-     						$VALIDACION['MAIL'] = $MAIL;
-     					break;
-     				case 'DIRECCION_HOTEL':
-     						$DIRECCION_HOTEL = preg_match($this->PATTERN_DIRECCION, $valor);
-     						$VALIDACION['DIRECCION_HOTEL'] = $DIRECCION_HOTEL;
-     					break;
-     				case 'NOMBRE_HOTEL':
-     						$NOMBRE_HOTEL = preg_match($this->PATTERN_NOMBRES, $valor);
-     						$VALIDACION['NOMBRE_HOTEL'] = $NOMBRE_HOTEL;
-     					break;
-     				case 'SUPERVISOR':
-     						if($valor == "0"){
-     							$SUPERVISOR = 0;
-     						}else{ $SUPERVISOR = 1; }
-     						$VALIDACION['SUPERVISOR'] = $SUPERVISOR;
-     					break;
-     				case 'TELEFONO':
-     						$TELEFONO = preg_match($this->PATTERN_TELEFONO, $valor);
-     						$VALIDACION['TELEFONO'] = $TELEFONO;
-     					break;
-     				case 'PIN':
-     						$VALOR_PIN = $valor;
-     						$PIN = preg_match($this->PATTERN_PIN, $valor);
-     						$VALIDACION['PIN'] = $PIN;
-     					break;
-     				case 'RE-PIN':
-     						$RE_PIN = preg_match($this->PATTERN_PIN, $valor);
-     						if($VALOR_PIN == $valor){
-     							$PIN_MATCH = 1;
-     						}else{ $PIN_MATCH = 0; }
-     						$VALIDACION['PIN-MATCH'] = $PIN_MATCH;
-     					break;
-     			}
-     		}
-		}
+			if ($valor != null || $valor != '') {
+				switch ($clave) {
+					case 'CI':
+							$CI = preg_match($this->PATTERN_CI, $valor);
+							$VALIDACION['CI'] = $CI;
+						break;
+					case 'NOMBRE':
+							$NOMBRE = preg_match($this->PATTERN_NOMBRES, $valor);
+							$VALIDACION['NOMBRE'] = $NOMBRE;
+						break;
+					case 'APELLIDO':
+							$APELLIDO = preg_match($this->PATTERN_NOMBRES, $valor);
+							$VALIDACION['APELLIDO'] = $APELLIDO;
+						break;
+					case 'CORREO':
+							$MAIL = preg_match($this->PATTERN_MAIL, $valor);
+							$VALIDACION['MAIL'] = $MAIL;
+						break;
+					case 'DIRECCION':
+							$DIRECCION = preg_match($this->PATTERN_DIRECCION, $valor);
+							$VALIDACION['DIRECCION'] = $DIRECCION;
+						break;
+					case 'BARRIO':
+							$BARRIO = preg_match($this->PATTERN_NOMBRES, $valor);
+							$VALIDACION['BARRIO'] = $BARRIO;
+						break;
+					case 'DEPARTAMENTO':
+							$DEPARTAMENTO = preg_match($this->PATTERN_NOMBRES, $valor);
+							$VALIDACION['DEPARTAMENTO'] = $DEPARTAMENTO;
+						break;
+					case 'TELEFONO':
+							$TELEFONO = preg_match($this->PATTERN_TELEFONO, $valor);
+							$VALIDACION['TELEFONO'] = $TELEFONO;
+						break;
+					case 'PIN':
+							$VALOR_PIN = $valor;
+							$PIN = preg_match($this->PATTERN_PIN, $valor);
+							$VALIDACION['PIN'] = $PIN;
+						break;
+					case 'RE-PIN':
+							$RE_PIN = preg_match($this->PATTERN_PIN, $valor);
+							if($VALOR_PIN == $valor){
+								$PIN_MATCH = 1;
+							}else{ $PIN_MATCH = 0; }
+							$VALIDACION['PIN-MATCH'] = $PIN_MATCH;
+						break;
+				}
+			}
+	   }
 
 		if (count($VALIDACION) != 10) {
 			$DATOS_VACIOS = "Hay datos vacios...";

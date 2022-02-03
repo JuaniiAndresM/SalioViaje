@@ -107,7 +107,7 @@
                     <div class="input">
                         <i class="fas fa-key" id="icon"></i>
                         <input type="password" id="passwd" name="pin" placeholder="PIN" maxlength="4" pattern="[0-9]{4}">
-                        <button onclick="passwd()"><i id="passeye" class="fas fa-eye-slash"></i></button>
+                        <button onclick="passwd(1)" class="password-eye"><i id="passeye" class="fas fa-eye-slash"></i></button>
                     </div>
                 </div>
 
