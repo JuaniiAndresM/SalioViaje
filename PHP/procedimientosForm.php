@@ -33,8 +33,6 @@ class procedimientosForm extends procedimientosBD
 	private function registrar_empresa($tipoUsuario,$contratista,$empresa){
 
 		for ($x=0; $x < count($empresa); $x++) {
-
-		echo $this->idUsuario;
 		$this->register_empresa($tipoUsuario,$this->idUsuario,$empresa[$x]);
 			for ($i=0; $i < count($empresa[$x]["VEHICULOS"]); $i++) { 
 				if ($tipoUsuario == "CHO") {
@@ -77,6 +75,16 @@ switch ($_POST['tipo']) {
 	case '5':
 		$datos = json_decode($_POST["datos"],true);
 		$procedimientosForm->register_hotel($datos);
+		break;
+	case '6':
+		$datos = json_decode($_POST["datos"],true);
+		$procedimientosForm->register_usuarios("ASE",$datos);
+		break;
+	case '7':
+		//AGT
+		$usuario = json_decode($_POST["datos_Usuario"],true);
+		$empresa = json_decode($_POST["empresas"],true);
+		$procedimientosForm->register_anfitrion($usuario,$empresa);
 		break;
 	case 'empresas':
 		echo $procedimientosForm->empresas();
