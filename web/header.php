@@ -1,17 +1,17 @@
 <header>
     <div class="header-wrapper">
         <div class="header-logo">
-            <a href="/SalioViaje/">
-                <img src="/SalioViaje/media/svg/Logo-SalioViaje.svg" alt="Logo SalióViaje">
+            <a href="https://www.salioviaje.com.uy/">
+                <img src="https://www.salioviaje.com.uy/media/svg/Logo-SalioViaje.svg" alt="Logo SalióViaje">
             </a>
         </div>
         <div class="header-right">
             <div class="header-links">
                 <div class="links">
-                    <a href="/SalioViaje/">Home</a>
-                    <a href="/SalioViaje/Servicios">Servicios</a>
-                    <a href="/SalioViaje/Nosotros">Sobre Nosotros</a>
-                    <a href="/SalioViaje/Oportunidades">Oportunidades</a>
+                    <a href="https://www.salioviaje.com.uy/">Home</a>
+                    <a href="https://www.salioviaje.com.uy/Servicios">Servicios</a>
+                    <a href="https://www.salioviaje.com.uy/Nosotros">Sobre Nosotros</a>
+                    <a href="https://www.salioviaje.com.uy/Oportunidades">Oportunidades</a>
                 </div>
             
                 <?php
@@ -29,7 +29,7 @@
                             </div>';
                 }else{
                     echo '  <div class="links-session">
-                                <a class="login_button" id="button" href="/SalioViaje/Login"><i class="fas fa-user"></i> Iniciar Sesión</a>
+                                <a class="login_button" id="button" href="https://www.salioviaje.com.uy/Login"><i class="fas fa-user"></i> Iniciar Sesión</a>
                             </div>';
                 }
                 ?>
@@ -58,16 +58,16 @@
                                 </div>';
                     }
 
-                    echo '  <a href="/SalioViaje/"><i class="fas fa-home"></i> Home</a>
-                            <a href="/SalioViaje/Servicios">Servicios</a>
-                            <a href="/SalioViaje/Nosotros">Sobre Nosotros</a>
-                            <a href="/SalioViaje/Oportunidades"><i class="fas fa-book"></i> Oportunidades</a>';
+                    echo '  <a href="https://www.salioviaje.com.uy/"><i class="fas fa-home"></i> Home</a>
+                            <a href="https://www.salioviaje.com.uy/Servicios">Servicios</a>
+                            <a href="https://www.salioviaje.com.uy/Nosotros">Sobre Nosotros</a>
+                            <a href="https://www.salioviaje.com.uy/Oportunidades"><i class="fas fa-book"></i> Oportunidades</a>';
 
 
                     if(isset($_SESSION['usuario'])){
                         echo '  <button onclick="cerrarsesion()"><i class="fas fa-sign-in-alt"></i> Cerrar Sesión</button>';
                     }else{
-                        echo '<a href="/SalioViaje/Login"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a>';
+                        echo '<a href="https://www.salioviaje.com.uy/Login"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a>';
                     }
                     ?>
 

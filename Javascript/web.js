@@ -1,6 +1,6 @@
 $(document).ready(function () {
-    $('#header').load('/SalioViaje/web/header.php');
-    $('#footer').load('/SalioViaje/web/footer.html');
+    $('#header').load('https://www.salioviaje.com.uy/web/header.php');
+    $('#footer').load('https://www.salioviaje.com.uy/web/footer.html');
 
 
     document.getElementById('pre-loader').classList.toggle('load');
@@ -10,13 +10,13 @@ function cerrarsesion(){
     $.ajax({ 
         url: "PHP/cerrarSession.php",
         success: function(response){
-            $('#header').load('/SalioViaje/web/header.php');
+            $('#header').load('https://www.salioviaje.com.uy/web/header.php');
         }
     });
 }
 
 function dashboard(){
-    window.location = "/SalioViaje/Panel/Dashboard.php";
+    window.location = "https://www.salioviaje.com.uy/Panel/Dashboard.php";
 }
 
 
@@ -26,7 +26,7 @@ function suscripcion(){
     
     $.ajax({
         type: "POST",
-        url: "/SalioViaje/Mail/mail-Bienvenida.php",
+        url: "https://www.salioviaje.com.uy/Mail/mail-Bienvenida.php",
         data: {email: mail},
         success: function (response) {
             console.log(response);
