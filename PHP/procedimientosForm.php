@@ -78,7 +78,7 @@ switch ($_POST['tipo']) {
 		break;
 	case '6':
 		$datos = json_decode($_POST["datos"],true);
-		$procedimientosForm->register_usuarios("ASE",$datos);
+		$procedimientosForm->registrar_usuarios("ASE",$datos);
 		break;
 	case '7':
 		//AGT

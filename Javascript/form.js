@@ -653,7 +653,7 @@ function validacion(TIPO,DATOS){
                 validacion = $.ajax({
                                 type: 'POST',       
                                 url: "../PHP/Validaciones.php",
-                                data: {tipo:"PAX-TTA",datos:JSON.stringify(DATOS)},
+                                data: {tipo:"PAX-TTA-ASE",datos:JSON.stringify(DATOS)},
                                 global: false,
                                 async:false,
                                 success: function(response) {

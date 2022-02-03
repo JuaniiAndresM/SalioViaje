@@ -27,8 +27,8 @@ class validaciones
 	function __construct($tipo,$datos)
 	{
 		switch ($tipo) {
-			case 'PAX-TTA':
-				$validacion = $this->validar_formulario_usuario_TTA_PAX($datos);
+			case 'PAX-TTA-ASE':
+				$validacion = $this->validar_formulario_usuario_TTA_PAX_ASE($datos);
 				if($validacion == 1){ echo "VALIDO"; } else {echo $validacion;}
 				break;
 			case 'CHO':
@@ -57,7 +57,7 @@ class validaciones
 		}
 	}
 
-	private function validar_formulario_usuario_TTA_PAX($datos){
+	private function validar_formulario_usuario_TTA_PAX_ASE($datos){
 
 		$VALIDACION = array();
 		$DATOS_VACIOS = null;
