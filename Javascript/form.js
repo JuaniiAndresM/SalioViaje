@@ -430,6 +430,16 @@ function register_form(opcion){
                 "PIN": document.getElementById('password').value,
                 "RE-PIN": document.getElementById('re-password').value
             };
+
+            $.ajax({
+                    type: "POST",
+                    url: "../PHP/procedimientosForm.php",
+                    data: { tipo:opcion, datos_Usuario:datos_Usuario, empresas:null },
+                    success: function (response) {
+                        ID_USUARIO = response;
+                },
+            });
+
             if (validacion("USUARIO-CHO",datos_Usuario)) {
                  if (empresas.length != 0  && ID_USUARIO != null) {
                     $.ajax({
@@ -456,14 +466,25 @@ function register_form(opcion){
                 "PIN": document.getElementById('password').value,
                 "RE-PIN": document.getElementById('re-password').value
             };
-            if (validacion("USUARIO-ANF-ASE",datos_Usuario)) {
+
+            $.ajax({
+                    type: "POST",
+                    url: "../PHP/procedimientosForm.php",
+                    data: { tipo:opcion, datos_Usuario:datos_Usuario, empresas:null },
+                    success: function (response) {
+                        ID_USUARIO = response;
+                },
+            });
+
+            if (validacion("USUARIO-ANF",datos_Usuario)) {
                 if (empresas.length != 0  && ID_USUARIO != null) {
                     $.ajax({
                         type: "POST",
                         url: "/SalioViaje/PHP/procedimientosForm.php",
                         data: { tipo:opcion,idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas)  },
                         success: function (response) {
-                            window.location = "/SalioViaje/Success";
+                            console.log(response)
+                            //window.location = "/SalioViaje/Success";
                         },
                     });
                 } else { next() }
@@ -751,6 +772,7 @@ function validacion(TIPO,DATOS){
                                     return response;
                                 }
                             }).responseText;
+                console.log(validacion)
                 if (validacion == "VALIDO") {VALIDO = true}
                 else if(validacion == "Err-1"){
                     $('#mensaje-error1').show();

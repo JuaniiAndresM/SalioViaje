@@ -21,7 +21,7 @@ class procedimientosForm extends procedimientosBD
 		$this->registrar_empresa("CHO",$contratista,$empresa);
 	}
 
-	public function register_anfitrion($datos){
+	public function register_anfitrion($usuario,$empresa){
 		$this->idUsuario = $this->registrar_usuarios("ANF",$usuario);
 		$this->registrar_empresa("ANF",null,$empresa);
 	}
