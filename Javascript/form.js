@@ -232,8 +232,8 @@ function select_user(user){
 
             $('#step_2').show();
 
-            $('#pax-register').show();
-            $('#step-next').hide();
+            $('#pax-register').hide();
+            $('#step-next').show();
             break;
 
         case "6":

@@ -24,6 +24,7 @@ function agregar_visita(){
         type: "POST",
         url: "PHP/procedimientosForm.php",
         data: {tipo:"visita"}
+    });
 }
 
 function suscripcion(){
