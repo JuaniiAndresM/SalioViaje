@@ -8,11 +8,11 @@ $NUEVA_EMPRESA_DASHBOARD = '
                 <div class="propietario">
                   <div class="propietario-left">
                     <div class="propietario-icon">
-                      <i class="fas fa-user"></i>
+                      <i class="fas fa-building"></i>
                     </div>
                     <div class="propietario-info">
                       <h3>'.$NOMBRE_EMPRESA.'</h3>
-                      <p><i class="fas fa-home"></i> 2 usuarios</p>
+                      <p><i class="fas fa-bus"></i> - Vehiculos</p>
                     </div>
                   </div>
                   <div class="propietario-button">

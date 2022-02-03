@@ -38,12 +38,31 @@ function navbar(){
     panel.classList.toggle('active');
 }
 
-function buscarUsuarios() {
-    var input, filter, table, tr, td, i, txtValue;
+function buscarUsuarios(buscador) {
+    var input, filter, table, tr, td, i, txtValue, tdlength;
     input = document.getElementById("searchbar");
     filter = input.value.toUpperCase();
+
+    switch(buscador){
+        case 1:
+            table = document.getElementById("search-table-dashboard");
+            tdlength = 5;
+            break;
+        case 2:
+            table = document.getElementById("search-table-usuarios");
+            tdlength = 14;
+            break;
+        case 3:
+            table = document.getElementById("search-table-empresas");
+            tdlength = 6;
+            break;
+        case 4:
+            table = document.getElementById("search-table-vehiculos");
+            tdlength = 10;
+            break;
+    }
     
-    table = document.getElementById("search-table");
+    
     tr = table.getElementsByTagName("tr");
     
 
@@ -67,7 +86,7 @@ function buscarUsuarios() {
             }
 
             a++;
-        }while(a != 4 && encontrado == false);            
+        }while(a != tdlength && encontrado == false);            
             
     }
 }
