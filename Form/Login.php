@@ -4,7 +4,7 @@
 
   if(isset($_SESSION['usuario'])){
     if($_SESSION['tipo_usuario'] == "Administrador"){
-      header('Location: /SalioViaje/Panel/Dashboard.php');
+      header('Location: /SalioViaje/Dashboard');
     }else{
       header('Location: /SalioViaje/');
     }
@@ -117,7 +117,7 @@
 
                 <div class="login-bottom">
                     <p><a href="#">¿Olvidaste tu contraseña?</a></p>
-                    <p>¿Aún no tienes una cuenta? <a href="/SalioViaje/Form/Register.html">Registrate</a>.</p>
+                    <p>¿Aún no tienes una cuenta? <a href="/SalioViaje/Register">Registrate</a>.</p>
                 </div>
             </div>
 
