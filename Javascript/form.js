@@ -369,7 +369,7 @@ function register_form(opcion){
             if (validacion("USUARIO-PAX-TTA-ASE",datos_Usuario) == true) {
                 $.ajax({
                     type: "POST",
-                    url: "https://www.salioviaje.com.uy/PHP/procedimientosForm.php",
+                    url: "/PHP/procedimientosForm.php",
                     data: { tipo:opcion, datos:JSON.stringify(datos_Usuario) },
                     success: function (response) {
                         console.log(response)
@@ -395,7 +395,7 @@ function register_form(opcion){
             
             $.ajax({
                     type: "POST",
-                    url: "https://www.salioviaje.com.uy/PHP/procedimientosForm.php",
+                    url: "/PHP/procedimientosForm.php",
                     data: { tipo:opcion, datos_Usuario:datos_Usuario, empresas:null },
                     success: function (response) {
                         ID_USUARIO = response;
@@ -407,7 +407,7 @@ function register_form(opcion){
                     console.log("hola")
                     $.ajax({
                         type: "POST",
-                        url: "https://www.salioviaje.com.uy/PHP/procedimientosForm.php",
+                        url: "/PHP/procedimientosForm.php",
                         data: { tipo:opcion,idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas) },
                         success: function (response) {
                             window.location = "https://www.salioviaje.com.uy/Success";
@@ -433,7 +433,7 @@ function register_form(opcion){
 
             $.ajax({
                     type: "POST",
-                    url: "https://www.salioviaje.com.uy/PHP/procedimientosForm.php",
+                    url: "/PHP/procedimientosForm.php",
                     data: { tipo:opcion, datos_Usuario:datos_Usuario, empresas:null },
                     success: function (response) {
                         ID_USUARIO = response;
@@ -444,7 +444,7 @@ function register_form(opcion){
                  if (empresas.length != 0  && ID_USUARIO != null) {
                     $.ajax({
                         type: "POST",
-                        url: "https://www.salioviaje.com.uy/PHP/procedimientosForm.php",
+                        url: "/PHP/procedimientosForm.php",
                         data: { tipo:opcion,idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas) },
                         success: function (response) {
                             window.location = "https://www.salioviaje.com.uy/Success";
@@ -469,7 +469,7 @@ function register_form(opcion){
 
             $.ajax({
                     type: "POST",
-                    url: "https://www.salioviaje.com.uy/PHP/procedimientosForm.php",
+                    url: "/PHP/procedimientosForm.php",
                     data: { tipo:opcion, datos_Usuario:datos_Usuario, empresas:null },
                     success: function (response) {
                         ID_USUARIO = response;
@@ -480,7 +480,7 @@ function register_form(opcion){
                 if (empresas.length != 0  && ID_USUARIO != null) {
                     $.ajax({
                         type: "POST",
-                        url: "https://www.salioviaje.com.uy/PHP/procedimientosForm.php",
+                        url: "/PHP/procedimientosForm.php",
                         data: { tipo:opcion,idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas)  },
                         success: function (response) {
                             console.log(response)
@@ -506,7 +506,7 @@ function register_form(opcion){
             if (validacion("USUARIO-HTL",datos_Hotel)) {
                 $.ajax({
                     type: "POST",
-                    url: "https://www.salioviaje.com.uy/PHP/procedimientosForm.php",
+                    url: "/PHP/procedimientosForm.php",
                     data: { tipo:opcion, datos:JSON.stringify(datos_Hotel) },
                     success: function (response) {
                         window.location = "https://www.salioviaje.com.uy/Success";
@@ -530,7 +530,7 @@ function register_form(opcion){
             if (validacion("USUARIO-PAX-TTA-ASE",datos_Usuario) == true) {
                 $.ajax({
                     type: "POST",
-                    url: "https://www.salioviaje.com.uy/PHP/procedimientosForm.php",
+                    url: "/PHP/procedimientosForm.php",
                     data: { tipo:opcion, datos:JSON.stringify(datos_Usuario) },
                     success: function (response) {
                         window.location = "https://www.salioviaje.com.uy/Success";
@@ -555,7 +555,7 @@ function register_form(opcion){
 
             $.ajax({
                     type: "POST",
-                    url: "https://www.salioviaje.com.uy/PHP/procedimientosForm.php",
+                    url: "/PHP/procedimientosForm.php",
                     data: { tipo:opcion, datos_Usuario:datos_Usuario, empresas:null },
                     success: function (response) {
                         ID_USUARIO = response;
@@ -566,7 +566,7 @@ function register_form(opcion){
                 if (empresas.length != 0  && ID_USUARIO != null) {
                     $.ajax({
                         type: "POST",
-                        url: "https://www.salioviaje.com.uy/PHP/procedimientosForm.php",
+                        url: "/PHP/procedimientosForm.php",
                         data: { tipo:opcion,idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas)  },
                         success: function (response) {
                             window.location = "https://www.salioviaje.com.uy/Success";
@@ -594,7 +594,7 @@ function add_vehicle(){
         vehiculos.push(datos_Vehiculo)
         $.ajax({
             type: "POST",
-            url: "https://www.salioviaje.com.uy/PHP/agregarVehiculo.php",
+            url: "/PHP/agregarVehiculo.php",
             data: {datos:JSON.stringify(datos_Vehiculo) },
             success: function (response) {
                 $('.vehiculos').append(response);
@@ -640,7 +640,7 @@ function crear_empresa(){
 function Empresas(){
     $.ajax({
         type: "POST",
-        url: "https://www.salioviaje.com.uy/PHP/procedimientosForm.php",
+        url: "/PHP/procedimientosForm.php",
         data: {tipo: "empresas"},
         success: function (response) {
             let empresas = JSON.parse(response);
@@ -681,7 +681,7 @@ function login(ADMIN){
     if (usuario.length >= 8) {
         $.ajax({
             type: "POST",
-            url: "https://www.salioviaje.com.uy/PHP/procedimientosForm.php",
+            url: "/PHP/procedimientosForm.php",
             data: {tipo:"login", usuario:usuario, pin:pin},
             success: function (response) {
                 if (response != '') {
@@ -712,7 +712,7 @@ function validacion(TIPO,DATOS){
         case "USUARIO-PAX-TTA-ASE":
                 validacion = $.ajax({
                                 type: 'POST',       
-                                url: "https://www.salioviaje.com.uy/PHP/Validaciones.php",
+                                url: "/PHP/Validaciones.php",
                                 data: {tipo:"PAX-TTA-ASE",datos:JSON.stringify(DATOS)},
                                 global: false,
                                 async:false,
@@ -731,7 +731,7 @@ function validacion(TIPO,DATOS){
         case "USUARIO-CHO":
                 validacion = $.ajax({
                                 type: 'POST',       
-                                url: "https://www.salioviaje.com.uy/PHP/Validaciones.php",
+                                url: "/PHP/Validaciones.php",
                                 data: {tipo:"CHO",datos:JSON.stringify(DATOS)},
                                 global: false,
                                 async:false,
@@ -749,7 +749,7 @@ function validacion(TIPO,DATOS){
         case "EMPRESA":
                 validacion = $.ajax({
                                 type: 'POST',       
-                                url: "https://www.salioviaje.com.uy/PHP/Validaciones.php",
+                                url: "/PHP/Validaciones.php",
                                 data: {tipo:"EMP",datos:JSON.stringify(DATOS)},
                                 global: false,
                                 async:false,
@@ -767,7 +767,7 @@ function validacion(TIPO,DATOS){
         case "VEHICULO":
                 validacion = $.ajax({
                                 type: 'POST',       
-                                url: "https://www.salioviaje.com.uy/PHP/Validaciones.php",
+                                url: "/PHP/Validaciones.php",
                                 data: {tipo:"VIH",datos:JSON.stringify(DATOS)},
                                 global: false,
                                 async:false,
@@ -785,7 +785,7 @@ function validacion(TIPO,DATOS){
         case "USUARIO-HTL":
                 validacion = $.ajax({
                                 type: 'POST',       
-                                url: "https://www.salioviaje.com.uy/PHP/Validaciones.php",
+                                url: "/PHP/Validaciones.php",
                                 data: {tipo:"HTL",datos:JSON.stringify(DATOS)},
                                 global: false,
                                 async:false,
@@ -803,7 +803,7 @@ function validacion(TIPO,DATOS){
         case "USUARIO-ANF-AGT":
                 validacion = $.ajax({
                                 type: 'POST',       
-                                url: "https://www.salioviaje.com.uy/PHP/Validaciones.php",
+                                url: "/PHP/Validaciones.php",
                                 data: {tipo:"ANF-AGT",datos:JSON.stringify(DATOS)},
                                 global: false,
                                 async:false,

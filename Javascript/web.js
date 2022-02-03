@@ -1,6 +1,6 @@
 $(document).ready(function () {
-    $('#header').load('https://www.salioviaje.com.uy/web/header.php');
-    $('#footer').load('https://www.salioviaje.com.uy/web/footer.html');
+    $('#header').load('/web/header.php');
+    $('#footer').load('/web/footer.html');
 
 
     document.getElementById('pre-loader').classList.toggle('load');
@@ -10,7 +10,7 @@ function cerrarsesion(){
     $.ajax({ 
         url: "PHP/cerrarSession.php",
         success: function(response){
-            $('#header').load('https://www.salioviaje.com.uy/web/header.php');
+            $('#header').load('/web/header.php');
         }
     });
 }
@@ -26,7 +26,7 @@ function suscripcion(){
     
     $.ajax({
         type: "POST",
-        url: "https://www.salioviaje.com.uy/Mail/mail-Bienvenida.php",
+        url: "/Mail/mail-Bienvenida.php",
         data: {email: mail},
         success: function (response) {
             console.log(response);
