@@ -569,8 +569,7 @@ function register_form(opcion){
                         url: "/SalioViaje/PHP/procedimientosForm.php",
                         data: { tipo:opcion,idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas)  },
                         success: function (response) {
-                            console.log(response)
-                            //window.location = "/SalioViaje/Success";
+                            window.location = "/SalioViaje/Success";
                         },
                     });
                 } else { next() }
@@ -679,20 +678,23 @@ function login(ADMIN){
     let usuario = document.getElementById('usuario').value;
     let pin = document.getElementById('passwd').value;
 
-    $.ajax({
-        type: "POST",
-        url: "/SalioViaje/PHP/procedimientosForm.php",
-        data: {tipo:"login", usuario:usuario, pin:pin},
-        success: function (response) {
-            if (response != '') {
-                $("#mensaje-error").text("");
-                window.location = "/SalioViaje/Dashboard";
-            }else{
-                $("#mensaje-error").text("Usuario o Contraseña Incorrectos.");
-                console.log("Usuario o contraseña incorrectos...");
-            }
-        },
-    });
+    if (usuario.length >= 8) {
+        $.ajax({
+            type: "POST",
+            url: "/SalioViaje/PHP/procedimientosForm.php",
+            data: {tipo:"login", usuario:usuario, pin:pin},
+            success: function (response) {
+                if (response != '') {
+                    $("#mensaje-error").text("");
+                    window.location = "/SalioViaje/Dashboard";
+                }else{
+                    $("#mensaje-error").text("Usuario o Contraseña Incorrectos.");
+                    console.log("Usuario o contraseña incorrectos...");
+                }
+            },
+        });
+    }else{ $("#mensaje-error").text("Usuario o Contraseña Incorrectos."); }
+
 }
 
 /*-------------------------------------------------------------------------------------------*/
