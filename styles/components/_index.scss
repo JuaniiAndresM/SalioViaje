@@ -28,7 +28,8 @@ $contraste_2: #ffffff;
 .landing {
   width: 100%;
   height: calc(100vh - 80px);
-
+  max-height: 700px;
+  
   background-color: #fff;
   margin-top: 80px;
 
@@ -66,7 +67,7 @@ $contraste_2: #ffffff;
         }
         p {
           color: $main_1;
-          font-size: 1.2em;
+          font-size: 1.4em;
           max-width: 450px;
           width: 100%;
           margin-bottom: 20px;
@@ -79,7 +80,7 @@ $contraste_2: #ffffff;
           padding: 0;
           width: 220px;
           height: 45px;
-          font-size: .9em;
+          font-size: 1em;
 
           display: flex;
           justify-content: center;
@@ -199,7 +200,7 @@ $contraste_2: #ffffff;
           margin: 10px 0;
 
           a {
-            color: #aaa;
+            color: $contraste_2;
             text-decoration: none;
           }
         }
@@ -214,7 +215,7 @@ $contraste_2: #ffffff;
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: $main_1;
+            background: rgb(80, 196, 80);
 
             padding: 10px;
 
@@ -563,6 +564,7 @@ $contraste_2: #ffffff;
           }
           .button-landing {
             margin-top: 0;
+            margin: 0 auto;
           }
         }
       }
@@ -610,6 +612,7 @@ $contraste_2: #ffffff;
           }
           .button-nosotros {
             margin-top: 0;
+            margin: 0 auto;
           }
         }
       }

@@ -9,9 +9,9 @@
             <div class="header-links">
                 <div class="links">
                     <a href="/SalioViaje/">Home</a>
-                    <a href="/SalioViaje/About/Servicios.html">Servicios</a>
-                    <a href="/SalioViaje/About/Nosotros.html">Sobre Nosotros</a>
-                    <a href="/SalioViaje/#Oportunidades">Oportunidades</a>
+                    <a href="/SalioViaje/Servicios">Servicios</a>
+                    <a href="/SalioViaje/Nosotros">Sobre Nosotros</a>
+                    <a href="/SalioViaje/Oportunidades">Oportunidades</a>
                 </div>
             
                 <?php
@@ -29,7 +29,7 @@
                             </div>';
                 }else{
                     echo '  <div class="links-session">
-                                <a class="login_button" id="button" href="/SalioViaje/Form/Login.php"><i class="fas fa-user"></i> Iniciar Sesión</a>
+                                <a class="login_button" id="button" href="/SalioViaje/Login"><i class="fas fa-user"></i> Iniciar Sesión</a>
                             </div>';
                 }
                 ?>
@@ -59,15 +59,15 @@
                     }
 
                     echo '  <a href="/SalioViaje/"><i class="fas fa-home"></i> Home</a>
-                            <a href="/SalioViaje/About/Servicios.html">Servicios</a>
-                            <a href="/SalioViaje/About/Nosotros.html">Sobre Nosotros</a>
-                            <a href="/SalioViaje/#Oportunidades"><i class="fas fa-book"></i> Oportunidades</a>';
+                            <a href="/SalioViaje/Servicios">Servicios</a>
+                            <a href="/SalioViaje/Nosotros">Sobre Nosotros</a>
+                            <a href="/SalioViaje/Oportunidades"><i class="fas fa-book"></i> Oportunidades</a>';
 
 
                     if(isset($_SESSION['usuario'])){
-                        echo '  <button><i class="fas fa-sign-in-alt"></i> Cerrar Sesión</button>';
+                        echo '  <button onclick="cerrarsesion()"><i class="fas fa-sign-in-alt"></i> Cerrar Sesión</button>';
                     }else{
-                        echo '<a href="/SalioViaje/Form/Login.php"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a>';
+                        echo '<a href="/SalioViaje/Login"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a>';
                     }
                     ?>
 
