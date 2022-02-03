@@ -94,9 +94,16 @@
               traerEmpresas(seccion)
             }
         </script>
-
       </head>
       <body>
+
+        <select id="select_actualizar">
+          <option value="0">No actualizar</option>
+          <option value="1">Actualizar cada 1s</option>
+          <option value="2">Actualizar cada 5s</option>
+          <option value="3">Actualizar cada 10s</option>
+          <option value="4">Actualizar cada 15s</option>
+        </select>
          
         <div id="pre-loader">
           <div class="lds-ellipsis">
@@ -128,7 +135,6 @@
         </header>
     
         <nav class="nav-hidden active" id="panel-navbar"></nav>
-    
         <section class="panel" id="panel">
           <div class="panel-cards">
             <div class="card">
@@ -146,6 +152,7 @@
             </div>
             <div class="card">
               <div class="number">
+                <h2 id="visitas_hoy"></h2>
                 <h2>-</h2>
                 <i class="fas fa-eye"></i>
               </div>

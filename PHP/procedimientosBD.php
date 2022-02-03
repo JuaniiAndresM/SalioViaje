@@ -169,5 +169,30 @@ class procedimientosBD
         $stmt->close();
         return $vehiculos;
     }
+
+    public function agrego_visita(){
+        $vehiculos = array();
+        $conn = $this->conexion();
+        $query = "call agrego_visita()";
+        $stmt = $conn->prepare($query);
+        $stmt->execute();
+        $stmt->close();
+    }
+
+    public function traigo_visitas(){
+        $vehiculos = array();
+        $conn = $this->conexion();
+        $query = "SELECT * FROM salioviajeuy_salioviajeuy.visitas";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($visitas);
+            while ($stmt->fetch()) {
+               $result = $visitas;
+            }
+         }
+        $stmt->close();
+        return $visitas;
+    }
 }
 ?>
