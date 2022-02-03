@@ -18,24 +18,18 @@ $email = $_POST['email'];
 
 $mail = new PHPMailer(true);
 
-$mail->SMTPDebug = 2; 
-//$mail->IsSMTP();
-
-$mail->SMTPAuth = true;
-$mail->SMTPSecure = 'ssl';
-
+$mail->SMTPDebug = 0; 
+$mail->IsSMTP();
 $mail->Host = 'mail.salioviaje.com.uy';
-$mail->Port = 465;  // TCP port to connect to
+$mail->SMTPAuth = true;
+$mail->Username ='info@salioviaje.com.uy';
+$mail->Password = 'SalioViaje_info';
+$mail->SMTPSecure = 'ssl';
+$mail->Port = 465;
 $mail->CharSet = 'UTF-8';
-
-
-$mail->Username ='info@salioviaje.com.uy';  //  Editar
-$mail->Password = 'La_medusa_2022'; //  Editar
-
-
-$mail->From = $email; //  Editar
+$mail->From = 'info@salioviaje.com.uy'; //  Editar
 $mail->FromName = 'SalióViaje';  //  Editar
-$mail->addAddress($email);  //  Editar
+$mail->addAddress('thewolfmodzyt@gmail.com');  //  Editar
 $mail->isHTML(true);
 $mail->Subject = "Suscripción SalióViaje";    //  Editar
 
@@ -72,7 +66,7 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                             <tr>
                                 <td>
                                     <div class="mail-content" style="width: 95%; margin: 20px auto; background: #fff; font-family: Montserrat; color: #555; font-size: 13px;">
-                                        <p>Este mensaje se envió a <span style="color: #3844bc; font-weight: bold;">' . $email . '.</p>
+                                        <p>Este mensaje se envió a <span style="color: #3844bc; font-weight: bold;">'.$email.'.</p>
                                         <p>Si no quieres recibir estos emails de SalióViaje en el futuro, puedes darte de baja de la lista de correo.</p>
                                     </div>
                                 </td>
@@ -90,12 +84,10 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
 
 try {
     $mail->send();
-    echo 1;
     return 1;
 
 } catch (Exception $e) {
 
     echo "Mailer Error: " . $mail->ErrorInfo;
-    //echo 0;
     return 0;
 }
