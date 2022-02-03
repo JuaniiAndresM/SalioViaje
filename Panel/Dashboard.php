@@ -156,7 +156,7 @@
                 <h2>-</h2>
                 <i class="fas fa-leaf"></i>
               </div>
-              <p>Ahorrados</p>
+              <p>CO<sub>2</sub> Ahorrados</p>
             </div>
           </div>
           <div class="panel-tables">

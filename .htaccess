@@ -12,7 +12,6 @@ RewriteCond %{REQUEST_FILENAME} !-d
 #RewriteRule ^ https://www.%1%{REQUEST_URI} [L,NE,R=301]
 
 
-
 RewriteRule ^Login /SalioViaje/Form/Login.php
 RewriteRule ^Admin /SalioViaje/Form/Login_A.html
 RewriteRule ^Register /SalioViaje/Form/Register.html

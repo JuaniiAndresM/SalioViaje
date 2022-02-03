@@ -235,8 +235,8 @@
                   <i class="fas fa-user"></i>
                 </div>
                 <div class="user-info">
-                  <h3>John Doe</h3>
-                  <p><i class="fas fa-home"></i> Inmobiliaria</p>
+                  <h2><?php echo $_SESSION['usuario']; ?></h2> 
+                  <p><i class="fas fa-user-tie"></i> <?php echo $_SESSION['tipo_usuario'] ?></p>
                 </div>
               </div>
               <div class="user-buttons">
