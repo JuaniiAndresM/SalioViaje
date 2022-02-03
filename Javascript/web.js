@@ -29,8 +29,10 @@ function suscripcion(){
         url: "/SalioViaje/Mail/mail-Bienvenida.php",
         data: {email: mail},
         success: function (response) {
-            if(response == "1"){
-                console.log("Mail Envíado.")
+            console.log(response);
+            if(response == 1){
+                $('.suscribirse-mail').hide();
+                $('.suscrito-mail').show();
             }else{
                 console.log(response);
             }
