@@ -103,6 +103,12 @@ class procedimientosBD
                         case 'ADM':
                             $_SESSION['tipo_usuario'] = 'Administrador';
                             break;
+                        case 'ASE':
+                            $_SESSION['tipo_usuario'] = 'Asesor';
+                            break;
+                        case 'AGT':
+                            $_SESSION['tipo_usuario'] = 'Agente';
+                            break;
                     }
                     return $_SESSION['usuario'];
                 }
