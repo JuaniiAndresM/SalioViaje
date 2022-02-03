@@ -124,10 +124,10 @@
           </div>
           <div class="header-right">
             <div class="header-user">
-              <div class="icon"><i class="fab fa-apple"></i></div>
+              <div class="icon"><img src="/SalioViaje/media/svg/Logo-SalioViaje-White.svg" alt="Logo SalióViaje"></div>
               <div class="user">
                 <h2><?php echo $_SESSION['usuario']; ?></h2> 
-                <p><i class="fas fa-user-tie"></i><?php echo $_SESSION['tipo_usuario'] ?></p>
+                <p><i class="fas fa-user-tie"></i> <?php echo $_SESSION['tipo_usuario'] ?></p>
               </div>
               <button id="cerrar_session_dashboard"><i class="fas fa-sign-out-alt"></i></button>
             </div>
@@ -145,7 +145,7 @@
             </div>
             <div class="card">
               <div class="number">
-                <h2>12</h2>
+                <h2>-</h2>
                 <i class="fas fa-hand-holding-usd"></i>
               </div>
               <p>Oportunidades Activas</p>
@@ -153,16 +153,17 @@
             <div class="card">
               <div class="number">
                 <h2 id="visitas_hoy"></h2>
+                <h2>-</h2>
                 <i class="fas fa-eye"></i>
               </div>
               <p>Visitas Hoy</p>
             </div>
             <div class="card">
               <div class="number">
-                <h2>36</h2>
+                <h2>-</h2>
                 <i class="fas fa-leaf"></i>
               </div>
-              <p>Ahorrados</p>
+              <p>CO<sub>2</sub> Ahorrados</p>
             </div>
           </div>
           <div class="panel-tables">
@@ -173,7 +174,7 @@
               </div>
               <div class="search">
                 <i class="fas fa-search"></i>
-                <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarUsuarios()"/>
+                <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarUsuarios(1)"/>
               </div>
               <table class="usuarios-table" id="search-table">
                 <!-- antes:

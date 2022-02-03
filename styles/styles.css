@@ -715,6 +715,7 @@ header {
 header .header-wrapper {
   max-width: 1200px;
   width: 100%;
+  height: 100%;
   margin: 0 auto;
   padding: 10px 20px;
   display: -webkit-box;
@@ -729,8 +730,8 @@ header .header-wrapper {
 }
 
 header .header-wrapper .header-logo {
-  width: 75px;
-  height: 75px;
+  width: 70px;
+  height: 70px;
 }
 
 header .header-wrapper .header-right {
@@ -1193,6 +1194,7 @@ footer .footer-wrapper .column_3 .suscribirse-mail {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   cursor: pointer;
+  width: 160px;
   background: white;
   color: #3844bc;
 }
@@ -1206,6 +1208,28 @@ footer .footer-wrapper .column_3 .suscribirse-mail:hover {
           transform: scale(1.1);
   background-color: #3844bc;
   color: #ffffff;
+}
+
+footer .footer-wrapper .column_3 .suscrito-mail {
+  display: none;
+  background: -webkit-gradient(linear, left top, right top, from(#3844bc), to(#2b3179));
+  background: linear-gradient(to right, #3844bc, #2b3179);
+  color: #ffffff;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 2em;
+  margin-top: 10px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+  width: 160px;
+  background: #85e992;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+footer .footer-wrapper .column_3 .suscrito-mail i {
+  margin-right: 5px;
 }
 
 footer .totum {
@@ -3211,41 +3235,75 @@ footer .totum p a:hover {
   color: #6d76db;
 }
 
-.login .login-wrapper #login .mensaje-error,
+.login .login-wrapper #login .mensaje-error, .login .login-wrapper #login #mensaje-error,
 .login .login-wrapper #step_1 .mensaje-error,
+.login .login-wrapper #step_1 #mensaje-error,
 .login .login-wrapper #step_2 .mensaje-error,
+.login .login-wrapper #step_2 #mensaje-error,
 .login .login-wrapper #step_3 .mensaje-error,
+.login .login-wrapper #step_3 #mensaje-error,
 .login .login-wrapper #step_4 .mensaje-error,
+.login .login-wrapper #step_4 #mensaje-error,
 .login .login-wrapper #step_5 .mensaje-error,
+.login .login-wrapper #step_5 #mensaje-error,
 .login .register-wrapper #login .mensaje-error,
+.login .register-wrapper #login #mensaje-error,
 .login .register-wrapper #step_1 .mensaje-error,
+.login .register-wrapper #step_1 #mensaje-error,
 .login .register-wrapper #step_2 .mensaje-error,
+.login .register-wrapper #step_2 #mensaje-error,
 .login .register-wrapper #step_3 .mensaje-error,
+.login .register-wrapper #step_3 #mensaje-error,
 .login .register-wrapper #step_4 .mensaje-error,
+.login .register-wrapper #step_4 #mensaje-error,
 .login .register-wrapper #step_5 .mensaje-error,
+.login .register-wrapper #step_5 #mensaje-error,
 .register .login-wrapper #login .mensaje-error,
+.register .login-wrapper #login #mensaje-error,
 .register .login-wrapper #step_1 .mensaje-error,
+.register .login-wrapper #step_1 #mensaje-error,
 .register .login-wrapper #step_2 .mensaje-error,
+.register .login-wrapper #step_2 #mensaje-error,
 .register .login-wrapper #step_3 .mensaje-error,
+.register .login-wrapper #step_3 #mensaje-error,
 .register .login-wrapper #step_4 .mensaje-error,
+.register .login-wrapper #step_4 #mensaje-error,
 .register .login-wrapper #step_5 .mensaje-error,
+.register .login-wrapper #step_5 #mensaje-error,
 .register .register-wrapper #login .mensaje-error,
+.register .register-wrapper #login #mensaje-error,
 .register .register-wrapper #step_1 .mensaje-error,
+.register .register-wrapper #step_1 #mensaje-error,
 .register .register-wrapper #step_2 .mensaje-error,
+.register .register-wrapper #step_2 #mensaje-error,
 .register .register-wrapper #step_3 .mensaje-error,
+.register .register-wrapper #step_3 #mensaje-error,
 .register .register-wrapper #step_4 .mensaje-error,
-.register .register-wrapper #step_5 .mensaje-error, .success .login-wrapper #login .mensaje-error,
+.register .register-wrapper #step_4 #mensaje-error,
+.register .register-wrapper #step_5 .mensaje-error,
+.register .register-wrapper #step_5 #mensaje-error, .success .login-wrapper #login .mensaje-error, .success .login-wrapper #login #mensaje-error,
 .success .login-wrapper #step_1 .mensaje-error,
+.success .login-wrapper #step_1 #mensaje-error,
 .success .login-wrapper #step_2 .mensaje-error,
+.success .login-wrapper #step_2 #mensaje-error,
 .success .login-wrapper #step_3 .mensaje-error,
+.success .login-wrapper #step_3 #mensaje-error,
 .success .login-wrapper #step_4 .mensaje-error,
+.success .login-wrapper #step_4 #mensaje-error,
 .success .login-wrapper #step_5 .mensaje-error,
+.success .login-wrapper #step_5 #mensaje-error,
 .success .register-wrapper #login .mensaje-error,
+.success .register-wrapper #login #mensaje-error,
 .success .register-wrapper #step_1 .mensaje-error,
+.success .register-wrapper #step_1 #mensaje-error,
 .success .register-wrapper #step_2 .mensaje-error,
+.success .register-wrapper #step_2 #mensaje-error,
 .success .register-wrapper #step_3 .mensaje-error,
+.success .register-wrapper #step_3 #mensaje-error,
 .success .register-wrapper #step_4 .mensaje-error,
-.success .register-wrapper #step_5 .mensaje-error {
+.success .register-wrapper #step_4 #mensaje-error,
+.success .register-wrapper #step_5 .mensaje-error,
+.success .register-wrapper #step_5 #mensaje-error {
   color: #ff635a;
   margin-bottom: 20px;
 }
@@ -3796,6 +3854,7 @@ footer .totum p a:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 8px;
 }
 
 .panel-header .header-right .header-user .icon img {
@@ -3827,7 +3886,7 @@ footer .totum p a:hover {
 }
 
 .panel-header .header-right .header-user .user h2 {
-  font-size: 1.3em;
+  font-size: 1em;
   margin: 0;
   line-height: 20px;
   color: #2b3179;
@@ -4330,7 +4389,7 @@ footer .totum p a:hover {
 
 .panel .panel-tables .usuarios-propietarios .propietarios .propietario .propietario-left .propietario-info h3 {
   color: #2b3179;
-  line-height: 15px;
+  line-height: 20px;
 }
 
 .panel .panel-tables .usuarios-propietarios .propietarios .propietario .propietario-left .propietario-info p {
@@ -5550,7 +5609,7 @@ footer .totum p a:hover {
 
 .servicios-section .servicios-wrapper .card .card-bottom .info_2 a,
 .servicios-section .servicios-wrapper .card .card-bottom .info_3 a {
-  color: #aaa;
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -5571,7 +5630,7 @@ footer .totum p a:hover {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: #3844bc;
+  background: #50c450;
   padding: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5621,6 +5680,180 @@ footer .totum p a:hover {
 .servicios-section .servicios-wrapper .card:hover .card-bottom .info_2 a,
 .servicios-section .servicios-wrapper .card:hover .card-bottom .info_3 a {
   color: #444;
+}
+
+.oportunidades-section {
+  margin: 150px auto;
+  margin-bottom: 150px;
+  padding: 0 20px;
+  max-width: 1300px;
+  width: 100%;
+  text-align: center;
+}
+
+.oportunidades-section h2 {
+  color: #333333;
+  font-size: 2.3em;
+}
+
+.oportunidades-section h2 span {
+  color: #3844bc;
+}
+
+.oportunidades-section hr {
+  width: 100px;
+  border: 1px solid #3844bc;
+  margin: 10px auto;
+}
+
+.oportunidades-section .oportunidades-wrapper {
+  max-width: 1300px;
+  width: 100%;
+  height: 300px;
+  padding: 20px;
+  margin-top: 30px;
+  border-radius: 3em 0 3em 3em;
+  background-color: #ffffff;
+  -webkit-box-shadow: 10px 0 20px 0 rgba(0, 0, 0, 0.3);
+          box-shadow: 10px 0 20px 0 rgba(0, 0, 0, 0.3);
+}
+
+.oportunidades-section .oportunidades-wrapper .search {
+  position: relative;
+  width: 200px;
+  height: 40px;
+}
+
+.oportunidades-section .oportunidades-wrapper .search input {
+  width: 100%;
+  height: 40px;
+  padding-left: 25px;
+  background-color: transparent;
+  border: none;
+  color: #666;
+}
+
+.oportunidades-section .oportunidades-wrapper .search input::-webkit-input-placeholder {
+  color: #aaa;
+}
+
+.oportunidades-section .oportunidades-wrapper .search input:-ms-input-placeholder {
+  color: #aaa;
+}
+
+.oportunidades-section .oportunidades-wrapper .search input::-ms-input-placeholder {
+  color: #aaa;
+}
+
+.oportunidades-section .oportunidades-wrapper .search input::placeholder {
+  color: #aaa;
+}
+
+.oportunidades-section .oportunidades-wrapper .search input:focus {
+  outline: 1px solid #aaa;
+  border-radius: 10px;
+}
+
+.oportunidades-section .oportunidades-wrapper .search i {
+  position: absolute;
+  top: 12px;
+  left: 5px;
+  color: #aaa;
+}
+
+.oportunidades-section .oportunidades-wrapper .list-empty {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: -25px;
+}
+
+.oportunidades-section .oportunidades-wrapper .list-empty p {
+  color: #3844bc;
+  margin: auto;
+}
+
+.oportunidades-section .oportunidades-wrapper .oportunidades-list {
+  width: 100%;
+  display: none;
+  margin-top: 10px;
+}
+
+.oportunidades-section .oportunidades-wrapper .oportunidades-list .oportunidad {
+  width: 100%;
+  min-height: 80px;
+  border-radius: 0 3em 3em 3em;
+  background-color: #ffffff;
+  -webkit-box-shadow: 10px 0 20px 0 rgba(0, 0, 0, 0.3);
+          box-shadow: 10px 0 20px 0 rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.oportunidades-section .oportunidades-wrapper .oportunidades-list .oportunidad .collide-hide {
+  width: calc(100% - 40px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 auto;
+}
+
+.oportunidades-section .oportunidades-wrapper .oportunidades-list .oportunidad .collide-hide .oportunidad-icon {
+  width: 80px;
+  height: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.oportunidades-section .oportunidades-wrapper .oportunidades-list .oportunidad .collide-hide .oportunidad-icon i {
+  color: #3844bc;
+  font-size: 3em;
+}
+
+.oportunidades-section .oportunidades-wrapper .oportunidades-list .oportunidad .collide-hide .travel, .oportunidades-section .oportunidades-wrapper .oportunidades-list .oportunidad .collide-hide .time {
+  text-align: left;
+  margin: 0 10px;
+}
+
+.oportunidades-section .oportunidades-wrapper .oportunidades-list .oportunidad .collide-hide .travel p, .oportunidades-section .oportunidades-wrapper .oportunidades-list .oportunidad .collide-hide .time p {
+  margin: 5px 10px;
+  color: #2b3179;
+}
+
+.oportunidades-section .oportunidades-wrapper .oportunidades-list .oportunidad .collide-hide .travel p i, .oportunidades-section .oportunidades-wrapper .oportunidades-list .oportunidad .collide-hide .time p i {
+  color: #3844bc;
+  font-size: 1.1em;
+}
+
+.oportunidades-section .oportunidades-wrapper .oportunidades-list .oportunidad .collide-hide .discount {
+  margin-left: 10px;
+}
+
+.oportunidades-section .oportunidades-wrapper .oportunidades-list .oportunidad .collide-hide .discount h3 {
+  font-size: 2em;
+  color: #3844bc;
 }
 
 .viajar-wrapper {
@@ -5961,6 +6194,122 @@ footer .totum p a:hover {
 }
 
 #whatsapp-float:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.t2voice {
+  width: 100%;
+  height: calc(100vh - 80px);
+  margin-top: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.t2voice .t2voice-wrapper {
+  max-width: 380px;
+  width: 100%;
+  padding: 30px;
+  border-radius: 2em;
+  -webkit-box-shadow: 10px 0 20px 0 rgba(0, 0, 0, 0.3);
+          box-shadow: 10px 0 20px 0 rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.t2voice .t2voice-wrapper h2 {
+  color: #555;
+}
+
+.t2voice .t2voice-wrapper h2 span {
+  color: #3844bc;
+}
+
+.t2voice .t2voice-wrapper .input {
+  width: 100%;
+  position: relative;
+  margin: 10px auto;
+}
+
+.t2voice .t2voice-wrapper .input input,
+.t2voice .t2voice-wrapper .input select {
+  width: 100%;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #aaa;
+  outline: none;
+  padding-left: 25px;
+  color: #555;
+  font-size: 0.85em;
+}
+
+.t2voice .t2voice-wrapper .input input::-webkit-input-placeholder,
+.t2voice .t2voice-wrapper .input select::-webkit-input-placeholder {
+  color: #888;
+}
+
+.t2voice .t2voice-wrapper .input input:-ms-input-placeholder,
+.t2voice .t2voice-wrapper .input select:-ms-input-placeholder {
+  color: #888;
+}
+
+.t2voice .t2voice-wrapper .input input::-ms-input-placeholder,
+.t2voice .t2voice-wrapper .input select::-ms-input-placeholder {
+  color: #888;
+}
+
+.t2voice .t2voice-wrapper .input input::placeholder,
+.t2voice .t2voice-wrapper .input select::placeholder {
+  color: #888;
+}
+
+.t2voice .t2voice-wrapper .input #icon {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  color: #555;
+}
+
+.t2voice .t2voice-wrapper .input #passeye {
+  position: absolute;
+  top: 12px;
+  right: 0;
+  color: #555;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.t2voice .t2voice-wrapper .input #passeye:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.t2voice .t2voice-wrapper button {
+  background: -webkit-gradient(linear, left top, right top, from(#3844bc), to(#2b3179));
+  background: linear-gradient(to right, #3844bc, #2b3179);
+  color: #ffffff;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 2em;
+  margin-top: 10px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.t2voice .t2voice-wrapper button i {
+  margin-right: 5px;
+}
+
+.t2voice .t2voice-wrapper button:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }

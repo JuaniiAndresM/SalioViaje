@@ -117,6 +117,7 @@ footer{
             }
             .suscribirse-mail{
                 @include button();
+                width: 160px;
                 background: white;
                 color: $main_1;
             }
@@ -124,6 +125,14 @@ footer{
                 @include button-hover();
                 background-color: $main_1;
                 color: $contraste_2;
+            }
+            .suscrito-mail{
+                display: none;
+                @include button();
+                width: 160px;
+                background: #85e992;
+                color: $contraste_2;
+                cursor: pointer;
             }
         }
     }

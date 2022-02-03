@@ -1,0 +1,146 @@
+.oportunidades-section {
+    margin: 150px auto;
+    margin-bottom: 150px;
+  
+    padding: 0 20px;
+  
+    max-width: 1300px;
+    width: 100%;
+  
+    text-align: center;
+  
+    h2 {
+      color: $contraste_1;
+      font-size: 2.3em;
+  
+      span {
+        color: $main_1;
+      }
+    }
+    hr {
+      width: 100px;
+      border: 1px solid $main_1;
+      margin: 10px auto;
+    }
+  
+    .oportunidades-wrapper{
+      max-width: 1300px;
+      width: 100%;
+      height: 300px;
+      padding: 20px;
+      margin-top: 30px;
+  
+      border-radius: 3em 0 3em 3em;
+  
+      background-color: $contraste_2;
+      box-shadow: 10px 0 20px 0 rgba($color: #000000, $alpha: .3);
+  
+      .search{
+        position: relative;
+  
+        width: 200px;
+        height: 40px;
+  
+        input{
+          width: 100%;
+          height: 40px;
+          padding-left: 25px;
+          background-color: transparent;
+          border: none;
+          color: #666;
+        }
+        input::placeholder{
+          color: #aaa;
+        }
+        input:focus{
+          outline: 1px solid #aaa;
+          border-radius: 10px;
+        }
+  
+        i{
+          position: absolute;
+          top: 12px;
+          left: 5px;
+  
+          color: #aaa;
+        }
+      }
+  
+      .list-empty{
+        width: 100%;
+        height: 100%;
+  
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: -25px;
+        p{
+          color: $main_1;
+          margin: auto;
+        }
+      }
+  
+      .oportunidades-list{
+        width: 100%;
+        display: none;
+        margin-top: 10px;
+  
+        .oportunidad{
+          width: 100%;
+          min-height: 80px;
+          border-radius: 0 3em 3em 3em;
+          background-color: $contraste_2;
+          box-shadow: 10px 0 20px 0 rgba($color: #000000, $alpha: .3);
+  
+          cursor: pointer;
+  
+          border: none;
+          outline: none;
+  
+          .collide-hide{
+            width: calc(100% - 40px);
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+  
+            margin: 0 auto;
+  
+            .oportunidad-icon{
+              width: 80px;
+              height: 80px;
+  
+              display: flex;
+              justify-content: center;
+              align-items: center;
+  
+              i{
+                color: $main_1;
+                font-size: 3em;
+              }
+            }
+            .travel, .time{
+              text-align: left;
+              margin: 0 10px;
+  
+              p{
+                margin: 5px 10px;
+                color: $main_2;
+                i{
+                  color: $main_1;
+                  font-size: 1.1em;
+                }
+              }
+              
+            }
+            .discount{
+              margin-left: 10px;
+              h3{
+                font-size: 2em;
+                color: $main_1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }

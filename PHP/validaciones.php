@@ -43,8 +43,8 @@ class validaciones
 				$validacion = $this->validar_formulario_vehiculo($datos);				
 				if($validacion == 1){ echo "VALIDO"; } else {echo $validacion;}
 				break;
-			case 'ANF':
-				$validacion = $this->validar_formulario_usuario_ANF($datos);				
+			case 'ANF-AGT':
+				$validacion = $this->validar_formulario_usuario_ANF_AGT($datos);				
 				if($validacion == 1){ echo "VALIDO"; } else {echo $validacion;}
 				break;
 			case 'HTL':
@@ -206,7 +206,7 @@ class validaciones
 
 	}
 
-	private function validar_formulario_usuario_ANF($datos){
+	private function validar_formulario_usuario_ANF_AGT($datos){
 
 
 		$VALIDACION = array();
@@ -314,7 +314,7 @@ class validaciones
      						$VALIDACION['NOMBRE_HOTEL'] = $NOMBRE_HOTEL;
      					break;
      				case 'SUPERVISOR':
-     						if($valor == 0){
+     						if($valor == "0"){
      							$SUPERVISOR = 0;
      						}else{ $SUPERVISOR = 1; }
      						$VALIDACION['SUPERVISOR'] = $SUPERVISOR;
@@ -432,7 +432,7 @@ class validaciones
      						$VALIDACION['MODELO'] = $MODELO;
      					break;
      				case 'COMBUSTIBLE':
-     						if ($valor == 0) {
+     						if ($valor == "0") {
      							$VALIDACION['COMBUSTIBLE'] = 0;
      						}else { $VALIDACION['COMBUSTIBLE'] = 1; }
      					break;
@@ -445,7 +445,7 @@ class validaciones
      						$VALIDACION['CAPACIDAD_EQUIPAJE'] = $CAPACIDAD_EQUIPAJE;
      					break;
      				case 'PET_FRIENDLY':
-     						if ($valor == 0) {
+     						if ($valor == "0") {
      							$VALIDACION['PET_FRIENDLY'] = 0;
      						}else { $VALIDACION['PET_FRIENDLY'] = 1; }
      						

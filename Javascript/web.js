@@ -18,10 +18,31 @@ function dashboard(){
     window.location = "/SalioViaje/Panel/Dashboard.php";
 }
 
+
 function agregar_visita(){
     $.ajax({ 
         type: "POST",
         url: "PHP/procedimientosForm.php",
         data: {tipo:"visita"}
+}
+
+function suscripcion(){
+
+    var mail = $('#mail-footer').val();
+    
+    $.ajax({
+        type: "POST",
+        url: "/SalioViaje/Mail/mail-Bienvenida.php",
+        data: {email: mail},
+        success: function (response) {
+            console.log(response);
+            if(response == 1){
+                $('.suscribirse-mail').hide();
+                $('.suscrito-mail').show();
+            }else{
+                console.log(response);
+            }
+            
+        }
     });
 }

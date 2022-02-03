@@ -1,0 +1,73 @@
+.t2voice{
+    width: 100%;
+    height: calc(100vh - 80px);
+    margin-top: 80px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .t2voice-wrapper{
+        max-width: 380px;
+        width: 100%;
+        padding: 30px;
+        border-radius: 2em;
+        box-shadow: 10px 0 20px 0 rgba($color: #000000, $alpha: .3);
+        text-align: center;
+
+        h2{
+            color: #555;
+
+            span{
+                color: $main_1;
+            }
+        }
+
+        .input {
+            width: 100%;
+            position: relative;
+            margin: 10px auto;
+  
+            input,
+            select {
+              width: 100%;
+              height: 40px;
+              background-color: transparent;
+              border: none;
+              border-bottom: 1px solid #aaa;
+              outline: none;
+              padding-left: 25px;
+              color: #555;
+              font-size: 0.85em;
+            }
+            input::placeholder,
+            select::placeholder {
+              color: #888;
+            }
+  
+            #icon {
+              position: absolute;
+              top: 10px;
+              left: 0;
+              color: #555;
+            }
+            #passeye {
+              position: absolute;
+              top: 12px;
+              right: 0;
+              color: #555;
+              cursor: pointer;
+              transition: 0.3s;
+            }
+            #passeye:hover {
+              transform: scale(1.2);
+            }
+        }
+        button{
+            @include button()
+        }
+        button:hover{
+            @include button-hover();
+        }
+    }
+}

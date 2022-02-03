@@ -9,6 +9,8 @@ class procedimientosBD
         //$conexion = mysqli_connect("localhost", "root", "root", "salioviaje");
         //$conexion = mysqli_connect("158.106.136.183", "salioviajeuy", "La_medusa_2022", "salioviajeuy_salioviajeuy");
         $conexion = mysqli_connect("localhost", "root", "root", "salioviajeuy_salioviajeuy");
+
+        $conexion->set_charset("utf8");
         if (!$conexion) {
             echo "Error al conectar con la Base de datos.";
             exit();
@@ -102,6 +104,12 @@ class procedimientosBD
                             break;
                         case 'ADM':
                             $_SESSION['tipo_usuario'] = 'Administrador';
+                            break;
+                        case 'ASE':
+                            $_SESSION['tipo_usuario'] = 'Asesor';
+                            break;
+                        case 'AGT':
+                            $_SESSION['tipo_usuario'] = 'Agente';
                             break;
                     }
                     return $_SESSION['usuario'];
