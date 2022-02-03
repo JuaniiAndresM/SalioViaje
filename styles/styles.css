@@ -3845,6 +3845,7 @@ footer .totum p a:hover {
   background-color: #2b3179;
   border-radius: 50%;
   margin-right: 10px;
+  padding: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3885,7 +3886,7 @@ footer .totum p a:hover {
 }
 
 .panel-header .header-right .header-user .user h2 {
-  font-size: 1.3em;
+  font-size: 1em;
   margin: 0;
   line-height: 20px;
   color: #2b3179;
