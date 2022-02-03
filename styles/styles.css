@@ -715,6 +715,7 @@ header {
 header .header-wrapper {
   max-width: 1200px;
   width: 100%;
+  height: 100%;
   margin: 0 auto;
   padding: 10px 20px;
   display: -webkit-box;
@@ -729,8 +730,8 @@ header .header-wrapper {
 }
 
 header .header-wrapper .header-logo {
-  width: 75px;
-  height: 75px;
+  width: 70px;
+  height: 70px;
 }
 
 header .header-wrapper .header-right {
@@ -6135,6 +6136,122 @@ footer .totum p a:hover {
 }
 
 #whatsapp-float:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.t2voice {
+  width: 100%;
+  height: calc(100vh - 80px);
+  margin-top: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.t2voice .t2voice-wrapper {
+  max-width: 380px;
+  width: 100%;
+  padding: 30px;
+  border-radius: 2em;
+  -webkit-box-shadow: 10px 0 20px 0 rgba(0, 0, 0, 0.3);
+          box-shadow: 10px 0 20px 0 rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.t2voice .t2voice-wrapper h2 {
+  color: #555;
+}
+
+.t2voice .t2voice-wrapper h2 span {
+  color: #3844bc;
+}
+
+.t2voice .t2voice-wrapper .input {
+  width: 100%;
+  position: relative;
+  margin: 10px auto;
+}
+
+.t2voice .t2voice-wrapper .input input,
+.t2voice .t2voice-wrapper .input select {
+  width: 100%;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #aaa;
+  outline: none;
+  padding-left: 25px;
+  color: #555;
+  font-size: 0.85em;
+}
+
+.t2voice .t2voice-wrapper .input input::-webkit-input-placeholder,
+.t2voice .t2voice-wrapper .input select::-webkit-input-placeholder {
+  color: #888;
+}
+
+.t2voice .t2voice-wrapper .input input:-ms-input-placeholder,
+.t2voice .t2voice-wrapper .input select:-ms-input-placeholder {
+  color: #888;
+}
+
+.t2voice .t2voice-wrapper .input input::-ms-input-placeholder,
+.t2voice .t2voice-wrapper .input select::-ms-input-placeholder {
+  color: #888;
+}
+
+.t2voice .t2voice-wrapper .input input::placeholder,
+.t2voice .t2voice-wrapper .input select::placeholder {
+  color: #888;
+}
+
+.t2voice .t2voice-wrapper .input #icon {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  color: #555;
+}
+
+.t2voice .t2voice-wrapper .input #passeye {
+  position: absolute;
+  top: 12px;
+  right: 0;
+  color: #555;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.t2voice .t2voice-wrapper .input #passeye:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.t2voice .t2voice-wrapper button {
+  background: -webkit-gradient(linear, left top, right top, from(#3844bc), to(#2b3179));
+  background: linear-gradient(to right, #3844bc, #2b3179);
+  color: #ffffff;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 2em;
+  margin-top: 10px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.t2voice .t2voice-wrapper button i {
+  margin-right: 5px;
+}
+
+.t2voice .t2voice-wrapper button:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
