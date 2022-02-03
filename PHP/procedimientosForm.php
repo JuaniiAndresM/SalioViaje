@@ -21,8 +21,14 @@ class procedimientosForm extends procedimientosBD
 		$this->registrar_empresa("CHO",$contratista,$empresa);
 	}
 
-	public function register_anfitrion($datos){
-		$this->registrar_usuarios("ANF",$datos);
+	public function register_anfitrion($usuario,$empresa){
+		$this->idUsuario = $this->registrar_usuarios("ANF",$usuario);
+		$this->registrar_empresa("ANF",null,$empresa);
+	}
+
+	public function register_agente($usuario,$empresa){
+		$this->idUsuario = $this->registrar_usuarios("AGT",$usuario);
+		$this->registrar_empresa("AGT",null,$empresa);
 	}
 
 	public function register_hotel($datos){
@@ -32,8 +38,6 @@ class procedimientosForm extends procedimientosBD
 	private function registrar_empresa($tipoUsuario,$contratista,$empresa){
 
 		for ($x=0; $x < count($empresa); $x++) {
-
-		echo $this->idUsuario;
 		$this->register_empresa($tipoUsuario,$this->idUsuario,$empresa[$x]);
 			for ($i=0; $i < count($empresa[$x]["VEHICULOS"]); $i++) { 
 				if ($tipoUsuario == "CHO") {
@@ -69,8 +73,9 @@ switch ($_POST['tipo']) {
 		$procedimientosForm->register_chofer($usuario,$usuario["AGENCIA_CONTRATISTA"],$empresa);
 		break;
 	case '4':
-		$datos = json_decode($_POST["datos"],true);
-		$procedimientosForm->register_anfitrion($datos);
+		$usuario = json_decode($_POST["datos_Usuario"],true);
+		$empresa = json_decode($_POST["empresas"],true);
+		$procedimientosForm->register_anfitrion($usuario,$empresa);
 		break;
 	case '5':
 		$datos = json_decode($_POST["datos"],true);
@@ -78,11 +83,12 @@ switch ($_POST['tipo']) {
 		break;
 	case '6':
 		$datos = json_decode($_POST["datos"],true);
-		$procedimientosForm->register_usuarios('ASE',$datos);
+		$procedimientosForm->registrar_usuarios("ASE",$datos);
 		break;
 	case '7':
-		$datos = json_decode($_POST["datos"],true);
-		$procedimientosForm->register_hotel($datos);
+		$usuario = json_decode($_POST["datos_Usuario"],true);
+		$empresa = json_decode($_POST["empresas"],true);
+		$procedimientosForm->register_agente($usuario,$empresa);
 		break;
 	case 'empresas':
 		echo $procedimientosForm->empresas();

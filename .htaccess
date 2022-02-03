@@ -6,33 +6,33 @@ DirectoryIndex index.html
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
-RewriteCond %{HTTPS} off [OR]
-RewriteCond %{HTTP_HOST} !^www\. [NC]
-RewriteCond %{HTTP_HOST} ^(?:www\.)?(.+)$ [NC]
-RewriteRule ^ https://www.%1%{REQUEST_URI} [L,NE,R=301]
+#RewriteCond %{HTTPS} off [OR]
+#RewriteCond %{HTTP_HOST} !^www\. [NC]
+#RewriteCond %{HTTP_HOST} ^(?:www\.)?(.+)$ [NC]
+#RewriteRule ^ https://www.%1%{REQUEST_URI} [L,NE,R=301]
 
 
 
-RewriteRule ^Login /Form/Login.php
-RewriteRule ^Admin /Form/Login_A.html
-RewriteRule ^Register /Form/Register.html
+RewriteRule ^Login /SalioViaje/Form/Login.php
+RewriteRule ^Admin /SalioViaje/Form/Login_A.html
+RewriteRule ^Register /SalioViaje/Form/Register.html
 
-RewriteRule ^Dashboard /Panel/Dashboard.php
-RewriteRule ^Usuarios /Panel/Usuarios.php
-RewriteRule ^Empresas /Panel/Empresas.php
-RewriteRule ^Vehiculos /Panel/Vehiculos.php
+RewriteRule ^Dashboard /SalioViaje/Panel/Dashboard.php
+RewriteRule ^Usuarios /SalioViaje/Panel/Usuarios.php
+RewriteRule ^Empresas /SalioViaje/Panel/Empresas.php
+RewriteRule ^Vehiculos /SalioViaje/Panel/Vehiculos.php
 
-RewriteRule ^Success /Form/Success.html
-RewriteRule ^Failed /Form/Failed.html
+RewriteRule ^Success /SalioViaje/Form/Success.html
+RewriteRule ^Failed /SalioViaje/Form/Failed.html
 
-RewriteRule ^Viajar /Agenda/Viajar.html
-RewriteRule ^Oportunidades /Agenda/Oportunidades.html
+RewriteRule ^Viajar /SalioViaje/Agenda/Viajar.html
+RewriteRule ^Oportunidades /SalioViaje/Agenda/Oportunidades.html
 
-RewriteRule ^Servicios /About/Servicios.html
-RewriteRule ^Nosotros /About/Nosotros.html
+RewriteRule ^Servicios /SalioViaje/About/Servicios.html
+RewriteRule ^Nosotros /SalioViaje/About/Nosotros.html
 
 
-ErrorDocument 404 /Error/404.html
-ErrorDocument 403 /Error/403.html
+ErrorDocument 404 /SalioViaje/Error/404.html
+ErrorDocument 403 /SalioViaje/Error/403.html
 
 Options All -Indexes

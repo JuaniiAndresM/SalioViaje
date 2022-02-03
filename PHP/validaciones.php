@@ -3,7 +3,7 @@
 /**
  * 
  */
-class Validaciones 
+class validaciones 
 {
 	private $PATTERN_NOMBRES = "/^([A-Z][a-z]+([ ]?[a-z]?['-]?[A-Z][a-z]+)*)$/i";
 	private $PATTERN_CI = "/^[0-9]{8}$/i";
@@ -12,7 +12,7 @@ class Validaciones
 	private $PATTERN_TELEFONO = "/[(?=091)(?=099)(?=091)(?=098)]{3}[0-9]{6}/i";
 	private $PATTERN_PIN = "/[0-9]{4}/i";
 
-	private $PATTERN_RUT = "/[0-9]{12}/i";
+	private $PATTERN_RUT = "/^[\d]{12}$/i";
 	private $PATTERN_RAZON_SOCIAL = "/^[a-zA-Z_]+([a-zA-Z0-9\s\.]*)$/i";
 	private $PATTERN_NUMERO_MTOP = "/^[\d]{10}$/i";
 	private $PATTERN_PASSWORD_MTOP = "/^([\w\d]){10}$/i";
@@ -27,8 +27,8 @@ class Validaciones
 	function __construct($tipo,$datos)
 	{
 		switch ($tipo) {
-			case 'PAX-TTA':
-				$validacion = $this->validar_formulario_usuario_TTA_PAX($datos);
+			case 'PAX-TTA-ASE':
+				$validacion = $this->validar_formulario_usuario_TTA_PAX_ASE($datos);
 				if($validacion == 1){ echo "VALIDO"; } else {echo $validacion;}
 				break;
 			case 'CHO':
@@ -43,8 +43,8 @@ class Validaciones
 				$validacion = $this->validar_formulario_vehiculo($datos);				
 				if($validacion == 1){ echo "VALIDO"; } else {echo $validacion;}
 				break;
-			case 'ANF':
-				$validacion = $this->validar_formulario_usuario_ANF($datos);				
+			case 'ANF-AGT':
+				$validacion = $this->validar_formulario_usuario_ANF_AGT($datos);				
 				if($validacion == 1){ echo "VALIDO"; } else {echo $validacion;}
 				break;
 			case 'HTL':
@@ -57,7 +57,7 @@ class Validaciones
 		}
 	}
 
-	private function validar_formulario_usuario_TTA_PAX($datos){
+	private function validar_formulario_usuario_TTA_PAX_ASE($datos){
 
 		$VALIDACION = array();
 		$DATOS_VACIOS = null;
@@ -206,7 +206,7 @@ class Validaciones
 
 	}
 
-	private function validar_formulario_usuario_ANF($datos){
+	private function validar_formulario_usuario_ANF_AGT($datos){
 
 
 		$VALIDACION = array();
@@ -359,11 +359,10 @@ class Validaciones
 
 		$VALIDACION = array();
 		$DATOS_VACIOS = null;
-		$HAY_MTOP = null;
+		$TIENE_MTOP = null;
 		$errores = 0;
-		$DATOS = json_decode($datos);
 
-		foreach ($DATOS as $clave => $valor){
+		foreach (json_decode($datos) as $clave => $valor){
      		if ($valor != null || $valor != '' && $clave != 'VEHICULOS') {
      			switch ($clave) {
      				case 'RUT':
@@ -380,14 +379,14 @@ class Validaciones
      					break;
      				case 'NUMERO_MTOP':
      						if ($valor != null) {
+     							$TIENE_MTOP = 1;
      							$MTOP = preg_match($this->PATTERN_NUMERO_MTOP, $valor);
      							$VALIDACION['MTOP'] = $MTOP;
-     							$HAY_MTOP = 1;
-     						}
+     						}else{$TIENE_MTOP = 0;}
      					break;
      				case 'PASSWORD_MTOP':
-     						if ($HAY_MTOP == 1) {
-     							$PASSWORD_MTOP = preg_match($this->PATTERN_PASSWORD_MTOP, $valor);
+     						if ($TIENE_MTOP == 1) {
+     					    	$PASSWORD_MTOP = preg_match($this->PATTERN_PASSWORD_MTOP, $valor);
      							$VALIDACION['PASSWORD_MTOP'] = $PASSWORD_MTOP;
      						}
      					break;
@@ -395,9 +394,9 @@ class Validaciones
      		}
 		}
 
- 		if(count($VALIDACION) == 3 && $HAY_MTOP == null){
- 			$DATOS_VACIOS = null;
- 		}else if (count($VALIDACION) != 5) {
+		if (count($VALIDACION) == 3 && $TIENE_MTOP == 0) {
+			$DATOS_VACIOS = null;
+		}else if(count($VALIDACION) != 5){
 			$DATOS_VACIOS = "Err-1";
 		}
 
@@ -472,6 +471,6 @@ class Validaciones
 
 }
 
-$Validar = new Validaciones($_POST['tipo'],$_POST['datos']);
+$Validar = new validaciones($_POST['tipo'],$_POST['datos']);
 
 ?>
