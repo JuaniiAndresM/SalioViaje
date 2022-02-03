@@ -1352,15 +1352,23 @@ footer .totum p a:hover {
   background-color: #aaa;
 }
 
-.login .login-wrapper .progress-bar .progress, .login .login-wrapper .progress-bar2 .progress,
+.login .login-wrapper .progress-bar .progress, .login .login-wrapper .progress-bar .progress2, .login .login-wrapper .progress-bar2 .progress, .login .login-wrapper .progress-bar2 .progress2,
 .login .register-wrapper .progress-bar .progress,
+.login .register-wrapper .progress-bar .progress2,
 .login .register-wrapper .progress-bar2 .progress,
+.login .register-wrapper .progress-bar2 .progress2,
 .register .login-wrapper .progress-bar .progress,
+.register .login-wrapper .progress-bar .progress2,
 .register .login-wrapper .progress-bar2 .progress,
+.register .login-wrapper .progress-bar2 .progress2,
 .register .register-wrapper .progress-bar .progress,
-.register .register-wrapper .progress-bar2 .progress, .success .login-wrapper .progress-bar .progress, .success .login-wrapper .progress-bar2 .progress,
+.register .register-wrapper .progress-bar .progress2,
+.register .register-wrapper .progress-bar2 .progress,
+.register .register-wrapper .progress-bar2 .progress2, .success .login-wrapper .progress-bar .progress, .success .login-wrapper .progress-bar .progress2, .success .login-wrapper .progress-bar2 .progress, .success .login-wrapper .progress-bar2 .progress2,
 .success .register-wrapper .progress-bar .progress,
-.success .register-wrapper .progress-bar2 .progress {
+.success .register-wrapper .progress-bar .progress2,
+.success .register-wrapper .progress-bar2 .progress,
+.success .register-wrapper .progress-bar2 .progress2 {
   position: absolute;
   left: 0;
   width: 0%;
