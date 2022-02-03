@@ -141,7 +141,7 @@
                 type="text"
                 placeholder="Buscar"
                 id="searchbar"
-                onkeyup="buscarUsuarios()"
+                onkeyup="buscarUsuarios(2)"
               />
             </div>
 
@@ -169,7 +169,7 @@
             </div>
           </div>
           <div class="table-overflow">
-            <table class="usuarios-table" id="search-table">
+            <table class="usuarios-table" id="search-table-usuarios">
               <thead>
                 <tr>
                   <th id="ID">ID <i class="fas fa-angle-down"></i></th>
