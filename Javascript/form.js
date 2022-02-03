@@ -94,6 +94,7 @@ function steps(step){
 
         case 3:
             $('.progress').css('width', '50%');
+            $('.progress2').css('width', '100%');
             
             $('.circle1').css('background-color', '#2b3179');
             $('.circle2').css('background-color', '#2b3179');
@@ -104,6 +105,15 @@ function steps(step){
             $('#step_3').show();
             $('#step_4').hide();
             $('#step_5').hide();
+            $('#add-vehicle').show();
+            $('#finalizar_empresa').hide();
+
+            var user = $('#select_users').val();
+
+            if(user == 4 || user == 7){
+                $('#add-vehicle').hide();
+                $('#finalizar_empresa').show();
+            }
 
             $('.vehiculos-wrapper').hide();
             break;
