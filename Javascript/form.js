@@ -260,6 +260,7 @@ function select_user(user){
 
         case "7":
             $('.progress-bar').hide();
+            $('.progress-bar2').show();
             $('#step_1').hide();
 
             $('#step_2').show();
@@ -267,8 +268,8 @@ function select_user(user){
             $('#rut').show();
             $('#contratista').hide();
             
-            $('#pax-register').show();
-            $('#step-next').hide();
+            $('#pax-register').hide();
+            $('#step-next').show();
             break;
 
         default:
