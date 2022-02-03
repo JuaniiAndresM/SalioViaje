@@ -92,7 +92,9 @@ function traerUsuarios(seccion){
                             return response;
                         }
                     }).responseText;
+                    console.log("Usuarios: " + usuarios);
     usuarios = JSON.parse(usuarios)
+    
     tablas_usuarios(seccion);
 }
 

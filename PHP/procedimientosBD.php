@@ -9,6 +9,8 @@ class procedimientosBD
         //$conexion = mysqli_connect("localhost", "root", "root", "salioviaje");
         $conexion = mysqli_connect("158.106.136.183", "salioviajeuy", "La_medusa_2022", "salioviajeuy_salioviajeuy");
         //$conexion = mysqli_connect("localhost", "root", "root", "salioviajeuy_salioviajeuy");
+        
+        $conexion->set_charset("utf8");
         if (!$conexion) {
             echo "Error al conectar con la Base de datos.";
             exit();
@@ -129,7 +131,7 @@ class procedimientosBD
                $result = array('ID' => $id_usuario,'TIPO_USUARIO' => $tipo_usuario, 'CI' => $ci, 'EMAIL' => $mail, 'NOMBRE' => $nombre, 'APELLIDO' => $apellido, 'DIRECCION' => $direccion, 'BARRIO' => $barrio, 'DEPARTAMENTO' => $departamento, 'TELEFONO' => $telefono, 'AGENCIA_CONTRATISTA' => $agencia_contratista, 'NOMBRE_HOTEL' => $nombre_hotel, 'DIRECCION_HOTEL' => $direccion_hotel, 'SUPERVISOR' => $supervisor, 'RUT' => $rut);
                $usuarios[] = $result;
             }
-         }
+        }
         $stmt->close();
         return $usuarios;
     }
