@@ -469,7 +469,7 @@ function register_form(opcion){
 
             $.ajax({
                     type: "POST",
-                    url: "../PHP/procedimientosForm.php",
+                    url: "/SalioViaje/PHP/procedimientosForm.php",
                     data: { tipo:opcion, datos_Usuario:datos_Usuario, empresas:null },
                     success: function (response) {
                         ID_USUARIO = response;
