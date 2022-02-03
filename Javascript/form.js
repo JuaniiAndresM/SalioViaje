@@ -543,12 +543,22 @@ function crear_empresa(){
         "PASSWORD_MTOP": document.getElementById('password_mtop').value,
         "VEHICULOS": vehiculos
     };
-    if (validacion("EMPRESA",datos_Empresa)) {        
+    if (validacion("EMPRESA",datos_Empresa)) {     
         empresas.push(datos_Empresa)
         datos_Empresa = {};
         vehiculos = [];
         reset_vehicles();
-        next();
+
+        var user = $('#select_users').val();
+
+        if(user == 4 || user == 7){
+            step = 5;
+            steps(5);
+            
+        }else{
+            next();
+        }
+        
     }else{ console.log("No valido...") }
 }
 
