@@ -3,7 +3,7 @@
   session_start(); 
 
   if(!isset($_SESSION['usuario'])){
-    header('Location: /SalioViaje/Form/Login.php');
+    header('Location: /SalioViaje/Login');
 
   }else{
     if($_SESSION['tipo_usuario'] != "Administrador"){
