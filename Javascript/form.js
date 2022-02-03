@@ -47,6 +47,7 @@ var step = 1;
 
 
 function volver(){
+    reset_errores();
     step--;
     steps(step);
 }
