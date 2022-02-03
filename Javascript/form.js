@@ -260,6 +260,7 @@ function select_user(user){
 
         case "7":
             $('.progress-bar').hide();
+            $('.progress-bar2').show();
             $('#step_1').hide();
 
             $('#step_2').show();
@@ -267,8 +268,8 @@ function select_user(user){
             $('#rut').show();
             $('#contratista').hide();
             
-            $('#pax-register').show();
-            $('#step-next').hide();
+            $('#pax-register').hide();
+            $('#step-next').show();
             break;
 
         default:
@@ -560,12 +561,22 @@ function crear_empresa(){
         "PASSWORD_MTOP": document.getElementById('password_mtop').value,
         "VEHICULOS": vehiculos
     };
-    if (validacion("EMPRESA",datos_Empresa)) {        
+    if (validacion("EMPRESA",datos_Empresa)) {     
         empresas.push(datos_Empresa)
         datos_Empresa = {};
         vehiculos = [];
         reset_vehicles();
-        next();
+
+        var user = $('#select_users').val();
+
+        if(user == 4 || user == 7){
+            step = 5;
+            steps(5);
+            
+        }else{
+            next();
+        }
+        
     }else{ console.log("No valido...") }
 }
 
