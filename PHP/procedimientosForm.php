@@ -22,7 +22,8 @@ class procedimientosForm extends procedimientosBD
 	}
 
 	public function register_anfitrion($datos){
-		$this->registrar_usuarios("ANF",$datos);
+		$this->idUsuario = $this->registrar_usuarios("ANF",$usuario);
+		$this->registrar_empresa("ANF",null,$empresa);
 	}
 
 	public function register_hotel($datos){
@@ -69,8 +70,9 @@ switch ($_POST['tipo']) {
 		$procedimientosForm->register_chofer($usuario,$usuario["AGENCIA_CONTRATISTA"],$empresa);
 		break;
 	case '4':
-		$datos = json_decode($_POST["datos"],true);
-		$procedimientosForm->register_anfitrion($datos);
+		$usuario = json_decode($_POST["datos_Usuario"],true);
+		$empresa = json_decode($_POST["empresas"],true);
+		$procedimientosForm->register_anfitrion($usuario,$empresa);
 		break;
 	case '5':
 		$datos = json_decode($_POST["datos"],true);

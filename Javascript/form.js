@@ -403,7 +403,7 @@ function register_form(opcion){
                         data: { tipo:opcion,idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas) },
                         success: function (response) {
                             console.log(response)
-                            //window.location = "/SalioViaje/Form/Success.html";
+                            window.location = "/SalioViaje/Form/Success.html";
                         },
                     });
                 } else { next() }
@@ -425,7 +425,6 @@ function register_form(opcion){
             };
             if (validacion("USUARIO-CHO",datos_Usuario)) {
                  if (empresas.length != 0  && ID_USUARIO != null) {
-                    console.log("hola")
                     $.ajax({
                         type: "POST",
                         url: "../PHP/procedimientosForm.php",
@@ -452,15 +451,17 @@ function register_form(opcion){
                 "RE-PIN": document.getElementById('re-password').value
             };
             if (validacion("USUARIO-ANF",datos_Usuario)) {
-                $.ajax({
-                    type: "POST",
-                    url: "../PHP/procedimientosForm.php",
-                    data: { tipo:opcion, datos:JSON.stringify(datos_Usuario) },
-                    success: function (response) {
-                        console.log(response)
-                        window.location = "/SalioViaje/Form/Success.html";
-                },
-            });
+                if (empresas.length != 0  && ID_USUARIO != null) {
+                    $.ajax({
+                        type: "POST",
+                        url: "../PHP/procedimientosForm.php",
+                        data: { tipo:opcion,idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas)  },
+                        success: function (response) {
+                            console.log(response)
+                            window.location = "/SalioViaje/Form/Success.html";
+                        },
+                    });
+                } else { next() }
             }else{ console.log("No valido...") }
             break;
         case "5":
