@@ -8,10 +8,15 @@ $(document).ready(function () {
         this.classList.add('hovered');
     }
 
+    traigoVisitas();
 
     $("#ID").on('click', function() {
         console.log(cambiarOrden(orden))
         ordenarId(orden)
+    });
+
+    $("#actualizar_panel").on('click', function() {
+        actualizar_panel()
     });
 
     $("#cerrar_session_dashboard").on('click', function() {
@@ -26,6 +31,11 @@ $(document).ready(function () {
     list.forEach((item) => 
     item.addEventListener('mouseover', activateLink));
     $('#panel-navbar').load('/SalioViaje/web/panel-navbar.html');
+
+
+    $('#select_actualizar').change(function(){
+        actualizar_panel($(this).children('option:selected').val());
+    });
 });
 
 function navbar(){
@@ -320,4 +330,58 @@ function filtros(){
         if(!$("#htl").prop("checked")){ $(".HTL").hide() }else{ $(".HTL").show() }
         //if(!$("#").prop("checked")){ console.log("Oculto") }else{ console.log("Muestro") }
     });
+}
+
+/*-------------------------------------------------------------------------------------------*/
+//                                       Visitas                                             //
+/*-------------------------------------------------------------------------------------------*/
+
+function traigoVisitas(){
+        visitas = $.ajax({
+                        type: 'POST',       
+                        url: "/SalioViaje/PHP/Backend.php",
+                        data: {opcion:"visitas"},
+                        global: false,
+                        async:false,
+                        success: function(response) {
+                            return response;
+                        }
+        }).responseText;
+        $('#visitas_hoy').html(visitas)
+}
+
+/*-------------------------------------------------------------------------------------------*/
+//                                       Actualizar                                          //
+/*-------------------------------------------------------------------------------------------*/
+ var actualizar
+function actualizar_panel(opc){
+    switch(opc){
+        case '0':
+        console.log("parar")
+            clearInterval(actualizar)
+            break;
+        case '1':
+            crear_intervalo(1000)
+            break;
+        case '2':
+            crear_intervalo(5000)
+            break;
+        case '3':
+            crear_intervalo(10000)
+            break;
+        case '4':
+            crear_intervalo(15000)
+            break;
+    }
+
+
+}
+
+function crear_intervalo(tiempo){
+    actualizar = setInterval(function(){
+        traigoVisitas()
+        traerVehiculos()
+        traerUsuarios()
+        traerEmpresas();
+    },tiempo)
 }

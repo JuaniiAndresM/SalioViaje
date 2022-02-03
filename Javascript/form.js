@@ -366,7 +366,7 @@ function register_form(opcion){
                 "PIN": document.getElementById('password').value,
                 "RE-PIN": document.getElementById('re-password').value
             };
-            if (validacion("USUARIO-PAX-TTA",datos_Usuario) == true) {
+            if (validacion("USUARIO-PAX-TTA-ASE",datos_Usuario) == true) {
                 $.ajax({
                     type: "POST",
                     url: "/SalioViaje/PHP/procedimientosForm.php",
@@ -476,7 +476,7 @@ function register_form(opcion){
                 },
             });
 
-            if (validacion("USUARIO-ANF",datos_Usuario)) {
+            if (validacion("USUARIO-ANF-AGT",datos_Usuario)) {
                 if (empresas.length != 0  && ID_USUARIO != null) {
                     $.ajax({
                         type: "POST",
@@ -484,7 +484,7 @@ function register_form(opcion){
                         data: { tipo:opcion,idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas)  },
                         success: function (response) {
                             console.log(response)
-                            //window.location = "/SalioViaje/Success";
+                            window.location = "/SalioViaje/Success";
                         },
                     });
                 } else { next() }
