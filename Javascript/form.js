@@ -301,7 +301,7 @@ function reset_vehicle_inputs(){
     $('#matricula').val('');
     $('#marca').val('');
     $('#modelo').val('');
-    $('#combustible').val('');
+    $('#combustible').val('0');
     $('#capacidad_pasajeros').val('');
     $('#capacidad_equipaje').val('');
     $('#pet_friendly').val('0');
@@ -372,7 +372,7 @@ function register_form(opcion){
                     url: "/PHP/procedimientosForm.php",
                     data: { tipo:opcion, datos:JSON.stringify(datos_Usuario) },
                     success: function (response) {
-                        console.log(response)
+                        console.log("response: " + response);
                         window.location = "https://www.salioviaje.com.uy/Success";
                         ID_USUARIO = response;
                     },
@@ -396,7 +396,7 @@ function register_form(opcion){
             $.ajax({
                     type: "POST",
                     url: "/PHP/procedimientosForm.php",
-                    data: { tipo:opcion, datos_Usuario:datos_Usuario, empresas:null },
+                    data: { tipo:opcion, datos_Usuario:JSON.stringify(datos_Usuario), empresas:null },
                     success: function (response) {
                         ID_USUARIO = response;
                 },

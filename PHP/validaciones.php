@@ -314,7 +314,7 @@ class validaciones
      						$VALIDACION['NOMBRE_HOTEL'] = $NOMBRE_HOTEL;
      					break;
      				case 'SUPERVISOR':
-     						if($valor == 0){
+     						if($valor == "0"){
      							$SUPERVISOR = 0;
      						}else{ $SUPERVISOR = 1; }
      						$VALIDACION['SUPERVISOR'] = $SUPERVISOR;
@@ -432,7 +432,7 @@ class validaciones
      						$VALIDACION['MODELO'] = $MODELO;
      					break;
      				case 'COMBUSTIBLE':
-     						if ($valor == 0) {
+     						if ($valor != null && $valor == "0") {
      							$VALIDACION['COMBUSTIBLE'] = 0;
      						}else { $VALIDACION['COMBUSTIBLE'] = 1; }
      					break;

@@ -24,7 +24,7 @@ class procedimientosBD
         $query = "CALL register_usuario(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         $stmt = $conn->prepare($query);
         $stmt->bind_param("sissssssiisssss", $tipo, $datos["CI"], $datos["CORREO"], $datos["NOMBRE"], $datos["APELLIDO"], $datos["DIRECCION"], $datos["BARRIO"], $datos["DEPARTAMENTO"], $datos["TELEFONO"],$datos["PIN"],$datos['AGENCIA_CONTRATISTA'],$datos['RUT'],$datos['SUPERVISOR'], $datos['NOMBRE_HOTEL'],$datos['DIRECCION_HOTEL']);
-       	if ($stmt->execute()) {
+        if ($stmt->execute()) {
             $stmt->store_result();
             $stmt->bind_result($idUsuario);
             while ($stmt->fetch()) {
