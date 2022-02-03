@@ -373,7 +373,7 @@ function register_form(opcion){
                     data: { tipo:opcion, datos:JSON.stringify(datos_Usuario) },
                     success: function (response) {
                         console.log(response)
-                        window.location = "/SalioViaje/Form/Success.html";
+                        window.location = "/SalioViaje/Success";
                         ID_USUARIO = response;
                     },
                 });
@@ -410,7 +410,7 @@ function register_form(opcion){
                         url: "../PHP/procedimientosForm.php",
                         data: { tipo:opcion,idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas) },
                         success: function (response) {
-                            window.location = "/SalioViaje/Form/Success.html";
+                            window.location = "/SalioViaje/Success";
                         },
                     });
                 } else { next() }
@@ -437,7 +437,7 @@ function register_form(opcion){
                         url: "../PHP/procedimientosForm.php",
                         data: { tipo:opcion,idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas) },
                         success: function (response) {
-                            window.location = "/SalioViaje/Form/Success.html";
+                            window.location = "/SalioViaje/Success";
                         },
                     });
                 } else { next() }
@@ -463,7 +463,7 @@ function register_form(opcion){
                         url: "../PHP/procedimientosForm.php",
                         data: { tipo:opcion,idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas)  },
                         success: function (response) {
-                            window.location = "/SalioViaje/Form/Success.html";
+                            window.location = "/SalioViaje/Success";
                         },
                     });
                 } else { next() }
@@ -488,7 +488,7 @@ function register_form(opcion){
                     url: "../PHP/procedimientosForm.php",
                     data: { tipo:opcion, datos:JSON.stringify(datos_Hotel) },
                     success: function (response) {
-                        window.location = "/SalioViaje/Form/Success.html";
+                        window.location = "/SalioViaje/Success";
                     },
                 });
             }else{ console.log("No valido...") }
@@ -512,7 +512,7 @@ function register_form(opcion){
                     url: "../PHP/procedimientosForm.php",
                     data: { tipo:opcion, datos:JSON.stringify(datos_Usuario) },
                     success: function (response) {
-                        window.location = "/SalioViaje/Form/Success.html";
+                        window.location = "/SalioViaje/Success";
                         ID_USUARIO = response;
                     },
                 });
