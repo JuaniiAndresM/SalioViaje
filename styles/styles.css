@@ -3854,6 +3854,7 @@ footer .totum p a:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 8px;
 }
 
 .panel-header .header-right .header-user .icon img {

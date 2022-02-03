@@ -16,7 +16,7 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <title>SalióViaje - Dashboard</title>
+    <title>SalióViaje - Settings</title>
 
     <!-- // Meta Etiquetas -->
 
@@ -40,8 +40,8 @@
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.salioviaje.com/" />
-    <meta property="og:title" content="SalióViaje - Register" />
+    <meta property="og:url" content="https://www.salioviaje.com/Settings" />
+    <meta property="og:title" content="SalióViaje - Settings" />
     <meta
       property="og:description"
       content="Plataforma que optimiza el traslado ocasional de personas."
@@ -53,8 +53,8 @@
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://www.salioviaje.com/" />
-    <meta property="twitter:title" content="SalióViaje - Register" />
+    <meta property="twitter:url" content="https://www.salioviaje.com/Settings" />
+    <meta property="twitter:title" content="SalióViaje - Settings" />
     <meta
       property="twitter:description"
       content="Plataforma que optimiza el traslado ocasional de personas."
