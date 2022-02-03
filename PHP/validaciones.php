@@ -14,7 +14,7 @@ class Validaciones
 
 	private $PATTERN_RUT = "/[0-9]{12}/i";
 	private $PATTERN_RAZON_SOCIAL = "/^[a-zA-Z_]+([a-zA-Z0-9\s\.]*)$/i";
-	private $PATTERN_NUMERO_MTOP = "/^[\d]{10}$/i";
+	private $PATTERN_NUMERO_MTOP = "/[0-9]{10}/i";
 	private $PATTERN_PASSWORD_MTOP = "/^([\w\d]){10}$/i";
 
 	private $PATTERN_MATRICULA = "/^(\w){3}([0-9]){4}$/i";
@@ -359,11 +359,9 @@ class Validaciones
 
 		$VALIDACION = array();
 		$DATOS_VACIOS = null;
-		$HAY_MTOP = null;
 		$errores = 0;
-		$DATOS = json_decode($datos);
 
-		foreach ($DATOS as $clave => $valor){
+		foreach (json_decode($datos) as $clave => $valor){
      		if ($valor != null || $valor != '' && $clave != 'VEHICULOS') {
      			switch ($clave) {
      				case 'RUT':
@@ -379,25 +377,18 @@ class Validaciones
      						$VALIDACION['RAZON_SOCIAL'] = $RAZON_SOCIAL;
      					break;
      				case 'NUMERO_MTOP':
-     						if ($valor != null) {
-     							$MTOP = preg_match($this->PATTERN_NUMERO_MTOP, $valor);
-     							$VALIDACION['MTOP'] = $MTOP;
-     							$HAY_MTOP = 1;
-     						}
+     						$MTOP = preg_match($this->PATTERN_NUMERO_MTOP, $valor);
+     						$VALIDACION['MTOP'] = $MTOP;
      					break;
      				case 'PASSWORD_MTOP':
-     						if ($HAY_MTOP == 1) {
-     							$PASSWORD_MTOP = preg_match($this->PATTERN_PASSWORD_MTOP, $valor);
-     							$VALIDACION['PASSWORD_MTOP'] = $PASSWORD_MTOP;
-     						}
+     						$PASSWORD_MTOP = preg_match($this->PATTERN_PASSWORD_MTOP, $valor);
+     						$VALIDACION['PASSWORD_MTOP'] = $PASSWORD_MTOP;
      					break;
      			}
      		}
 		}
 
- 		if(count($VALIDACION) == 3 && $HAY_MTOP == null){
- 			$DATOS_VACIOS = null;
- 		}else if (count($VALIDACION) != 5) {
+		if (count($VALIDACION) != 5) {
 			$DATOS_VACIOS = "Err-1";
 		}
 

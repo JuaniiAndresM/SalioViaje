@@ -3,11 +3,11 @@
   session_start(); 
 
   if(!isset($_SESSION['usuario'])){
-    header('Location: https://www.salioviaje.com.uy/Form/Login.php');
+    header('Location: /SalioViaje/Form/Login.php');
 
   }else{
     if($_SESSION['tipo_usuario'] != "Administrador"){
-      header('Location: https://www.salioviaje.com.uy/');
+      header('Location: /SalioViaje/');
     }
   }
 
@@ -72,10 +72,10 @@
     <!-- Links -->
     <link
       rel="shortcut icon"
-      href="https://www.salioviaje.com.uy/media/svg/Favicon-SalioViaje.svg"
+      href="/SalioViaje/media/svg/Favicon-SalioViaje.svg"
       type="image/x-icon"
     />
-    <link rel="stylesheet" href="https://www.salioviaje.com.uy/styles/styles.css" />
+    <link rel="stylesheet" href="/SalioViaje/styles/styles.css" />
 
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -84,9 +84,9 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="https://www.salioviaje.com.uy/Javascript/panel.js"></script>
-    <script src="https://www.salioviaje.com.uy/Javascript/settings.js"></script>
-    <script src="https://www.salioviaje.com.uy/Javascript/loader.js"></script>
+    <script src="/SalioViaje/Javascript/panel.js"></script>
+    <script src="/SalioViaje/Javascript/settings.js"></script>
+    <script src="/SalioViaje/Javascript/loader.js"></script>
     <script type="text/javascript">
             window.onload = function(){
               let seccion = "usuarios"
@@ -119,9 +119,9 @@
           <div class="icon"><i class="fab fa-apple"></i></div>
           <div class="user">
           <h2><?php echo $_SESSION['usuario']; ?></h2> 
-                <p><i class="fas fa-user-tie"></i> <?php echo $_SESSION['tipo_usuario'] ?></p>
+                <p><i class="fas fa-user-tie"></i><?php echo $_SESSION['tipo_usuario'] ?></p>
           </div>
-          <button id="cerrar_session_dashboard"><i class="fas fa-sign-out-alt"></i></button>
+          <button><i class="fas fa-sign-out-alt"></i></button>
         </div>
       </div>
     </header>
@@ -182,10 +182,10 @@
                   <th>Barrio <i class="fas fa-angle-down"></i></th>
                   <th>Departamento <i class="fas fa-angle-down"></i></th>
                   <th>Teléfono <i class="fas fa-angle-down"></i></th>
-                  <th class="CHO">Agencia <i class="fas fa-angle-down"></i></th>
-                  <th class="HTL">Nombre Hotel <i class="fas fa-angle-down"></i></th>
-                  <th class="HTL">Dirección Hotel <i class="fas fa-angle-down"></i></th>
-                  <th class="HTL">Supervisor <i class="fas fa-angle-down"></i></th>
+                  <th>Agencia <i class="fas fa-angle-down"></i></th>
+                  <th>Nombre Hotel <i class="fas fa-angle-down"></i></th>
+                  <th>Dirección Hotel <i class="fas fa-angle-down"></i></th>
+                  <th>Supervisor <i class="fas fa-angle-down"></i></th>
                   <th></th>
                 </tr>
               </thead>

@@ -4,9 +4,9 @@
 
   if(isset($_SESSION['usuario'])){
     if($_SESSION['tipo_usuario'] == "Administrador"){
-      header('Location: https://www.salioviaje.com.uy/Panel/Dashboard.php');
+      header('Location: /SalioViaje/Panel/Dashboard.php');
     }else{
-      header('Location: https://www.salioviaje.com.uy/');
+      header('Location: /SalioViaje/');
     }
   }
 
@@ -69,15 +69,15 @@
     <!-- // Fin de Meta Etiquetas -->
 
     <!-- Links -->
-    <link rel="shortcut icon" href="https://www.salioviaje.com.uy/media/svg/Favicon-SalioViaje.svg" type="image/x-icon">
-    <link rel="stylesheet" href="https://www.salioviaje.com.uy/styles/styles.css">
+    <link rel="shortcut icon" href="/SalioViaje/media/svg/Favicon-SalioViaje.svg" type="image/x-icon">
+    <link rel="stylesheet" href="/SalioViaje/styles/styles.css">
 
     <!-- Scripts -->
     <script src="https://kit.fontawesome.com/1e193e3a23.js" crossorigin="anonymous"></script>    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <script src="https://www.salioviaje.com.uy/Javascript/web.js"></script>
-    <script src="https://www.salioviaje.com.uy/Javascript/form.js"></script>
+    <script src="/SalioViaje/Javascript/web.js"></script>
+    <script src="/SalioViaje/Javascript/form.js"></script>
 
 
 
@@ -111,13 +111,13 @@
                     </div>
                 </div>
 
-                <p class="mensaje-error"></p>
+                <p id="mensaje-error"></p>
                 
                 <button class="button-login" onclick="login()"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</button>
 
                 <div class="login-bottom">
                     <p><a href="#">¿Olvidaste tu contraseña?</a></p>
-                    <p>¿Aún no tienes una cuenta? <a href="https://www.salioviaje.com.uy/Register">Registrate</a>.</p>
+                    <p>¿Aún no tienes una cuenta? <a href="/SalioViaje/Form/Register.html">Registrate</a>.</p>
                 </div>
             </div>
 
