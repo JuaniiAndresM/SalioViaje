@@ -15,17 +15,17 @@ class Backend extends procedimientosBD
 	{
 		switch ($opcion) {
 			case 'usr':
-				$this->usuarios = $this->datos_usuarios();
-				break;
+			$this->usuarios = $this->datos_usuarios();
+			break;
 			case 'emp':
-				$this->empresas = $this->datos_empresas();
-				break;
+			$this->empresas = $this->datos_empresas();
+			break;
 			case 'vih':
-				$this->vehiculos = $this->datos_vehiculos();
-				break;
+			$this->vehiculos = $this->datos_vehiculos();
+			break;
 			case 'visitas':
-				$this->visitas = $this->traigo_visitas();
-				break;
+			$this->visitas = $this->traigo_visitas();
+			break;
 		}
 	}
 
@@ -33,47 +33,47 @@ class Backend extends procedimientosBD
 		/*
 			Panel de administrador
 		*/
-	}
+		}
 
-	public function getUsuarios(){
+		public function getUsuarios(){
 		/*
 			Panel de administrador
 		*/
-		return json_encode($this->usuarios);
-	}
+			return json_encode($this->usuarios);
+		}
 
-	public function getEmpresas(){
+		public function getEmpresas(){
 		/*
 			Panel de administrador
 		*/
-		return json_encode($this->empresas);
-	}
+			return json_encode($this->empresas);
+		}
 
-	public function getVehiculos(){
+		public function getVehiculos(){
 		/*
 			Panel de administrador
 		*/
-		return json_encode($this->vehiculos);
-	}
-	public function getVisitas(){
+			return json_encode($this->vehiculos);
+		}
+		public function getVisitas(){
 		/*
 			Panel de administrador
 		*/
-		return json_encode($this->visitas);
+			return json_encode($this->visitas);
+		}
 	}
-}
 
-$Backend = new Backend($_POST['opcion']);
+	$Backend = new Backend($_POST['opcion']);
 
-if ($_POST['opcion'] == "usr") {
-	echo $Backend->getUsuarios();
-} else if($_POST['opcion'] == "emp") {
-	echo $Backend->getEmpresas();
-} else if($_POST['opcion'] == "visitas") {
-	echo $Backend->getVisitas();
-} else {
-	echo $Backend->getVehiculos();
-}
+	if ($_POST['opcion'] == "usr") {
+		echo $Backend->getUsuarios();
+	} else if($_POST['opcion'] == "emp") {
+		echo $Backend->getEmpresas();
+	} else if($_POST['opcion'] == "visitas") {
+		echo $Backend->getVisitas();
+	} else {
+		echo $Backend->getVehiculos();
+	}
 
 
- ?>
+?>

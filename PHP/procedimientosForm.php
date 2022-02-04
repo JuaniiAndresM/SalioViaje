@@ -38,7 +38,7 @@ class procedimientosForm extends procedimientosBD
 	private function registrar_empresa($tipoUsuario,$contratista,$empresa){
 
 		for ($x=0; $x < count($empresa); $x++) {
-		$this->register_empresa($tipoUsuario,$this->idUsuario,$empresa[$x]);
+			$this->register_empresa($tipoUsuario,$this->idUsuario,$empresa[$x]);
 			for ($i=0; $i < count($empresa[$x]["VEHICULOS"]); $i++) { 
 				if ($tipoUsuario == "CHO") {
 					 //rut_ec = RUT de la empresa creada por el chofer.
@@ -63,42 +63,42 @@ if ($_POST['tipo'] == 1) {
 	unset($_POST['tipo']);
 }else{
 
-switch ($_POST['tipo']) {
+	switch ($_POST['tipo']) {
 
-	case '2':
+		case '2':
 		$empresa = json_decode($_POST["empresas"],true);
 		$procedimientosForm->register_transportista($empresa,$_POST['idUsuario']);
 		break;
-	case '3':
+		case '3':
 		$empresa = json_decode($_POST["empresas"],true);
 		$procedimientosForm->register_chofer($usuario["AGENCIA_CONTRATISTA"],$empresa,$_POST['idUsuario']);
 		break;
-	case '4':
+		case '4':
 		$empresa = json_decode($_POST["empresas"],true);
 		$procedimientosForm->register_anfitrion($empresa,$_POST['idUsuario']);
 		break;
-	case '5':
+		case '5':
 		$datos = json_decode($_POST["datos"],true);
 		$procedimientosForm->register_hotel($datos);
 		break;
-	case '6':
+		case '6':
 		$datos = json_decode($_POST["datos"],true);
 		$procedimientosForm->registrar_usuarios("ASE",$datos);
 		break;
-	case '7':
+		case '7':
 		$empresa = json_decode($_POST["empresas"],true);
 		$procedimientosForm->register_agente($empresa,$_POST['idUsuario']);
 		break;
-	case 'empresas':
+		case 'empresas':
 		echo $procedimientosForm->empresas();
 		break;
-	case 'login':
+		case 'login':
 		echo $procedimientosForm->login($_POST['usuario'],$_POST['pin']);
 		break;
-	case 'visita':
+		case 'visita':
 		echo $procedimientosForm->agrego_visita();
 		break;
-}
+	}
 
 }
 

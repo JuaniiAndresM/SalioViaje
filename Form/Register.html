@@ -285,7 +285,7 @@
               </div>
               <div class="input" id="choferes_sub">
                 <i class="fas fa-user-friends" id="icon"></i>
-                <select name="">
+                <select name="" id="choferes_sub_select">
                   <option value="0" selected disabled hidden>Choferes Subcontratados</option>
                   <option value="1">Si</option>
                   <option value="2">No</option>
@@ -314,10 +314,10 @@
           <button class="button-register" id="company_volver" onclick="volver()">
             <i class="fas fa-arrow-circle-left"></i> Volver
           </button>
-          <button class="button-register" id="add-vehicle" onclick="valido_Empresa_sin_crearla()">
+          <button class="button-register" id="add-vehicle">
             <i class="fas fa-car-side"></i> Agregar Vehículo
           </button>
-          <button class="button-register" onclick="crear_empresa()" id="finalizar_empresa">
+          <button class="button-register" id="finalizar_empresa">
             <i class="fas fa-building"></i> Crear Empresa
           </button>
         </div>
@@ -390,7 +390,7 @@
           <div class="vehiculos">
             <div id="no-vehicle"><p>No hay vehiculos agregados.</p></div>
           </div>
-           <button class="finalizar-button" onclick="crear_empresa()" id="finalizar_empresa"><i class="fas fa-building"></i> Finalizar Empresa</button>
+           <button class="finalizar-button" id="finalizar_empresa"><i class="fas fa-building"></i> Finalizar Empresa</button>
         </div>
 
         <div id="step_5">
