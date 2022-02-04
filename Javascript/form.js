@@ -10,7 +10,7 @@ $(document).ready(function () {
     $('.progress-bar2').hide();
 
     steps(1);
-    Empresas()
+    Empresas();
 
     $("#pax-register").on('click', function() {
         register_form($('#select_users').val())
@@ -56,47 +56,71 @@ function volver(){
 function next(){
     step++;
     steps(step);
+
+    console.log(step);
 }
 
 function steps(step){
 
-    switch(step){
-        case 1:         
-            $('.progress-bar').hide();
-            $('.progress-bar2').hide();
-            $('#step_1').show();
-            $('#step_2').hide();
-            $('#step_3').hide();
-            $('#step_4').hide();
-            $('#step_5').hide();
-            $('#step_hotel').hide();
+    var user = $('#select_users').val();
 
-            $('.vehiculos-wrapper').hide();
-            $('#button_next_step').hide();
+    $('#step_1').hide();
+    $('#step_2').hide();
+    $('#step_3').hide();
+    $('#step_4').hide();
+    $('#step_5').hide();
+    $('#step_hotel').hide();
+
+    $('.vehiculos-wrapper').hide();
+    $('#button_next_step').hide();
+
+    $('.progress-bar').hide();
+    $('.progress-bar2').hide();
+
+    switch(step){
+
+        case 1:
+            $('#step_1').show();
             break;
 
         case 2:
+            
+
+            $('#step_1').hide();
+            $('#step_2').show();
+
             $('.progress').css('width', '0%');
+            $('.progress2').css('width', '0%');
 
             $('.circle1').css('background-color', '#2b3179');
             $('.circle2').css('background-color', '#aaa');
             $('.circle3').css('background-color', '#aaa');
 
-            var user = $('#select_users').val();
-            select_user(user);
+            switch(user){
+                case "1": case "6":
+                    $('#pax-register').show();
+                    $('#step-next').hide();
+                    break;
+                case "2": case "3":
+                    $('#pax-register').hide();
+                    $('#step-next').show();
 
-            if(user != null){
-                $('#step_1').hide();
-                $('#step_2').show();
-                $('#step_3').hide();
-                $('#step_4').hide();
-                $('#step_5').hide();
-                $('#step_hotel').hide();
+                    $('.progress-bar').show();
+                    break;
+                
+                case "4": case "5": case "7":
+                    $('#pax-register').hide();
+                    $('#step-next').show();
+
+                    $('.progress-bar2').show();
+                    break;
+
+                default:
+                    console.log("Error");
             }
 
-            $('.vehiculos-wrapper').hide();
             break;
-
+            
         case 3:
             $('.progress').css('width', '50%');
             $('.progress2').css('width', '100%');
@@ -105,42 +129,34 @@ function steps(step){
             $('.circle2').css('background-color', '#2b3179');
             $('.circle3').css('background-color', '#aaa');
 
-            $('#step_1').hide();
-            $('#step_2').hide();
-            $('#step_4').hide();
-            $('#step_5').hide();
-            $('#step_hotel').hide();
-            $('#add-vehicle').show();
-            $('#finalizar_empresa').hide();
+            switch(user){
+                case "2": case "4": case "7": 
+                    $('#step_3').show();
+                    $('#contratista').hide();
+                    break;
 
-            var user = $('#select_users').val();
+                case "3":
+                    $('#step_3').show();
+                    $('#contratista').show();
+                    break;
 
-            if(user == 4 || user == 7){
-                $('#add-vehicle').hide();
-                $('#finalizar_empresa').show();
-                $('#step_3').show();
-            }else if(user == 5){
-                $('#step_3').hide();
-                $('#step_hotel').show();
+                case "5":
+                    $('#step_hotel').show();
+                    break;
+
+                default:
+                    console.log("Error");
             }
-
-            $('.vehiculos-wrapper').hide();
             break;
 
         case 4:
             $('.progress').css('width', '100%');
-
+            
             $('.circle1').css('background-color', '#2b3179');
             $('.circle2').css('background-color', '#2b3179');
             $('.circle3').css('background-color', '#2b3179');
 
-            $('#step_1').hide();
-            $('#step_2').hide();
-            $('#step_3').hide();
-            $('#step_4').show();
-            $('#step_5').hide();
-
-            $('.vehiculos-wrapper').show();
+            $('#add-vehicle').show();
             break;
 
         case 5:
@@ -165,102 +181,6 @@ function select_usuario(){
     var user = $('#select_users').val();
 
     $('#button_next_step').click();
-}
-
-function select_user(user){
-
-    $('.progress-bar').hide();
-    var user = $('#select_users').val();
-
-    $('#telefono-hotel').hide();
-    $('#supervisor').hide();
-    $('#nombrehotel').hide();
-    $('#direccionhotel').hide();
-
-    $('#direccion-input').show();
-    $('#barrio-input').show();
-    $('#departamento-input').show();
-    $('#telefono-input').show();
-    $('.progress-bar2').hide();
-
-    switch(user){
-        case "1":
-            $('.progress-bar').hide();
-            $('#step_1').hide();
-
-            $('#step_2').show();
-
-            $('#pax-register').show();
-            $('#step-next').hide();
-            break;
-
-        case "2":
-            $('.progress-bar').show();
-            $('#step_1').hide();
-
-            $('#step_2').show();
-
-            $('#pax-register').hide();
-            $('#step-next').show();
-            break;
-
-        case "3":
-            $('.progress-bar').show();
-            $('#step_1').hide();
-
-            $('#step_2').show();
-            
-            $('#pax-register').hide();
-            $('#step-next').show();
-            break;
-
-        case "4":
-            $('.progress-bar').hide();
-            $('.progress-bar2').show();
-            $('#step_1').hide();
-
-            $('#step_2').show();
-            
-            $('#pax-register').hide();
-            $('#step-next').show();
-            break;
-
-        case "5":
-            $('.progress-bar').hide();
-            $('.progress-bar2').show();
-            $('#step_1').hide();
-
-            $('#step_2').show();
-
-            $('#pax-register').hide();
-            $('#step-next').show();
-            break;
-
-        case "6":
-            $('.progress-bar').hide();
-            $('#step_1').hide();
-
-            $('#step_2').show();
-
-            $('#pax-register').show();
-            $('#step-next').hide();
-            break;
-
-        case "7":
-            $('.progress-bar').hide();
-            $('.progress-bar2').show();
-            $('#step_1').hide();
-
-            $('#step_2').show();
-            
-            $('#pax-register').hide();
-            $('#step-next').show();
-            break;
-
-        default:
-            step--;
-            break;
-    }
 }
 
 function new_company(){

@@ -153,7 +153,6 @@
             <div class="card">
               <div class="number">
                 <h2 id="visitas_hoy"></h2>
-                <h2>-</h2>
                 <i class="fas fa-eye"></i>
               </div>
               <p>Visitas Hoy</p>
