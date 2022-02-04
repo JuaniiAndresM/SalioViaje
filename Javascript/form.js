@@ -148,6 +148,7 @@ function steps(step){
                     $('#step_3').show();
 
                     $('#contratista').hide();
+                    $('#choferes_sub').show();
                     $('#add-vehicle').show();
 
                     $('.progress-bar').show();
@@ -158,6 +159,7 @@ function steps(step){
                     $('#step_3').show();
 
                     $('#contratista').show();
+                    $('#choferes_sub').hide();
                     $('#add-vehicle').show();
 
                     $('.progress-bar').show();
@@ -167,6 +169,7 @@ function steps(step){
                 case "4": case "7":
                     $('#step_3').show();
                     $('#contratista').hide();
+                    $('#choferes_sub').hide();
 
                     $('#add-vehicle').hide();
                     $('#finalizar_empresa').show();
