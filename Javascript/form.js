@@ -430,7 +430,7 @@ function register_form(opcion){
                     $.ajax({
                         type: "POST",
                         url: "/SalioViaje/PHP/procedimientosForm.php",
-                        data: { tipo:opcion,idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas) },
+                        data: { tipo:opcion,idUsuario: ID_USUARIO, datos_Usuario:null, empresas:JSON.stringify(empresas) },
                         success: function (response) {
                             window.location = "/SalioViaje/Success";
                         },
