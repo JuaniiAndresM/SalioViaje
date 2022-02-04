@@ -4,7 +4,7 @@ $(document).ready(function () {
     $('#mensaje-error3').hide();
     $('#mensaje-error4').hide();
     $('#mensaje-error5').hide();
-
+    $('#button_next_step').hide();
     $('.progress-bar').hide();
     $('.vehiculos-wrapper').hide();
     $('.progress-bar2').hide();
@@ -69,10 +69,8 @@ function steps(step){
             $('#step_3').hide();
             $('#step_4').hide();
             $('#step_5').hide();
-            $('#step_hotel').hide();
 
             $('.vehiculos-wrapper').hide();
-            $('#button_next_step').hide();
             break;
 
         case 2:
@@ -91,7 +89,6 @@ function steps(step){
                 $('#step_3').hide();
                 $('#step_4').hide();
                 $('#step_5').hide();
-                $('#step_hotel').hide();
             }
 
             $('.vehiculos-wrapper').hide();
@@ -107,9 +104,9 @@ function steps(step){
 
             $('#step_1').hide();
             $('#step_2').hide();
+            $('#step_3').show();
             $('#step_4').hide();
             $('#step_5').hide();
-            $('#step_hotel').hide();
             $('#add-vehicle').show();
             $('#finalizar_empresa').hide();
 
@@ -118,10 +115,6 @@ function steps(step){
             if(user == 4 || user == 7){
                 $('#add-vehicle').hide();
                 $('#finalizar_empresa').show();
-                $('#step_3').show();
-            }else if(user == 5){
-                $('#step_3').hide();
-                $('#step_hotel').show();
             }
 
             $('.vehiculos-wrapper').hide();
@@ -189,6 +182,9 @@ function select_user(user){
             $('#step_1').hide();
 
             $('#step_2').show();
+            $('#ci').show();
+            $('#rut').hide();
+            $('#contratista').hide();
 
             $('#pax-register').show();
             $('#step-next').hide();
@@ -199,6 +195,9 @@ function select_user(user){
             $('#step_1').hide();
 
             $('#step_2').show();
+            $('#ci').show();
+            $('#rut').hide();
+            $('#contratista').hide();
 
             $('#pax-register').hide();
             $('#step-next').show();
@@ -209,6 +208,9 @@ function select_user(user){
             $('#step_1').hide();
 
             $('#step_2').show();
+            $('#ci').hide();
+            $('#rut').show();
+            $('#contratista').show();
             
             $('#pax-register').hide();
             $('#step-next').show();
@@ -220,6 +222,9 @@ function select_user(user){
             $('#step_1').hide();
 
             $('#step_2').show();
+            $('#ci').hide();
+            $('#rut').show();
+            $('#contratista').hide();
             
             $('#pax-register').hide();
             $('#step-next').show();
@@ -227,13 +232,24 @@ function select_user(user){
 
         case "5":
             $('.progress-bar').hide();
-            $('.progress-bar2').show();
             $('#step_1').hide();
 
             $('#step_2').show();
-
-            $('#pax-register').hide();
-            $('#step-next').show();
+            $('#ci').show();
+            $('#rut').hide();
+            $('#contratista').hide();
+            
+            $('#telefono-hotel').show();
+            $('#supervisor').show();
+            $('#nombrehotel').show();
+            $('#direccionhotel').show();
+            $('#direccion-input').hide();
+            $('#barrio-input').hide();
+            $('#departamento-input').hide();
+            $('#telefono-input').hide();
+            
+            $('#pax-register').show();
+            $('#step-next').hide();
             break;
 
         case "6":
@@ -241,6 +257,9 @@ function select_user(user){
             $('#step_1').hide();
 
             $('#step_2').show();
+            $('#ci').show();
+            $('#rut').hide();
+            $('#contratista').hide();
 
             $('#pax-register').show();
             $('#step-next').hide();
@@ -252,6 +271,9 @@ function select_user(user){
             $('#step_1').hide();
 
             $('#step_2').show();
+            $('#ci').hide();
+            $('#rut').show();
+            $('#contratista').hide();
             
             $('#pax-register').hide();
             $('#step-next').show();
@@ -313,7 +335,7 @@ function passwd(tipo){
             }
             break;
 
-        // PIN 1
+        //PIN1
         case 2:
             if($('#passeye').hasClass('show')){
                 $('#password').attr('type', 'password');
@@ -371,8 +393,6 @@ let empresas = new Array();
 let vehiculos = new Array();
 
 function register_form(opcion){
-
-    console.log(opcion)
 
        switch(opcion){
         case "1":
@@ -439,11 +459,12 @@ function register_form(opcion){
             break;
         case "3":
             datos_Usuario = {
-                "CI": document.getElementById('CI').value,
+                "RUT": document.getElementById('rut_usuario').value,
                 "CORREO": document.getElementById('correo').value,
                 "NOMBRE": document.getElementById('nombre').value,
                 "APELLIDO": document.getElementById('apellido').value,
                 "DIRECCION": document.getElementById('direccion').value,
+                "AGENCIA_CONTRATISTA": document.getElementById('empresas').value,
                 "BARRIO": document.getElementById('barrio').value,
                 "DEPARTAMENTO": document.getElementById('departamento').value,
                 "TELEFONO": document.getElementById('numero_telefono').value,
@@ -516,10 +537,10 @@ function register_form(opcion){
                 "CORREO": document.getElementById('correo').value,
                 "NOMBRE": document.getElementById('nombre').value,
                 "APELLIDO": document.getElementById('apellido').value,
-                "DIRECCION": document.getElementById('direccion').value,
-                "BARRIO": document.getElementById('barrio').value,
-                "DEPARTAMENTO": document.getElementById('departamento').value,
-                "TELEFONO": document.getElementById('numero_telefono').value,
+                "TELEFONO": document.getElementById('numero_telefono_hotel').value,
+                "SUPERVISOR": document.getElementById('es_supervisor').value,
+                "NOMBRE_HOTEL": document.getElementById('nombre-hotel').value,
+                "DIRECCION_HOTEL": document.getElementById('direccion-hotel').value,
                 "PIN": document.getElementById('password').value,
                 "RE-PIN": document.getElementById('re-password').value
             };
@@ -625,7 +646,6 @@ function add_vehicle(){
     }else{ console.log("No valido...") }
 
     /*
-
     */
 }
 
