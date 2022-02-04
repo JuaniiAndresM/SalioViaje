@@ -205,7 +205,7 @@ function steps(step){
             break;
 
         case 5:
-            $('.progress-bar').show();
+            $('.progress-bar').hide();
             $('.progress-bar2').hide();
 
             $('.progress').css('width', '100%');
