@@ -110,6 +110,14 @@
       width: 100%;
       text-align: center;
 
+      .step_title{
+        color: $main_1;
+
+        i{
+          margin-right: 10px;
+        }
+      }
+
       .inputs-wrapper,
       .inputs-wrapper-register {
         width: 100%;
