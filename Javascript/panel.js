@@ -30,7 +30,7 @@ $(document).ready(function () {
 
     list.forEach((item) => 
     item.addEventListener('mouseover', activateLink));
-    $('#panel-navbar').load('/SalioViaje/web/panel-navbar.html');
+    $('#panel-navbar').load('/web/panel-navbar.html');
 
 
     $('#select_actualizar').change(function(){
@@ -358,7 +358,7 @@ function filtros(){
 function traigoVisitas(){
         visitas = $.ajax({
                         type: 'POST',       
-                        url: "/SalioViaje/PHP/Backend.php",
+                        url: "/PHP/Backend.php",
                         data: {opcion:"visitas"},
                         global: false,
                         async:false,

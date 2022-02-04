@@ -417,7 +417,7 @@ function register_form(opcion){
             
             $.ajax({
                     type: "POST",
-                    url: "/SalioViaje/PHP/procedimientosForm.php",
+                    url: "/PHP/procedimientosForm.php",
                     data: { tipo:opcion, datos_Usuario:JSON.stringify(datos_Usuario), empresas:null },
                     success: function (response) {
                         ID_USUARIO = response;
@@ -428,7 +428,7 @@ function register_form(opcion){
                 if (empresas.length != 0 && ID_USUARIO != null) {
                     $.ajax({
                         type: "POST",
-                        url: "/SalioViaje/PHP/procedimientosForm.php",
+                        url: "/PHP/procedimientosForm.php",
                         data: { tipo:opcion,idUsuario: ID_USUARIO, datos_Usuario:null, empresas:JSON.stringify(empresas) },
                         success: function (response) {
                             window.location = "https://www.salioviaje.com.uy/Success";
