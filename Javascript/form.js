@@ -9,9 +9,9 @@ $(document).ready(function () {
     $('.vehiculos-wrapper').hide();
     $('.progress-bar2').hide();
 
-    $('add_company_button').show();
-    $('finalizar-registro-TTA').attr('disabled', false);
-    $('finalizar-registro-TTA').html('<i class="fas fa-check"></i> Finalizar');
+    $('#add_company_button').show();
+    $('#finalizar-registro-TTA').attr('disabled', false);
+    $('#finalizar-registro-TTA').html('<i class="fas fa-check"></i> Finalizar');
 
     steps(1);
     Empresas();
@@ -361,20 +361,24 @@ function register_form(opcion){
         case "2":
             if (validacion("USUARIO",datos_Usuario)) {
                 if (empresas.length != 0) {
-                    registrar_usuario("TTA")
+                    registrar_usuario("TTA");
 
-                    $('add_company_button').hide();
-                    $('finalizar-registro-TTA').attr('disabled', true);
-                    $('finalizar-registro-TTA').html('<span class="loader-register"><i class="fas fa-spinner"></i></span>')
+                    $('#add_company_button').hide();
+                    $('#finalizar-registro-TTA').attr('disabled', true);
+                    $('#finalizar-registro-TTA').html('<span class="loader-register"><i class="fas fa-spinner"></i></span>');
 
                     setTimeout(function() {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2c240d2aa4f9d3904bbf9236234f9584f43179c1
                         $.ajax({
                         type: "POST",
                         url: "/SalioViaje/PHP/procedimientosForm.php",
                         data: { tipo:"2",idUsuario: ID_USUARIO,empresas:JSON.stringify(empresas) },
                         success: function (response) {
                             console.log(response)
-                            //window.location = "/SalioViaje/Success";
+                            window.location = "/SalioViaje/Success";
                             },
                         });
 
