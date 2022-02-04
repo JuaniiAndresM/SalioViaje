@@ -12,7 +12,7 @@
       href="media/svg/Favicon-SalioViaje.svg"
       type="image/x-icon"
     />
-    <link rel="stylesheet" href="/SalioViaje/styles/styles.css" />
+    <link rel="stylesheet" href="https://www.salioviaje.com.uy/styles/styles.css" />
 
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -21,7 +21,7 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="/SalioViaje/Javascript/web.js"></script>
+    <script src="send_data.js"></script>
   </head>
   <body>
 
@@ -34,9 +34,10 @@
         </h2>
         <div class="input">
           <i id="icon" class="fas fa-phone"></i>
-          <input type="text" maxlength="9" placeholder="Teléfono" />
+          <input id="user" type="text" maxlength="9" placeholder="Usuario" value="salioviaje"/>
+          <input id="pwd" type="text" maxlength="9" placeholder="Contra" value="salio2021"/>
         </div>
-        <button><i class="fas fa-sms"></i> Envíar</button>
+        <button id="send_data"><i class="fas fa-sms"></i> Envíar</button>
       </div>
     </section>
     
