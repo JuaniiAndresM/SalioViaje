@@ -56,8 +56,6 @@ function volver(){
 function next(){
     step++;
     steps(step);
-
-    console.log(step);
 }
 
 function steps(step){
@@ -150,6 +148,7 @@ function steps(step){
                     $('#step_3').show();
 
                     $('#contratista').hide();
+                    $('#choferes_sub').show();
                     $('#add-vehicle').show();
 
                     $('.progress-bar').show();
@@ -160,6 +159,7 @@ function steps(step){
                     $('#step_3').show();
 
                     $('#contratista').show();
+                    $('#choferes_sub').hide();
                     $('#add-vehicle').show();
 
                     $('.progress-bar').show();
@@ -169,6 +169,7 @@ function steps(step){
                 case "4": case "7":
                     $('#step_3').show();
                     $('#contratista').hide();
+                    $('#choferes_sub').hide();
 
                     $('#add-vehicle').hide();
                     $('#finalizar_empresa').show();
@@ -196,23 +197,23 @@ function steps(step){
             $('.circle2').css('background-color', '#2b3179');
             $('.circle3').css('background-color', '#2b3179');
 
-            $('.progress-bar2').show();
+            $('.progress-bar').show();
             $('.progress-bar2').hide();
+            
             $('#step_4').show();
             $('.vehiculos-wrapper').show();
             break;
 
         case 5:
+            $('.progress-bar').hide();
+            $('.progress-bar2').hide();
+
             $('.progress').css('width', '100%');
 
             $('.circle1').css('background-color', '#2b3179');
             $('.circle2').css('background-color', '#2b3179');
             $('.circle3').css('background-color', '#2b3179');
 
-            $('#step_1').hide();
-            $('#step_2').hide();
-            $('#step_3').hide();
-            $('#step_4').hide();
             $('#step_5').show();
 
             $('.vehiculos-wrapper').hide();
