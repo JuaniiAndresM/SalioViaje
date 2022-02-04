@@ -363,11 +363,13 @@ function register_form(opcion){
                 if (empresas.length != 0) {
                     registrar_usuario("TTA")
 
+                    $('add_company_button').hide();
+                    $('finalizar-registro-TTA').attr('disabled', true);
+                    $('finalizar-registro-TTA').html('<span class="loader-register"><i class="fas fa-spinner"></i></span>')
+
                     setTimeout(function() {
 
-                        $('add_company_button').hide();
-                        $('finalizar-registro-TTA').attr('disabled', true);
-                        $('finalizar-registro-TTA').html('<span class="loader-register"><i class="fas fa-spinner"></i></span>');
+                        ;
 
                         $.ajax({
                         type: "POST",
