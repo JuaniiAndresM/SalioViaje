@@ -9,6 +9,8 @@ class procedimientosBD
         //$conexion = mysqli_connect("localhost", "root", "root", "salioviaje");
         //$conexion = mysqli_connect("158.106.136.183", "salioviajeuy", "La_medusa_2022", "salioviajeuy_salioviajeuy");
         $conexion = mysqli_connect("localhost", "root", "root", "salioviajeuy_salioviajeuy");
+
+        $conexion->set_charset("utf8");
         if (!$conexion) {
             echo "Error al conectar con la Base de datos.";
             exit();
@@ -166,6 +168,31 @@ class procedimientosBD
          }
         $stmt->close();
         return $vehiculos;
+    }
+
+    public function agrego_visita(){
+        $vehiculos = array();
+        $conn = $this->conexion();
+        $query = "call agrego_visita()";
+        $stmt = $conn->prepare($query);
+        $stmt->execute();
+        $stmt->close();
+    }
+
+    public function traigo_visitas(){
+        $vehiculos = array();
+        $conn = $this->conexion();
+        $query = "SELECT * FROM salioviajeuy_salioviajeuy.visitas";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($visitas);
+            while ($stmt->fetch()) {
+               $result = $visitas;
+            }
+         }
+        $stmt->close();
+        return $visitas;
     }
 }
 ?>

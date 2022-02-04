@@ -28,7 +28,7 @@ $contraste_2: #ffffff;
 .landing {
   width: 100%;
   height: calc(100vh - 80px);
-  max-height: 700px;
+  
   
   background-color: #fff;
   margin-top: 80px;
@@ -37,7 +37,7 @@ $contraste_2: #ffffff;
 
   .landing-wrapper-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 40% 1fr;
     width: 100%;
     gap: 20px;
 
@@ -68,7 +68,7 @@ $contraste_2: #ffffff;
         p {
           color: $main_1;
           font-size: 1.4em;
-          max-width: 450px;
+          max-width: 400px;
           width: 100%;
           margin-bottom: 20px;
         }
@@ -97,8 +97,10 @@ $contraste_2: #ffffff;
       align-items: center;
 
       .landing-img-wrapper {
-        width: 500px;
-        height: 450px;
+        max-width: 900px;
+        width: 100%;
+
+        height: 600px;
 
         border-radius: 6em 6em 0 6em;
         overflow: hidden;
@@ -108,6 +110,7 @@ $contraste_2: #ffffff;
           width: 100%;
           height: 100%;
           object-fit: cover;
+          object-position: 0 -240px;
         }
       }
     }
@@ -120,7 +123,7 @@ $contraste_2: #ffffff;
 
   margin: 0 auto;
 
-  padding: 30px 10px;
+  padding: 10px 10px;
 
   h2 {
     color: $contraste_1;
@@ -356,8 +359,8 @@ $contraste_2: #ffffff;
 }
 
 .oportunidades {
-  margin: 90px auto;
-  margin-bottom: 150px;
+  margin: 20px auto;
+  margin-bottom: 20px;
 
   padding: 0 20px;
 
@@ -367,12 +370,8 @@ $contraste_2: #ffffff;
   text-align: center;
 
   h2 {
-    color: $contraste_1;
-    font-size: 2.3em;
-
-    span {
-      color: $main_1;
-    }
+    color: $main_1;
+    font-size: 2.6em;
   }
   hr {
     width: 100px;
@@ -541,8 +540,24 @@ $contraste_2: #ffffff;
   }
 }
 
-@media screen and(max-width: 950px) {
+@media screen and(max-width: 1550px) {
+  .landing{
+    .landing-wrapper-grid {
+      .landing-right{
+        .landing-img-wrapper {
+          img{
+            object-position: 0;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and(max-width: 1050px) {
   .landing {
+    max-height: 600px;
+    overflow: hidden;
+    margin-bottom: 20px;
     .landing-wrapper-grid {
       grid-template-columns: 1fr;
 

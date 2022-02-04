@@ -12,7 +12,6 @@ RewriteCond %{REQUEST_FILENAME} !-d
 #RewriteRule ^ https://www.%1%{REQUEST_URI} [L,NE,R=301]
 
 
-
 RewriteRule ^Login /SalioViaje/Form/Login.php
 RewriteRule ^Admin /SalioViaje/Form/Login_A.html
 RewriteRule ^Register /SalioViaje/Form/Register.html
@@ -21,6 +20,7 @@ RewriteRule ^Dashboard /SalioViaje/Panel/Dashboard.php
 RewriteRule ^Usuarios /SalioViaje/Panel/Usuarios.php
 RewriteRule ^Empresas /SalioViaje/Panel/Empresas.php
 RewriteRule ^Vehiculos /SalioViaje/Panel/Vehiculos.php
+RewriteRule ^Settings /SalioViaje/Panel/Settings.php
 
 RewriteRule ^Success /SalioViaje/Form/Success.html
 RewriteRule ^Failed /SalioViaje/Form/Failed.html

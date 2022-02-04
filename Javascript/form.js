@@ -4,6 +4,7 @@ $(document).ready(function () {
     $('#mensaje-error3').hide();
     $('#mensaje-error4').hide();
     $('#mensaje-error5').hide();
+
     $('.progress-bar').hide();
     $('.vehiculos-wrapper').hide();
     $('.progress-bar2').hide();
@@ -68,8 +69,10 @@ function steps(step){
             $('#step_3').hide();
             $('#step_4').hide();
             $('#step_5').hide();
+            $('#step_hotel').hide();
 
             $('.vehiculos-wrapper').hide();
+            $('#button_next_step').hide();
             break;
 
         case 2:
@@ -88,6 +91,7 @@ function steps(step){
                 $('#step_3').hide();
                 $('#step_4').hide();
                 $('#step_5').hide();
+                $('#step_hotel').hide();
             }
 
             $('.vehiculos-wrapper').hide();
@@ -103,9 +107,9 @@ function steps(step){
 
             $('#step_1').hide();
             $('#step_2').hide();
-            $('#step_3').show();
             $('#step_4').hide();
             $('#step_5').hide();
+            $('#step_hotel').hide();
             $('#add-vehicle').show();
             $('#finalizar_empresa').hide();
 
@@ -114,6 +118,10 @@ function steps(step){
             if(user == 4 || user == 7){
                 $('#add-vehicle').hide();
                 $('#finalizar_empresa').show();
+                $('#step_3').show();
+            }else if(user == 5){
+                $('#step_3').hide();
+                $('#step_hotel').show();
             }
 
             $('.vehiculos-wrapper').hide();
@@ -153,6 +161,12 @@ function steps(step){
     }
 }
 
+function select_usuario(){
+    var user = $('#select_users').val();
+
+    $('#button_next_step').click();
+}
+
 function select_user(user){
 
     $('.progress-bar').hide();
@@ -175,9 +189,6 @@ function select_user(user){
             $('#step_1').hide();
 
             $('#step_2').show();
-            $('#ci').show();
-            $('#rut').hide();
-            $('#contratista').hide();
 
             $('#pax-register').show();
             $('#step-next').hide();
@@ -188,9 +199,6 @@ function select_user(user){
             $('#step_1').hide();
 
             $('#step_2').show();
-            $('#ci').show();
-            $('#rut').hide();
-            $('#contratista').hide();
 
             $('#pax-register').hide();
             $('#step-next').show();
@@ -201,9 +209,6 @@ function select_user(user){
             $('#step_1').hide();
 
             $('#step_2').show();
-            $('#ci').hide();
-            $('#rut').show();
-            $('#contratista').show();
             
             $('#pax-register').hide();
             $('#step-next').show();
@@ -215,9 +220,6 @@ function select_user(user){
             $('#step_1').hide();
 
             $('#step_2').show();
-            $('#ci').hide();
-            $('#rut').show();
-            $('#contratista').hide();
             
             $('#pax-register').hide();
             $('#step-next').show();
@@ -225,24 +227,13 @@ function select_user(user){
 
         case "5":
             $('.progress-bar').hide();
+            $('.progress-bar2').show();
             $('#step_1').hide();
 
             $('#step_2').show();
-            $('#ci').show();
-            $('#rut').hide();
-            $('#contratista').hide();
-            
-            $('#telefono-hotel').show();
-            $('#supervisor').show();
-            $('#nombrehotel').show();
-            $('#direccionhotel').show();
-            $('#direccion-input').hide();
-            $('#barrio-input').hide();
-            $('#departamento-input').hide();
-            $('#telefono-input').hide();
-            
-            $('#pax-register').show();
-            $('#step-next').hide();
+
+            $('#pax-register').hide();
+            $('#step-next').show();
             break;
 
         case "6":
@@ -250,9 +241,6 @@ function select_user(user){
             $('#step_1').hide();
 
             $('#step_2').show();
-            $('#ci').show();
-            $('#rut').hide();
-            $('#contratista').hide();
 
             $('#pax-register').show();
             $('#step-next').hide();
@@ -264,9 +252,6 @@ function select_user(user){
             $('#step_1').hide();
 
             $('#step_2').show();
-            $('#ci').hide();
-            $('#rut').show();
-            $('#contratista').hide();
             
             $('#pax-register').hide();
             $('#step-next').show();
@@ -312,32 +297,67 @@ function reset_vehicles(){
     $('#no-vehicle').show();
 }
 
-function passwd(){
+function passwd(tipo){
 
-    if($('#passeye').hasClass('show')){
-        $('#passwd').attr('type', 'password');
-        $('#passeye').html('<i class="fas fa-eye-slash"></i>');
-        $('#passeye').attr('class','hidden');
-    }else{
-        $('#passwd').attr('type', 'text');
-        $('#passeye').html('<i class="fas fa-eye"></i>');
-        $('#passeye').attr('class','show');
+    switch(tipo){
+        // Login
+        case 1:
+            if($('#passeye').hasClass('show')){
+                $('#passwd').attr('type', 'password');
+                $('#passeye').html('<i class="fas fa-eye-slash"></i>');
+                $('#passeye').attr('class','hidden');
+            }else{
+                $('#passwd').attr('type', 'text');
+                $('#passeye').html('<i class="fas fa-eye"></i>');
+                $('#passeye').attr('class','show');
+            }
+            break;
+
+        // PIN 1
+        case 2:
+            if($('#passeye').hasClass('show')){
+                $('#password').attr('type', 'password');
+                $('#passeye').html('<i class="fas fa-eye-slash"></i>');
+                $('#passeye').attr('class','hidden');
+            }else{
+                $('#password').attr('type', 'text');
+                $('#passeye').html('<i class="fas fa-eye"></i>');
+                $('#passeye').attr('class','show');
+            }
+            break;
+
+        // PIN 2
+        case 3:
+            if($('#passeye2').hasClass('show')){
+                $('#re-password').attr('type', 'password');
+                $('#passeye2').html('<i class="fas fa-eye-slash"></i>');
+                $('#passeye2').attr('class','hidden');
+            }else{
+                $('#re-password').attr('type', 'text');
+                $('#passeye2').html('<i class="fas fa-eye"></i>');
+                $('#passeye2').attr('class','show');
+            }
+            break;
+
+        // PASSWORD MTOP
+        case 4:
+            if($('#passeye3').hasClass('show')){
+                $('#password_mtop').attr('type', 'password');
+                $('#passeye3').html('<i class="fas fa-eye-slash"></i>');
+                $('#passeye3').attr('class','hidden');
+            }else{
+                $('#password_mtop').attr('type', 'text');
+                $('#passeye3').html('<i class="fas fa-eye"></i>');
+                $('#passeye3').attr('class','show');
+            }
+            break;
+
+
     }
+
+    
     
 }
-function passwd2(){
-
-    if($('#passeye2').hasClass('show')){
-        $('#passwd2').attr('type', 'password');
-        $('#passeye2').html('<i class="fas fa-eye-slash"></i>');
-        $('#passeye2').attr('class','hidden');
-    }else{
-        $('#passwd2').attr('type', 'text');
-        $('#passeye2').html('<i class="fas fa-eye"></i>');
-        $('#passeye2').attr('class','show');
-    }
-    
-} 
 
 /*-------------------------------------------------------------------------------------------*/
 //                                     Register                                              //
@@ -351,6 +371,8 @@ let empresas = new Array();
 let vehiculos = new Array();
 
 function register_form(opcion){
+
+    console.log(opcion)
 
        switch(opcion){
         case "1":
@@ -396,7 +418,7 @@ function register_form(opcion){
             $.ajax({
                     type: "POST",
                     url: "/SalioViaje/PHP/procedimientosForm.php",
-                    data: { tipo:opcion, datos_Usuario:datos_Usuario, empresas:null },
+                    data: { tipo:opcion, datos_Usuario:JSON.stringify(datos_Usuario), empresas:null },
                     success: function (response) {
                         ID_USUARIO = response;
                 },
@@ -408,7 +430,7 @@ function register_form(opcion){
                     $.ajax({
                         type: "POST",
                         url: "/SalioViaje/PHP/procedimientosForm.php",
-                        data: { tipo:opcion,idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas) },
+                        data: { tipo:opcion,idUsuario: ID_USUARIO, datos_Usuario:null, empresas:JSON.stringify(empresas) },
                         success: function (response) {
                             window.location = "/SalioViaje/Success";
                         },
@@ -418,12 +440,11 @@ function register_form(opcion){
             break;
         case "3":
             datos_Usuario = {
-                "RUT": document.getElementById('rut_usuario').value,
+                "CI": document.getElementById('CI').value,
                 "CORREO": document.getElementById('correo').value,
                 "NOMBRE": document.getElementById('nombre').value,
                 "APELLIDO": document.getElementById('apellido').value,
                 "DIRECCION": document.getElementById('direccion').value,
-                "AGENCIA_CONTRATISTA": document.getElementById('empresas').value,
                 "BARRIO": document.getElementById('barrio').value,
                 "DEPARTAMENTO": document.getElementById('departamento').value,
                 "TELEFONO": document.getElementById('numero_telefono').value,
@@ -496,10 +517,10 @@ function register_form(opcion){
                 "CORREO": document.getElementById('correo').value,
                 "NOMBRE": document.getElementById('nombre').value,
                 "APELLIDO": document.getElementById('apellido').value,
-                "TELEFONO": document.getElementById('numero_telefono_hotel').value,
-                "SUPERVISOR": document.getElementById('es_supervisor').value,
-                "NOMBRE_HOTEL": document.getElementById('nombre-hotel').value,
-                "DIRECCION_HOTEL": document.getElementById('direccion-hotel').value,
+                "DIRECCION": document.getElementById('direccion').value,
+                "BARRIO": document.getElementById('barrio').value,
+                "DEPARTAMENTO": document.getElementById('departamento').value,
+                "TELEFONO": document.getElementById('numero_telefono').value,
                 "PIN": document.getElementById('password').value,
                 "RE-PIN": document.getElementById('re-password').value
             };
