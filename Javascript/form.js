@@ -368,9 +368,6 @@ function register_form(opcion){
                     $('finalizar-registro-TTA').html('<span class="loader-register"><i class="fas fa-spinner"></i></span>')
 
                     setTimeout(function() {
-
-                        ;
-
                         $.ajax({
                         type: "POST",
                         url: "/SalioViaje/PHP/procedimientosForm.php",
