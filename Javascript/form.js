@@ -377,10 +377,21 @@ switch(opcion){
                case "2":
                if (validacion("USUARIO",datos_Usuario)) {
                 if (empresas.length != 0) {
+<<<<<<< HEAD
                   registrar_usuario("TTA");
                   btn_finalizar_carga()
                   setTimeout(function() {
                      $.ajax({
+=======
+                    registrar_usuario("TTA");
+
+                    $('#add_company_button').hide();
+                    $('#finalizar-registro-TTA').attr('disabled', true);
+                    $('#finalizar-registro-TTA').html('<span class="loader-register"><i class="fas fa-spinner"></i></span>');
+
+                    setTimeout(function() {
+                        $.ajax({
+>>>>>>> a203a4dbc0e6f1065d43a92b0feaeea505118ceb
                         type: "POST",
                         url: "/SalioViaje/PHP/procedimientosForm.php",
                         data: { tipo:"2",idUsuario: ID_USUARIO,empresas:JSON.stringify(empresas) },
