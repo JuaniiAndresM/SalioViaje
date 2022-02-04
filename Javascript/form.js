@@ -56,8 +56,6 @@ function volver(){
 function next(){
     step++;
     steps(step);
-
-    console.log(step);
 }
 
 function steps(step){
