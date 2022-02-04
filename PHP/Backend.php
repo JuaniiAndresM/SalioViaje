@@ -5,6 +5,7 @@ require ('procedimientosBD.php');
  */
 class Backend extends procedimientosBD
 {
+	private $visitas = 0;
 	private $datos = array();
 	private $usuarios = array();
 	private $empresas = array();
@@ -21,6 +22,9 @@ class Backend extends procedimientosBD
 				break;
 			case 'vih':
 				$this->vehiculos = $this->datos_vehiculos();
+				break;
+			case 'visitas':
+				$this->visitas = $this->traigo_visitas();
 				break;
 		}
 	}
@@ -51,6 +55,12 @@ class Backend extends procedimientosBD
 		*/
 		return json_encode($this->vehiculos);
 	}
+	public function getVisitas(){
+		/*
+			Panel de administrador
+		*/
+		return json_encode($this->visitas);
+	}
 }
 
 $Backend = new Backend($_POST['opcion']);
@@ -59,6 +69,8 @@ if ($_POST['opcion'] == "usr") {
 	echo $Backend->getUsuarios();
 } else if($_POST['opcion'] == "emp") {
 	echo $Backend->getEmpresas();
+} else if($_POST['opcion'] == "visitas") {
+	echo $Backend->getVisitas();
 } else {
 	echo $Backend->getVehiculos();
 }

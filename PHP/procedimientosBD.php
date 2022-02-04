@@ -7,8 +7,10 @@ class procedimientosBD
 	
     private function conexion(){
         //$conexion = mysqli_connect("localhost", "root", "root", "salioviaje");
-        $conexion = mysqli_connect("158.106.136.183", "salioviajeuy", "La_medusa_2022", "salioviajeuy_salioviajeuy");
-        //$conexion = mysqli_connect("localhost", "root", "root", "salioviajeuy_salioviajeuy");
+        //$conexion = mysqli_connect("158.106.136.183", "salioviajeuy", "La_medusa_2022", "salioviajeuy_salioviajeuy");
+        $conexion = mysqli_connect("localhost", "root", "root", "salioviajeuy_salioviajeuy");
+
+        $conexion->set_charset("utf8");
         if (!$conexion) {
             echo "Error al conectar con la Base de datos.";
             exit();
@@ -24,7 +26,7 @@ class procedimientosBD
         $query = "CALL register_usuario(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         $stmt = $conn->prepare($query);
         $stmt->bind_param("sissssssiisssss", $tipo, $datos["CI"], $datos["CORREO"], $datos["NOMBRE"], $datos["APELLIDO"], $datos["DIRECCION"], $datos["BARRIO"], $datos["DEPARTAMENTO"], $datos["TELEFONO"],$datos["PIN"],$datos['AGENCIA_CONTRATISTA'],$datos['RUT'],$datos['SUPERVISOR'], $datos['NOMBRE_HOTEL'],$datos['DIRECCION_HOTEL']);
-       	if ($stmt->execute()) {
+        if ($stmt->execute()) {
             $stmt->store_result();
             $stmt->bind_result($idUsuario);
             while ($stmt->fetch()) {
@@ -129,7 +131,7 @@ class procedimientosBD
                $result = array('ID' => $id_usuario,'TIPO_USUARIO' => $tipo_usuario, 'CI' => $ci, 'EMAIL' => $mail, 'NOMBRE' => $nombre, 'APELLIDO' => $apellido, 'DIRECCION' => $direccion, 'BARRIO' => $barrio, 'DEPARTAMENTO' => $departamento, 'TELEFONO' => $telefono, 'AGENCIA_CONTRATISTA' => $agencia_contratista, 'NOMBRE_HOTEL' => $nombre_hotel, 'DIRECCION_HOTEL' => $direccion_hotel, 'SUPERVISOR' => $supervisor, 'RUT' => $rut);
                $usuarios[] = $result;
             }
-         }
+        }
         $stmt->close();
         return $usuarios;
     }
@@ -166,6 +168,31 @@ class procedimientosBD
          }
         $stmt->close();
         return $vehiculos;
+    }
+
+    public function agrego_visita(){
+        $vehiculos = array();
+        $conn = $this->conexion();
+        $query = "call agrego_visita()";
+        $stmt = $conn->prepare($query);
+        $stmt->execute();
+        $stmt->close();
+    }
+
+    public function traigo_visitas(){
+        $vehiculos = array();
+        $conn = $this->conexion();
+        $query = "SELECT * FROM salioviajeuy_salioviajeuy.visitas";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($visitas);
+            while ($stmt->fetch()) {
+               $result = $visitas;
+            }
+         }
+        $stmt->close();
+        return $visitas;
     }
 }
 ?>

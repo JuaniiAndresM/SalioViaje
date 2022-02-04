@@ -1,5 +1,6 @@
 .login,
-.register, .success{
+.register,
+.success {
   width: 100%;
   min-height: calc(100vh - 80px);
   display: flex;
@@ -36,7 +37,8 @@
       }
     }
 
-    .progress-bar, .progress-bar2 {
+    .progress-bar,
+    .progress-bar2 {
       position: relative;
       width: 90%;
       height: 15px;
@@ -57,7 +59,8 @@
         border-radius: 2em;
         background-color: #aaa;
       }
-      .progress, .progress2 {
+      .progress,
+      .progress2 {
         position: absolute;
         left: 0;
 
@@ -88,7 +91,7 @@
         left: calc(100% - 10px);
       }
     }
-    .progress-bar2{
+    .progress-bar2 {
       .circle1 {
         background-color: $main_1;
       }
@@ -102,7 +105,8 @@
     #step_2,
     #step_3,
     #step_4,
-    #step_5 {
+    #step_5,
+    .step_hotel {
       width: 100%;
       text-align: center;
 
@@ -137,7 +141,9 @@
             left: 0;
             color: #555;
           }
-          #passeye {
+          .password-eye {
+            background-color: transparent;
+            border: none;
             position: absolute;
             top: 12px;
             right: 0;
@@ -145,7 +151,7 @@
             cursor: pointer;
             transition: 0.3s;
           }
-          #passeye:hover {
+          .password-eye:hover {
             transform: scale(1.2);
           }
         }
@@ -188,7 +194,8 @@
         }
       }
 
-      .mensaje-error, #mensaje-error{
+      .mensaje-error,
+      #mensaje-error {
         color: #ff635a;
         margin-bottom: 20px;
       }
@@ -232,8 +239,9 @@
           left: 0;
           color: #555;
         }
-        #passeye,
-        #passeye2 {
+        .password-eye {
+          background-color: transparent;
+          border: none;
           position: absolute;
           top: 12px;
           right: 0;
@@ -241,8 +249,7 @@
           cursor: pointer;
           transition: 0.3s;
         }
-        #passeye:hover,
-        #passeye2:hover {
+        .password-eye:hover {
           transform: scale(1.2);
         }
       }
@@ -286,7 +293,7 @@
         margin-bottom: 0;
         overflow-y: auto;
 
-        #no-vehicle{
+        #no-vehicle {
           width: 100%;
           height: 100%;
 
@@ -294,7 +301,7 @@
           justify-content: center;
           align-items: center;
 
-          p{
+          p {
             color: $main_1;
           }
         }
@@ -376,51 +383,50 @@
       }
     }
   }
-  .success-wrapper{
+  .success-wrapper {
     padding: 20px;
     max-width: 400px;
     background-color: $contraste_2;
-    box-shadow: 10px 0 20px 0 rgba($color: #000000, $alpha: .3);
+    box-shadow: 10px 0 20px 0 rgba($color: #000000, $alpha: 0.3);
     border-radius: 3em 0 3em 3em;
 
     text-align: center;
     margin: 20px;
 
-    .success-icon{
+    .success-icon {
       width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
 
-      i{
+      i {
         color: rgb(166, 255, 107);
         font-size: 5em;
       }
     }
-    h3{
+    h3 {
       font-size: 1.6em;
       font-weight: normal;
       color: $main_1;
       margin: 5px 10px;
       margin-top: 20px;
     }
-    p{
+    p {
       color: #555;
       margin: 0 10px;
       margin-bottom: 10px;
-
     }
-    .success-buttons{
+    .success-buttons {
       display: flex;
       justify-content: center;
       align-items: center;
       flex-wrap: wrap;
 
-      a{
+      a {
         @include button();
         text-decoration: none;
         margin: 5px;
-        font-size: .8em;
+        font-size: 0.8em;
       }
     }
   }
@@ -429,7 +435,7 @@
 @media screen and(max-width: 1260px) {
   .register {
     .register-wrapper {
-      .vehiculos-wrapper{
+      .vehiculos-wrapper {
         position: relative;
         right: 0;
         box-shadow: none;
@@ -446,7 +452,8 @@
       #step_2,
       #step_3,
       #step_4,
-      #step_5 {
+      #step_5,
+      .step_hotel{
         .inputs-wrapper-register {
           grid-template-columns: 1fr;
         }

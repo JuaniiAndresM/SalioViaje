@@ -1,8 +1,7 @@
 $(document).ready(function () {
-    $('#header').load('/web/header.php');
-    $('#footer').load('/web/footer.html');
-
-
+    $('#header').load('/SalioViaje/web/header.php');
+    $('#footer').load('/SalioViaje/web/footer.html');
+    agregar_visita();
     document.getElementById('pre-loader').classList.toggle('load');
 });
 
@@ -19,6 +18,14 @@ function dashboard(){
     window.location = "https://www.salioviaje.com.uy/Panel/Dashboard.php";
 }
 
+
+function agregar_visita(){
+    $.ajax({ 
+        type: "POST",
+        url: "PHP/procedimientosForm.php",
+        data: {tipo:"visita"}
+    });
+}
 
 function suscripcion(){
 

@@ -114,7 +114,7 @@
       </div>
       <div class="header-right">
         <div class="header-user">
-          <div class="icon"><i class="fab fa-apple"></i></div>
+          <div class="icon"><img src="/SalioViaje/media/svg/Logo-SalioViaje-White.svg" alt="Logo SalióViaje"></div>
           <div class="user">
           <h2><?php echo $_SESSION['usuario']; ?></h2> 
                 <p><i class="fas fa-user-tie"></i> <?php echo $_SESSION['tipo_usuario'] ?></p>
@@ -139,12 +139,12 @@
                 type="text"
                 placeholder="Buscar"
                 id="searchbar"
-                onkeyup="buscarUsuarios()"
+                onkeyup="buscarUsuarios(4)"
               />
             </div>
           </div>
           <div class="table-overflow">
-            <table class="usuarios-table" id="search-table">
+            <table class="usuarios-table" id="search-table-vehiculos">
               <thead>
                 <tr>
                   <th>ID <i class="fas fa-angle-down"></i></th>
