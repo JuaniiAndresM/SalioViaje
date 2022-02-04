@@ -9,7 +9,7 @@ class validaciones
 	private $PATTERN_CI = "/^[0-9]{7,8}$/i";
 	private $PATTERN_MAIL = "/.+@[a-z]{4,5}.+\.[?=com]\w.+/i";
 	private $PATTERN_DIRECCION = "/^[a-zA-Z_]+([a-zA-Z0-9\s]*)$/i";
-	private $PATTERN_TELEFONO = "/[(?=09[0-9])(?=084)(?=086)(?=089)]{3}[0-9]{6}/i";
+	private $PATTERN_TELEFONO = "/^(?=09[1-9]){3}[0-9]{9}$/i";
 	private $PATTERN_PIN = "/[0-9]{4}/i";
 
 	private $PATTERN_RUT = "/^[\d]{12}$/i";
