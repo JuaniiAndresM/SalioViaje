@@ -325,7 +325,6 @@ function passwd(tipo){
 /*-------------------------------------------------------------------------------------------*/
 //                                     Register                                              //
 /*-------------------------------------------------------------------------------------------*/
-
 let ID_USUARIO;
 let datos_Usuario;
 let datos_Empresa;
@@ -347,28 +346,31 @@ function register_form(opcion){
             "RE-PIN": document.getElementById('re-password').value
         };
 
-    console.log(opcion)
-
-
-
        switch(opcion){
         case "1":
             if (validacion("USUARIO",datos_Usuario) == true) {
                 registrar_usuario("PAX");
+                //window.location = "/SalioViaje/Success";
             }else{ console.log("No valido...") }
             break;
         case "2":
             if (validacion("USUARIO",datos_Usuario)) {
-                if (empresas.length != 0 && ID_USUARIO != null) {
-                    ID_USUARIO = registrar_usuario("TTA");
-                    $.ajax({
+                if (empresas.length != 0) {
+                    registrar_usuario("TTA")
+
+                    setTimeout(function() {
+
+                        $.ajax({
                         type: "POST",
                         url: "/SalioViaje/PHP/procedimientosForm.php",
-                        data: { tipo:opcion,idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas) },
+                        data: { tipo:"2",idUsuario: ID_USUARIO,empresas:JSON.stringify(empresas) },
                         success: function (response) {
-                            window.location = "/SalioViaje/Success";
-                        },
-                    });
+                            console.log(response)
+                            //window.location = "/SalioViaje/Success";
+                            },
+                        });
+
+                    }, 1000);
                 } else { next() }
             }else{ console.log("No valido...") }
             break;
@@ -379,9 +381,9 @@ function register_form(opcion){
                     $.ajax({
                         type: "POST",
                         url: "/SalioViaje/PHP/procedimientosForm.php",
-                        data: { tipo:opcion,idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas) },
+                        data: { tipo:'3',idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas) },
                         success: function (response) {
-                            window.location = "/SalioViaje/Success";
+                            //window.location = "/SalioViaje/Success";
                         },
                     });
                 } else { next() }
@@ -394,10 +396,10 @@ function register_form(opcion){
                     $.ajax({
                         type: "POST",
                         url: "/SalioViaje/PHP/procedimientosForm.php",
-                        data: { tipo:opcion,idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas)  },
+                        data: { tipo:'4',idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas)  },
                         success: function (response) {
                             console.log(response)
-                            window.location = "/SalioViaje/Success";
+                            //window.location = "/SalioViaje/Success";
                         },
                     });
                 } else { next() }
@@ -410,9 +412,9 @@ function register_form(opcion){
                     $.ajax({
                         type: "POST",
                         url: "/SalioViaje/PHP/procedimientosForm.php",
-                        data: { tipo:opcion, datos:JSON.stringify(datos_Usuario) },
+                        data: { tipo:'5', datos:JSON.stringify(datos_Usuario) },
                         success: function (response) {
-                            window.location = "/SalioViaje/Success";
+                            //window.location = "/SalioViaje/Success";
                         },
                     });
                 } else { next() }
@@ -424,10 +426,9 @@ function register_form(opcion){
                 $.ajax({
                     type: "POST",
                     url: "/SalioViaje/PHP/procedimientosForm.php",
-                    data: { tipo:opcion, datos:JSON.stringify(datos_Usuario) },
+                    data: { tipo:'6', datos:JSON.stringify(datos_Usuario) },
                     success: function (response) {
-                        window.location = "/SalioViaje/Success";
-                        ID_USUARIO = response;
+                        //window.location = "/SalioViaje/Success";
                     },
                 });
             }else{ console.log("No valido...") }
@@ -439,9 +440,9 @@ function register_form(opcion){
                     $.ajax({
                         type: "POST",
                         url: "/SalioViaje/PHP/procedimientosForm.php",
-                        data: { tipo:opcion,idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas)  },
+                        data: { tipo:'7',idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas)  },
                         success: function (response) {
-                            window.location = "/SalioViaje/Success";
+                            //window.location = "/SalioViaje/Success";
                         },
                     });
                 } else { next() }
@@ -456,10 +457,12 @@ function registrar_usuario(tipoUsuario){
         url: "/SalioViaje/PHP/procedimientosForm.php",
         data: { tipo:"1",tipoUsuario:tipoUsuario, datos:JSON.stringify(datos_Usuario) },
         success: function (response) {
-            console.log(response)
-            window.location = "/SalioViaje/Success";
             ID_USUARIO = response;
+            console.log("ID usuario:  "+response)
         },
+        complete: function(){
+            return ID_USUARIO;
+        }
     });
 }
 
