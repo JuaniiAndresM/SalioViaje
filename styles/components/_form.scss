@@ -273,11 +273,22 @@
         flex-direction: column;
 
         button {
+          max-width: 240px;
+          width: 100%;
+          
           @include button();
 
           span{
-            animation: loader-finalizar .4s infinite forwards;
+            i{
+              animation: loader-finalizar 1s infinite forwards linear;
+              margin: 0;
+            }
           }
+        }
+        button:disabled,
+        button[disabled]{
+          background: #cccccc;
+          color: #666666;
         }
       }
     }

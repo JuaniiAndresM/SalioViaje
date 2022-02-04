@@ -3944,6 +3944,8 @@ footer .totum p a:hover {
 .register .register-wrapper #step_5 .button-wrapper button,
 .success .login-wrapper #step_5 .button-wrapper button,
 .success .register-wrapper #step_5 .button-wrapper button {
+  max-width: 240px;
+  width: 100%;
   background: -webkit-gradient(linear, left top, right top, from(#3844bc), to(#2b3179));
   background: linear-gradient(to right, #3844bc, #2b3179);
   color: #ffffff;
@@ -3965,14 +3967,31 @@ footer .totum p a:hover {
   margin-right: 5px;
 }
 
-.login .login-wrapper #step_5 .button-wrapper button span,
-.login .register-wrapper #step_5 .button-wrapper button span,
-.register .login-wrapper #step_5 .button-wrapper button span,
-.register .register-wrapper #step_5 .button-wrapper button span,
-.success .login-wrapper #step_5 .button-wrapper button span,
-.success .register-wrapper #step_5 .button-wrapper button span {
-  -webkit-animation: loader-finalizar .4s infinite forwards;
-          animation: loader-finalizar .4s infinite forwards;
+.login .login-wrapper #step_5 .button-wrapper button span i,
+.login .register-wrapper #step_5 .button-wrapper button span i,
+.register .login-wrapper #step_5 .button-wrapper button span i,
+.register .register-wrapper #step_5 .button-wrapper button span i,
+.success .login-wrapper #step_5 .button-wrapper button span i,
+.success .register-wrapper #step_5 .button-wrapper button span i {
+  -webkit-animation: loader-finalizar 1s infinite forwards linear;
+          animation: loader-finalizar 1s infinite forwards linear;
+  margin: 0;
+}
+
+.login .login-wrapper #step_5 .button-wrapper button:disabled,
+.login .login-wrapper #step_5 .button-wrapper button[disabled],
+.login .register-wrapper #step_5 .button-wrapper button:disabled,
+.login .register-wrapper #step_5 .button-wrapper button[disabled],
+.register .login-wrapper #step_5 .button-wrapper button:disabled,
+.register .login-wrapper #step_5 .button-wrapper button[disabled],
+.register .register-wrapper #step_5 .button-wrapper button:disabled,
+.register .register-wrapper #step_5 .button-wrapper button[disabled],
+.success .login-wrapper #step_5 .button-wrapper button:disabled,
+.success .login-wrapper #step_5 .button-wrapper button[disabled],
+.success .register-wrapper #step_5 .button-wrapper button:disabled,
+.success .register-wrapper #step_5 .button-wrapper button[disabled] {
+  background: #cccccc;
+  color: #666666;
 }
 
 .login .register-wrapper,
