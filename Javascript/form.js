@@ -306,6 +306,8 @@ function register_form(opcion){
 
     console.log(opcion)
 
+
+
        switch(opcion){
         case "1":
             if (validacion("USUARIO",datos_Usuario) == true) {
@@ -360,15 +362,17 @@ function register_form(opcion){
             break;
         case "5":
             if (validacion("USUARIO",datos_Usuario)) {
-                registrar_usuario("HTL");
-                $.ajax({
-                    type: "POST",
-                    url: "/SalioViaje/PHP/procedimientosForm.php",
-                    data: { tipo:opcion, datos:JSON.stringify(datos_Usuario) },
-                    success: function (response) {
-                        window.location = "/SalioViaje/Success";
-                    },
-                });
+                if (empresas.length != 0 && ID_USUARIO != null) {
+                    registrar_usuario("HTL");
+                    $.ajax({
+                        type: "POST",
+                        url: "/SalioViaje/PHP/procedimientosForm.php",
+                        data: { tipo:opcion, datos:JSON.stringify(datos_Usuario) },
+                        success: function (response) {
+                            window.location = "/SalioViaje/Success";
+                        },
+                    });
+                } else { next() }
             }else{ console.log("No valido...") }
             break;
         case "6":

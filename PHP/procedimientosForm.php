@@ -12,22 +12,22 @@ class procedimientosForm extends procedimientosBD
 	}
 
 	public function register_transportista($usuario,$empresa,$idUsuario){
-		$this->idUsuario = $idUsuario;
+		//$this->idUsuario = $idUsuario;
 		$this->registrar_empresa("TTA",null,$empresa);
 	}
 
 	public function register_chofer($usuario,$contratista,$empresa){
-		$this->idUsuario = $this->registrar_usuarios("CHO",$usuario);
+		//$this->idUsuario = $this->registrar_usuarios("CHO",$usuario);
 		$this->registrar_empresa("CHO",$contratista,$empresa);
 	}
 
 	public function register_anfitrion($usuario,$empresa){
-		$this->idUsuario = $this->registrar_usuarios("ANF",$usuario);
+		//$this->idUsuario = $this->registrar_usuarios("ANF",$usuario);
 		$this->registrar_empresa("ANF",null,$empresa);
 	}
 
 	public function register_agente($usuario,$empresa){
-		$this->idUsuario = $this->registrar_usuarios("AGT",$usuario);
+		//$this->idUsuario = $this->registrar_usuarios("AGT",$usuario);
 		$this->registrar_empresa("AGT",null,$empresa);
 	}
 
