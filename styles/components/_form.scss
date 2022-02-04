@@ -106,7 +106,7 @@
     #step_3,
     #step_4,
     #step_5,
-    .step_hotel {
+    #step_hotel {
       width: 100%;
       text-align: center;
 
@@ -283,7 +283,7 @@
       display: none;
       z-index: -1;
       width: 300px;
-      height: 490px;
+      height: 510px;
       background-color: $contraste_2;
       border-radius: 0 2em 2em 2em;
       box-shadow: 10px 0 20px 0 rgba($color: #000000, $alpha: 0.3);
@@ -459,7 +459,7 @@
       #step_3,
       #step_4,
       #step_5,
-      .step_hotel{
+      #step_hotel{
         .inputs-wrapper-register {
           grid-template-columns: 1fr;
         }

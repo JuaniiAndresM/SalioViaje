@@ -72,15 +72,23 @@ function steps(step){
     $('#step_hotel').hide();
 
     $('.vehiculos-wrapper').hide();
+    
     $('#button_next_step').hide();
+    $('#finalizar_empresa').hide();
 
-    $('.progress-bar').hide();
-    $('.progress-bar2').hide();
+    $('#add-vehicle').hide();
+    $('.vehiculos-wrapper').hide();    
+
+    $('.progress-bar').show();
+    $('.progress-bar2').show();
 
     switch(step){
 
         case 1:
             $('#step_1').show();
+            
+            $('.progress-bar').hide();
+            $('.progress-bar2').hide();
             break;
 
         case 2:
@@ -100,18 +108,23 @@ function steps(step){
                 case "1": case "6":
                     $('#pax-register').show();
                     $('#step-next').hide();
+
+                    $('.progress-bar').hide();
+                    $('.progress-bar2').hide();
                     break;
                 case "2": case "3":
                     $('#pax-register').hide();
                     $('#step-next').show();
 
                     $('.progress-bar').show();
+                    $('.progress-bar2').hide();
                     break;
                 
                 case "4": case "5": case "7":
                     $('#pax-register').hide();
                     $('#step-next').show();
 
+                    $('.progress-bar').hide();
                     $('.progress-bar2').show();
                     break;
 
@@ -122,6 +135,9 @@ function steps(step){
             break;
             
         case 3:
+            $('.progress-bar').show();
+            $('.progress-bar2').show();
+
             $('.progress').css('width', '50%');
             $('.progress2').css('width', '100%');
             
@@ -130,18 +146,42 @@ function steps(step){
             $('.circle3').css('background-color', '#aaa');
 
             switch(user){
-                case "2": case "4": case "7": 
+                case "2":
                     $('#step_3').show();
+
                     $('#contratista').hide();
+                    $('#add-vehicle').show();
+
+                    $('.progress-bar').show();
+                    $('.progress-bar2').hide();
                     break;
 
                 case "3":
                     $('#step_3').show();
+
                     $('#contratista').show();
+                    $('#add-vehicle').show();
+
+                    $('.progress-bar').show();
+                    $('.progress-bar2').hide();
+                    break;
+
+                case "4": case "7":
+                    $('#step_3').show();
+                    $('#contratista').hide();
+
+                    $('#add-vehicle').hide();
+                    $('#finalizar_empresa').show();
+                    
+                    $('.progress-bar').hide();
+                    $('.progress-bar2').show();
                     break;
 
                 case "5":
                     $('#step_hotel').show();
+
+                    $('.progress-bar').hide();
+                    $('.progress-bar2').show();
                     break;
 
                 default:
@@ -156,7 +196,10 @@ function steps(step){
             $('.circle2').css('background-color', '#2b3179');
             $('.circle3').css('background-color', '#2b3179');
 
-            $('#add-vehicle').show();
+            $('.progress-bar2').show();
+            $('.progress-bar2').hide();
+            $('#step_4').show();
+            $('.vehiculos-wrapper').show();
             break;
 
         case 5:
@@ -196,7 +239,7 @@ function new_company(){
     $('#matricula').val('');
     $('#marca').val('');
     $('#modelo').val('');
-    $('#combustible').val('');
+    $('#combustible').val('0');
     $('#capacidad_pasajeros').val('');
     $('#capacidad_equipaje').val('');
     $('#pet_friendly').val('0');
@@ -206,7 +249,7 @@ function reset_vehicle_inputs(){
     $('#matricula').val('');
     $('#marca').val('');
     $('#modelo').val('');
-    $('#combustible').val('');
+    $('#combustible').val('0');
     $('#capacidad_pasajeros').val('');
     $('#capacidad_equipaje').val('');
     $('#pet_friendly').val('0');
