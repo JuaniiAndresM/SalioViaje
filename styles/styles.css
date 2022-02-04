@@ -3965,6 +3965,16 @@ footer .totum p a:hover {
   margin-right: 5px;
 }
 
+.login .login-wrapper #step_5 .button-wrapper button span,
+.login .register-wrapper #step_5 .button-wrapper button span,
+.register .login-wrapper #step_5 .button-wrapper button span,
+.register .register-wrapper #step_5 .button-wrapper button span,
+.success .login-wrapper #step_5 .button-wrapper button span,
+.success .register-wrapper #step_5 .button-wrapper button span {
+  -webkit-animation: loader-finalizar .4s infinite forwards;
+          animation: loader-finalizar .4s infinite forwards;
+}
+
 .login .register-wrapper,
 .register .register-wrapper,
 .success .register-wrapper {
@@ -4289,6 +4299,28 @@ footer .totum p a:hover {
   .register .register-wrapper #step_hotel .inputs-wrapper-register {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
+  }
+}
+
+@-webkit-keyframes loader-finalizar {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes loader-finalizar {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
 

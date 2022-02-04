@@ -274,6 +274,10 @@
 
         button {
           @include button();
+
+          span{
+            animation: loader-finalizar .4s infinite forwards;
+          }
         }
       }
     }
@@ -471,4 +475,15 @@
       }
     }
   }
+}
+
+
+@keyframes loader-finalizar {
+  0%{
+    transform: rotate(0);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+  
 }
