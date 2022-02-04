@@ -37,6 +37,7 @@ class procedimientosForm extends procedimientosBD
 	}
 
 	private function registrar_empresa($tipoUsuario,$contratista,$empresa){
+
 		for ($x=0; $x < count($empresa); $x++) {
 		$this->register_empresa($tipoUsuario,$this->idUsuario,$empresa[$x]);
 			for ($i=0; $i < count($empresa[$x]["VEHICULOS"]); $i++) { 
