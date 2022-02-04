@@ -409,8 +409,7 @@ function register_form(opcion){
                         url: "/PHP/procedimientosForm.php",
                         data: { tipo:opcion,idUsuario: ID_USUARIO, datos_Usuario:null, empresas:JSON.stringify(empresas) },
                         success: function (response) {
-                            console.log(response);
-                            //window.location = "https://www.salioviaje.com.uy/Success";
+                            window.location = "https://www.salioviaje.com.uy/Success";
                         },
                     });
                 } else { next() }
