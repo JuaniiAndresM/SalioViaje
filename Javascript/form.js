@@ -9,6 +9,10 @@ $(document).ready(function () {
     $('.vehiculos-wrapper').hide();
     $('.progress-bar2').hide();
 
+    $('add_company_button').show();
+    $('finalizar-registro-TTA').attr('disabled', false);
+    $('finalizar-registro-TTA').html('<i class="fas fa-check"></i> Finalizar');
+
     steps(1);
     Empresas();
 
@@ -360,6 +364,10 @@ function register_form(opcion){
                     registrar_usuario("TTA")
 
                     setTimeout(function() {
+
+                        $('add_company_button').hide();
+                        $('finalizar-registro-TTA').attr('disabled', true);
+                        $('finalizar-registro-TTA').html('<span class="loader-register"><i class="fas fa-spinner"></i></span>');
 
                         $.ajax({
                         type: "POST",
