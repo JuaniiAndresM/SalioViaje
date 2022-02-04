@@ -1587,6 +1587,53 @@ footer .totum p a:hover {
   text-align: center;
 }
 
+.login .login-wrapper #login .step_title,
+.login .login-wrapper #step_1 .step_title,
+.login .login-wrapper #step_2 .step_title,
+.login .login-wrapper #step_3 .step_title,
+.login .login-wrapper #step_4 .step_title,
+.login .login-wrapper #step_5 .step_title,
+.login .login-wrapper .step_hotel .step_title,
+.login .register-wrapper #login .step_title,
+.login .register-wrapper #step_1 .step_title,
+.login .register-wrapper #step_2 .step_title,
+.login .register-wrapper #step_3 .step_title,
+.login .register-wrapper #step_4 .step_title,
+.login .register-wrapper #step_5 .step_title,
+.login .register-wrapper .step_hotel .step_title,
+.register .login-wrapper #login .step_title,
+.register .login-wrapper #step_1 .step_title,
+.register .login-wrapper #step_2 .step_title,
+.register .login-wrapper #step_3 .step_title,
+.register .login-wrapper #step_4 .step_title,
+.register .login-wrapper #step_5 .step_title,
+.register .login-wrapper .step_hotel .step_title,
+.register .register-wrapper #login .step_title,
+.register .register-wrapper #step_1 .step_title,
+.register .register-wrapper #step_2 .step_title,
+.register .register-wrapper #step_3 .step_title,
+.register .register-wrapper #step_4 .step_title,
+.register .register-wrapper #step_5 .step_title,
+.register .register-wrapper .step_hotel .step_title,
+.success .login-wrapper #login .step_title,
+.success .login-wrapper #step_1 .step_title,
+.success .login-wrapper #step_2 .step_title,
+.success .login-wrapper #step_3 .step_title,
+.success .login-wrapper #step_4 .step_title,
+.success .login-wrapper #step_5 .step_title,
+.success .login-wrapper .step_hotel .step_title,
+.success .register-wrapper #login .step_title,
+.success .register-wrapper #step_1 .step_title,
+.success .register-wrapper #step_2 .step_title,
+.success .register-wrapper #step_3 .step_title,
+.success .register-wrapper #step_4 .step_title,
+.success .register-wrapper #step_5 .step_title,
+.success .register-wrapper .step_hotel .step_title {
+  color: #3844bc;
+  margin-top: 10px;
+  font-size: 1.2em;
+}
+
 .login .login-wrapper #login .inputs-wrapper,
 .login .login-wrapper #login .inputs-wrapper-register,
 .login .login-wrapper #step_1 .inputs-wrapper,
