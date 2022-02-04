@@ -404,13 +404,13 @@ function register_form(opcion){
 
             if (validacion("USUARIO-PAX-TTA-ASE",datos_Usuario)) {
                 if (empresas.length != 0 && ID_USUARIO != null) {
-                    console.log("hola")
                     $.ajax({
                         type: "POST",
                         url: "/PHP/procedimientosForm.php",
-                        data: { tipo:opcion,idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas) },
+                        data: { tipo:opcion,idUsuario: ID_USUARIO, datos_Usuario:null, empresas:JSON.stringify(empresas) },
                         success: function (response) {
-                            window.location = "https://www.salioviaje.com.uy/Success";
+                            console.log(response);
+                            //window.location = "https://www.salioviaje.com.uy/Success";
                         },
                     });
                 } else { next() }
