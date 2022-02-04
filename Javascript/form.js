@@ -371,66 +371,35 @@ let empresas = new Array();
 let vehiculos = new Array();
 
 function register_form(opcion){
+    datos_Usuario = {
+            "CI": document.getElementById('CI').value,
+            "CORREO": document.getElementById('correo').value,
+            "NOMBRE": document.getElementById('nombre').value,
+            "APELLIDO": document.getElementById('apellido').value,
+            "DIRECCION": document.getElementById('direccion').value,
+            "BARRIO": document.getElementById('barrio').value,
+            "DEPARTAMENTO": document.getElementById('departamento').value,
+            "TELEFONO": document.getElementById('numero_telefono').value,
+            "PIN": document.getElementById('password').value,
+            "RE-PIN": document.getElementById('re-password').value
+        };
 
     console.log(opcion)
 
        switch(opcion){
         case "1":
-            datos_Usuario = {
-                "CI": document.getElementById('CI').value,
-                "CORREO": document.getElementById('correo').value,
-                "NOMBRE": document.getElementById('nombre').value,
-                "APELLIDO": document.getElementById('apellido').value,
-                "DIRECCION": document.getElementById('direccion').value,
-                "BARRIO": document.getElementById('barrio').value,
-                "DEPARTAMENTO": document.getElementById('departamento').value,
-                "TELEFONO": document.getElementById('numero_telefono').value,
-                "PIN": document.getElementById('password').value,
-                "RE-PIN": document.getElementById('re-password').value
-            };
-            if (validacion("USUARIO-PAX-TTA-ASE",datos_Usuario) == true) {
-                $.ajax({
-                    type: "POST",
-                    url: "/SalioViaje/PHP/procedimientosForm.php",
-                    data: { tipo:opcion, datos:JSON.stringify(datos_Usuario) },
-                    success: function (response) {
-                        console.log(response)
-                        window.location = "/SalioViaje/Success";
-                        ID_USUARIO = response;
-                    },
-                });
+            if (validacion("USUARIO",datos_Usuario) == true) {
+                registrar_usuario("PAX");
             }else{ console.log("No valido...") }
             break;
         case "2":
-            datos_Usuario = {
-                "CI": document.getElementById('CI').value,
-                "CORREO": document.getElementById('correo').value,
-                "NOMBRE": document.getElementById('nombre').value,
-                "APELLIDO": document.getElementById('apellido').value,
-                "DIRECCION": document.getElementById('direccion').value,
-                "BARRIO": document.getElementById('barrio').value,
-                "DEPARTAMENTO": document.getElementById('departamento').value,
-                "TELEFONO": document.getElementById('numero_telefono').value,
-                "PIN": document.getElementById('password').value,
-                "RE-PIN": document.getElementById('re-password').value
-            };
-            
-            $.ajax({
-                    type: "POST",
-                    url: "/SalioViaje/PHP/procedimientosForm.php",
-                    data: { tipo:opcion, datos_Usuario:JSON.stringify(datos_Usuario), empresas:null },
-                    success: function (response) {
-                        ID_USUARIO = response;
-                },
-            });
-
-            if (validacion("USUARIO-PAX-TTA-ASE",datos_Usuario)) {
+            if (validacion("USUARIO",datos_Usuario)) {
                 if (empresas.length != 0 && ID_USUARIO != null) {
-                    console.log("hola")
+                    ID_USUARIO = registrar_usuario("TTA");
                     $.ajax({
                         type: "POST",
                         url: "/SalioViaje/PHP/procedimientosForm.php",
-                        data: { tipo:opcion,idUsuario: ID_USUARIO, datos_Usuario:null, empresas:JSON.stringify(empresas) },
+                        data: { tipo:opcion,idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas) },
                         success: function (response) {
                             window.location = "/SalioViaje/Success";
                         },
@@ -439,30 +408,9 @@ function register_form(opcion){
             }else{ console.log("No valido...") }
             break;
         case "3":
-            datos_Usuario = {
-                "CI": document.getElementById('CI').value,
-                "CORREO": document.getElementById('correo').value,
-                "NOMBRE": document.getElementById('nombre').value,
-                "APELLIDO": document.getElementById('apellido').value,
-                "DIRECCION": document.getElementById('direccion').value,
-                "BARRIO": document.getElementById('barrio').value,
-                "DEPARTAMENTO": document.getElementById('departamento').value,
-                "TELEFONO": document.getElementById('numero_telefono').value,
-                "PIN": document.getElementById('password').value,
-                "RE-PIN": document.getElementById('re-password').value
-            };
-
-            $.ajax({
-                    type: "POST",
-                    url: "/SalioViaje/PHP/procedimientosForm.php",
-                    data: { tipo:opcion, datos_Usuario:datos_Usuario, empresas:null },
-                    success: function (response) {
-                        ID_USUARIO = response;
-                },
-            });
-
-            if (validacion("USUARIO-CHO",datos_Usuario)) {
+            if (validacion("USUARIO",datos_Usuario)) {
                  if (empresas.length != 0  && ID_USUARIO != null) {
+                    ID_USUARIO = registrar_usuario("CHO");
                     $.ajax({
                         type: "POST",
                         url: "/SalioViaje/PHP/procedimientosForm.php",
@@ -475,30 +423,9 @@ function register_form(opcion){
             }else{ console.log("No valido...") }
             break;
         case "4":
-            datos_Usuario = {
-                "RUT": document.getElementById('rut_usuario').value,
-                "CORREO": document.getElementById('correo').value,
-                "NOMBRE": document.getElementById('nombre').value,
-                "APELLIDO": document.getElementById('apellido').value,
-                "DIRECCION": document.getElementById('direccion').value,
-                "BARRIO": document.getElementById('barrio').value,
-                "DEPARTAMENTO": document.getElementById('departamento').value,
-                "TELEFONO": document.getElementById('numero_telefono').value,
-                "PIN": document.getElementById('password').value,
-                "RE-PIN": document.getElementById('re-password').value
-            };
-
-            $.ajax({
-                    type: "POST",
-                    url: "/SalioViaje/PHP/procedimientosForm.php",
-                    data: { tipo:opcion, datos_Usuario:datos_Usuario, empresas:null },
-                    success: function (response) {
-                        ID_USUARIO = response;
-                },
-            });
-
-            if (validacion("USUARIO-ANF-AGT",datos_Usuario)) {
+            if (validacion("USUARIO",datos_Usuario)) {
                 if (empresas.length != 0  && ID_USUARIO != null) {
+                    ID_USUARIO = registrar_usuario("ANF");
                     $.ajax({
                         type: "POST",
                         url: "/SalioViaje/PHP/procedimientosForm.php",
@@ -512,23 +439,12 @@ function register_form(opcion){
             }else{ console.log("No valido...") }
             break;
         case "5":
-            datos_Hotel = {
-                "CI": document.getElementById('CI').value,
-                "CORREO": document.getElementById('correo').value,
-                "NOMBRE": document.getElementById('nombre').value,
-                "APELLIDO": document.getElementById('apellido').value,
-                "DIRECCION": document.getElementById('direccion').value,
-                "BARRIO": document.getElementById('barrio').value,
-                "DEPARTAMENTO": document.getElementById('departamento').value,
-                "TELEFONO": document.getElementById('numero_telefono').value,
-                "PIN": document.getElementById('password').value,
-                "RE-PIN": document.getElementById('re-password').value
-            };
-            if (validacion("USUARIO-HTL",datos_Hotel)) {
+            if (validacion("USUARIO",datos_Usuario)) {
+                registrar_usuario("HTL");
                 $.ajax({
                     type: "POST",
                     url: "/SalioViaje/PHP/procedimientosForm.php",
-                    data: { tipo:opcion, datos:JSON.stringify(datos_Hotel) },
+                    data: { tipo:opcion, datos:JSON.stringify(datos_Usuario) },
                     success: function (response) {
                         window.location = "/SalioViaje/Success";
                     },
@@ -536,19 +452,8 @@ function register_form(opcion){
             }else{ console.log("No valido...") }
             break;
         case "6":
-            datos_Usuario = {
-                "CI": document.getElementById('CI').value,
-                "CORREO": document.getElementById('correo').value,
-                "NOMBRE": document.getElementById('nombre').value,
-                "APELLIDO": document.getElementById('apellido').value,
-                "DIRECCION": document.getElementById('direccion').value,
-                "BARRIO": document.getElementById('barrio').value,
-                "DEPARTAMENTO": document.getElementById('departamento').value,
-                "TELEFONO": document.getElementById('numero_telefono').value,
-                "PIN": document.getElementById('password').value,
-                "RE-PIN": document.getElementById('re-password').value
-            };
-            if (validacion("USUARIO-PAX-TTA-ASE",datos_Usuario) == true) {
+            if (validacion("USUARIO",datos_Usuario) == true) {
+                ID_USUARIO = registrar_usuario("ASE");
                 $.ajax({
                     type: "POST",
                     url: "/SalioViaje/PHP/procedimientosForm.php",
@@ -561,30 +466,9 @@ function register_form(opcion){
             }else{ console.log("No valido...") }
             break;
         case "7":
-            datos_Usuario = {
-                "RUT": document.getElementById('rut_usuario').value,
-                "CORREO": document.getElementById('correo').value,
-                "NOMBRE": document.getElementById('nombre').value,
-                "APELLIDO": document.getElementById('apellido').value,
-                "DIRECCION": document.getElementById('direccion').value,
-                "BARRIO": document.getElementById('barrio').value,
-                "DEPARTAMENTO": document.getElementById('departamento').value,
-                "TELEFONO": document.getElementById('numero_telefono').value,
-                "PIN": document.getElementById('password').value,
-                "RE-PIN": document.getElementById('re-password').value
-            };
-
-            $.ajax({
-                    type: "POST",
-                    url: "/SalioViaje/PHP/procedimientosForm.php",
-                    data: { tipo:opcion, datos_Usuario:datos_Usuario, empresas:null },
-                    success: function (response) {
-                        ID_USUARIO = response;
-                },
-            });
-
-            if (validacion("USUARIO-ANF-AGT",datos_Usuario)) {
+            if (validacion("USUARIO",datos_Usuario)) {
                 if (empresas.length != 0  && ID_USUARIO != null) {
+                    ID_USUARIO = registrar_usuario("AGT");
                     $.ajax({
                         type: "POST",
                         url: "/SalioViaje/PHP/procedimientosForm.php",
@@ -597,7 +481,19 @@ function register_form(opcion){
             }else{ console.log("No valido...") }
             break;
     }
+}
 
+function registrar_usuario(tipoUsuario){
+    $.ajax({
+        type: "POST",
+        url: "/SalioViaje/PHP/procedimientosForm.php",
+        data: { tipo:"1",tipoUsuario:tipoUsuario, datos:JSON.stringify(datos_Usuario) },
+        success: function (response) {
+            console.log(response)
+            window.location = "/SalioViaje/Success";
+            ID_USUARIO = response;
+        },
+    });
 }
 
 function add_vehicle(){
@@ -730,11 +626,11 @@ function validacion(TIPO,DATOS){
     reset_errores()
 
     switch(TIPO){
-        case "USUARIO-PAX-TTA-ASE":
+        case "USUARIO":
                 validacion = $.ajax({
                                 type: 'POST',       
                                 url: "/SalioViaje/PHP/Validaciones.php",
-                                data: {tipo:"PAX-TTA-ASE",datos:JSON.stringify(DATOS)},
+                                data: {tipo:"USUARIO",datos:JSON.stringify(DATOS)},
                                 global: false,
                                 async:false,
                                 success: function(response) {

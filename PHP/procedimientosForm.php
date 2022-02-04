@@ -13,7 +13,6 @@ class procedimientosForm extends procedimientosBD
 
 	public function register_transportista($usuario,$empresa,$idUsuario){
 		$this->idUsuario = $idUsuario;
-		$this->registrar_usuarios("TTA",$usuario);
 		$this->registrar_empresa("TTA",null,$empresa);
 	}
 
@@ -33,7 +32,7 @@ class procedimientosForm extends procedimientosBD
 	}
 
 	public function register_hotel($datos){
-		$this->registrar_usuarios("HTL", $datos);
+		//$this->registrar_usuarios("HTL", $datos);
 	}
 
 	private function registrar_empresa($tipoUsuario,$contratista,$empresa){
@@ -58,11 +57,13 @@ class procedimientosForm extends procedimientosBD
 
 $procedimientosForm = new procedimientosForm();
 
+if ($_POST['tipo'] == 1) {
+	$datos = json_decode($_POST["datos"],true);
+	$procedimientosForm->registrar_usuarios($_POST["tipoUsuario"],$datos);
+}
+
 switch ($_POST['tipo']) {
-	case '1':
-		$datos = json_decode($_POST["datos"],true);
-		$procedimientosForm->registrar_usuarios("PAX",$datos);
-		break;
+
 	case '2':
 		$usuario = json_decode($_POST["datos_Usuario"],true);
 		$empresa = json_decode($_POST["empresas"],true);

@@ -9,7 +9,7 @@ class validaciones
 	private $PATTERN_CI = "/^[0-9]{7,8}$/i";
 	private $PATTERN_MAIL = "/.+@[a-z]{4,5}.+\.[?=com]\w.+/i";
 	private $PATTERN_DIRECCION = "/^[a-zA-Z_]+([a-zA-Z0-9\s]*)$/i";
-	private $PATTERN_TELEFONO = "/[(?=09[0-9])(?=084)(?=086)(?=089)]{3}[0-9]{6}/i";
+	private $PATTERN_TELEFONO = "/^(?=09[\d]){3}[0-9]{9}$/i";
 	private $PATTERN_PIN = "/[0-9]{4}/i";
 
 	private $PATTERN_RUT = "/^[\d]{12}$/i";
@@ -27,8 +27,8 @@ class validaciones
 	function __construct($tipo,$datos)
 	{
 		switch ($tipo) {
-			case 'PAX-TTA-ASE':
-				$validacion = $this->validar_formulario_usuario_TTA_PAX_ASE($datos);
+			case 'USUARIO':
+				$validacion = $this->validar_formulario_usuario($datos);
 				if($validacion == 1){ echo "VALIDO"; } else {echo $validacion;}
 				break;
 			case 'CHO':
@@ -184,62 +184,6 @@ class validaciones
 
 	}
 	
-	private function validar_formulario_empresa($datos){
-
-
-		$VALIDACION = array();
-		$DATOS_VACIOS = null;
-		$TIENE_MTOP = null;
-		$errores = 0;
-
-		foreach (json_decode($datos) as $clave => $valor){
-     		if ($valor != null || $valor != '' && $clave != 'VEHICULOS') {
-     			switch ($clave) {
-     				case 'RUT':
-     						$RUT = preg_match($this->PATTERN_RUT, $valor);
-     						$VALIDACION['RUT'] = $RUT;
-     					break;
-     				case 'NOMBRE_COMERCIAL':
-     						$NOMBRE_COMERCIAL = preg_match($this->PATTERN_NOMBRES, $valor);
-     						$VALIDACION['NOMBRE_COMERCIAL'] = $NOMBRE_COMERCIAL;
-     					break;
-     				case 'RAZON_SOCIAL':
-     						$RAZON_SOCIAL = preg_match($this->PATTERN_RAZON_SOCIAL, $valor);
-     						$VALIDACION['RAZON_SOCIAL'] = $RAZON_SOCIAL;
-     					break;
-     				case 'NUMERO_MTOP':
-     						if ($valor != null) {
-     							$TIENE_MTOP = 1;
-     							$MTOP = preg_match($this->PATTERN_NUMERO_MTOP, $valor);
-     							$VALIDACION['MTOP'] = $MTOP;
-     						}else{$TIENE_MTOP = 0;}
-     					break;
-     				case 'PASSWORD_MTOP':
-     						if ($TIENE_MTOP == 1) {
-     					    	$PASSWORD_MTOP = preg_match($this->PATTERN_PASSWORD_MTOP, $valor);
-     							$VALIDACION['PASSWORD_MTOP'] = $PASSWORD_MTOP;
-     						}
-     					break;
-     			}
-     		}
-		}
-
-		if (count($VALIDACION) == 3 && $TIENE_MTOP == 0) {
-			$DATOS_VACIOS = null;
-		}else if(count($VALIDACION) != 5){
-			$DATOS_VACIOS = "Err-1";
-		}
-
-		foreach ($VALIDACION as $clave => $valor){
-     		if ($valor  == 0) {
-     			$errores++;
-     		}
-		}
-
-		if($DATOS_VACIOS == null && $errores == 0) { return true; } elseif ($DATOS_VACIOS != null) { return $DATOS_VACIOS; } else { return json_encode($VALIDACION);}
-
-	}
-
 	private function validar_formulario_vehiculo($datos){
 
 		$VALIDACION = array();
