@@ -8,10 +8,15 @@ $(document).ready(function () {
         this.classList.add('hovered');
     }
 
+    traigoVisitas();
 
     $("#ID").on('click', function() {
         console.log(cambiarOrden(orden))
         ordenarId(orden)
+    });
+
+    $("#actualizar_panel").on('click', function() {
+        actualizar_panel()
     });
 
     $("#cerrar_session_dashboard").on('click', function() {
@@ -25,7 +30,12 @@ $(document).ready(function () {
 
     list.forEach((item) => 
     item.addEventListener('mouseover', activateLink));
-    $('#panel-navbar').load('/web/panel-navbar.html');
+    $('#panel-navbar').load('/SalioViaje/web/panel-navbar.html');
+
+
+    $('#select_actualizar').change(function(){
+        actualizar_panel($(this).children('option:selected').val());
+    });
 });
 
 function navbar(){
@@ -45,7 +55,7 @@ function buscarUsuarios(buscador) {
 
     switch(buscador){
         case 1:
-            table = document.getElementById("search-table-dashboard");
+            table = document.getElementById("search-table");
             tdlength = 5;
             break;
         case 2:
@@ -56,13 +66,8 @@ function buscarUsuarios(buscador) {
             table = document.getElementById("search-table-empresas");
             tdlength = 6;
             break;
-        case 4:
-            table = document.getElementById("search-table-vehiculos");
-            tdlength = 10;
-            break;
     }
-    
-    
+
     tr = table.getElementsByTagName("tr");
     console.log(tr);
     
@@ -344,4 +349,58 @@ function filtros(){
         if(!$("#agt").prop("checked")){ $(".AGT").hide() }else{ $(".AGT").show() }
         //if(!$("#").prop("checked")){ console.log("Oculto") }else{ console.log("Muestro") }
     });
+}
+
+/*-------------------------------------------------------------------------------------------*/
+//                                       Visitas                                             //
+/*-------------------------------------------------------------------------------------------*/
+
+function traigoVisitas(){
+        visitas = $.ajax({
+                        type: 'POST',       
+                        url: "/SalioViaje/PHP/Backend.php",
+                        data: {opcion:"visitas"},
+                        global: false,
+                        async:false,
+                        success: function(response) {
+                            return response;
+                        }
+        }).responseText;
+        $('#visitas_hoy').html(visitas)
+}
+
+/*-------------------------------------------------------------------------------------------*/
+//                                       Actualizar                                          //
+/*-------------------------------------------------------------------------------------------*/
+ var actualizar
+function actualizar_panel(opc){
+    switch(opc){
+        case '0':
+        console.log("parar")
+            clearInterval(actualizar)
+            break;
+        case '1':
+            crear_intervalo(1000)
+            break;
+        case '2':
+            crear_intervalo(5000)
+            break;
+        case '3':
+            crear_intervalo(10000)
+            break;
+        case '4':
+            crear_intervalo(15000)
+            break;
+    }
+
+
+}
+
+function crear_intervalo(tiempo){
+    actualizar = setInterval(function(){
+        traigoVisitas()
+        traerVehiculos()
+        traerUsuarios()
+        traerEmpresas();
+    },tiempo)
 }

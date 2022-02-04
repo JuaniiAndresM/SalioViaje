@@ -12,7 +12,7 @@ $NUEVA_EMPRESA_DASHBOARD = '
                     </div>
                     <div class="propietario-info">
                       <h3>'.$NOMBRE_EMPRESA.'</h3>
-                      <p><i class="fas fa-bus"></i> - Vehiculos</p>
+                      <p><i class="fas fa-bus"></i> 2 Vehiculos</p>
                     </div>
                   </div>
                   <div class="propietario-button">

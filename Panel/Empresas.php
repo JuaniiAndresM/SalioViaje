@@ -116,10 +116,10 @@
       </div>
       <div class="header-right">
         <div class="header-user">
-          <div class="icon"><img src="https://www.salioviaje.com.uy/media/svg/Logo-SalioViaje-White.svg" alt="Logo SalióViaje"></div>
+          <div class="icon"><img src="/SalioViaje/media/svg/Logo-SalioViaje-White.svg" alt="Logo SalióViaje"></div>
           <div class="user">
           <h2><?php echo $_SESSION['usuario']; ?></h2> 
-                <p><i class="fas fa-user-tie"></i> <?php echo $_SESSION['tipo_usuario'] ?></p>
+          <p><i class="fas fa-user-tie"></i> <?php echo $_SESSION['tipo_usuario'] ?></p>
           </div>
           <button id="cerrar_session_dashboard"><i class="fas fa-sign-out-alt"></i></button>
         </div>

@@ -12,10 +12,10 @@ session_start();
         <div class="header-right">
             <div class="header-links">
                 <div class="links">
-                    <a href="https://www.salioviaje.com.uy/">Home</a>
-                    <a href="https://www.salioviaje.com.uy/Servicios">Servicios</a>
-                    <a href="https://www.salioviaje.com.uy/Nosotros">Sobre Nosotros</a>
-                    <a href="https://www.salioviaje.com.uy/Oportunidades">Oportunidades</a>
+                    <a href="/SalioViaje/">Home</a>
+                    <a href="/SalioViaje/Servicios">Servicios</a>
+                    <a href="/SalioViaje/Nosotros">Sobre Nosotros</a>
+                    <a href="/SalioViaje/Viajar">Oportunidades</a>
                 </div>
             
                 <?php
@@ -61,10 +61,10 @@ session_start();
                                 </div>';
                     }
 
-                    echo '  <a href="https://www.salioviaje.com.uy/"><i class="fas fa-home"></i> Home</a>
-                            <a href="https://www.salioviaje.com.uy/Servicios">Servicios</a>
-                            <a href="https://www.salioviaje.com.uy/Nosotros">Sobre Nosotros</a>
-                            <a href="https://www.salioviaje.com.uy/Oportunidades"><i class="fas fa-book"></i> Oportunidades</a>';
+                    echo '  <a href="/SalioViaje/"><i class="fas fa-home"></i> Home</a>
+                            <a href="/SalioViaje/Servicios">Servicios</a>
+                            <a href="/SalioViaje/Nosotros">Sobre Nosotros</a>
+                            <a href="/SalioViaje/Viajar"><i class="fas fa-book"></i> Oportunidades</a>';
 
 
                     if(isset($_SESSION['usuario'])){

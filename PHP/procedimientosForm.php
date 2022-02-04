@@ -97,6 +97,9 @@ switch ($_POST['tipo']) {
 	case 'login':
 		echo $procedimientosForm->login($_POST['usuario'],$_POST['pin']);
 		break;
+	case 'visita':
+		echo $procedimientosForm->agrego_visita();
+		break;
 }
 
 ?>

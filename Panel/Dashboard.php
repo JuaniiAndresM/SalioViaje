@@ -94,9 +94,16 @@
               traerEmpresas(seccion)
             }
         </script>
-
       </head>
       <body>
+
+        <select id="select_actualizar">
+          <option value="0">No actualizar</option>
+          <option value="1">Actualizar cada 1s</option>
+          <option value="2">Actualizar cada 5s</option>
+          <option value="3">Actualizar cada 10s</option>
+          <option value="4">Actualizar cada 15s</option>
+        </select>
          
         <div id="pre-loader">
           <div class="lds-ellipsis">
@@ -117,7 +124,7 @@
           </div>
           <div class="header-right">
             <div class="header-user">
-              <div class="icon"><img src="https://www.salioviaje.com.uy/media/svg/Logo-SalioViaje-White.svg" alt="Logo SalióViaje"></div>
+              <div class="icon"><img src="/SalioViaje/media/svg/Logo-SalioViaje-White.svg" alt="Logo SalióViaje"></div>
               <div class="user">
                 <h2><?php echo $_SESSION['usuario']; ?></h2> 
                 <p><i class="fas fa-user-tie"></i> <?php echo $_SESSION['tipo_usuario'] ?></p>
@@ -128,7 +135,6 @@
         </header>
     
         <nav class="nav-hidden active" id="panel-navbar"></nav>
-    
         <section class="panel" id="panel">
           <div class="panel-cards">
             <div class="card">
@@ -146,6 +152,7 @@
             </div>
             <div class="card">
               <div class="number">
+                <h2 id="visitas_hoy"></h2>
                 <h2>-</h2>
                 <i class="fas fa-eye"></i>
               </div>

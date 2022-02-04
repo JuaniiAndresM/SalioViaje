@@ -16,7 +16,7 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <title>SalióViaje - Dashboard</title>
+    <title>SalióViaje - Settings</title>
 
     <!-- // Meta Etiquetas -->
 
@@ -40,8 +40,8 @@
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.salioviaje.com/" />
-    <meta property="og:title" content="SalióViaje - Register" />
+    <meta property="og:url" content="https://www.salioviaje.com/Settings" />
+    <meta property="og:title" content="SalióViaje - Settings" />
     <meta
       property="og:description"
       content="Plataforma que optimiza el traslado ocasional de personas."
@@ -53,8 +53,8 @@
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://www.salioviaje.com/" />
-    <meta property="twitter:title" content="SalióViaje - Register" />
+    <meta property="twitter:url" content="https://www.salioviaje.com/Settings" />
+    <meta property="twitter:title" content="SalióViaje - Settings" />
     <meta
       property="twitter:description"
       content="Plataforma que optimiza el traslado ocasional de personas."
@@ -235,8 +235,8 @@
                   <i class="fas fa-user"></i>
                 </div>
                 <div class="user-info">
-                  <h3>John Doe</h3>
-                  <p><i class="fas fa-home"></i> Inmobiliaria</p>
+                  <h2><?php echo $_SESSION['usuario']; ?></h2> 
+                  <p><i class="fas fa-user-tie"></i> <?php echo $_SESSION['tipo_usuario'] ?></p>
                 </div>
               </div>
               <div class="user-buttons">
