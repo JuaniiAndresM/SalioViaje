@@ -177,6 +177,11 @@
         @include button();
         margin-top: 0;
       }
+      .button-register:disabled,
+      .button-register[disabled]{
+        background: #cccccc;
+        color: #666666;
+      }
 
       .login-bottom,
       .register-bottom {
