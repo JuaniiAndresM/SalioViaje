@@ -16,7 +16,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <title>SalióViaje - Dashboard</title>
+        <title>SalióViaje | Dashboard</title>
     
         <!-- // Meta Etiquetas -->
 
@@ -41,7 +41,7 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.salioviaje.com.uy/Dashboard" />
-    <meta property="og:title" content="SalióViaje - Dashboard" />
+    <meta property="og:title" content="SalióViaje | Dashboard" />
     <meta
       property="og:description"
       content="Plataforma que optimiza el traslado ocasional de personas."
@@ -56,7 +56,7 @@
     <meta property="twitter:url" content="https://www.salioviaje.com.uy/Dashboard" />
     <meta
       property="twitter:title"
-      content="SalióViaje - Dashboard"
+      content="SalióViaje | Dashboard"
     />
     <meta
       property="twitter:description"
