@@ -20,11 +20,13 @@ class procedimientosBD
     }
 
     public function register_usuario($tipo,$datos){ 
+        $PIN = password_hash($datos['PIN'], PASSWORD_BCRYPT);
     	$conn = $this->conexion();
         $query = "CALL register_usuario(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("sissssssiisssss", $tipo, $datos["CI"], $datos["CORREO"], $datos["NOMBRE"], $datos["APELLIDO"], $datos["DIRECCION"], $datos["BARRIO"], $datos["DEPARTAMENTO"], $datos["TELEFONO"],$datos["PIN"],$datos['AGENCIA_CONTRATISTA'],$datos['RUT'],$datos['SUPERVISOR'], $datos['NOMBRE_HOTEL'],$datos['DIRECCION_HOTEL']);
+        $stmt->bind_param("sissssssissssss", $tipo, $datos["CI"], $datos["CORREO"], $datos["NOMBRE"], $datos["APELLIDO"], $datos["DIRECCION"], $datos["BARRIO"], $datos["DEPARTAMENTO"], $datos["TELEFONO"],$PIN,$datos['AGENCIA_CONTRATISTA'],$datos['RUT'],$datos['SUPERVISOR'], $datos['NOMBRE_HOTEL'],$datos['DIRECCION_HOTEL']);
         if ($stmt->execute()) {
+            $this->login($datos['CI'],$datos['PIN']);
             $stmt->store_result();
             $stmt->bind_result($idUsuario);
             while ($stmt->fetch()) {
@@ -80,7 +82,7 @@ public function login($usuario, $pin){
         $stmt->store_result();
         $stmt->bind_result($id,$pin_bd,$passwd,$nombre,$apellido,$tipo_usuario);
         while ($stmt->fetch()) {
-            if($pin_bd == $pin || $passwd == $pin){
+            if(password_verify($pin, $pin_bd) || password_verify($pin, $passwd)){
                 $usuario = $nombre." ".$apellido;
                 session_start();
                 $_SESSION['usuario'] = $usuario;
