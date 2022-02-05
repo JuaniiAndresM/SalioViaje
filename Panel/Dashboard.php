@@ -135,7 +135,8 @@
         </header>
     
         <nav class="nav-hidden active" id="panel-navbar"></nav>
-        <section class="panel" id="panel">
+
+        <section class="panel" id="panel-admin">
           <div class="panel-cards">
             <div class="card">
               <div class="number" id="cantidad-usuarios">
@@ -219,5 +220,63 @@
             </div>
           </div>
         </section>
+
+        <section class="panel" id="panel-TTA-CHO">
+          <div class="panel-tables">
+            <div class="usuarios-recientes">
+              <div class="usuarios-info">
+                <h2><i class="fas fa-bus"></i> Tus Viajes</h2>
+                <a href="Usuarios.html">Ver Todas <i class="fas fa-arrow-right"></i></a>
+              </div>
+              <div class="search">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarUsuarios(1)"/>
+              </div>
+              <table class="usuarios-table" id="search-table">
+                <!-- antes:
+                  <tr>
+                    <th>
+                      Nombre <i class="fas fa-angle-down"></i>
+                    </th>
+                    <th>Apellido <i class="fas fa-angle-down"></i></th>
+                    <th>Tipo <i class="fas fa-angle-down"></i></th>
+                    <th>Departamento <i class="fas fa-angle-down"></i></th>
+                    <th>Teléfono <i class="fas fa-angle-down"></i></th>
+                    <th></th>
+                  </tr>
+                -->
+                <thead>
+                  <tr>
+                    <th>Tipo <i class="fas fa-angle-down"></i></th>
+                    <th>
+                      Nombre <i class="fas fa-angle-down"></i>
+                    </th>
+                    <th>Apellido <i class="fas fa-angle-down"></i></th>
+                    <th>Departamento <i class="fas fa-angle-down"></i></th>
+                    <th>Teléfono <i class="fas fa-angle-down"></i></th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="tbody"></tbody>
+              </table>
+            </div>
+            <div class="usuarios-propietarios">
+              <div class="usuarios-info">
+                <h2><i class="fas fa-building"></i> Empresas Registradas</h2>
+                <a href="Empresas.html">Ver Todos <i class="fas fa-arrow-right"></i></a>
+              </div>
+              <div class="search">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarusuarios()"/>
+              </div>
+              <div class="propietarios">
+    
+              </div>
+              
+            </div>
+          </div>
+        </section>
+
+
       </body>
 </html>
