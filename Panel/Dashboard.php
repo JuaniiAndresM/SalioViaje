@@ -157,7 +157,7 @@
         <?php 
 
         if($tipo == 1){
-          echo '  <section class="panel" id="panel-admin">
+          echo '  <section class="panel" id="panel">
                     <div class="panel-cards">
                       <div class="card">
                         <div class="number" id="cantidad-usuarios">
@@ -246,7 +246,7 @@
                     </div>
                   </section>';
         }elseif($tipo == 2){
-          echo '  <section class="panel" id="panel-TTA">
+          echo '  <section class="panel" id="panel">
                     <div class="panel-cards">
                         <a href="#" class="card" id="plus">
                           <div class="number">
