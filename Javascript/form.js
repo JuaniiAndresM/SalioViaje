@@ -650,7 +650,7 @@ function valido_Empresa_sin_crearla(choferes_sub){
 function eliminar_vehiculo(matricula){
   for (var i = 0; i < vehiculos.length; i++) {
     if(vehiculos[i]['MATRICULA'] == matricula){
-      vehiculos.splice(i)
+      vehiculos.splice(i,1)
       $('#'+matricula).remove();
     }
   }
