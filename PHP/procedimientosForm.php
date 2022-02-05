@@ -13,38 +13,38 @@ class procedimientosForm extends procedimientosBD
 
 	public function register_transportista($empresa,$idUsuario){
 		$this->idUsuario = $idUsuario;
-		$this->registrar_empresa("TTA",null,$empresa);
+		$this->registrar_empresa("TTA",$empresa);
 	}
 
-	public function register_chofer($contratista,$empresa,$idUsuario){
+	public function register_chofer($empresa,$idUsuario){
 		$this->idUsuario = $idUsuario;
-		$this->registrar_empresa("CHO",$contratista,$empresa);
+		$this->registrar_empresa("CHO",$empresa);
 	}
 
 	public function register_anfitrion($empresa,$idUsuario){
 		$this->idUsuario = $idUsuario;
-		$this->registrar_empresa("ANF",null,$empresa);
+		$this->registrar_empresa("ANF",$empresa);
 	}
 
 	public function register_agente($empresa,$idUsuario){
 		$this->idUsuario = $idUsuario;
-		$this->registrar_empresa("AGT",null,$empresa);
+		$this->registrar_empresa("AGT",$empresa);
 	}
 
 	public function register_hotel($datos){
 		//$this->registrar_usuarios("HTL", $datos);
 	}
 
-	private function registrar_empresa($tipoUsuario,$contratista,$empresa){
+	private function registrar_empresa($tipoUsuario,$empresa){
 
 		for ($x=0; $x < count($empresa); $x++) {
 			$this->register_empresa($tipoUsuario,$this->idUsuario,$empresa[$x]);
 			for ($i=0; $i < count($empresa[$x]["VEHICULOS"]); $i++) { 
 				if ($tipoUsuario == "CHO") {
-					 //rut_ec = RUT de la empresa creada por el chofer.
+					//rut_ec = RUT de la empresa creada por el chofer.
     				//rut = RUT de la agencia contratista del chofer.
 					$rut_ec = $empresa[$x]["RUT"];
-					$rut = $contratista;
+					$rut = $empresa[$x]["CHOFERES_SUB"];
 				}else{
 					$rut = $empresa[$x]["RUT"];
 					$rut_ec = "0";
@@ -71,7 +71,7 @@ if ($_POST['tipo'] == 1) {
 		break;
 		case '3':
 		$empresa = json_decode($_POST["empresas"],true);
-		$procedimientosForm->register_chofer($usuario["AGENCIA_CONTRATISTA"],$empresa,$_POST['idUsuario']);
+		$procedimientosForm->register_chofer($empresa,$_POST['idUsuario']);
 		break;
 		case '4':
 		$empresa = json_decode($_POST["empresas"],true);

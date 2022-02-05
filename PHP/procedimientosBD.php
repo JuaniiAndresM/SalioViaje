@@ -37,7 +37,7 @@ class procedimientosBD
  }
 
  public function register_empresa($tipo_usuario,$id_usuario,$datos){
-
+    if ($tipo_usuario == "CHO" || !isset($datos['CHOFERES_SUB'])) { $datos['CHOFERES_SUB'] = 0; }
     $conn = $this->conexion();
     $query = "call register_empresa(?,?,?,?,?,?,?,?);";
     $stmt = $conn->prepare($query);

@@ -31,24 +31,8 @@ class validaciones
 			$validacion = $this->validar_formulario_usuario($datos);
 			if($validacion == 1){ echo "VALIDO"; } else {echo $validacion;}
 			break;
-			case 'CHO':
-			$validacion = $this->validar_formulario_usuario_CHO($datos);
-			if($validacion == 1){ echo "VALIDO"; } else {echo $validacion;}
-			break;
-			case 'EMP':
-			$validacion = $this->validar_formulario_empresa($datos);
-			if($validacion == 1){ echo "VALIDO"; } else {echo $validacion;}				
-			break;
-			case 'VIH':
-			$validacion = $this->validar_formulario_vehiculo($datos);				
-			if($validacion == 1){ echo "VALIDO"; } else {echo $validacion;}
-			break;
-			case 'ANF-AGT':
-			$validacion = $this->validar_formulario_usuario_ANF_AGT($datos);				
-			if($validacion == 1){ echo "VALIDO"; } else {echo $validacion;}
-			break;
-			case 'HTL':
-			$validacion = $this->validar_formulario_usuario_HTL($datos);				
+			case 'HOTEL':
+			$validacion = $this->validar_formulario_hotel($datos);				
 			if($validacion == 1){ echo "VALIDO"; } else {echo $validacion;}
 			break;							
 			default:
@@ -134,6 +118,7 @@ class validaciones
 		$VALIDACION = array();
 		$DATOS_VACIOS = null;
 		$TIENE_MTOP = null;
+		$TIENE_CHOFERES_SUB = null;
 		$errores = 0;
 
 		foreach (json_decode($datos) as $clave => $valor){
@@ -152,6 +137,7 @@ class validaciones
 					$VALIDACION['RAZON_SOCIAL'] = $RAZON_SOCIAL;
 					break;
 					case 'CHOFERES_SUB':
+					$TIENE_CHOFERES_SUB = 1;
 					if ($valor == "0") {
 						$VALIDACION['CHOFERES_SUB'] = 0;
 					}else { $VALIDACION['CHOFERES_SUB'] = 1; }
@@ -177,9 +163,52 @@ class validaciones
 			}
 		}
 
-		if (count($VALIDACION) == 4 && $TIENE_MTOP == 0) {
+		if (count($VALIDACION) == 3 && $TIENE_MTOP == 0 && $TIENE_CHOFERES_SUB == null) {
 			$DATOS_VACIOS = null;
-		}else if(count($VALIDACION) != 6){
+		}else if(count($VALIDACION) != 5 || count($VALIDACION) != 6 || $TIENE_CHOFERES_SUB != null){
+			$DATOS_VACIOS = "Err-1";
+		}
+
+		foreach ($VALIDACION as $clave => $valor){
+			if ($valor  == 0) {
+				$errores++;
+			}
+		}
+
+		if($DATOS_VACIOS == null && $errores == 0) { return true; } elseif ($DATOS_VACIOS != null) { return $DATOS_VACIOS; } else { return json_encode($VALIDACION);}
+
+	}
+
+	private function validar_formulario_hotel($datos){
+
+
+		$VALIDACION = array();
+		$DATOS_VACIOS = null;
+		$TIENE_MTOP = null;
+		$TIENE_CHOFERES_SUB = null;
+		$errores = 0;
+
+		foreach (json_decode($datos) as $clave => $valor){
+			if ($valor != null || $valor != '' && $clave != 'VEHICULOS') {
+				switch ($clave) {
+					case 'NOMBRE_HOTEL':
+					$NOMBRE_HOTEL = preg_match($this->PATTERN_NOMBRES, $valor);
+					$VALIDACION['NOMBRE_HOTEL'] = $NOMBRE_HOTEL;
+					break;
+					case 'DIRECCION_HOTEL':
+					$DIRECCION_HOTEL = preg_match($this->PATTERN_DIRECCION, $valor);
+					$VALIDACION['DIRECCION_HOTEL'] = $DIRECCION_HOTEL;
+					break;
+					case 'SUPERVISOR':
+					if ($valor == "0") {
+						$VALIDACION['SUPERVISOR'] = 0;
+					}else { $VALIDACION['SUPERVISOR'] = 1; }
+					break;
+				}
+			}
+		}
+		
+		if(count($VALIDACION) != 3){
 			$DATOS_VACIOS = "Err-1";
 		}
 
@@ -231,7 +260,6 @@ class validaciones
 					if ($valor == "0") {
 						$VALIDACION['PET_FRIENDLY'] = 0;
 					}else { $VALIDACION['PET_FRIENDLY'] = 1; }
-
 					break;
 				}
 			}
