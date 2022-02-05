@@ -20,8 +20,6 @@ class procedimientosBD
     }
 
     public function register_usuario($tipo,$datos){ 
-
-    	//echo "Tipo Usuario: ".$tipo."    Datos:  ".json_encode($datos);
     	$conn = $this->conexion();
         $query = "CALL register_usuario(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         $stmt = $conn->prepare($query);

@@ -31,6 +31,14 @@ class validaciones
 			$validacion = $this->validar_formulario_usuario($datos);
 			if($validacion == 1){ echo "VALIDO"; } else {echo $validacion;}
 			break;
+			case 'EMP':
+			$validacion = $this->validar_formulario_empresa($datos);
+			if($validacion == 1){ echo "VALIDO"; } else {echo $validacion;}				
+			break;
+			case 'VIH':
+			$validacion = $this->validar_formulario_vehiculo($datos);				
+			if($validacion == 1){ echo "VALIDO"; } else {echo $validacion;}
+			break;
 			case 'HOTEL':
 			$validacion = $this->validar_formulario_hotel($datos);				
 			if($validacion == 1){ echo "VALIDO"; } else {echo $validacion;}

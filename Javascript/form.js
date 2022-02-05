@@ -371,7 +371,7 @@ switch(opcion){
    case "1":
    if (validacion("USUARIO",datos_Usuario) == true) {
       registrar_usuario("PAX");
-                  //window.location = "/SalioViaje/Success";
+                  window.location = "/SalioViaje/Success";
                }else{ console.log("No valido...") }
                break;
                case "2":
@@ -386,7 +386,7 @@ switch(opcion){
                         data: { tipo:"2",idUsuario: ID_USUARIO,empresas:JSON.stringify(empresas) },
                         success: function (response) {
                           console.log(response)
-                            //window.location = "/SalioViaje/Success";
+                            window.location = "/SalioViaje/Success";
                          },
                       });
                   }, 1000);
@@ -405,7 +405,7 @@ switch(opcion){
                      data: { tipo:'3',idUsuario: ID_USUARIO, empresas:JSON.stringify(empresas) },
                      success: function (response) {
                         console.log(response)
-                            //window.location = "/SalioViaje/Success";
+                            window.location = "/SalioViaje/Success";
                          },
                       });
                 }, 1000);
@@ -424,7 +424,7 @@ switch(opcion){
                   data: { tipo:'4',idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas)  },
                   success: function (response) {
                     console.log(response)
-                            //window.location = "/SalioViaje/Success";
+                            window.location = "/SalioViaje/Success";
                          },
                       });
              }, 1000);
@@ -453,7 +453,7 @@ switch(opcion){
                url: "/SalioViaje/PHP/procedimientosForm.php",
                data: { tipo:'5', datos:JSON.stringify(datos_Usuario) },
                success: function (response) {
-                            //window.location = "/SalioViaje/Success";
+                            window.location = "/SalioViaje/Success";
                          },
                       });
           }, 1000);
@@ -462,7 +462,7 @@ switch(opcion){
     }else{ console.log("No valido...") }
     break;
     case "6":
-    if (validacion("USUARIO",datos_Usuario) == true) {
+    if (validacion("USUARIO",datos_Usuario)) {
      registrar_usuario("ASE");
      btn_finalizar_carga()
      setTimeout(function() {
@@ -471,7 +471,7 @@ switch(opcion){
          url: "/SalioViaje/PHP/procedimientosForm.php",
          data: { tipo:'6', datos:JSON.stringify(datos_Usuario) },
          success: function (response) {
-                            //window.location = "/SalioViaje/Success";
+                            window.location = "/SalioViaje/Success";
                          },
                       });
     }, 1000);
@@ -480,7 +480,7 @@ switch(opcion){
   break;
   case "7":
   if (validacion("USUARIO",datos_Usuario)) {
-     if (empresas.length != 0  && ID_USUARIO != null) {
+     if (empresas.length != 0) {
        registrar_usuario("AGT");
        btn_finalizar_carga()
        setTimeout(function() {
@@ -489,6 +489,7 @@ switch(opcion){
             url: "/SalioViaje/PHP/procedimientosForm.php",
             data: { tipo:'7',idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas)  },
             success: function (response) {
+               console.log(response)      
                //window.location = "/SalioViaje/Success";
             },
          });
