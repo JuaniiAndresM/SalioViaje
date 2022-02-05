@@ -688,7 +688,8 @@ function editar_vehiculo(){
         url: "/SalioViaje/PHP/agregarVehiculo.php",
         data: {datos:JSON.stringify(vehiculos[i]) },
           success: function (response) {
-            $('#'+matricula).html(response);
+            $('#'+matricula).remove();
+            $('.vehiculos').append(response);
             $('#add-vehicle2').show();
             $('#guardar-cambios').hide();
             reset_vehicle_inputs();
