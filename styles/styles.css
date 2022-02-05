@@ -4683,6 +4683,7 @@ footer .totum p a:hover {
           flex-direction: column;
   -webkit-box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.2);
           box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.2);
+  text-decoration: none;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
@@ -4712,6 +4713,7 @@ footer .totum p a:hover {
 }
 
 .panel .panel-cards .card p {
+  margin-top: 5px;
   color: #666;
 }
 
@@ -4734,6 +4736,32 @@ footer .totum p a:hover {
 
 .panel .panel-cards .card:nth-child(1) p {
   color: white;
+}
+
+.panel .panel-cards #plus {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.panel .panel-cards #plus .number {
+  width: 100%;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .panel .panel-tables {
@@ -4774,15 +4802,15 @@ footer .totum p a:hover {
   color: #2b3179;
 }
 
-.panel .panel-tables .usuarios-recientes .usuarios-info a,
-.panel .panel-tables .usuarios-propietarios .usuarios-info a {
+.panel .panel-tables .usuarios-recientes .usuarios-info .button-wrapper a,
+.panel .panel-tables .usuarios-propietarios .usuarios-info .button-wrapper a {
   width: 150px;
   text-align: center;
   border: none;
   cursor: pointer;
   background-color: #3844bc;
-  padding: 10px;
-  margin-left: 20px;
+  padding: 13px 15px;
+  margin: 0 5px;
   color: white;
   text-decoration: none;
   border-radius: 3em 0 3em 3em;
@@ -4790,9 +4818,15 @@ footer .totum p a:hover {
   transition: 0.2s;
 }
 
-.panel .panel-tables .usuarios-recientes .usuarios-info a:hover,
-.panel .panel-tables .usuarios-propietarios .usuarios-info a:hover {
+.panel .panel-tables .usuarios-recientes .usuarios-info .button-wrapper a:hover,
+.panel .panel-tables .usuarios-propietarios .usuarios-info .button-wrapper a:hover {
   background-color: #2b3179;
+}
+
+.panel .panel-tables .usuarios-recientes .usuarios-info .button-wrapper .add,
+.panel .panel-tables .usuarios-propietarios .usuarios-info .button-wrapper .add {
+  border-radius: 50%;
+  margin: 10px 0;
 }
 
 .panel .panel-tables .usuarios-recientes .search,

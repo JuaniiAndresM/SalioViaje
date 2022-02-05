@@ -170,7 +170,9 @@
             <div class="usuarios-recientes">
               <div class="usuarios-info">
                 <h2><i class="fas fa-user-friends"></i> Usuarios Registrados</h2>
-                <a href="Usuarios.html">Ver Todas <i class="fas fa-arrow-right"></i></a>
+                <div class="button-wrapper">
+                  <a href="Usuarios.html">Ver Todas <i class="fas fa-arrow-right"></i></a>
+                </div>
               </div>
               <div class="search">
                 <i class="fas fa-search"></i>
@@ -207,7 +209,9 @@
             <div class="usuarios-propietarios">
               <div class="usuarios-info">
                 <h2><i class="fas fa-building"></i> Empresas Registradas</h2>
-                <a href="Empresas.html">Ver Todos <i class="fas fa-arrow-right"></i></a>
+                <div class="button-wrapper">
+                  <a href="Empresas.html">Ver Todos <i class="fas fa-arrow-right"></i></a>
+                </div>
               </div>
               <div class="search">
                 <i class="fas fa-search"></i>
@@ -221,12 +225,44 @@
           </div>
         </section>
 
-        <section class="panel" id="panel-TTA-CHO">
+        <section class="panel" id="panel-TTA">
+        <div class="panel-cards">
+            <a href="#" class="card" id="plus">
+              <div class="number">
+                <i class="fas fa-plus"></i>
+              </div>
+              <p>Nuevo Viaje</p>
+            </a>
+            <div class="card">
+              <div class="number">
+                <h2>4</h2>
+                <i class="fas fa-busfas fa-bus"></i>
+              </div>
+              <p>Viajes</p>
+            </div>
+            <div class="card">
+              <div class="number">
+                <h2>2</h2>
+                <i class="fas fa-search-dollar"></i>
+              </div>
+              <p>Oportunidades</p>
+            </div>
+            <div class="card">
+              <div class="number">
+                <h2>1</h2>
+                <i class="fas fa-tags"></i>
+              </div>
+              <p>Ofertas</p>
+            </div>
+          </div>
           <div class="panel-tables">
             <div class="usuarios-recientes">
               <div class="usuarios-info">
                 <h2><i class="fas fa-bus"></i> Tus Viajes</h2>
-                <a href="Usuarios.html">Ver Todas <i class="fas fa-arrow-right"></i></a>
+                <div class="button-wrapper">
+                  <a href="Viajes.html" class="add"><i class="fas fa-plus"></i></a>
+                  <a href="Viajes.html">Ver Todas <i class="fas fa-arrow-right"></i></a>
+                </div>
               </div>
               <div class="search">
                 <i class="fas fa-search"></i>
@@ -262,8 +298,11 @@
             </div>
             <div class="usuarios-propietarios">
               <div class="usuarios-info">
-                <h2><i class="fas fa-building"></i> Empresas Registradas</h2>
-                <a href="Empresas.html">Ver Todos <i class="fas fa-arrow-right"></i></a>
+                <h2><i class="fas fa-building"></i> Tus Empresas</h2>
+                <div class="button-wrapper">
+                  <a href="Empresas.html" class="add"><i class="fas fa-plus"></i></a>
+                  <a href="Empresas.html">Ver Todos <i class="fas fa-arrow-right"></i></a>
+                </div>
               </div>
               <div class="search">
                 <i class="fas fa-search"></i>
