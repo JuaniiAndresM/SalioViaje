@@ -345,6 +345,7 @@ function passwd(tipo){
    $('#finalizar-registro-TTA').attr('disabled', true);
    $('#finalizar-registro-TTA').html('<span class="loader-register"><i class="fas fa-spinner"></i></span>');
 
+   $('#button_volver').hide();
    $('#btn-volver').hide();
    $('#pax-register').attr('disabled', true);
    $('#pax-register').html('<span class="loader-register"><i class="fas fa-spinner"></i></span>');
@@ -380,8 +381,11 @@ function register_form(opcion){
 switch(opcion){
    case "1":
    if (validacion("USUARIO",datos_Usuario) == true) {
-      registrar_usuario("PAX");
-                  window.location = "/SalioViaje/Success";
+     btn_finalizar_carga()
+         setTimeout(function() {
+            registrar_usuario("PAX");
+            window.location = "/SalioViaje/Success";
+         }, 1000);
                }else{ console.log("No valido...") }
                break;
                case "2":
@@ -476,8 +480,8 @@ switch(opcion){
      btn_finalizar_carga()
          setTimeout(function() {
             registrar_usuario("ASE");
+            window.location = "/SalioViaje/Success";
          }, 1000);
-      window.location = "/SalioViaje/Success";
 
   }else{ console.log("No valido...") }
   break;
