@@ -647,6 +647,16 @@ function valido_Empresa_sin_crearla(choferes_sub){
    }else{ console.log("No valido...") }
 }
 
+function eliminar_vehiculo(matricula){
+  for (var i = 0; i < vehiculos.length; i++) {
+    if(vehiculos[i]['MATRICULA'] == matricula){
+      vehiculos.splice(i)
+      $('#'+matricula).remove();
+    }
+  }
+  console.log(vehiculos)
+}
+
 /*-------------------------------------------------------------------------------------------*/
 //                                     Log in                                                //
 /*-------------------------------------------------------------------------------------------*/
