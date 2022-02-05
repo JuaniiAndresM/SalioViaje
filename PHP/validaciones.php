@@ -149,10 +149,6 @@ class validaciones
 					if ($valor == "0") {
 						$VALIDACION['CHOFERES_SUB'] = 0;
 					}else { $VALIDACION['CHOFERES_SUB'] = 1; }
-					case 'CHOFERES_SUB':
-					if ($valor == "0") {
-						$VALIDACION['CHOFERES_SUB'] = 0;
-					}else { $VALIDACION['CHOFERES_SUB'] = 1; }
 					break;
 					case 'NUMERO_MTOP':
 					if ($valor != null) {
@@ -171,7 +167,7 @@ class validaciones
 			}
 		}
 
-		if (count($VALIDACION) == 3 && $TIENE_MTOP == 0 && $TIENE_CHOFERES_SUB == null) {
+		if (count($VALIDACION) == 3 && $TIENE_MTOP == 0 && $TIENE_CHOFERES_SUB == null || count($VALIDACION) == 4 && $TIENE_MTOP == 0 && $TIENE_CHOFERES_SUB != null) {
 			$DATOS_VACIOS = null;
 		}else if(count($VALIDACION) != 5 || count($VALIDACION) != 6 || $TIENE_CHOFERES_SUB != null){
 			$DATOS_VACIOS = "Err-1";
@@ -287,7 +283,6 @@ class validaciones
 		if($DATOS_VACIOS == null && $errores == 0) { return true; } elseif ($DATOS_VACIOS != null) { return $DATOS_VACIOS; } else { return json_encode($VALIDACION);}
 
 	}
-
 }
 
 $Validar = new validaciones($_POST['tipo'],$_POST['datos']);
