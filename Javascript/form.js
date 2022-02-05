@@ -4,6 +4,7 @@ $(document).ready(function () {
   $('#mensaje-error3').hide();
   $('#mensaje-error4').hide();
   $('#mensaje-error5').hide();
+  $('#guardar-cambios').hide();
 
   $('.progress-bar').hide();
   $('.vehiculos-wrapper').hide();
@@ -339,6 +340,23 @@ function passwd(tipo){
 
 
   }
+  let MATRICULA_VEHICULO_MODIFICADO;
+  function formulario_editar_vehiculo(matricula){
+    MATRICULA_VEHICULO_MODIFICADO = matricula;
+    for (var i = 0; i < vehiculos.length; i++) {
+      if(vehiculos[i]['MATRICULA'] == matricula){
+        $('#matricula').val(vehiculos[i]['MATRICULA'])
+        $('#marca').val(vehiculos[i]['MARCA'])
+        $('#modelo').val(vehiculos[i]['MODELO'])
+        $('#combustible').val(vehiculos[i]['COMBUSTIBLE'])
+        $('#capacidad_pasajeros').val(vehiculos[i]['CAPACIDAD_PASAJEROS'])
+        $('#capacidad_equipaje').val(vehiculos[i]['CAPACIDAD_EQUIPAJE'])
+        $('#pet_friendly').val(vehiculos[i]['PET_FRIENDLY'])
+        $('#add-vehicle2').hide();
+        $('#guardar-cambios').show();
+      }
+    }
+  }
 
   function btn_finalizar_carga(){
    $('#add_company_button').hide();
@@ -400,7 +418,7 @@ switch(opcion){
                         data: { tipo:"2",idUsuario: ID_USUARIO,empresas:JSON.stringify(empresas) },
                         success: function (response) {
                           console.log(response)
-                            window.location = "/SalioViaje/Success";
+                          window.location = "/SalioViaje/Success";
                          },
                       });
                   }, 1000);
@@ -514,7 +532,7 @@ function registrar_usuario(tipoUsuario){
     data: { tipo:"1",tipoUsuario:tipoUsuario, datos:JSON.stringify(datos_Usuario) },
     success: function (response) {
       ID_USUARIO = response;
-      console.log("ID usuario:  "+response)
+      console.log(response)
    },
    complete: function(){
       return ID_USUARIO;
@@ -547,9 +565,6 @@ function add_vehicle(){
   });
  }else{ console.log("No valido...") }
 
-    /*
-
-    */
  }
 
  function crear_empresa(choferes_sub){
@@ -656,6 +671,42 @@ function eliminar_vehiculo(matricula){
   }
   console.log(vehiculos)
 }
+
+function editar_vehiculo(){
+  matricula = MATRICULA_VEHICULO_MODIFICADO;
+  for (var i = 0; i < vehiculos.length; i++) {
+    if(vehiculos[i]['MATRICULA'] == matricula){
+      vehiculos[i]['MATRICULA'] = document.getElementById('matricula').value.toUpperCase();
+      vehiculos[i]['MARCA'] = document.getElementById('marca').value;
+      vehiculos[i]['MODELO'] = document.getElementById('modelo').value;
+      vehiculos[i]['COMBUSTIBLE'] = document.getElementById('combustible').value;
+      vehiculos[i]['CAPACIDAD_PASAJEROS'] = document.getElementById('capacidad_pasajeros').value;
+      vehiculos[i]['CAPACIDAD_EQUIPAJE'] = document.getElementById('capacidad_equipaje').value;
+      vehiculos[i]['PET_FRIENDLY'] = document.getElementById('pet_friendly').value;
+      $.ajax({
+        type: "POST",
+        url: "/SalioViaje/PHP/agregarVehiculo.php",
+        data: {datos:JSON.stringify(vehiculos[i]) },
+          success: function (response) {
+            $('#'+matricula).html(response);
+            $('#add-vehicle2').show();
+            $('#guardar-cambios').hide();
+            reset_vehicle_inputs();
+          },
+      });
+    }
+  }
+}
+
+/*
+    "MATRICULA": document.getElementById('matricula').value.toUpperCase(),
+    "MARCA": document.getElementById('marca').value,
+    "MODELO": document.getElementById('modelo').value,
+    "COMBUSTIBLE": document.getElementById('combustible').value,
+    "CAPACIDAD_PASAJEROS": document.getElementById('capacidad_pasajeros').value,
+    "CAPACIDAD_EQUIPAJE": document.getElementById('capacidad_equipaje').value,
+    "PET_FRIENDLY": document.getElementById('pet_friendly').value
+*/
 
 /*-------------------------------------------------------------------------------------------*/
 //                                     Log in                                                //
