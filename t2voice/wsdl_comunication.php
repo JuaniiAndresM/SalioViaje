@@ -24,7 +24,11 @@ class notifyMeActions {
                             "identificadorUnico"=>$id,//identificador de la llamada
                             "telefono"=>$tel,//telefono del cliente
                             "variable"=>array(
-                                "nombre"=>$name,//nombre del cliente
+                                "nombre"=>"nombre",//nombre variable
+                                "valor"=>$name//nombre del cliente
+                            ),
+                            "variable"=>array(
+                                "nombre"=>"texto",//nombre variable
                                 "valor"=>$msj//mensaje que se le desea mandar al cliente
                             )
                         )
