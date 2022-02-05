@@ -36,13 +36,13 @@ class procedimientosBD
      $stmt->close();
  }
 
- public function register_empresa($tipo_usuario,$id_usuario,$datos){
+ public function register_empresa($contador,$tipo_usuario,$id_usuario,$datos){
     if ($tipo_usuario == "CHO" || !isset($datos['CHOFERES_SUB'])) { $datos['CHOFERES_SUB'] = 0; }
     $conn = $this->conexion();
-    $query = "call register_empresa(?,?,?,?,?,?,?,?);";
+    $query = "call register_empresa(?,?,?,?,?,?,?,?,?);";
     $stmt = $conn->prepare($query);
     echo "\n".$datos["RUT"]." ".$datos["NOMBRE_COMERCIAL"]." ".$datos["RAZON_SOCIAL"]." ".$datos["NUMERO_MTOP"]." ".$datos["PASSWORD_MTOP"]." ".$tipo_usuario." ".$id_usuario." ".$datos['CHOFERES_SUB']."\n";
-    $stmt->bind_param("sssissii", $datos["RUT"], $datos["NOMBRE_COMERCIAL"], $datos["RAZON_SOCIAL"], $datos["NUMERO_MTOP"], $datos["PASSWORD_MTOP"], $tipo_usuario, $id_usuario, $datos['CHOFERES_SUB']);
+    $stmt->bind_param("isssissii", $contador, $datos["RUT"], $datos["NOMBRE_COMERCIAL"], $datos["RAZON_SOCIAL"], $datos["NUMERO_MTOP"], $datos["PASSWORD_MTOP"], $tipo_usuario, $id_usuario, $datos['CHOFERES_SUB']);
     $stmt->execute();
     $stmt->close();
 }
