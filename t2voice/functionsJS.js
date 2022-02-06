@@ -4,7 +4,7 @@ $(document).ready(function () {
     //cuando apreta el boton manda la info
     $("#send_call").on('click', function() {
 
-        send.realizarLlamada("tpc_texto_a_voz","2022-02-05T15:00:00+03:00","602","098208189","Sol","Estoy probando");
+        send.realizarLlamada("tpc_texto_a_voz","2022-02-05T15:00:00+03:00","607","098208189","Sol","Estoy probando");
 
     });
     $("#watch_call").on('click', function() {
