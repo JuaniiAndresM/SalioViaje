@@ -189,12 +189,12 @@
 
                 <div class="input" id="pasajeros">
                   <i class="fas fa-users" id="icon"></i>
-                  <input type="number" id="pasajeros" placeholder="Cantidad de Pasajeros" />
+                  <input type="number" id="pasajeros-input" placeholder="Cantidad de Pasajeros" />
                 </div>
 
                 <div class="input" id="km">
                   <i class="fas fa-road" id="icon"></i>
-                  <input type="number" id="distancia" placeholder="Distancia del Viaje" />
+                  <input type="number" id="distancia-input" placeholder="Distancia del Viaje" />
                   <p id="end-text">km</p>
                 </div>
 

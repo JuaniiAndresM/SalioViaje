@@ -43,7 +43,8 @@ function steps(step){
             $('.progress').css('width', '50%');
             $('.circle1').css('background-color', '#2b3179');
             $('.circle2').css('background-color', '#2b3179');
-            
+
+            precio_referencia();          
             break;
 
         case 3:
@@ -55,6 +56,36 @@ function steps(step){
             $('.circle3').css('background-color', '#2b3179');
             break;
     }
+}
+
+function precio_referencia(){
+    var pasajeros = $("#pasajeros-input").val();
+    var distancia = $("#distancia-input").val();
+
+    var referencia;
+
+    if(pasajeros >= 4){
+        referencia = distancia * 34;
+    }else if(pasajeros >= 6){
+        referencia = distancia * 56;
+    }else if(pasajeros >= 8){
+        referencia = distancia * 66;
+    }else if(pasajeros >= 11){
+        referencia = distancia * 76;
+    }else if(pasajeros >= 15){
+        referencia = distancia * 88;
+    }else if(pasajeros >= 17){
+        referencia = distancia * 90;
+    }else if(pasajeros >= 22){
+        referencia = distancia * 104;
+    }else if(pasajeros >= 28){
+        referencia = distancia * 110;
+    }else if(pasajeros >= 47){
+        referencia = distancia * 120;
+    }
+
+    $("#precioref_1").attr('placeholder', referencia);
+    $("#precioref_2").attr('placeholder', referencia);
 }
 
 function select_origen_destino(type){
