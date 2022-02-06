@@ -35,7 +35,7 @@ CREATE TABLE `empresas` (
   PRIMARY KEY (`ID`),
   KEY `IDUsuario_idx` (`Usuario_ID`),
   CONSTRAINT `IDUsu` FOREIGN KEY (`Usuario_ID`) REFERENCES `usuarios` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=177 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=178 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -97,13 +97,13 @@ CREATE TABLE `usuarios` (
   `PIN` varchar(70) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   `RUT` varchar(45) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
   `Usuario` varchar(45) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
-  `Passwd` varchar(45) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
+  `Passwd` varchar(70) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
   `Supervisor` varchar(45) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
   `Nombre_Hotel` varchar(45) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
   `Direccion_Hotel` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `Usuario_UNIQUE` (`Usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=247 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=249 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -134,7 +134,7 @@ CREATE TABLE `vehiculos` (
   `RUT_EM` varchar(12) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   `RUT_EC` varchar(12) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=125 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=126 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -165,7 +165,7 @@ CREATE TABLE `visitas` (
 
 LOCK TABLES `visitas` WRITE;
 /*!40000 ALTER TABLE `visitas` DISABLE KEYS */;
-INSERT INTO `visitas` VALUES (191);
+INSERT INTO `visitas` VALUES (35);
 /*!40000 ALTER TABLE `visitas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -234,7 +234,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `login`(usuario varchar(12))
 BEGIN
-	SELECT ID,PIN,Passwd,Nombre,Apellido,Tipo_Usuario FROM usuarios where CI = usuario or RUT = usuario;
+	SELECT ID,PIN,Passwd,Nombre,Apellido,Tipo_Usuario FROM usuarios where CI = usuario or RUT = usuario or Usuario = usuario;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -384,4 +384,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-02-05 20:21:22
+-- Dump completed on 2022-02-06 17:38:11

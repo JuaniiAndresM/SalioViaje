@@ -719,13 +719,14 @@ function login(ADMIN){
 
   let usuario = document.getElementById('usuario').value;
   let pin = document.getElementById('passwd').value;
-
-  if (usuario.length >= 8) {
+  let pattern = /^[0-9]$/i
+  if (!pattern.test(usuario) || usuario.length >= 8) {
     $.ajax({
       type: "POST",
       url: "/SalioViaje/PHP/procedimientosForm.php",
       data: {tipo:"login", usuario:usuario, pin:pin},
       success: function (response) {
+        console.log(response)
         if (response != '') {
           $("#mensaje-error").text("");
           window.location = "/SalioViaje/Dashboard";
