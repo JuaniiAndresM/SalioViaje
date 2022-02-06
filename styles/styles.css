@@ -12,8 +12,8 @@
 .landing .landing-wrapper-grid {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 40% 1fr;
-      grid-template-columns: 40% 1fr;
+  -ms-grid-columns: 30% 1fr;
+      grid-template-columns: 30% 1fr;
   width: 100%;
   gap: 20px;
   margin: 0 auto;
@@ -644,7 +644,7 @@
   }
 }
 
-@media screen and (max-width: 1050px) {
+@media screen and (max-width: 1280px) {
   .landing {
     max-height: 600px;
     overflow: hidden;
@@ -875,6 +875,7 @@ header .header-wrapper .header-right .header-links .session .user {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  cursor: pointer;
   background-color: transparent;
   border: none;
 }
@@ -1018,7 +1019,7 @@ header .header-wrapper .header-right #links-mobile .links-wrapper button:hover {
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-@media screen and (max-width: 1060px) {
+@media screen and (max-width: 1160px) {
   header .header-wrapper .header-right .header-links .links {
     display: none;
   }
@@ -4398,6 +4399,58 @@ footer .totum p a:hover {
   color: #2b3179;
 }
 
+.panel-header .header-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.panel-header .header-right .select {
+  position: relative;
+  margin: 30px 20px;
+}
+
+.panel-header .header-right .select select {
+  width: 100%;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding-left: 25px;
+  color: #555;
+  font-size: 0.85em;
+}
+
+.panel-header .header-right .select select::-webkit-input-placeholder {
+  color: #888;
+}
+
+.panel-header .header-right .select select:-ms-input-placeholder {
+  color: #888;
+}
+
+.panel-header .header-right .select select::-ms-input-placeholder {
+  color: #888;
+}
+
+.panel-header .header-right .select select::placeholder {
+  color: #888;
+}
+
+.panel-header .header-right .select #icon {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  color: #3844bc;
+  font-size: 1.3em;
+}
+
 .panel-header .header-right .header-user {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4683,6 +4736,7 @@ footer .totum p a:hover {
           flex-direction: column;
   -webkit-box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.2);
           box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.2);
+  text-decoration: none;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
@@ -4712,6 +4766,7 @@ footer .totum p a:hover {
 }
 
 .panel .panel-cards .card p {
+  margin-top: 5px;
   color: #666;
 }
 
@@ -4734,6 +4789,32 @@ footer .totum p a:hover {
 
 .panel .panel-cards .card:nth-child(1) p {
   color: white;
+}
+
+.panel .panel-cards #plus {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.panel .panel-cards #plus .number {
+  width: 100%;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .panel .panel-tables {
@@ -4774,24 +4855,24 @@ footer .totum p a:hover {
   color: #2b3179;
 }
 
-.panel .panel-tables .usuarios-recientes .usuarios-info a,
-.panel .panel-tables .usuarios-propietarios .usuarios-info a {
+.panel .panel-tables .usuarios-recientes .usuarios-info .button-wrapper a,
+.panel .panel-tables .usuarios-propietarios .usuarios-info .button-wrapper a {
   width: 150px;
   text-align: center;
   border: none;
   cursor: pointer;
   background-color: #3844bc;
-  padding: 10px;
-  margin-left: 20px;
+  padding: 13px 15px;
+  margin: 10px 0;
   color: white;
   text-decoration: none;
-  border-radius: 3em 0 3em 3em;
+  border-radius: 50%;
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
 
-.panel .panel-tables .usuarios-recientes .usuarios-info a:hover,
-.panel .panel-tables .usuarios-propietarios .usuarios-info a:hover {
+.panel .panel-tables .usuarios-recientes .usuarios-info .button-wrapper a:hover,
+.panel .panel-tables .usuarios-propietarios .usuarios-info .button-wrapper a:hover {
   background-color: #2b3179;
 }
 
@@ -6705,6 +6786,572 @@ footer .totum p a:hover {
 .t2voice .t2voice-wrapper button:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
+}
+
+.agendarViaje {
+  margin-top: 20px;
+  max-width: 800px;
+  width: 100%;
+  padding: 20px;
+  margin: auto;
+}
+
+.agendarViaje .info-user {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+.agendarViaje .info-user .column1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.agendarViaje .info-user .column1 .user-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #3844bc;
+  margin-right: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.agendarViaje .info-user .column1 .user-icon i {
+  color: #ffffff;
+  font-size: 2em;
+}
+
+.agendarViaje .info-user .column1 .user-name {
+  text-align: left;
+}
+
+.agendarViaje .info-user .column1 .user-name h3 {
+  max-width: 250px;
+  color: #3844bc;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.agendarViaje .info-user .column1 .user-name p {
+  color: #555;
+}
+
+.agendarViaje .info-user .column2 {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.agendarViaje .info-user .column2 p {
+  color: #555;
+  margin: 5px 0;
+}
+
+.agendarViaje .progress-bar {
+  position: relative;
+  width: 90%;
+  height: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.agendarViaje .progress-bar .line {
+  position: relative;
+  width: 100%;
+  height: 5px;
+  border-radius: 2em;
+  background-color: #aaa;
+}
+
+.agendarViaje .progress-bar .progress {
+  position: absolute;
+  left: 0;
+  width: 0%;
+  height: 5px;
+  border-radius: 2em;
+  background: -webkit-gradient(linear, left top, right top, from(#3844bc), to(#2b3179));
+  background: linear-gradient(to right, #3844bc, #2b3179);
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+}
+
+.agendarViaje .progress-bar .circle1,
+.agendarViaje .progress-bar .circle2,
+.agendarViaje .progress-bar .circle3 {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #aaa;
+  position: absolute;
+  left: 0;
+}
+
+.agendarViaje .progress-bar .circle1 {
+  background-color: #3844bc;
+}
+
+.agendarViaje .progress-bar .circle2 {
+  left: calc(50% - 10px);
+}
+
+.agendarViaje .progress-bar .circle3 {
+  left: calc(100% - 10px);
+}
+
+.agendarViaje #step_1,
+.agendarViaje #step_2,
+.agendarViaje #step_3,
+.agendarViaje #step_4,
+.agendarViaje #step_5,
+.agendarViaje #step_hotel {
+  width: 100%;
+  text-align: center;
+}
+
+.agendarViaje #step_1 .step_title,
+.agendarViaje #step_2 .step_title,
+.agendarViaje #step_3 .step_title,
+.agendarViaje #step_4 .step_title,
+.agendarViaje #step_5 .step_title,
+.agendarViaje #step_hotel .step_title {
+  color: #3844bc;
+  margin-top: 10px;
+  font-size: 1.2em;
+}
+
+.agendarViaje #step_1 .vehicle,
+.agendarViaje #step_2 .vehicle,
+.agendarViaje #step_3 .vehicle,
+.agendarViaje #step_4 .vehicle,
+.agendarViaje #step_5 .vehicle,
+.agendarViaje #step_hotel .vehicle {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 100px 1fr;
+      grid-template-columns: 100px 1fr;
+  width: 100%;
+  height: 100%;
+}
+
+.agendarViaje #step_1 .vehicle .vehicle-icon,
+.agendarViaje #step_2 .vehicle .vehicle-icon,
+.agendarViaje #step_3 .vehicle .vehicle-icon,
+.agendarViaje #step_4 .vehicle .vehicle-icon,
+.agendarViaje #step_5 .vehicle .vehicle-icon,
+.agendarViaje #step_hotel .vehicle .vehicle-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #3844bc;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.agendarViaje #step_1 .vehicle .vehicle-icon i,
+.agendarViaje #step_2 .vehicle .vehicle-icon i,
+.agendarViaje #step_3 .vehicle .vehicle-icon i,
+.agendarViaje #step_4 .vehicle .vehicle-icon i,
+.agendarViaje #step_5 .vehicle .vehicle-icon i,
+.agendarViaje #step_hotel .vehicle .vehicle-icon i {
+  color: #ffffff;
+  font-size: 2em;
+}
+
+.agendarViaje #step_1 .vehicle .vehicle-info,
+.agendarViaje #step_2 .vehicle .vehicle-info,
+.agendarViaje #step_3 .vehicle .vehicle-info,
+.agendarViaje #step_4 .vehicle .vehicle-info,
+.agendarViaje #step_5 .vehicle .vehicle-info,
+.agendarViaje #step_hotel .vehicle .vehicle-info {
+  text-align: left;
+  margin: auto;
+}
+
+.agendarViaje #step_1 .vehicle .vehicle-info h3,
+.agendarViaje #step_2 .vehicle .vehicle-info h3,
+.agendarViaje #step_3 .vehicle .vehicle-info h3,
+.agendarViaje #step_4 .vehicle .vehicle-info h3,
+.agendarViaje #step_5 .vehicle .vehicle-info h3,
+.agendarViaje #step_hotel .vehicle .vehicle-info h3 {
+  color: #3844bc;
+  font-size: 1.2em;
+}
+
+.agendarViaje #step_1 .vehicle .vehicle-info p,
+.agendarViaje #step_2 .vehicle .vehicle-info p,
+.agendarViaje #step_3 .vehicle .vehicle-info p,
+.agendarViaje #step_4 .vehicle .vehicle-info p,
+.agendarViaje #step_5 .vehicle .vehicle-info p,
+.agendarViaje #step_hotel .vehicle .vehicle-info p {
+  font-size: 1em;
+  color: #555;
+  margin: 5px 0;
+}
+
+.agendarViaje #step_1 .empty-list,
+.agendarViaje #step_2 .empty-list,
+.agendarViaje #step_3 .empty-list,
+.agendarViaje #step_4 .empty-list,
+.agendarViaje #step_5 .empty-list,
+.agendarViaje #step_hotel .empty-list {
+  display: none;
+}
+
+.agendarViaje #step_1 .inputs-wrapper-agendar,
+.agendarViaje #step_2 .inputs-wrapper-agendar,
+.agendarViaje #step_3 .inputs-wrapper-agendar,
+.agendarViaje #step_4 .inputs-wrapper-agendar,
+.agendarViaje #step_5 .inputs-wrapper-agendar,
+.agendarViaje #step_hotel .inputs-wrapper-agendar {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+.agendarViaje #step_1 .inputs-wrapper-agendar .input,
+.agendarViaje #step_2 .inputs-wrapper-agendar .input,
+.agendarViaje #step_3 .inputs-wrapper-agendar .input,
+.agendarViaje #step_4 .inputs-wrapper-agendar .input,
+.agendarViaje #step_5 .inputs-wrapper-agendar .input,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .input {
+  position: relative;
+  width: calc(100% - 60px);
+  margin: 30px auto;
+}
+
+.agendarViaje #step_1 .inputs-wrapper-agendar .input input,
+.agendarViaje #step_1 .inputs-wrapper-agendar .input select,
+.agendarViaje #step_2 .inputs-wrapper-agendar .input input,
+.agendarViaje #step_2 .inputs-wrapper-agendar .input select,
+.agendarViaje #step_3 .inputs-wrapper-agendar .input input,
+.agendarViaje #step_3 .inputs-wrapper-agendar .input select,
+.agendarViaje #step_4 .inputs-wrapper-agendar .input input,
+.agendarViaje #step_4 .inputs-wrapper-agendar .input select,
+.agendarViaje #step_5 .inputs-wrapper-agendar .input input,
+.agendarViaje #step_5 .inputs-wrapper-agendar .input select,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .input input,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .input select {
+  width: 100%;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #aaa;
+  outline: none;
+  padding-left: 25px;
+  color: #555;
+  font-size: 0.85em;
+}
+
+.agendarViaje #step_1 .inputs-wrapper-agendar .input input::-webkit-input-placeholder,
+.agendarViaje #step_1 .inputs-wrapper-agendar .input select::-webkit-input-placeholder,
+.agendarViaje #step_2 .inputs-wrapper-agendar .input input::-webkit-input-placeholder,
+.agendarViaje #step_2 .inputs-wrapper-agendar .input select::-webkit-input-placeholder,
+.agendarViaje #step_3 .inputs-wrapper-agendar .input input::-webkit-input-placeholder,
+.agendarViaje #step_3 .inputs-wrapper-agendar .input select::-webkit-input-placeholder,
+.agendarViaje #step_4 .inputs-wrapper-agendar .input input::-webkit-input-placeholder,
+.agendarViaje #step_4 .inputs-wrapper-agendar .input select::-webkit-input-placeholder,
+.agendarViaje #step_5 .inputs-wrapper-agendar .input input::-webkit-input-placeholder,
+.agendarViaje #step_5 .inputs-wrapper-agendar .input select::-webkit-input-placeholder,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .input input::-webkit-input-placeholder,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .input select::-webkit-input-placeholder {
+  color: #888;
+}
+
+.agendarViaje #step_1 .inputs-wrapper-agendar .input input:-ms-input-placeholder,
+.agendarViaje #step_1 .inputs-wrapper-agendar .input select:-ms-input-placeholder,
+.agendarViaje #step_2 .inputs-wrapper-agendar .input input:-ms-input-placeholder,
+.agendarViaje #step_2 .inputs-wrapper-agendar .input select:-ms-input-placeholder,
+.agendarViaje #step_3 .inputs-wrapper-agendar .input input:-ms-input-placeholder,
+.agendarViaje #step_3 .inputs-wrapper-agendar .input select:-ms-input-placeholder,
+.agendarViaje #step_4 .inputs-wrapper-agendar .input input:-ms-input-placeholder,
+.agendarViaje #step_4 .inputs-wrapper-agendar .input select:-ms-input-placeholder,
+.agendarViaje #step_5 .inputs-wrapper-agendar .input input:-ms-input-placeholder,
+.agendarViaje #step_5 .inputs-wrapper-agendar .input select:-ms-input-placeholder,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .input input:-ms-input-placeholder,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .input select:-ms-input-placeholder {
+  color: #888;
+}
+
+.agendarViaje #step_1 .inputs-wrapper-agendar .input input::-ms-input-placeholder,
+.agendarViaje #step_1 .inputs-wrapper-agendar .input select::-ms-input-placeholder,
+.agendarViaje #step_2 .inputs-wrapper-agendar .input input::-ms-input-placeholder,
+.agendarViaje #step_2 .inputs-wrapper-agendar .input select::-ms-input-placeholder,
+.agendarViaje #step_3 .inputs-wrapper-agendar .input input::-ms-input-placeholder,
+.agendarViaje #step_3 .inputs-wrapper-agendar .input select::-ms-input-placeholder,
+.agendarViaje #step_4 .inputs-wrapper-agendar .input input::-ms-input-placeholder,
+.agendarViaje #step_4 .inputs-wrapper-agendar .input select::-ms-input-placeholder,
+.agendarViaje #step_5 .inputs-wrapper-agendar .input input::-ms-input-placeholder,
+.agendarViaje #step_5 .inputs-wrapper-agendar .input select::-ms-input-placeholder,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .input input::-ms-input-placeholder,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .input select::-ms-input-placeholder {
+  color: #888;
+}
+
+.agendarViaje #step_1 .inputs-wrapper-agendar .input input::placeholder,
+.agendarViaje #step_1 .inputs-wrapper-agendar .input select::placeholder,
+.agendarViaje #step_2 .inputs-wrapper-agendar .input input::placeholder,
+.agendarViaje #step_2 .inputs-wrapper-agendar .input select::placeholder,
+.agendarViaje #step_3 .inputs-wrapper-agendar .input input::placeholder,
+.agendarViaje #step_3 .inputs-wrapper-agendar .input select::placeholder,
+.agendarViaje #step_4 .inputs-wrapper-agendar .input input::placeholder,
+.agendarViaje #step_4 .inputs-wrapper-agendar .input select::placeholder,
+.agendarViaje #step_5 .inputs-wrapper-agendar .input input::placeholder,
+.agendarViaje #step_5 .inputs-wrapper-agendar .input select::placeholder,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .input input::placeholder,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .input select::placeholder {
+  color: #888;
+}
+
+.agendarViaje #step_1 .inputs-wrapper-agendar .input input#distancia,
+.agendarViaje #step_2 .inputs-wrapper-agendar .input input#distancia,
+.agendarViaje #step_3 .inputs-wrapper-agendar .input input#distancia,
+.agendarViaje #step_4 .inputs-wrapper-agendar .input input#distancia,
+.agendarViaje #step_5 .inputs-wrapper-agendar .input input#distancia,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .input input#distancia {
+  padding-right: 30px;
+  text-align: right;
+}
+
+.agendarViaje #step_1 .inputs-wrapper-agendar .input input#distancia::-webkit-input-placeholder,
+.agendarViaje #step_2 .inputs-wrapper-agendar .input input#distancia::-webkit-input-placeholder,
+.agendarViaje #step_3 .inputs-wrapper-agendar .input input#distancia::-webkit-input-placeholder,
+.agendarViaje #step_4 .inputs-wrapper-agendar .input input#distancia::-webkit-input-placeholder,
+.agendarViaje #step_5 .inputs-wrapper-agendar .input input#distancia::-webkit-input-placeholder,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .input input#distancia::-webkit-input-placeholder {
+  text-align: left;
+}
+
+.agendarViaje #step_1 .inputs-wrapper-agendar .input input#distancia:-ms-input-placeholder,
+.agendarViaje #step_2 .inputs-wrapper-agendar .input input#distancia:-ms-input-placeholder,
+.agendarViaje #step_3 .inputs-wrapper-agendar .input input#distancia:-ms-input-placeholder,
+.agendarViaje #step_4 .inputs-wrapper-agendar .input input#distancia:-ms-input-placeholder,
+.agendarViaje #step_5 .inputs-wrapper-agendar .input input#distancia:-ms-input-placeholder,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .input input#distancia:-ms-input-placeholder {
+  text-align: left;
+}
+
+.agendarViaje #step_1 .inputs-wrapper-agendar .input input#distancia::-ms-input-placeholder,
+.agendarViaje #step_2 .inputs-wrapper-agendar .input input#distancia::-ms-input-placeholder,
+.agendarViaje #step_3 .inputs-wrapper-agendar .input input#distancia::-ms-input-placeholder,
+.agendarViaje #step_4 .inputs-wrapper-agendar .input input#distancia::-ms-input-placeholder,
+.agendarViaje #step_5 .inputs-wrapper-agendar .input input#distancia::-ms-input-placeholder,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .input input#distancia::-ms-input-placeholder {
+  text-align: left;
+}
+
+.agendarViaje #step_1 .inputs-wrapper-agendar .input input#distancia::placeholder,
+.agendarViaje #step_2 .inputs-wrapper-agendar .input input#distancia::placeholder,
+.agendarViaje #step_3 .inputs-wrapper-agendar .input input#distancia::placeholder,
+.agendarViaje #step_4 .inputs-wrapper-agendar .input input#distancia::placeholder,
+.agendarViaje #step_5 .inputs-wrapper-agendar .input input#distancia::placeholder,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .input input#distancia::placeholder {
+  text-align: left;
+}
+
+.agendarViaje #step_1 .inputs-wrapper-agendar .input #end-text,
+.agendarViaje #step_2 .inputs-wrapper-agendar .input #end-text,
+.agendarViaje #step_3 .inputs-wrapper-agendar .input #end-text,
+.agendarViaje #step_4 .inputs-wrapper-agendar .input #end-text,
+.agendarViaje #step_5 .inputs-wrapper-agendar .input #end-text,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .input #end-text {
+  position: absolute;
+  top: 11px;
+  right: 0;
+  color: #555;
+  font-size: .9em;
+}
+
+.agendarViaje #step_1 .inputs-wrapper-agendar .input #icon,
+.agendarViaje #step_2 .inputs-wrapper-agendar .input #icon,
+.agendarViaje #step_3 .inputs-wrapper-agendar .input #icon,
+.agendarViaje #step_4 .inputs-wrapper-agendar .input #icon,
+.agendarViaje #step_5 .inputs-wrapper-agendar .input #icon,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .input #icon {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  color: #555;
+}
+
+.agendarViaje #step_1 .inputs-wrapper-agendar .input .password-eye,
+.agendarViaje #step_2 .inputs-wrapper-agendar .input .password-eye,
+.agendarViaje #step_3 .inputs-wrapper-agendar .input .password-eye,
+.agendarViaje #step_4 .inputs-wrapper-agendar .input .password-eye,
+.agendarViaje #step_5 .inputs-wrapper-agendar .input .password-eye,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .input .password-eye {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 12px;
+  right: 0;
+  color: #555;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.agendarViaje #step_1 .inputs-wrapper-agendar .input .password-eye:hover,
+.agendarViaje #step_2 .inputs-wrapper-agendar .input .password-eye:hover,
+.agendarViaje #step_3 .inputs-wrapper-agendar .input .password-eye:hover,
+.agendarViaje #step_4 .inputs-wrapper-agendar .input .password-eye:hover,
+.agendarViaje #step_5 .inputs-wrapper-agendar .input .password-eye:hover,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .input .password-eye:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.agendarViaje #step_1 .inputs-wrapper-agendar .input:nth-child(3) input,
+.agendarViaje #step_2 .inputs-wrapper-agendar .input:nth-child(3) input,
+.agendarViaje #step_3 .inputs-wrapper-agendar .input:nth-child(3) input,
+.agendarViaje #step_4 .inputs-wrapper-agendar .input:nth-child(3) input,
+.agendarViaje #step_5 .inputs-wrapper-agendar .input:nth-child(3) input,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .input:nth-child(3) input {
+  padding-right: 30px;
+  margin-bottom: 0;
+}
+
+.agendarViaje #step_1 .button-agendar,
+.agendarViaje #step_2 .button-agendar,
+.agendarViaje #step_3 .button-agendar,
+.agendarViaje #step_4 .button-agendar,
+.agendarViaje #step_5 .button-agendar,
+.agendarViaje #step_hotel .button-agendar {
+  background: -webkit-gradient(linear, left top, right top, from(#3844bc), to(#2b3179));
+  background: linear-gradient(to right, #3844bc, #2b3179);
+  color: #ffffff;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 2em;
+  margin-top: 10px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+  margin-top: 0;
+}
+
+.agendarViaje #step_1 .button-agendar i,
+.agendarViaje #step_2 .button-agendar i,
+.agendarViaje #step_3 .button-agendar i,
+.agendarViaje #step_4 .button-agendar i,
+.agendarViaje #step_5 .button-agendar i,
+.agendarViaje #step_hotel .button-agendar i {
+  margin-right: 5px;
+}
+
+.agendarViaje #step_1 .mensaje-error,
+.agendarViaje #step_1 #mensaje-error,
+.agendarViaje #step_2 .mensaje-error,
+.agendarViaje #step_2 #mensaje-error,
+.agendarViaje #step_3 .mensaje-error,
+.agendarViaje #step_3 #mensaje-error,
+.agendarViaje #step_4 .mensaje-error,
+.agendarViaje #step_4 #mensaje-error,
+.agendarViaje #step_5 .mensaje-error,
+.agendarViaje #step_5 #mensaje-error,
+.agendarViaje #step_hotel .mensaje-error,
+.agendarViaje #step_hotel #mensaje-error {
+  color: #ff635a;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 650px) {
+  .agendarViaje .info-user {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  .agendarViaje .info-user .column2 {
+    margin: 15px 0;
+    text-align: center;
+  }
+  .agendarViaje #step_1 .inputs-wrapper-agendar {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  .agendarViaje #step_1 .inputs-wrapper-agendar .column:nth-child(1) .vehicle {
+    width: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .agendarViaje #step_1 .inputs-wrapper-agendar .column:nth-child(1) .vehicle .vehicle-icon {
+    margin: 0;
+    margin-right: 20px;
+  }
+  .agendarViaje #step_1 .inputs-wrapper-agendar .column:nth-child(1) .vehicle .vehicle-info {
+    margin: 0;
+  }
+  .agendarViaje #step_1 .inputs-wrapper-agendar .column:nth-child(2) {
+    -ms-grid-row: 1;
+    grid-row: 1;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .agendarViaje #step_1 .inputs-wrapper-agendar .column:nth-child(1) .vehicle {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  .agendarViaje #step_1 .inputs-wrapper-agendar .column:nth-child(1) .vehicle .vehicle-icon {
+    margin: 10px auto;
+  }
+  .agendarViaje #step_1 .inputs-wrapper-agendar .column:nth-child(1) .vehicle .vehicle-info {
+    margin: 10px auto;
+    text-align: center;
+  }
 }
 
 * {

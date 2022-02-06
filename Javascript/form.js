@@ -4,6 +4,7 @@ $(document).ready(function () {
   $('#mensaje-error3').hide();
   $('#mensaje-error4').hide();
   $('#mensaje-error5').hide();
+  $('#guardar-cambios').hide();
 
   $('.progress-bar').hide();
   $('.vehiculos-wrapper').hide();
@@ -33,7 +34,10 @@ $(document).ready(function () {
   $("#finalizar_empresa_2").on('click', function() {
    if ($('#select_users').val() == 2) {
       crear_empresa("choferes_sub_select")
-   }else if($('#select_users').val() == 3){ crear_empresa("empresas") }
+   }else if($('#select_users').val() == 3){ 
+      crear_empresa("empresas") 
+   }else { crear_empresa() }
+
 });
 
   let inputs = document.querySelectorAll("input");
@@ -219,6 +223,8 @@ function steps(step){
   break;
 
   case 5:
+  $('#step_5').show();
+
   $('.progress-bar').hide();
   $('.progress-bar2').hide();
 
@@ -227,8 +233,6 @@ function steps(step){
   $('.circle1').css('background-color', '#2b3179');
   $('.circle2').css('background-color', '#2b3179');
   $('.circle3').css('background-color', '#2b3179');
-
-  $('#step_5').show();
 
   $('.vehiculos-wrapper').hide();
   break;
@@ -336,11 +340,36 @@ function passwd(tipo){
 
 
   }
+  let MATRICULA_VEHICULO_MODIFICADO;
+  function formulario_editar_vehiculo(matricula){
+    MATRICULA_VEHICULO_MODIFICADO = matricula;
+    for (var i = 0; i < vehiculos.length; i++) {
+      if(vehiculos[i]['MATRICULA'] == matricula){
+        $('#matricula').val(vehiculos[i]['MATRICULA'])
+        $('#marca').val(vehiculos[i]['MARCA'])
+        $('#modelo').val(vehiculos[i]['MODELO'])
+        $('#combustible').val(vehiculos[i]['COMBUSTIBLE'])
+        $('#capacidad_pasajeros').val(vehiculos[i]['CAPACIDAD_PASAJEROS'])
+        $('#capacidad_equipaje').val(vehiculos[i]['CAPACIDAD_EQUIPAJE'])
+        $('#pet_friendly').val(vehiculos[i]['PET_FRIENDLY'])
+        $('#add-vehicle2').hide();
+        $('#guardar-cambios').show();
+      }
+    }
+  }
 
   function btn_finalizar_carga(){
    $('#add_company_button').hide();
    $('#finalizar-registro-TTA').attr('disabled', true);
    $('#finalizar-registro-TTA').html('<span class="loader-register"><i class="fas fa-spinner"></i></span>');
+
+   $('#button_volver').hide();
+   $('#btn-volver').hide();
+   $('#pax-register').attr('disabled', true);
+   $('#pax-register').html('<span class="loader-register"><i class="fas fa-spinner"></i></span>');
+
+   $('#finalizar_empresa').attr('disabled', true);
+   $('#finalizar_empresa').html('<span class="loader-register"><i class="fas fa-spinner"></i></span>');
 }
 
 /*-------------------------------------------------------------------------------------------*/
@@ -370,8 +399,11 @@ function register_form(opcion){
 switch(opcion){
    case "1":
    if (validacion("USUARIO",datos_Usuario) == true) {
-      registrar_usuario("PAX");
-                  window.location = "/SalioViaje/Success";
+     btn_finalizar_carga()
+         setTimeout(function() {
+            registrar_usuario("PAX");
+            window.location = "/SalioViaje/Success";
+         }, 1000);
                }else{ console.log("No valido...") }
                break;
                case "2":
@@ -386,7 +418,7 @@ switch(opcion){
                         data: { tipo:"2",idUsuario: ID_USUARIO,empresas:JSON.stringify(empresas) },
                         success: function (response) {
                           console.log(response)
-                            window.location = "/SalioViaje/Success";
+                          window.location = "/SalioViaje/Success";
                          },
                       });
                   }, 1000);
@@ -463,18 +495,11 @@ switch(opcion){
     break;
     case "6":
     if (validacion("USUARIO",datos_Usuario)) {
-     registrar_usuario("ASE");
      btn_finalizar_carga()
-     setTimeout(function() {
-       $.ajax({
-         type: "POST",
-         url: "/SalioViaje/PHP/procedimientosForm.php",
-         data: { tipo:'6', datos:JSON.stringify(datos_Usuario) },
-         success: function (response) {
-                            window.location = "/SalioViaje/Success";
-                         },
-                      });
-    }, 1000);
+         setTimeout(function() {
+            registrar_usuario("ASE");
+            window.location = "/SalioViaje/Success";
+         }, 1000);
 
   }else{ console.log("No valido...") }
   break;
@@ -490,7 +515,7 @@ switch(opcion){
             data: { tipo:'7',idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas)  },
             success: function (response) {
                console.log(response)      
-               window.location = "/SalioViaje/Success";
+
             },
          });
       }, 1000);
@@ -507,7 +532,7 @@ function registrar_usuario(tipoUsuario){
     data: { tipo:"1",tipoUsuario:tipoUsuario, datos:JSON.stringify(datos_Usuario) },
     success: function (response) {
       ID_USUARIO = response;
-      console.log("ID usuario:  "+response)
+      console.log(response)
    },
    complete: function(){
       return ID_USUARIO;
@@ -540,13 +565,9 @@ function add_vehicle(){
   });
  }else{ console.log("No valido...") }
 
-    /*
-
-    */
  }
 
  function crear_empresa(choferes_sub){
-   console.log(choferes_sub)
    if (choferes_sub == "choferes_sub_select" || choferes_sub == "empresas") {
       datos_Empresa = {
        "RUT": document.getElementById('rutt').value,
@@ -635,10 +656,58 @@ function valido_Empresa_sin_crearla(choferes_sub){
 
 }
 
-if (validacion("EMPRESA",datos_Empresa)) {     
- next();
-}else{ console.log("No valido...") }
+   if (validacion("EMPRESA",datos_Empresa)) {     
+      console.log("...")
+      next();
+   }else{ console.log("No valido...") }
 }
+
+function eliminar_vehiculo(matricula){
+  for (var i = 0; i < vehiculos.length; i++) {
+    if(vehiculos[i]['MATRICULA'] == matricula){
+      vehiculos.splice(i,1)
+      $('#'+matricula).remove();
+    }
+  }
+  console.log(vehiculos)
+}
+
+function editar_vehiculo(){
+  matricula = MATRICULA_VEHICULO_MODIFICADO;
+  for (var i = 0; i < vehiculos.length; i++) {
+    if(vehiculos[i]['MATRICULA'] == matricula){
+      vehiculos[i]['MATRICULA'] = document.getElementById('matricula').value.toUpperCase();
+      vehiculos[i]['MARCA'] = document.getElementById('marca').value;
+      vehiculos[i]['MODELO'] = document.getElementById('modelo').value;
+      vehiculos[i]['COMBUSTIBLE'] = document.getElementById('combustible').value;
+      vehiculos[i]['CAPACIDAD_PASAJEROS'] = document.getElementById('capacidad_pasajeros').value;
+      vehiculos[i]['CAPACIDAD_EQUIPAJE'] = document.getElementById('capacidad_equipaje').value;
+      vehiculos[i]['PET_FRIENDLY'] = document.getElementById('pet_friendly').value;
+      $.ajax({
+        type: "POST",
+        url: "/SalioViaje/PHP/agregarVehiculo.php",
+        data: {datos:JSON.stringify(vehiculos[i]) },
+          success: function (response) {
+            $('#'+matricula).remove();
+            $('.vehiculos').append(response);
+            $('#add-vehicle2').show();
+            $('#guardar-cambios').hide();
+            reset_vehicle_inputs();
+          },
+      });
+    }
+  }
+}
+
+/*
+    "MATRICULA": document.getElementById('matricula').value.toUpperCase(),
+    "MARCA": document.getElementById('marca').value,
+    "MODELO": document.getElementById('modelo').value,
+    "COMBUSTIBLE": document.getElementById('combustible').value,
+    "CAPACIDAD_PASAJEROS": document.getElementById('capacidad_pasajeros').value,
+    "CAPACIDAD_EQUIPAJE": document.getElementById('capacidad_equipaje').value,
+    "PET_FRIENDLY": document.getElementById('pet_friendly').value
+*/
 
 /*-------------------------------------------------------------------------------------------*/
 //                                     Log in                                                //

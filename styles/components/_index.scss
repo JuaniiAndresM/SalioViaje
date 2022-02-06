@@ -38,7 +38,7 @@ $contraste_2: #ffffff;
 
   .landing-wrapper-grid {
     display: grid;
-    grid-template-columns: 40% 1fr;
+    grid-template-columns: 30% 1fr;
     width: 100%;
     gap: 20px;
 
@@ -554,7 +554,7 @@ $contraste_2: #ffffff;
     }
   }
 }
-@media screen and(max-width: 1050px) {
+@media screen and(max-width: 1280px) {
   .landing {
     max-height: 600px;
     overflow: hidden;
