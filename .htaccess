@@ -3,6 +3,9 @@ RewriteEngine on
 
 DirectoryIndex index.html
 
+php_value display_errors 1
+php_flag output_buffering on
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 

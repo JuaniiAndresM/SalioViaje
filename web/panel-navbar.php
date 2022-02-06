@@ -1,22 +1,24 @@
   <?php 
 
+  session_start();
+
   $tipo = 0;
 
-  switch($_SESSION['tipo_usuario']){
-    case "Administrador":
-      $tipo = 1;
-      break;
-
-    case "Transportista": case "Chofer":
-      $tipo = 2;
-      break;
-    
-    default:
-      $tipo = 0;
-      break;
-  }
-
+  if(isset($_SESSION['usuario'])){
+    switch($_SESSION['tipo_usuario']){
+      case "Administrador":
+        $tipo = 1;
+        break;
   
+      case "Transportista": case "Chofer":
+        $tipo = 2;
+        break;
+      
+      default:
+        $tipo = 0;
+        break;
+    } 
+  }  
 
   ?>
   
@@ -36,8 +38,8 @@
         <span class="title">Dashboard</span>
       </a>
     </li>
-    <?php 
-    if($tipo == 0){
+    <?php
+    if($tipo == 1){
       echo '  <li>
                 <a href="Usuarios">
                   <span class="icon"><i class="fas fas fa-user-friends"></i></span>
