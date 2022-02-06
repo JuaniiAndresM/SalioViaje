@@ -16,7 +16,7 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <title>SalióViaje - Vehículos</title>
+    <title>SalióViaje | Vehículos</title>
 
     <!-- // Meta Etiquetas -->
 
@@ -41,7 +41,7 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.salioviaje.com.uy/Vehiculos" />
-    <meta property="og:title" content="SalióViaje - Vehiculos" />
+    <meta property="og:title" content="SalióViaje | Vehiculos" />
     <meta
       property="og:description"
       content="Plataforma que optimiza el traslado ocasional de personas."
@@ -56,7 +56,7 @@
     <meta property="twitter:url" content="https://www.salioviaje.com.uy/Vehiculos" />
     <meta
       property="twitter:title"
-      content="SalióViaje - Vehiculos"
+      content="SalióViaje | Vehiculos"
     />
     <meta
       property="twitter:description"

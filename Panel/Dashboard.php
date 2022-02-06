@@ -1,13 +1,28 @@
 <?php 
 
   session_start(); 
+  $tipo = 0;
 
   if(!isset($_SESSION['usuario'])){
     header('Location: https://www.salioviaje.com.uy/Login');
 
   }else{
-    if($_SESSION['tipo_usuario'] != "Administrador"){
-      header('Location: https://www.salioviaje.com.uy/');
+    if($_SESSION['tipo_usuario'] != "Pasajero" ){
+      switch($_SESSION['tipo_usuario']){
+        case "Administrador":
+          $tipo = 1;
+          break;
+    
+        case "Transportista": case "Chofer":
+          $tipo = 2;
+          break;
+        
+        default:
+          $tipo = 0;
+          break;
+      }
+    }else{
+      header('Location: /SalioViaje/');
     }
   }
 
@@ -16,7 +31,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <title>SalióViaje - Dashboard</title>
+        <title>SalióViaje | Dashboard</title>
     
         <!-- // Meta Etiquetas -->
 
@@ -41,7 +56,7 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.salioviaje.com.uy/Dashboard" />
-    <meta property="og:title" content="SalióViaje - Dashboard" />
+    <meta property="og:title" content="SalióViaje | Dashboard" />
     <meta
       property="og:description"
       content="Plataforma que optimiza el traslado ocasional de personas."
@@ -56,7 +71,7 @@
     <meta property="twitter:url" content="https://www.salioviaje.com.uy/Dashboard" />
     <meta
       property="twitter:title"
-      content="SalióViaje - Dashboard"
+      content="SalióViaje | Dashboard"
     />
     <meta
       property="twitter:description"
@@ -96,14 +111,6 @@
         </script>
       </head>
       <body>
-
-        <select id="select_actualizar">
-          <option value="0">No actualizar</option>
-          <option value="1">Actualizar cada 1s</option>
-          <option value="2">Actualizar cada 5s</option>
-          <option value="3">Actualizar cada 10s</option>
-          <option value="4">Actualizar cada 15s</option>
-        </select>
          
         <div id="pre-loader">
           <div class="lds-ellipsis">
@@ -123,6 +130,16 @@
             </div>
           </div>
           <div class="header-right">
+            <div class="select">
+              <i id="icon" class="fas fa-redo-alt"></i>
+              <select id="select_actualizar">
+                <option value="0" selected>Disabled</option>
+                <option value="1">1s</option>
+                <option value="2">5s</option>
+                <option value="3">10s</option>
+                <option value="4">15s</option>
+              </select>
+            </div>
             <div class="header-user">
               <div class="icon"><img src="https://www.salioviaje.com.uy/media/svg/Logo-SalioViaje-White.svg" alt="Logo SalióViaje"></div>
               <div class="user">
@@ -135,90 +152,181 @@
         </header>
     
         <nav class="nav-hidden active" id="panel-navbar"></nav>
-        <section class="panel" id="panel">
-          <div class="panel-cards">
-            <div class="card">
-              <div class="number" id="cantidad-usuarios">
 
-              </div>
-              <p>Usuarios</p>
-            </div>
-            <div class="card">
-              <div class="number">
-                <h2>-</h2>
-                <i class="fas fa-hand-holding-usd"></i>
-              </div>
-              <p>Oportunidades Activas</p>
-            </div>
-            <div class="card">
-              <div class="number">
-                <h2 id="visitas_hoy"></h2>
-                <h2>-</h2>
-                <i class="fas fa-eye"></i>
-              </div>
-              <p>Visitas Hoy</p>
-            </div>
-            <div class="card">
-              <div class="number">
-                <h2>-</h2>
-                <i class="fas fa-leaf"></i>
-              </div>
-              <p>CO<sub>2</sub> Ahorrados</p>
-            </div>
-          </div>
-          <div class="panel-tables">
-            <div class="usuarios-recientes">
-              <div class="usuarios-info">
-                <h2><i class="fas fa-user-friends"></i> Usuarios Registrados</h2>
-                <a href="Usuarios.html">Ver Todas <i class="fas fa-arrow-right"></i></a>
-              </div>
-              <div class="search">
-                <i class="fas fa-search"></i>
-                <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarUsuarios(1)"/>
-              </div>
-              <table class="usuarios-table" id="search-table-dashboard">
-                <!-- antes:
-                  <tr>
-                    <th>
-                      Nombre <i class="fas fa-angle-down"></i>
-                    </th>
-                    <th>Apellido <i class="fas fa-angle-down"></i></th>
-                    <th>Tipo <i class="fas fa-angle-down"></i></th>
-                    <th>Departamento <i class="fas fa-angle-down"></i></th>
-                    <th>Teléfono <i class="fas fa-angle-down"></i></th>
-                    <th></th>
-                  </tr>
-                -->
-                <thead>
-                  <tr>
-                    <th>Tipo <i class="fas fa-angle-down"></i></th>
-                    <th>
-                      Nombre <i class="fas fa-angle-down"></i>
-                    </th>
-                    <th>Apellido <i class="fas fa-angle-down"></i></th>
-                    <th>Departamento <i class="fas fa-angle-down"></i></th>
-                    <th>Teléfono <i class="fas fa-angle-down"></i></th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody id="tbody"></tbody>
-              </table>
-            </div>
-            <div class="usuarios-propietarios">
-              <div class="usuarios-info">
-                <h2><i class="fas fa-building"></i> Empresas Registradas</h2>
-                <a href="Empresas.html">Ver Todos <i class="fas fa-arrow-right"></i></a>
-              </div>
-              <div class="search">
-                <i class="fas fa-search"></i>
-                <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarusuarios()"/>
-              </div>
-              <div class="propietarios">
-    
-              </div>
+
+        <?php 
+
+        if($tipo == 1){
+          echo '  <section class="panel" id="panel">
+                    <div class="panel-cards">
+                      <div class="card">
+                        <div class="number" id="cantidad-usuarios">
+
+                        </div>
+                        <p>Usuarios</p>
+                      </div>
+                      <div class="card">
+                        <div class="number">
+                          <h2>-</h2>
+                          <i class="fas fa-hand-holding-usd"></i>
+                        </div>
+                        <p>Oportunidades Activas</p>
+                      </div>
+                      <div class="card">
+                        <div class="number">
+                          <h2 id="visitas_hoy"></h2>
+                          <i class="fas fa-eye"></i>
+                        </div>
+                        <p>Visitas Hoy</p>
+                      </div>
+                      <div class="card">
+                        <div class="number">
+                          <h2>-</h2>
+                          <i class="fas fa-leaf"></i>
+                        </div>
+                        <p>CO<sub>2</sub> Ahorrados</p>
+                      </div>
+                    </div>
+                    <div class="panel-tables">
+                      <div class="usuarios-recientes">
+                        <div class="usuarios-info">
+                          <h2><i class="fas fa-user-friends"></i> Usuarios Registrados</h2>
+                          <div class="button-wrapper">
+                            <a href="Usuarios.html">Ver Todas <i class="fas fa-arrow-right"></i></a>
+                          </div>
+                        </div>
+                        <div class="search">
+                          <i class="fas fa-search"></i>
+                          <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarUsuarios(1)"/>
+                        </div>
+                        <table class="usuarios-table" id="search-table">
+                          <!-- antes:
+                            <tr>
+                              <th>
+                                Nombre <i class="fas fa-angle-down"></i>
+                              </th>
+                              <th>Apellido <i class="fas fa-angle-down"></i></th>
+                              <th>Tipo <i class="fas fa-angle-down"></i></th>
+                              <th>Departamento <i class="fas fa-angle-down"></i></th>
+                              <th>Teléfono <i class="fas fa-angle-down"></i></th>
+                              <th></th>
+                            </tr>
+                          -->
+                          <thead>
+                            <tr>
+                              <th>Tipo <i class="fas fa-angle-down"></i></th>
+                              <th>
+                                Nombre <i class="fas fa-angle-down"></i>
+                              </th>
+                              <th>Apellido <i class="fas fa-angle-down"></i></th>
+                              <th>Departamento <i class="fas fa-angle-down"></i></th>
+                              <th>Teléfono <i class="fas fa-angle-down"></i></th>
+                              <th></th>
+                            </tr>
+                          </thead>
+                          <tbody id="tbody"></tbody>
+                        </table>
+                      </div>
+                      <div class="usuarios-propietarios">
+                        <div class="usuarios-info">
+                          <h2><i class="fas fa-building"></i> Empresas Registradas</h2>
+                          <div class="button-wrapper">
+                            <a href="Empresas.html">Ver Todos <i class="fas fa-arrow-right"></i></a>
+                          </div>
+                        </div>
+                        <div class="search">
+                          <i class="fas fa-search"></i>
+                          <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarusuarios()"/>
+                        </div>
+                        <div class="propietarios">
               
-            </div>
-          </div>
-        </section>
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </section>';
+        }elseif($tipo == 2){
+          echo '  <section class="panel" id="panel">
+                    <div class="panel-cards">
+                        <a href="#" class="card" id="plus">
+                          <div class="number">
+                            <i class="fas fa-plus"></i>
+                          </div>
+                          <p>Nuevo Viaje</p>
+                        </a>
+                        <div class="card">
+                          <div class="number">
+                            <h2>4</h2>
+                            <i class="fas fa-busfas fa-bus"></i>
+                          </div>
+                          <p>Viajes</p>
+                        </div>
+                        <div class="card">
+                          <div class="number">
+                            <h2>2</h2>
+                            <i class="fas fa-search-dollar"></i>
+                          </div>
+                          <p>Oportunidades</p>
+                        </div>
+                        <div class="card">
+                          <div class="number">
+                            <h2>1</h2>
+                            <i class="fas fa-tags"></i>
+                          </div>
+                          <p>Ofertas</p>
+                        </div>
+                      </div>
+                      <div class="panel-tables">
+                        <div class="usuarios-recientes">
+                          <div class="usuarios-info">
+                            <h2><i class="fas fa-bus"></i> Tus Viajes</h2>
+                            <div class="button-wrapper">
+                              <a href="Agendar" class="add"><i class="fas fa-plus"></i></a>
+                              <a href="Viajes.html">Ver Todas <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                          </div>
+                          <div class="search">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarUsuarios(1)"/>
+                          </div>
+                          <table class="usuarios-table" id="search-table">
+                            <thead>
+                              <tr>
+                                <th>ID <i class="fas fa-angle-down"></i></th>
+                                <th>
+                                  Origen <i class="fas fa-angle-down"></i>
+                                </th>
+                                <th>Destino <i class="fas fa-angle-down"></i></th>
+                                <th>Fecha <i class="fas fa-angle-down"></i></th>
+                                <th>Estado <i class="fas fa-angle-down"></i></th>
+                                <th></th>
+                              </tr>
+                            </thead>
+                            <tbody id="tbody"></tbody>
+                          </table>
+                        </div>
+                        <div class="usuarios-propietarios">
+                          <div class="usuarios-info">
+                            <h2><i class="fas fa-building"></i> Tus Empresas</h2>
+                            <div class="button-wrapper">
+                              <a href="Empresas.html" class="add"><i class="fas fa-plus"></i></a>
+                              <a href="Empresas.html">Ver Todos <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                          </div>
+                          <div class="search">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarusuarios()"/>
+                          </div>
+                          <div class="propietarios">
+                
+                          </div>
+                          
+                        </div>
+                      </div>
+                    </section>';
+        }
+        ?>
+
+
       </body>
 </html>

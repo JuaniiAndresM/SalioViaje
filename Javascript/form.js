@@ -1,46 +1,64 @@
 $(document).ready(function () {
-    $('#mensaje-error1').hide();
-    $('#mensaje-error2').hide();
-    $('#mensaje-error3').hide();
-    $('#mensaje-error4').hide();
-    $('#mensaje-error5').hide();
-    $('#button_next_step').hide();
-    $('.progress-bar').hide();
-    $('.vehiculos-wrapper').hide();
-    $('.progress-bar2').hide();
+  $('#mensaje-error1').hide();
+  $('#mensaje-error2').hide();
+  $('#mensaje-error3').hide();
+  $('#mensaje-error4').hide();
+  $('#mensaje-error5').hide();
+  $('#guardar-cambios').hide();
 
-    steps(1);
-    Empresas()
+  $('.progress-bar').hide();
+  $('.vehiculos-wrapper').hide();
+  $('.progress-bar2').hide();
 
-    $("#pax-register").on('click', function() {
-        register_form($('#select_users').val())
-    });
-    $("#finalizar-registro-TTA").on('click', function() {
-        register_form($('#select_users').val())
-    });
-    $("#step-next").on('click', function() {
-        register_form($('#select_users').val())
-    });
+  $('#add_company_button').show();
+  $('#finalizar-registro-TTA').attr('disabled', false);
+  $('#finalizar-registro-TTA').html('<i class="fas fa-check"></i> Finalizar');
 
-    let inputs = document.querySelectorAll("input");
-        inputs.forEach(box => {
-        box.addEventListener('keyup', function(event) {
-            if (event.keyCode === 13) {
-                event.preventDefault();
+  steps(1);
+  Empresas();
 
-                switch(step){
-                    case 2:
-                        document.getElementById("step-next").click();
-                        break;
+  $("#pax-register").on('click', function() {
+    register_form($('#select_users').val())
+ });
+  $("#finalizar-registro-TTA").on('click', function() {
+    register_form($('#select_users').val())
+ });
+  $("#step-next").on('click', function() {
+    register_form($('#select_users').val())
+ });
+  $("#add-vehicle").on('click', function() {
+   if ($('#select_users').val() == 2) {
+      valido_Empresa_sin_crearla("choferes_sub_select")
+   }else if($('#select_users').val() == 3){ valido_Empresa_sin_crearla("empresas") }
+});
+  $("#finalizar_empresa_2").on('click', function() {
+   if ($('#select_users').val() == 2) {
+      crear_empresa("choferes_sub_select")
+   }else if($('#select_users').val() == 3){ 
+      crear_empresa("empresas") 
+   }else { crear_empresa() }
 
-                    case 3:
-                        document.getElementById("add-vehicle").click();
-                        break;
-                }
-                
-            }
-        });
-    });
+});
+
+  let inputs = document.querySelectorAll("input");
+  inputs.forEach(box => {
+    box.addEventListener('keyup', function(event) {
+      if (event.keyCode === 13) {
+        event.preventDefault();
+
+        switch(step){
+          case 2:
+          document.getElementById("step-next").click();
+          break;
+
+          case 3:
+          document.getElementById("add-vehicle").click();
+          break;
+       }
+
+    }
+ });
+ });
 });
 
 var step = 1;
@@ -48,343 +66,315 @@ var step = 1;
 
 
 function volver(){
-    reset_errores();
-    step--;
-    steps(step);
+  reset_errores();
+  step--;
+  steps(step);
 }
 
 function next(){
-    step++;
-    steps(step);
+  step++;
+  steps(step);
 }
 
 function steps(step){
 
-    switch(step){
-        case 1:         
-            $('.progress-bar').hide();
-            $('.progress-bar2').hide();
-            $('#step_1').show();
-            $('#step_2').hide();
-            $('#step_3').hide();
-            $('#step_4').hide();
-            $('#step_5').hide();
+  var user = $('#select_users').val();
 
-            $('.vehiculos-wrapper').hide();
-            break;
+  $('#step_1').hide();
+  $('#step_2').hide();
+  $('#step_3').hide();
+  $('#step_4').hide();
+  $('#step_5').hide();
+  $('#step_hotel').hide();
 
-        case 2:
-            $('.progress').css('width', '0%');
+  $('.vehiculos-wrapper').hide();
 
-            $('.circle1').css('background-color', '#2b3179');
-            $('.circle2').css('background-color', '#aaa');
-            $('.circle3').css('background-color', '#aaa');
+  $('#button_next_step').hide();
+  $('#finalizar_empresa').hide();
 
-            var user = $('#select_users').val();
-            select_user(user);
+  $('#add-vehicle').hide();
+  $('.vehiculos-wrapper').hide();    
 
-            if(user != null){
-                $('#step_1').hide();
-                $('#step_2').show();
-                $('#step_3').hide();
-                $('#step_4').hide();
-                $('#step_5').hide();
-            }
+  $('.progress-bar').show();
+  $('.progress-bar2').show();
 
-            $('.vehiculos-wrapper').hide();
-            break;
+  switch(step){
 
-        case 3:
-            $('.progress').css('width', '50%');
-            $('.progress2').css('width', '100%');
-            
-            $('.circle1').css('background-color', '#2b3179');
-            $('.circle2').css('background-color', '#2b3179');
-            $('.circle3').css('background-color', '#aaa');
+    case 1:
+    $('#step_1').show();
 
-            $('#step_1').hide();
-            $('#step_2').hide();
-            $('#step_3').show();
-            $('#step_4').hide();
-            $('#step_5').hide();
-            $('#add-vehicle').show();
-            $('#finalizar_empresa').hide();
+    $('.progress-bar').hide();
+    $('.progress-bar2').hide();
+    break;
 
-            var user = $('#select_users').val();
+    case 2:
 
-            if(user == 4 || user == 7){
-                $('#add-vehicle').hide();
-                $('#finalizar_empresa').show();
-            }
 
-            $('.vehiculos-wrapper').hide();
-            break;
+    $('#step_1').hide();
+    $('#step_2').show();
 
-        case 4:
-            $('.progress').css('width', '100%');
+    $('.progress').css('width', '0%');
+    $('.progress2').css('width', '0%');
 
-            $('.circle1').css('background-color', '#2b3179');
-            $('.circle2').css('background-color', '#2b3179');
-            $('.circle3').css('background-color', '#2b3179');
+    $('.circle1').css('background-color', '#2b3179');
+    $('.circle2').css('background-color', '#aaa');
+    $('.circle3').css('background-color', '#aaa');
 
-            $('#step_1').hide();
-            $('#step_2').hide();
-            $('#step_3').hide();
-            $('#step_4').show();
-            $('#step_5').hide();
+    switch(user){
+     case "1": case "6":
+     $('#pax-register').show();
+     $('#step-next').hide();
 
-            $('.vehiculos-wrapper').show();
-            break;
+     $('.progress-bar').hide();
+     $('.progress-bar2').hide();
+     break;
+     case "2": case "3":
+     $('#pax-register').hide();
+     $('#step-next').show();
 
-        case 5:
-            $('.progress').css('width', '100%');
+     $('.progress-bar').show();
+     $('.progress-bar2').hide();
+     break;
 
-            $('.circle1').css('background-color', '#2b3179');
-            $('.circle2').css('background-color', '#2b3179');
-            $('.circle3').css('background-color', '#2b3179');
+     case "4": case "5": case "7":
+     $('#pax-register').hide();
+     $('#step-next').show();
 
-            $('#step_1').hide();
-            $('#step_2').hide();
-            $('#step_3').hide();
-            $('#step_4').hide();
-            $('#step_5').show();
+     $('.progress-bar').hide();
+     $('.progress-bar2').show();
+     break;
 
-            $('.vehiculos-wrapper').hide();
-            break;
-    }
+     default:
+     console.log("Error");
+  }
+
+  break;
+
+  case 3:
+  $('.progress-bar').show();
+  $('.progress-bar2').show();
+
+  $('.progress').css('width', '50%');
+  $('.progress2').css('width', '100%');
+
+  $('.circle1').css('background-color', '#2b3179');
+  $('.circle2').css('background-color', '#2b3179');
+  $('.circle3').css('background-color', '#aaa');
+
+  switch(user){
+     case "2":
+     $('#step_3').show();
+
+     $('#contratista').hide();
+     $('#choferes_sub').show();
+     $('#add-vehicle').show();
+
+     $('.progress-bar').show();
+     $('.progress-bar2').hide();
+     break;
+
+     case "3":
+     $('#step_3').show();
+
+     $('#contratista').show();
+     $('#choferes_sub').hide();
+     $('#add-vehicle').show();
+
+     $('.progress-bar').show();
+     $('.progress-bar2').hide();
+     break;
+
+     case "4": case "7":
+     $('#step_3').show();
+     $('#contratista').hide();
+     $('#choferes_sub').hide();
+
+     $('#add-vehicle').hide();
+     $('#finalizar_empresa').show();
+
+     $('.progress-bar').hide();
+     $('.progress-bar2').show();
+     break;
+
+     case "5":
+     $('#step_hotel').show();
+
+     $('.progress-bar').hide();
+     $('.progress-bar2').show();
+     break;
+
+     default:
+     console.log("Error");
+  }
+  break;
+
+  case 4:
+  $('.progress').css('width', '100%');
+
+  $('.circle1').css('background-color', '#2b3179');
+  $('.circle2').css('background-color', '#2b3179');
+  $('.circle3').css('background-color', '#2b3179');
+
+  $('.progress-bar').show();
+  $('.progress-bar2').hide();
+
+  $('#step_4').show();
+  $('.vehiculos-wrapper').show();
+  break;
+
+  case 5:
+  $('#step_5').show();
+
+  $('.progress-bar').hide();
+  $('.progress-bar2').hide();
+
+  $('.progress').css('width', '100%');
+
+  $('.circle1').css('background-color', '#2b3179');
+  $('.circle2').css('background-color', '#2b3179');
+  $('.circle3').css('background-color', '#2b3179');
+
+  $('.vehiculos-wrapper').hide();
+  break;
+}
 }
 
 function select_usuario(){
-    var user = $('#select_users').val();
+  var user = $('#select_users').val();
 
-    $('#button_next_step').click();
-}
-
-function select_user(user){
-
-    $('.progress-bar').hide();
-    var user = $('#select_users').val();
-
-    $('#telefono-hotel').hide();
-    $('#supervisor').hide();
-    $('#nombrehotel').hide();
-    $('#direccionhotel').hide();
-
-    $('#direccion-input').show();
-    $('#barrio-input').show();
-    $('#departamento-input').show();
-    $('#telefono-input').show();
-    $('.progress-bar2').hide();
-
-    switch(user){
-        case "1":
-            $('.progress-bar').hide();
-            $('#step_1').hide();
-
-            $('#step_2').show();
-            $('#ci').show();
-            $('#rut').hide();
-            $('#contratista').hide();
-
-            $('#pax-register').show();
-            $('#step-next').hide();
-            break;
-
-        case "2":
-            $('.progress-bar').show();
-            $('#step_1').hide();
-
-            $('#step_2').show();
-            $('#ci').show();
-            $('#rut').hide();
-            $('#contratista').hide();
-
-            $('#pax-register').hide();
-            $('#step-next').show();
-            break;
-
-        case "3":
-            $('.progress-bar').show();
-            $('#step_1').hide();
-
-            $('#step_2').show();
-            $('#ci').hide();
-            $('#rut').show();
-            $('#contratista').show();
-            
-            $('#pax-register').hide();
-            $('#step-next').show();
-            break;
-
-        case "4":
-            $('.progress-bar').hide();
-            $('.progress-bar2').show();
-            $('#step_1').hide();
-
-            $('#step_2').show();
-            $('#ci').hide();
-            $('#rut').show();
-            $('#contratista').hide();
-            
-            $('#pax-register').hide();
-            $('#step-next').show();
-            break;
-
-        case "5":
-            $('.progress-bar').hide();
-            $('#step_1').hide();
-
-            $('#step_2').show();
-            $('#ci').show();
-            $('#rut').hide();
-            $('#contratista').hide();
-            
-            $('#telefono-hotel').show();
-            $('#supervisor').show();
-            $('#nombrehotel').show();
-            $('#direccionhotel').show();
-            $('#direccion-input').hide();
-            $('#barrio-input').hide();
-            $('#departamento-input').hide();
-            $('#telefono-input').hide();
-            
-            $('#pax-register').show();
-            $('#step-next').hide();
-            break;
-
-        case "6":
-            $('.progress-bar').hide();
-            $('#step_1').hide();
-
-            $('#step_2').show();
-            $('#ci').show();
-            $('#rut').hide();
-            $('#contratista').hide();
-
-            $('#pax-register').show();
-            $('#step-next').hide();
-            break;
-
-        case "7":
-            $('.progress-bar').hide();
-            $('.progress-bar2').show();
-            $('#step_1').hide();
-
-            $('#step_2').show();
-            $('#ci').hide();
-            $('#rut').show();
-            $('#contratista').hide();
-            
-            $('#pax-register').hide();
-            $('#step-next').show();
-            break;
-
-        default:
-            step--;
-            break;
-    }
+  $('#button_next_step').click();
 }
 
 function new_company(){
-    step = 3;
-    steps(3);
+  step = 3;
+  steps(3);
 
-    $('#company_volver').hide();
-    $('#rutt').val('');
-    $('#nombre_comercial').val('');
-    $('#razon_social').val('');
-    $('#numero_mtop').val('');
-    $('#password_mtop').val('');
-    $('#matricula').val('');
-    $('#marca').val('');
-    $('#modelo').val('');
-    $('#combustible').val('');
-    $('#capacidad_pasajeros').val('');
-    $('#capacidad_equipaje').val('');
-    $('#pet_friendly').val('0');
+  $('#company_volver').hide();
+  $('#rutt').val('');
+  $('#nombre_comercial').val('');
+  $('#razon_social').val('');
+  $('#numero_mtop').val('');
+  $('#password_mtop').val('');
+  $('#matricula').val('');
+  $('#marca').val('');
+  $('#modelo').val('');
+  $('#combustible').val('0');
+  $('#capacidad_pasajeros').val('');
+  $('#capacidad_equipaje').val('');
+  $('#pet_friendly').val('0');
 }
 
 function reset_vehicle_inputs(){
-    $('#matricula').val('');
-    $('#marca').val('');
-    $('#modelo').val('');
-    $('#combustible').val('0');
-    $('#capacidad_pasajeros').val('');
-    $('#capacidad_equipaje').val('');
-    $('#pet_friendly').val('0');
+  $('#matricula').val('');
+  $('#marca').val('');
+  $('#modelo').val('');
+  $('#combustible').val('0');
+  $('#capacidad_pasajeros').val('');
+  $('#capacidad_equipaje').val('');
+  $('#pet_friendly').val('0');
 }
 
 function reset_vehicles(){
-    $('.vehiculos').html('<div id="no-vehicle"><p>No hay vehiculos agregados.</p></div>');
-    $('#no-vehicle').show();
+  $('.vehiculos').html('<div id="no-vehicle"><p>No hay vehiculos agregados.</p></div>');
+  $('#no-vehicle').show();
 }
 
 function passwd(tipo){
 
-    switch(tipo){
+  switch(tipo){
         // Login
         case 1:
-            if($('#passeye').hasClass('show')){
-                $('#passwd').attr('type', 'password');
-                $('#passeye').html('<i class="fas fa-eye-slash"></i>');
-                $('#passeye').attr('class','hidden');
-            }else{
-                $('#passwd').attr('type', 'text');
-                $('#passeye').html('<i class="fas fa-eye"></i>');
-                $('#passeye').attr('class','show');
-            }
-            break;
+        if($('#passeye').hasClass('show')){
+           $('#passwd').attr('type', 'password');
+           $('#passeye').html('<i class="fas fa-eye-slash"></i>');
+           $('#passeye').attr('class','hidden');
+        }else{
+           $('#passwd').attr('type', 'text');
+           $('#passeye').html('<i class="fas fa-eye"></i>');
+           $('#passeye').attr('class','show');
+        }
+        break;
 
         //PIN1
         case 2:
-            if($('#passeye').hasClass('show')){
-                $('#password').attr('type', 'password');
-                $('#passeye').html('<i class="fas fa-eye-slash"></i>');
-                $('#passeye').attr('class','hidden');
-            }else{
-                $('#password').attr('type', 'text');
-                $('#passeye').html('<i class="fas fa-eye"></i>');
-                $('#passeye').attr('class','show');
-            }
-            break;
+        if($('#passeye').hasClass('show')){
+           $('#password').attr('type', 'password');
+           $('#passeye').html('<i class="fas fa-eye-slash"></i>');
+           $('#passeye').attr('class','hidden');
+        }else{
+           $('#password').attr('type', 'text');
+           $('#passeye').html('<i class="fas fa-eye"></i>');
+           $('#passeye').attr('class','show');
+        }
+        break;
 
         // PIN 2
         case 3:
-            if($('#passeye2').hasClass('show')){
-                $('#re-password').attr('type', 'password');
-                $('#passeye2').html('<i class="fas fa-eye-slash"></i>');
-                $('#passeye2').attr('class','hidden');
-            }else{
-                $('#re-password').attr('type', 'text');
-                $('#passeye2').html('<i class="fas fa-eye"></i>');
-                $('#passeye2').attr('class','show');
-            }
-            break;
+        if($('#passeye2').hasClass('show')){
+           $('#re-password').attr('type', 'password');
+           $('#passeye2').html('<i class="fas fa-eye-slash"></i>');
+           $('#passeye2').attr('class','hidden');
+        }else{
+           $('#re-password').attr('type', 'text');
+           $('#passeye2').html('<i class="fas fa-eye"></i>');
+           $('#passeye2').attr('class','show');
+        }
+        break;
 
         // PASSWORD MTOP
         case 4:
-            if($('#passeye3').hasClass('show')){
-                $('#password_mtop').attr('type', 'password');
-                $('#passeye3').html('<i class="fas fa-eye-slash"></i>');
-                $('#passeye3').attr('class','hidden');
-            }else{
-                $('#password_mtop').attr('type', 'text');
-                $('#passeye3').html('<i class="fas fa-eye"></i>');
-                $('#passeye3').attr('class','show');
-            }
-            break;
+        if($('#passeye3').hasClass('show')){
+           $('#password_mtop').attr('type', 'password');
+           $('#passeye3').html('<i class="fas fa-eye-slash"></i>');
+           $('#passeye3').attr('class','hidden');
+        }else{
+           $('#password_mtop').attr('type', 'text');
+           $('#passeye3').html('<i class="fas fa-eye"></i>');
+           $('#passeye3').attr('class','show');
+        }
+        break;
 
 
+     }
+
+
+
+  }
+  let MATRICULA_VEHICULO_MODIFICADO;
+  function formulario_editar_vehiculo(matricula){
+    MATRICULA_VEHICULO_MODIFICADO = matricula;
+    for (var i = 0; i < vehiculos.length; i++) {
+      if(vehiculos[i]['MATRICULA'] == matricula){
+        $('#matricula').val(vehiculos[i]['MATRICULA'])
+        $('#marca').val(vehiculos[i]['MARCA'])
+        $('#modelo').val(vehiculos[i]['MODELO'])
+        $('#combustible').val(vehiculos[i]['COMBUSTIBLE'])
+        $('#capacidad_pasajeros').val(vehiculos[i]['CAPACIDAD_PASAJEROS'])
+        $('#capacidad_equipaje').val(vehiculos[i]['CAPACIDAD_EQUIPAJE'])
+        $('#pet_friendly').val(vehiculos[i]['PET_FRIENDLY'])
+        $('#add-vehicle2').hide();
+        $('#guardar-cambios').show();
+      }
     }
+  }
 
-    
-    
+  function btn_finalizar_carga(){
+   $('#add_company_button').hide();
+   $('#finalizar-registro-TTA').attr('disabled', true);
+   $('#finalizar-registro-TTA').html('<span class="loader-register"><i class="fas fa-spinner"></i></span>');
+
+   $('#button_volver').hide();
+   $('#btn-volver').hide();
+   $('#pax-register').attr('disabled', true);
+   $('#pax-register').html('<span class="loader-register"><i class="fas fa-spinner"></i></span>');
+
+   $('#finalizar_empresa').attr('disabled', true);
+   $('#finalizar_empresa').html('<span class="loader-register"><i class="fas fa-spinner"></i></span>');
 }
 
 /*-------------------------------------------------------------------------------------------*/
 //                                     Register                                              //
 /*-------------------------------------------------------------------------------------------*/
-
 let ID_USUARIO;
 let datos_Usuario;
 let datos_Empresa;
@@ -393,347 +383,357 @@ let empresas = new Array();
 let vehiculos = new Array();
 
 function register_form(opcion){
+  datos_Usuario = {
+   "CI": document.getElementById('CI').value,
+   "CORREO": document.getElementById('correo').value,
+   "NOMBRE": document.getElementById('nombre').value,
+   "APELLIDO": document.getElementById('apellido').value,
+   "DIRECCION": document.getElementById('direccion').value,
+   "BARRIO": document.getElementById('barrio').value,
+   "DEPARTAMENTO": document.getElementById('departamento').value,
+   "TELEFONO": document.getElementById('numero_telefono').value,
+   "PIN": document.getElementById('password').value,
+   "RE-PIN": document.getElementById('re-password').value
+};
 
-       switch(opcion){
-        case "1":
-            datos_Usuario = {
-                "CI": document.getElementById('CI').value,
-                "CORREO": document.getElementById('correo').value,
-                "NOMBRE": document.getElementById('nombre').value,
-                "APELLIDO": document.getElementById('apellido').value,
-                "DIRECCION": document.getElementById('direccion').value,
-                "BARRIO": document.getElementById('barrio').value,
-                "DEPARTAMENTO": document.getElementById('departamento').value,
-                "TELEFONO": document.getElementById('numero_telefono').value,
-                "PIN": document.getElementById('password').value,
-                "RE-PIN": document.getElementById('re-password').value
-            };
-            if (validacion("USUARIO-PAX-TTA-ASE",datos_Usuario) == true) {
+switch(opcion){
+   case "1":
+   if (validacion("USUARIO",datos_Usuario) == true) {
+     btn_finalizar_carga()
+         setTimeout(function() {
+            registrar_usuario("PAX");
+            window.location = "/SalioViaje/Success";
+         }, 1000);
+               }else{ console.log("No valido...") }
+               break;
+               case "2":
+               if (validacion("USUARIO",datos_Usuario)) {
+                 if (empresas.length != 0) {
+                  registrar_usuario("TTA");
+                  btn_finalizar_carga()
+                  setTimeout(function() {
+                     $.ajax({
+                        type: "POST",
+                        url: "/SalioViaje/PHP/procedimientosForm.php",
+                        data: { tipo:"2",idUsuario: ID_USUARIO,empresas:JSON.stringify(empresas) },
+                        success: function (response) {
+                          console.log(response)
+                          window.location = "/SalioViaje/Success";
+                         },
+                      });
+                  }, 1000);
+               } else { next() }
+            }else{ console.log("No valido...") }
+            break;
+            case "3":
+            if (validacion("USUARIO",datos_Usuario)) {
+             if (empresas.length != 0) {
+                ID_USUARIO = registrar_usuario("CHO");
+                btn_finalizar_carga()
+                setTimeout(function() {
+                   $.ajax({
+                     type: "POST",
+                     url: "/SalioViaje/PHP/procedimientosForm.php",
+                     data: { tipo:'3',idUsuario: ID_USUARIO, empresas:JSON.stringify(empresas) },
+                     success: function (response) {
+                        console.log(response)
+                            window.location = "/SalioViaje/Success";
+                         },
+                      });
+                }, 1000);
+             } else { next() }
+          }else{ console.log("No valido...") }
+          break;
+          case "4":
+          if (validacion("USUARIO",datos_Usuario)) {
+           if (empresas.length != 0) {
+             registrar_usuario("ANF");
+             btn_finalizar_carga()
+             setTimeout(function() {
                 $.ajax({
-                    type: "POST",
-                    url: "/PHP/procedimientosForm.php",
-                    data: { tipo:opcion, datos:JSON.stringify(datos_Usuario) },
-                    success: function (response) {
-                        console.log("response: " + response);
-                        window.location = "https://www.salioviaje.com.uy/Success";
-                        ID_USUARIO = response;
-                    },
-                });
-            }else{ console.log("No valido...") }
-            break;
-        case "2":
-            datos_Usuario = {
-                "CI": document.getElementById('CI').value,
-                "CORREO": document.getElementById('correo').value,
-                "NOMBRE": document.getElementById('nombre').value,
-                "APELLIDO": document.getElementById('apellido').value,
-                "DIRECCION": document.getElementById('direccion').value,
-                "BARRIO": document.getElementById('barrio').value,
-                "DEPARTAMENTO": document.getElementById('departamento').value,
-                "TELEFONO": document.getElementById('numero_telefono').value,
-                "PIN": document.getElementById('password').value,
-                "RE-PIN": document.getElementById('re-password').value
-            };
-            
-            $.ajax({
-                    type: "POST",
-                    url: "/PHP/procedimientosForm.php",
-                    data: { tipo:opcion, datos_Usuario:JSON.stringify(datos_Usuario), empresas:null },
-                    success: function (response) {
-                        ID_USUARIO = response;
-                },
-            });
+                  type: "POST",
+                  url: "/SalioViaje/PHP/procedimientosForm.php",
+                  data: { tipo:'4',idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas)  },
+                  success: function (response) {
+                    console.log(response)
+                            window.location = "/SalioViaje/Success";
+                         },
+                      });
+             }, 1000);
+          } else { next() }
+       }else{ console.log("No valido...") }
+       break;
+       case "5":
+       let datos_Hotel = {
+         "NOMBRE_HOTEL": document.getElementById('nombre-hotel').value,
+         "DIRECCION_HOTEL": document.getElementById('direccion-hotel').value,
+         "SUPERVISOR": document.getElementById('es_supervisor').value
+      }
 
-            if (validacion("USUARIO-PAX-TTA-ASE",datos_Usuario)) {
-                if (empresas.length != 0 && ID_USUARIO != null) {
-                    $.ajax({
-                        type: "POST",
-                        url: "/PHP/procedimientosForm.php",
-                        data: { tipo:opcion,idUsuario: ID_USUARIO, datos_Usuario:null, empresas:JSON.stringify(empresas) },
-                        success: function (response) {
-                            window.location = "https://www.salioviaje.com.uy/Success";
-                        },
-                    });
-                } else { next() }
-            }else{ console.log("No valido...") }
-            break;
-        case "3":
-            datos_Usuario = {
-                "RUT": document.getElementById('rut_usuario').value,
-                "CORREO": document.getElementById('correo').value,
-                "NOMBRE": document.getElementById('nombre').value,
-                "APELLIDO": document.getElementById('apellido').value,
-                "DIRECCION": document.getElementById('direccion').value,
-                "AGENCIA_CONTRATISTA": document.getElementById('empresas').value,
-                "BARRIO": document.getElementById('barrio').value,
-                "DEPARTAMENTO": document.getElementById('departamento').value,
-                "TELEFONO": document.getElementById('numero_telefono').value,
-                "PIN": document.getElementById('password').value,
-                "RE-PIN": document.getElementById('re-password').value
-            };
+      if (validacion("USUARIO",datos_Usuario)) {
+        if (validacion("HOTEL",datos_Hotel)) {
 
-            $.ajax({
-                    type: "POST",
-                    url: "/PHP/procedimientosForm.php",
-                    data: { tipo:opcion, datos_Usuario:datos_Usuario, empresas:null },
-                    success: function (response) {
-                        ID_USUARIO = response;
-                },
-            });
+         datos_Usuario['NOMBRE_HOTEL'] = datos_Hotel['NOMBRE_HOTEL']
+         datos_Usuario['DIRECCION_HOTEL'] = datos_Hotel['DIRECCION_HOTEL']
+         datos_Usuario['SUPERVISOR'] = datos_Hotel['SUPERVISOR']
 
-            if (validacion("USUARIO-CHO",datos_Usuario)) {
-                 if (empresas.length != 0  && ID_USUARIO != null) {
-                    $.ajax({
-                        type: "POST",
-                        url: "/PHP/procedimientosForm.php",
-                        data: { tipo:opcion,idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas) },
-                        success: function (response) {
-                            window.location = "https://www.salioviaje.com.uy/Success";
-                        },
-                    });
-                } else { next() }
-            }else{ console.log("No valido...") }
-            break;
-        case "4":
-            datos_Usuario = {
-                "RUT": document.getElementById('rut_usuario').value,
-                "CORREO": document.getElementById('correo').value,
-                "NOMBRE": document.getElementById('nombre').value,
-                "APELLIDO": document.getElementById('apellido').value,
-                "DIRECCION": document.getElementById('direccion').value,
-                "BARRIO": document.getElementById('barrio').value,
-                "DEPARTAMENTO": document.getElementById('departamento').value,
-                "TELEFONO": document.getElementById('numero_telefono').value,
-                "PIN": document.getElementById('password').value,
-                "RE-PIN": document.getElementById('re-password').value
-            };
+          registrar_usuario("HTL");
+          btn_finalizar_carga()
+          setTimeout(function() {
+             $.ajax({
+               type: "POST",
+               url: "/SalioViaje/PHP/procedimientosForm.php",
+               data: { tipo:'5', datos:JSON.stringify(datos_Usuario) },
+               success: function (response) {
+                            window.location = "/SalioViaje/Success";
+                         },
+                      });
+          }, 1000);
 
-            $.ajax({
-                    type: "POST",
-                    url: "/PHP/procedimientosForm.php",
-                    data: { tipo:opcion, datos_Usuario:datos_Usuario, empresas:null },
-                    success: function (response) {
-                        ID_USUARIO = response;
-                },
-            });
+       } else { next() }
+    }else{ console.log("No valido...") }
+    break;
+    case "6":
+    if (validacion("USUARIO",datos_Usuario)) {
+     btn_finalizar_carga()
+         setTimeout(function() {
+            registrar_usuario("ASE");
+            window.location = "/SalioViaje/Success";
+         }, 1000);
 
-            if (validacion("USUARIO-ANF-AGT",datos_Usuario)) {
-                if (empresas.length != 0  && ID_USUARIO != null) {
-                    $.ajax({
-                        type: "POST",
-                        url: "/PHP/procedimientosForm.php",
-                        data: { tipo:opcion,idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas)  },
-                        success: function (response) {
-                            console.log(response)
-                            window.location = "https://www.salioviaje.com.uy/Success";
-                        },
-                    });
-                } else { next() }
-            }else{ console.log("No valido...") }
-            break;
-        case "5":
-            datos_Hotel = {
-                "CI": document.getElementById('CI').value,
-                "CORREO": document.getElementById('correo').value,
-                "NOMBRE": document.getElementById('nombre').value,
-                "APELLIDO": document.getElementById('apellido').value,
-                "TELEFONO": document.getElementById('numero_telefono_hotel').value,
-                "SUPERVISOR": document.getElementById('es_supervisor').value,
-                "NOMBRE_HOTEL": document.getElementById('nombre-hotel').value,
-                "DIRECCION_HOTEL": document.getElementById('direccion-hotel').value,
-                "PIN": document.getElementById('password').value,
-                "RE-PIN": document.getElementById('re-password').value
-            };
-            if (validacion("USUARIO-HTL",datos_Hotel)) {
-                $.ajax({
-                    type: "POST",
-                    url: "/PHP/procedimientosForm.php",
-                    data: { tipo:opcion, datos:JSON.stringify(datos_Hotel) },
-                    success: function (response) {
-                        window.location = "https://www.salioviaje.com.uy/Success";
-                    },
-                });
-            }else{ console.log("No valido...") }
-            break;
-        case "6":
-            datos_Usuario = {
-                "CI": document.getElementById('CI').value,
-                "CORREO": document.getElementById('correo').value,
-                "NOMBRE": document.getElementById('nombre').value,
-                "APELLIDO": document.getElementById('apellido').value,
-                "DIRECCION": document.getElementById('direccion').value,
-                "BARRIO": document.getElementById('barrio').value,
-                "DEPARTAMENTO": document.getElementById('departamento').value,
-                "TELEFONO": document.getElementById('numero_telefono').value,
-                "PIN": document.getElementById('password').value,
-                "RE-PIN": document.getElementById('re-password').value
-            };
-            if (validacion("USUARIO-PAX-TTA-ASE",datos_Usuario) == true) {
-                $.ajax({
-                    type: "POST",
-                    url: "/PHP/procedimientosForm.php",
-                    data: { tipo:opcion, datos:JSON.stringify(datos_Usuario) },
-                    success: function (response) {
-                        window.location = "https://www.salioviaje.com.uy/Success";
-                        ID_USUARIO = response;
-                    },
-                });
-            }else{ console.log("No valido...") }
-            break;
-        case "7":
-            datos_Usuario = {
-                "RUT": document.getElementById('rut_usuario').value,
-                "CORREO": document.getElementById('correo').value,
-                "NOMBRE": document.getElementById('nombre').value,
-                "APELLIDO": document.getElementById('apellido').value,
-                "DIRECCION": document.getElementById('direccion').value,
-                "BARRIO": document.getElementById('barrio').value,
-                "DEPARTAMENTO": document.getElementById('departamento').value,
-                "TELEFONO": document.getElementById('numero_telefono').value,
-                "PIN": document.getElementById('password').value,
-                "RE-PIN": document.getElementById('re-password').value
-            };
+  }else{ console.log("No valido...") }
+  break;
+  case "7":
+  if (validacion("USUARIO",datos_Usuario)) {
+     if (empresas.length != 0) {
+       registrar_usuario("AGT");
+       btn_finalizar_carga()
+       setTimeout(function() {
+         $.ajax({
+            type: "POST",
+            url: "/SalioViaje/PHP/procedimientosForm.php",
+            data: { tipo:'7',idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas)  },
+            success: function (response) {
+               console.log(response)      
 
-            $.ajax({
-                    type: "POST",
-                    url: "/PHP/procedimientosForm.php",
-                    data: { tipo:opcion, datos_Usuario:datos_Usuario, empresas:null },
-                    success: function (response) {
-                        ID_USUARIO = response;
-                },
-            });
+            },
+         });
+      }, 1000);
+    } else { next() }
+ }else{ console.log("No valido...") }
+ break;
+}
+}
 
-            if (validacion("USUARIO-ANF-AGT",datos_Usuario)) {
-                if (empresas.length != 0  && ID_USUARIO != null) {
-                    $.ajax({
-                        type: "POST",
-                        url: "/PHP/procedimientosForm.php",
-                        data: { tipo:opcion,idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas)  },
-                        success: function (response) {
-                            window.location = "https://www.salioviaje.com.uy/Success";
-                        },
-                    });
-                } else { next() }
-            }else{ console.log("No valido...") }
-            break;
-    }
-
+function registrar_usuario(tipoUsuario){
+  $.ajax({
+    type: "POST",
+    url: "/SalioViaje/PHP/procedimientosForm.php",
+    data: { tipo:"1",tipoUsuario:tipoUsuario, datos:JSON.stringify(datos_Usuario) },
+    success: function (response) {
+      ID_USUARIO = response;
+      console.log(response)
+   },
+   complete: function(){
+      return ID_USUARIO;
+   }
+});
 }
 
 function add_vehicle(){
-    datos_Vehiculo = {
-        "MATRICULA": document.getElementById('matricula').value.toUpperCase(),
-        "MARCA": document.getElementById('marca').value,
-        "MODELO": document.getElementById('modelo').value,
-        "COMBUSTIBLE": document.getElementById('combustible').value,
-        "CAPACIDAD_PASAJEROS": document.getElementById('capacidad_pasajeros').value,
-        "CAPACIDAD_EQUIPAJE": document.getElementById('capacidad_equipaje').value,
-        "PET_FRIENDLY": document.getElementById('pet_friendly').value
+  datos_Vehiculo = {
+    "MATRICULA": document.getElementById('matricula').value.toUpperCase(),
+    "MARCA": document.getElementById('marca').value,
+    "MODELO": document.getElementById('modelo').value,
+    "COMBUSTIBLE": document.getElementById('combustible').value,
+    "CAPACIDAD_PASAJEROS": document.getElementById('capacidad_pasajeros').value,
+    "CAPACIDAD_EQUIPAJE": document.getElementById('capacidad_equipaje').value,
+    "PET_FRIENDLY": document.getElementById('pet_friendly').value
+ };
+
+ if (validacion("VEHICULO",datos_Vehiculo)) {        
+    vehiculos.push(datos_Vehiculo)
+    $.ajax({
+      type: "POST",
+      url: "/SalioViaje/PHP/agregarVehiculo.php",
+      data: {datos:JSON.stringify(datos_Vehiculo) },
+      success: function (response) {
+        $('.vehiculos').append(response);
+        $('#no-vehicle').hide();
+        reset_vehicle_inputs();
+     },
+  });
+ }else{ console.log("No valido...") }
+
+ }
+
+ function crear_empresa(choferes_sub){
+   if (choferes_sub == "choferes_sub_select" || choferes_sub == "empresas") {
+      datos_Empresa = {
+       "RUT": document.getElementById('rutt').value,
+       "NOMBRE_COMERCIAL": document.getElementById('nombre_comercial').value,
+       "RAZON_SOCIAL": document.getElementById('razon_social').value,
+       "NUMERO_MTOP": document.getElementById('numero_mtop').value,
+       "PASSWORD_MTOP": document.getElementById('password_mtop').value,
+       "CHOFERES_SUB": document.getElementById(choferes_sub).value,
+       "VEHICULOS": vehiculos
     };
+ }else{
 
-    if (validacion("VEHICULO",datos_Vehiculo)) {        
-        vehiculos.push(datos_Vehiculo)
-        $.ajax({
-            type: "POST",
-            url: "/PHP/agregarVehiculo.php",
-            data: {datos:JSON.stringify(datos_Vehiculo) },
-            success: function (response) {
-                $('.vehiculos').append(response);
-                $('#no-vehicle').hide();
-                reset_vehicle_inputs();
-            },
-        });
-    }else{ console.log("No valido...") }
+   datos_Empresa = {
+    "RUT": document.getElementById('rutt').value,
+    "NOMBRE_COMERCIAL": document.getElementById('nombre_comercial').value,
+    "RAZON_SOCIAL": document.getElementById('razon_social').value,
+    "NUMERO_MTOP": document.getElementById('numero_mtop').value,
+    "PASSWORD_MTOP": document.getElementById('password_mtop').value,
+    "VEHICULOS": vehiculos
+ };
 
-    /*
-    */
 }
 
-function crear_empresa(){
-    datos_Empresa = {
-        "RUT": document.getElementById('rutt').value,
-        "NOMBRE_COMERCIAL": document.getElementById('nombre_comercial').value,
-        "RAZON_SOCIAL": document.getElementById('razon_social').value,
-        "NUMERO_MTOP": document.getElementById('numero_mtop').value,
-        "PASSWORD_MTOP": document.getElementById('password_mtop').value,
-        "VEHICULOS": vehiculos
-    };
-    if (validacion("EMPRESA",datos_Empresa)) {     
-        empresas.push(datos_Empresa)
-        datos_Empresa = {};
-        vehiculos = [];
-        reset_vehicles();
+if (validacion("EMPRESA",datos_Empresa)) {     
+ empresas.push(datos_Empresa)
+ datos_Empresa = {};
+ vehiculos = [];
+ reset_vehicles();
 
-        var user = $('#select_users').val();
+ var user = $('#select_users').val();
 
-        if(user == 4 || user == 7){
-            step = 5;
-            steps(5);
-            
-        }else{
-            next();
-        }
-        
-    }else{ console.log("No valido...") }
+ if(user == 4 || user == 7){
+   step = 5;
+   steps(5);
+
+}else{
+   next();
+}
+
+}else{ console.log("No valido...") }
 }
 
 function Empresas(){
-    $.ajax({
-        type: "POST",
-        url: "/PHP/procedimientosForm.php",
-        data: {tipo: "empresas"},
-        success: function (response) {
-            let empresas = JSON.parse(response);
-            var selectEmpresas = document.getElementById('empresas');
-            $("#empresas").empty().append($("<option></option>").attr({"value": 0,"selected": true, 'disabled': true, 'hidden': true}).text('Agencia Contratista'));
-            for (var i = 0; i < empresas.length; i++){
+  $.ajax({
+    type: "POST",
+    url: "/SalioViaje/PHP/procedimientosForm.php",
+    data: {tipo: "empresas"},
+    success: function (response) {
+      let empresas = JSON.parse(response);
+      var selectEmpresas = document.getElementById('empresas');
+      $("#empresas").empty().append($("<option></option>").attr({"value": 0,"selected": true, 'disabled': true, 'hidden': true}).text('Agencia Contratista'));
+      for (var i = 0; i < empresas.length; i++){
+         if (empresas[i]["CHOFERES_SUB"] == 1) {
             var opt = document.createElement('option');
             opt.value = empresas[i]["RUT"];
             opt.text = empresas[i]["NOMBRE_COMERCIAL"]+" "+empresas[i]["RAZON_SOCIAL"];
             selectEmpresas.appendChild(opt);
-            }
-        }
-    });
+         }
+      }
+   }
+});
 }
 
-function valido_Empresa_sin_crearla(){
-    datos_Empresa = {
-        "RUT": document.getElementById('rutt').value,
-        "NOMBRE_COMERCIAL": document.getElementById('nombre_comercial').value,
-        "RAZON_SOCIAL": document.getElementById('razon_social').value,
-        "NUMERO_MTOP": document.getElementById('numero_mtop').value,
-        "PASSWORD_MTOP": document.getElementById('password_mtop').value,
+function valido_Empresa_sin_crearla(choferes_sub){
+   console.log(choferes_sub)
+   if (choferes_sub == "choferes_sub_select" || choferes_sub == "empresas") {
+
+      datos_Empresa = {
+       "RUT": document.getElementById('rutt').value,
+       "NOMBRE_COMERCIAL": document.getElementById('nombre_comercial').value,
+       "CHOFERES_SUB": document.getElementById(choferes_sub).value,
+       "RAZON_SOCIAL": document.getElementById('razon_social').value,
+       "NUMERO_MTOP": document.getElementById('numero_mtop').value,
+       "PASSWORD_MTOP": document.getElementById('password_mtop').value,
     };
-    if (validacion("EMPRESA",datos_Empresa)) {        
-        next();
-    }else{ console.log("No valido...") }
+
+ }else{
+
+   datos_Empresa = {
+    "RUT": document.getElementById('rutt').value,
+    "NOMBRE_COMERCIAL": document.getElementById('nombre_comercial').value,
+    "RAZON_SOCIAL": document.getElementById('razon_social').value,
+    "NUMERO_MTOP": document.getElementById('numero_mtop').value,
+    "PASSWORD_MTOP": document.getElementById('password_mtop').value,
+ };
+
 }
+
+   if (validacion("EMPRESA",datos_Empresa)) {     
+      console.log("...")
+      next();
+   }else{ console.log("No valido...") }
+}
+
+function eliminar_vehiculo(matricula){
+  for (var i = 0; i < vehiculos.length; i++) {
+    if(vehiculos[i]['MATRICULA'] == matricula){
+      vehiculos.splice(i,1)
+      $('#'+matricula).remove();
+    }
+  }
+  console.log(vehiculos)
+}
+
+function editar_vehiculo(){
+  matricula = MATRICULA_VEHICULO_MODIFICADO;
+  for (var i = 0; i < vehiculos.length; i++) {
+    if(vehiculos[i]['MATRICULA'] == matricula){
+      vehiculos[i]['MATRICULA'] = document.getElementById('matricula').value.toUpperCase();
+      vehiculos[i]['MARCA'] = document.getElementById('marca').value;
+      vehiculos[i]['MODELO'] = document.getElementById('modelo').value;
+      vehiculos[i]['COMBUSTIBLE'] = document.getElementById('combustible').value;
+      vehiculos[i]['CAPACIDAD_PASAJEROS'] = document.getElementById('capacidad_pasajeros').value;
+      vehiculos[i]['CAPACIDAD_EQUIPAJE'] = document.getElementById('capacidad_equipaje').value;
+      vehiculos[i]['PET_FRIENDLY'] = document.getElementById('pet_friendly').value;
+      $.ajax({
+        type: "POST",
+        url: "/SalioViaje/PHP/agregarVehiculo.php",
+        data: {datos:JSON.stringify(vehiculos[i]) },
+          success: function (response) {
+            $('#'+matricula).remove();
+            $('.vehiculos').append(response);
+            $('#add-vehicle2').show();
+            $('#guardar-cambios').hide();
+            reset_vehicle_inputs();
+          },
+      });
+    }
+  }
+}
+
+/*
+    "MATRICULA": document.getElementById('matricula').value.toUpperCase(),
+    "MARCA": document.getElementById('marca').value,
+    "MODELO": document.getElementById('modelo').value,
+    "COMBUSTIBLE": document.getElementById('combustible').value,
+    "CAPACIDAD_PASAJEROS": document.getElementById('capacidad_pasajeros').value,
+    "CAPACIDAD_EQUIPAJE": document.getElementById('capacidad_equipaje').value,
+    "PET_FRIENDLY": document.getElementById('pet_friendly').value
+*/
 
 /*-------------------------------------------------------------------------------------------*/
 //                                     Log in                                                //
 /*-------------------------------------------------------------------------------------------*/
 
 function login(ADMIN){
-    
-    let usuario = document.getElementById('usuario').value;
-    let pin = document.getElementById('passwd').value;
 
-    if (usuario.length >= 8) {
-        $.ajax({
-            type: "POST",
-            url: "/PHP/procedimientosForm.php",
-            data: {tipo:"login", usuario:usuario, pin:pin},
-            success: function (response) {
-                if (response != '') {
-                    $("#mensaje-error").text("");
-                    window.location = "https://www.salioviaje.com.uy/Dashboard";
-                }else{
-                    $("#mensaje-error").text("Usuario o Contraseña Incorrectos.");
-                    console.log("Usuario o contraseña incorrectos...");
-                }
-            },
-        });
-    }else{ $("#mensaje-error").text("Usuario o Contraseña Incorrectos."); }
+  let usuario = document.getElementById('usuario').value;
+  let pin = document.getElementById('passwd').value;
+
+  if (usuario.length >= 8) {
+    $.ajax({
+      type: "POST",
+      url: "/SalioViaje/PHP/procedimientosForm.php",
+      data: {tipo:"login", usuario:usuario, pin:pin},
+      success: function (response) {
+        if (response != '') {
+          $("#mensaje-error").text("");
+          window.location = "/SalioViaje/Dashboard";
+       }else{
+          $("#mensaje-error").text("Usuario o Contraseña Incorrectos.");
+          console.log("Usuario o contraseña incorrectos...");
+       }
+    },
+ });
+ }else{ $("#mensaje-error").text("Usuario o Contraseña Incorrectos."); }
 
 }
 
@@ -742,283 +742,246 @@ function login(ADMIN){
 /*-------------------------------------------------------------------------------------------*/
 
 function validacion(TIPO,DATOS){
-    console.log(DATOS)
-    let validacion;
-    let VALIDO = false;
+  console.log(DATOS)
+  let validacion;
+  let VALIDO = false;
 
-    reset_errores()
+  reset_errores()
 
-    switch(TIPO){
-        case "USUARIO-PAX-TTA-ASE":
-                validacion = $.ajax({
-                                type: 'POST',       
-                                url: "/PHP/Validaciones.php",
-                                data: {tipo:"PAX-TTA-ASE",datos:JSON.stringify(DATOS)},
-                                global: false,
-                                async:false,
-                                success: function(response) {
-                                    return response;
-                                }
-                            }).responseText;
-                console.log(validacion)
-                if (validacion == "VALIDO") {VALIDO = true}
-                else if(validacion == "Err-1"){
-                    $('#mensaje-error1').show();
-                    $('#mensaje-error2').show();
-                    $('#mensaje-error3').show();
-                } else {marcar_errores(validacion)}
-            break;
-        case "USUARIO-CHO":
-                validacion = $.ajax({
-                                type: 'POST',       
-                                url: "/PHP/Validaciones.php",
-                                data: {tipo:"CHO",datos:JSON.stringify(DATOS)},
-                                global: false,
-                                async:false,
-                                success: function(response) {
-                                    return response;
-                                }
-                            }).responseText;
-                if (validacion == "VALIDO") {VALIDO = true}
-                else if(validacion == "Err-1"){
-                    $('#mensaje-error1').show();
-                    $('#mensaje-error2').show();
-                    $('#mensaje-error3').show(); 
-                } else {marcar_errores(validacion)}
-            break;
-        case "EMPRESA":
-                validacion = $.ajax({
-                                type: 'POST',       
-                                url: "/PHP/Validaciones.php",
-                                data: {tipo:"EMP",datos:JSON.stringify(DATOS)},
-                                global: false,
-                                async:false,
-                                success: function(response) {
-                                    return response;
-                                }
-                            }).responseText;
-                if (validacion == "VALIDO") {VALIDO = true}
-                else if(validacion == "Err-1"){
-                    $('#mensaje-error1').show();
-                    $('#mensaje-error2').show();
-                    $('#mensaje-error3').show();
-                } else {marcar_errores(validacion)}
-            break;
-        case "VEHICULO":
-                validacion = $.ajax({
-                                type: 'POST',       
-                                url: "/PHP/Validaciones.php",
-                                data: {tipo:"VIH",datos:JSON.stringify(DATOS)},
-                                global: false,
-                                async:false,
-                                success: function(response) {
-                                    return response;
-                                }
-                            }).responseText;
-                if (validacion == "VALIDO") {VALIDO = true}
-                else if(validacion == "Err-1"){
-                    $('#mensaje-error1').show();
-                    $('#mensaje-error2').show();
-                    $('#mensaje-error3').show();
-                } else {marcar_errores(validacion)}
-            break;
-        case "USUARIO-HTL":
-                validacion = $.ajax({
-                                type: 'POST',       
-                                url: "/PHP/Validaciones.php",
-                                data: {tipo:"HTL",datos:JSON.stringify(DATOS)},
-                                global: false,
-                                async:false,
-                                success: function(response) {
-                                    return response;
-                                }
-                            }).responseText;
-                if (validacion == "VALIDO") {VALIDO = true}
-                else if(validacion == "Err-1"){
-                    $('#mensaje-error1').show();
-                    $('#mensaje-error2').show();
-                    $('#mensaje-error3').show();
-                } else {marcar_errores(validacion)}
-            break;
-        case "USUARIO-ANF-AGT":
-                validacion = $.ajax({
-                                type: 'POST',       
-                                url: "/PHP/Validaciones.php",
-                                data: {tipo:"ANF-AGT",datos:JSON.stringify(DATOS)},
-                                global: false,
-                                async:false,
-                                success: function(response) {
-                                    return response;
-                                }
-                            }).responseText;
-                console.log(validacion)
-                if (validacion == "VALIDO") {VALIDO = true}
-                else if(validacion == "Err-1"){
-                    $('#mensaje-error1').show();
-                    $('#mensaje-error2').show();
-                    $('#mensaje-error3').show();
-                }
-            break;
-    }
+  switch(TIPO){
+    case "USUARIO":
+    validacion = $.ajax({
+       type: 'POST',       
+       url: "/SalioViaje/PHP/Validaciones.php",
+       data: {tipo:"USUARIO",datos:JSON.stringify(DATOS)},
+       global: false,
+       async:false,
+       success: function(response) {
+         return response;
+      }
+   }).responseText;
+    console.log(validacion)
+    if (validacion == "VALIDO") {VALIDO = true}
+     else if(validacion == "Err-1"){
+       $('#mensaje-error1').show();
+       $('#mensaje-error2').show();
+       $('#mensaje-error3').show();
+    } else {marcar_errores(validacion)}
+    break;
+    case "EMPRESA":
+    validacion = $.ajax({
+       type: 'POST',       
+       url: "/SalioViaje/PHP/Validaciones.php",
+       data: {tipo:"EMP",datos:JSON.stringify(DATOS)},
+       global: false,
+       async:false,
+       success: function(response) {
+         return response;
+      }
+   }).responseText;
+    if (validacion == "VALIDO") {VALIDO = true}
+     else if(validacion == "Err-1"){
+       $('#mensaje-error1').show();
+       $('#mensaje-error2').show();
+       $('#mensaje-error3').show();
+    } else {marcar_errores(validacion)}
+    break;
+    case "VEHICULO":
+    validacion = $.ajax({
+       type: 'POST',       
+       url: "/SalioViaje/PHP/Validaciones.php",
+       data: {tipo:"VIH",datos:JSON.stringify(DATOS)},
+       global: false,
+       async:false,
+       success: function(response) {
+         return response;
+      }
+   }).responseText;
+    if (validacion == "VALIDO") {VALIDO = true}
+     else if(validacion == "Err-1"){
+       $('#mensaje-error1').show();
+       $('#mensaje-error2').show();
+       $('#mensaje-error3').show();
+    } else {marcar_errores(validacion)}
+    break;
+    case "HOTEL":
+    validacion = $.ajax({
+       type: 'POST',       
+       url: "/SalioViaje/PHP/Validaciones.php",
+       data: {tipo:"HOTEL",datos:JSON.stringify(DATOS)},
+       global: false,
+       async:false,
+       success: function(response) {
+         return response;
+      }
+   }).responseText;
+    if (validacion == "VALIDO") {VALIDO = true}
+     else if(validacion == "Err-1"){
+       $('#mensaje-error1').show();
+       $('#mensaje-error2').show();
+       $('#mensaje-error3').show();
+    } else {marcar_errores(validacion)}
+    break;
+ }
 
-    return VALIDO
+ return VALIDO
 }
 
 function marcar_errores(resultado_validacion){
 
-    console.log(resultado_validacion)
-    let resultado = JSON.parse(resultado_validacion)
+  console.log(resultado_validacion)
+  let resultado = JSON.parse(resultado_validacion)
 
-    for (const property in resultado) {
-        switch(property){
-        case "CI":
-                if (resultado[property] == 0) {$('#CI').css('border-bottom', '1px solid #ff635a') }       
-                
-            break;
-        case "NOMBRE":
-                if (resultado[property] == 0) {$('#nombre').css('border-bottom', '1px solid #ff635a')} 
-                 
-            break;
-        case "APELLIDO":
-                if (resultado[property] == 0) {$('#apellido').css('border-bottom', '1px solid #ff635a') } 
-                 
-            break;
-        case "MAIL":
-                if (resultado[property] == 0) {$('#correo').css('border-bottom', '1px solid #ff635a')  } 
-                
-            break;
-        case "DIRECCION":
-                if (resultado[property] == 0) {$('#direccion').css('border-bottom', '1px solid #ff635a') } 
-                 
-            break;
-        case "BARRIO":
-                if (resultado[property] == 0) { $('#barrio').css('border-bottom', '1px solid #ff635a')} 
-                 
-            break;
-        case "DEPARTAMENTO":
-                if (resultado[property] == 0) { $('#departamento').css('border-bottom', '1px solid #ff635a') } 
-                
-            break;
-        case "TELEFONO":
-                if (resultado[property] == 0) { 
-                $('#numero_telefono').css('border-bottom', '1px solid #ff635a') 
-                $('#numero_telefono_hotel').css('border-bottom', '1px solid #ff635a')
-                } 
+  for (const property in resultado) {
+    switch(property){
+       case "CI":
+       if (resultado[property] == 0) {$('#CI').css('border-bottom', '1px solid #ff635a') }       
 
-            break;
-        case "RUT":
-                if (resultado[property] == 0) {
-                $('#rutt').css('border-bottom', '1px solid #ff635a') 
-                $('#rut_usuario').css('border-bottom', '1px solid #ff635a')
-                }  
-            break;
-        case "AGENCIA_CONTRATISTA":
-                if (resultado[property] == 0) { $('#empresas').css('border-bottom', '1px solid #ff635a') } 
-                 
-            break;
-        case "NOMBRE_HOTEL":
-                if (resultado[property] == 0) { $('#nombre-hotel').css('border-bottom', '1px solid #ff635a') } 
-                 
-            break;
-        case "DIRECCION_HOTEL":
-                if (resultado[property] == 0) { $('#direccion-hotel').css('border-bottom', '1px solid #ff635a') } 
-                 
-            break;
-        case "SUPERVISOR":
-                if (resultado[property] == 0) {$('#es_supervisor').css('border-bottom', '1px solid #ff635a') } 
-                
-            break;
-        case "NOMBRE_COMERCIAL":
-                if (resultado[property] == 0) { $('#nombre_comercial').css('border-bottom', '1px solid #ff635a')  } 
-                
-            break;
-        case "RAZON_SOCIAL":
-                if (resultado[property] == 0) { $('#razon_social').css('border-bottom', '1px solid #ff635a') } 
-                
-            break;
-        case "MTOP":
-                if (resultado[property] == 0) { $('#numero_mtop').css('border-bottom', '1px solid #ff635a') } 
-                
-            break;
-        case "PASSWORD_MTOP":
-                if (resultado[property] == 0) {$('#password_mtop').css('border-bottom', '1px solid #ff635a') } 
-                
-            break;
-        case "MATRICULA":
-                if (resultado[property] == 0) { $('#matricula').css('border-bottom', '1px solid #ff635a')  } 
-                
-            break;
-        case "MARCA":
-                if (resultado[property] == 0) { $('#marca').css('border-bottom', '1px solid #ff635a')  } 
-                
-            break;
-        case "MODELO":
-                if (resultado[property] == 0) { $('#modelo').css('border-bottom', '1px solid #ff635a')  } 
-                
-            break;
-        case "COMBUSTIBLE":
-                if (resultado[property] == 0) { $('#combustible').css('border-bottom', '1px solid #ff635a')  } 
-                
-            break;
-        case "CAPACIDAD_PASAJEROS":
-                if (resultado[property] == 0) { $('#capacidad_pasajeros').css('border-bottom', '1px solid #ff635a')  } 
-                
-            break;
-        case "CAPACIDAD_EQUIPAJE":
-                if (resultado[property] == 0) { $('#capacidad_equipaje').css('border-bottom', '1px solid #ff635a')  } 
-                
-            break;
-        case "PET_FRIENDLY":
-                if (resultado[property] == 0) { $('#pet_friendly').css('border-bottom', '1px solid #ff635a')  } 
-                
-            break;
-        }   
-    }
+         break;
+      case "NOMBRE":
+      if (resultado[property] == 0) {$('#nombre').css('border-bottom', '1px solid #ff635a')} 
 
-    if (resultado['PIN'] == 0) { 
-        $('#mensaje-error4').show();
-        $('#password').css('border-bottom', '1px solid #ff635a') 
-    }
-    else if (resultado['PIN-MATCH'] == 0) { 
-        $('#mensaje-error5').show(); 
-        $('#password').css('border-bottom', '1px solid #ff635a') 
-        $('#re-password').css('border-bottom', '1px solid #ff635a') 
-    }
+         break;
+      case "APELLIDO":
+      if (resultado[property] == 0) {$('#apellido').css('border-bottom', '1px solid #ff635a') } 
+
+         break;
+      case "MAIL":
+      if (resultado[property] == 0) {$('#correo').css('border-bottom', '1px solid #ff635a')  } 
+
+         break;
+      case "DIRECCION":
+      if (resultado[property] == 0) {$('#direccion').css('border-bottom', '1px solid #ff635a') } 
+
+         break;
+      case "BARRIO":
+      if (resultado[property] == 0) { $('#barrio').css('border-bottom', '1px solid #ff635a')} 
+
+         break;
+      case "DEPARTAMENTO":
+      if (resultado[property] == 0) { $('#departamento').css('border-bottom', '1px solid #ff635a') } 
+
+         break;
+      case "TELEFONO":
+      if (resultado[property] == 0) { 
+        $('#numero_telefono').css('border-bottom', '1px solid #ff635a') 
+        $('#numero_telefono_hotel').css('border-bottom', '1px solid #ff635a')
+     } 
+
+     break;
+     case "RUT":
+     if (resultado[property] == 0) {
+        $('#rutt').css('border-bottom', '1px solid #ff635a') 
+        $('#rut_usuario').css('border-bottom', '1px solid #ff635a')
+     }  
+     break;
+     case "AGENCIA_CONTRATISTA":
+     if (resultado[property] == 0) { $('#empresas').css('border-bottom', '1px solid #ff635a') } 
+
+      break;
+   case "NOMBRE_HOTEL":
+   if (resultado[property] == 0) { $('#nombre-hotel').css('border-bottom', '1px solid #ff635a') } 
+
+      break;
+   case "DIRECCION_HOTEL":
+   if (resultado[property] == 0) { $('#direccion-hotel').css('border-bottom', '1px solid #ff635a') } 
+
+      break;
+   case "SUPERVISOR":
+   if (resultado[property] == 0) {$('#es_supervisor').css('border-bottom', '1px solid #ff635a') } 
+
+      break;
+   case "NOMBRE_COMERCIAL":
+   if (resultado[property] == 0) { $('#nombre_comercial').css('border-bottom', '1px solid #ff635a')  } 
+
+      break;
+   case "RAZON_SOCIAL":
+   if (resultado[property] == 0) { $('#razon_social').css('border-bottom', '1px solid #ff635a') } 
+
+      break;
+   case "MTOP":
+   if (resultado[property] == 0) { $('#numero_mtop').css('border-bottom', '1px solid #ff635a') } 
+
+      break;
+   case "PASSWORD_MTOP":
+   if (resultado[property] == 0) {$('#password_mtop').css('border-bottom', '1px solid #ff635a') } 
+
+      break;
+   case "MATRICULA":
+   if (resultado[property] == 0) { $('#matricula').css('border-bottom', '1px solid #ff635a')  } 
+
+      break;
+   case "MARCA":
+   if (resultado[property] == 0) { $('#marca').css('border-bottom', '1px solid #ff635a')  } 
+
+      break;
+   case "MODELO":
+   if (resultado[property] == 0) { $('#modelo').css('border-bottom', '1px solid #ff635a')  } 
+
+      break;
+   case "COMBUSTIBLE":
+   if (resultado[property] == 0) { $('#combustible').css('border-bottom', '1px solid #ff635a')  } 
+
+      break;
+   case "CAPACIDAD_PASAJEROS":
+   if (resultado[property] == 0) { $('#capacidad_pasajeros').css('border-bottom', '1px solid #ff635a')  } 
+
+      break;
+   case "CAPACIDAD_EQUIPAJE":
+   if (resultado[property] == 0) { $('#capacidad_equipaje').css('border-bottom', '1px solid #ff635a')  } 
+
+      break;
+   case "PET_FRIENDLY":
+   if (resultado[property] == 0) { $('#pet_friendly').css('border-bottom', '1px solid #ff635a')  } 
+
+      break;
+}   
+}
+
+if (resultado['PIN'] == 0) { 
+ $('#mensaje-error4').show();
+ $('#password').css('border-bottom', '1px solid #ff635a') 
+}
+else if (resultado['PIN-MATCH'] == 0) { 
+ $('#mensaje-error5').show(); 
+ $('#password').css('border-bottom', '1px solid #ff635a') 
+ $('#re-password').css('border-bottom', '1px solid #ff635a') 
+}
 }
 
 function reset_errores(){
 
-    $('#mensaje-error1').hide();
-    $('#mensaje-error2').hide();
-    $('#mensaje-error3').hide();
-    $('#mensaje-error4').hide();
-    $('#mensaje-error5').hide();
+  $('#mensaje-error1').hide();
+  $('#mensaje-error2').hide();
+  $('#mensaje-error3').hide();
+  $('#mensaje-error4').hide();
+  $('#mensaje-error5').hide();
 
-    $('#CI').css('border-bottom', '1px solid #aaaaaa')
-    $('#nombre').css('border-bottom', '1px solid #aaaaaa')
-    $('#apellido').css('border-bottom', '1px solid #aaaaaa')
-    $('#correo').css('border-bottom', '1px solid #aaaaaa')
-    $('#direccion').css('border-bottom', '1px solid #aaaaaa')
-    $('#barrio').css('border-bottom', '1px solid #aaaaaa')
-    $('#departamento').css('border-bottom', '1px solid #aaaaaa')
-    $('#numero_telefono').css('border-bottom', '1px solid #aaaaaa')
-    $('#numero_telefono_hotel').css('border-bottom', '1px solid #aaaaaa')
-    $('#direccion-hotel').css('border-bottom', '1px solid #aaaaaa')
-    $('#password').css('border-bottom', '1px solid #aaaaaa')
-    $('#re-password').css('border-bottom', '1px solid #aaaaaa')
-    $('#rutt').css('border-bottom', '1px solid #aaaaaa')
-    $('#rut_usuario').css('border-bottom', '1px solid #aaaaaa')
-    $('#es_supervisor').css('border-bottom', '1px solid #aaaaaa')
-    $('#nombre-hotel').css('border-bottom', '1px solid #aaaaaa')
-    $('#matricula').css('border-bottom', '1px solid #aaaaaa')
-    $('#marca').css('border-bottom', '1px solid #aaaaaa')
-    $('#pet_friendly').css('border-bottom', '1px solid #aaaaaa')
-    $('#empresas').css('border-bottom', '1px solid #aaaaaa')
-    $('#modelo').css('border-bottom', '1px solid #aaaaaa')
-    $('#razon_social').css('border-bottom', '1px solid #aaaaaa')
-    $('#nombre_comercial').css('border-bottom', '1px solid #aaaaaa')
-    $('#numero_mtop').css('border-bottom', '1px solid #aaaaaa')
-    $('#password_mtop').css('border-bottom', '1px solid #aaaaaa')
-    $('#combustible').css('border-bottom', '1px solid #aaaaaa')
+  $('#CI').css('border-bottom', '1px solid #aaaaaa')
+  $('#nombre').css('border-bottom', '1px solid #aaaaaa')
+  $('#apellido').css('border-bottom', '1px solid #aaaaaa')
+  $('#correo').css('border-bottom', '1px solid #aaaaaa')
+  $('#direccion').css('border-bottom', '1px solid #aaaaaa')
+  $('#barrio').css('border-bottom', '1px solid #aaaaaa')
+  $('#departamento').css('border-bottom', '1px solid #aaaaaa')
+  $('#numero_telefono').css('border-bottom', '1px solid #aaaaaa')
+  $('#numero_telefono_hotel').css('border-bottom', '1px solid #aaaaaa')
+  $('#direccion-hotel').css('border-bottom', '1px solid #aaaaaa')
+  $('#password').css('border-bottom', '1px solid #aaaaaa')
+  $('#re-password').css('border-bottom', '1px solid #aaaaaa')
+  $('#rutt').css('border-bottom', '1px solid #aaaaaa')
+  $('#rut_usuario').css('border-bottom', '1px solid #aaaaaa')
+  $('#es_supervisor').css('border-bottom', '1px solid #aaaaaa')
+  $('#nombre-hotel').css('border-bottom', '1px solid #aaaaaa')
+  $('#matricula').css('border-bottom', '1px solid #aaaaaa')
+  $('#marca').css('border-bottom', '1px solid #aaaaaa')
+  $('#pet_friendly').css('border-bottom', '1px solid #aaaaaa')
+  $('#empresas').css('border-bottom', '1px solid #aaaaaa')
+  $('#modelo').css('border-bottom', '1px solid #aaaaaa')
+  $('#razon_social').css('border-bottom', '1px solid #aaaaaa')
+  $('#nombre_comercial').css('border-bottom', '1px solid #aaaaaa')
+  $('#numero_mtop').css('border-bottom', '1px solid #aaaaaa')
+  $('#password_mtop').css('border-bottom', '1px solid #aaaaaa')
+  $('#combustible').css('border-bottom', '1px solid #aaaaaa')
 
 }

@@ -11,41 +11,40 @@ class procedimientosForm extends procedimientosBD
 		return $this->register_usuario($tipo, $datos);
 	}
 
-	public function register_transportista($usuario,$empresa,$idUsuario){
+	public function register_transportista($empresa,$idUsuario){
 		$this->idUsuario = $idUsuario;
-		$this->registrar_usuarios("TTA",$usuario);
-		$this->registrar_empresa("TTA",null,$empresa);
+		$this->registrar_empresa("TTA",$empresa);
 	}
 
-	public function register_chofer($usuario,$contratista,$empresa){
-		$this->idUsuario = $this->registrar_usuarios("CHO",$usuario);
-		$this->registrar_empresa("CHO",$contratista,$empresa);
+	public function register_chofer($empresa,$idUsuario){
+		$this->idUsuario = $idUsuario;
+		$this->registrar_empresa("CHO",$empresa);
 	}
 
-	public function register_anfitrion($usuario,$empresa){
-		$this->idUsuario = $this->registrar_usuarios("ANF",$usuario);
-		$this->registrar_empresa("ANF",null,$empresa);
+	public function register_anfitrion($empresa,$idUsuario){
+		$this->idUsuario = $idUsuario;
+		$this->registrar_empresa("ANF",$empresa);
 	}
 
-	public function register_agente($usuario,$empresa){
-		$this->idUsuario = $this->registrar_usuarios("AGT",$usuario);
-		$this->registrar_empresa("AGT",null,$empresa);
+	public function register_agente($empresa,$idUsuario){
+		$this->idUsuario = $idUsuario;
+		$this->registrar_empresa("AGT",$empresa);
 	}
 
 	public function register_hotel($datos){
-		$this->registrar_usuarios("HTL", $datos);
+		//$this->registrar_usuarios("HTL", $datos);
 	}
 
-	private function registrar_empresa($tipoUsuario,$contratista,$empresa){
+	private function registrar_empresa($tipoUsuario,$empresa){
 
 		for ($x=0; $x < count($empresa); $x++) {
-		$this->register_empresa($tipoUsuario,$this->idUsuario,$empresa[$x]);
+			$this->register_empresa($x,$tipoUsuario,$this->idUsuario,$empresa[$x]);
 			for ($i=0; $i < count($empresa[$x]["VEHICULOS"]); $i++) { 
 				if ($tipoUsuario == "CHO") {
-					 //rut_ec = RUT de la empresa creada por el chofer.
+					//rut_ec = RUT de la empresa creada por el chofer.
     				//rut = RUT de la agencia contratista del chofer.
 					$rut_ec = $empresa[$x]["RUT"];
-					$rut = $contratista;
+					$rut = $empresa[$x]["CHOFERES_SUB"];
 				}else{
 					$rut = $empresa[$x]["RUT"];
 					$rut_ec = "0";
@@ -58,48 +57,51 @@ class procedimientosForm extends procedimientosBD
 
 $procedimientosForm = new procedimientosForm();
 
-switch ($_POST['tipo']) {
-	case '1':
-		$datos = json_decode($_POST["datos"],true);
-		$procedimientosForm->registrar_usuarios("PAX",$datos);
-		break;
-	case '2':
-		$usuario = json_decode($_POST["datos_Usuario"],true);
+if ($_POST['tipo'] == 1) {
+	$datos = json_decode($_POST["datos"],true);
+	echo $procedimientosForm->registrar_usuarios($_POST["tipoUsuario"],$datos);
+	unset($_POST['tipo']);
+}else{
+
+	switch ($_POST['tipo']) {
+
+		case '2':
 		$empresa = json_decode($_POST["empresas"],true);
-		$procedimientosForm->register_transportista($usuario,$empresa,$_POST['idUsuario']);
+		$procedimientosForm->register_transportista($empresa,$_POST['idUsuario']);
 		break;
-	case '3':
-		$usuario = json_decode($_POST["datos_Usuario"],true);
+		case '3':
 		$empresa = json_decode($_POST["empresas"],true);
-		$procedimientosForm->register_chofer($usuario,$usuario["AGENCIA_CONTRATISTA"],$empresa);
+		$procedimientosForm->register_chofer($empresa,$_POST['idUsuario']);
 		break;
-	case '4':
-		$usuario = json_decode($_POST["datos_Usuario"],true);
+		case '4':
 		$empresa = json_decode($_POST["empresas"],true);
-		$procedimientosForm->register_anfitrion($usuario,$empresa);
+		$procedimientosForm->register_anfitrion($empresa,$_POST['idUsuario']);
 		break;
-	case '5':
+		case '5':
 		$datos = json_decode($_POST["datos"],true);
 		$procedimientosForm->register_hotel($datos);
 		break;
-	case '6':
+		case '6':
 		$datos = json_decode($_POST["datos"],true);
 		$procedimientosForm->registrar_usuarios("ASE",$datos);
 		break;
-	case '7':
-		$usuario = json_decode($_POST["datos_Usuario"],true);
+		case '7':
 		$empresa = json_decode($_POST["empresas"],true);
-		$procedimientosForm->register_agente($usuario,$empresa);
+		$procedimientosForm->register_agente($empresa,$_POST['idUsuario']);
 		break;
-	case 'empresas':
+		case 'empresas':
 		echo $procedimientosForm->empresas();
 		break;
-	case 'login':
+		case 'login':
 		echo $procedimientosForm->login($_POST['usuario'],$_POST['pin']);
 		break;
-	case 'visita':
+		case 'visita':
 		echo $procedimientosForm->agrego_visita();
 		break;
+	}
+
 }
+
+
 
 ?>

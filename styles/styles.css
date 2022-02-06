@@ -2,6 +2,7 @@
 .landing {
   width: 100%;
   height: calc(100vh - 80px);
+  min-height: 700px;
   background-color: #fff;
   margin-top: 80px;
   display: -ms-grid;
@@ -11,8 +12,8 @@
 .landing .landing-wrapper-grid {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 40% 1fr;
-      grid-template-columns: 40% 1fr;
+  -ms-grid-columns: 30% 1fr;
+      grid-template-columns: 30% 1fr;
   width: 100%;
   gap: 20px;
   margin: 0 auto;
@@ -643,7 +644,7 @@
   }
 }
 
-@media screen and (max-width: 1050px) {
+@media screen and (max-width: 1280px) {
   .landing {
     max-height: 600px;
     overflow: hidden;
@@ -1017,7 +1018,7 @@ header .header-wrapper .header-right #links-mobile .links-wrapper button:hover {
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-@media screen and (max-width: 1060px) {
+@media screen and (max-width: 1160px) {
   header .header-wrapper .header-right .header-links .links {
     display: none;
   }
@@ -1547,44 +1548,91 @@ footer .totum p a:hover {
 .login .login-wrapper #step_3,
 .login .login-wrapper #step_4,
 .login .login-wrapper #step_5,
-.login .login-wrapper .step_hotel,
+.login .login-wrapper #step_hotel,
 .login .register-wrapper #login,
 .login .register-wrapper #step_1,
 .login .register-wrapper #step_2,
 .login .register-wrapper #step_3,
 .login .register-wrapper #step_4,
 .login .register-wrapper #step_5,
-.login .register-wrapper .step_hotel,
+.login .register-wrapper #step_hotel,
 .register .login-wrapper #login,
 .register .login-wrapper #step_1,
 .register .login-wrapper #step_2,
 .register .login-wrapper #step_3,
 .register .login-wrapper #step_4,
 .register .login-wrapper #step_5,
-.register .login-wrapper .step_hotel,
+.register .login-wrapper #step_hotel,
 .register .register-wrapper #login,
 .register .register-wrapper #step_1,
 .register .register-wrapper #step_2,
 .register .register-wrapper #step_3,
 .register .register-wrapper #step_4,
 .register .register-wrapper #step_5,
-.register .register-wrapper .step_hotel,
+.register .register-wrapper #step_hotel,
 .success .login-wrapper #login,
 .success .login-wrapper #step_1,
 .success .login-wrapper #step_2,
 .success .login-wrapper #step_3,
 .success .login-wrapper #step_4,
 .success .login-wrapper #step_5,
-.success .login-wrapper .step_hotel,
+.success .login-wrapper #step_hotel,
 .success .register-wrapper #login,
 .success .register-wrapper #step_1,
 .success .register-wrapper #step_2,
 .success .register-wrapper #step_3,
 .success .register-wrapper #step_4,
 .success .register-wrapper #step_5,
-.success .register-wrapper .step_hotel {
+.success .register-wrapper #step_hotel {
   width: 100%;
   text-align: center;
+}
+
+.login .login-wrapper #login .step_title,
+.login .login-wrapper #step_1 .step_title,
+.login .login-wrapper #step_2 .step_title,
+.login .login-wrapper #step_3 .step_title,
+.login .login-wrapper #step_4 .step_title,
+.login .login-wrapper #step_5 .step_title,
+.login .login-wrapper #step_hotel .step_title,
+.login .register-wrapper #login .step_title,
+.login .register-wrapper #step_1 .step_title,
+.login .register-wrapper #step_2 .step_title,
+.login .register-wrapper #step_3 .step_title,
+.login .register-wrapper #step_4 .step_title,
+.login .register-wrapper #step_5 .step_title,
+.login .register-wrapper #step_hotel .step_title,
+.register .login-wrapper #login .step_title,
+.register .login-wrapper #step_1 .step_title,
+.register .login-wrapper #step_2 .step_title,
+.register .login-wrapper #step_3 .step_title,
+.register .login-wrapper #step_4 .step_title,
+.register .login-wrapper #step_5 .step_title,
+.register .login-wrapper #step_hotel .step_title,
+.register .register-wrapper #login .step_title,
+.register .register-wrapper #step_1 .step_title,
+.register .register-wrapper #step_2 .step_title,
+.register .register-wrapper #step_3 .step_title,
+.register .register-wrapper #step_4 .step_title,
+.register .register-wrapper #step_5 .step_title,
+.register .register-wrapper #step_hotel .step_title,
+.success .login-wrapper #login .step_title,
+.success .login-wrapper #step_1 .step_title,
+.success .login-wrapper #step_2 .step_title,
+.success .login-wrapper #step_3 .step_title,
+.success .login-wrapper #step_4 .step_title,
+.success .login-wrapper #step_5 .step_title,
+.success .login-wrapper #step_hotel .step_title,
+.success .register-wrapper #login .step_title,
+.success .register-wrapper #step_1 .step_title,
+.success .register-wrapper #step_2 .step_title,
+.success .register-wrapper #step_3 .step_title,
+.success .register-wrapper #step_4 .step_title,
+.success .register-wrapper #step_5 .step_title,
+.success .register-wrapper #step_hotel .step_title {
+  color: #3844bc;
+  margin-top: 10px;
+  font-size: 1.2em;
 }
 
 .login .login-wrapper #login .inputs-wrapper,
@@ -1599,8 +1647,8 @@ footer .totum p a:hover {
 .login .login-wrapper #step_4 .inputs-wrapper-register,
 .login .login-wrapper #step_5 .inputs-wrapper,
 .login .login-wrapper #step_5 .inputs-wrapper-register,
-.login .login-wrapper .step_hotel .inputs-wrapper,
-.login .login-wrapper .step_hotel .inputs-wrapper-register,
+.login .login-wrapper #step_hotel .inputs-wrapper,
+.login .login-wrapper #step_hotel .inputs-wrapper-register,
 .login .register-wrapper #login .inputs-wrapper,
 .login .register-wrapper #login .inputs-wrapper-register,
 .login .register-wrapper #step_1 .inputs-wrapper,
@@ -1613,8 +1661,8 @@ footer .totum p a:hover {
 .login .register-wrapper #step_4 .inputs-wrapper-register,
 .login .register-wrapper #step_5 .inputs-wrapper,
 .login .register-wrapper #step_5 .inputs-wrapper-register,
-.login .register-wrapper .step_hotel .inputs-wrapper,
-.login .register-wrapper .step_hotel .inputs-wrapper-register,
+.login .register-wrapper #step_hotel .inputs-wrapper,
+.login .register-wrapper #step_hotel .inputs-wrapper-register,
 .register .login-wrapper #login .inputs-wrapper,
 .register .login-wrapper #login .inputs-wrapper-register,
 .register .login-wrapper #step_1 .inputs-wrapper,
@@ -1627,8 +1675,8 @@ footer .totum p a:hover {
 .register .login-wrapper #step_4 .inputs-wrapper-register,
 .register .login-wrapper #step_5 .inputs-wrapper,
 .register .login-wrapper #step_5 .inputs-wrapper-register,
-.register .login-wrapper .step_hotel .inputs-wrapper,
-.register .login-wrapper .step_hotel .inputs-wrapper-register,
+.register .login-wrapper #step_hotel .inputs-wrapper,
+.register .login-wrapper #step_hotel .inputs-wrapper-register,
 .register .register-wrapper #login .inputs-wrapper,
 .register .register-wrapper #login .inputs-wrapper-register,
 .register .register-wrapper #step_1 .inputs-wrapper,
@@ -1641,8 +1689,8 @@ footer .totum p a:hover {
 .register .register-wrapper #step_4 .inputs-wrapper-register,
 .register .register-wrapper #step_5 .inputs-wrapper,
 .register .register-wrapper #step_5 .inputs-wrapper-register,
-.register .register-wrapper .step_hotel .inputs-wrapper,
-.register .register-wrapper .step_hotel .inputs-wrapper-register,
+.register .register-wrapper #step_hotel .inputs-wrapper,
+.register .register-wrapper #step_hotel .inputs-wrapper-register,
 .success .login-wrapper #login .inputs-wrapper,
 .success .login-wrapper #login .inputs-wrapper-register,
 .success .login-wrapper #step_1 .inputs-wrapper,
@@ -1655,8 +1703,8 @@ footer .totum p a:hover {
 .success .login-wrapper #step_4 .inputs-wrapper-register,
 .success .login-wrapper #step_5 .inputs-wrapper,
 .success .login-wrapper #step_5 .inputs-wrapper-register,
-.success .login-wrapper .step_hotel .inputs-wrapper,
-.success .login-wrapper .step_hotel .inputs-wrapper-register,
+.success .login-wrapper #step_hotel .inputs-wrapper,
+.success .login-wrapper #step_hotel .inputs-wrapper-register,
 .success .register-wrapper #login .inputs-wrapper,
 .success .register-wrapper #login .inputs-wrapper-register,
 .success .register-wrapper #step_1 .inputs-wrapper,
@@ -1669,8 +1717,8 @@ footer .totum p a:hover {
 .success .register-wrapper #step_4 .inputs-wrapper-register,
 .success .register-wrapper #step_5 .inputs-wrapper,
 .success .register-wrapper #step_5 .inputs-wrapper-register,
-.success .register-wrapper .step_hotel .inputs-wrapper,
-.success .register-wrapper .step_hotel .inputs-wrapper-register {
+.success .register-wrapper #step_hotel .inputs-wrapper,
+.success .register-wrapper #step_hotel .inputs-wrapper-register {
   width: 100%;
 }
 
@@ -1686,8 +1734,8 @@ footer .totum p a:hover {
 .login .login-wrapper #step_4 .inputs-wrapper-register .input,
 .login .login-wrapper #step_5 .inputs-wrapper .input,
 .login .login-wrapper #step_5 .inputs-wrapper-register .input,
-.login .login-wrapper .step_hotel .inputs-wrapper .input,
-.login .login-wrapper .step_hotel .inputs-wrapper-register .input,
+.login .login-wrapper #step_hotel .inputs-wrapper .input,
+.login .login-wrapper #step_hotel .inputs-wrapper-register .input,
 .login .register-wrapper #login .inputs-wrapper .input,
 .login .register-wrapper #login .inputs-wrapper-register .input,
 .login .register-wrapper #step_1 .inputs-wrapper .input,
@@ -1700,8 +1748,8 @@ footer .totum p a:hover {
 .login .register-wrapper #step_4 .inputs-wrapper-register .input,
 .login .register-wrapper #step_5 .inputs-wrapper .input,
 .login .register-wrapper #step_5 .inputs-wrapper-register .input,
-.login .register-wrapper .step_hotel .inputs-wrapper .input,
-.login .register-wrapper .step_hotel .inputs-wrapper-register .input,
+.login .register-wrapper #step_hotel .inputs-wrapper .input,
+.login .register-wrapper #step_hotel .inputs-wrapper-register .input,
 .register .login-wrapper #login .inputs-wrapper .input,
 .register .login-wrapper #login .inputs-wrapper-register .input,
 .register .login-wrapper #step_1 .inputs-wrapper .input,
@@ -1714,8 +1762,8 @@ footer .totum p a:hover {
 .register .login-wrapper #step_4 .inputs-wrapper-register .input,
 .register .login-wrapper #step_5 .inputs-wrapper .input,
 .register .login-wrapper #step_5 .inputs-wrapper-register .input,
-.register .login-wrapper .step_hotel .inputs-wrapper .input,
-.register .login-wrapper .step_hotel .inputs-wrapper-register .input,
+.register .login-wrapper #step_hotel .inputs-wrapper .input,
+.register .login-wrapper #step_hotel .inputs-wrapper-register .input,
 .register .register-wrapper #login .inputs-wrapper .input,
 .register .register-wrapper #login .inputs-wrapper-register .input,
 .register .register-wrapper #step_1 .inputs-wrapper .input,
@@ -1728,8 +1776,8 @@ footer .totum p a:hover {
 .register .register-wrapper #step_4 .inputs-wrapper-register .input,
 .register .register-wrapper #step_5 .inputs-wrapper .input,
 .register .register-wrapper #step_5 .inputs-wrapper-register .input,
-.register .register-wrapper .step_hotel .inputs-wrapper .input,
-.register .register-wrapper .step_hotel .inputs-wrapper-register .input,
+.register .register-wrapper #step_hotel .inputs-wrapper .input,
+.register .register-wrapper #step_hotel .inputs-wrapper-register .input,
 .success .login-wrapper #login .inputs-wrapper .input,
 .success .login-wrapper #login .inputs-wrapper-register .input,
 .success .login-wrapper #step_1 .inputs-wrapper .input,
@@ -1742,8 +1790,8 @@ footer .totum p a:hover {
 .success .login-wrapper #step_4 .inputs-wrapper-register .input,
 .success .login-wrapper #step_5 .inputs-wrapper .input,
 .success .login-wrapper #step_5 .inputs-wrapper-register .input,
-.success .login-wrapper .step_hotel .inputs-wrapper .input,
-.success .login-wrapper .step_hotel .inputs-wrapper-register .input,
+.success .login-wrapper #step_hotel .inputs-wrapper .input,
+.success .login-wrapper #step_hotel .inputs-wrapper-register .input,
 .success .register-wrapper #login .inputs-wrapper .input,
 .success .register-wrapper #login .inputs-wrapper-register .input,
 .success .register-wrapper #step_1 .inputs-wrapper .input,
@@ -1756,8 +1804,8 @@ footer .totum p a:hover {
 .success .register-wrapper #step_4 .inputs-wrapper-register .input,
 .success .register-wrapper #step_5 .inputs-wrapper .input,
 .success .register-wrapper #step_5 .inputs-wrapper-register .input,
-.success .register-wrapper .step_hotel .inputs-wrapper .input,
-.success .register-wrapper .step_hotel .inputs-wrapper-register .input {
+.success .register-wrapper #step_hotel .inputs-wrapper .input,
+.success .register-wrapper #step_hotel .inputs-wrapper-register .input {
   position: relative;
   width: calc(100% - 60px);
   margin: 30px auto;
@@ -1787,10 +1835,10 @@ footer .totum p a:hover {
 .login .login-wrapper #step_5 .inputs-wrapper .input select,
 .login .login-wrapper #step_5 .inputs-wrapper-register .input input,
 .login .login-wrapper #step_5 .inputs-wrapper-register .input select,
-.login .login-wrapper .step_hotel .inputs-wrapper .input input,
-.login .login-wrapper .step_hotel .inputs-wrapper .input select,
-.login .login-wrapper .step_hotel .inputs-wrapper-register .input input,
-.login .login-wrapper .step_hotel .inputs-wrapper-register .input select,
+.login .login-wrapper #step_hotel .inputs-wrapper .input input,
+.login .login-wrapper #step_hotel .inputs-wrapper .input select,
+.login .login-wrapper #step_hotel .inputs-wrapper-register .input input,
+.login .login-wrapper #step_hotel .inputs-wrapper-register .input select,
 .login .register-wrapper #login .inputs-wrapper .input input,
 .login .register-wrapper #login .inputs-wrapper .input select,
 .login .register-wrapper #login .inputs-wrapper-register .input input,
@@ -1815,10 +1863,10 @@ footer .totum p a:hover {
 .login .register-wrapper #step_5 .inputs-wrapper .input select,
 .login .register-wrapper #step_5 .inputs-wrapper-register .input input,
 .login .register-wrapper #step_5 .inputs-wrapper-register .input select,
-.login .register-wrapper .step_hotel .inputs-wrapper .input input,
-.login .register-wrapper .step_hotel .inputs-wrapper .input select,
-.login .register-wrapper .step_hotel .inputs-wrapper-register .input input,
-.login .register-wrapper .step_hotel .inputs-wrapper-register .input select,
+.login .register-wrapper #step_hotel .inputs-wrapper .input input,
+.login .register-wrapper #step_hotel .inputs-wrapper .input select,
+.login .register-wrapper #step_hotel .inputs-wrapper-register .input input,
+.login .register-wrapper #step_hotel .inputs-wrapper-register .input select,
 .register .login-wrapper #login .inputs-wrapper .input input,
 .register .login-wrapper #login .inputs-wrapper .input select,
 .register .login-wrapper #login .inputs-wrapper-register .input input,
@@ -1843,10 +1891,10 @@ footer .totum p a:hover {
 .register .login-wrapper #step_5 .inputs-wrapper .input select,
 .register .login-wrapper #step_5 .inputs-wrapper-register .input input,
 .register .login-wrapper #step_5 .inputs-wrapper-register .input select,
-.register .login-wrapper .step_hotel .inputs-wrapper .input input,
-.register .login-wrapper .step_hotel .inputs-wrapper .input select,
-.register .login-wrapper .step_hotel .inputs-wrapper-register .input input,
-.register .login-wrapper .step_hotel .inputs-wrapper-register .input select,
+.register .login-wrapper #step_hotel .inputs-wrapper .input input,
+.register .login-wrapper #step_hotel .inputs-wrapper .input select,
+.register .login-wrapper #step_hotel .inputs-wrapper-register .input input,
+.register .login-wrapper #step_hotel .inputs-wrapper-register .input select,
 .register .register-wrapper #login .inputs-wrapper .input input,
 .register .register-wrapper #login .inputs-wrapper .input select,
 .register .register-wrapper #login .inputs-wrapper-register .input input,
@@ -1871,10 +1919,10 @@ footer .totum p a:hover {
 .register .register-wrapper #step_5 .inputs-wrapper .input select,
 .register .register-wrapper #step_5 .inputs-wrapper-register .input input,
 .register .register-wrapper #step_5 .inputs-wrapper-register .input select,
-.register .register-wrapper .step_hotel .inputs-wrapper .input input,
-.register .register-wrapper .step_hotel .inputs-wrapper .input select,
-.register .register-wrapper .step_hotel .inputs-wrapper-register .input input,
-.register .register-wrapper .step_hotel .inputs-wrapper-register .input select,
+.register .register-wrapper #step_hotel .inputs-wrapper .input input,
+.register .register-wrapper #step_hotel .inputs-wrapper .input select,
+.register .register-wrapper #step_hotel .inputs-wrapper-register .input input,
+.register .register-wrapper #step_hotel .inputs-wrapper-register .input select,
 .success .login-wrapper #login .inputs-wrapper .input input,
 .success .login-wrapper #login .inputs-wrapper .input select,
 .success .login-wrapper #login .inputs-wrapper-register .input input,
@@ -1899,10 +1947,10 @@ footer .totum p a:hover {
 .success .login-wrapper #step_5 .inputs-wrapper .input select,
 .success .login-wrapper #step_5 .inputs-wrapper-register .input input,
 .success .login-wrapper #step_5 .inputs-wrapper-register .input select,
-.success .login-wrapper .step_hotel .inputs-wrapper .input input,
-.success .login-wrapper .step_hotel .inputs-wrapper .input select,
-.success .login-wrapper .step_hotel .inputs-wrapper-register .input input,
-.success .login-wrapper .step_hotel .inputs-wrapper-register .input select,
+.success .login-wrapper #step_hotel .inputs-wrapper .input input,
+.success .login-wrapper #step_hotel .inputs-wrapper .input select,
+.success .login-wrapper #step_hotel .inputs-wrapper-register .input input,
+.success .login-wrapper #step_hotel .inputs-wrapper-register .input select,
 .success .register-wrapper #login .inputs-wrapper .input input,
 .success .register-wrapper #login .inputs-wrapper .input select,
 .success .register-wrapper #login .inputs-wrapper-register .input input,
@@ -1927,10 +1975,10 @@ footer .totum p a:hover {
 .success .register-wrapper #step_5 .inputs-wrapper .input select,
 .success .register-wrapper #step_5 .inputs-wrapper-register .input input,
 .success .register-wrapper #step_5 .inputs-wrapper-register .input select,
-.success .register-wrapper .step_hotel .inputs-wrapper .input input,
-.success .register-wrapper .step_hotel .inputs-wrapper .input select,
-.success .register-wrapper .step_hotel .inputs-wrapper-register .input input,
-.success .register-wrapper .step_hotel .inputs-wrapper-register .input select {
+.success .register-wrapper #step_hotel .inputs-wrapper .input input,
+.success .register-wrapper #step_hotel .inputs-wrapper .input select,
+.success .register-wrapper #step_hotel .inputs-wrapper-register .input input,
+.success .register-wrapper #step_hotel .inputs-wrapper-register .input select {
   width: 100%;
   height: 40px;
   background-color: transparent;
@@ -1966,10 +2014,10 @@ footer .totum p a:hover {
 .login .login-wrapper #step_5 .inputs-wrapper .input select::-webkit-input-placeholder,
 .login .login-wrapper #step_5 .inputs-wrapper-register .input input::-webkit-input-placeholder,
 .login .login-wrapper #step_5 .inputs-wrapper-register .input select::-webkit-input-placeholder,
-.login .login-wrapper .step_hotel .inputs-wrapper .input input::-webkit-input-placeholder,
-.login .login-wrapper .step_hotel .inputs-wrapper .input select::-webkit-input-placeholder,
-.login .login-wrapper .step_hotel .inputs-wrapper-register .input input::-webkit-input-placeholder,
-.login .login-wrapper .step_hotel .inputs-wrapper-register .input select::-webkit-input-placeholder,
+.login .login-wrapper #step_hotel .inputs-wrapper .input input::-webkit-input-placeholder,
+.login .login-wrapper #step_hotel .inputs-wrapper .input select::-webkit-input-placeholder,
+.login .login-wrapper #step_hotel .inputs-wrapper-register .input input::-webkit-input-placeholder,
+.login .login-wrapper #step_hotel .inputs-wrapper-register .input select::-webkit-input-placeholder,
 .login .register-wrapper #login .inputs-wrapper .input input::-webkit-input-placeholder,
 .login .register-wrapper #login .inputs-wrapper .input select::-webkit-input-placeholder,
 .login .register-wrapper #login .inputs-wrapper-register .input input::-webkit-input-placeholder,
@@ -1994,10 +2042,10 @@ footer .totum p a:hover {
 .login .register-wrapper #step_5 .inputs-wrapper .input select::-webkit-input-placeholder,
 .login .register-wrapper #step_5 .inputs-wrapper-register .input input::-webkit-input-placeholder,
 .login .register-wrapper #step_5 .inputs-wrapper-register .input select::-webkit-input-placeholder,
-.login .register-wrapper .step_hotel .inputs-wrapper .input input::-webkit-input-placeholder,
-.login .register-wrapper .step_hotel .inputs-wrapper .input select::-webkit-input-placeholder,
-.login .register-wrapper .step_hotel .inputs-wrapper-register .input input::-webkit-input-placeholder,
-.login .register-wrapper .step_hotel .inputs-wrapper-register .input select::-webkit-input-placeholder,
+.login .register-wrapper #step_hotel .inputs-wrapper .input input::-webkit-input-placeholder,
+.login .register-wrapper #step_hotel .inputs-wrapper .input select::-webkit-input-placeholder,
+.login .register-wrapper #step_hotel .inputs-wrapper-register .input input::-webkit-input-placeholder,
+.login .register-wrapper #step_hotel .inputs-wrapper-register .input select::-webkit-input-placeholder,
 .register .login-wrapper #login .inputs-wrapper .input input::-webkit-input-placeholder,
 .register .login-wrapper #login .inputs-wrapper .input select::-webkit-input-placeholder,
 .register .login-wrapper #login .inputs-wrapper-register .input input::-webkit-input-placeholder,
@@ -2022,10 +2070,10 @@ footer .totum p a:hover {
 .register .login-wrapper #step_5 .inputs-wrapper .input select::-webkit-input-placeholder,
 .register .login-wrapper #step_5 .inputs-wrapper-register .input input::-webkit-input-placeholder,
 .register .login-wrapper #step_5 .inputs-wrapper-register .input select::-webkit-input-placeholder,
-.register .login-wrapper .step_hotel .inputs-wrapper .input input::-webkit-input-placeholder,
-.register .login-wrapper .step_hotel .inputs-wrapper .input select::-webkit-input-placeholder,
-.register .login-wrapper .step_hotel .inputs-wrapper-register .input input::-webkit-input-placeholder,
-.register .login-wrapper .step_hotel .inputs-wrapper-register .input select::-webkit-input-placeholder,
+.register .login-wrapper #step_hotel .inputs-wrapper .input input::-webkit-input-placeholder,
+.register .login-wrapper #step_hotel .inputs-wrapper .input select::-webkit-input-placeholder,
+.register .login-wrapper #step_hotel .inputs-wrapper-register .input input::-webkit-input-placeholder,
+.register .login-wrapper #step_hotel .inputs-wrapper-register .input select::-webkit-input-placeholder,
 .register .register-wrapper #login .inputs-wrapper .input input::-webkit-input-placeholder,
 .register .register-wrapper #login .inputs-wrapper .input select::-webkit-input-placeholder,
 .register .register-wrapper #login .inputs-wrapper-register .input input::-webkit-input-placeholder,
@@ -2050,10 +2098,10 @@ footer .totum p a:hover {
 .register .register-wrapper #step_5 .inputs-wrapper .input select::-webkit-input-placeholder,
 .register .register-wrapper #step_5 .inputs-wrapper-register .input input::-webkit-input-placeholder,
 .register .register-wrapper #step_5 .inputs-wrapper-register .input select::-webkit-input-placeholder,
-.register .register-wrapper .step_hotel .inputs-wrapper .input input::-webkit-input-placeholder,
-.register .register-wrapper .step_hotel .inputs-wrapper .input select::-webkit-input-placeholder,
-.register .register-wrapper .step_hotel .inputs-wrapper-register .input input::-webkit-input-placeholder,
-.register .register-wrapper .step_hotel .inputs-wrapper-register .input select::-webkit-input-placeholder,
+.register .register-wrapper #step_hotel .inputs-wrapper .input input::-webkit-input-placeholder,
+.register .register-wrapper #step_hotel .inputs-wrapper .input select::-webkit-input-placeholder,
+.register .register-wrapper #step_hotel .inputs-wrapper-register .input input::-webkit-input-placeholder,
+.register .register-wrapper #step_hotel .inputs-wrapper-register .input select::-webkit-input-placeholder,
 .success .login-wrapper #login .inputs-wrapper .input input::-webkit-input-placeholder,
 .success .login-wrapper #login .inputs-wrapper .input select::-webkit-input-placeholder,
 .success .login-wrapper #login .inputs-wrapper-register .input input::-webkit-input-placeholder,
@@ -2078,10 +2126,10 @@ footer .totum p a:hover {
 .success .login-wrapper #step_5 .inputs-wrapper .input select::-webkit-input-placeholder,
 .success .login-wrapper #step_5 .inputs-wrapper-register .input input::-webkit-input-placeholder,
 .success .login-wrapper #step_5 .inputs-wrapper-register .input select::-webkit-input-placeholder,
-.success .login-wrapper .step_hotel .inputs-wrapper .input input::-webkit-input-placeholder,
-.success .login-wrapper .step_hotel .inputs-wrapper .input select::-webkit-input-placeholder,
-.success .login-wrapper .step_hotel .inputs-wrapper-register .input input::-webkit-input-placeholder,
-.success .login-wrapper .step_hotel .inputs-wrapper-register .input select::-webkit-input-placeholder,
+.success .login-wrapper #step_hotel .inputs-wrapper .input input::-webkit-input-placeholder,
+.success .login-wrapper #step_hotel .inputs-wrapper .input select::-webkit-input-placeholder,
+.success .login-wrapper #step_hotel .inputs-wrapper-register .input input::-webkit-input-placeholder,
+.success .login-wrapper #step_hotel .inputs-wrapper-register .input select::-webkit-input-placeholder,
 .success .register-wrapper #login .inputs-wrapper .input input::-webkit-input-placeholder,
 .success .register-wrapper #login .inputs-wrapper .input select::-webkit-input-placeholder,
 .success .register-wrapper #login .inputs-wrapper-register .input input::-webkit-input-placeholder,
@@ -2106,10 +2154,10 @@ footer .totum p a:hover {
 .success .register-wrapper #step_5 .inputs-wrapper .input select::-webkit-input-placeholder,
 .success .register-wrapper #step_5 .inputs-wrapper-register .input input::-webkit-input-placeholder,
 .success .register-wrapper #step_5 .inputs-wrapper-register .input select::-webkit-input-placeholder,
-.success .register-wrapper .step_hotel .inputs-wrapper .input input::-webkit-input-placeholder,
-.success .register-wrapper .step_hotel .inputs-wrapper .input select::-webkit-input-placeholder,
-.success .register-wrapper .step_hotel .inputs-wrapper-register .input input::-webkit-input-placeholder,
-.success .register-wrapper .step_hotel .inputs-wrapper-register .input select::-webkit-input-placeholder {
+.success .register-wrapper #step_hotel .inputs-wrapper .input input::-webkit-input-placeholder,
+.success .register-wrapper #step_hotel .inputs-wrapper .input select::-webkit-input-placeholder,
+.success .register-wrapper #step_hotel .inputs-wrapper-register .input input::-webkit-input-placeholder,
+.success .register-wrapper #step_hotel .inputs-wrapper-register .input select::-webkit-input-placeholder {
   color: #888;
 }
 
@@ -2137,10 +2185,10 @@ footer .totum p a:hover {
 .login .login-wrapper #step_5 .inputs-wrapper .input select:-ms-input-placeholder,
 .login .login-wrapper #step_5 .inputs-wrapper-register .input input:-ms-input-placeholder,
 .login .login-wrapper #step_5 .inputs-wrapper-register .input select:-ms-input-placeholder,
-.login .login-wrapper .step_hotel .inputs-wrapper .input input:-ms-input-placeholder,
-.login .login-wrapper .step_hotel .inputs-wrapper .input select:-ms-input-placeholder,
-.login .login-wrapper .step_hotel .inputs-wrapper-register .input input:-ms-input-placeholder,
-.login .login-wrapper .step_hotel .inputs-wrapper-register .input select:-ms-input-placeholder,
+.login .login-wrapper #step_hotel .inputs-wrapper .input input:-ms-input-placeholder,
+.login .login-wrapper #step_hotel .inputs-wrapper .input select:-ms-input-placeholder,
+.login .login-wrapper #step_hotel .inputs-wrapper-register .input input:-ms-input-placeholder,
+.login .login-wrapper #step_hotel .inputs-wrapper-register .input select:-ms-input-placeholder,
 .login .register-wrapper #login .inputs-wrapper .input input:-ms-input-placeholder,
 .login .register-wrapper #login .inputs-wrapper .input select:-ms-input-placeholder,
 .login .register-wrapper #login .inputs-wrapper-register .input input:-ms-input-placeholder,
@@ -2165,10 +2213,10 @@ footer .totum p a:hover {
 .login .register-wrapper #step_5 .inputs-wrapper .input select:-ms-input-placeholder,
 .login .register-wrapper #step_5 .inputs-wrapper-register .input input:-ms-input-placeholder,
 .login .register-wrapper #step_5 .inputs-wrapper-register .input select:-ms-input-placeholder,
-.login .register-wrapper .step_hotel .inputs-wrapper .input input:-ms-input-placeholder,
-.login .register-wrapper .step_hotel .inputs-wrapper .input select:-ms-input-placeholder,
-.login .register-wrapper .step_hotel .inputs-wrapper-register .input input:-ms-input-placeholder,
-.login .register-wrapper .step_hotel .inputs-wrapper-register .input select:-ms-input-placeholder,
+.login .register-wrapper #step_hotel .inputs-wrapper .input input:-ms-input-placeholder,
+.login .register-wrapper #step_hotel .inputs-wrapper .input select:-ms-input-placeholder,
+.login .register-wrapper #step_hotel .inputs-wrapper-register .input input:-ms-input-placeholder,
+.login .register-wrapper #step_hotel .inputs-wrapper-register .input select:-ms-input-placeholder,
 .register .login-wrapper #login .inputs-wrapper .input input:-ms-input-placeholder,
 .register .login-wrapper #login .inputs-wrapper .input select:-ms-input-placeholder,
 .register .login-wrapper #login .inputs-wrapper-register .input input:-ms-input-placeholder,
@@ -2193,10 +2241,10 @@ footer .totum p a:hover {
 .register .login-wrapper #step_5 .inputs-wrapper .input select:-ms-input-placeholder,
 .register .login-wrapper #step_5 .inputs-wrapper-register .input input:-ms-input-placeholder,
 .register .login-wrapper #step_5 .inputs-wrapper-register .input select:-ms-input-placeholder,
-.register .login-wrapper .step_hotel .inputs-wrapper .input input:-ms-input-placeholder,
-.register .login-wrapper .step_hotel .inputs-wrapper .input select:-ms-input-placeholder,
-.register .login-wrapper .step_hotel .inputs-wrapper-register .input input:-ms-input-placeholder,
-.register .login-wrapper .step_hotel .inputs-wrapper-register .input select:-ms-input-placeholder,
+.register .login-wrapper #step_hotel .inputs-wrapper .input input:-ms-input-placeholder,
+.register .login-wrapper #step_hotel .inputs-wrapper .input select:-ms-input-placeholder,
+.register .login-wrapper #step_hotel .inputs-wrapper-register .input input:-ms-input-placeholder,
+.register .login-wrapper #step_hotel .inputs-wrapper-register .input select:-ms-input-placeholder,
 .register .register-wrapper #login .inputs-wrapper .input input:-ms-input-placeholder,
 .register .register-wrapper #login .inputs-wrapper .input select:-ms-input-placeholder,
 .register .register-wrapper #login .inputs-wrapper-register .input input:-ms-input-placeholder,
@@ -2221,10 +2269,10 @@ footer .totum p a:hover {
 .register .register-wrapper #step_5 .inputs-wrapper .input select:-ms-input-placeholder,
 .register .register-wrapper #step_5 .inputs-wrapper-register .input input:-ms-input-placeholder,
 .register .register-wrapper #step_5 .inputs-wrapper-register .input select:-ms-input-placeholder,
-.register .register-wrapper .step_hotel .inputs-wrapper .input input:-ms-input-placeholder,
-.register .register-wrapper .step_hotel .inputs-wrapper .input select:-ms-input-placeholder,
-.register .register-wrapper .step_hotel .inputs-wrapper-register .input input:-ms-input-placeholder,
-.register .register-wrapper .step_hotel .inputs-wrapper-register .input select:-ms-input-placeholder,
+.register .register-wrapper #step_hotel .inputs-wrapper .input input:-ms-input-placeholder,
+.register .register-wrapper #step_hotel .inputs-wrapper .input select:-ms-input-placeholder,
+.register .register-wrapper #step_hotel .inputs-wrapper-register .input input:-ms-input-placeholder,
+.register .register-wrapper #step_hotel .inputs-wrapper-register .input select:-ms-input-placeholder,
 .success .login-wrapper #login .inputs-wrapper .input input:-ms-input-placeholder,
 .success .login-wrapper #login .inputs-wrapper .input select:-ms-input-placeholder,
 .success .login-wrapper #login .inputs-wrapper-register .input input:-ms-input-placeholder,
@@ -2249,10 +2297,10 @@ footer .totum p a:hover {
 .success .login-wrapper #step_5 .inputs-wrapper .input select:-ms-input-placeholder,
 .success .login-wrapper #step_5 .inputs-wrapper-register .input input:-ms-input-placeholder,
 .success .login-wrapper #step_5 .inputs-wrapper-register .input select:-ms-input-placeholder,
-.success .login-wrapper .step_hotel .inputs-wrapper .input input:-ms-input-placeholder,
-.success .login-wrapper .step_hotel .inputs-wrapper .input select:-ms-input-placeholder,
-.success .login-wrapper .step_hotel .inputs-wrapper-register .input input:-ms-input-placeholder,
-.success .login-wrapper .step_hotel .inputs-wrapper-register .input select:-ms-input-placeholder,
+.success .login-wrapper #step_hotel .inputs-wrapper .input input:-ms-input-placeholder,
+.success .login-wrapper #step_hotel .inputs-wrapper .input select:-ms-input-placeholder,
+.success .login-wrapper #step_hotel .inputs-wrapper-register .input input:-ms-input-placeholder,
+.success .login-wrapper #step_hotel .inputs-wrapper-register .input select:-ms-input-placeholder,
 .success .register-wrapper #login .inputs-wrapper .input input:-ms-input-placeholder,
 .success .register-wrapper #login .inputs-wrapper .input select:-ms-input-placeholder,
 .success .register-wrapper #login .inputs-wrapper-register .input input:-ms-input-placeholder,
@@ -2277,10 +2325,10 @@ footer .totum p a:hover {
 .success .register-wrapper #step_5 .inputs-wrapper .input select:-ms-input-placeholder,
 .success .register-wrapper #step_5 .inputs-wrapper-register .input input:-ms-input-placeholder,
 .success .register-wrapper #step_5 .inputs-wrapper-register .input select:-ms-input-placeholder,
-.success .register-wrapper .step_hotel .inputs-wrapper .input input:-ms-input-placeholder,
-.success .register-wrapper .step_hotel .inputs-wrapper .input select:-ms-input-placeholder,
-.success .register-wrapper .step_hotel .inputs-wrapper-register .input input:-ms-input-placeholder,
-.success .register-wrapper .step_hotel .inputs-wrapper-register .input select:-ms-input-placeholder {
+.success .register-wrapper #step_hotel .inputs-wrapper .input input:-ms-input-placeholder,
+.success .register-wrapper #step_hotel .inputs-wrapper .input select:-ms-input-placeholder,
+.success .register-wrapper #step_hotel .inputs-wrapper-register .input input:-ms-input-placeholder,
+.success .register-wrapper #step_hotel .inputs-wrapper-register .input select:-ms-input-placeholder {
   color: #888;
 }
 
@@ -2308,10 +2356,10 @@ footer .totum p a:hover {
 .login .login-wrapper #step_5 .inputs-wrapper .input select::-ms-input-placeholder,
 .login .login-wrapper #step_5 .inputs-wrapper-register .input input::-ms-input-placeholder,
 .login .login-wrapper #step_5 .inputs-wrapper-register .input select::-ms-input-placeholder,
-.login .login-wrapper .step_hotel .inputs-wrapper .input input::-ms-input-placeholder,
-.login .login-wrapper .step_hotel .inputs-wrapper .input select::-ms-input-placeholder,
-.login .login-wrapper .step_hotel .inputs-wrapper-register .input input::-ms-input-placeholder,
-.login .login-wrapper .step_hotel .inputs-wrapper-register .input select::-ms-input-placeholder,
+.login .login-wrapper #step_hotel .inputs-wrapper .input input::-ms-input-placeholder,
+.login .login-wrapper #step_hotel .inputs-wrapper .input select::-ms-input-placeholder,
+.login .login-wrapper #step_hotel .inputs-wrapper-register .input input::-ms-input-placeholder,
+.login .login-wrapper #step_hotel .inputs-wrapper-register .input select::-ms-input-placeholder,
 .login .register-wrapper #login .inputs-wrapper .input input::-ms-input-placeholder,
 .login .register-wrapper #login .inputs-wrapper .input select::-ms-input-placeholder,
 .login .register-wrapper #login .inputs-wrapper-register .input input::-ms-input-placeholder,
@@ -2336,10 +2384,10 @@ footer .totum p a:hover {
 .login .register-wrapper #step_5 .inputs-wrapper .input select::-ms-input-placeholder,
 .login .register-wrapper #step_5 .inputs-wrapper-register .input input::-ms-input-placeholder,
 .login .register-wrapper #step_5 .inputs-wrapper-register .input select::-ms-input-placeholder,
-.login .register-wrapper .step_hotel .inputs-wrapper .input input::-ms-input-placeholder,
-.login .register-wrapper .step_hotel .inputs-wrapper .input select::-ms-input-placeholder,
-.login .register-wrapper .step_hotel .inputs-wrapper-register .input input::-ms-input-placeholder,
-.login .register-wrapper .step_hotel .inputs-wrapper-register .input select::-ms-input-placeholder,
+.login .register-wrapper #step_hotel .inputs-wrapper .input input::-ms-input-placeholder,
+.login .register-wrapper #step_hotel .inputs-wrapper .input select::-ms-input-placeholder,
+.login .register-wrapper #step_hotel .inputs-wrapper-register .input input::-ms-input-placeholder,
+.login .register-wrapper #step_hotel .inputs-wrapper-register .input select::-ms-input-placeholder,
 .register .login-wrapper #login .inputs-wrapper .input input::-ms-input-placeholder,
 .register .login-wrapper #login .inputs-wrapper .input select::-ms-input-placeholder,
 .register .login-wrapper #login .inputs-wrapper-register .input input::-ms-input-placeholder,
@@ -2364,10 +2412,10 @@ footer .totum p a:hover {
 .register .login-wrapper #step_5 .inputs-wrapper .input select::-ms-input-placeholder,
 .register .login-wrapper #step_5 .inputs-wrapper-register .input input::-ms-input-placeholder,
 .register .login-wrapper #step_5 .inputs-wrapper-register .input select::-ms-input-placeholder,
-.register .login-wrapper .step_hotel .inputs-wrapper .input input::-ms-input-placeholder,
-.register .login-wrapper .step_hotel .inputs-wrapper .input select::-ms-input-placeholder,
-.register .login-wrapper .step_hotel .inputs-wrapper-register .input input::-ms-input-placeholder,
-.register .login-wrapper .step_hotel .inputs-wrapper-register .input select::-ms-input-placeholder,
+.register .login-wrapper #step_hotel .inputs-wrapper .input input::-ms-input-placeholder,
+.register .login-wrapper #step_hotel .inputs-wrapper .input select::-ms-input-placeholder,
+.register .login-wrapper #step_hotel .inputs-wrapper-register .input input::-ms-input-placeholder,
+.register .login-wrapper #step_hotel .inputs-wrapper-register .input select::-ms-input-placeholder,
 .register .register-wrapper #login .inputs-wrapper .input input::-ms-input-placeholder,
 .register .register-wrapper #login .inputs-wrapper .input select::-ms-input-placeholder,
 .register .register-wrapper #login .inputs-wrapper-register .input input::-ms-input-placeholder,
@@ -2392,10 +2440,10 @@ footer .totum p a:hover {
 .register .register-wrapper #step_5 .inputs-wrapper .input select::-ms-input-placeholder,
 .register .register-wrapper #step_5 .inputs-wrapper-register .input input::-ms-input-placeholder,
 .register .register-wrapper #step_5 .inputs-wrapper-register .input select::-ms-input-placeholder,
-.register .register-wrapper .step_hotel .inputs-wrapper .input input::-ms-input-placeholder,
-.register .register-wrapper .step_hotel .inputs-wrapper .input select::-ms-input-placeholder,
-.register .register-wrapper .step_hotel .inputs-wrapper-register .input input::-ms-input-placeholder,
-.register .register-wrapper .step_hotel .inputs-wrapper-register .input select::-ms-input-placeholder,
+.register .register-wrapper #step_hotel .inputs-wrapper .input input::-ms-input-placeholder,
+.register .register-wrapper #step_hotel .inputs-wrapper .input select::-ms-input-placeholder,
+.register .register-wrapper #step_hotel .inputs-wrapper-register .input input::-ms-input-placeholder,
+.register .register-wrapper #step_hotel .inputs-wrapper-register .input select::-ms-input-placeholder,
 .success .login-wrapper #login .inputs-wrapper .input input::-ms-input-placeholder,
 .success .login-wrapper #login .inputs-wrapper .input select::-ms-input-placeholder,
 .success .login-wrapper #login .inputs-wrapper-register .input input::-ms-input-placeholder,
@@ -2420,10 +2468,10 @@ footer .totum p a:hover {
 .success .login-wrapper #step_5 .inputs-wrapper .input select::-ms-input-placeholder,
 .success .login-wrapper #step_5 .inputs-wrapper-register .input input::-ms-input-placeholder,
 .success .login-wrapper #step_5 .inputs-wrapper-register .input select::-ms-input-placeholder,
-.success .login-wrapper .step_hotel .inputs-wrapper .input input::-ms-input-placeholder,
-.success .login-wrapper .step_hotel .inputs-wrapper .input select::-ms-input-placeholder,
-.success .login-wrapper .step_hotel .inputs-wrapper-register .input input::-ms-input-placeholder,
-.success .login-wrapper .step_hotel .inputs-wrapper-register .input select::-ms-input-placeholder,
+.success .login-wrapper #step_hotel .inputs-wrapper .input input::-ms-input-placeholder,
+.success .login-wrapper #step_hotel .inputs-wrapper .input select::-ms-input-placeholder,
+.success .login-wrapper #step_hotel .inputs-wrapper-register .input input::-ms-input-placeholder,
+.success .login-wrapper #step_hotel .inputs-wrapper-register .input select::-ms-input-placeholder,
 .success .register-wrapper #login .inputs-wrapper .input input::-ms-input-placeholder,
 .success .register-wrapper #login .inputs-wrapper .input select::-ms-input-placeholder,
 .success .register-wrapper #login .inputs-wrapper-register .input input::-ms-input-placeholder,
@@ -2448,10 +2496,10 @@ footer .totum p a:hover {
 .success .register-wrapper #step_5 .inputs-wrapper .input select::-ms-input-placeholder,
 .success .register-wrapper #step_5 .inputs-wrapper-register .input input::-ms-input-placeholder,
 .success .register-wrapper #step_5 .inputs-wrapper-register .input select::-ms-input-placeholder,
-.success .register-wrapper .step_hotel .inputs-wrapper .input input::-ms-input-placeholder,
-.success .register-wrapper .step_hotel .inputs-wrapper .input select::-ms-input-placeholder,
-.success .register-wrapper .step_hotel .inputs-wrapper-register .input input::-ms-input-placeholder,
-.success .register-wrapper .step_hotel .inputs-wrapper-register .input select::-ms-input-placeholder {
+.success .register-wrapper #step_hotel .inputs-wrapper .input input::-ms-input-placeholder,
+.success .register-wrapper #step_hotel .inputs-wrapper .input select::-ms-input-placeholder,
+.success .register-wrapper #step_hotel .inputs-wrapper-register .input input::-ms-input-placeholder,
+.success .register-wrapper #step_hotel .inputs-wrapper-register .input select::-ms-input-placeholder {
   color: #888;
 }
 
@@ -2479,10 +2527,10 @@ footer .totum p a:hover {
 .login .login-wrapper #step_5 .inputs-wrapper .input select::placeholder,
 .login .login-wrapper #step_5 .inputs-wrapper-register .input input::placeholder,
 .login .login-wrapper #step_5 .inputs-wrapper-register .input select::placeholder,
-.login .login-wrapper .step_hotel .inputs-wrapper .input input::placeholder,
-.login .login-wrapper .step_hotel .inputs-wrapper .input select::placeholder,
-.login .login-wrapper .step_hotel .inputs-wrapper-register .input input::placeholder,
-.login .login-wrapper .step_hotel .inputs-wrapper-register .input select::placeholder,
+.login .login-wrapper #step_hotel .inputs-wrapper .input input::placeholder,
+.login .login-wrapper #step_hotel .inputs-wrapper .input select::placeholder,
+.login .login-wrapper #step_hotel .inputs-wrapper-register .input input::placeholder,
+.login .login-wrapper #step_hotel .inputs-wrapper-register .input select::placeholder,
 .login .register-wrapper #login .inputs-wrapper .input input::placeholder,
 .login .register-wrapper #login .inputs-wrapper .input select::placeholder,
 .login .register-wrapper #login .inputs-wrapper-register .input input::placeholder,
@@ -2507,10 +2555,10 @@ footer .totum p a:hover {
 .login .register-wrapper #step_5 .inputs-wrapper .input select::placeholder,
 .login .register-wrapper #step_5 .inputs-wrapper-register .input input::placeholder,
 .login .register-wrapper #step_5 .inputs-wrapper-register .input select::placeholder,
-.login .register-wrapper .step_hotel .inputs-wrapper .input input::placeholder,
-.login .register-wrapper .step_hotel .inputs-wrapper .input select::placeholder,
-.login .register-wrapper .step_hotel .inputs-wrapper-register .input input::placeholder,
-.login .register-wrapper .step_hotel .inputs-wrapper-register .input select::placeholder,
+.login .register-wrapper #step_hotel .inputs-wrapper .input input::placeholder,
+.login .register-wrapper #step_hotel .inputs-wrapper .input select::placeholder,
+.login .register-wrapper #step_hotel .inputs-wrapper-register .input input::placeholder,
+.login .register-wrapper #step_hotel .inputs-wrapper-register .input select::placeholder,
 .register .login-wrapper #login .inputs-wrapper .input input::placeholder,
 .register .login-wrapper #login .inputs-wrapper .input select::placeholder,
 .register .login-wrapper #login .inputs-wrapper-register .input input::placeholder,
@@ -2535,10 +2583,10 @@ footer .totum p a:hover {
 .register .login-wrapper #step_5 .inputs-wrapper .input select::placeholder,
 .register .login-wrapper #step_5 .inputs-wrapper-register .input input::placeholder,
 .register .login-wrapper #step_5 .inputs-wrapper-register .input select::placeholder,
-.register .login-wrapper .step_hotel .inputs-wrapper .input input::placeholder,
-.register .login-wrapper .step_hotel .inputs-wrapper .input select::placeholder,
-.register .login-wrapper .step_hotel .inputs-wrapper-register .input input::placeholder,
-.register .login-wrapper .step_hotel .inputs-wrapper-register .input select::placeholder,
+.register .login-wrapper #step_hotel .inputs-wrapper .input input::placeholder,
+.register .login-wrapper #step_hotel .inputs-wrapper .input select::placeholder,
+.register .login-wrapper #step_hotel .inputs-wrapper-register .input input::placeholder,
+.register .login-wrapper #step_hotel .inputs-wrapper-register .input select::placeholder,
 .register .register-wrapper #login .inputs-wrapper .input input::placeholder,
 .register .register-wrapper #login .inputs-wrapper .input select::placeholder,
 .register .register-wrapper #login .inputs-wrapper-register .input input::placeholder,
@@ -2563,10 +2611,10 @@ footer .totum p a:hover {
 .register .register-wrapper #step_5 .inputs-wrapper .input select::placeholder,
 .register .register-wrapper #step_5 .inputs-wrapper-register .input input::placeholder,
 .register .register-wrapper #step_5 .inputs-wrapper-register .input select::placeholder,
-.register .register-wrapper .step_hotel .inputs-wrapper .input input::placeholder,
-.register .register-wrapper .step_hotel .inputs-wrapper .input select::placeholder,
-.register .register-wrapper .step_hotel .inputs-wrapper-register .input input::placeholder,
-.register .register-wrapper .step_hotel .inputs-wrapper-register .input select::placeholder,
+.register .register-wrapper #step_hotel .inputs-wrapper .input input::placeholder,
+.register .register-wrapper #step_hotel .inputs-wrapper .input select::placeholder,
+.register .register-wrapper #step_hotel .inputs-wrapper-register .input input::placeholder,
+.register .register-wrapper #step_hotel .inputs-wrapper-register .input select::placeholder,
 .success .login-wrapper #login .inputs-wrapper .input input::placeholder,
 .success .login-wrapper #login .inputs-wrapper .input select::placeholder,
 .success .login-wrapper #login .inputs-wrapper-register .input input::placeholder,
@@ -2591,10 +2639,10 @@ footer .totum p a:hover {
 .success .login-wrapper #step_5 .inputs-wrapper .input select::placeholder,
 .success .login-wrapper #step_5 .inputs-wrapper-register .input input::placeholder,
 .success .login-wrapper #step_5 .inputs-wrapper-register .input select::placeholder,
-.success .login-wrapper .step_hotel .inputs-wrapper .input input::placeholder,
-.success .login-wrapper .step_hotel .inputs-wrapper .input select::placeholder,
-.success .login-wrapper .step_hotel .inputs-wrapper-register .input input::placeholder,
-.success .login-wrapper .step_hotel .inputs-wrapper-register .input select::placeholder,
+.success .login-wrapper #step_hotel .inputs-wrapper .input input::placeholder,
+.success .login-wrapper #step_hotel .inputs-wrapper .input select::placeholder,
+.success .login-wrapper #step_hotel .inputs-wrapper-register .input input::placeholder,
+.success .login-wrapper #step_hotel .inputs-wrapper-register .input select::placeholder,
 .success .register-wrapper #login .inputs-wrapper .input input::placeholder,
 .success .register-wrapper #login .inputs-wrapper .input select::placeholder,
 .success .register-wrapper #login .inputs-wrapper-register .input input::placeholder,
@@ -2619,10 +2667,10 @@ footer .totum p a:hover {
 .success .register-wrapper #step_5 .inputs-wrapper .input select::placeholder,
 .success .register-wrapper #step_5 .inputs-wrapper-register .input input::placeholder,
 .success .register-wrapper #step_5 .inputs-wrapper-register .input select::placeholder,
-.success .register-wrapper .step_hotel .inputs-wrapper .input input::placeholder,
-.success .register-wrapper .step_hotel .inputs-wrapper .input select::placeholder,
-.success .register-wrapper .step_hotel .inputs-wrapper-register .input input::placeholder,
-.success .register-wrapper .step_hotel .inputs-wrapper-register .input select::placeholder {
+.success .register-wrapper #step_hotel .inputs-wrapper .input input::placeholder,
+.success .register-wrapper #step_hotel .inputs-wrapper .input select::placeholder,
+.success .register-wrapper #step_hotel .inputs-wrapper-register .input input::placeholder,
+.success .register-wrapper #step_hotel .inputs-wrapper-register .input select::placeholder {
   color: #888;
 }
 
@@ -2638,8 +2686,8 @@ footer .totum p a:hover {
 .login .login-wrapper #step_4 .inputs-wrapper-register .input #icon,
 .login .login-wrapper #step_5 .inputs-wrapper .input #icon,
 .login .login-wrapper #step_5 .inputs-wrapper-register .input #icon,
-.login .login-wrapper .step_hotel .inputs-wrapper .input #icon,
-.login .login-wrapper .step_hotel .inputs-wrapper-register .input #icon,
+.login .login-wrapper #step_hotel .inputs-wrapper .input #icon,
+.login .login-wrapper #step_hotel .inputs-wrapper-register .input #icon,
 .login .register-wrapper #login .inputs-wrapper .input #icon,
 .login .register-wrapper #login .inputs-wrapper-register .input #icon,
 .login .register-wrapper #step_1 .inputs-wrapper .input #icon,
@@ -2652,8 +2700,8 @@ footer .totum p a:hover {
 .login .register-wrapper #step_4 .inputs-wrapper-register .input #icon,
 .login .register-wrapper #step_5 .inputs-wrapper .input #icon,
 .login .register-wrapper #step_5 .inputs-wrapper-register .input #icon,
-.login .register-wrapper .step_hotel .inputs-wrapper .input #icon,
-.login .register-wrapper .step_hotel .inputs-wrapper-register .input #icon,
+.login .register-wrapper #step_hotel .inputs-wrapper .input #icon,
+.login .register-wrapper #step_hotel .inputs-wrapper-register .input #icon,
 .register .login-wrapper #login .inputs-wrapper .input #icon,
 .register .login-wrapper #login .inputs-wrapper-register .input #icon,
 .register .login-wrapper #step_1 .inputs-wrapper .input #icon,
@@ -2666,8 +2714,8 @@ footer .totum p a:hover {
 .register .login-wrapper #step_4 .inputs-wrapper-register .input #icon,
 .register .login-wrapper #step_5 .inputs-wrapper .input #icon,
 .register .login-wrapper #step_5 .inputs-wrapper-register .input #icon,
-.register .login-wrapper .step_hotel .inputs-wrapper .input #icon,
-.register .login-wrapper .step_hotel .inputs-wrapper-register .input #icon,
+.register .login-wrapper #step_hotel .inputs-wrapper .input #icon,
+.register .login-wrapper #step_hotel .inputs-wrapper-register .input #icon,
 .register .register-wrapper #login .inputs-wrapper .input #icon,
 .register .register-wrapper #login .inputs-wrapper-register .input #icon,
 .register .register-wrapper #step_1 .inputs-wrapper .input #icon,
@@ -2680,8 +2728,8 @@ footer .totum p a:hover {
 .register .register-wrapper #step_4 .inputs-wrapper-register .input #icon,
 .register .register-wrapper #step_5 .inputs-wrapper .input #icon,
 .register .register-wrapper #step_5 .inputs-wrapper-register .input #icon,
-.register .register-wrapper .step_hotel .inputs-wrapper .input #icon,
-.register .register-wrapper .step_hotel .inputs-wrapper-register .input #icon,
+.register .register-wrapper #step_hotel .inputs-wrapper .input #icon,
+.register .register-wrapper #step_hotel .inputs-wrapper-register .input #icon,
 .success .login-wrapper #login .inputs-wrapper .input #icon,
 .success .login-wrapper #login .inputs-wrapper-register .input #icon,
 .success .login-wrapper #step_1 .inputs-wrapper .input #icon,
@@ -2694,8 +2742,8 @@ footer .totum p a:hover {
 .success .login-wrapper #step_4 .inputs-wrapper-register .input #icon,
 .success .login-wrapper #step_5 .inputs-wrapper .input #icon,
 .success .login-wrapper #step_5 .inputs-wrapper-register .input #icon,
-.success .login-wrapper .step_hotel .inputs-wrapper .input #icon,
-.success .login-wrapper .step_hotel .inputs-wrapper-register .input #icon,
+.success .login-wrapper #step_hotel .inputs-wrapper .input #icon,
+.success .login-wrapper #step_hotel .inputs-wrapper-register .input #icon,
 .success .register-wrapper #login .inputs-wrapper .input #icon,
 .success .register-wrapper #login .inputs-wrapper-register .input #icon,
 .success .register-wrapper #step_1 .inputs-wrapper .input #icon,
@@ -2708,8 +2756,8 @@ footer .totum p a:hover {
 .success .register-wrapper #step_4 .inputs-wrapper-register .input #icon,
 .success .register-wrapper #step_5 .inputs-wrapper .input #icon,
 .success .register-wrapper #step_5 .inputs-wrapper-register .input #icon,
-.success .register-wrapper .step_hotel .inputs-wrapper .input #icon,
-.success .register-wrapper .step_hotel .inputs-wrapper-register .input #icon {
+.success .register-wrapper #step_hotel .inputs-wrapper .input #icon,
+.success .register-wrapper #step_hotel .inputs-wrapper-register .input #icon {
   position: absolute;
   top: 10px;
   left: 0;
@@ -2728,8 +2776,8 @@ footer .totum p a:hover {
 .login .login-wrapper #step_4 .inputs-wrapper-register .input .password-eye,
 .login .login-wrapper #step_5 .inputs-wrapper .input .password-eye,
 .login .login-wrapper #step_5 .inputs-wrapper-register .input .password-eye,
-.login .login-wrapper .step_hotel .inputs-wrapper .input .password-eye,
-.login .login-wrapper .step_hotel .inputs-wrapper-register .input .password-eye,
+.login .login-wrapper #step_hotel .inputs-wrapper .input .password-eye,
+.login .login-wrapper #step_hotel .inputs-wrapper-register .input .password-eye,
 .login .register-wrapper #login .inputs-wrapper .input .password-eye,
 .login .register-wrapper #login .inputs-wrapper-register .input .password-eye,
 .login .register-wrapper #step_1 .inputs-wrapper .input .password-eye,
@@ -2742,8 +2790,8 @@ footer .totum p a:hover {
 .login .register-wrapper #step_4 .inputs-wrapper-register .input .password-eye,
 .login .register-wrapper #step_5 .inputs-wrapper .input .password-eye,
 .login .register-wrapper #step_5 .inputs-wrapper-register .input .password-eye,
-.login .register-wrapper .step_hotel .inputs-wrapper .input .password-eye,
-.login .register-wrapper .step_hotel .inputs-wrapper-register .input .password-eye,
+.login .register-wrapper #step_hotel .inputs-wrapper .input .password-eye,
+.login .register-wrapper #step_hotel .inputs-wrapper-register .input .password-eye,
 .register .login-wrapper #login .inputs-wrapper .input .password-eye,
 .register .login-wrapper #login .inputs-wrapper-register .input .password-eye,
 .register .login-wrapper #step_1 .inputs-wrapper .input .password-eye,
@@ -2756,8 +2804,8 @@ footer .totum p a:hover {
 .register .login-wrapper #step_4 .inputs-wrapper-register .input .password-eye,
 .register .login-wrapper #step_5 .inputs-wrapper .input .password-eye,
 .register .login-wrapper #step_5 .inputs-wrapper-register .input .password-eye,
-.register .login-wrapper .step_hotel .inputs-wrapper .input .password-eye,
-.register .login-wrapper .step_hotel .inputs-wrapper-register .input .password-eye,
+.register .login-wrapper #step_hotel .inputs-wrapper .input .password-eye,
+.register .login-wrapper #step_hotel .inputs-wrapper-register .input .password-eye,
 .register .register-wrapper #login .inputs-wrapper .input .password-eye,
 .register .register-wrapper #login .inputs-wrapper-register .input .password-eye,
 .register .register-wrapper #step_1 .inputs-wrapper .input .password-eye,
@@ -2770,8 +2818,8 @@ footer .totum p a:hover {
 .register .register-wrapper #step_4 .inputs-wrapper-register .input .password-eye,
 .register .register-wrapper #step_5 .inputs-wrapper .input .password-eye,
 .register .register-wrapper #step_5 .inputs-wrapper-register .input .password-eye,
-.register .register-wrapper .step_hotel .inputs-wrapper .input .password-eye,
-.register .register-wrapper .step_hotel .inputs-wrapper-register .input .password-eye,
+.register .register-wrapper #step_hotel .inputs-wrapper .input .password-eye,
+.register .register-wrapper #step_hotel .inputs-wrapper-register .input .password-eye,
 .success .login-wrapper #login .inputs-wrapper .input .password-eye,
 .success .login-wrapper #login .inputs-wrapper-register .input .password-eye,
 .success .login-wrapper #step_1 .inputs-wrapper .input .password-eye,
@@ -2784,8 +2832,8 @@ footer .totum p a:hover {
 .success .login-wrapper #step_4 .inputs-wrapper-register .input .password-eye,
 .success .login-wrapper #step_5 .inputs-wrapper .input .password-eye,
 .success .login-wrapper #step_5 .inputs-wrapper-register .input .password-eye,
-.success .login-wrapper .step_hotel .inputs-wrapper .input .password-eye,
-.success .login-wrapper .step_hotel .inputs-wrapper-register .input .password-eye,
+.success .login-wrapper #step_hotel .inputs-wrapper .input .password-eye,
+.success .login-wrapper #step_hotel .inputs-wrapper-register .input .password-eye,
 .success .register-wrapper #login .inputs-wrapper .input .password-eye,
 .success .register-wrapper #login .inputs-wrapper-register .input .password-eye,
 .success .register-wrapper #step_1 .inputs-wrapper .input .password-eye,
@@ -2798,8 +2846,8 @@ footer .totum p a:hover {
 .success .register-wrapper #step_4 .inputs-wrapper-register .input .password-eye,
 .success .register-wrapper #step_5 .inputs-wrapper .input .password-eye,
 .success .register-wrapper #step_5 .inputs-wrapper-register .input .password-eye,
-.success .register-wrapper .step_hotel .inputs-wrapper .input .password-eye,
-.success .register-wrapper .step_hotel .inputs-wrapper-register .input .password-eye {
+.success .register-wrapper #step_hotel .inputs-wrapper .input .password-eye,
+.success .register-wrapper #step_hotel .inputs-wrapper-register .input .password-eye {
   background-color: transparent;
   border: none;
   position: absolute;
@@ -2823,8 +2871,8 @@ footer .totum p a:hover {
 .login .login-wrapper #step_4 .inputs-wrapper-register .input .password-eye:hover,
 .login .login-wrapper #step_5 .inputs-wrapper .input .password-eye:hover,
 .login .login-wrapper #step_5 .inputs-wrapper-register .input .password-eye:hover,
-.login .login-wrapper .step_hotel .inputs-wrapper .input .password-eye:hover,
-.login .login-wrapper .step_hotel .inputs-wrapper-register .input .password-eye:hover,
+.login .login-wrapper #step_hotel .inputs-wrapper .input .password-eye:hover,
+.login .login-wrapper #step_hotel .inputs-wrapper-register .input .password-eye:hover,
 .login .register-wrapper #login .inputs-wrapper .input .password-eye:hover,
 .login .register-wrapper #login .inputs-wrapper-register .input .password-eye:hover,
 .login .register-wrapper #step_1 .inputs-wrapper .input .password-eye:hover,
@@ -2837,8 +2885,8 @@ footer .totum p a:hover {
 .login .register-wrapper #step_4 .inputs-wrapper-register .input .password-eye:hover,
 .login .register-wrapper #step_5 .inputs-wrapper .input .password-eye:hover,
 .login .register-wrapper #step_5 .inputs-wrapper-register .input .password-eye:hover,
-.login .register-wrapper .step_hotel .inputs-wrapper .input .password-eye:hover,
-.login .register-wrapper .step_hotel .inputs-wrapper-register .input .password-eye:hover,
+.login .register-wrapper #step_hotel .inputs-wrapper .input .password-eye:hover,
+.login .register-wrapper #step_hotel .inputs-wrapper-register .input .password-eye:hover,
 .register .login-wrapper #login .inputs-wrapper .input .password-eye:hover,
 .register .login-wrapper #login .inputs-wrapper-register .input .password-eye:hover,
 .register .login-wrapper #step_1 .inputs-wrapper .input .password-eye:hover,
@@ -2851,8 +2899,8 @@ footer .totum p a:hover {
 .register .login-wrapper #step_4 .inputs-wrapper-register .input .password-eye:hover,
 .register .login-wrapper #step_5 .inputs-wrapper .input .password-eye:hover,
 .register .login-wrapper #step_5 .inputs-wrapper-register .input .password-eye:hover,
-.register .login-wrapper .step_hotel .inputs-wrapper .input .password-eye:hover,
-.register .login-wrapper .step_hotel .inputs-wrapper-register .input .password-eye:hover,
+.register .login-wrapper #step_hotel .inputs-wrapper .input .password-eye:hover,
+.register .login-wrapper #step_hotel .inputs-wrapper-register .input .password-eye:hover,
 .register .register-wrapper #login .inputs-wrapper .input .password-eye:hover,
 .register .register-wrapper #login .inputs-wrapper-register .input .password-eye:hover,
 .register .register-wrapper #step_1 .inputs-wrapper .input .password-eye:hover,
@@ -2865,8 +2913,8 @@ footer .totum p a:hover {
 .register .register-wrapper #step_4 .inputs-wrapper-register .input .password-eye:hover,
 .register .register-wrapper #step_5 .inputs-wrapper .input .password-eye:hover,
 .register .register-wrapper #step_5 .inputs-wrapper-register .input .password-eye:hover,
-.register .register-wrapper .step_hotel .inputs-wrapper .input .password-eye:hover,
-.register .register-wrapper .step_hotel .inputs-wrapper-register .input .password-eye:hover,
+.register .register-wrapper #step_hotel .inputs-wrapper .input .password-eye:hover,
+.register .register-wrapper #step_hotel .inputs-wrapper-register .input .password-eye:hover,
 .success .login-wrapper #login .inputs-wrapper .input .password-eye:hover,
 .success .login-wrapper #login .inputs-wrapper-register .input .password-eye:hover,
 .success .login-wrapper #step_1 .inputs-wrapper .input .password-eye:hover,
@@ -2879,8 +2927,8 @@ footer .totum p a:hover {
 .success .login-wrapper #step_4 .inputs-wrapper-register .input .password-eye:hover,
 .success .login-wrapper #step_5 .inputs-wrapper .input .password-eye:hover,
 .success .login-wrapper #step_5 .inputs-wrapper-register .input .password-eye:hover,
-.success .login-wrapper .step_hotel .inputs-wrapper .input .password-eye:hover,
-.success .login-wrapper .step_hotel .inputs-wrapper-register .input .password-eye:hover,
+.success .login-wrapper #step_hotel .inputs-wrapper .input .password-eye:hover,
+.success .login-wrapper #step_hotel .inputs-wrapper-register .input .password-eye:hover,
 .success .register-wrapper #login .inputs-wrapper .input .password-eye:hover,
 .success .register-wrapper #login .inputs-wrapper-register .input .password-eye:hover,
 .success .register-wrapper #step_1 .inputs-wrapper .input .password-eye:hover,
@@ -2893,8 +2941,8 @@ footer .totum p a:hover {
 .success .register-wrapper #step_4 .inputs-wrapper-register .input .password-eye:hover,
 .success .register-wrapper #step_5 .inputs-wrapper .input .password-eye:hover,
 .success .register-wrapper #step_5 .inputs-wrapper-register .input .password-eye:hover,
-.success .register-wrapper .step_hotel .inputs-wrapper .input .password-eye:hover,
-.success .register-wrapper .step_hotel .inputs-wrapper-register .input .password-eye:hover {
+.success .register-wrapper #step_hotel .inputs-wrapper .input .password-eye:hover,
+.success .register-wrapper #step_hotel .inputs-wrapper-register .input .password-eye:hover {
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
 }
@@ -2911,8 +2959,8 @@ footer .totum p a:hover {
 .login .login-wrapper #step_4 .inputs-wrapper-register .input:nth-child(3) input,
 .login .login-wrapper #step_5 .inputs-wrapper .input:nth-child(3) input,
 .login .login-wrapper #step_5 .inputs-wrapper-register .input:nth-child(3) input,
-.login .login-wrapper .step_hotel .inputs-wrapper .input:nth-child(3) input,
-.login .login-wrapper .step_hotel .inputs-wrapper-register .input:nth-child(3) input,
+.login .login-wrapper #step_hotel .inputs-wrapper .input:nth-child(3) input,
+.login .login-wrapper #step_hotel .inputs-wrapper-register .input:nth-child(3) input,
 .login .register-wrapper #login .inputs-wrapper .input:nth-child(3) input,
 .login .register-wrapper #login .inputs-wrapper-register .input:nth-child(3) input,
 .login .register-wrapper #step_1 .inputs-wrapper .input:nth-child(3) input,
@@ -2925,8 +2973,8 @@ footer .totum p a:hover {
 .login .register-wrapper #step_4 .inputs-wrapper-register .input:nth-child(3) input,
 .login .register-wrapper #step_5 .inputs-wrapper .input:nth-child(3) input,
 .login .register-wrapper #step_5 .inputs-wrapper-register .input:nth-child(3) input,
-.login .register-wrapper .step_hotel .inputs-wrapper .input:nth-child(3) input,
-.login .register-wrapper .step_hotel .inputs-wrapper-register .input:nth-child(3) input,
+.login .register-wrapper #step_hotel .inputs-wrapper .input:nth-child(3) input,
+.login .register-wrapper #step_hotel .inputs-wrapper-register .input:nth-child(3) input,
 .register .login-wrapper #login .inputs-wrapper .input:nth-child(3) input,
 .register .login-wrapper #login .inputs-wrapper-register .input:nth-child(3) input,
 .register .login-wrapper #step_1 .inputs-wrapper .input:nth-child(3) input,
@@ -2939,8 +2987,8 @@ footer .totum p a:hover {
 .register .login-wrapper #step_4 .inputs-wrapper-register .input:nth-child(3) input,
 .register .login-wrapper #step_5 .inputs-wrapper .input:nth-child(3) input,
 .register .login-wrapper #step_5 .inputs-wrapper-register .input:nth-child(3) input,
-.register .login-wrapper .step_hotel .inputs-wrapper .input:nth-child(3) input,
-.register .login-wrapper .step_hotel .inputs-wrapper-register .input:nth-child(3) input,
+.register .login-wrapper #step_hotel .inputs-wrapper .input:nth-child(3) input,
+.register .login-wrapper #step_hotel .inputs-wrapper-register .input:nth-child(3) input,
 .register .register-wrapper #login .inputs-wrapper .input:nth-child(3) input,
 .register .register-wrapper #login .inputs-wrapper-register .input:nth-child(3) input,
 .register .register-wrapper #step_1 .inputs-wrapper .input:nth-child(3) input,
@@ -2953,8 +3001,8 @@ footer .totum p a:hover {
 .register .register-wrapper #step_4 .inputs-wrapper-register .input:nth-child(3) input,
 .register .register-wrapper #step_5 .inputs-wrapper .input:nth-child(3) input,
 .register .register-wrapper #step_5 .inputs-wrapper-register .input:nth-child(3) input,
-.register .register-wrapper .step_hotel .inputs-wrapper .input:nth-child(3) input,
-.register .register-wrapper .step_hotel .inputs-wrapper-register .input:nth-child(3) input,
+.register .register-wrapper #step_hotel .inputs-wrapper .input:nth-child(3) input,
+.register .register-wrapper #step_hotel .inputs-wrapper-register .input:nth-child(3) input,
 .success .login-wrapper #login .inputs-wrapper .input:nth-child(3) input,
 .success .login-wrapper #login .inputs-wrapper-register .input:nth-child(3) input,
 .success .login-wrapper #step_1 .inputs-wrapper .input:nth-child(3) input,
@@ -2967,8 +3015,8 @@ footer .totum p a:hover {
 .success .login-wrapper #step_4 .inputs-wrapper-register .input:nth-child(3) input,
 .success .login-wrapper #step_5 .inputs-wrapper .input:nth-child(3) input,
 .success .login-wrapper #step_5 .inputs-wrapper-register .input:nth-child(3) input,
-.success .login-wrapper .step_hotel .inputs-wrapper .input:nth-child(3) input,
-.success .login-wrapper .step_hotel .inputs-wrapper-register .input:nth-child(3) input,
+.success .login-wrapper #step_hotel .inputs-wrapper .input:nth-child(3) input,
+.success .login-wrapper #step_hotel .inputs-wrapper-register .input:nth-child(3) input,
 .success .register-wrapper #login .inputs-wrapper .input:nth-child(3) input,
 .success .register-wrapper #login .inputs-wrapper-register .input:nth-child(3) input,
 .success .register-wrapper #step_1 .inputs-wrapper .input:nth-child(3) input,
@@ -2981,8 +3029,8 @@ footer .totum p a:hover {
 .success .register-wrapper #step_4 .inputs-wrapper-register .input:nth-child(3) input,
 .success .register-wrapper #step_5 .inputs-wrapper .input:nth-child(3) input,
 .success .register-wrapper #step_5 .inputs-wrapper-register .input:nth-child(3) input,
-.success .register-wrapper .step_hotel .inputs-wrapper .input:nth-child(3) input,
-.success .register-wrapper .step_hotel .inputs-wrapper-register .input:nth-child(3) input {
+.success .register-wrapper #step_hotel .inputs-wrapper .input:nth-child(3) input,
+.success .register-wrapper #step_hotel .inputs-wrapper-register .input:nth-child(3) input {
   padding-right: 30px;
   margin-bottom: 0;
 }
@@ -2993,42 +3041,42 @@ footer .totum p a:hover {
 .login .login-wrapper #step_3 .inputs-wrapper-register,
 .login .login-wrapper #step_4 .inputs-wrapper-register,
 .login .login-wrapper #step_5 .inputs-wrapper-register,
-.login .login-wrapper .step_hotel .inputs-wrapper-register,
+.login .login-wrapper #step_hotel .inputs-wrapper-register,
 .login .register-wrapper #login .inputs-wrapper-register,
 .login .register-wrapper #step_1 .inputs-wrapper-register,
 .login .register-wrapper #step_2 .inputs-wrapper-register,
 .login .register-wrapper #step_3 .inputs-wrapper-register,
 .login .register-wrapper #step_4 .inputs-wrapper-register,
 .login .register-wrapper #step_5 .inputs-wrapper-register,
-.login .register-wrapper .step_hotel .inputs-wrapper-register,
+.login .register-wrapper #step_hotel .inputs-wrapper-register,
 .register .login-wrapper #login .inputs-wrapper-register,
 .register .login-wrapper #step_1 .inputs-wrapper-register,
 .register .login-wrapper #step_2 .inputs-wrapper-register,
 .register .login-wrapper #step_3 .inputs-wrapper-register,
 .register .login-wrapper #step_4 .inputs-wrapper-register,
 .register .login-wrapper #step_5 .inputs-wrapper-register,
-.register .login-wrapper .step_hotel .inputs-wrapper-register,
+.register .login-wrapper #step_hotel .inputs-wrapper-register,
 .register .register-wrapper #login .inputs-wrapper-register,
 .register .register-wrapper #step_1 .inputs-wrapper-register,
 .register .register-wrapper #step_2 .inputs-wrapper-register,
 .register .register-wrapper #step_3 .inputs-wrapper-register,
 .register .register-wrapper #step_4 .inputs-wrapper-register,
 .register .register-wrapper #step_5 .inputs-wrapper-register,
-.register .register-wrapper .step_hotel .inputs-wrapper-register,
+.register .register-wrapper #step_hotel .inputs-wrapper-register,
 .success .login-wrapper #login .inputs-wrapper-register,
 .success .login-wrapper #step_1 .inputs-wrapper-register,
 .success .login-wrapper #step_2 .inputs-wrapper-register,
 .success .login-wrapper #step_3 .inputs-wrapper-register,
 .success .login-wrapper #step_4 .inputs-wrapper-register,
 .success .login-wrapper #step_5 .inputs-wrapper-register,
-.success .login-wrapper .step_hotel .inputs-wrapper-register,
+.success .login-wrapper #step_hotel .inputs-wrapper-register,
 .success .register-wrapper #login .inputs-wrapper-register,
 .success .register-wrapper #step_1 .inputs-wrapper-register,
 .success .register-wrapper #step_2 .inputs-wrapper-register,
 .success .register-wrapper #step_3 .inputs-wrapper-register,
 .success .register-wrapper #step_4 .inputs-wrapper-register,
 .success .register-wrapper #step_5 .inputs-wrapper-register,
-.success .register-wrapper .step_hotel .inputs-wrapper-register {
+.success .register-wrapper #step_hotel .inputs-wrapper-register {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr;
@@ -3047,8 +3095,8 @@ footer .totum p a:hover {
 .login .login-wrapper #step_4 .button-register,
 .login .login-wrapper #step_5 .button-login,
 .login .login-wrapper #step_5 .button-register,
-.login .login-wrapper .step_hotel .button-login,
-.login .login-wrapper .step_hotel .button-register,
+.login .login-wrapper #step_hotel .button-login,
+.login .login-wrapper #step_hotel .button-register,
 .login .register-wrapper #login .button-login,
 .login .register-wrapper #login .button-register,
 .login .register-wrapper #step_1 .button-login,
@@ -3061,8 +3109,8 @@ footer .totum p a:hover {
 .login .register-wrapper #step_4 .button-register,
 .login .register-wrapper #step_5 .button-login,
 .login .register-wrapper #step_5 .button-register,
-.login .register-wrapper .step_hotel .button-login,
-.login .register-wrapper .step_hotel .button-register,
+.login .register-wrapper #step_hotel .button-login,
+.login .register-wrapper #step_hotel .button-register,
 .register .login-wrapper #login .button-login,
 .register .login-wrapper #login .button-register,
 .register .login-wrapper #step_1 .button-login,
@@ -3075,8 +3123,8 @@ footer .totum p a:hover {
 .register .login-wrapper #step_4 .button-register,
 .register .login-wrapper #step_5 .button-login,
 .register .login-wrapper #step_5 .button-register,
-.register .login-wrapper .step_hotel .button-login,
-.register .login-wrapper .step_hotel .button-register,
+.register .login-wrapper #step_hotel .button-login,
+.register .login-wrapper #step_hotel .button-register,
 .register .register-wrapper #login .button-login,
 .register .register-wrapper #login .button-register,
 .register .register-wrapper #step_1 .button-login,
@@ -3089,8 +3137,8 @@ footer .totum p a:hover {
 .register .register-wrapper #step_4 .button-register,
 .register .register-wrapper #step_5 .button-login,
 .register .register-wrapper #step_5 .button-register,
-.register .register-wrapper .step_hotel .button-login,
-.register .register-wrapper .step_hotel .button-register,
+.register .register-wrapper #step_hotel .button-login,
+.register .register-wrapper #step_hotel .button-register,
 .success .login-wrapper #login .button-login,
 .success .login-wrapper #login .button-register,
 .success .login-wrapper #step_1 .button-login,
@@ -3103,8 +3151,8 @@ footer .totum p a:hover {
 .success .login-wrapper #step_4 .button-register,
 .success .login-wrapper #step_5 .button-login,
 .success .login-wrapper #step_5 .button-register,
-.success .login-wrapper .step_hotel .button-login,
-.success .login-wrapper .step_hotel .button-register,
+.success .login-wrapper #step_hotel .button-login,
+.success .login-wrapper #step_hotel .button-register,
 .success .register-wrapper #login .button-login,
 .success .register-wrapper #login .button-register,
 .success .register-wrapper #step_1 .button-login,
@@ -3117,8 +3165,8 @@ footer .totum p a:hover {
 .success .register-wrapper #step_4 .button-register,
 .success .register-wrapper #step_5 .button-login,
 .success .register-wrapper #step_5 .button-register,
-.success .register-wrapper .step_hotel .button-login,
-.success .register-wrapper .step_hotel .button-register {
+.success .register-wrapper #step_hotel .button-login,
+.success .register-wrapper #step_hotel .button-register {
   background: -webkit-gradient(linear, left top, right top, from(#3844bc), to(#2b3179));
   background: linear-gradient(to right, #3844bc, #2b3179);
   color: #ffffff;
@@ -3144,8 +3192,8 @@ footer .totum p a:hover {
 .login .login-wrapper #step_4 .button-register i,
 .login .login-wrapper #step_5 .button-login i,
 .login .login-wrapper #step_5 .button-register i,
-.login .login-wrapper .step_hotel .button-login i,
-.login .login-wrapper .step_hotel .button-register i,
+.login .login-wrapper #step_hotel .button-login i,
+.login .login-wrapper #step_hotel .button-register i,
 .login .register-wrapper #login .button-login i,
 .login .register-wrapper #login .button-register i,
 .login .register-wrapper #step_1 .button-login i,
@@ -3158,8 +3206,8 @@ footer .totum p a:hover {
 .login .register-wrapper #step_4 .button-register i,
 .login .register-wrapper #step_5 .button-login i,
 .login .register-wrapper #step_5 .button-register i,
-.login .register-wrapper .step_hotel .button-login i,
-.login .register-wrapper .step_hotel .button-register i,
+.login .register-wrapper #step_hotel .button-login i,
+.login .register-wrapper #step_hotel .button-register i,
 .register .login-wrapper #login .button-login i,
 .register .login-wrapper #login .button-register i,
 .register .login-wrapper #step_1 .button-login i,
@@ -3172,8 +3220,8 @@ footer .totum p a:hover {
 .register .login-wrapper #step_4 .button-register i,
 .register .login-wrapper #step_5 .button-login i,
 .register .login-wrapper #step_5 .button-register i,
-.register .login-wrapper .step_hotel .button-login i,
-.register .login-wrapper .step_hotel .button-register i,
+.register .login-wrapper #step_hotel .button-login i,
+.register .login-wrapper #step_hotel .button-register i,
 .register .register-wrapper #login .button-login i,
 .register .register-wrapper #login .button-register i,
 .register .register-wrapper #step_1 .button-login i,
@@ -3186,8 +3234,8 @@ footer .totum p a:hover {
 .register .register-wrapper #step_4 .button-register i,
 .register .register-wrapper #step_5 .button-login i,
 .register .register-wrapper #step_5 .button-register i,
-.register .register-wrapper .step_hotel .button-login i,
-.register .register-wrapper .step_hotel .button-register i,
+.register .register-wrapper #step_hotel .button-login i,
+.register .register-wrapper #step_hotel .button-register i,
 .success .login-wrapper #login .button-login i,
 .success .login-wrapper #login .button-register i,
 .success .login-wrapper #step_1 .button-login i,
@@ -3200,8 +3248,8 @@ footer .totum p a:hover {
 .success .login-wrapper #step_4 .button-register i,
 .success .login-wrapper #step_5 .button-login i,
 .success .login-wrapper #step_5 .button-register i,
-.success .login-wrapper .step_hotel .button-login i,
-.success .login-wrapper .step_hotel .button-register i,
+.success .login-wrapper #step_hotel .button-login i,
+.success .login-wrapper #step_hotel .button-register i,
 .success .register-wrapper #login .button-login i,
 .success .register-wrapper #login .button-register i,
 .success .register-wrapper #step_1 .button-login i,
@@ -3214,9 +3262,97 @@ footer .totum p a:hover {
 .success .register-wrapper #step_4 .button-register i,
 .success .register-wrapper #step_5 .button-login i,
 .success .register-wrapper #step_5 .button-register i,
-.success .register-wrapper .step_hotel .button-login i,
-.success .register-wrapper .step_hotel .button-register i {
+.success .register-wrapper #step_hotel .button-login i,
+.success .register-wrapper #step_hotel .button-register i {
   margin-right: 5px;
+}
+
+.login .login-wrapper #login .button-register:disabled,
+.login .login-wrapper #login .button-register[disabled],
+.login .login-wrapper #step_1 .button-register:disabled,
+.login .login-wrapper #step_1 .button-register[disabled],
+.login .login-wrapper #step_2 .button-register:disabled,
+.login .login-wrapper #step_2 .button-register[disabled],
+.login .login-wrapper #step_3 .button-register:disabled,
+.login .login-wrapper #step_3 .button-register[disabled],
+.login .login-wrapper #step_4 .button-register:disabled,
+.login .login-wrapper #step_4 .button-register[disabled],
+.login .login-wrapper #step_5 .button-register:disabled,
+.login .login-wrapper #step_5 .button-register[disabled],
+.login .login-wrapper #step_hotel .button-register:disabled,
+.login .login-wrapper #step_hotel .button-register[disabled],
+.login .register-wrapper #login .button-register:disabled,
+.login .register-wrapper #login .button-register[disabled],
+.login .register-wrapper #step_1 .button-register:disabled,
+.login .register-wrapper #step_1 .button-register[disabled],
+.login .register-wrapper #step_2 .button-register:disabled,
+.login .register-wrapper #step_2 .button-register[disabled],
+.login .register-wrapper #step_3 .button-register:disabled,
+.login .register-wrapper #step_3 .button-register[disabled],
+.login .register-wrapper #step_4 .button-register:disabled,
+.login .register-wrapper #step_4 .button-register[disabled],
+.login .register-wrapper #step_5 .button-register:disabled,
+.login .register-wrapper #step_5 .button-register[disabled],
+.login .register-wrapper #step_hotel .button-register:disabled,
+.login .register-wrapper #step_hotel .button-register[disabled],
+.register .login-wrapper #login .button-register:disabled,
+.register .login-wrapper #login .button-register[disabled],
+.register .login-wrapper #step_1 .button-register:disabled,
+.register .login-wrapper #step_1 .button-register[disabled],
+.register .login-wrapper #step_2 .button-register:disabled,
+.register .login-wrapper #step_2 .button-register[disabled],
+.register .login-wrapper #step_3 .button-register:disabled,
+.register .login-wrapper #step_3 .button-register[disabled],
+.register .login-wrapper #step_4 .button-register:disabled,
+.register .login-wrapper #step_4 .button-register[disabled],
+.register .login-wrapper #step_5 .button-register:disabled,
+.register .login-wrapper #step_5 .button-register[disabled],
+.register .login-wrapper #step_hotel .button-register:disabled,
+.register .login-wrapper #step_hotel .button-register[disabled],
+.register .register-wrapper #login .button-register:disabled,
+.register .register-wrapper #login .button-register[disabled],
+.register .register-wrapper #step_1 .button-register:disabled,
+.register .register-wrapper #step_1 .button-register[disabled],
+.register .register-wrapper #step_2 .button-register:disabled,
+.register .register-wrapper #step_2 .button-register[disabled],
+.register .register-wrapper #step_3 .button-register:disabled,
+.register .register-wrapper #step_3 .button-register[disabled],
+.register .register-wrapper #step_4 .button-register:disabled,
+.register .register-wrapper #step_4 .button-register[disabled],
+.register .register-wrapper #step_5 .button-register:disabled,
+.register .register-wrapper #step_5 .button-register[disabled],
+.register .register-wrapper #step_hotel .button-register:disabled,
+.register .register-wrapper #step_hotel .button-register[disabled],
+.success .login-wrapper #login .button-register:disabled,
+.success .login-wrapper #login .button-register[disabled],
+.success .login-wrapper #step_1 .button-register:disabled,
+.success .login-wrapper #step_1 .button-register[disabled],
+.success .login-wrapper #step_2 .button-register:disabled,
+.success .login-wrapper #step_2 .button-register[disabled],
+.success .login-wrapper #step_3 .button-register:disabled,
+.success .login-wrapper #step_3 .button-register[disabled],
+.success .login-wrapper #step_4 .button-register:disabled,
+.success .login-wrapper #step_4 .button-register[disabled],
+.success .login-wrapper #step_5 .button-register:disabled,
+.success .login-wrapper #step_5 .button-register[disabled],
+.success .login-wrapper #step_hotel .button-register:disabled,
+.success .login-wrapper #step_hotel .button-register[disabled],
+.success .register-wrapper #login .button-register:disabled,
+.success .register-wrapper #login .button-register[disabled],
+.success .register-wrapper #step_1 .button-register:disabled,
+.success .register-wrapper #step_1 .button-register[disabled],
+.success .register-wrapper #step_2 .button-register:disabled,
+.success .register-wrapper #step_2 .button-register[disabled],
+.success .register-wrapper #step_3 .button-register:disabled,
+.success .register-wrapper #step_3 .button-register[disabled],
+.success .register-wrapper #step_4 .button-register:disabled,
+.success .register-wrapper #step_4 .button-register[disabled],
+.success .register-wrapper #step_5 .button-register:disabled,
+.success .register-wrapper #step_5 .button-register[disabled],
+.success .register-wrapper #step_hotel .button-register:disabled,
+.success .register-wrapper #step_hotel .button-register[disabled] {
+  background: #cccccc;
+  color: #666666;
 }
 
 .login .login-wrapper #login .login-bottom,
@@ -3231,8 +3367,8 @@ footer .totum p a:hover {
 .login .login-wrapper #step_4 .register-bottom,
 .login .login-wrapper #step_5 .login-bottom,
 .login .login-wrapper #step_5 .register-bottom,
-.login .login-wrapper .step_hotel .login-bottom,
-.login .login-wrapper .step_hotel .register-bottom,
+.login .login-wrapper #step_hotel .login-bottom,
+.login .login-wrapper #step_hotel .register-bottom,
 .login .register-wrapper #login .login-bottom,
 .login .register-wrapper #login .register-bottom,
 .login .register-wrapper #step_1 .login-bottom,
@@ -3245,8 +3381,8 @@ footer .totum p a:hover {
 .login .register-wrapper #step_4 .register-bottom,
 .login .register-wrapper #step_5 .login-bottom,
 .login .register-wrapper #step_5 .register-bottom,
-.login .register-wrapper .step_hotel .login-bottom,
-.login .register-wrapper .step_hotel .register-bottom,
+.login .register-wrapper #step_hotel .login-bottom,
+.login .register-wrapper #step_hotel .register-bottom,
 .register .login-wrapper #login .login-bottom,
 .register .login-wrapper #login .register-bottom,
 .register .login-wrapper #step_1 .login-bottom,
@@ -3259,8 +3395,8 @@ footer .totum p a:hover {
 .register .login-wrapper #step_4 .register-bottom,
 .register .login-wrapper #step_5 .login-bottom,
 .register .login-wrapper #step_5 .register-bottom,
-.register .login-wrapper .step_hotel .login-bottom,
-.register .login-wrapper .step_hotel .register-bottom,
+.register .login-wrapper #step_hotel .login-bottom,
+.register .login-wrapper #step_hotel .register-bottom,
 .register .register-wrapper #login .login-bottom,
 .register .register-wrapper #login .register-bottom,
 .register .register-wrapper #step_1 .login-bottom,
@@ -3273,8 +3409,8 @@ footer .totum p a:hover {
 .register .register-wrapper #step_4 .register-bottom,
 .register .register-wrapper #step_5 .login-bottom,
 .register .register-wrapper #step_5 .register-bottom,
-.register .register-wrapper .step_hotel .login-bottom,
-.register .register-wrapper .step_hotel .register-bottom,
+.register .register-wrapper #step_hotel .login-bottom,
+.register .register-wrapper #step_hotel .register-bottom,
 .success .login-wrapper #login .login-bottom,
 .success .login-wrapper #login .register-bottom,
 .success .login-wrapper #step_1 .login-bottom,
@@ -3287,8 +3423,8 @@ footer .totum p a:hover {
 .success .login-wrapper #step_4 .register-bottom,
 .success .login-wrapper #step_5 .login-bottom,
 .success .login-wrapper #step_5 .register-bottom,
-.success .login-wrapper .step_hotel .login-bottom,
-.success .login-wrapper .step_hotel .register-bottom,
+.success .login-wrapper #step_hotel .login-bottom,
+.success .login-wrapper #step_hotel .register-bottom,
 .success .register-wrapper #login .login-bottom,
 .success .register-wrapper #login .register-bottom,
 .success .register-wrapper #step_1 .login-bottom,
@@ -3301,8 +3437,8 @@ footer .totum p a:hover {
 .success .register-wrapper #step_4 .register-bottom,
 .success .register-wrapper #step_5 .login-bottom,
 .success .register-wrapper #step_5 .register-bottom,
-.success .register-wrapper .step_hotel .login-bottom,
-.success .register-wrapper .step_hotel .register-bottom {
+.success .register-wrapper #step_hotel .login-bottom,
+.success .register-wrapper #step_hotel .register-bottom {
   text-align: center;
   margin-top: 20px;
 }
@@ -3319,8 +3455,8 @@ footer .totum p a:hover {
 .login .login-wrapper #step_4 .register-bottom p,
 .login .login-wrapper #step_5 .login-bottom p,
 .login .login-wrapper #step_5 .register-bottom p,
-.login .login-wrapper .step_hotel .login-bottom p,
-.login .login-wrapper .step_hotel .register-bottom p,
+.login .login-wrapper #step_hotel .login-bottom p,
+.login .login-wrapper #step_hotel .register-bottom p,
 .login .register-wrapper #login .login-bottom p,
 .login .register-wrapper #login .register-bottom p,
 .login .register-wrapper #step_1 .login-bottom p,
@@ -3333,8 +3469,8 @@ footer .totum p a:hover {
 .login .register-wrapper #step_4 .register-bottom p,
 .login .register-wrapper #step_5 .login-bottom p,
 .login .register-wrapper #step_5 .register-bottom p,
-.login .register-wrapper .step_hotel .login-bottom p,
-.login .register-wrapper .step_hotel .register-bottom p,
+.login .register-wrapper #step_hotel .login-bottom p,
+.login .register-wrapper #step_hotel .register-bottom p,
 .register .login-wrapper #login .login-bottom p,
 .register .login-wrapper #login .register-bottom p,
 .register .login-wrapper #step_1 .login-bottom p,
@@ -3347,8 +3483,8 @@ footer .totum p a:hover {
 .register .login-wrapper #step_4 .register-bottom p,
 .register .login-wrapper #step_5 .login-bottom p,
 .register .login-wrapper #step_5 .register-bottom p,
-.register .login-wrapper .step_hotel .login-bottom p,
-.register .login-wrapper .step_hotel .register-bottom p,
+.register .login-wrapper #step_hotel .login-bottom p,
+.register .login-wrapper #step_hotel .register-bottom p,
 .register .register-wrapper #login .login-bottom p,
 .register .register-wrapper #login .register-bottom p,
 .register .register-wrapper #step_1 .login-bottom p,
@@ -3361,8 +3497,8 @@ footer .totum p a:hover {
 .register .register-wrapper #step_4 .register-bottom p,
 .register .register-wrapper #step_5 .login-bottom p,
 .register .register-wrapper #step_5 .register-bottom p,
-.register .register-wrapper .step_hotel .login-bottom p,
-.register .register-wrapper .step_hotel .register-bottom p,
+.register .register-wrapper #step_hotel .login-bottom p,
+.register .register-wrapper #step_hotel .register-bottom p,
 .success .login-wrapper #login .login-bottom p,
 .success .login-wrapper #login .register-bottom p,
 .success .login-wrapper #step_1 .login-bottom p,
@@ -3375,8 +3511,8 @@ footer .totum p a:hover {
 .success .login-wrapper #step_4 .register-bottom p,
 .success .login-wrapper #step_5 .login-bottom p,
 .success .login-wrapper #step_5 .register-bottom p,
-.success .login-wrapper .step_hotel .login-bottom p,
-.success .login-wrapper .step_hotel .register-bottom p,
+.success .login-wrapper #step_hotel .login-bottom p,
+.success .login-wrapper #step_hotel .register-bottom p,
 .success .register-wrapper #login .login-bottom p,
 .success .register-wrapper #login .register-bottom p,
 .success .register-wrapper #step_1 .login-bottom p,
@@ -3389,8 +3525,8 @@ footer .totum p a:hover {
 .success .register-wrapper #step_4 .register-bottom p,
 .success .register-wrapper #step_5 .login-bottom p,
 .success .register-wrapper #step_5 .register-bottom p,
-.success .register-wrapper .step_hotel .login-bottom p,
-.success .register-wrapper .step_hotel .register-bottom p {
+.success .register-wrapper #step_hotel .login-bottom p,
+.success .register-wrapper #step_hotel .register-bottom p {
   max-width: 280px;
   width: 100%;
   margin: 10px auto;
@@ -3410,8 +3546,8 @@ footer .totum p a:hover {
 .login .login-wrapper #step_4 .register-bottom p a,
 .login .login-wrapper #step_5 .login-bottom p a,
 .login .login-wrapper #step_5 .register-bottom p a,
-.login .login-wrapper .step_hotel .login-bottom p a,
-.login .login-wrapper .step_hotel .register-bottom p a,
+.login .login-wrapper #step_hotel .login-bottom p a,
+.login .login-wrapper #step_hotel .register-bottom p a,
 .login .register-wrapper #login .login-bottom p a,
 .login .register-wrapper #login .register-bottom p a,
 .login .register-wrapper #step_1 .login-bottom p a,
@@ -3424,8 +3560,8 @@ footer .totum p a:hover {
 .login .register-wrapper #step_4 .register-bottom p a,
 .login .register-wrapper #step_5 .login-bottom p a,
 .login .register-wrapper #step_5 .register-bottom p a,
-.login .register-wrapper .step_hotel .login-bottom p a,
-.login .register-wrapper .step_hotel .register-bottom p a,
+.login .register-wrapper #step_hotel .login-bottom p a,
+.login .register-wrapper #step_hotel .register-bottom p a,
 .register .login-wrapper #login .login-bottom p a,
 .register .login-wrapper #login .register-bottom p a,
 .register .login-wrapper #step_1 .login-bottom p a,
@@ -3438,8 +3574,8 @@ footer .totum p a:hover {
 .register .login-wrapper #step_4 .register-bottom p a,
 .register .login-wrapper #step_5 .login-bottom p a,
 .register .login-wrapper #step_5 .register-bottom p a,
-.register .login-wrapper .step_hotel .login-bottom p a,
-.register .login-wrapper .step_hotel .register-bottom p a,
+.register .login-wrapper #step_hotel .login-bottom p a,
+.register .login-wrapper #step_hotel .register-bottom p a,
 .register .register-wrapper #login .login-bottom p a,
 .register .register-wrapper #login .register-bottom p a,
 .register .register-wrapper #step_1 .login-bottom p a,
@@ -3452,8 +3588,8 @@ footer .totum p a:hover {
 .register .register-wrapper #step_4 .register-bottom p a,
 .register .register-wrapper #step_5 .login-bottom p a,
 .register .register-wrapper #step_5 .register-bottom p a,
-.register .register-wrapper .step_hotel .login-bottom p a,
-.register .register-wrapper .step_hotel .register-bottom p a,
+.register .register-wrapper #step_hotel .login-bottom p a,
+.register .register-wrapper #step_hotel .register-bottom p a,
 .success .login-wrapper #login .login-bottom p a,
 .success .login-wrapper #login .register-bottom p a,
 .success .login-wrapper #step_1 .login-bottom p a,
@@ -3466,8 +3602,8 @@ footer .totum p a:hover {
 .success .login-wrapper #step_4 .register-bottom p a,
 .success .login-wrapper #step_5 .login-bottom p a,
 .success .login-wrapper #step_5 .register-bottom p a,
-.success .login-wrapper .step_hotel .login-bottom p a,
-.success .login-wrapper .step_hotel .register-bottom p a,
+.success .login-wrapper #step_hotel .login-bottom p a,
+.success .login-wrapper #step_hotel .register-bottom p a,
 .success .register-wrapper #login .login-bottom p a,
 .success .register-wrapper #login .register-bottom p a,
 .success .register-wrapper #step_1 .login-bottom p a,
@@ -3480,8 +3616,8 @@ footer .totum p a:hover {
 .success .register-wrapper #step_4 .register-bottom p a,
 .success .register-wrapper #step_5 .login-bottom p a,
 .success .register-wrapper #step_5 .register-bottom p a,
-.success .register-wrapper .step_hotel .login-bottom p a,
-.success .register-wrapper .step_hotel .register-bottom p a {
+.success .register-wrapper #step_hotel .login-bottom p a,
+.success .register-wrapper #step_hotel .register-bottom p a {
   text-decoration: none;
   color: #3844bc;
 }
@@ -3498,8 +3634,8 @@ footer .totum p a:hover {
 .login .login-wrapper #step_4 .register-bottom p a:hover,
 .login .login-wrapper #step_5 .login-bottom p a:hover,
 .login .login-wrapper #step_5 .register-bottom p a:hover,
-.login .login-wrapper .step_hotel .login-bottom p a:hover,
-.login .login-wrapper .step_hotel .register-bottom p a:hover,
+.login .login-wrapper #step_hotel .login-bottom p a:hover,
+.login .login-wrapper #step_hotel .register-bottom p a:hover,
 .login .register-wrapper #login .login-bottom p a:hover,
 .login .register-wrapper #login .register-bottom p a:hover,
 .login .register-wrapper #step_1 .login-bottom p a:hover,
@@ -3512,8 +3648,8 @@ footer .totum p a:hover {
 .login .register-wrapper #step_4 .register-bottom p a:hover,
 .login .register-wrapper #step_5 .login-bottom p a:hover,
 .login .register-wrapper #step_5 .register-bottom p a:hover,
-.login .register-wrapper .step_hotel .login-bottom p a:hover,
-.login .register-wrapper .step_hotel .register-bottom p a:hover,
+.login .register-wrapper #step_hotel .login-bottom p a:hover,
+.login .register-wrapper #step_hotel .register-bottom p a:hover,
 .register .login-wrapper #login .login-bottom p a:hover,
 .register .login-wrapper #login .register-bottom p a:hover,
 .register .login-wrapper #step_1 .login-bottom p a:hover,
@@ -3526,8 +3662,8 @@ footer .totum p a:hover {
 .register .login-wrapper #step_4 .register-bottom p a:hover,
 .register .login-wrapper #step_5 .login-bottom p a:hover,
 .register .login-wrapper #step_5 .register-bottom p a:hover,
-.register .login-wrapper .step_hotel .login-bottom p a:hover,
-.register .login-wrapper .step_hotel .register-bottom p a:hover,
+.register .login-wrapper #step_hotel .login-bottom p a:hover,
+.register .login-wrapper #step_hotel .register-bottom p a:hover,
 .register .register-wrapper #login .login-bottom p a:hover,
 .register .register-wrapper #login .register-bottom p a:hover,
 .register .register-wrapper #step_1 .login-bottom p a:hover,
@@ -3540,8 +3676,8 @@ footer .totum p a:hover {
 .register .register-wrapper #step_4 .register-bottom p a:hover,
 .register .register-wrapper #step_5 .login-bottom p a:hover,
 .register .register-wrapper #step_5 .register-bottom p a:hover,
-.register .register-wrapper .step_hotel .login-bottom p a:hover,
-.register .register-wrapper .step_hotel .register-bottom p a:hover,
+.register .register-wrapper #step_hotel .login-bottom p a:hover,
+.register .register-wrapper #step_hotel .register-bottom p a:hover,
 .success .login-wrapper #login .login-bottom p a:hover,
 .success .login-wrapper #login .register-bottom p a:hover,
 .success .login-wrapper #step_1 .login-bottom p a:hover,
@@ -3554,8 +3690,8 @@ footer .totum p a:hover {
 .success .login-wrapper #step_4 .register-bottom p a:hover,
 .success .login-wrapper #step_5 .login-bottom p a:hover,
 .success .login-wrapper #step_5 .register-bottom p a:hover,
-.success .login-wrapper .step_hotel .login-bottom p a:hover,
-.success .login-wrapper .step_hotel .register-bottom p a:hover,
+.success .login-wrapper #step_hotel .login-bottom p a:hover,
+.success .login-wrapper #step_hotel .register-bottom p a:hover,
 .success .register-wrapper #login .login-bottom p a:hover,
 .success .register-wrapper #login .register-bottom p a:hover,
 .success .register-wrapper #step_1 .login-bottom p a:hover,
@@ -3568,8 +3704,8 @@ footer .totum p a:hover {
 .success .register-wrapper #step_4 .register-bottom p a:hover,
 .success .register-wrapper #step_5 .login-bottom p a:hover,
 .success .register-wrapper #step_5 .register-bottom p a:hover,
-.success .register-wrapper .step_hotel .login-bottom p a:hover,
-.success .register-wrapper .step_hotel .register-bottom p a:hover {
+.success .register-wrapper #step_hotel .login-bottom p a:hover,
+.success .register-wrapper #step_hotel .register-bottom p a:hover {
   color: #6d76db;
 }
 
@@ -3585,8 +3721,8 @@ footer .totum p a:hover {
 .login .login-wrapper #step_4 #mensaje-error,
 .login .login-wrapper #step_5 .mensaje-error,
 .login .login-wrapper #step_5 #mensaje-error,
-.login .login-wrapper .step_hotel .mensaje-error,
-.login .login-wrapper .step_hotel #mensaje-error,
+.login .login-wrapper #step_hotel .mensaje-error,
+.login .login-wrapper #step_hotel #mensaje-error,
 .login .register-wrapper #login .mensaje-error,
 .login .register-wrapper #login #mensaje-error,
 .login .register-wrapper #step_1 .mensaje-error,
@@ -3599,8 +3735,8 @@ footer .totum p a:hover {
 .login .register-wrapper #step_4 #mensaje-error,
 .login .register-wrapper #step_5 .mensaje-error,
 .login .register-wrapper #step_5 #mensaje-error,
-.login .register-wrapper .step_hotel .mensaje-error,
-.login .register-wrapper .step_hotel #mensaje-error,
+.login .register-wrapper #step_hotel .mensaje-error,
+.login .register-wrapper #step_hotel #mensaje-error,
 .register .login-wrapper #login .mensaje-error,
 .register .login-wrapper #login #mensaje-error,
 .register .login-wrapper #step_1 .mensaje-error,
@@ -3613,8 +3749,8 @@ footer .totum p a:hover {
 .register .login-wrapper #step_4 #mensaje-error,
 .register .login-wrapper #step_5 .mensaje-error,
 .register .login-wrapper #step_5 #mensaje-error,
-.register .login-wrapper .step_hotel .mensaje-error,
-.register .login-wrapper .step_hotel #mensaje-error,
+.register .login-wrapper #step_hotel .mensaje-error,
+.register .login-wrapper #step_hotel #mensaje-error,
 .register .register-wrapper #login .mensaje-error,
 .register .register-wrapper #login #mensaje-error,
 .register .register-wrapper #step_1 .mensaje-error,
@@ -3627,8 +3763,8 @@ footer .totum p a:hover {
 .register .register-wrapper #step_4 #mensaje-error,
 .register .register-wrapper #step_5 .mensaje-error,
 .register .register-wrapper #step_5 #mensaje-error,
-.register .register-wrapper .step_hotel .mensaje-error,
-.register .register-wrapper .step_hotel #mensaje-error,
+.register .register-wrapper #step_hotel .mensaje-error,
+.register .register-wrapper #step_hotel #mensaje-error,
 .success .login-wrapper #login .mensaje-error,
 .success .login-wrapper #login #mensaje-error,
 .success .login-wrapper #step_1 .mensaje-error,
@@ -3641,8 +3777,8 @@ footer .totum p a:hover {
 .success .login-wrapper #step_4 #mensaje-error,
 .success .login-wrapper #step_5 .mensaje-error,
 .success .login-wrapper #step_5 #mensaje-error,
-.success .login-wrapper .step_hotel .mensaje-error,
-.success .login-wrapper .step_hotel #mensaje-error,
+.success .login-wrapper #step_hotel .mensaje-error,
+.success .login-wrapper #step_hotel #mensaje-error,
 .success .register-wrapper #login .mensaje-error,
 .success .register-wrapper #login #mensaje-error,
 .success .register-wrapper #step_1 .mensaje-error,
@@ -3655,8 +3791,8 @@ footer .totum p a:hover {
 .success .register-wrapper #step_4 #mensaje-error,
 .success .register-wrapper #step_5 .mensaje-error,
 .success .register-wrapper #step_5 #mensaje-error,
-.success .register-wrapper .step_hotel .mensaje-error,
-.success .register-wrapper .step_hotel #mensaje-error {
+.success .register-wrapper #step_hotel .mensaje-error,
+.success .register-wrapper #step_hotel #mensaje-error {
   color: #ff635a;
   margin-bottom: 20px;
 }
@@ -3809,6 +3945,8 @@ footer .totum p a:hover {
 .register .register-wrapper #step_5 .button-wrapper button,
 .success .login-wrapper #step_5 .button-wrapper button,
 .success .register-wrapper #step_5 .button-wrapper button {
+  max-width: 240px;
+  width: 100%;
   background: -webkit-gradient(linear, left top, right top, from(#3844bc), to(#2b3179));
   background: linear-gradient(to right, #3844bc, #2b3179);
   color: #ffffff;
@@ -3830,6 +3968,33 @@ footer .totum p a:hover {
   margin-right: 5px;
 }
 
+.login .login-wrapper #step_5 .button-wrapper button span i,
+.login .register-wrapper #step_5 .button-wrapper button span i,
+.register .login-wrapper #step_5 .button-wrapper button span i,
+.register .register-wrapper #step_5 .button-wrapper button span i,
+.success .login-wrapper #step_5 .button-wrapper button span i,
+.success .register-wrapper #step_5 .button-wrapper button span i {
+  -webkit-animation: loader-finalizar 1s infinite forwards linear;
+          animation: loader-finalizar 1s infinite forwards linear;
+  margin: 0;
+}
+
+.login .login-wrapper #step_5 .button-wrapper button:disabled,
+.login .login-wrapper #step_5 .button-wrapper button[disabled],
+.login .register-wrapper #step_5 .button-wrapper button:disabled,
+.login .register-wrapper #step_5 .button-wrapper button[disabled],
+.register .login-wrapper #step_5 .button-wrapper button:disabled,
+.register .login-wrapper #step_5 .button-wrapper button[disabled],
+.register .register-wrapper #step_5 .button-wrapper button:disabled,
+.register .register-wrapper #step_5 .button-wrapper button[disabled],
+.success .login-wrapper #step_5 .button-wrapper button:disabled,
+.success .login-wrapper #step_5 .button-wrapper button[disabled],
+.success .register-wrapper #step_5 .button-wrapper button:disabled,
+.success .register-wrapper #step_5 .button-wrapper button[disabled] {
+  background: #cccccc;
+  color: #666666;
+}
+
 .login .register-wrapper,
 .register .register-wrapper,
 .success .register-wrapper {
@@ -3845,7 +4010,7 @@ footer .totum p a:hover {
   display: none;
   z-index: -1;
   width: 300px;
-  height: 490px;
+  height: 510px;
   background-color: #ffffff;
   border-radius: 0 2em 2em 2em;
   -webkit-box-shadow: 10px 0 20px 0 rgba(0, 0, 0, 0.3);
@@ -4151,9 +4316,31 @@ footer .totum p a:hover {
   .register .register-wrapper #step_3 .inputs-wrapper-register,
   .register .register-wrapper #step_4 .inputs-wrapper-register,
   .register .register-wrapper #step_5 .inputs-wrapper-register,
-  .register .register-wrapper .step_hotel .inputs-wrapper-register {
+  .register .register-wrapper #step_hotel .inputs-wrapper-register {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
+  }
+}
+
+@-webkit-keyframes loader-finalizar {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes loader-finalizar {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
 
@@ -4209,6 +4396,58 @@ footer .totum p a:hover {
 .panel-header .header-left h2 {
   margin: 0 20px;
   color: #2b3179;
+}
+
+.panel-header .header-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.panel-header .header-right .select {
+  position: relative;
+  margin: 30px 20px;
+}
+
+.panel-header .header-right .select select {
+  width: 100%;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding-left: 25px;
+  color: #555;
+  font-size: 0.85em;
+}
+
+.panel-header .header-right .select select::-webkit-input-placeholder {
+  color: #888;
+}
+
+.panel-header .header-right .select select:-ms-input-placeholder {
+  color: #888;
+}
+
+.panel-header .header-right .select select::-ms-input-placeholder {
+  color: #888;
+}
+
+.panel-header .header-right .select select::placeholder {
+  color: #888;
+}
+
+.panel-header .header-right .select #icon {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  color: #3844bc;
+  font-size: 1.3em;
 }
 
 .panel-header .header-right .header-user {
@@ -4497,6 +4736,7 @@ footer .totum p a:hover {
           flex-direction: column;
   -webkit-box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.2);
           box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.2);
+  text-decoration: none;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
@@ -4526,6 +4766,7 @@ footer .totum p a:hover {
 }
 
 .panel .panel-cards .card p {
+  margin-top: 5px;
   color: #666;
 }
 
@@ -4548,6 +4789,32 @@ footer .totum p a:hover {
 
 .panel .panel-cards .card:nth-child(1) p {
   color: white;
+}
+
+.panel .panel-cards #plus {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.panel .panel-cards #plus .number {
+  width: 100%;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .panel .panel-tables {
@@ -4588,15 +4855,15 @@ footer .totum p a:hover {
   color: #2b3179;
 }
 
-.panel .panel-tables .usuarios-recientes .usuarios-info a,
-.panel .panel-tables .usuarios-propietarios .usuarios-info a {
+.panel .panel-tables .usuarios-recientes .usuarios-info .button-wrapper a,
+.panel .panel-tables .usuarios-propietarios .usuarios-info .button-wrapper a {
   width: 150px;
   text-align: center;
   border: none;
   cursor: pointer;
   background-color: #3844bc;
-  padding: 10px;
-  margin-left: 20px;
+  padding: 13px 15px;
+  margin: 0 5px;
   color: white;
   text-decoration: none;
   border-radius: 3em 0 3em 3em;
@@ -4604,9 +4871,15 @@ footer .totum p a:hover {
   transition: 0.2s;
 }
 
-.panel .panel-tables .usuarios-recientes .usuarios-info a:hover,
-.panel .panel-tables .usuarios-propietarios .usuarios-info a:hover {
+.panel .panel-tables .usuarios-recientes .usuarios-info .button-wrapper a:hover,
+.panel .panel-tables .usuarios-propietarios .usuarios-info .button-wrapper a:hover {
   background-color: #2b3179;
+}
+
+.panel .panel-tables .usuarios-recientes .usuarios-info .button-wrapper .add,
+.panel .panel-tables .usuarios-propietarios .usuarios-info .button-wrapper .add {
+  border-radius: 50%;
+  margin: 10px 0;
 }
 
 .panel .panel-tables .usuarios-recientes .search,
@@ -6521,12 +6794,578 @@ footer .totum p a:hover {
           transform: scale(1.1);
 }
 
+.agendarViaje {
+  margin-top: 20px;
+  max-width: 800px;
+  width: 100%;
+  padding: 20px;
+  margin: auto;
+}
+
+.agendarViaje .info-user {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+.agendarViaje .info-user .column1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.agendarViaje .info-user .column1 .user-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #3844bc;
+  margin-right: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.agendarViaje .info-user .column1 .user-icon i {
+  color: #ffffff;
+  font-size: 2em;
+}
+
+.agendarViaje .info-user .column1 .user-name {
+  text-align: left;
+}
+
+.agendarViaje .info-user .column1 .user-name h3 {
+  max-width: 250px;
+  color: #3844bc;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.agendarViaje .info-user .column1 .user-name p {
+  color: #555;
+}
+
+.agendarViaje .info-user .column2 {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.agendarViaje .info-user .column2 p {
+  color: #555;
+  margin: 5px 0;
+}
+
+.agendarViaje .progress-bar {
+  position: relative;
+  width: 90%;
+  height: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.agendarViaje .progress-bar .line {
+  position: relative;
+  width: 100%;
+  height: 5px;
+  border-radius: 2em;
+  background-color: #aaa;
+}
+
+.agendarViaje .progress-bar .progress {
+  position: absolute;
+  left: 0;
+  width: 0%;
+  height: 5px;
+  border-radius: 2em;
+  background: -webkit-gradient(linear, left top, right top, from(#3844bc), to(#2b3179));
+  background: linear-gradient(to right, #3844bc, #2b3179);
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+}
+
+.agendarViaje .progress-bar .circle1,
+.agendarViaje .progress-bar .circle2,
+.agendarViaje .progress-bar .circle3 {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #aaa;
+  position: absolute;
+  left: 0;
+}
+
+.agendarViaje .progress-bar .circle1 {
+  background-color: #3844bc;
+}
+
+.agendarViaje .progress-bar .circle2 {
+  left: calc(50% - 10px);
+}
+
+.agendarViaje .progress-bar .circle3 {
+  left: calc(100% - 10px);
+}
+
+.agendarViaje #step_1,
+.agendarViaje #step_2,
+.agendarViaje #step_3,
+.agendarViaje #step_4,
+.agendarViaje #step_5,
+.agendarViaje #step_hotel {
+  width: 100%;
+  text-align: center;
+}
+
+.agendarViaje #step_1 .step_title,
+.agendarViaje #step_2 .step_title,
+.agendarViaje #step_3 .step_title,
+.agendarViaje #step_4 .step_title,
+.agendarViaje #step_5 .step_title,
+.agendarViaje #step_hotel .step_title {
+  color: #3844bc;
+  margin-top: 10px;
+  font-size: 1.2em;
+}
+
+.agendarViaje #step_1 .vehicle,
+.agendarViaje #step_2 .vehicle,
+.agendarViaje #step_3 .vehicle,
+.agendarViaje #step_4 .vehicle,
+.agendarViaje #step_5 .vehicle,
+.agendarViaje #step_hotel .vehicle {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 100px 1fr;
+      grid-template-columns: 100px 1fr;
+  width: 100%;
+  height: 100%;
+}
+
+.agendarViaje #step_1 .vehicle .vehicle-icon,
+.agendarViaje #step_2 .vehicle .vehicle-icon,
+.agendarViaje #step_3 .vehicle .vehicle-icon,
+.agendarViaje #step_4 .vehicle .vehicle-icon,
+.agendarViaje #step_5 .vehicle .vehicle-icon,
+.agendarViaje #step_hotel .vehicle .vehicle-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #3844bc;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.agendarViaje #step_1 .vehicle .vehicle-icon i,
+.agendarViaje #step_2 .vehicle .vehicle-icon i,
+.agendarViaje #step_3 .vehicle .vehicle-icon i,
+.agendarViaje #step_4 .vehicle .vehicle-icon i,
+.agendarViaje #step_5 .vehicle .vehicle-icon i,
+.agendarViaje #step_hotel .vehicle .vehicle-icon i {
+  color: #ffffff;
+  font-size: 2em;
+}
+
+.agendarViaje #step_1 .vehicle .vehicle-info,
+.agendarViaje #step_2 .vehicle .vehicle-info,
+.agendarViaje #step_3 .vehicle .vehicle-info,
+.agendarViaje #step_4 .vehicle .vehicle-info,
+.agendarViaje #step_5 .vehicle .vehicle-info,
+.agendarViaje #step_hotel .vehicle .vehicle-info {
+  text-align: left;
+  margin: auto;
+}
+
+.agendarViaje #step_1 .vehicle .vehicle-info h3,
+.agendarViaje #step_2 .vehicle .vehicle-info h3,
+.agendarViaje #step_3 .vehicle .vehicle-info h3,
+.agendarViaje #step_4 .vehicle .vehicle-info h3,
+.agendarViaje #step_5 .vehicle .vehicle-info h3,
+.agendarViaje #step_hotel .vehicle .vehicle-info h3 {
+  color: #3844bc;
+  font-size: 1.2em;
+}
+
+.agendarViaje #step_1 .vehicle .vehicle-info p,
+.agendarViaje #step_2 .vehicle .vehicle-info p,
+.agendarViaje #step_3 .vehicle .vehicle-info p,
+.agendarViaje #step_4 .vehicle .vehicle-info p,
+.agendarViaje #step_5 .vehicle .vehicle-info p,
+.agendarViaje #step_hotel .vehicle .vehicle-info p {
+  font-size: 1em;
+  color: #555;
+  margin: 5px 0;
+}
+
+.agendarViaje #step_1 .empty-list,
+.agendarViaje #step_2 .empty-list,
+.agendarViaje #step_3 .empty-list,
+.agendarViaje #step_4 .empty-list,
+.agendarViaje #step_5 .empty-list,
+.agendarViaje #step_hotel .empty-list {
+  display: none;
+}
+
+.agendarViaje #step_1 .inputs-wrapper-agendar,
+.agendarViaje #step_2 .inputs-wrapper-agendar,
+.agendarViaje #step_3 .inputs-wrapper-agendar,
+.agendarViaje #step_4 .inputs-wrapper-agendar,
+.agendarViaje #step_5 .inputs-wrapper-agendar,
+.agendarViaje #step_hotel .inputs-wrapper-agendar {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+.agendarViaje #step_1 .inputs-wrapper-agendar .input,
+.agendarViaje #step_2 .inputs-wrapper-agendar .input,
+.agendarViaje #step_3 .inputs-wrapper-agendar .input,
+.agendarViaje #step_4 .inputs-wrapper-agendar .input,
+.agendarViaje #step_5 .inputs-wrapper-agendar .input,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .input {
+  position: relative;
+  width: calc(100% - 60px);
+  margin: 30px auto;
+}
+
+.agendarViaje #step_1 .inputs-wrapper-agendar .input input,
+.agendarViaje #step_1 .inputs-wrapper-agendar .input select,
+.agendarViaje #step_2 .inputs-wrapper-agendar .input input,
+.agendarViaje #step_2 .inputs-wrapper-agendar .input select,
+.agendarViaje #step_3 .inputs-wrapper-agendar .input input,
+.agendarViaje #step_3 .inputs-wrapper-agendar .input select,
+.agendarViaje #step_4 .inputs-wrapper-agendar .input input,
+.agendarViaje #step_4 .inputs-wrapper-agendar .input select,
+.agendarViaje #step_5 .inputs-wrapper-agendar .input input,
+.agendarViaje #step_5 .inputs-wrapper-agendar .input select,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .input input,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .input select {
+  width: 100%;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #aaa;
+  outline: none;
+  padding-left: 25px;
+  color: #555;
+  font-size: 0.85em;
+}
+
+.agendarViaje #step_1 .inputs-wrapper-agendar .input input::-webkit-input-placeholder,
+.agendarViaje #step_1 .inputs-wrapper-agendar .input select::-webkit-input-placeholder,
+.agendarViaje #step_2 .inputs-wrapper-agendar .input input::-webkit-input-placeholder,
+.agendarViaje #step_2 .inputs-wrapper-agendar .input select::-webkit-input-placeholder,
+.agendarViaje #step_3 .inputs-wrapper-agendar .input input::-webkit-input-placeholder,
+.agendarViaje #step_3 .inputs-wrapper-agendar .input select::-webkit-input-placeholder,
+.agendarViaje #step_4 .inputs-wrapper-agendar .input input::-webkit-input-placeholder,
+.agendarViaje #step_4 .inputs-wrapper-agendar .input select::-webkit-input-placeholder,
+.agendarViaje #step_5 .inputs-wrapper-agendar .input input::-webkit-input-placeholder,
+.agendarViaje #step_5 .inputs-wrapper-agendar .input select::-webkit-input-placeholder,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .input input::-webkit-input-placeholder,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .input select::-webkit-input-placeholder {
+  color: #888;
+}
+
+.agendarViaje #step_1 .inputs-wrapper-agendar .input input:-ms-input-placeholder,
+.agendarViaje #step_1 .inputs-wrapper-agendar .input select:-ms-input-placeholder,
+.agendarViaje #step_2 .inputs-wrapper-agendar .input input:-ms-input-placeholder,
+.agendarViaje #step_2 .inputs-wrapper-agendar .input select:-ms-input-placeholder,
+.agendarViaje #step_3 .inputs-wrapper-agendar .input input:-ms-input-placeholder,
+.agendarViaje #step_3 .inputs-wrapper-agendar .input select:-ms-input-placeholder,
+.agendarViaje #step_4 .inputs-wrapper-agendar .input input:-ms-input-placeholder,
+.agendarViaje #step_4 .inputs-wrapper-agendar .input select:-ms-input-placeholder,
+.agendarViaje #step_5 .inputs-wrapper-agendar .input input:-ms-input-placeholder,
+.agendarViaje #step_5 .inputs-wrapper-agendar .input select:-ms-input-placeholder,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .input input:-ms-input-placeholder,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .input select:-ms-input-placeholder {
+  color: #888;
+}
+
+.agendarViaje #step_1 .inputs-wrapper-agendar .input input::-ms-input-placeholder,
+.agendarViaje #step_1 .inputs-wrapper-agendar .input select::-ms-input-placeholder,
+.agendarViaje #step_2 .inputs-wrapper-agendar .input input::-ms-input-placeholder,
+.agendarViaje #step_2 .inputs-wrapper-agendar .input select::-ms-input-placeholder,
+.agendarViaje #step_3 .inputs-wrapper-agendar .input input::-ms-input-placeholder,
+.agendarViaje #step_3 .inputs-wrapper-agendar .input select::-ms-input-placeholder,
+.agendarViaje #step_4 .inputs-wrapper-agendar .input input::-ms-input-placeholder,
+.agendarViaje #step_4 .inputs-wrapper-agendar .input select::-ms-input-placeholder,
+.agendarViaje #step_5 .inputs-wrapper-agendar .input input::-ms-input-placeholder,
+.agendarViaje #step_5 .inputs-wrapper-agendar .input select::-ms-input-placeholder,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .input input::-ms-input-placeholder,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .input select::-ms-input-placeholder {
+  color: #888;
+}
+
+.agendarViaje #step_1 .inputs-wrapper-agendar .input input::placeholder,
+.agendarViaje #step_1 .inputs-wrapper-agendar .input select::placeholder,
+.agendarViaje #step_2 .inputs-wrapper-agendar .input input::placeholder,
+.agendarViaje #step_2 .inputs-wrapper-agendar .input select::placeholder,
+.agendarViaje #step_3 .inputs-wrapper-agendar .input input::placeholder,
+.agendarViaje #step_3 .inputs-wrapper-agendar .input select::placeholder,
+.agendarViaje #step_4 .inputs-wrapper-agendar .input input::placeholder,
+.agendarViaje #step_4 .inputs-wrapper-agendar .input select::placeholder,
+.agendarViaje #step_5 .inputs-wrapper-agendar .input input::placeholder,
+.agendarViaje #step_5 .inputs-wrapper-agendar .input select::placeholder,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .input input::placeholder,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .input select::placeholder {
+  color: #888;
+}
+
+.agendarViaje #step_1 .inputs-wrapper-agendar .input input#distancia,
+.agendarViaje #step_2 .inputs-wrapper-agendar .input input#distancia,
+.agendarViaje #step_3 .inputs-wrapper-agendar .input input#distancia,
+.agendarViaje #step_4 .inputs-wrapper-agendar .input input#distancia,
+.agendarViaje #step_5 .inputs-wrapper-agendar .input input#distancia,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .input input#distancia {
+  padding-right: 30px;
+  text-align: right;
+}
+
+.agendarViaje #step_1 .inputs-wrapper-agendar .input input#distancia::-webkit-input-placeholder,
+.agendarViaje #step_2 .inputs-wrapper-agendar .input input#distancia::-webkit-input-placeholder,
+.agendarViaje #step_3 .inputs-wrapper-agendar .input input#distancia::-webkit-input-placeholder,
+.agendarViaje #step_4 .inputs-wrapper-agendar .input input#distancia::-webkit-input-placeholder,
+.agendarViaje #step_5 .inputs-wrapper-agendar .input input#distancia::-webkit-input-placeholder,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .input input#distancia::-webkit-input-placeholder {
+  text-align: left;
+}
+
+.agendarViaje #step_1 .inputs-wrapper-agendar .input input#distancia:-ms-input-placeholder,
+.agendarViaje #step_2 .inputs-wrapper-agendar .input input#distancia:-ms-input-placeholder,
+.agendarViaje #step_3 .inputs-wrapper-agendar .input input#distancia:-ms-input-placeholder,
+.agendarViaje #step_4 .inputs-wrapper-agendar .input input#distancia:-ms-input-placeholder,
+.agendarViaje #step_5 .inputs-wrapper-agendar .input input#distancia:-ms-input-placeholder,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .input input#distancia:-ms-input-placeholder {
+  text-align: left;
+}
+
+.agendarViaje #step_1 .inputs-wrapper-agendar .input input#distancia::-ms-input-placeholder,
+.agendarViaje #step_2 .inputs-wrapper-agendar .input input#distancia::-ms-input-placeholder,
+.agendarViaje #step_3 .inputs-wrapper-agendar .input input#distancia::-ms-input-placeholder,
+.agendarViaje #step_4 .inputs-wrapper-agendar .input input#distancia::-ms-input-placeholder,
+.agendarViaje #step_5 .inputs-wrapper-agendar .input input#distancia::-ms-input-placeholder,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .input input#distancia::-ms-input-placeholder {
+  text-align: left;
+}
+
+.agendarViaje #step_1 .inputs-wrapper-agendar .input input#distancia::placeholder,
+.agendarViaje #step_2 .inputs-wrapper-agendar .input input#distancia::placeholder,
+.agendarViaje #step_3 .inputs-wrapper-agendar .input input#distancia::placeholder,
+.agendarViaje #step_4 .inputs-wrapper-agendar .input input#distancia::placeholder,
+.agendarViaje #step_5 .inputs-wrapper-agendar .input input#distancia::placeholder,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .input input#distancia::placeholder {
+  text-align: left;
+}
+
+.agendarViaje #step_1 .inputs-wrapper-agendar .input #end-text,
+.agendarViaje #step_2 .inputs-wrapper-agendar .input #end-text,
+.agendarViaje #step_3 .inputs-wrapper-agendar .input #end-text,
+.agendarViaje #step_4 .inputs-wrapper-agendar .input #end-text,
+.agendarViaje #step_5 .inputs-wrapper-agendar .input #end-text,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .input #end-text {
+  position: absolute;
+  top: 11px;
+  right: 0;
+  color: #555;
+  font-size: .9em;
+}
+
+.agendarViaje #step_1 .inputs-wrapper-agendar .input #icon,
+.agendarViaje #step_2 .inputs-wrapper-agendar .input #icon,
+.agendarViaje #step_3 .inputs-wrapper-agendar .input #icon,
+.agendarViaje #step_4 .inputs-wrapper-agendar .input #icon,
+.agendarViaje #step_5 .inputs-wrapper-agendar .input #icon,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .input #icon {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  color: #555;
+}
+
+.agendarViaje #step_1 .inputs-wrapper-agendar .input .password-eye,
+.agendarViaje #step_2 .inputs-wrapper-agendar .input .password-eye,
+.agendarViaje #step_3 .inputs-wrapper-agendar .input .password-eye,
+.agendarViaje #step_4 .inputs-wrapper-agendar .input .password-eye,
+.agendarViaje #step_5 .inputs-wrapper-agendar .input .password-eye,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .input .password-eye {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 12px;
+  right: 0;
+  color: #555;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.agendarViaje #step_1 .inputs-wrapper-agendar .input .password-eye:hover,
+.agendarViaje #step_2 .inputs-wrapper-agendar .input .password-eye:hover,
+.agendarViaje #step_3 .inputs-wrapper-agendar .input .password-eye:hover,
+.agendarViaje #step_4 .inputs-wrapper-agendar .input .password-eye:hover,
+.agendarViaje #step_5 .inputs-wrapper-agendar .input .password-eye:hover,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .input .password-eye:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.agendarViaje #step_1 .inputs-wrapper-agendar .input:nth-child(3) input,
+.agendarViaje #step_2 .inputs-wrapper-agendar .input:nth-child(3) input,
+.agendarViaje #step_3 .inputs-wrapper-agendar .input:nth-child(3) input,
+.agendarViaje #step_4 .inputs-wrapper-agendar .input:nth-child(3) input,
+.agendarViaje #step_5 .inputs-wrapper-agendar .input:nth-child(3) input,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .input:nth-child(3) input {
+  padding-right: 30px;
+  margin-bottom: 0;
+}
+
+.agendarViaje #step_1 .button-agendar,
+.agendarViaje #step_2 .button-agendar,
+.agendarViaje #step_3 .button-agendar,
+.agendarViaje #step_4 .button-agendar,
+.agendarViaje #step_5 .button-agendar,
+.agendarViaje #step_hotel .button-agendar {
+  background: -webkit-gradient(linear, left top, right top, from(#3844bc), to(#2b3179));
+  background: linear-gradient(to right, #3844bc, #2b3179);
+  color: #ffffff;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 2em;
+  margin-top: 10px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+  margin-top: 0;
+}
+
+.agendarViaje #step_1 .button-agendar i,
+.agendarViaje #step_2 .button-agendar i,
+.agendarViaje #step_3 .button-agendar i,
+.agendarViaje #step_4 .button-agendar i,
+.agendarViaje #step_5 .button-agendar i,
+.agendarViaje #step_hotel .button-agendar i {
+  margin-right: 5px;
+}
+
+.agendarViaje #step_1 .mensaje-error,
+.agendarViaje #step_1 #mensaje-error,
+.agendarViaje #step_2 .mensaje-error,
+.agendarViaje #step_2 #mensaje-error,
+.agendarViaje #step_3 .mensaje-error,
+.agendarViaje #step_3 #mensaje-error,
+.agendarViaje #step_4 .mensaje-error,
+.agendarViaje #step_4 #mensaje-error,
+.agendarViaje #step_5 .mensaje-error,
+.agendarViaje #step_5 #mensaje-error,
+.agendarViaje #step_hotel .mensaje-error,
+.agendarViaje #step_hotel #mensaje-error {
+  color: #ff635a;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 650px) {
+  .agendarViaje .info-user {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  .agendarViaje .info-user .column2 {
+    margin: 15px 0;
+    text-align: center;
+  }
+  .agendarViaje #step_1 .inputs-wrapper-agendar {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  .agendarViaje #step_1 .inputs-wrapper-agendar .column:nth-child(1) .vehicle {
+    width: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .agendarViaje #step_1 .inputs-wrapper-agendar .column:nth-child(1) .vehicle .vehicle-icon {
+    margin: 0;
+    margin-right: 20px;
+  }
+  .agendarViaje #step_1 .inputs-wrapper-agendar .column:nth-child(1) .vehicle .vehicle-info {
+    margin: 0;
+  }
+  .agendarViaje #step_1 .inputs-wrapper-agendar .column:nth-child(2) {
+    -ms-grid-row: 1;
+    grid-row: 1;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .agendarViaje #step_1 .inputs-wrapper-agendar .column:nth-child(1) .vehicle {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  .agendarViaje #step_1 .inputs-wrapper-agendar .column:nth-child(1) .vehicle .vehicle-icon {
+    margin: 10px auto;
+  }
+  .agendarViaje #step_1 .inputs-wrapper-agendar .column:nth-child(1) .vehicle .vehicle-info {
+    margin: 10px auto;
+    text-align: center;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: 'Montserrat', 'sans-serif';
+  font-family: "Montserrat", "sans-serif";
 }
 
 /* width */
@@ -6552,6 +7391,17 @@ footer .totum p a:hover {
 
 html {
   scroll-behavior: smooth;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 
 body {
