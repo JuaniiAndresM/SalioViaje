@@ -15,7 +15,7 @@ function cerrarsesion(){
 }
 
 function dashboard(){
-    window.location = "https://www.salioviaje.com.uy/Panel/Dashboard.php";
+    window.location = "https://www.salioviaje.com.uy/Dashboard";
 }
 
 

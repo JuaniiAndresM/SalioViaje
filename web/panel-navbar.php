@@ -1,7 +1,5 @@
   <?php 
 
-  session_start();
-
   $tipo = 0;
 
   switch($_SESSION['tipo_usuario']){
@@ -17,6 +15,8 @@
       $tipo = 0;
       break;
   }
+
+  
 
   ?>
   
@@ -37,7 +37,7 @@
       </a>
     </li>
     <?php 
-    if($tipo == 1){
+    if($tipo == 0){
       echo '  <li>
                 <a href="Usuarios">
                   <span class="icon"><i class="fas fas fa-user-friends"></i></span>
