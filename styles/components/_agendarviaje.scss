@@ -279,26 +279,21 @@
             font-size: 0.9em;
           }
 
-          .button {
+          button {
             height: 100%;
             background-color: rgba(30, 30, 30, 0.5);
             padding: 5px 10px;
             cursor: pointer;
+            border: none;
 
-            button {
-              background-color: transparent;
-              border: none;
-              i {
-                color: $contraste_2;
-                transition: 0.3s;
-              }
+            i {
+              color: $contraste_2;
+              transition: 0.3s;
             }
           }
-          .button:hover {
-            button {
-              i {
-                transform: scale(1.1);
-              }
+          button:hover {
+            i {
+              transform: scale(1.1);
             }
           }
         }

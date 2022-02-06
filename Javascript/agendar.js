@@ -96,3 +96,7 @@ function rutas(){
     count_rutas++;
     
 }
+
+function borrar_ruta(ruta){
+    $('#R'+ruta).remove();
+}

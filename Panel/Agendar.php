@@ -341,12 +341,13 @@
                 <h2 class="step_title"><i class="fas fa-road"></i> Rutas N° 2</h2>
                 <div class="input" id="rutas">
                   <i class="fas fa-road" id="icon"></i>
-                  <input list="Rutas" id="rutas_2" placeholder="Rutas" onchange="rutas()">
-                  <datalist id="Rutas">
+                  <input list="Rutas2" id="rutas_2" placeholder="Rutas" onchange="rutas()">
+                  <datalist id="Rutas2">
                     <option value="Ruta 1">
                     <option value="Ruta 2">
                     <option value="Ruta 3">
                     <option value="Ruta 4">
+
                   </datalist> 
                 </div>
 

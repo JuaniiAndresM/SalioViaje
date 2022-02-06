@@ -4704,6 +4704,7 @@ footer .totum p a:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  overflow: auto;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
@@ -7485,69 +7486,54 @@ footer .totum p a:hover {
   font-size: 0.9em;
 }
 
-.agendarViaje #step_1 .inputs-wrapper-agendar .tags .tag .button,
-.agendarViaje #step_1 .inputs-agendar .tags .tag .button,
-.agendarViaje #step_2 .inputs-wrapper-agendar .tags .tag .button,
-.agendarViaje #step_2 .inputs-agendar .tags .tag .button,
-.agendarViaje #step_3 .inputs-wrapper-agendar .tags .tag .button,
-.agendarViaje #step_3 .inputs-agendar .tags .tag .button,
-.agendarViaje #step_4 .inputs-wrapper-agendar .tags .tag .button,
-.agendarViaje #step_4 .inputs-agendar .tags .tag .button,
-.agendarViaje #step_5 .inputs-wrapper-agendar .tags .tag .button,
-.agendarViaje #step_5 .inputs-agendar .tags .tag .button,
-.agendarViaje #step_hotel .inputs-wrapper-agendar .tags .tag .button,
-.agendarViaje #step_hotel .inputs-agendar .tags .tag .button {
+.agendarViaje #step_1 .inputs-wrapper-agendar .tags .tag button,
+.agendarViaje #step_1 .inputs-agendar .tags .tag button,
+.agendarViaje #step_2 .inputs-wrapper-agendar .tags .tag button,
+.agendarViaje #step_2 .inputs-agendar .tags .tag button,
+.agendarViaje #step_3 .inputs-wrapper-agendar .tags .tag button,
+.agendarViaje #step_3 .inputs-agendar .tags .tag button,
+.agendarViaje #step_4 .inputs-wrapper-agendar .tags .tag button,
+.agendarViaje #step_4 .inputs-agendar .tags .tag button,
+.agendarViaje #step_5 .inputs-wrapper-agendar .tags .tag button,
+.agendarViaje #step_5 .inputs-agendar .tags .tag button,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .tags .tag button,
+.agendarViaje #step_hotel .inputs-agendar .tags .tag button {
   height: 100%;
   background-color: rgba(30, 30, 30, 0.5);
   padding: 5px 10px;
   cursor: pointer;
-}
-
-.agendarViaje #step_1 .inputs-wrapper-agendar .tags .tag .button button,
-.agendarViaje #step_1 .inputs-agendar .tags .tag .button button,
-.agendarViaje #step_2 .inputs-wrapper-agendar .tags .tag .button button,
-.agendarViaje #step_2 .inputs-agendar .tags .tag .button button,
-.agendarViaje #step_3 .inputs-wrapper-agendar .tags .tag .button button,
-.agendarViaje #step_3 .inputs-agendar .tags .tag .button button,
-.agendarViaje #step_4 .inputs-wrapper-agendar .tags .tag .button button,
-.agendarViaje #step_4 .inputs-agendar .tags .tag .button button,
-.agendarViaje #step_5 .inputs-wrapper-agendar .tags .tag .button button,
-.agendarViaje #step_5 .inputs-agendar .tags .tag .button button,
-.agendarViaje #step_hotel .inputs-wrapper-agendar .tags .tag .button button,
-.agendarViaje #step_hotel .inputs-agendar .tags .tag .button button {
-  background-color: transparent;
   border: none;
 }
 
-.agendarViaje #step_1 .inputs-wrapper-agendar .tags .tag .button button i,
-.agendarViaje #step_1 .inputs-agendar .tags .tag .button button i,
-.agendarViaje #step_2 .inputs-wrapper-agendar .tags .tag .button button i,
-.agendarViaje #step_2 .inputs-agendar .tags .tag .button button i,
-.agendarViaje #step_3 .inputs-wrapper-agendar .tags .tag .button button i,
-.agendarViaje #step_3 .inputs-agendar .tags .tag .button button i,
-.agendarViaje #step_4 .inputs-wrapper-agendar .tags .tag .button button i,
-.agendarViaje #step_4 .inputs-agendar .tags .tag .button button i,
-.agendarViaje #step_5 .inputs-wrapper-agendar .tags .tag .button button i,
-.agendarViaje #step_5 .inputs-agendar .tags .tag .button button i,
-.agendarViaje #step_hotel .inputs-wrapper-agendar .tags .tag .button button i,
-.agendarViaje #step_hotel .inputs-agendar .tags .tag .button button i {
+.agendarViaje #step_1 .inputs-wrapper-agendar .tags .tag button i,
+.agendarViaje #step_1 .inputs-agendar .tags .tag button i,
+.agendarViaje #step_2 .inputs-wrapper-agendar .tags .tag button i,
+.agendarViaje #step_2 .inputs-agendar .tags .tag button i,
+.agendarViaje #step_3 .inputs-wrapper-agendar .tags .tag button i,
+.agendarViaje #step_3 .inputs-agendar .tags .tag button i,
+.agendarViaje #step_4 .inputs-wrapper-agendar .tags .tag button i,
+.agendarViaje #step_4 .inputs-agendar .tags .tag button i,
+.agendarViaje #step_5 .inputs-wrapper-agendar .tags .tag button i,
+.agendarViaje #step_5 .inputs-agendar .tags .tag button i,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .tags .tag button i,
+.agendarViaje #step_hotel .inputs-agendar .tags .tag button i {
   color: #ffffff;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
-.agendarViaje #step_1 .inputs-wrapper-agendar .tags .tag .button:hover button i,
-.agendarViaje #step_1 .inputs-agendar .tags .tag .button:hover button i,
-.agendarViaje #step_2 .inputs-wrapper-agendar .tags .tag .button:hover button i,
-.agendarViaje #step_2 .inputs-agendar .tags .tag .button:hover button i,
-.agendarViaje #step_3 .inputs-wrapper-agendar .tags .tag .button:hover button i,
-.agendarViaje #step_3 .inputs-agendar .tags .tag .button:hover button i,
-.agendarViaje #step_4 .inputs-wrapper-agendar .tags .tag .button:hover button i,
-.agendarViaje #step_4 .inputs-agendar .tags .tag .button:hover button i,
-.agendarViaje #step_5 .inputs-wrapper-agendar .tags .tag .button:hover button i,
-.agendarViaje #step_5 .inputs-agendar .tags .tag .button:hover button i,
-.agendarViaje #step_hotel .inputs-wrapper-agendar .tags .tag .button:hover button i,
-.agendarViaje #step_hotel .inputs-agendar .tags .tag .button:hover button i {
+.agendarViaje #step_1 .inputs-wrapper-agendar .tags .tag button:hover i,
+.agendarViaje #step_1 .inputs-agendar .tags .tag button:hover i,
+.agendarViaje #step_2 .inputs-wrapper-agendar .tags .tag button:hover i,
+.agendarViaje #step_2 .inputs-agendar .tags .tag button:hover i,
+.agendarViaje #step_3 .inputs-wrapper-agendar .tags .tag button:hover i,
+.agendarViaje #step_3 .inputs-agendar .tags .tag button:hover i,
+.agendarViaje #step_4 .inputs-wrapper-agendar .tags .tag button:hover i,
+.agendarViaje #step_4 .inputs-agendar .tags .tag button:hover i,
+.agendarViaje #step_5 .inputs-wrapper-agendar .tags .tag button:hover i,
+.agendarViaje #step_5 .inputs-agendar .tags .tag button:hover i,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .tags .tag button:hover i,
+.agendarViaje #step_hotel .inputs-agendar .tags .tag button:hover i {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
