@@ -860,7 +860,7 @@ header .header-wrapper .header-right .header-links .session .close-session butto
 }
 
 header .header-wrapper .header-right .header-links .session .user {
-  width: 250px;
+  max-width: 250px;
   height: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7036,7 +7036,18 @@ footer .totum p a:hover {
 .agendarViaje #step_4 .empty-list,
 .agendarViaje #step_5 .empty-list,
 .agendarViaje #step_hotel .empty-list {
-  display: none;
+  height: 100%;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #3844bc;
 }
 
 .agendarViaje #step_1 .inputs-wrapper-agendar,

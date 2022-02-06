@@ -21,6 +21,7 @@ function steps(step){
     $("#step_1").hide();
     $("#step_2").hide();
     $("#step_3").hide();
+    $(".empty-list").hide();
     $("#button_volver").show();
 
     $('.circle1').css('background-color', '#aaa');

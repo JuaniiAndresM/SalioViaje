@@ -174,7 +174,14 @@
       }
     }
     .empty-list {
-      display: none;
+      height: 100%;
+      margin: auto;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      color: $main_1;
     }
 
     .inputs-wrapper-agendar,
