@@ -15,7 +15,7 @@ function cerrarsesion(){
 }
 
 function dashboard(){
-    window.location = "/SalioViaje/Panel/Dashboard.php";
+    window.location = "/SalioViaje/Dashboard";
 }
 
 

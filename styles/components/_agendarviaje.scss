@@ -1,0 +1,401 @@
+.agendarViaje {
+  margin-top: 20px;
+  max-width: 800px;
+  width: 100%;
+
+  padding: 20px;
+  margin: auto;
+
+  .info-user {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    .column1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+
+      .user-icon {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background-color: $main_1;
+        margin-right: 10px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        i {
+          color: $contraste_2;
+          font-size: 2em;
+        }
+      }
+      .user-name {
+        text-align: left;
+
+        h3 {
+          max-width: 250px;
+          color: $main_1;
+
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        p {
+          color: #555;
+        }
+      }
+    }
+    .column2 {
+      width: 100%;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      p {
+        color: #555;
+        margin: 5px 0;
+      }
+    }
+  }
+
+  .step_title {
+    width: 100%;
+    text-align: center;
+    margin: 10px auto;
+
+    color: $main_1;
+    font-size: 1.2em;
+  }
+
+  .progress-bar {
+    position: relative;
+    width: 90%;
+    height: 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 20px;
+
+    .line {
+      position: relative;
+      width: 100%;
+      height: 5px;
+
+      border-radius: 2em;
+      background-color: #aaa;
+    }
+    .progress {
+      position: absolute;
+      left: 0;
+
+      width: 0%;
+      height: 5px;
+
+      border-radius: 2em;
+      background: linear-gradient(to right, $main_1, $main_2);
+      transition: 0.8s;
+    }
+    .circle1,
+    .circle2,
+    .circle3 {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background-color: #aaa;
+      position: absolute;
+      left: 0;
+    }
+    .circle1 {
+      background-color: $main_1;
+    }
+    .circle2 {
+      left: calc(50% - 10px);
+    }
+    .circle3 {
+      left: calc(100% - 10px);
+    }
+  }
+
+  #step_1,
+  #step_2,
+  #step_3,
+  #step_4,
+  #step_5,
+  #step_hotel {
+    width: 100%;
+    text-align: center;
+
+    .vehicle {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+
+      width: 100%;
+      height: 100%;
+
+      .vehicle-icon {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background-color: $main_1;
+
+        margin: auto;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        i {
+          color: $contraste_2;
+          font-size: 2em;
+        }
+      }
+      .vehicle-info {
+        text-align: left;
+        margin: auto;
+
+        h3 {
+          color: $main_1;
+          font-size: 1.2em;
+        }
+        p {
+          font-size: 1em;
+          color: #555;
+          margin: 5px 0;
+        }
+      }
+    }
+    .empty-list {
+      height: 100%;
+      margin: auto;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      color: $main_1;
+    }
+
+    .inputs-wrapper-agendar,
+    .inputs-agendar {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      .input {
+        position: relative;
+        width: calc(100% - 60px);
+        margin: 30px auto;
+
+        input,
+        select {
+          width: 100%;
+          height: 40px;
+          background-color: transparent;
+          border: none;
+          border-bottom: 1px solid #aaa;
+          outline: none;
+          padding-left: 25px;
+          color: #555;
+          font-size: 0.85em;
+        }
+        input::placeholder,
+        select::placeholder {
+          color: #888;
+        }
+
+        input#distancia {
+          padding-right: 30px;
+          text-align: right;
+        }
+        input#distancia::placeholder {
+          text-align: left;
+        }
+
+        input#fecha_1,
+        input#fecha_2 {
+          padding-right: 0;
+        }
+
+        #end-text {
+          position: absolute;
+          top: 11px;
+          right: 0;
+          color: #555;
+          font-size: 0.9em;
+        }
+
+        #icon {
+          position: absolute;
+          top: 10px;
+          left: 0;
+          color: #555;
+        }
+        .password-eye {
+          background-color: transparent;
+          border: none;
+          position: absolute;
+          top: 12px;
+          right: 0;
+          color: #555;
+          cursor: pointer;
+          transition: 0.3s;
+        }
+        .password-eye:hover {
+          transform: scale(1.2);
+        }
+      }
+      .input:nth-child(3) {
+        input {
+          padding-right: 30px;
+          margin-bottom: 0;
+        }
+      }
+
+      .tags {
+        width: calc(100% - 40px);
+        background-color: #eee;
+        border-radius: 10px;
+        margin: 0 auto;
+
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+
+        .tag {
+          margin: 5px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          overflow: hidden;
+          border-radius: 10px;
+          background-color: $main_3;
+
+          p {
+            margin: 0 10px;
+            color: $contraste_2;
+            font-size: 0.9em;
+          }
+
+          button {
+            height: 100%;
+            background-color: rgba(30, 30, 30, 0.5);
+            padding: 5px 10px;
+            cursor: pointer;
+            border: none;
+
+            i {
+              color: $contraste_2;
+              transition: 0.3s;
+            }
+          }
+          button:hover {
+            i {
+              transform: scale(1.1);
+            }
+          }
+        }
+      }
+    }
+    .inputs-agendar {
+      display: block;
+      max-width: 400px;
+      width: 100%;
+
+      margin: 0 auto;
+    }
+
+    .button-agendar {
+      @include button();
+      margin-top: 0;
+      margin: 5px;
+    }
+
+    .mensaje-error,
+    #mensaje-error {
+      color: #ff635a;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+@media screen and(max-width: 650px) {
+  .agendarViaje {
+    .info-user {
+      grid-template-columns: 1fr;
+      .column2 {
+        margin: 15px 0;
+        text-align: center;
+      }
+    }
+
+    #step_1 {
+      .inputs-wrapper-agendar {
+        grid-template-columns: 1fr;
+
+        .column:nth-child(1) {
+          .vehicle {
+            width: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .vehicle-icon {
+              margin: 0;
+              margin-right: 20px;
+            }
+            .vehicle-info {
+              margin: 0;
+            }
+          }
+        }
+        .column:nth-child(2) {
+          grid-row: 1;
+        }
+      }
+    }
+  }
+}
+
+@media screen and(max-width: 560px) {
+  .agendarViaje {
+    #step_2,
+    #step_3 {
+      .inputs-wrapper-agendar{
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+}
+
+@media screen and(max-width: 400px) {
+  .agendarViaje {
+    #step_1 {
+      .inputs-wrapper-agendar {
+        .column:nth-child(1) {
+          .vehicle {
+            display: grid;
+            grid-template-columns: 1fr;
+
+            .vehicle-icon {
+              margin: 10px auto;
+            }
+            .vehicle-info {
+              margin: 10px auto;
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+  }
+}
