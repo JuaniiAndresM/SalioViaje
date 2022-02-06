@@ -134,7 +134,13 @@
     width: 100%;
     text-align: center;
 
-    .vehicle {
+    hr{
+      border: 1px solid $main_1;
+      width: calc(100% - 80px);
+      margin: 20px auto;
+    }
+
+    .vehicle, .vehicle-resumen {
       display: grid;
       grid-template-columns: 100px 1fr;
 
@@ -173,6 +179,10 @@
         }
       }
     }
+    .vehicle-resumen{
+      max-width: 400px;
+      margin: 0 auto;
+    }
     .empty-list {
       height: 100%;
       margin: auto;
@@ -182,6 +192,17 @@
       align-items: center;
 
       color: $main_1;
+    }
+
+    .info{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      p{
+        margin: 0 10px;
+        color: #555;
+      }
     }
 
     .inputs-wrapper-agendar,
@@ -259,6 +280,39 @@
         }
       }
 
+      .column_resumen{
+        text-align: left;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .column-wrapper{
+          .step_title{
+            margin: 20px auto;
+          }
+          
+          .info{
+            margin: 20px auto;
+    
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: column;
+    
+            text-align: left;
+    
+            b{
+              color: $main_1;
+            }
+            p{
+              color: #555;
+              margin: 0;
+            }
+          }
+        }
+      }
+      
+
       .tags {
         width: calc(100% - 40px);
         background-color: #eee;
@@ -325,6 +379,19 @@
       color: #ff635a;
       margin-bottom: 20px;
     }
+
+    .rutas{
+      width: calc(100% - 80px);
+      text-align: left;
+      margin: 10px auto;
+      b{
+        color: $main_1;
+      }
+      p{
+        color: #555;
+        margin: 0;
+      }
+    }
   }
 }
 
@@ -372,6 +439,21 @@
     #step_3 {
       .inputs-wrapper-agendar{
         grid-template-columns: 1fr;
+      }
+    }
+  }
+}
+
+@media screen and(max-width: 450px) {
+  .agendarViaje {
+    #step_4 {
+      .vehicle-resumen{
+        grid-template-columns: 1fr;
+
+        .vehicle-info{
+          margin-top: 10px;
+          text-align: center;
+        }
       }
     }
   }

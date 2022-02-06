@@ -21,6 +21,10 @@ function steps(step){
     $("#step_1").hide();
     $("#step_2").hide();
     $("#step_3").hide();
+    $("#step_4").hide();
+
+    $('.progress-bar').show();
+
     $(".empty-list").hide();
     $("#button_volver").show();
 
@@ -56,6 +60,15 @@ function steps(step){
             $("#step_3").show();
 
             $('.progress').css('width', '100%');
+            $('.circle1').css('background-color', '#2b3179');
+            $('.circle2').css('background-color', '#2b3179');
+            $('.circle3').css('background-color', '#2b3179');
+            break;
+
+        case 4:
+            $("#step_4").show();
+
+            $('.progress-bar').hide();
             $('.circle1').css('background-color', '#2b3179');
             $('.circle2').css('background-color', '#2b3179');
             $('.circle3').css('background-color', '#2b3179');

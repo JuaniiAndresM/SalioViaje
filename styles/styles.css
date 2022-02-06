@@ -6953,12 +6953,28 @@ footer .totum p a:hover {
   text-align: center;
 }
 
-.agendarViaje #step_1 .vehicle,
+.agendarViaje #step_1 hr,
+.agendarViaje #step_2 hr,
+.agendarViaje #step_3 hr,
+.agendarViaje #step_4 hr,
+.agendarViaje #step_5 hr,
+.agendarViaje #step_hotel hr {
+  border: 1px solid #3844bc;
+  width: calc(100% - 80px);
+  margin: 20px auto;
+}
+
+.agendarViaje #step_1 .vehicle, .agendarViaje #step_1 .vehicle-resumen,
 .agendarViaje #step_2 .vehicle,
+.agendarViaje #step_2 .vehicle-resumen,
 .agendarViaje #step_3 .vehicle,
+.agendarViaje #step_3 .vehicle-resumen,
 .agendarViaje #step_4 .vehicle,
+.agendarViaje #step_4 .vehicle-resumen,
 .agendarViaje #step_5 .vehicle,
-.agendarViaje #step_hotel .vehicle {
+.agendarViaje #step_5 .vehicle-resumen,
+.agendarViaje #step_hotel .vehicle,
+.agendarViaje #step_hotel .vehicle-resumen {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 100px 1fr;
@@ -6967,12 +6983,17 @@ footer .totum p a:hover {
   height: 100%;
 }
 
-.agendarViaje #step_1 .vehicle .vehicle-icon,
+.agendarViaje #step_1 .vehicle .vehicle-icon, .agendarViaje #step_1 .vehicle-resumen .vehicle-icon,
 .agendarViaje #step_2 .vehicle .vehicle-icon,
+.agendarViaje #step_2 .vehicle-resumen .vehicle-icon,
 .agendarViaje #step_3 .vehicle .vehicle-icon,
+.agendarViaje #step_3 .vehicle-resumen .vehicle-icon,
 .agendarViaje #step_4 .vehicle .vehicle-icon,
+.agendarViaje #step_4 .vehicle-resumen .vehicle-icon,
 .agendarViaje #step_5 .vehicle .vehicle-icon,
-.agendarViaje #step_hotel .vehicle .vehicle-icon {
+.agendarViaje #step_5 .vehicle-resumen .vehicle-icon,
+.agendarViaje #step_hotel .vehicle .vehicle-icon,
+.agendarViaje #step_hotel .vehicle-resumen .vehicle-icon {
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -6989,45 +7010,75 @@ footer .totum p a:hover {
           align-items: center;
 }
 
-.agendarViaje #step_1 .vehicle .vehicle-icon i,
+.agendarViaje #step_1 .vehicle .vehicle-icon i, .agendarViaje #step_1 .vehicle-resumen .vehicle-icon i,
 .agendarViaje #step_2 .vehicle .vehicle-icon i,
+.agendarViaje #step_2 .vehicle-resumen .vehicle-icon i,
 .agendarViaje #step_3 .vehicle .vehicle-icon i,
+.agendarViaje #step_3 .vehicle-resumen .vehicle-icon i,
 .agendarViaje #step_4 .vehicle .vehicle-icon i,
+.agendarViaje #step_4 .vehicle-resumen .vehicle-icon i,
 .agendarViaje #step_5 .vehicle .vehicle-icon i,
-.agendarViaje #step_hotel .vehicle .vehicle-icon i {
+.agendarViaje #step_5 .vehicle-resumen .vehicle-icon i,
+.agendarViaje #step_hotel .vehicle .vehicle-icon i,
+.agendarViaje #step_hotel .vehicle-resumen .vehicle-icon i {
   color: #ffffff;
   font-size: 2em;
 }
 
-.agendarViaje #step_1 .vehicle .vehicle-info,
+.agendarViaje #step_1 .vehicle .vehicle-info, .agendarViaje #step_1 .vehicle-resumen .vehicle-info,
 .agendarViaje #step_2 .vehicle .vehicle-info,
+.agendarViaje #step_2 .vehicle-resumen .vehicle-info,
 .agendarViaje #step_3 .vehicle .vehicle-info,
+.agendarViaje #step_3 .vehicle-resumen .vehicle-info,
 .agendarViaje #step_4 .vehicle .vehicle-info,
+.agendarViaje #step_4 .vehicle-resumen .vehicle-info,
 .agendarViaje #step_5 .vehicle .vehicle-info,
-.agendarViaje #step_hotel .vehicle .vehicle-info {
+.agendarViaje #step_5 .vehicle-resumen .vehicle-info,
+.agendarViaje #step_hotel .vehicle .vehicle-info,
+.agendarViaje #step_hotel .vehicle-resumen .vehicle-info {
   text-align: left;
   margin: auto;
 }
 
-.agendarViaje #step_1 .vehicle .vehicle-info h3,
+.agendarViaje #step_1 .vehicle .vehicle-info h3, .agendarViaje #step_1 .vehicle-resumen .vehicle-info h3,
 .agendarViaje #step_2 .vehicle .vehicle-info h3,
+.agendarViaje #step_2 .vehicle-resumen .vehicle-info h3,
 .agendarViaje #step_3 .vehicle .vehicle-info h3,
+.agendarViaje #step_3 .vehicle-resumen .vehicle-info h3,
 .agendarViaje #step_4 .vehicle .vehicle-info h3,
+.agendarViaje #step_4 .vehicle-resumen .vehicle-info h3,
 .agendarViaje #step_5 .vehicle .vehicle-info h3,
-.agendarViaje #step_hotel .vehicle .vehicle-info h3 {
+.agendarViaje #step_5 .vehicle-resumen .vehicle-info h3,
+.agendarViaje #step_hotel .vehicle .vehicle-info h3,
+.agendarViaje #step_hotel .vehicle-resumen .vehicle-info h3 {
   color: #3844bc;
   font-size: 1.2em;
 }
 
-.agendarViaje #step_1 .vehicle .vehicle-info p,
+.agendarViaje #step_1 .vehicle .vehicle-info p, .agendarViaje #step_1 .vehicle-resumen .vehicle-info p,
 .agendarViaje #step_2 .vehicle .vehicle-info p,
+.agendarViaje #step_2 .vehicle-resumen .vehicle-info p,
 .agendarViaje #step_3 .vehicle .vehicle-info p,
+.agendarViaje #step_3 .vehicle-resumen .vehicle-info p,
 .agendarViaje #step_4 .vehicle .vehicle-info p,
+.agendarViaje #step_4 .vehicle-resumen .vehicle-info p,
 .agendarViaje #step_5 .vehicle .vehicle-info p,
-.agendarViaje #step_hotel .vehicle .vehicle-info p {
+.agendarViaje #step_5 .vehicle-resumen .vehicle-info p,
+.agendarViaje #step_hotel .vehicle .vehicle-info p,
+.agendarViaje #step_hotel .vehicle-resumen .vehicle-info p {
   font-size: 1em;
   color: #555;
   margin: 5px 0;
+}
+
+.agendarViaje #step_1 .vehicle-resumen,
+.agendarViaje #step_2 .vehicle-resumen,
+.agendarViaje #step_3 .vehicle-resumen,
+.agendarViaje #step_4 .vehicle-resumen,
+.agendarViaje #step_5 .vehicle-resumen,
+.agendarViaje #step_hotel .vehicle-resumen {
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 .agendarViaje #step_1 .empty-list,
@@ -7048,6 +7099,33 @@ footer .totum p a:hover {
       -ms-flex-align: center;
           align-items: center;
   color: #3844bc;
+}
+
+.agendarViaje #step_1 .info,
+.agendarViaje #step_2 .info,
+.agendarViaje #step_3 .info,
+.agendarViaje #step_4 .info,
+.agendarViaje #step_5 .info,
+.agendarViaje #step_hotel .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.agendarViaje #step_1 .info p,
+.agendarViaje #step_2 .info p,
+.agendarViaje #step_3 .info p,
+.agendarViaje #step_4 .info p,
+.agendarViaje #step_5 .info p,
+.agendarViaje #step_hotel .info p {
+  margin: 0 10px;
+  color: #555;
 }
 
 .agendarViaje #step_1 .inputs-wrapper-agendar,
@@ -7534,6 +7612,105 @@ footer .totum p a:hover {
   margin-bottom: 0;
 }
 
+.agendarViaje #step_1 .inputs-wrapper-agendar .column_resumen,
+.agendarViaje #step_1 .inputs-agendar .column_resumen,
+.agendarViaje #step_2 .inputs-wrapper-agendar .column_resumen,
+.agendarViaje #step_2 .inputs-agendar .column_resumen,
+.agendarViaje #step_3 .inputs-wrapper-agendar .column_resumen,
+.agendarViaje #step_3 .inputs-agendar .column_resumen,
+.agendarViaje #step_4 .inputs-wrapper-agendar .column_resumen,
+.agendarViaje #step_4 .inputs-agendar .column_resumen,
+.agendarViaje #step_5 .inputs-wrapper-agendar .column_resumen,
+.agendarViaje #step_5 .inputs-agendar .column_resumen,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .column_resumen,
+.agendarViaje #step_hotel .inputs-agendar .column_resumen {
+  text-align: left;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.agendarViaje #step_1 .inputs-wrapper-agendar .column_resumen .column-wrapper .step_title,
+.agendarViaje #step_1 .inputs-agendar .column_resumen .column-wrapper .step_title,
+.agendarViaje #step_2 .inputs-wrapper-agendar .column_resumen .column-wrapper .step_title,
+.agendarViaje #step_2 .inputs-agendar .column_resumen .column-wrapper .step_title,
+.agendarViaje #step_3 .inputs-wrapper-agendar .column_resumen .column-wrapper .step_title,
+.agendarViaje #step_3 .inputs-agendar .column_resumen .column-wrapper .step_title,
+.agendarViaje #step_4 .inputs-wrapper-agendar .column_resumen .column-wrapper .step_title,
+.agendarViaje #step_4 .inputs-agendar .column_resumen .column-wrapper .step_title,
+.agendarViaje #step_5 .inputs-wrapper-agendar .column_resumen .column-wrapper .step_title,
+.agendarViaje #step_5 .inputs-agendar .column_resumen .column-wrapper .step_title,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .column_resumen .column-wrapper .step_title,
+.agendarViaje #step_hotel .inputs-agendar .column_resumen .column-wrapper .step_title {
+  margin: 20px auto;
+}
+
+.agendarViaje #step_1 .inputs-wrapper-agendar .column_resumen .column-wrapper .info,
+.agendarViaje #step_1 .inputs-agendar .column_resumen .column-wrapper .info,
+.agendarViaje #step_2 .inputs-wrapper-agendar .column_resumen .column-wrapper .info,
+.agendarViaje #step_2 .inputs-agendar .column_resumen .column-wrapper .info,
+.agendarViaje #step_3 .inputs-wrapper-agendar .column_resumen .column-wrapper .info,
+.agendarViaje #step_3 .inputs-agendar .column_resumen .column-wrapper .info,
+.agendarViaje #step_4 .inputs-wrapper-agendar .column_resumen .column-wrapper .info,
+.agendarViaje #step_4 .inputs-agendar .column_resumen .column-wrapper .info,
+.agendarViaje #step_5 .inputs-wrapper-agendar .column_resumen .column-wrapper .info,
+.agendarViaje #step_5 .inputs-agendar .column_resumen .column-wrapper .info,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .column_resumen .column-wrapper .info,
+.agendarViaje #step_hotel .inputs-agendar .column_resumen .column-wrapper .info {
+  margin: 20px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: left;
+}
+
+.agendarViaje #step_1 .inputs-wrapper-agendar .column_resumen .column-wrapper .info b,
+.agendarViaje #step_1 .inputs-agendar .column_resumen .column-wrapper .info b,
+.agendarViaje #step_2 .inputs-wrapper-agendar .column_resumen .column-wrapper .info b,
+.agendarViaje #step_2 .inputs-agendar .column_resumen .column-wrapper .info b,
+.agendarViaje #step_3 .inputs-wrapper-agendar .column_resumen .column-wrapper .info b,
+.agendarViaje #step_3 .inputs-agendar .column_resumen .column-wrapper .info b,
+.agendarViaje #step_4 .inputs-wrapper-agendar .column_resumen .column-wrapper .info b,
+.agendarViaje #step_4 .inputs-agendar .column_resumen .column-wrapper .info b,
+.agendarViaje #step_5 .inputs-wrapper-agendar .column_resumen .column-wrapper .info b,
+.agendarViaje #step_5 .inputs-agendar .column_resumen .column-wrapper .info b,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .column_resumen .column-wrapper .info b,
+.agendarViaje #step_hotel .inputs-agendar .column_resumen .column-wrapper .info b {
+  color: #3844bc;
+}
+
+.agendarViaje #step_1 .inputs-wrapper-agendar .column_resumen .column-wrapper .info p,
+.agendarViaje #step_1 .inputs-agendar .column_resumen .column-wrapper .info p,
+.agendarViaje #step_2 .inputs-wrapper-agendar .column_resumen .column-wrapper .info p,
+.agendarViaje #step_2 .inputs-agendar .column_resumen .column-wrapper .info p,
+.agendarViaje #step_3 .inputs-wrapper-agendar .column_resumen .column-wrapper .info p,
+.agendarViaje #step_3 .inputs-agendar .column_resumen .column-wrapper .info p,
+.agendarViaje #step_4 .inputs-wrapper-agendar .column_resumen .column-wrapper .info p,
+.agendarViaje #step_4 .inputs-agendar .column_resumen .column-wrapper .info p,
+.agendarViaje #step_5 .inputs-wrapper-agendar .column_resumen .column-wrapper .info p,
+.agendarViaje #step_5 .inputs-agendar .column_resumen .column-wrapper .info p,
+.agendarViaje #step_hotel .inputs-wrapper-agendar .column_resumen .column-wrapper .info p,
+.agendarViaje #step_hotel .inputs-agendar .column_resumen .column-wrapper .info p {
+  color: #555;
+  margin: 0;
+}
+
 .agendarViaje #step_1 .inputs-wrapper-agendar .tags,
 .agendarViaje #step_1 .inputs-agendar .tags,
 .agendarViaje #step_2 .inputs-wrapper-agendar .tags,
@@ -7716,6 +7893,36 @@ footer .totum p a:hover {
   margin-bottom: 20px;
 }
 
+.agendarViaje #step_1 .rutas,
+.agendarViaje #step_2 .rutas,
+.agendarViaje #step_3 .rutas,
+.agendarViaje #step_4 .rutas,
+.agendarViaje #step_5 .rutas,
+.agendarViaje #step_hotel .rutas {
+  width: calc(100% - 80px);
+  text-align: left;
+  margin: 10px auto;
+}
+
+.agendarViaje #step_1 .rutas b,
+.agendarViaje #step_2 .rutas b,
+.agendarViaje #step_3 .rutas b,
+.agendarViaje #step_4 .rutas b,
+.agendarViaje #step_5 .rutas b,
+.agendarViaje #step_hotel .rutas b {
+  color: #3844bc;
+}
+
+.agendarViaje #step_1 .rutas p,
+.agendarViaje #step_2 .rutas p,
+.agendarViaje #step_3 .rutas p,
+.agendarViaje #step_4 .rutas p,
+.agendarViaje #step_5 .rutas p,
+.agendarViaje #step_hotel .rutas p {
+  color: #555;
+  margin: 0;
+}
+
 @media screen and (max-width: 650px) {
   .agendarViaje .info-user {
     -ms-grid-columns: 1fr;
@@ -7759,6 +7966,17 @@ footer .totum p a:hover {
   .agendarViaje #step_3 .inputs-wrapper-agendar {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .agendarViaje #step_4 .vehicle-resumen {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  .agendarViaje #step_4 .vehicle-resumen .vehicle-info {
+    margin-top: 10px;
+    text-align: center;
   }
 }
 
