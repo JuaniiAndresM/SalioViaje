@@ -16,12 +16,12 @@ RewriteRule ^Login /Form/Login.php
 RewriteRule ^Admin /Form/Login_A.html
 RewriteRule ^Register /Form/Register.html
 
-RewriteRule ^Dashboard /SalioViaje/Panel/Dashboard.php
-RewriteRule ^Usuarios /SalioViaje/Panel/Usuarios.php
-RewriteRule ^Empresas /SalioViaje/Panel/Empresas.php
-RewriteRule ^Vehiculos /SalioViaje/Panel/Vehiculos.php
-RewriteRule ^Settings /SalioViaje/Panel/Settings.php
-RewriteRule ^Agendar /SalioViaje/Panel/AgendarViaje.php
+RewriteRule ^Dashboard /Panel/Dashboard.php
+RewriteRule ^Usuarios /Panel/Usuarios.php
+RewriteRule ^Empresas /Panel/Empresas.php
+RewriteRule ^Vehiculos /Panel/Vehiculos.php
+RewriteRule ^Settings /Panel/Settings.php
+RewriteRule ^Agendar /Panel/AgendarViaje.php
 
 RewriteRule ^Success /Form/Success.html
 RewriteRule ^Failed /Form/Failed.html

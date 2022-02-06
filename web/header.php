@@ -13,13 +13,13 @@
         <div class="header-right">
             <div class="header-links">
                 <div class="links">
-                    <a href="/SalioViaje/">Home</a>
-                    <a href="/SalioViaje/Servicios">Servicios</a>
-                    <a href="/SalioViaje/Nosotros">Sobre Nosotros</a>
-                    <a href="/SalioViaje/Viajar">Oportunidades</a>
+                    <a href="https://www.salioviaje.com.uy/">Home</a>
+                    <a href="https://www.salioviaje.com.uy/Servicios">Servicios</a>
+                    <a href="https://www.salioviaje.com.uy/Nosotros">Sobre Nosotros</a>
+                    <a href="https://www.salioviaje.com.uy/Viajar">Oportunidades</a>
                     <?php   
                     if(isset($_SESSION['tipo_usuario']) && $_SESSION['tipo_usuario'] != "Pasajero"){
-                        echo '<a href="/SalioViaje/Dashboard">Panel</a>';
+                        echo '<a href="https://www.salioviaje.com.uy/Dashboard">Panel</a>';
                     }
                     ?>
                 </div>
@@ -67,13 +67,13 @@
                                 </div>';
                     }
 
-                    echo '  <a href="/SalioViaje/"><i class="fas fa-home"></i> Home</a>
-                            <a href="/SalioViaje/Servicios"><i class="fas fa-list-ul"></i> Servicios</a>
-                            <a href="/SalioViaje/Nosotros"><i class="fas fa-info"></i> Sobre Nosotros</a>
-                            <a href="/SalioViaje/Viajar"><i class="fas fa-book"></i> Oportunidades</a>';
+                    echo '  <a href="https://www.salioviaje.com.uy/"><i class="fas fa-home"></i> Home</a>
+                            <a href="https://www.salioviaje.com.uy/Servicios"><i class="fas fa-list-ul"></i> Servicios</a>
+                            <a href="https://www.salioviaje.com.uy/Nosotros"><i class="fas fa-info"></i> Sobre Nosotros</a>
+                            <a href="https://www.salioviaje.com.uy/Viajar"><i class="fas fa-book"></i> Oportunidades</a>';
 
                             if(isset($_SESSION['tipo_usuario']) && $_SESSION['tipo_usuario'] != "Pasajero"){
-                                echo '<a href="/SalioViaje/Dashboard"><i class="fas fa-users-cog"></i> Panel</a>';
+                                echo '<a href="https://www.salioviaje.com.uy/Dashboard"><i class="fas fa-users-cog"></i> Panel</a>';
                             }
 
 

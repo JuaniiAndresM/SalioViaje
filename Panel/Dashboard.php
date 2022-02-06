@@ -22,7 +22,7 @@
           break;
       }
     }else{
-      header('Location: /SalioViaje/');
+      header('Location: https://www.salioviaje.com.uy/');
     }
   }
 

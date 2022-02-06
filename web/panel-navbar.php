@@ -25,8 +25,8 @@
   </button>
   <ul>
     <li>
-      <a href="/SalioViaje/">
-        <span class="icon"><img src="/SalioViaje/media/svg/Logo-SalioViaje-White.svg" alt="Logo SalióViaje"></span>
+      <a href="https://www.salioviaje.com.uy/">
+        <span class="icon"><img src="https://www.salioviaje.com.uy/media/svg/Logo-SalioViaje-White.svg" alt="Logo SalióViaje"></span>
         <span class="title">SalióViaje</span>
       </a>
     </li>
@@ -60,7 +60,7 @@
               </li>
 
               <li>
-                <a class href="/SalioViaje/">
+                <a class href="https://www.salioviaje.com.uy/">
                   <span class="icon"><i class="fas fa-undo"></i></span>
                   <span class="title">Página Principal</span>
                 </a>

@@ -30,7 +30,7 @@ $(document).ready(function () {
 
     list.forEach((item) => 
     item.addEventListener('mouseover', activateLink));
-    $('#panel-navbar').load('/SalioViaje/web/panel-navbar.php');
+    $('#panel-navbar').load('/web/panel-navbar.php');
 
 
     $('#select_actualizar').change(function(){
