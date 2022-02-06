@@ -345,6 +345,7 @@ function passwd(tipo){
     MATRICULA_VEHICULO_MODIFICADO = matricula;
     for (var i = 0; i < vehiculos.length; i++) {
       if(vehiculos[i]['MATRICULA'] == matricula){
+        $(".eliminar_vehiculo").attr('disabled','disabled');
         $('#matricula').val(vehiculos[i]['MATRICULA'])
         $('#marca').val(vehiculos[i]['MARCA'])
         $('#modelo').val(vehiculos[i]['MODELO'])
@@ -692,6 +693,7 @@ function editar_vehiculo(){
             $('.vehiculos').append(response);
             $('#add-vehicle2').show();
             $('#guardar-cambios').hide();
+            $(".eliminar_vehiculo").removeAttr('disabled','disabled');
             reset_vehicle_inputs();
           },
       });
