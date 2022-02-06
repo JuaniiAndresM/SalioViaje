@@ -281,7 +281,7 @@
                           <div class="usuarios-info">
                             <h2><i class="fas fa-bus"></i> Tus Viajes</h2>
                             <div class="button-wrapper">
-                              <a href="Viajes.html" class="add"><i class="fas fa-plus"></i></a>
+                              <a href="Agendar" class="add"><i class="fas fa-plus"></i></a>
                               <a href="Viajes.html">Ver Todas <i class="fas fa-arrow-right"></i></a>
                             </div>
                           </div>
@@ -290,18 +290,6 @@
                             <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarUsuarios(1)"/>
                           </div>
                           <table class="usuarios-table" id="search-table">
-                            <!-- antes:
-                              <tr>
-                                <th>
-                                  Nombre <i class="fas fa-angle-down"></i>
-                                </th>
-                                <th>Apellido <i class="fas fa-angle-down"></i></th>
-                                <th>Tipo <i class="fas fa-angle-down"></i></th>
-                                <th>Departamento <i class="fas fa-angle-down"></i></th>
-                                <th>Teléfono <i class="fas fa-angle-down"></i></th>
-                                <th></th>
-                              </tr>
-                            -->
                             <thead>
                               <tr>
                                 <th>ID <i class="fas fa-angle-down"></i></th>

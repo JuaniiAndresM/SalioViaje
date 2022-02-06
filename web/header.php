@@ -1,3 +1,8 @@
+<?php
+    session_start();
+?>
+
+
 <header>
     <div class="header-wrapper">
         <div class="header-logo">
@@ -12,10 +17,14 @@
                     <a href="/SalioViaje/Servicios">Servicios</a>
                     <a href="/SalioViaje/Nosotros">Sobre Nosotros</a>
                     <a href="/SalioViaje/Viajar">Oportunidades</a>
+                    <?php   
+                    if(isset($_SESSION['tipo_usuario']) && $_SESSION['tipo_usuario'] != "Pasajero"){
+                        echo '<a href="/SalioViaje/Dashboard">Panel</a>';
+                    }
+                    ?>
                 </div>
-            
-                <?php
-                session_start();
+
+                <?php                
                 if(isset($_SESSION['usuario'])){
                     echo '  <div class="session">
                                 <div class="close-session">
@@ -59,9 +68,13 @@
                     }
 
                     echo '  <a href="/SalioViaje/"><i class="fas fa-home"></i> Home</a>
-                            <a href="/SalioViaje/Servicios">Servicios</a>
-                            <a href="/SalioViaje/Nosotros">Sobre Nosotros</a>
+                            <a href="/SalioViaje/Servicios"><i class="fas fa-list-ul"></i> Servicios</a>
+                            <a href="/SalioViaje/Nosotros"><i class="fas fa-info"></i> Sobre Nosotros</a>
                             <a href="/SalioViaje/Viajar"><i class="fas fa-book"></i> Oportunidades</a>';
+
+                            if(isset($_SESSION['tipo_usuario']) && $_SESSION['tipo_usuario'] != "Pasajero"){
+                                echo '<a href="/SalioViaje/Dashboard"><i class="fas fa-users-cog"></i> Panel</a>';
+                            }
 
 
                     if(isset($_SESSION['usuario'])){

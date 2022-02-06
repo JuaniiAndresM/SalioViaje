@@ -25,7 +25,7 @@
   </button>
   <ul>
     <li>
-      <a href="">
+      <a href="/SalioViaje/">
         <span class="icon"><img src="/SalioViaje/media/svg/Logo-SalioViaje-White.svg" alt="Logo SalióViaje"></span>
         <span class="title">SalióViaje</span>
       </a>
@@ -67,9 +67,9 @@
               </li>';
     }elseif($tipo == 2){
       echo '  <li>
-                <a href="Agenda">
+                <a href="Agendar">
                   <span class="icon"><i class="fas fa-book"></i></span>
-                  <span class="title">Agenda</span>
+                  <span class="title">Agendar Viaje</span>
                 </a>
               </li>';
     }
