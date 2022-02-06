@@ -24,6 +24,9 @@ function steps(step){
     $(".empty-list").hide();
     $("#button_volver").show();
 
+    $("#descuento1").hide();
+    $("#descuento2").hide();
+
     $('.circle1').css('background-color', '#aaa');
     $('.circle2').css('background-color', '#aaa');
     $('.circle3').css('background-color', '#aaa');
@@ -44,7 +47,9 @@ function steps(step){
             $('.circle1').css('background-color', '#2b3179');
             $('.circle2').css('background-color', '#2b3179');
 
-            precio_referencia();          
+            precio_referencia();        
+            select_tipo(1);       
+            select_tipo(2);       
             break;
 
         case 3:
@@ -54,6 +59,27 @@ function steps(step){
             $('.circle1').css('background-color', '#2b3179');
             $('.circle2').css('background-color', '#2b3179');
             $('.circle3').css('background-color', '#2b3179');
+            break;
+    }
+}
+
+function select_tipo(tipo){
+    switch(tipo){
+        case 1:
+            tipo = $("#tipo-select_1").val();
+            if(tipo == 2){
+                $("#descuento1").show();
+            }else{
+                $("#descuento1").hide();
+            }
+            break;
+        case 2:
+            tipo = $("#tipo-select_2").val();
+            if(tipo == 2){
+                $("#descuento2").show();
+            }else{
+                $("#descuento2").hide();
+            }
             break;
     }
 }

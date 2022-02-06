@@ -218,11 +218,17 @@
 
                 <div class="input" id="tipo">
                   <i class="fas fa-list-ul" id="icon"></i>
-                  <select name="" id="tipo-select_1">
+                  <select name="" id="tipo-select_1" onchange="select_tipo(1)">
                     <option value="0" selected disabled hidden>Seleccione un Tipo</option>
                     <option value="1" >Agendar</option>
                     <option value="2" >Oportunidad</option>
                   </select>
+                </div>
+
+                <div class="input" id="descuento1">
+                  <i class="fas fa-tags" id="icon"></i>
+                  <input type="number" id="desc_oport1" placeholder="Descuento de la Oportunidad" />
+                  <p id="end-text">%</p>
                 </div>
 
                 <div class="input" id="origen">
@@ -265,11 +271,17 @@
 
                 <div class="input" id="tipo">
                   <i class="fas fa-list-ul" id="icon"></i>
-                  <select name="" id="tipo-select_2">
+                  <select name="" id="tipo-select_2" onchange="select_tipo(2)">
                     <option value="0" selected disabled hidden>Seleccione un Tipo</option>
                     <option value="1" >Agendar</option>
                     <option value="2" >Oportunidad</option>
                   </select>
+                </div>
+
+                <div class="input" id="descuento2">
+                  <i class="fas fa-tags" id="icon"></i>
+                  <input type="number" id="desc_oport2" placeholder="Descuento de la Oportunidad" />
+                  <p id="end-text">%</p>
                 </div>
 
                 <div class="input" id="origen">

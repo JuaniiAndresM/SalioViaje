@@ -211,11 +211,11 @@
           color: #888;
         }
 
-        input#distancia {
+        input#distancia-input, input#desc_oport1, input#desc_oport2 {
           padding-right: 30px;
           text-align: right;
         }
-        input#distancia::placeholder {
+        input#distancia-input::placeholder, input#desc_oport1::placeholder, input#desc_oport2::placeholder {
           text-align: left;
         }
 
