@@ -415,20 +415,16 @@ $main_3: #6d76db;
   
             background-color: $main_1;
             padding: 13px 15px;
-            margin: 0 5px;
+            margin: 10px 0;
   
             color: white;
             text-decoration: none;
-            border-radius: 3em 0 3em 3em;
+            border-radius: 50%;
   
             transition: 0.2s;
           }
           a:hover {
             background-color: $main_2;
-          }
-          .add{
-            border-radius: 50%;
-            margin: 10px 0;
           }
         }
         

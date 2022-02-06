@@ -4,19 +4,23 @@
 
   $tipo = 0;
 
-  switch($_SESSION['tipo_usuario']){
-    case "Administrador":
-      $tipo = 1;
-      break;
-
-    case "Transportista": case "Chofer":
-      $tipo = 2;
-      break;
-    
-    default:
-      $tipo = 0;
-      break;
+  if(isset($_SESSION['usuario'])){
+    switch($_SESSION['tipo_usuario']){
+      case "Administrador":
+        $tipo = 1;
+        break;
+  
+      case "Transportista": case "Chofer":
+        $tipo = 2;
+        break;
+      
+      default:
+        $tipo = 0;
+        break;
+    }
   }
+
+  
 
   ?>
   

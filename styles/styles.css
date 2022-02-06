@@ -875,6 +875,7 @@ header .header-wrapper .header-right .header-links .session .user {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  cursor: pointer;
   background-color: transparent;
   border: none;
 }
@@ -4862,10 +4863,10 @@ footer .totum p a:hover {
   cursor: pointer;
   background-color: #3844bc;
   padding: 13px 15px;
-  margin: 0 5px;
+  margin: 10px 0;
   color: white;
   text-decoration: none;
-  border-radius: 3em 0 3em 3em;
+  border-radius: 50%;
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
@@ -4873,12 +4874,6 @@ footer .totum p a:hover {
 .panel .panel-tables .usuarios-recientes .usuarios-info .button-wrapper a:hover,
 .panel .panel-tables .usuarios-propietarios .usuarios-info .button-wrapper a:hover {
   background-color: #2b3179;
-}
-
-.panel .panel-tables .usuarios-recientes .usuarios-info .button-wrapper .add,
-.panel .panel-tables .usuarios-propietarios .usuarios-info .button-wrapper .add {
-  border-radius: 50%;
-  margin: 10px 0;
 }
 
 .panel .panel-tables .usuarios-recientes .search,
