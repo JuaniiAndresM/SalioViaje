@@ -339,7 +339,7 @@ function passwd(tipo){
 
 
 
-  }
+}
   let MATRICULA_VEHICULO_MODIFICADO;
   function formulario_editar_vehiculo(matricula){
     MATRICULA_VEHICULO_MODIFICADO = matricula;

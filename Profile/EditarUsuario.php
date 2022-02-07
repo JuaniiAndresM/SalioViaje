@@ -84,6 +84,7 @@
     <script src="/SalioViaje/Javascript/panel.js"></script>
     <script src="/SalioViaje/Javascript/settings.js"></script>
     <script src="/SalioViaje/Javascript/loader.js"></script>
+    <script src="/SalioViaje/Javascript/profile.js"></script>
   </head>
   <body>
     <div id="pre-loader">
@@ -172,7 +173,7 @@
                 <b><i class="fas fa-phone"></i> Teléfono</b>
                 <input type="number" placeholder="Teléfono" value="098234717">
               </div>
-              
+
             </div>
             <div class="button-wrapper">
                 <button class="button-guardar"><i class="fas fa-save"></i> Guardar Cambios</button>
@@ -201,26 +202,26 @@
                 <i class="fas fa-key" id="icon"></i>
                 <input
                   type="password"
-                  id="password"
+                  id="password2"
                   name="pin"
                   placeholder="Nuevo PIN"
                   maxlength="4"
                   pattern="[0-9]{4}"
                 />
-                <button onclick="passwd(2)" class="password-eye"><i id="passeye" class="fas fa-eye-slash"></i></button>
+                <button onclick="passwd(2)" class="password-eye"><i id="passeye2" class="fas fa-eye-slash"></i></button>
               </div>
 
               <div class="input">
                 <i class="fas fa-key" id="icon"></i>
                 <input
                   type="password"
-                  id="password"
+                  id="re-password"
                   name="pin"
                   placeholder="Confirmar Nuevo PIN"
                   maxlength="4"
                   pattern="[0-9]{4}"
                 />
-                <button onclick="passwd(3)" class="password-eye"><i id="passeye" class="fas fa-eye-slash"></i></button>
+                <button onclick="passwd(3)" class="password-eye"><i id="passeye3" class="fas fa-eye-slash"></i></button>
               </div>
 
 
