@@ -129,28 +129,7 @@
             <div class="user-desc">
               <h2><?php echo $_SESSION['usuario']; ?></h2>
               <p><i class="fas fa-bus"></i> <?php echo $_SESSION['tipo_usuario']; ?></p>
-
-              <?php 
-
-              if($tipo == 2 || $tipo == 3){
-                echo '<p class="calificacion">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half"></i>
-                      </p>';
-              }
-              ?>
               
-            </div>
-          </div>
-          <div class="user-right">
-            <div class="button-wrapper">
-            <?php 
-                echo '<button class="button"><i class="fas fa-edit"></i></button>';
-                echo '<button class="button"><i class="fas fa-star"></i></button>';
-            ?>
             </div>
           </div>
         </div>
@@ -163,101 +142,94 @@
 
               <div class="info">
                 <b><i class="far fa-address-card"></i> C.I</b>
-                
-                <p>5487923-9</p>
+                <input type="number" placeholder="C.I" value="54879239">
+              </div>
+              <div class="info">
+                <b><i class="fas fa-signature"></i> Nombre</b>
+                <input type="text" placeholder="Nombre" value="Juan">
+              </div>
+              <div class="info">
+                <b><i class="fas fa-signature"></i> Apellido</b>
+                <input type="text" placeholder="Apellido" value="Morena">
               </div>
               <div class="info">
                 <b><i class="far fa-envelope"></i> Correo Electrónico</b>
-                <p>thewolfmodzyt@gmail.com</p>
+                <input type="email" placeholder="Correo Electrónico" value="thewolfmodzyt@gmail.com">
               </div>
               <div class="info">
-                <b><i class="fas fa-thumbtack"></i> Dirección</b>
-                <p>Canelones, El Pinar, Rondeau.</p>
+                <b><i class="fas fa-map"></i> Departamento</b>
+                <input type="text" placeholder="Departamento" value="Canelones">
+              </div>
+              <div class="info">
+                <b><i class="fas fa-map-marked-alt"></i> Barrio</b>
+                <input type="text" placeholder="Barrio" value="El Pinar">
+              </div>
+              <div class="info">
+                <b><i class="fas fa-map-marker-alt"></i> Dirección</b>
+                <input type="text" placeholder="BaDirecciónrrio" value="Rondeau">
               </div>
               <div class="info">
                 <b><i class="fas fa-phone"></i> Teléfono</b>
-                <p>098234717</p>
+                <input type="number" placeholder="Teléfono" value="098234717">
               </div>
-              <div class="info">
-                <b><i class="fas fa-bus"></i> Tipo de Usuario</b>
-                <p>TTA</p>
-              </div>
+              
+            </div>
+            <div class="button-wrapper">
+                <button class="button-guardar"><i class="fas fa-save"></i> Guardar Cambios</button>
             </div>
           </div>
 
           <div class="viajes-wrapper">
+            <h3><i class="fas fa-key"></i> Cambiar PIN</h3>
 
-            <?php
+            <div class="password-change">
 
-              if($tipo == 1){
-                echo '<h3><i class="fas fa-history"></i> Historial de Viajes</h3>
-                <div class="search">
-                  <i class="fas fa-search"></i>
-                  <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarusuarios()"/>
-                </div>
-                <div class="table-wrapper">
-                  <table class="table-viajes">
-                    <thead>
-                      <tr>
-                        <th>Origen</th>
-                        <th>Destino</th>
-                        <th>Fecha</th>
-                        <th></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>Montevideo</td>
-                        <td>Canelones</td>
-                        <td>17/02/2022</td>
-                        <td>
-                          <div class="button-wrapper">
-                            <button class="button"><i class="far fa-eye"></i></button>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>P. Del Este</td>
-                        <td>Carrasco</td>
-                        <td>22/03/2022</td>
-                        <td>
-                          <div class="button-wrapper">
-                            <button class="button"><i class="far fa-eye"></i></button>
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>';
-              }else if($tipo == 2 || $tipo == 3){
-                echo '<h3><i class="fas fa-building"></i> Tus Empresas</h3>
-                      <div class="search">
-                            <i class="fas fa-search"></i>
-                            <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarusuarios()"/>
-                      </div>
-                      <div class="empresas">
+              <div class="input">
+                <i class="fas fa-lock" id="icon"></i>
+                <input
+                  type="password"
+                  id="password"
+                  name="pin"
+                  placeholder="PIN Anterior"
+                  maxlength="4"
+                  pattern="[0-9]{4}"
+                />
+                <button onclick="passwd(1)" class="password-eye"><i id="passeye" class="fas fa-eye-slash"></i></button>
+              </div>
 
-                        <div class="empresa">
-                          <div class="empresa-left">
-                            <div class="empresa-icon">
-                              <i class="fas fa-building"></i>
-                            </div>
-                            <div class="empresa-info">
-                              <h3>Nombre de la Empresa</h3>
-                              <p><i class="fas fa-bus"></i> 2 Vehiculos</p>
-                            </div>
-                          </div>
-                          <div class="empresa-button">
-                            <button class="button"><i class="far fa-eye"></i></button>
-                            <button class="button"><i class="fas fa-edit"></i></button>
-                            <button class="button"><i class="fas fa-trash-alt"></i></button>
-                          </div>
-                        </div>
-            
-                      </div>';
-              }
+              <div class="input">
+                <i class="fas fa-key" id="icon"></i>
+                <input
+                  type="password"
+                  id="password"
+                  name="pin"
+                  placeholder="Nuevo PIN"
+                  maxlength="4"
+                  pattern="[0-9]{4}"
+                />
+                <button onclick="passwd(2)" class="password-eye"><i id="passeye" class="fas fa-eye-slash"></i></button>
+              </div>
 
-            ?>
+              <div class="input">
+                <i class="fas fa-key" id="icon"></i>
+                <input
+                  type="password"
+                  id="password"
+                  name="pin"
+                  placeholder="Confirmar Nuevo PIN"
+                  maxlength="4"
+                  pattern="[0-9]{4}"
+                />
+                <button onclick="passwd(3)" class="password-eye"><i id="passeye" class="fas fa-eye-slash"></i></button>
+              </div>
+
+
+              <div class="button-wrapper">
+                <button class="button-pin"><i class="fas fa-save"></i> Cambiar PIN</button>
+              </div>
+              
+
+            </div>
           </div>
         </div>
         <div class="profile_grid2"></div>

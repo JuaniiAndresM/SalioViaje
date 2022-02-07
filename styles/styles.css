@@ -8213,9 +8213,145 @@ footer .totum p a:hover {
   text-align: right;
 }
 
+.profile-wrapper .profile-grid .user-informacion .informacion-wrapper .info input, .profile-wrapper .profile-grid .viajes-wrapper .informacion-wrapper .info input {
+  max-width: 300px;
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  text-align: right;
+  outline: none;
+  height: 40px;
+  font-size: 1em;
+  margin-left: 10px;
+  color: #555;
+}
+
+.profile-wrapper .profile-grid .user-informacion .button-wrapper, .profile-wrapper .profile-grid .viajes-wrapper .button-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.profile-wrapper .profile-grid .user-informacion .button-wrapper .button-guardar, .profile-wrapper .profile-grid .viajes-wrapper .button-wrapper .button-guardar {
+  background: -webkit-gradient(linear, left top, right top, from(#3844bc), to(#2b3179));
+  background: linear-gradient(to right, #3844bc, #2b3179);
+  color: #ffffff;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 2em;
+  margin-top: 10px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+  margin: 10px auto;
+}
+
+.profile-wrapper .profile-grid .user-informacion .button-wrapper .button-guardar i, .profile-wrapper .profile-grid .viajes-wrapper .button-wrapper .button-guardar i {
+  margin-right: 5px;
+}
+
 .profile-wrapper .profile-grid .viajes-wrapper {
   width: 100%;
   padding: 0 10px;
+}
+
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .input {
+  position: relative;
+  width: calc(100% - 60px);
+  margin: 30px auto;
+}
+
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .input input,
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .input select {
+  width: 100%;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #aaa;
+  outline: none;
+  padding-left: 25px;
+  color: #555;
+  font-size: 0.85em;
+}
+
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .input input::-webkit-input-placeholder,
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .input select::-webkit-input-placeholder {
+  color: #888;
+}
+
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .input input:-ms-input-placeholder,
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .input select:-ms-input-placeholder {
+  color: #888;
+}
+
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .input input::-ms-input-placeholder,
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .input select::-ms-input-placeholder {
+  color: #888;
+}
+
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .input input::placeholder,
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .input select::placeholder {
+  color: #888;
+}
+
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .input #icon {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  color: #555;
+}
+
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .input .password-eye {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 12px;
+  right: 0;
+  color: #555;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .input .password-eye:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .button-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .button-wrapper .button-pin {
+  background: -webkit-gradient(linear, left top, right top, from(#3844bc), to(#2b3179));
+  background: linear-gradient(to right, #3844bc, #2b3179);
+  color: #ffffff;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 2em;
+  margin-top: 10px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+  margin: 10px auto;
+}
+
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .button-wrapper .button-pin i {
+  margin-right: 5px;
 }
 
 .profile-wrapper .profile-grid .viajes-wrapper .table-wrapper {
@@ -8452,7 +8588,7 @@ footer .totum p a:hover {
   .profile-wrapper .user-info .user-right {
     margin: 10px 0;
   }
-  .profile-wrapper .profile-grid .user-informacion .informacion-wrapper .info p, .profile-wrapper .profile-grid .user-informacion .informacion-wrapper .info b {
+  .profile-wrapper .profile-grid .user-informacion .informacion-wrapper .info p, .profile-wrapper .profile-grid .user-informacion .informacion-wrapper .info b, .profile-wrapper .profile-grid .user-informacion .informacion-wrapper .info input {
     font-size: .8em;
   }
 }

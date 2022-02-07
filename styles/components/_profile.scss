@@ -138,13 +138,92 @@
                         overflow-wrap: break-word;
                         text-align: right;
                     }
+
+                    input{
+                        max-width: 300px;
+                        width: 100%;
+
+                        border: none;
+                        background-color: transparent;
+                        text-align: right;
+                        outline: none;
+                        height: 40px;
+                        font-size: 1em;
+                        margin-left: 10px;
+
+                        color: #555;
+                    }
                 }
-            }        
+            }    
+            .button-wrapper{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .button-guardar{
+                    @include button();
+                    margin: 10px auto;
+                }
+            }    
         }
 
         .viajes-wrapper{
             width: 100%;
             padding: 0 10px;
+
+            .password-change{
+                .input {
+                    position: relative;
+                    width: calc(100% - 60px);
+                    margin: 30px auto;
+          
+                    input,
+                    select {
+                      width: 100%;
+                      height: 40px;
+                      background-color: transparent;
+                      border: none;
+                      border-bottom: 1px solid #aaa;
+                      outline: none;
+                      padding-left: 25px;
+                      color: #555;
+                      font-size: 0.85em;
+                    }
+                    input::placeholder,
+                    select::placeholder {
+                      color: #888;
+                    }
+          
+                    #icon {
+                      position: absolute;
+                      top: 10px;
+                      left: 0;
+                      color: #555;
+                    }
+                    .password-eye {
+                      background-color: transparent;
+                      border: none;
+                      position: absolute;
+                      top: 12px;
+                      right: 0;
+                      color: #555;
+                      cursor: pointer;
+                      transition: 0.3s;
+                    }
+                    .password-eye:hover {
+                      transform: scale(1.2);
+                    }
+                }
+                .button-wrapper{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    .button-pin{
+                        @include button();
+                        margin: 10px auto;
+                    }
+                }
+                
+            }
             .table-wrapper{
                 width: 100%;
                 overflow: hidden;
@@ -354,7 +433,7 @@
             .user-informacion{
                 .informacion-wrapper{
                     .info{
-                        p, b{
+                        p, b, input{
                             font-size: .8em;
                         }
                     }
