@@ -5,6 +5,8 @@
   if(!isset($_SESSION['usuario'])){
     header('Location: /SalioViaje/Login');
   }else{
+
+    $usuario_perfil = $_GET['Usuario'];
     $tipo = 0;
 
     if(isset($_SESSION['tipo_usuario'])){
@@ -31,7 +33,7 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <title>SalióViaje | <?php echo $_SESSION['usuario']; ?></title>
+    <title>SalióViaje | <?php echo $usuario_perfil; ?></title>
 
     <!-- // Meta Etiquetas -->
 
@@ -119,7 +121,7 @@
           <button onclick="navbar()"><i class="fas fa-bars"></i></button>
         </div>
         <div class="header-title">
-          <h2><?php echo $_SESSION['usuario']; ?></h2>
+          <h2><?php echo $usuario_perfil; ?></h2>
         </div>
       </div>
       <div class="header-right">
@@ -145,7 +147,7 @@
               <img src="/SalioViaje/media/svg/Logo-SalioViaje.svg" alt="Logo SalióViaje">
             </div>
             <div class="user-desc">
-              <h2><?php echo $_SESSION['usuario']; ?></h2>
+              <h2><?php echo $usuario_perfil; ?></h2>
               <p><i class="fas fa-bus"></i> <?php echo $_SESSION['tipo_usuario']; ?></p>
 
               <?php 
