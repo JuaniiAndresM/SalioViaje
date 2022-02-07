@@ -34,13 +34,18 @@
         <span class="title">SalióViaje</span>
       </a>
     </li>
-    <li>
-      <a href="/SalioViaje/Dashboard">
-        <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
-        <span class="title">Dashboard</span>
-      </a>
-    </li>
     <?php 
+
+    if($tipo != 0){
+      echo '<li>
+              <a href="/SalioViaje/Dashboard">
+                <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
+                <span class="title">Dashboard</span>
+              </a>
+            </li>';
+    }
+    
+    
     if($tipo == 1){
       echo '  <li>
                 <a href="/SalioViaje/Usuarios">

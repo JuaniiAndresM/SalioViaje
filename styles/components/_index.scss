@@ -98,8 +98,6 @@ $contraste_2: #ffffff;
       align-items: center;
 
       .landing-img-wrapper {
-        max-width: 900px;
-        width: 100%;
 
         height: 600px;
 
@@ -111,7 +109,7 @@ $contraste_2: #ffffff;
           width: 100%;
           height: 100%;
           object-fit: cover;
-          object-position: 0 -240px;
+          object-position: right;
         }
       }
     }
@@ -547,7 +545,7 @@ $contraste_2: #ffffff;
       .landing-right{
         .landing-img-wrapper {
           img{
-            object-position: 0;
+            object-position: right;
           }
         }
       }
@@ -590,6 +588,13 @@ $contraste_2: #ffffff;
           max-width: 400px;
           width: calc(100% - 20px);
           height: 300px;
+
+          img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: right;
+          }
         }
       }
     }
