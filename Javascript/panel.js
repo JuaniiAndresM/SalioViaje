@@ -155,7 +155,7 @@ function tabla_usuarios_dashboard(usuario){
     }
 
     let td = document.createElement("td");
-    td.innerHTML += '<button id="'+ID_USUARIO+'">Ver</button>'
+    td.innerHTML += '<div class="button-wrapper"><button id="'+ID_USUARIO+'" class="button"><i class="far fa-eye"></i></button><button id="'+ID_USUARIO+'" class="button"><i class="fas fa-edit"></i></button><button id="'+ID_USUARIO+'" class="button"><i class="fas fa-trash-alt"></i></button></div>'
     row.appendChild(td);
     //
     //agrego la fila a la tabla
@@ -194,7 +194,7 @@ function tabla_seccion_usuarios(usuario){
     }
 
     let td = document.createElement("td");
-    td.innerHTML += '<button id="'+ID_USUARIO+'">Ver</button>'
+    td.innerHTML += '<div class="button-wrapper"><button id="'+ID_USUARIO+'" class="button"><i class="far fa-eye"></i></button><button id="'+ID_USUARIO+'" class="button"><i class="fas fa-edit"></i></button><button id="'+ID_USUARIO+'" class="button"><i class="fas fa-trash-alt"></i></button></div>'
     row.appendChild(td);
     //
     //agrego la fila a la tabla

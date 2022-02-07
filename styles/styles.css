@@ -4951,12 +4951,8 @@ footer .totum p a:hover {
   margin-right: 10px;
 }
 
-.panel .panel-tables .usuarios-recientes .usuarios-table tr td .button-wrapper .button,
-.panel .panel-tables .usuarios-propietarios .usuarios-table tr td .button-wrapper .button {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background-color: #3844bc;
+.panel .panel-tables .usuarios-recientes .usuarios-table tr td .button-wrapper,
+.panel .panel-tables .usuarios-propietarios .usuarios-table tr td .button-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4968,10 +4964,23 @@ footer .totum p a:hover {
           align-items: center;
 }
 
-.panel .panel-tables .usuarios-recientes .usuarios-table tr td .button-wrapper .button i,
-.panel .panel-tables .usuarios-propietarios .usuarios-table tr td .button-wrapper .button i {
-  color: #ffffff;
-  font-size: 1em;
+.panel .panel-tables .usuarios-recientes .usuarios-table tr td .button-wrapper button,
+.panel .panel-tables .usuarios-propietarios .usuarios-table tr td .button-wrapper button {
+  background-color: #3844bc;
+  width: 40px;
+  height: 40px;
+  border: none;
+  color: white;
+  margin: 2px;
+  cursor: pointer;
+  border-radius: 50%;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.panel .panel-tables .usuarios-recientes .usuarios-table tr td .button-wrapper button:hover,
+.panel .panel-tables .usuarios-propietarios .usuarios-table tr td .button-wrapper button:hover {
+  background-color: #2b3179;
 }
 
 .panel .panel-tables .usuarios-recientes .usuarios-table tr:hover,
@@ -5059,11 +5068,12 @@ footer .totum p a:hover {
 .panel .panel-tables .usuarios-propietarios .propietarios .propietario .propietario-button button {
   background-color: #3844bc;
   border: none;
-  width: 60px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
+  border: none;
   color: white;
-  border-radius: 2em 2em 2em 0;
+  border-radius: 50%;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
@@ -5696,19 +5706,32 @@ footer .totum p a:hover {
   margin-right: 10px;
 }
 
-.section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td button {
+.section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td .button-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td .button-wrapper button {
   background-color: #3844bc;
-  width: 60px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   border: none;
   color: white;
+  margin: 2px;
   cursor: pointer;
-  border-radius: 2em 2em 2em 0;
+  border-radius: 50%;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
-.section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td button:hover {
+.section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td .button-wrapper button:hover {
   background-color: #2b3179;
 }
 

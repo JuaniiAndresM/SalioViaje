@@ -16,7 +16,9 @@ $NUEVA_EMPRESA_DASHBOARD = '
                     </div>
                   </div>
                   <div class="propietario-button">
-                    <button id="'.$ID_EMPRESA.'">Ver</button>
+                    <button id="'.$ID_EMPRESA.'" class="button"><i class="far fa-eye"></i></button>
+                    <button id="'.$ID_EMPRESA.'" class="button"><i class="fas fa-edit"></i></button>
+                    <button id="'.$ID_EMPRESA.'" class="button"><i class="fas fa-trash-alt"></i></button>
                   </div>
                 </div>
 
