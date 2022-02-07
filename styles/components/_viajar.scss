@@ -285,7 +285,75 @@
     }
   }
 }
+@media screen and(max-width: 1146px) {
+  .viajar-wrapper{
+    .oportunidades-viajar{
+      .oportunidades-wrapper{
+        .oportunidades-list{
+          .oportunidad{
+            .oportunidad-left{
+              .travel:nth-child(4){
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    } 
+  }
+  
+}
 
+@media screen and(max-width: 952px) {
+  .viajar-wrapper{
+    .oportunidades-viajar{
+      .oportunidades-wrapper{
+        .oportunidades-list{
+          .oportunidad{
+            .oportunidad-left{
+              .travel:nth-child(3){
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    } 
+  }
+  
+}
+
+@media screen and(max-width: 829px) {
+  .viajar-wrapper{
+    .oportunidades-viajar{
+      .oportunidades-wrapper{
+        .oportunidades-list{
+          .oportunidad{
+            flex-direction: column;
+            .oportunidad-left{
+              flex-direction: column;
+              .travel:nth-child(3){
+                display: none;
+              }
+            }
+            .oportunidad-right{
+              flex-direction: column;
+              margin: 10px 0;
+  
+              .button-wrapper{
+                margin: 10px 0;
+                flex-wrap: wrap;
+                button{
+                  margin: 5px 25px;
+                }
+              }
+            }
+          }
+        }
+      }
+    } 
+  }  
+}
 
 @media screen and(max-width: 520px) {
   .viajar-wrapper{

@@ -6984,6 +6984,51 @@ footer .totum p a:hover {
   max-height: 500px;
 }
 
+@media screen and (max-width: 1146px) {
+  .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel:nth-child(4) {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 952px) {
+  .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel:nth-child(3) {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 829px) {
+  .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .oportunidad {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel:nth-child(3) {
+    display: none;
+  }
+  .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin: 10px 0;
+  }
+  .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper {
+    margin: 10px 0;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper button {
+    margin: 5px 25px;
+  }
+}
+
 @media screen and (max-width: 520px) {
   .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje {
     -ms-grid-columns: 1fr;
