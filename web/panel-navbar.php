@@ -72,8 +72,14 @@
     }elseif($tipo == 2){
       echo '  <li>
                 <a href="Agendar">
-                  <span class="icon"><i class="fas fa-book"></i></span>
+                  <span class="icon"><i class="fas fa-plus"></i></span>
                   <span class="title">Agendar Viaje</span>
+                </a>
+              </li>
+              <li>
+                <a href="Viajes">
+                  <span class="icon"><i class="fas fa-book"></i></span>
+                  <span class="title">Agenda</span>
                 </a>
               </li>';
     }

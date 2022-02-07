@@ -105,7 +105,7 @@
           <button onclick="navbar()"><i class="fas fa-bars"></i></button>
         </div>
         <div class="header-title">
-          <h2>Empresas</h2>
+          <h2>Agendar Viaje</h2>
         </div>
       </div>
       <div class="header-right">

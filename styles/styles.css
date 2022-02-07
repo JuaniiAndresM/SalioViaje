@@ -4951,22 +4951,27 @@ footer .totum p a:hover {
   margin-right: 10px;
 }
 
-.panel .panel-tables .usuarios-recientes .usuarios-table tr td button,
-.panel .panel-tables .usuarios-propietarios .usuarios-table tr td button {
-  background-color: #3844bc;
-  width: 60px;
+.panel .panel-tables .usuarios-recientes .usuarios-table tr td .button-wrapper .button,
+.panel .panel-tables .usuarios-propietarios .usuarios-table tr td .button-wrapper .button {
+  width: 30px;
   height: 30px;
-  border: none;
-  color: white;
-  cursor: pointer;
-  border-radius: 2em 2em 2em 0;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
+  border-radius: 50%;
+  background-color: #3844bc;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.panel .panel-tables .usuarios-recientes .usuarios-table tr td button:hover,
-.panel .panel-tables .usuarios-propietarios .usuarios-table tr td button:hover {
-  background-color: #2b3179;
+.panel .panel-tables .usuarios-recientes .usuarios-table tr td .button-wrapper .button i,
+.panel .panel-tables .usuarios-propietarios .usuarios-table tr td .button-wrapper .button i {
+  color: #ffffff;
+  font-size: 1em;
 }
 
 .panel .panel-tables .usuarios-recientes .usuarios-table tr:hover,

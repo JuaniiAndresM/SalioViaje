@@ -25,6 +25,7 @@ RewriteRule ^Empresas /SalioViaje/Panel/Empresas.php
 RewriteRule ^Vehiculos /SalioViaje/Panel/Vehiculos.php
 RewriteRule ^Settings /SalioViaje/Panel/Settings.php
 RewriteRule ^Agendar /SalioViaje/Panel/Agendar.php
+RewriteRule ^Viajes /SalioViaje/Panel/Agenda.php
 
 RewriteRule ^Success /SalioViaje/Form/Success.html
 RewriteRule ^Failed /SalioViaje/Form/Failed.html
