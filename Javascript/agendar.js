@@ -156,7 +156,7 @@ function rutas(){
 
     $.ajax({
         type: "POST",
-        url: "/SalioViaje/PHP/agregarTag.php",
+        url: "https://www.salioviaje.com.uy/PHP/agregarTag.php",
         data: {NRO_RUTA: count_rutas, NOMBRE_RUTA: ruta},
         success: function (response) {
             $("#tags_1").append(response);

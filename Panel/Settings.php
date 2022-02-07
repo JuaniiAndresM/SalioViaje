@@ -7,7 +7,7 @@
 
   }else{
     if($_SESSION['tipo_usuario'] == "Pasajero"){
-      header('Location: /SalioViaje/');
+      header('Location: https://www.salioviaje.com.uy/');
     }
   }
 

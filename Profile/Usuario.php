@@ -3,7 +3,7 @@
   session_start(); 
 
   if(!isset($_SESSION['usuario'])){
-    header('Location: /SalioViaje/Login');
+    header('Location: https://www.salioviaje.com.uy/Login');
   }else{
     $tipo = 0;
 
@@ -87,10 +87,10 @@
     <!-- Links -->
     <link
       rel="shortcut icon"
-      href="/SalioViaje/media/svg/Favicon-SalioViaje.svg"
+      href="https://www.salioviaje.com.uy/media/svg/Favicon-SalioViaje.svg"
       type="image/x-icon"
     />
-    <link rel="stylesheet" href="/SalioViaje/styles/styles.css" />
+    <link rel="stylesheet" href="https://www.salioviaje.com.uy/styles/styles.css" />
 
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -99,9 +99,9 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="/SalioViaje/Javascript/panel.js"></script>
-    <script src="/SalioViaje/Javascript/settings.js"></script>
-    <script src="/SalioViaje/Javascript/loader.js"></script>
+    <script src="https://www.salioviaje.com.uy/Javascript/panel.js"></script>
+    <script src="https://www.salioviaje.com.uy/Javascript/settings.js"></script>
+    <script src="https://www.salioviaje.com.uy/Javascript/loader.js"></script>
   </head>
   <body>
     <div id="pre-loader">
@@ -124,7 +124,7 @@
       </div>
       <div class="header-right">
         <div class="header-user">
-          <div class="icon"><img src="/SalioViaje/media/svg/Logo-SalioViaje-White.svg" alt="Logo SalióViaje"></div>
+          <div class="icon"><img src="https://www.salioviaje.com.uy/media/svg/Logo-SalioViaje-White.svg" alt="Logo SalióViaje"></div>
           <div class="user">
           <h2><?php echo $_SESSION['usuario']; ?></h2> 
           <p><i class="fas fa-user-tie"></i> <?php echo $_SESSION['tipo_usuario'] ?></p>
@@ -142,7 +142,7 @@
         <div class="user-info">
           <div class="user-left">
             <div class="user-icon">
-              <img src="/SalioViaje/media/svg/Logo-SalioViaje.svg" alt="Logo SalióViaje">
+              <img src="https://www.salioviaje.com.uy/media/svg/Logo-SalioViaje.svg" alt="Logo SalióViaje">
             </div>
             <div class="user-desc">
               <h2><?php echo $_SESSION['usuario']; ?></h2>
