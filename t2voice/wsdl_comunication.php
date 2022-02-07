@@ -6,6 +6,7 @@ $user = 'salioviaje';//usuario notifyMe
 $password = 'salio2021';//contra notifyMe
 
 //indico la ruta de ubicacion del WSDL
+//$objClienteSOAPCALL = new Soapclient('https://notifyme.t2voice.com/ws/NotifymeWSBean?wsdl');//xmls de llamada
 $objClienteSOAPCALL = new Soapclient('https://notifyme.t2voice.com/ws/NotifymeWSBean?wsdl');//xmls de llamada
 $objClienteSOAPMSJ = new Soapclient('http://notifyme.t2voice.com/ws/NotifymeSmsWsBean?wsdl');//xmls de SMS
 
@@ -24,12 +25,14 @@ class notifyMeActions {
                             "identificadorUnico"=>$id,//identificador de la llamada
                             "telefono"=>$tel,//telefono del cliente
                             "variable"=>array(
-                                "nombre"=>"nombre",//nombre variable
-                                "valor"=>$name//nombre del cliente
-                            ),
-                            "variable"=>array(
-                                "nombre"=>"texto",//nombre variable
-                                "valor"=>$msj//mensaje que se le desea mandar al cliente
+                                array(
+                                    "nombre"=>"nombre",//nombre variable
+                                    "valor"=>$name//nombre del cliente
+                                ),
+                                array(
+                                    "nombre"=>"texto",//nombre variable
+                                    "valor"=>$msj//nombre del cliente
+                                )
                             )
                         )
                     );

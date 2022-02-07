@@ -82,6 +82,7 @@ public function login($usuario, $pin){
         $stmt->store_result();
         $stmt->bind_result($id,$pin_bd,$passwd,$nombre,$apellido,$tipo_usuario);
         while ($stmt->fetch()) {
+            echo $passwd;
             if(password_verify($pin, $pin_bd) || password_verify($pin, $passwd)){
                 $usuario = $nombre." ".$apellido;
                 session_start();

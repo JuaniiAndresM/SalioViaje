@@ -6,8 +6,8 @@
     header('Location: https://www.salioviaje.com.uy/Login');
 
   }else{
-    if($_SESSION['tipo_usuario'] != "Administrador"){
-      header('Location: https://www.salioviaje.com.uy/');
+    if($_SESSION['tipo_usuario'] == "Pasajero"){
+      header('Location: /SalioViaje/');
     }
   }
 

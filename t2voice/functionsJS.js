@@ -4,7 +4,7 @@ $(document).ready(function () {
     //cuando apreta el boton manda la info
     $("#send_call").on('click', function() {
 
-        send.realizarLlamada("tpc_texto_a_voz","2022-02-05T15:00:00+03:00","602","098208189","Sol","Estoy probando");
+        send.realizarLlamada("tpc_texto_a_voz","2022-02-05T15:00:00+03:00","3","092614110","Daniel","Prueba 1 SalióViaje.");
 
     });
     $("#watch_call").on('click', function() {
@@ -14,7 +14,7 @@ $(document).ready(function () {
     });
     $("#send_SMS").on('click', function() {
 
-        send.enviarSMS("098208189","2022-02-04T15:00:00+03:00","Estoy probando","544");
+        send.enviarSMS("092614110","2022-02-04T15:00:00+03:00","Estoy probando","777");
         
     });
     $("#response_SMS").on('click', function() {

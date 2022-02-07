@@ -345,6 +345,7 @@ function passwd(tipo){
     MATRICULA_VEHICULO_MODIFICADO = matricula;
     for (var i = 0; i < vehiculos.length; i++) {
       if(vehiculos[i]['MATRICULA'] == matricula){
+        $(".eliminar_vehiculo").attr('disabled','disabled');
         $('#matricula').val(vehiculos[i]['MATRICULA'])
         $('#marca').val(vehiculos[i]['MARCA'])
         $('#modelo').val(vehiculos[i]['MODELO'])
@@ -692,6 +693,7 @@ function editar_vehiculo(){
             $('.vehiculos').append(response);
             $('#add-vehicle2').show();
             $('#guardar-cambios').hide();
+            $(".eliminar_vehiculo").removeAttr('disabled','disabled');
             reset_vehicle_inputs();
           },
       });
@@ -717,13 +719,14 @@ function login(ADMIN){
 
   let usuario = document.getElementById('usuario').value;
   let pin = document.getElementById('passwd').value;
-
-  if (usuario.length >= 8) {
+  let pattern = /^[0-9]$/i
+  if (!pattern.test(usuario) || usuario.length >= 8) {
     $.ajax({
       type: "POST",
       url: "/PHP/procedimientosForm.php",
       data: {tipo:"login", usuario:usuario, pin:pin},
       success: function (response) {
+        console.log(response)
         if (response != '') {
           $("#mensaje-error").text("");
           window.location = "https://www.salioviaje.com.uy/Dashboard";

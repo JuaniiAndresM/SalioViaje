@@ -1,6 +1,7 @@
 <?php 
 
   session_start(); 
+
   $tipo = 0;
 
   if(!isset($_SESSION['usuario'])){
@@ -192,7 +193,7 @@
                         <div class="usuarios-info">
                           <h2><i class="fas fa-user-friends"></i> Usuarios Registrados</h2>
                           <div class="button-wrapper">
-                            <a href="Usuarios.html">Ver Todas <i class="fas fa-arrow-right"></i></a>
+                            <a href="Usuarios.html"><i class="fas fa-list-ul"></i></a>
                           </div>
                         </div>
                         <div class="search">
@@ -231,7 +232,7 @@
                         <div class="usuarios-info">
                           <h2><i class="fas fa-building"></i> Empresas Registradas</h2>
                           <div class="button-wrapper">
-                            <a href="Empresas.html">Ver Todos <i class="fas fa-arrow-right"></i></a>
+                            <a href="Empresas.html"><i class="fas fa-list-ul"></i></a>
                           </div>
                         </div>
                         <div class="search">
@@ -248,7 +249,7 @@
         }elseif($tipo == 2){
           echo '  <section class="panel" id="panel">
                     <div class="panel-cards">
-                        <a href="#" class="card" id="plus">
+                        <a href="Agendar" class="card" id="plus">
                           <div class="number">
                             <i class="fas fa-plus"></i>
                           </div>
@@ -282,7 +283,7 @@
                             <h2><i class="fas fa-bus"></i> Tus Viajes</h2>
                             <div class="button-wrapper">
                               <a href="Agendar" class="add"><i class="fas fa-plus"></i></a>
-                              <a href="Viajes.html">Ver Todas <i class="fas fa-arrow-right"></i></a>
+                              <a href="Viajes.html"><i class="fas fa-list-ul"></i></a>
                             </div>
                           </div>
                           <div class="search">
@@ -310,7 +311,7 @@
                             <h2><i class="fas fa-building"></i> Tus Empresas</h2>
                             <div class="button-wrapper">
                               <a href="Empresas.html" class="add"><i class="fas fa-plus"></i></a>
-                              <a href="Empresas.html">Ver Todos <i class="fas fa-arrow-right"></i></a>
+                              <a href="Empresas.html"><i class="fas fa-list-ul"></i></a>
                             </div>
                           </div>
                           <div class="search">

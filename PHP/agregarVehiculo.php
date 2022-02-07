@@ -16,8 +16,8 @@ if ($capacidad == "3" || $capacidad < "3") {
                 <p><i class="fas fa-users"></i>'.$capacidad.'</p>
               </div>
               <div class="edit-button">
-                <button onclick="formulario_editar_vehiculo(`'.$matricula.'`)"><i class="fas fa-pencil-alt"></i></button>
-                <button onclick="eliminar_vehiculo(`'.$matricula.'`)"><i class="fas fa-trash-alt"></i></button>
+                <button class="editar_vehiculo" onclick="formulario_editar_vehiculo(`'.$matricula.'`)"><i class="fas fa-pencil-alt"></i></button>
+                <button class="eliminar_vehiculo" onclick="eliminar_vehiculo(`'.$matricula.'`)"><i class="fas fa-trash-alt"></i></button>
               </div>
             </div>
 
@@ -35,8 +35,8 @@ echo $vehiculo;
                 <p><i class="fas fa-users"></i>'.$capacidad.'</p>
               </div>
               <div class="edit-button">
-                <button onclick="formulario_editar_vehiculo(`'.$matricula.'`)"><i class="fas fa-pencil-alt"></i></button>
-                <button onclick="eliminar_vehiculo(`'.$matricula.'`)"><i class="fas fa-trash-alt"></i></button>
+                <button class="editar_vehiculo" onclick="formulario_editar_vehiculo(`'.$matricula.'`)"><i class="fas fa-pencil-alt"></i></button>
+                <button class="eliminar_vehiculo" onclick="eliminar_vehiculo(`'.$matricula.'`)"><i class="fas fa-trash-alt"></i></button>
               </div>
             </div>
 
@@ -54,8 +54,8 @@ echo $vehiculo;
                 <p><i class="fas fa-users"></i>'.$capacidad.'</p>
               </div>
               <div class="edit-button">
-                <button onclick="formulario_editar_vehiculo(`'.$matricula.'`)"><i class="fas fa-pencil-alt"></i></button>
-                <button onclick="eliminar_vehiculo(`'.$matricula.'`)"><i class="fas fa-trash-alt"></i></button>
+                <button class="editar_vehiculo" onclick="formulario_editar_vehiculo(`'.$matricula.'`)"><i class="fas fa-pencil-alt"></i></button>
+                <button class="eliminar_vehiculo" onclick="eliminar_vehiculo(`'.$matricula.'`)"><i class="fas fa-trash-alt"></i></button>
               </div>
             </div>
 
