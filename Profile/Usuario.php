@@ -209,7 +209,10 @@
 
               if($tipo == 1){
                 echo '<h3><i class="fas fa-history"></i> Historial de Viajes</h3>
-
+                <div class="search">
+                  <i class="fas fa-search"></i>
+                  <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarusuarios()"/>
+                </div>
                 <div class="table-wrapper">
                   <table class="table-viajes">
                     <thead>
