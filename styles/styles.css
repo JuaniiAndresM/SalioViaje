@@ -8155,6 +8155,7 @@ footer .totum p a:hover {
   -webkit-box-shadow: 10px 0 20px 0 rgba(0, 0, 0, 0.3);
           box-shadow: 10px 0 20px 0 rgba(0, 0, 0, 0.3);
   border-radius: 1em;
+  overflow: hidden;
 }
 
 .profile-wrapper .profile-grid .user-informacion h3, .profile-wrapper .profile-grid .viajes-wrapper h3 {
@@ -8183,6 +8184,7 @@ footer .totum p a:hover {
           align-items: center;
   padding: 10px 0;
   border-bottom: 1px solid #ccc;
+  position: relative;
   margin: 10px 0;
 }
 
@@ -8213,7 +8215,7 @@ footer .totum p a:hover {
   text-align: right;
 }
 
-.profile-wrapper .profile-grid .user-informacion .informacion-wrapper .info input, .profile-wrapper .profile-grid .viajes-wrapper .informacion-wrapper .info input {
+.profile-wrapper .profile-grid .user-informacion .informacion-wrapper .info input, .profile-wrapper .profile-grid .user-informacion .informacion-wrapper .info select, .profile-wrapper .profile-grid .viajes-wrapper .informacion-wrapper .info input, .profile-wrapper .profile-grid .viajes-wrapper .informacion-wrapper .info select {
   max-width: 300px;
   width: 100%;
   border: none;
@@ -8224,6 +8226,27 @@ footer .totum p a:hover {
   font-size: 1em;
   margin-left: 10px;
   color: #555;
+}
+
+.profile-wrapper .profile-grid .user-informacion .informacion-wrapper .info input#password, .profile-wrapper .profile-grid .viajes-wrapper .informacion-wrapper .info input#password {
+  padding-right: 25px;
+}
+
+.profile-wrapper .profile-grid .user-informacion .informacion-wrapper .info .password-eye, .profile-wrapper .profile-grid .viajes-wrapper .informacion-wrapper .info .password-eye {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 22px;
+  right: 0;
+  color: #555;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.profile-wrapper .profile-grid .user-informacion .informacion-wrapper .info .password-eye:hover, .profile-wrapper .profile-grid .viajes-wrapper .informacion-wrapper .info .password-eye:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 
 .profile-wrapper .profile-grid .user-informacion .button-wrapper, .profile-wrapper .profile-grid .viajes-wrapper .button-wrapper {
@@ -8249,11 +8272,99 @@ footer .totum p a:hover {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   cursor: pointer;
-  margin: 10px auto;
+  margin: 10px;
 }
 
 .profile-wrapper .profile-grid .user-informacion .button-wrapper .button-guardar i, .profile-wrapper .profile-grid .viajes-wrapper .button-wrapper .button-guardar i {
   margin-right: 5px;
+}
+
+.profile-wrapper .profile-grid .user-informacion .search, .profile-wrapper .profile-grid .viajes-wrapper .search {
+  position: relative;
+  margin-left: 10px;
+}
+
+.profile-wrapper .profile-grid .user-informacion .search i, .profile-wrapper .profile-grid .viajes-wrapper .search i {
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  color: #2b3179;
+}
+
+.profile-wrapper .profile-grid .user-informacion .search input, .profile-wrapper .profile-grid .viajes-wrapper .search input {
+  max-width: 200px;
+  width: 100%;
+  height: 30px;
+  border: none;
+  outline: none;
+  padding: 10px;
+  padding-left: 30px;
+  color: #2b3179;
+  border-radius: 10px;
+}
+
+.profile-wrapper .profile-grid .user-informacion .search input:focus, .profile-wrapper .profile-grid .viajes-wrapper .search input:focus {
+  outline: 1px solid rgba(43, 49, 121, 0.3);
+}
+
+.profile-wrapper .profile-grid .user-informacion .table-overflow, .profile-wrapper .profile-grid .viajes-wrapper .table-overflow {
+  width: 100%;
+  overflow: hidden;
+  overflow-x: auto;
+  padding: 10px;
+}
+
+.profile-wrapper .profile-grid .user-informacion .table-overflow .vehiculos-table, .profile-wrapper .profile-grid .viajes-wrapper .table-overflow .vehiculos-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.9em;
+  margin-top: 10px;
+}
+
+.profile-wrapper .profile-grid .user-informacion .table-overflow .vehiculos-table tr th, .profile-wrapper .profile-grid .viajes-wrapper .table-overflow .vehiculos-table tr th {
+  text-align: left;
+  color: #2b3179;
+  height: 30px;
+  border-bottom: 1px solid rgba(43, 49, 121, 0.3);
+  padding: 5px;
+}
+
+.profile-wrapper .profile-grid .user-informacion .table-overflow .vehiculos-table tr td, .profile-wrapper .profile-grid .viajes-wrapper .table-overflow .vehiculos-table tr td {
+  padding: 5px;
+  color: #2b3179;
+}
+
+.profile-wrapper .profile-grid .user-informacion .table-overflow .vehiculos-table tr td .button-wrapper, .profile-wrapper .profile-grid .viajes-wrapper .table-overflow .vehiculos-table tr td .button-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.profile-wrapper .profile-grid .user-informacion .table-overflow .vehiculos-table tr td .button-wrapper button, .profile-wrapper .profile-grid .viajes-wrapper .table-overflow .vehiculos-table tr td .button-wrapper button {
+  background-color: #3844bc;
+  width: 40px;
+  height: 40px;
+  border: none;
+  color: white;
+  margin: 2px;
+  cursor: pointer;
+  border-radius: 50%;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.profile-wrapper .profile-grid .user-informacion .table-overflow .vehiculos-table tr td .button-wrapper button:hover, .profile-wrapper .profile-grid .viajes-wrapper .table-overflow .vehiculos-table tr td .button-wrapper button:hover {
+  background-color: #2b3179;
+}
+
+.profile-wrapper .profile-grid .user-informacion .table-overflow .vehiculos-table tr:hover, .profile-wrapper .profile-grid .viajes-wrapper .table-overflow .vehiculos-table tr:hover {
+  background-color: #eee;
 }
 
 .profile-wrapper .profile-grid .viajes-wrapper {
@@ -8261,14 +8372,15 @@ footer .totum p a:hover {
   padding: 0 10px;
 }
 
-.profile-wrapper .profile-grid .viajes-wrapper .password-change .input {
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .input, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .input {
   position: relative;
   width: calc(100% - 60px);
   margin: 30px auto;
 }
 
 .profile-wrapper .profile-grid .viajes-wrapper .password-change .input input,
-.profile-wrapper .profile-grid .viajes-wrapper .password-change .input select {
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .input select, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .input input,
+.profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .input select {
   width: 100%;
   height: 40px;
   background-color: transparent;
@@ -8281,33 +8393,37 @@ footer .totum p a:hover {
 }
 
 .profile-wrapper .profile-grid .viajes-wrapper .password-change .input input::-webkit-input-placeholder,
-.profile-wrapper .profile-grid .viajes-wrapper .password-change .input select::-webkit-input-placeholder {
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .input select::-webkit-input-placeholder, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .input input::-webkit-input-placeholder,
+.profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .input select::-webkit-input-placeholder {
   color: #888;
 }
 
 .profile-wrapper .profile-grid .viajes-wrapper .password-change .input input:-ms-input-placeholder,
-.profile-wrapper .profile-grid .viajes-wrapper .password-change .input select:-ms-input-placeholder {
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .input select:-ms-input-placeholder, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .input input:-ms-input-placeholder,
+.profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .input select:-ms-input-placeholder {
   color: #888;
 }
 
 .profile-wrapper .profile-grid .viajes-wrapper .password-change .input input::-ms-input-placeholder,
-.profile-wrapper .profile-grid .viajes-wrapper .password-change .input select::-ms-input-placeholder {
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .input select::-ms-input-placeholder, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .input input::-ms-input-placeholder,
+.profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .input select::-ms-input-placeholder {
   color: #888;
 }
 
 .profile-wrapper .profile-grid .viajes-wrapper .password-change .input input::placeholder,
-.profile-wrapper .profile-grid .viajes-wrapper .password-change .input select::placeholder {
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .input select::placeholder, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .input input::placeholder,
+.profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .input select::placeholder {
   color: #888;
 }
 
-.profile-wrapper .profile-grid .viajes-wrapper .password-change .input #icon {
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .input #icon, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .input #icon {
   position: absolute;
   top: 10px;
   left: 0;
   color: #555;
 }
 
-.profile-wrapper .profile-grid .viajes-wrapper .password-change .input .password-eye {
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .input .password-eye, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .input .password-eye {
   background-color: transparent;
   border: none;
   position: absolute;
@@ -8319,12 +8435,12 @@ footer .totum p a:hover {
   transition: 0.3s;
 }
 
-.profile-wrapper .profile-grid .viajes-wrapper .password-change .input .password-eye:hover {
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .input .password-eye:hover, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .input .password-eye:hover {
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
 }
 
-.profile-wrapper .profile-grid .viajes-wrapper .password-change .button-wrapper {
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .button-wrapper, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .button-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8336,7 +8452,7 @@ footer .totum p a:hover {
           align-items: center;
 }
 
-.profile-wrapper .profile-grid .viajes-wrapper .password-change .button-wrapper .button-pin {
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .button-wrapper .button-pin, .profile-wrapper .profile-grid .viajes-wrapper .password-change .button-wrapper .button-agregar, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .button-wrapper .button-pin, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .button-wrapper .button-agregar {
   background: -webkit-gradient(linear, left top, right top, from(#3844bc), to(#2b3179));
   background: linear-gradient(to right, #3844bc, #2b3179);
   color: #ffffff;
@@ -8350,7 +8466,181 @@ footer .totum p a:hover {
   margin: 10px auto;
 }
 
-.profile-wrapper .profile-grid .viajes-wrapper .password-change .button-wrapper .button-pin i {
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .button-wrapper .button-pin i, .profile-wrapper .profile-grid .viajes-wrapper .password-change .button-wrapper .button-agregar i, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .button-wrapper .button-pin i, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .button-wrapper .button-agregar i {
+  margin-right: 5px;
+}
+
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .vehiculos-wrapper, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .vehiculos-wrapper {
+  width: 100%;
+  height: 510px;
+  text-align: center;
+}
+
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .vehiculos-wrapper .vehiculos, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .vehiculos-wrapper .vehiculos {
+  width: calc(100% - 20px);
+  height: 410px;
+  margin: 10px auto;
+  margin-bottom: 0;
+  overflow-y: auto;
+}
+
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .vehiculos-wrapper .vehiculos #no-vehicle, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .vehiculos-wrapper .vehiculos #no-vehicle {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .vehiculos-wrapper .vehiculos #no-vehicle p, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .vehiculos-wrapper .vehiculos #no-vehicle p {
+  color: #3844bc;
+}
+
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .vehiculos-wrapper .vehiculos .vehiculo, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .vehiculos-wrapper .vehiculos .vehiculo {
+  background-color: #3844bc;
+  border-radius: 0 2em 2em 2em;
+  padding: 10px;
+  margin: 10px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-left, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-left .vehiculo-icon, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-left .vehiculo-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #2b3179;
+  margin-right: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-left .vehiculo-icon i, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-left .vehiculo-icon i {
+  color: #ffffff;
+  font-size: 2em;
+}
+
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-left .vehiculo-info, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-left .vehiculo-info {
+  text-align: left;
+}
+
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-left .vehiculo-info h3, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-left .vehiculo-info h3 {
+  color: #ffffff;
+  font-weight: 400;
+  margin: 0;
+  margin-bottom: 5px;
+  font-size: 1em;
+}
+
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-left .vehiculo-info p, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-left .vehiculo-info p {
+  color: #ffffff;
+  font-weight: 400;
+}
+
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-left .vehiculo-info p i, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-left .vehiculo-info p i {
+  margin-right: 10px;
+}
+
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .vehiculos-wrapper .vehiculos .vehiculo .edit-button, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .vehiculos-wrapper .vehiculos .vehiculo .edit-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .vehiculos-wrapper .vehiculos .vehiculo .edit-button button, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .vehiculos-wrapper .vehiculos .vehiculo .edit-button button {
+  background: -webkit-gradient(linear, left top, right top, from(#3844bc), to(#2b3179));
+  background: linear-gradient(to right, #3844bc, #2b3179);
+  color: #ffffff;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 2em;
+  margin-top: 10px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  font-size: 0.6em;
+  background: #2b3179;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 2px;
+}
+
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .vehiculos-wrapper .vehiculos .vehiculo .edit-button button i, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .vehiculos-wrapper .vehiculos .vehiculo .edit-button button i {
+  margin-right: 5px;
+}
+
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .vehiculos-wrapper .vehiculos .vehiculo .edit-button button i, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .vehiculos-wrapper .vehiculos .vehiculo .edit-button button i {
+  margin: 0;
+}
+
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .vehiculos-wrapper .vehiculos .vehiculo .edit-button button:hover, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .vehiculos-wrapper .vehiculos .vehiculo .edit-button button:hover {
+  background: #ffffff;
+  color: #2b3179;
+}
+
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .vehiculos-wrapper .save-button, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .vehiculos-wrapper .save-button {
+  background: -webkit-gradient(linear, left top, right top, from(#3844bc), to(#2b3179));
+  background: linear-gradient(to right, #3844bc, #2b3179);
+  color: #ffffff;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 2em;
+  margin-top: 10px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .vehiculos-wrapper .save-button i, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .vehiculos-wrapper .save-button i {
   margin-right: 5px;
 }
 
@@ -8588,7 +8878,7 @@ footer .totum p a:hover {
   .profile-wrapper .user-info .user-right {
     margin: 10px 0;
   }
-  .profile-wrapper .profile-grid .user-informacion .informacion-wrapper .info p, .profile-wrapper .profile-grid .user-informacion .informacion-wrapper .info b, .profile-wrapper .profile-grid .user-informacion .informacion-wrapper .info input {
+  .profile-wrapper .profile-grid .user-informacion .informacion-wrapper .info p, .profile-wrapper .profile-grid .user-informacion .informacion-wrapper .info b, .profile-wrapper .profile-grid .user-informacion .informacion-wrapper .info input, .profile-wrapper .profile-grid .user-informacion .informacion-wrapper .info select {
     font-size: .8em;
   }
 }

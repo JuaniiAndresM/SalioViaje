@@ -119,7 +119,7 @@
           <button onclick="navbar()"><i class="fas fa-bars"></i></button>
         </div>
         <div class="header-title">
-          <h2>Perfil</h2>
+          <h2><?php echo $_SESSION['usuario']; ?></h2>
         </div>
       </div>
       <div class="header-right">

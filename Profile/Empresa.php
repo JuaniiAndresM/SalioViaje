@@ -5,7 +5,25 @@
   if(!isset($_SESSION['usuario'])){
     header('Location: /SalioViaje/Login');
   }else{
+    $tipo = 0;
 
+    if(isset($_SESSION['tipo_usuario'])){
+
+      switch($_SESSION['tipo_usuario']){
+        case "Pasajero":
+          $tipo = 1;
+          break;
+
+        case "Chofer":
+          $tipo = 2;
+          break;
+
+        case "Transportista":
+          $tipo = 3;
+          break;
+
+      }
+    }
   }
 
 ?>
@@ -13,7 +31,7 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <title>SalióViaje | Editar Perfil</title>
+    <title>SalióViaje | Empresa</title>
 
     <!-- // Meta Etiquetas -->
 
@@ -84,7 +102,6 @@
     <script src="/SalioViaje/Javascript/panel.js"></script>
     <script src="/SalioViaje/Javascript/settings.js"></script>
     <script src="/SalioViaje/Javascript/loader.js"></script>
-    <script src="/SalioViaje/Javascript/profile.js"></script>
   </head>
   <body>
     <div id="pre-loader">
@@ -102,7 +119,7 @@
           <button onclick="navbar()"><i class="fas fa-bars"></i></button>
         </div>
         <div class="header-title">
-          <h2>Editar Perfil</h2>
+          <h2>Empresa</h2>
         </div>
       </div>
       <div class="header-right">
@@ -128,110 +145,92 @@
               <img src="/SalioViaje/media/svg/Logo-SalioViaje.svg" alt="Logo SalióViaje">
             </div>
             <div class="user-desc">
-              <h2><?php echo $_SESSION['usuario']; ?></h2>
-              <p><i class="fas fa-bus"></i> <?php echo $_SESSION['tipo_usuario']; ?></p>
+              <h2>Nombre de la Empresa</h2>
+              <p><i class="fas fa-building"></i> Empresa</p>
               
+            </div>
+          </div>
+          <div class="user-right">
+            <div class="button-wrapper">
+            <?php 
+                echo '<button class="button"><i class="fas fa-edit"></i></button>';
+            ?>
             </div>
           </div>
         </div>
 
         <div class="profile-grid">
-          <div class="user-informacion">
-            <h3><i class="fas fa-address-card"></i> Información Personal</h3>
+            <div class="user-informacion">
 
-            <div class="informacion-wrapper">
+                <h3><i class="fas fa-bus"></i> Vehiculos de la Empresa</h3>
 
-              <div class="info">
-                <b><i class="far fa-address-card"></i> C.I</b>
-                <input type="number" placeholder="C.I" value="54879239">
-              </div>
-              <div class="info">
-                <b><i class="fas fa-signature"></i> Nombre</b>
-                <input type="text" placeholder="Nombre" value="Juan">
-              </div>
-              <div class="info">
-                <b><i class="fas fa-signature"></i> Apellido</b>
-                <input type="text" placeholder="Apellido" value="Morena">
-              </div>
-              <div class="info">
-                <b><i class="far fa-envelope"></i> Correo Electrónico</b>
-                <input type="email" placeholder="Correo Electrónico" value="thewolfmodzyt@gmail.com">
-              </div>
-              <div class="info">
-                <b><i class="fas fa-map"></i> Departamento</b>
-                <input type="text" placeholder="Departamento" value="Canelones">
-              </div>
-              <div class="info">
-                <b><i class="fas fa-map-marked-alt"></i> Barrio</b>
-                <input type="text" placeholder="Barrio" value="El Pinar">
-              </div>
-              <div class="info">
-                <b><i class="fas fa-map-marker-alt"></i> Dirección</b>
-                <input type="text" placeholder="BaDirecciónrrio" value="Rondeau">
-              </div>
-              <div class="info">
-                <b><i class="fas fa-phone"></i> Teléfono</b>
-                <input type="number" placeholder="Teléfono" value="098234717">
-              </div>
+                <div class="search">
+                <i class="fas fa-search"></i>
+                <input
+                    type="text"
+                    placeholder="Buscar"
+                    id="searchbar"
+                    onkeyup="buscarUsuarios()"
+                />
+                </div>
+
+                <div class="table-overflow">
+                    <table class="vehiculos-table" id="search-table">
+                        <thead>
+                            <tr>
+                            <th>ID <i class="fas fa-angle-down"></i></th>
+                            <th>Matrícula <i class="fas fa-angle-down"></i></th>
+                            <th>Marca <i class="fas fa-angle-down"></i></th>
+                            <th>Modelo <i class="fas fa-angle-down"></i></th>
+                            <th>Combustible <i class="fas fa-angle-down"></i></th>
+                            <th>Capacidad <i class="fas fa-angle-down"></i></th>
+                            <th>Equipaje <i class="fas fa-angle-down"></i></th>
+                            <th>RUT E <i class="fas fa-angle-down"></i></th>
+                            <th>Pet Friendly <i class="fas fa-angle-down"></i></th>
+                            <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody">
+                            <td>1</td>
+                            <td>STU6746</td>
+                            <td>Hyundai</td>
+                            <td>H1 2001</td>
+                            <td>Nafta</td>
+                            <td>12</td>
+                            <td>8kg</td>
+                            <td>-</td>
+                            <td>Si</td>
+                        </tbody>
+                    </table>
+                </div>
 
             </div>
-            <div class="button-wrapper">
-                <button class="button-guardar"><i class="fas fa-arrow-left"></i> Cancelar</button>
-                <button class="button-guardar"><i class="fas fa-save"></i> Guardar Cambios</button>
-            </div>
-          </div>
 
           <div class="viajes-wrapper">
-            <h3><i class="fas fa-key"></i> Cambiar PIN</h3>
+                <h3><i class="fas fa-user-friends"></i> Choferes Asociados</h3>
 
-            <div class="password-change">
+                <div class="search">
+                  <i class="fas fa-search"></i>
+                  <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarusuarios()"/>
+                </div>
+                <div class="empresas">
 
-              <div class="input">
-                <i class="fas fa-lock" id="icon"></i>
-                <input
-                  type="password"
-                  id="password"
-                  name="pin"
-                  placeholder="PIN Anterior"
-                  maxlength="4"
-                  pattern="[0-9]{4}"
-                />
-                <button onclick="passwd(1)" class="password-eye"><i id="passeye" class="fas fa-eye-slash"></i></button>
-              </div>
-
-              <div class="input">
-                <i class="fas fa-key" id="icon"></i>
-                <input
-                  type="password"
-                  id="password2"
-                  name="pin"
-                  placeholder="Nuevo PIN"
-                  maxlength="4"
-                  pattern="[0-9]{4}"
-                />
-                <button onclick="passwd(2)" class="password-eye"><i id="passeye2" class="fas fa-eye-slash"></i></button>
-              </div>
-
-              <div class="input">
-                <i class="fas fa-key" id="icon"></i>
-                <input
-                  type="password"
-                  id="re-password"
-                  name="pin"
-                  placeholder="Confirmar Nuevo PIN"
-                  maxlength="4"
-                  pattern="[0-9]{4}"
-                />
-                <button onclick="passwd(3)" class="password-eye"><i id="passeye3" class="fas fa-eye-slash"></i></button>
-              </div>
-
-
-              <div class="button-wrapper">
-                <button class="button-pin"><i class="fas fa-save"></i> Cambiar PIN</button>
-              </div>
-              
-
-            </div>
+                    <div class="empresa">
+                        <div class="empresa-left">
+                        <div class="empresa-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="empresa-info">
+                            <h3>Nombre del Chofer</h3>
+                        </div>
+                        </div>
+                        <div class="empresa-button">
+                        <button class="button"><i class="far fa-eye"></i></button>
+                        <button class="button"><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                    </div>
+            
+                </div>
           </div>
         </div>
         <div class="profile_grid2"></div>
