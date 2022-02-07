@@ -4,10 +4,25 @@
 
   if(!isset($_SESSION['usuario'])){
     header('Location: /SalioViaje/Login');
-
   }else{
-    if($_SESSION['tipo_usuario'] == "Pasajero"){
-      header('Location: /SalioViaje/');
+    $tipo = 0;
+
+    if(isset($_SESSION['tipo_usuario'])){
+
+      switch($_SESSION['tipo_usuario']){
+        case "Pasajero":
+          $tipo = 1;
+          break;
+
+        case "Chofer":
+          $tipo = 2;
+          break;
+
+        case "Transportista":
+          $tipo = 3;
+          break;
+
+      }
     }
   }
 
@@ -87,13 +102,6 @@
     <script src="/SalioViaje/Javascript/panel.js"></script>
     <script src="/SalioViaje/Javascript/settings.js"></script>
     <script src="/SalioViaje/Javascript/loader.js"></script>
-        <script type="text/javascript">
-            window.onload = function(){
-              let seccion = "empresas"
-              traerEmpresas(seccion)
-              filtros()
-            }
-    </script>
   </head>
   <body>
     <div id="pre-loader">
@@ -111,7 +119,7 @@
           <button onclick="navbar()"><i class="fas fa-bars"></i></button>
         </div>
         <div class="header-title">
-          <h2>Empresas</h2>
+          <h2>Perfil</h2>
         </div>
       </div>
       <div class="header-right">
@@ -129,52 +137,147 @@
     <nav class="nav-hidden active" id="panel-navbar"></nav>
 
     <section class="panel" id="panel">
-      <div class="section-usuarios">
-        <div class="usuarios-recientes">
-          <div class="usuarios-info">
-            <h2><i class="fas fa-building"></i> Empresas</h2>
-          </div>
-          <div class="filters">
-            <div class="search">
-              <i class="fas fa-search"></i>
-              <input
-                type="text"
-                placeholder="Buscar"
-                id="searchbar"
-                onkeyup="buscarUsuarios(3)"
-              />
+      <div class="profile-wrapper">
+
+        <div class="user-info">
+          <div class="user-left">
+            <div class="user-icon">
+              <img src="/SalioViaje/media/svg/Logo-SalioViaje.svg" alt="Logo SalióViaje">
             </div>
+            <div class="user-desc">
+              <h2><?php echo $_SESSION['usuario']; ?></h2>
+              <p><i class="fas fa-bus"></i> <?php echo $_SESSION['tipo_usuario']; ?></p>
 
-            <div class="checkboxs">
+              <?php 
 
-              <div class="checkbox">
-                <input type="checkbox" name="" id="tta" checked />
-                <p>TTA</p>
-              </div>
-              <div class="checkbox">
-                <input type="checkbox" name="" id="cho" checked />
-                <p>CHO</p>
-              </div>
-
+              if($tipo == 2 || $tipo == 3){
+                echo '<p class="calificacion">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half"></i>
+                      </p>';
+              }
+              ?>
+              
             </div>
           </div>
-          <div class="table-overflow">
-            <table class="usuarios-table" id="search-table-empresas">
-              <thead>
-                <tr>
-                  <th>ID <i class="fas fa-angle-down"></i></th>
-                  <th>RUT <i class="fas fa-angle-down"></i></th>
-                  <th>Nombre Comercial <i class="fas fa-angle-down"></i></th>
-                  <th>Razón Social <i class="fas fa-angle-down"></i></th>
-                  <th>Dueño <i class="fas fa-angle-down"></i></th>
-                  <th>Tipo <i class="fas fa-angle-down"></i></th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody id="tbody"></tbody>
-            </table>
+          <div class="user-right">
+            <div class="button-wrapper">
+            <?php 
+                echo '<button class="button"><i class="fas fa-edit"></i></button>';
+                echo '<button class="button"><i class="fas fa-star"></i></button>';
+            ?>
+            </div>
           </div>
         </div>
+
+        <div class="profile-grid">
+          <div class="user-informacion">
+            <h3><i class="fas fa-address-card"></i> Información Personal</h3>
+
+            <div class="informacion-wrapper">
+
+              <div class="info">
+                <b><i class="far fa-address-card"></i> C.I</b>
+                
+                <p>5487923-9</p>
+              </div>
+              <div class="info">
+                <b><i class="far fa-envelope"></i> Correo Electrónico</b>
+                <p>thewolfmodzyt@gmail.com</p>
+              </div>
+              <div class="info">
+                <b><i class="fas fa-thumbtack"></i> Dirección</b>
+                <p>Canelones, El Pinar, Rondeau.</p>
+              </div>
+              <div class="info">
+                <b><i class="fas fa-phone"></i> Teléfono</b>
+                <p>098234717</p>
+              </div>
+              <div class="info">
+                <b><i class="fas fa-bus"></i> Tipo de Usuario</b>
+                <p>TTA</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="viajes-wrapper">
+
+            <?php
+
+              if($tipo == 1){
+                echo '<h3><i class="fas fa-history"></i> Historial de Viajes</h3>
+
+                <div class="table-wrapper">
+                  <table class="table-viajes">
+                    <thead>
+                      <tr>
+                        <th>Origen</th>
+                        <th>Destino</th>
+                        <th>Fecha</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Montevideo</td>
+                        <td>Canelones</td>
+                        <td>17/02/2022</td>
+                        <td>
+                          <div class="button-wrapper">
+                            <button class="button"><i class="far fa-eye"></i></button>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>P. Del Este</td>
+                        <td>Carrasco</td>
+                        <td>22/03/2022</td>
+                        <td>
+                          <div class="button-wrapper">
+                            <button class="button"><i class="far fa-eye"></i></button>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>';
+              }else if($tipo == 2 || $tipo == 3){
+                echo '<h3><i class="fas fa-building"></i> Tus Empresas</h3>
+                      <div class="search">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarusuarios()"/>
+                      </div>
+                      <div class="empresas">
+
+                        <div class="empresa">
+                          <div class="empresa-left">
+                            <div class="empresa-icon">
+                              <i class="fas fa-building"></i>
+                            </div>
+                            <div class="empresa-info">
+                              <h3>Nombre de la Empresa</h3>
+                              <p><i class="fas fa-bus"></i> 2 Vehiculos</p>
+                            </div>
+                          </div>
+                          <div class="empresa-button">
+                            <button class="button"><i class="far fa-eye"></i></button>
+                            <button class="button"><i class="fas fa-edit"></i></button>
+                            <button class="button"><i class="fas fa-trash-alt"></i></button>
+                          </div>
+                        </div>
+            
+                      </div>';
+              }
+
+            ?>
+          </div>
+        </div>
+        <div class="profile_grid2"></div>
+
+        
       </div>
     </section>
   </body>

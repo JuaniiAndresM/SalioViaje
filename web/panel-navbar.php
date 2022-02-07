@@ -35,7 +35,7 @@
       </a>
     </li>
     <li>
-      <a href="Dashboard">
+      <a href="/SalioViaje/Dashboard">
         <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
         <span class="title">Dashboard</span>
       </a>
@@ -43,21 +43,21 @@
     <?php 
     if($tipo == 1){
       echo '  <li>
-                <a href="Usuarios">
+                <a href="/SalioViaje/Usuarios">
                   <span class="icon"><i class="fas fas fa-user-friends"></i></span>
                   <span class="title">Usuarios</span>
                 </a>
               </li>
 
               <li>
-                <a href="Empresas">
+                <a href="/SalioViaje/Empresas">
                   <span class="icon"><i class="fas fas fa-building"></i></span>
                   <span class="title">Empresas</span>
                 </a>
               </li>
 
               <li>
-                <a href="Vehiculos">
+                <a href="/SalioViaje/Vehiculos">
                   <span class="icon"><i class="fas fa-bus"></i></span>
                   <span class="title">Vehículos</span>
                 </a>
@@ -71,13 +71,13 @@
               </li>';
     }elseif($tipo == 2){
       echo '  <li>
-                <a href="Agendar">
+                <a href="/SalioViaje/Agendar">
                   <span class="icon"><i class="fas fa-plus"></i></span>
                   <span class="title">Agendar Viaje</span>
                 </a>
               </li>
               <li>
-                <a href="Viajes">
+                <a href="/SalioViaje/Viajes">
                   <span class="icon"><i class="fas fa-book"></i></span>
                   <span class="title">Agenda</span>
                 </a>
