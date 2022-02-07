@@ -443,7 +443,7 @@
 .oportunidades .oportunidades-wrapper {
   max-width: 1300px;
   width: 100%;
-  height: 300px;
+  height: 400px;
   padding: 20px;
   margin-top: 30px;
   border-radius: 3em 0 3em 3em;
@@ -519,22 +519,28 @@
   width: 100%;
   display: none;
   margin-top: 10px;
+  max-height: 350px;
+  overflow: hidden;
+  overflow-y: auto;
 }
 
 .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad {
   width: 100%;
-  min-height: 80px;
-  border-radius: 0 3em 3em 3em;
-  background-color: #ffffff;
-  -webkit-box-shadow: 10px 0 20px 0 rgba(0, 0, 0, 0.3);
-          box-shadow: 10px 0 20px 0 rgba(0, 0, 0, 0.3);
-  cursor: pointer;
-  border: none;
-  outline: none;
+  border-radius: 3em 0 3em 3em;
+  background-color: #3844bc;
+  margin: 15px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .collide-hide {
-  width: calc(100% - 40px);
+.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -544,10 +550,9 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 0 auto;
 }
 
-.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .collide-hide .oportunidad-icon {
+.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount {
   width: 80px;
   height: 80px;
   display: -webkit-box;
@@ -559,35 +564,99 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin: 10px;
+  background-color: #ffffff;
+  border-radius: 50%;
 }
 
-.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .collide-hide .oportunidad-icon i {
+.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount h3 {
   color: #3844bc;
-  font-size: 3em;
+  font-size: 2em;
 }
 
-.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .collide-hide .travel, .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .collide-hide .time {
+.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel {
   text-align: left;
   margin: 0 10px;
 }
 
-.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .collide-hide .travel p, .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .collide-hide .time p {
+.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel p {
   margin: 5px 10px;
-  color: #2b3179;
+  color: #ffffff;
 }
 
-.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .collide-hide .travel p i, .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .collide-hide .time p i {
-  color: #3844bc;
+.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel p i {
   font-size: 1.1em;
 }
 
-.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .collide-hide .discount {
-  margin-left: 10px;
+.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .collide-hide .discount h3 {
-  font-size: 2em;
+.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .travel {
+  text-align: center;
+  margin: 0 10px;
+}
+
+.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .travel p {
+  margin: 5px 10px;
+  color: #ffffff;
+}
+
+.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .travel p i {
+  font-size: 1.1em;
+}
+
+.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .travel .calificacion {
+  color: #ffaa00;
+}
+
+.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-right: 20px;
+}
+
+.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper button {
+  width: 150px;
+  height: 35px;
+  border: none;
+  outline: none;
   color: #3844bc;
+  margin: 5px 10px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  -webkit-transition: .3s;
+  transition: .3s;
+  cursor: pointer;
+}
+
+.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper button:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper .comprar-button {
+  background-color: #70ff7c;
+  color: #333333;
 }
 
 .separador_wrapper {
@@ -685,37 +754,50 @@
     -o-object-position: right;
        object-position: right;
   }
-  .nosotros .nosotros-wrapper-grid {
-    -ms-grid-columns: 1fr;
-        grid-template-columns: 1fr;
+}
+
+@media screen and (max-width: 1146px) {
+  .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel:nth-child(4) {
+    display: none;
   }
-  .nosotros .nosotros-wrapper-grid .nosotros-left .nosotros-img-wrapper {
-    max-width: 400px;
-    width: calc(100% - 20px);
-    height: 300px;
+}
+
+@media screen and (max-width: 952px) {
+  .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel:nth-child(3) {
+    display: none;
   }
-  .nosotros .nosotros-wrapper-grid .nosotros-right {
-    width: calc(100% - 20px);
-    margin: 0 auto;
+}
+
+@media screen and (max-width: 829px) {
+  .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
-  .nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info {
-    width: 100%;
-    margin-top: 20px;
-    text-align: center;
+  .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
-  .nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info h1 {
-    font-size: 3.4em;
+  .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel:nth-child(3) {
+    display: none;
   }
-  .nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info hr {
-    margin: 10px auto;
+  .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin: 10px 0;
   }
-  .nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info p {
-    font-size: 1em;
-    margin: 10px auto;
+  .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper {
+    margin: 10px 0;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
   }
-  .nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info .button-nosotros {
-    margin-top: 0;
-    margin: 0 auto;
+  .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper button {
+    margin: 5px 25px;
   }
 }
 
@@ -6534,6 +6616,235 @@ footer .totum p a:hover {
 .viajar-wrapper .salioviaje .ofertas-wrapper .list-empty p {
   color: #3844bc;
   margin: auto;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .oportunidades-list,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .oportunidades-list,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper .oportunidades-list,
+.viajar-wrapper .salioviaje .oportunidades-wrapper .oportunidades-list,
+.viajar-wrapper .salioviaje .ofertas-wrapper .oportunidades-list {
+  width: 100%;
+  display: none;
+  margin-top: 10px;
+  height: calc(100% - 50px);
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .oportunidad,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .oportunidades-list .oportunidad,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .oportunidades-list .oportunidad,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper .oportunidades-list .oportunidad,
+.viajar-wrapper .salioviaje .oportunidades-wrapper .oportunidades-list .oportunidad,
+.viajar-wrapper .salioviaje .ofertas-wrapper .oportunidades-list .oportunidad {
+  width: 100%;
+  border-radius: 3em 0 3em 3em;
+  background-color: #3844bc;
+  margin: 15px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-left,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-left,
+.viajar-wrapper .salioviaje .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left,
+.viajar-wrapper .salioviaje .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount,
+.viajar-wrapper .salioviaje .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount,
+.viajar-wrapper .salioviaje .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount {
+  width: 80px;
+  height: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 10px;
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount h3,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount h3,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount h3,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount h3,
+.viajar-wrapper .salioviaje .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount h3,
+.viajar-wrapper .salioviaje .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount h3 {
+  color: #3844bc;
+  font-size: 2em;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel,
+.viajar-wrapper .salioviaje .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel,
+.viajar-wrapper .salioviaje .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel {
+  text-align: left;
+  margin: 0 10px;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel p,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel p,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel p,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel p,
+.viajar-wrapper .salioviaje .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel p,
+.viajar-wrapper .salioviaje .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel p {
+  margin: 5px 10px;
+  color: #ffffff;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel p i,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel p i,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel p i,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel p i,
+.viajar-wrapper .salioviaje .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel p i,
+.viajar-wrapper .salioviaje .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel p i {
+  font-size: 1.1em;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-right,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-right,
+.viajar-wrapper .salioviaje .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right,
+.viajar-wrapper .salioviaje .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .travel,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-right .travel,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .travel,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-right .travel,
+.viajar-wrapper .salioviaje .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .travel,
+.viajar-wrapper .salioviaje .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-right .travel {
+  text-align: center;
+  margin: 0 10px;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .travel p,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-right .travel p,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .travel p,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-right .travel p,
+.viajar-wrapper .salioviaje .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .travel p,
+.viajar-wrapper .salioviaje .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-right .travel p {
+  margin: 5px 10px;
+  color: #ffffff;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .travel p i,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-right .travel p i,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .travel p i,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-right .travel p i,
+.viajar-wrapper .salioviaje .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .travel p i,
+.viajar-wrapper .salioviaje .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-right .travel p i {
+  font-size: 1.1em;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .travel .calificacion,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-right .travel .calificacion,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .travel .calificacion,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-right .travel .calificacion,
+.viajar-wrapper .salioviaje .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .travel .calificacion,
+.viajar-wrapper .salioviaje .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-right .travel .calificacion {
+  color: #ffaa00;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper,
+.viajar-wrapper .salioviaje .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper,
+.viajar-wrapper .salioviaje .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-right: 20px;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper button,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper button,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper button,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper button,
+.viajar-wrapper .salioviaje .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper button,
+.viajar-wrapper .salioviaje .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper button {
+  width: 150px;
+  height: 35px;
+  border: none;
+  outline: none;
+  color: #3844bc;
+  margin: 5px 10px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  -webkit-transition: .3s;
+  transition: .3s;
+  cursor: pointer;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper button:hover,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper button:hover,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper button:hover,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper button:hover,
+.viajar-wrapper .salioviaje .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper button:hover,
+.viajar-wrapper .salioviaje .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper button:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper .comprar-button,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper .comprar-button,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper .comprar-button,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper .comprar-button,
+.viajar-wrapper .salioviaje .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper .comprar-button,
+.viajar-wrapper .salioviaje .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper .comprar-button {
+  background-color: #70ff7c;
+  color: #333333;
 }
 
 .viajar-wrapper .salioviaje {
