@@ -6,7 +6,6 @@ $user = 'salioviaje';//usuario notifyMe
 $password = 'salio2021';//contra notifyMe
 
 //indico la ruta de ubicacion del WSDL
-//$objClienteSOAPCALL = new Soapclient('https://notifyme.t2voice.com/ws/NotifymeWSBean?wsdl');//xmls de llamada
 $objClienteSOAPCALL = new Soapclient('https://notifyme.t2voice.com/ws/NotifymeWSBean?wsdl');//xmls de llamada
 $objClienteSOAPMSJ = new Soapclient('http://notifyme.t2voice.com/ws/NotifymeSmsWsBean?wsdl');//xmls de SMS
 
@@ -32,6 +31,14 @@ class notifyMeActions {
                                 array(
                                     "nombre"=>"texto",//nombre variable
                                     "valor"=>$msj//nombre del cliente
+                                ),
+                                array(
+                                    "nombre"=>"opcion1",//nombre variable
+                                    "valor"=>"aceptar viaje"//nombre del cliente
+                                ),
+                                array(
+                                    "nombre"=>"opcion3",//nombre variable
+                                    "valor"=>"rechazar viaje"//nombre del cliente
                                 )
                             )
                         )
