@@ -20,7 +20,13 @@ for ($i=0; $i < count($datos); $i++) {
                     </div>
                   </div>
                   <div class="propietario-button">
+<<<<<<< HEAD
                     <button id="'.$datos[$i]["ID"].'">Ver</button>
+=======
+                    <button id="'.$ID_EMPRESA.'" class="button"><i class="far fa-eye"></i></button>
+                    <button id="'.$ID_EMPRESA.'" class="button"><i class="fas fa-edit"></i></button>
+                    <button id="'.$ID_EMPRESA.'" class="button"><i class="fas fa-trash-alt"></i></button>
+>>>>>>> 86d2bce14e0f9c603c303059d7f3629c82ec1f87
                   </div>
                 </div>
 

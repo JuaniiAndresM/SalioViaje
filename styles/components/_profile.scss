@@ -1,0 +1,693 @@
+.profile-wrapper{
+    width: calc(100% - 40px);
+    margin: 20px 0;
+    background-color: $contraste_2;
+    border-radius: 2em;
+    
+    .user-info{
+        width: 100%;
+        height: 200px;
+        background-color: $main_1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 2em;
+
+        .user-left{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .user-icon{
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                background-color: $contraste_2;
+        
+                padding: 10px;
+                margin: 0 20px;
+        
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .user-desc{
+                margin: 10px 0;
+                h2{
+                    max-width: 300px;
+                    color: $contraste_2;
+
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+                p{
+                    color: #ccc;
+                }
+                .calificacion{
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    margin: 10px 0;
+    
+                    i{
+                        margin-right: 5px;
+                        color: #ffaa00;
+                    }
+                }
+            }
+        }
+        .user-right{
+            .button-wrapper{
+                margin: 0 20px;
+                button {
+                    background-color: $main_2;
+                    width: 50px;
+                    height: 50px;
+                    border: none;
+                    color: $contraste_2;
+                    margin: 2px;
+        
+                    cursor: pointer;
+                    border-radius: 50%;
+        
+                    transition: 0.3s;
+                  }
+                  button:hover {
+                    background-color: $contraste_2;
+                    color: $main_1;
+                  }
+            }
+        }
+
+        
+    }
+    .profile-grid{
+        display: grid;
+        grid-template-columns: 1fr 440px;
+        width: 100%;
+        margin: 20px 0;
+        .user-informacion, .viajes-wrapper{
+            width: calc(100% - 20px);
+            margin: 0 auto;
+
+            background-color: $contraste_2;
+            box-shadow: 10px 0 20px 0 rgba($color: #000000, $alpha: .3);
+            border-radius: 1em;
+
+            overflow: hidden;
+
+            h3{
+                color: $main_1;
+                font-size: 1.3em;
+                margin: 20px 0;
+                text-align: center;
+            }
+
+            .informacion-wrapper{
+                width: 100%;
+                margin: 0 auto;
+                padding: 0 20px;
+    
+                .info{
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 10px 0;
+
+                    border-bottom: 1px solid #ccc;
+                    position: relative;
+                    margin: 10px 0;
+
+                    b{
+                        color: $main_1;
+
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        i{
+                            font-size: 1.3em;
+                            margin-right: 10px;
+                        }
+                    }
+                    
+                    p{
+                        margin-top: 10px;
+                        margin-left: 30px;
+                        color: #555;
+                        white-space: break-word; 
+                        overflow-wrap: break-word;
+                        text-align: right;
+                    }
+
+                    input, select{
+                        max-width: 300px;
+                        width: 100%;
+
+                        border: none;
+                        background-color: transparent;
+                        text-align: right;
+                        outline: none;
+                        height: 40px;
+                        font-size: 1em;
+                        margin-left: 10px;
+
+                        color: #555;
+                    }
+                    input#password{
+                      padding-right: 25px;
+                    }
+                    .password-eye {
+                      background-color: transparent;
+                      border: none;
+                      position: absolute;
+                      top: 22px;
+                      right: 0;
+                      color: #555;
+                      cursor: pointer;
+                      transition: 0.3s;
+                    }
+                    .password-eye:hover {
+                      transform: scale(1.2);
+                    }
+                }
+            }    
+            .button-wrapper{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .button-guardar{
+                    @include button();
+                    margin: 10px;
+                }
+            }
+
+            .search {
+              position: relative;
+              margin-left: 10px;
+        
+              i {
+                position: absolute;
+                left: 6px;
+                top: 6px;
+                color: $main_2;
+              }
+        
+              input {
+                max-width: 200px;
+                width: 100%;
+                height: 30px;
+                border: none;
+                outline: none;
+                padding: 10px;
+                padding-left: 30px;
+                color: $main_2;
+        
+                border-radius: 10px;
+              }
+              input:focus {
+                outline: 1px solid rgba($color: $main_2, $alpha: 0.3);
+              }
+            }
+
+            .table-overflow{
+                width: 100%;
+                overflow: hidden;
+                overflow-x: auto;
+
+                padding: 10px;
+
+                .vehiculos-table {
+                    border-collapse: collapse;
+                    width: 100%;
+                    font-size: 0.9em;
+                    margin-top: 10px;
+              
+                    tr {
+                      th {
+                        text-align: left;
+                        color: $main_2;
+                        height: 30px;
+                        border-bottom: 1px solid rgba($color: $main_2, $alpha: 0.3);
+                        padding: 5px;
+                      }
+                      td {
+                        padding: 5px;
+                        color: $main_2;
+    
+                        .button-wrapper{
+                          display: flex;
+                          justify-content: center;
+                          align-items: center;
+                          button {
+                            background-color: $main_1;
+                            width: 40px;
+                            height: 40px;
+                            border: none;
+                            color: white;
+                            margin: 2px;
+                
+                            cursor: pointer;
+                            border-radius: 50%;
+                
+                            transition: 0.3s;
+                          }
+                          button:hover {
+                            background-color: $main_2;
+                          }
+                        }
+                      }
+                    }
+                    tr:hover {
+                      background-color: #eee;
+                    }
+                  }
+            }   
+        }
+
+        .viajes-wrapper{
+            width: 100%;
+            padding: 0 10px;
+
+            .password-change, .agregar-vehicle{
+                .input {
+                    position: relative;
+                    width: calc(100% - 60px);
+                    margin: 30px auto;
+          
+                    input,
+                    select {
+                      width: 100%;
+                      height: 40px;
+                      background-color: transparent;
+                      border: none;
+                      border-bottom: 1px solid #aaa;
+                      outline: none;
+                      padding-left: 25px;
+                      color: #555;
+                      font-size: 0.85em;
+                    }
+                    input::placeholder,
+                    select::placeholder {
+                      color: #888;
+                    }
+          
+                    #icon {
+                      position: absolute;
+                      top: 10px;
+                      left: 0;
+                      color: #555;
+                    }
+                    .password-eye {
+                      background-color: transparent;
+                      border: none;
+                      position: absolute;
+                      top: 12px;
+                      right: 0;
+                      color: #555;
+                      cursor: pointer;
+                      transition: 0.3s;
+                    }
+                    .password-eye:hover {
+                      transform: scale(1.2);
+                    }
+                }
+                .button-wrapper{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    .button-pin, .button-agregar{
+                        @include button();
+                        margin: 10px auto;
+                    }
+                }
+
+                .vehiculos-wrapper {
+                  width: 100%;
+                  height: 510px;
+            
+                  text-align: center;
+            
+                  .vehiculos {
+                    width: calc(100% - 20px);
+                    height: 410px;
+                    margin: 10px auto;
+                    margin-bottom: 0;
+                    overflow-y: auto;
+            
+                    #no-vehicle {
+                      width: 100%;
+                      height: 100%;
+            
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+            
+                      p {
+                        color: $main_1;
+                      }
+                    }
+            
+                    .vehiculo {
+                      background-color: $main_1;
+                      border-radius: 0 2em 2em 2em;
+            
+                      padding: 10px;
+                      margin: 10px 0;
+            
+                      display: flex;
+                      justify-content: space-between;
+                      align-items: center;
+
+                      .vehiculo-left{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        .vehiculo-icon {
+                          width: 60px;
+                          height: 60px;
+                          border-radius: 50%;
+                          background-color: $main_2;
+                          margin-right: 10px;
+              
+                          display: flex;
+                          justify-content: center;
+                          align-items: center;
+              
+                          i {
+                            color: $contraste_2;
+                            font-size: 2em;
+                          }
+                        }
+                        .vehiculo-info {
+                          text-align: left;
+                          h3 {
+                            color: $contraste_2;
+                            font-weight: 400;
+                            margin: 0;
+                            margin-bottom: 5px;
+                            font-size: 1em;
+                          }
+                          p {
+                            color: $contraste_2;
+                            font-weight: 400;
+              
+                            i {
+                              margin-right: 10px;
+                            }
+                          }
+                        }
+                      }
+            
+                      
+                      .edit-button {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        flex-wrap: wrap;
+            
+                        button {
+                          @include button();
+                          width: 40px;
+                          height: 40px;
+                          font-size: 0.6em;
+                          background: $main_2;
+            
+                          display: flex;
+                          justify-content: center;
+                          align-items: center;
+                          margin: 0 2px;
+            
+                          i {
+                            margin: 0;
+                          }
+                        }
+                        button:hover {
+                          background: #ffffff;
+                          color: $main_2;
+                        }
+                      }
+                    }
+                  }
+                  .save-button {
+                    @include button();
+                  }
+                }
+                
+            }
+            .table-wrapper{
+                width: 100%;
+                overflow: hidden;
+                overflow-x: auto;
+
+                .table-viajes {
+                    border-collapse: collapse;
+                    width: 100%;
+                    font-size: 0.9em;
+                    margin-top: 10px;
+              
+                    tr {
+                      th {
+                        text-align: left;
+                        color: $main_2;
+                        height: 30px;
+                        border-bottom: 1px solid rgba($color: $main_2, $alpha: 0.3);
+                        padding: 5px;
+                      }
+                      td {
+                        padding: 5px;
+                        color: $main_2;
+    
+                        .button-wrapper{
+                          display: flex;
+                          justify-content: center;
+                          align-items: center;
+                          button {
+                            background-color: $main_1;
+                            width: 40px;
+                            height: 40px;
+                            border: none;
+                            color: white;
+                            margin: 2px;
+                
+                            cursor: pointer;
+                            border-radius: 50%;
+                
+                            transition: 0.3s;
+                          }
+                          button:hover {
+                            background-color: $main_2;
+                          }
+                        }
+                      }
+                    }
+                    tr:hover {
+                      background-color: #eee;
+                    }
+                  }
+            }
+            .search {
+                margin-top: 20px;
+                position: relative;
+        
+                i {
+                  position: absolute;
+                  left: 6px;
+                  top: 6px;
+                  color: $main_2;
+                }
+        
+                input {
+                  max-width: 200px;
+                  width: 100%;
+                  height: 30px;
+                  border: none;
+                  outline: none;
+                  padding: 10px;
+                  padding-left: 30px;
+                  color: $main_2;
+        
+                  border-radius: 10px;
+                }
+                input:focus {
+                  outline: 1px solid rgba($color: $main_2, $alpha: 0.3);
+                }
+            }
+            .empresas {
+                width: 100%;
+                margin: 10px 0;
+                .empresa {
+                  width: 100%;
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  padding: 5px;
+                  border-radius: 30px;
+                  margin: 5px 0;
+        
+                  .empresa-left {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+        
+                    .empresa-icon {
+                      width: 40px;
+                      height: 40px;
+                      background-color: $main_2;
+                      color: white;
+        
+                      border-radius: 50%;
+                      margin-right: 10px;
+        
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                    }
+                    .empresa-info {
+                      display: flex;
+                      justify-content: center;
+                      align-items: flex-start;
+                      flex-direction: column;
+
+                      h3 {
+                        width: 220px;
+                        color: $main_2;
+                        line-height: 20px;
+                        font-size: 1.2em;
+
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+
+                        margin: 0;
+                        text-align: left;
+                      }
+                      p {
+                        color: #444;
+                        margin: 0;
+                      }
+                    }
+                  }
+                  .empresa-button {
+                    button {
+                      background-color: $main_1;
+                      border: none;
+                      width: 40px;
+                      height: 40px;
+                      cursor: pointer;
+                      border: none;
+        
+                      color: white;
+                      border-radius: 50%;
+                      transition: 0.3s;
+                    }
+                    button:hover {
+                      background-color: $main_2;
+                    }
+                  }
+                }
+                .empresa:hover {
+                  background-color: #eee;
+                }
+              }
+            
+        }
+    }
+}
+
+@media screen and(max-width: 1100px) {
+
+    .profile-wrapper{
+        .profile-grid{
+            grid-template-columns: 1fr;
+
+            gap: 20px;
+
+            .viajes-wrapper{
+                width: calc(100% - 20px);
+            }
+        }
+    }
+}
+
+@media screen and(max-width: 650px) {
+
+    .profile-wrapper{
+        width: calc(100% - 10px);
+        .user-info{
+            .user-left{
+                .user-desc{
+                    h2{
+                        max-width: 250px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and(max-width: 550px) {
+
+    .profile-wrapper{
+        width: calc(100% - 10px);
+        .user-info{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            .user-right{
+                margin: 10px 0;
+            }
+        }
+        .profile-grid{
+            .user-informacion{
+                .informacion-wrapper{
+                    .info{
+                        p, b, input, select{
+                            font-size: .8em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and(max-width: 470px) {
+
+    .profile-wrapper{
+        .profile-grid{
+            .viajes-wrapper{
+                .empresas{
+                    .empresa{
+                        .empresa-left{
+                            .empresa-info{
+                                h3{
+                                    max-width: 160px;
+                                    font-size: .9em;
+                                }
+                                P{
+                                    font-size: .8em;
+                                }
+                            }
+                        }
+                        .empresa-button{
+                            button{
+                                width: 30px;
+                                height: 30px;
+
+                                i{
+                                    font-size: .9em;
+                                }
+
+                                
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

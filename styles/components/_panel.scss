@@ -484,20 +484,27 @@ $main_3: #6d76db;
                 margin-right: 10px;
               }
             }
-            button {
-              background-color: $main_1;
-              width: 60px;
-              height: 30px;
-              border: none;
-              color: white;
 
-              cursor: pointer;
-              border-radius: 2em 2em 2em 0;
-
-              transition: 0.3s;
-            }
-            button:hover {
-              background-color: $main_2;
+            .button-wrapper{
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              button {
+                background-color: $main_1;
+                width: 40px;
+                height: 40px;
+                border: none;
+                color: white;
+                margin: 2px;
+    
+                cursor: pointer;
+                border-radius: 50%;
+    
+                transition: 0.3s;
+              }
+              button:hover {
+                background-color: $main_2;
+              }
             }
           }
         }
@@ -556,12 +563,13 @@ $main_3: #6d76db;
             button {
               background-color: $main_1;
               border: none;
-              width: 60px;
-              height: 30px;
+              width: 40px;
+              height: 40px;
               cursor: pointer;
+              border: none;
 
               color: white;
-              border-radius: 2em 2em 2em 0;
+              border-radius: 50%;
               transition: 0.3s;
             }
             button:hover {
@@ -1037,21 +1045,28 @@ $main_3: #6d76db;
                 margin-right: 10px;
               }
             }
-            button {
-              background-color: $main_1;
-              width: 60px;
-              height: 30px;
-              border: none;
-              color: white;
-  
-              cursor: pointer;
-              border-radius: 2em 2em 2em 0;
-  
-              transition: 0.3s;
+            .button-wrapper{
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              button {
+                background-color: $main_1;
+                width: 40px;
+                height: 40px;
+                border: none;
+                color: white;
+                margin: 2px;
+    
+                cursor: pointer;
+                border-radius: 50%;
+    
+                transition: 0.3s;
+              }
+              button:hover {
+                background-color: $main_2;
+              }
             }
-            button:hover {
-              background-color: $main_2;
-            }
+            
             #supervisor{
               color: #41B883;
             }

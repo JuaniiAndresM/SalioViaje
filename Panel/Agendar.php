@@ -105,7 +105,7 @@
           <button onclick="navbar()"><i class="fas fa-bars"></i></button>
         </div>
         <div class="header-title">
-          <h2>Empresas</h2>
+          <h2>Agendar Viaje</h2>
         </div>
       </div>
       <div class="header-right">
@@ -164,7 +164,7 @@
                     <i class="fas fa-bus"></i>
                   </div>
                   <div class="vehicle-info">
-                    <h3>Información del Vehiculo</h3>
+                    <h3><i class="fas fa-info"></i> Información del Vehiculo</h3>
                     <p><i class="fas fa-address-card"></i> STU6574</p>
                     <p><i class="fas fa-car"></i> Hyundai</p>
                     <p><i class="fas fa-list"></i> H1 2001</p>
@@ -188,7 +188,7 @@
                 </div>
 
                 <div class="input" id="pasajeros">
-                  <i class="fas fa-users" id="icon"></i>
+                  <i class="fas fa-user-friends" id="icon"></i>
                   <input type="number" id="pasajeros-input" placeholder="Cantidad de Pasajeros" />
                 </div>
 
@@ -359,7 +359,6 @@
                     <option value="Ruta 2">
                     <option value="Ruta 3">
                     <option value="Ruta 4">
-
                   </datalist> 
                 </div>
 
@@ -374,12 +373,112 @@
             <button class="button-agendar" id="button_volver" onclick="volver()">
               <i class="fas fa-arrow-circle-left"></i> Volver
             </button>
-            <button class="button-agendar" id="step-agendar" onclick="agendar()">
+            <button class="button-agendar" id="step-agendar" onclick="next(1)">
               <i class="fas fa-book"></i> Agendar
             </button>
-            <button class="button-agendar" id="step-agendar_MTOP" onclick="Agendar_MTOP()">
+            <button class="button-agendar" id="step-agendar_MTOP" onclick="next(2)">
               <i class="fas fa-id-card"></i> Agendar con MTOP
             </button>
+          </div>
+
+          <div id="step_4">
+            <hr>
+
+            <div class="vehicle-resumen">
+              <div class="vehicle-icon">
+                <i class="fas fa-bus"></i>
+              </div>
+              <div class="vehicle-info">
+                <h3><i class="fas fa-info"></i> Información del Vehiculo</h3>
+                <p><i class="fas fa-address-card"></i> STU6574</p>
+                <p><i class="fas fa-car"></i> Hyundai</p>
+                <p><i class="fas fa-list"></i> H1 2001</p>
+                <p><i class="fas fa-users"></i> 12</p>
+                <p><i class="fas fa-gas-pump"></i> Diesel</p>
+              </div>
+            </div>
+
+            <hr>
+
+            <h2 class="step_title"><i class="fas fa-compass"></i> Información del Viaje</h2>
+            
+            <div class="info">
+              <p><i class="fas fa-user-friends"></i> 13</p>
+              <p><i class="fas fa-road"></i> 120km</p>
+              <p><i class="fas fa-address-card"></i> MTOP: No</p>
+            </div>           
+
+            <div class="inputs-wrapper-agendar">
+              
+              <div class="column_resumen">
+                <div class="column-wrapper">
+                  <h2 class="step_title"><i class="fas fa-road"></i> Tramo N° 1</h2>
+                  
+                  <div class="info">
+                    <b><i class="fas fa-list-ul"></i> Tipo</b>
+                    <p>Oportunidad</p>
+                  </div>
+                  
+                  <div class="info">
+                    <b><i class="far fa-calendar-alt"></i> Fecha y Hora</b>
+                    <p>18/02/22 18:30</p>
+                  </div>
+                  <div class="info">
+                    <b><i class="fas fa-map-marker-alt"></i> Origen</b>
+                    <p>Montevideo</p>
+                  </div>
+                  <div class="info">
+                    <b><i class="fas fa-route"></i> Destino</b>
+                    <p>Maldonado</p>
+                  </div>
+                  <div class="info">
+                    <b><i class="fas fa-dollar-sign"></i> Precio</b>
+                    <p>$4080</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="column_resumen">
+                <div class="column-wrapper">
+                  <h2 class="step_title"><i class="fas fa-road"></i> Tramo N° 2</h2>
+                  
+                  <div class="info">
+                    <b><i class="fas fa-list-ul"></i> Tipo</b>
+                    <p>Agenda</p>
+                  </div>
+                  
+                  <div class="info">
+                    <b><i class="far fa-calendar-alt"></i> Fecha y Hora</b>
+                    <p>19/02/22 03:30</p>
+                  </div>
+                  <div class="info">
+                    <b><i class="fas fa-map-marker-alt"></i> Origen</b>
+                    <p>Maldonado</p>
+                  </div>
+                  <div class="info">
+                    <b><i class="fas fa-route"></i> Destino</b>
+                    <p>Montevideo</p>
+                  </div>
+                  <div class="info">
+                    <b><i class="fas fa-dollar-sign"></i> Precio</b>
+                    <p>$4080</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <div class="rutas">
+              <b><i class="fas fa-route"></i> Rutas</b>
+              <p>Ruta 1, Ruta Intelbarnearia, Ruta 5.</p>
+            </div>
+            <div class="button-wrapper">
+              <button class="button-agendar" id="button_volver" onclick="volver()">
+                <i class="fas fa-arrow-circle-left"></i> Volver
+              </button>
+              <button class="button-agendar" id="step-agendar_MTOP" onclick="finalizar()">
+                <i class="fas fa-check"></i> Finalizar
+              </button>
+            </div>
           </div>
 
         </div>

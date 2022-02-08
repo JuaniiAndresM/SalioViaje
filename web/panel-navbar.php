@@ -34,30 +34,35 @@
         <span class="title">SalióViaje</span>
       </a>
     </li>
-    <li>
-      <a href="Dashboard">
-        <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
-        <span class="title">Dashboard</span>
-      </a>
-    </li>
     <?php 
+
+    if($tipo != 0){
+      echo '<li>
+              <a href="/SalioViaje/Dashboard">
+                <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
+                <span class="title">Dashboard</span>
+              </a>
+            </li>';
+    }
+    
+    
     if($tipo == 1){
       echo '  <li>
-                <a href="Usuarios">
+                <a href="/SalioViaje/Usuarios">
                   <span class="icon"><i class="fas fas fa-user-friends"></i></span>
                   <span class="title">Usuarios</span>
                 </a>
               </li>
 
               <li>
-                <a href="Empresas">
+                <a href="/SalioViaje/Empresas">
                   <span class="icon"><i class="fas fas fa-building"></i></span>
                   <span class="title">Empresas</span>
                 </a>
               </li>
 
               <li>
-                <a href="Vehiculos">
+                <a href="/SalioViaje/Vehiculos">
                   <span class="icon"><i class="fas fa-bus"></i></span>
                   <span class="title">Vehículos</span>
                 </a>
@@ -71,9 +76,15 @@
               </li>';
     }elseif($tipo == 2){
       echo '  <li>
-                <a href="Agendar">
-                  <span class="icon"><i class="fas fa-book"></i></span>
+                <a href="/SalioViaje/Agendar">
+                  <span class="icon"><i class="fas fa-plus"></i></span>
                   <span class="title">Agendar Viaje</span>
+                </a>
+              </li>
+              <li>
+                <a href="/SalioViaje/Viajes">
+                  <span class="icon"><i class="fas fa-book"></i></span>
+                  <span class="title">Agenda</span>
                 </a>
               </li>';
     }
