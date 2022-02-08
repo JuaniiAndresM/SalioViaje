@@ -677,8 +677,8 @@ $contraste_2: #ffffff;
     .oportunidades-wrapper{
       .oportunidades-list{
         .oportunidad{
-          .oportunidad-left{
-            .travel:nth-child(3){
+          .oportunidad-right{
+            .travel{
               display: none;
             }
           }
@@ -694,21 +694,34 @@ $contraste_2: #ffffff;
       .oportunidades-list{
         .oportunidad{
           flex-direction: column;
+          width: calc(100% - 20px);
+          margin: 20px auto;
           .oportunidad-left{
             flex-direction: column;
-            .travel:nth-child(3){
-              display: none;
+
+            .travel{
+              text-align: center;
+              p{
+                margin: 10px 5px;
+              }
             }
           }
           .oportunidad-right{
+            width: 100%;
             flex-direction: column;
             margin: 10px 0;
 
             .button-wrapper{
+              width: 100%;
               margin: 10px 0;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              flex-direction: row;
               flex-wrap: wrap;
+
               button{
-                margin: 5px 25px;
+                margin: 5px 10px;
               }
             }
           }

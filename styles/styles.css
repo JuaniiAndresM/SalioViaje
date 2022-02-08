@@ -764,7 +764,7 @@
 }
 
 @media screen and (max-width: 952px) {
-  .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel:nth-child(3) {
+  .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .travel {
     display: none;
   }
 }
@@ -775,6 +775,8 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    width: calc(100% - 20px);
+    margin: 20px auto;
   }
   .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left {
     -webkit-box-orient: vertical;
@@ -782,10 +784,14 @@
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel:nth-child(3) {
-    display: none;
+  .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel {
+    text-align: center;
+  }
+  .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel p {
+    margin: 10px 5px;
   }
   .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right {
+    width: 100%;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -793,12 +799,26 @@
     margin: 10px 0;
   }
   .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper {
+    width: 100%;
     margin: 10px 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }
   .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper button {
-    margin: 5px 25px;
+    margin: 5px 10px;
   }
 }
 
