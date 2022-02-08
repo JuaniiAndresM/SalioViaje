@@ -229,14 +229,15 @@
                 <button><i class="fas fa-trash-alt"></i></button>
               </div>
             </div>
+
             <div class="usuario">
               <div class="user-left">
                 <div class="user-img">
                   <i class="fas fa-user"></i>
                 </div>
                 <div class="user-info">
-                  <h2><?php echo $_SESSION['usuario']; ?></h2> 
-                  <p><i class="fas fa-user-tie"></i> <?php echo $_SESSION['tipo_usuario'] ?></p>
+                  <h3>Jhon Doee</h3> 
+                  <p><i class="fas fa-user-tie"></i> Administrador</p>
                 </div>
               </div>
               <div class="user-buttons">
@@ -276,8 +277,8 @@
         <div class="header-user">
           <div class="icon"><i class="fab fa-apple"></i></div>
           <div class="user">
-            <h2>John Doe</h2>
-            <p><i class="fas fa-user-tie"></i> Administrador</p>
+            <h2><?php echo $_SESSION['usuario'] ?></h2>
+            <p><i class="fas fa-user-tie"></i> <?php echo $_SESSION['tipo_usuario'] ?></p>
           </div>
           <button><i class="fas fa-sign-out-alt"></i></button>
         </div>
