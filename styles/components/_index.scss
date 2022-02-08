@@ -27,8 +27,7 @@ $contraste_2: #ffffff;
 
 .landing {
   width: 100%;
-  height: calc(100vh - 80px);
-  min-height: 700px;
+  max-height: 700px;
   
   
   background-color: #fff;
@@ -81,7 +80,7 @@ $contraste_2: #ffffff;
           padding: 0;
           width: 270px;
           height: 50px;
-          font-size: 1.3em;
+          font-size: 1.2em;
 
           display: flex;
           justify-content: center;
@@ -99,7 +98,7 @@ $contraste_2: #ffffff;
 
       .landing-img-wrapper {
 
-        height: 600px;
+        height: 100%;
 
         border-radius: 6em 6em 0 6em;
         overflow: hidden;
@@ -439,6 +438,7 @@ $contraste_2: #ffffff;
 
     .oportunidades-list{
       width: 100%;
+      height: calc(100% - 50px);
       //display: none;
       margin-top: 10px;
       max-height: 350px;
@@ -642,7 +642,7 @@ $contraste_2: #ffffff;
         .landing-img-wrapper {
           max-width: 400px;
           width: calc(100% - 20px);
-          height: 300px;
+          border-radius: 3em 3em 0 3em;
 
           img{
             width: 100%;
