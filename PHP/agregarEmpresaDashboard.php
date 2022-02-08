@@ -1,9 +1,13 @@
 <?php 
 
-$NOMBRE_EMPRESA = $_POST['NOMBRE_EMPRESA'];
-$ID_EMPRESA = $_POST['ID_EMPRESA'];
+require_once "procedimientosBD.php";
 
-$NUEVA_EMPRESA_DASHBOARD = '
+$datos_bd = new procedimientosBD();
+
+$datos = $datos_bd->datos_empresas();
+
+for ($i=0; $i < count($datos); $i++) { 
+ $NUEVA_EMPRESA_DASHBOARD = '
 
                 <div class="propietario">
                   <div class="propietario-left">
@@ -11,16 +15,18 @@ $NUEVA_EMPRESA_DASHBOARD = '
                       <i class="fas fa-building"></i>
                     </div>
                     <div class="propietario-info">
-                      <h3>'.$NOMBRE_EMPRESA.'</h3>
+                      <h3>'.$datos[$i]["NOMBRE_EMPRESA"].'</h3>
                       <p><i class="fas fa-bus"></i> 2 Vehiculos</p>
                     </div>
                   </div>
                   <div class="propietario-button">
-                    <button id="'.$ID_EMPRESA.'">Ver</button>
+                    <button id="'.$datos[$i]["ID"].'">Ver</button>
                   </div>
                 </div>
 
 ';
+}
+
 
 echo $NUEVA_EMPRESA_DASHBOARD;
 ?>

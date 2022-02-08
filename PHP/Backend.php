@@ -61,6 +61,90 @@ class Backend extends procedimientosBD
 		*/
 			return json_encode($this->visitas);
 		}
+		public function actualizar_tablas_dashboard_usuarios(){
+
+			$contenido_tbody = 0;
+			$datos = $this->datos_usuarios();
+
+			for ($i=0; $i < count($datos); $i++) { 
+				if ($i==0) {
+					$contenido_tbody = "
+						<tr class='".$datos[$i]['TIPO_USUARIO']."'>
+							<td>".$datos[$i]['TIPO_USUARIO']."</td>
+							<td>".$datos[$i]['NOMBRE']."</td>
+							<td>".$datos[$i]['APELLIDO']."</td>
+							<td>".$datos[$i]['DEPARTAMENTO']."</td>
+							<td>".$datos[$i]['TELEFONO']."</td>
+							<td>
+								<button id=".$datos[$i]['ID'].">Ver</button>
+							</td>
+						</tr>
+					";
+
+				}else{
+					$contenido_tbody = $contenido_tbody."
+						<tr class='".$datos[$i]['TIPO_USUARIO']."'>
+							<td>".$datos[$i]['TIPO_USUARIO']."</td>
+							<td>".$datos[$i]['NOMBRE']."</td>
+							<td>".$datos[$i]['APELLIDO']."</td>
+							<td>".$datos[$i]['DEPARTAMENTO']."</td>
+							<td>".$datos[$i]['TELEFONO']."</td>
+							<td>
+								<button id=".$datos[$i]['ID'].">Ver</button>
+							</td>
+						</tr>
+					";
+				}
+
+			}
+			return $contenido_tbody;
+		}
+
+		public function actualizar_tablas_dashboard_empresas(){
+			$EMPRESAS_DASHBOARD = 0;
+			$datos_e = $this->datos_empresas();
+			for ($i=0; $i < count($datos_e); $i++) { 
+				if ($i==0) {
+		 			$EMPRESAS_DASHBOARD = '
+                		<div class="propietario">
+                  			<div class="propietario-left">
+                    			<div class="propietario-icon">
+                      			<i class="fas fa-building"></i>
+                    			</div>
+                    				<div class="propietario-info">
+                      				<h3>'.$datos_e[$i]["NOMBRE_EMPRESA"].'</h3>
+                      				<p><i class="fas fa-bus"></i> 2 Vehiculos</p>
+                    			</div>
+                  			</div>
+                  			<div class="propietario-button">
+                    		<button id="'.$datos_e[$i]["ID"].'">Ver</button>
+                  			</div>
+                		</div>
+					';
+				}else{
+
+					$EMPRESAS_DASHBOARD = $EMPRESAS_DASHBOARD.'
+
+                		<div class="propietario">
+                  			<div class="propietario-left">
+                    			<div class="propietario-icon">
+                      			<i class="fas fa-building"></i>
+                    			</div>
+                    				<div class="propietario-info">
+                      				<h3>'.$datos_e[$i]["NOMBRE_EMPRESA"].'</h3>
+                      				<p><i class="fas fa-bus"></i> 2 Vehiculos</p>
+                    			</div>
+                  			</div>
+                  			<div class="propietario-button">
+                    		<button id="'.$datos_e[$i]["ID"].'">Ver</button>
+                  			</div>
+                		</div>
+					';
+				}
+			}
+
+			return $EMPRESAS_DASHBOARD;
+		}
 	}
 
 	$Backend = new Backend($_POST['opcion']);
@@ -71,6 +155,10 @@ class Backend extends procedimientosBD
 		echo $Backend->getEmpresas();
 	} else if($_POST['opcion'] == "visitas") {
 		echo $Backend->getVisitas();
+	} else if($_POST['opcion'] == "tab_dashboard_usuarios") {
+		echo $Backend->actualizar_tablas_dashboard_usuarios();
+	} else if($_POST['opcion'] == "tab_dashboard_empresas") {
+		echo $Backend->actualizar_tablas_dashboard_empresas();
 	} else {
 		echo $Backend->getVehiculos();
 	}

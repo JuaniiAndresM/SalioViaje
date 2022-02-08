@@ -106,8 +106,8 @@
         <script type="text/javascript">
             window.onload = function(){
               let seccion = "Dashboard"
-              traerUsuarios(seccion)
-              traerEmpresas(seccion)
+              tabla_usuarios_dashboard()
+              tabla_empresas_dashboard()
             }
         </script>
       </head>
@@ -156,6 +156,8 @@
 
 
         <?php 
+
+        include_once "../PHP/tablas_dashboard.php";
 
         if($tipo == 1){
           echo '  <section class="panel" id="panel">
@@ -225,7 +227,8 @@
                               <th></th>
                             </tr>
                           </thead>
-                          <tbody id="tbody"></tbody>
+                          <tbody id="tbody-usuarios" class="act">
+                          </tbody>
                         </table>
                       </div>
                       <div class="usuarios-propietarios">
@@ -240,7 +243,7 @@
                           <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarusuarios()"/>
                         </div>
                         <div class="propietarios">
-              
+
                         </div>
                         
                       </div>
