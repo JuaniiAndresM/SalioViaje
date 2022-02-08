@@ -4,7 +4,7 @@ $(document).ready(function () {
     //cuando apreta el boton manda la info
     $("#send_call").on('click', function() {
 
-        send.realizarLlamada("tpc_texto_a_voz","2022-02-05T15:00:00+03:00","3","092614110","Daniel","Prueba 1 SalióViaje.");
+        send.realizarLlamada("tpc_notificacion_opciones","2022-02-07T15:00:00+03:00","89","098208189","Sol","Prueba 1 SalióViaje.");
 
     });
     $("#watch_call").on('click', function() {
