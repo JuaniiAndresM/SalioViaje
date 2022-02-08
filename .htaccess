@@ -26,6 +26,7 @@ RewriteRule ^Vehiculos /SalioViaje/Panel/Vehiculos.php
 RewriteRule ^Settings /SalioViaje/Panel/Settings.php
 RewriteRule ^Agendar /SalioViaje/Panel/Agendar.php
 RewriteRule ^Viajes /SalioViaje/Panel/Agenda.php
+RewriteRule ^FAQ_Edit /SalioViaje/Panel/FAQ.php
 
 RewriteRule ^Success /SalioViaje/Form/Success.html
 RewriteRule ^Failed /SalioViaje/Form/Failed.html
@@ -36,6 +37,7 @@ RewriteRule ^Espera/([a-zA-Z0-9_\.]+)$ /SalioViaje/Agenda/Espera.html?Usuario=$1
 
 RewriteRule ^Servicios /SalioViaje/About/Servicios.html
 RewriteRule ^Nosotros /SalioViaje/About/Nosotros.html
+RewriteRule ^FAQ /SalioViaje/About/FAQ.html
 
 
 ErrorDocument 404 /SalioViaje/Error/404.html

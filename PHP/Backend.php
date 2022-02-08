@@ -77,7 +77,7 @@ class Backend extends procedimientosBD
 							<td>".$datos[$i]['TELEFONO']."</td>
 							<td>
 								<div class='button-wrapper'>
-									<button id=".$datos[$i]['ID']."><i class='far fa-eye'></i></button>
+									<button id=".$datos[$i]['ID']." disabled><i class='far fa-eye'></i></button>
 								</div>
 							</td>
 						</tr>
@@ -93,9 +93,9 @@ class Backend extends procedimientosBD
 							<td>".$datos[$i]['TELEFONO']."</td>
 							<td>
 								<div class='button-wrapper'>
-									<button id=".$datos[$i]['ID']."><i class='far fa-eye'></i></button>
-									<button id=".$datos[$i]['ID']."><i class='fas fa-edit'></i></button>
-									<button id=".$datos[$i]['ID']."><i class='fas fa-trash-alt'></i></button>
+									<button id=".$datos[$i]['ID']." disabled><i class='far fa-eye'></i></button>
+									<button id=".$datos[$i]['ID']." disabled><i class='fas fa-edit'></i></button>
+									<button id=".$datos[$i]['ID']." disabled><i class='fas fa-trash-alt'></i></button>
 								</div>
 							</td>
 						</tr>
@@ -123,9 +123,9 @@ class Backend extends procedimientosBD
                     			</div>
                   			</div>
                   			<div class="propietario-button">
-							  	<button id="'.$datos_e[$i]["ID"].'"><i class="far fa-eye"></i></button>
-								<button id="'.$datos_e[$i]["ID"].'"><i class="fas fa-edit"></i></button>
-								<button id="'.$datos_e[$i]["ID"].'"><i class="fas fa-trash-alt"></i></button>
+							  	<button id="'.$datos_e[$i]["ID"].'" disabled><i class="far fa-eye"></i></button>
+								<button id="'.$datos_e[$i]["ID"].'" disabled><i class="fas fa-edit"></i></button>
+								<button id="'.$datos_e[$i]["ID"].'" disabled><i class="fas fa-trash-alt"></i></button>
                   			</div>
                 		</div>
 					';
@@ -144,9 +144,9 @@ class Backend extends procedimientosBD
                     			</div>
                   			</div>
                   			<div class="propietario-button">
-								<button id="'.$datos_e[$i]["ID"].'"><i class="far fa-eye"></i></button>
-								<button id="'.$datos_e[$i]["ID"].'"><i class="fas fa-edit"></i></button>
-								<button id="'.$datos_e[$i]["ID"].'"><i class="fas fa-trash-alt"></i></button>
+								<button id="'.$datos_e[$i]["ID"].'" disabled><i class="far fa-eye"></i></button>
+								<button id="'.$datos_e[$i]["ID"].'" disabled><i class="fas fa-edit"></i></button>
+								<button id="'.$datos_e[$i]["ID"].'" disabled><i class="fas fa-trash-alt"></i></button>
                   			</div>
                 		</div>
 					';
