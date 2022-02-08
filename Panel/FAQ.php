@@ -149,6 +149,7 @@
             <div class="button-wrapper">
               <button><i class="fas fa-plus"></i> Crear Pregunta</button>
               <button><i class="fas fa-save"></i> Guardar Pregunta</button>
+              <button><i class="fas fa-trash-alt"></i> Eliminar Pregunta</button>
             </div>
           </div>
 

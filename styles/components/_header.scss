@@ -169,7 +169,7 @@ header {
           margin-top: 20px;
 
           img {
-            max-width: 150px;
+            max-width: 100px;
             width: 100%;
             margin: 10px;
             margin-bottom: 20px;
@@ -203,13 +203,13 @@ header {
             align-items: center;
 
             width: 80%;
-            height: 50px;
-            margin: 10px 20px;
+            height: 40px;
+            margin: 5px 20px;
 
             text-align: center;
             background: linear-gradient(to right, $main_1, $main_2);
             color: white;
-            font-size: 20px;
+            font-size: 16px;
             text-decoration: none;
             border-radius: 1em;
             border: none;
@@ -228,7 +228,7 @@ header {
   }
 }
 
-@media screen and(max-width: 1160px) {
+@media screen and(max-width: 1187px) {
   header {
     .header-wrapper {
       .header-right {
