@@ -560,6 +560,10 @@ $main_3: #6d76db;
             }
           }
           .propietario-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
             button {
               background-color: $main_1;
               border: none;
@@ -567,6 +571,7 @@ $main_3: #6d76db;
               height: 40px;
               cursor: pointer;
               border: none;
+              margin: 2px;
 
               color: white;
               border-radius: 50%;
