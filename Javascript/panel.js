@@ -154,7 +154,8 @@ function tabla_usuarios_dashboard(){
                 }
             },
             complete: function() {
-                $("#cantidad-usuarios").html('<h2>'+$(".usuarios-table > tbody").children().length+'</h2><i class="fas fa-user-friends"></i>')
+                let usuarios_total = $(".usuarios-table > tbody").children().length - 1;
+                $("#cantidad-usuarios").html('<h2>'+usuarios_total+'</h2><i class="fas fa-user-friends"></i>')
                 $('.ADM').hide()
             }
         })
@@ -373,7 +374,10 @@ function traigoVisitas(){
                             return response;
                         }
         }).responseText;
-        $('#visitas_hoy').html(visitas)
+        if (visitas == "null") {
+            $('#visitas_hoy').html("0")  
+        }else { $('#visitas_hoy').html(visitas) }
+
 }
 
 /*-------------------------------------------------------------------------------------------*/

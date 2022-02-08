@@ -105,11 +105,8 @@
         <script src="/SalioViaje/Javascript/loader.js"></script>
         <script type="text/javascript">
             window.onload = function(){
-              var usuarios = $(".usuario-table > tbody").children.length;
-              let seccion = "Dashboard"
               tabla_usuarios_dashboard()
               tabla_empresas_dashboard()
-              $("#cantidad-usuarios").html('<h2>'+usuarios+'</h2><i class="fas fa-user-friends"></i>')
             }
         </script>
       </head>
