@@ -5153,6 +5153,20 @@ footer .totum p a:hover {
   margin: 0;
 }
 
+.panel .panel-tables .usuarios-propietarios .propietarios .propietario .propietario-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
 .panel .panel-tables .usuarios-propietarios .propietarios .propietario .propietario-button button {
   background-color: #3844bc;
   border: none;
@@ -5160,6 +5174,7 @@ footer .totum p a:hover {
   height: 40px;
   cursor: pointer;
   border: none;
+  margin: 2px;
   color: white;
   border-radius: 50%;
   -webkit-transition: 0.3s;

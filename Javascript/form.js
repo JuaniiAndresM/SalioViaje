@@ -419,7 +419,7 @@ switch(opcion){
                         data: { tipo:"2",idUsuario: ID_USUARIO,empresas:JSON.stringify(empresas) },
                         success: function (response) {
                           console.log(response)
-                          //window.location = "/SalioViaje/Success";
+                          window.location = "/SalioViaje/Success";
                          },
                       });
                   }, 1000);
