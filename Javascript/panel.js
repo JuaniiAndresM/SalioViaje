@@ -138,7 +138,7 @@ function tablas_usuarios(seccion){
 }
 
 function tabla_usuarios_dashboard(){
-        $("#cantidad-usuarios").html('<h2>'+$("#tbody-usuarios tr").length+'</h2><i class="fas fa-user-friends"></i>')
+
         $.ajax({ 
             type: "POST",
             data: {opcion:"tab_dashboard_usuarios"},
@@ -152,28 +152,19 @@ function tabla_usuarios_dashboard(){
                   numero_usuarios = 0
                   $("#tbody-usuarios").html("")
                 }
-                $("#cantidad-usuarios").html('<h2>'+numero_usuarios+'</h2><i class="fas fa-user-friends"></i>')
             },
             complete: function() {
+                $("#cantidad-usuarios").html('<h2>'+$(".usuarios-table > tbody").children().length+'</h2><i class="fas fa-user-friends"></i>')
                 $('.ADM').hide()
             }
         })
 }
 
-<<<<<<< HEAD
 function actualizar_tablas(){
     tabla_usuarios_dashboard()
     tabla_empresas_dashboard()
-=======
-    let td = document.createElement("td");
-    td.innerHTML += '<div class="button-wrapper"><button id="'+ID_USUARIO+'" class="button"><i class="far fa-eye"></i></button><button id="'+ID_USUARIO+'" class="button"><i class="fas fa-edit"></i></button><button id="'+ID_USUARIO+'" class="button"><i class="fas fa-trash-alt"></i></button></div>'
-    row.appendChild(td);
-    //
-    //agrego la fila a la tabla
-    //
-    tabla.appendChild(row);
->>>>>>> 86d2bce14e0f9c603c303059d7f3629c82ec1f87
 }
+
 
 function tabla_seccion_usuarios(usuario){
 
