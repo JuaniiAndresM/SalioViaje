@@ -533,7 +533,6 @@ function registrar_usuario(tipoUsuario){
     data: { tipo:"1",tipoUsuario:tipoUsuario, datos:JSON.stringify(datos_Usuario) },
     success: function (response) {
       ID_USUARIO = response;
-      console.log(response)
    },
    complete: function(){
       return ID_USUARIO;

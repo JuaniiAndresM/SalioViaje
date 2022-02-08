@@ -1,4 +1,5 @@
 <?php  
+require_once "procedimientosBD.php";
 
 /**
  * 
@@ -60,7 +61,9 @@ class validaciones
 				switch ($clave) {
 					case 'CI':
 					$CI = preg_match($this->PATTERN_CI, $valor);
-					$VALIDACION['CI'] = $CI;
+					if($CI == 1 && $this->validar_existencia_ci($valor) == 1){
+						$VALIDACION['CI'] = 1;
+					} else { $VALIDACION['CI'] = 0; }
 					break;
 					case 'NOMBRE':
 					$NOMBRE = preg_match($this->PATTERN_NOMBRES, $valor);
@@ -169,8 +172,12 @@ class validaciones
 
 		if (count($VALIDACION) == 3 && $TIENE_MTOP == 0 && $TIENE_CHOFERES_SUB == null || count($VALIDACION) == 4 && $TIENE_MTOP == 0 && $TIENE_CHOFERES_SUB != null) {
 			$DATOS_VACIOS = null;
-		}else if(count($VALIDACION) != 6){
+		}else if(count($VALIDACION) != 6 && $TIENE_CHOFERES_SUB != null){
 			$DATOS_VACIOS = "Err-1";
+		}else if(count($VALIDACION) != 5 && $TIENE_CHOFERES_SUB == null){
+			$DATOS_VACIOS = "Err-1";
+		}else{
+			$DATOS_VACIOS = null;
 		}
 
 		foreach ($VALIDACION as $clave => $valor){
@@ -282,6 +289,16 @@ class validaciones
 
 		if($DATOS_VACIOS == null && $errores == 0) { return true; } elseif ($DATOS_VACIOS != null) { return $DATOS_VACIOS; } else { return json_encode($VALIDACION);}
 
+	}
+
+	private function validar_existencia_ci($ci){
+		$ci_bd = new procedimientosBD();
+		$datos_ci = $ci_bd->traigo_ci();
+		for ($i=0; $i < count($datos_ci); $i++) { 
+			if($datos_ci[$i] == $ci){
+				return 0;
+			}else{ return 1; }
+		}
 	}
 }
 

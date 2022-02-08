@@ -105,9 +105,8 @@
         <script src="/SalioViaje/Javascript/loader.js"></script>
         <script type="text/javascript">
             window.onload = function(){
-              let seccion = "Dashboard"
-              traerUsuarios(seccion)
-              traerEmpresas(seccion)
+              tabla_usuarios_dashboard()
+              tabla_empresas_dashboard()
             }
         </script>
       </head>
@@ -225,7 +224,8 @@
                               <th></th>
                             </tr>
                           </thead>
-                          <tbody id="tbody"></tbody>
+                          <tbody id="tbody-usuarios" class="act">
+                          </tbody>
                         </table>
                       </div>
                       <div class="usuarios-propietarios">
@@ -240,7 +240,7 @@
                           <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarusuarios()"/>
                         </div>
                         <div class="propietarios">
-              
+
                         </div>
                         
                       </div>

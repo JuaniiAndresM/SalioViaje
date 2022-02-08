@@ -106,7 +106,7 @@ function buscarUsuarios(buscador) {
 let usuarios
 
 function traerUsuarios(seccion){
-
+         
         usuarios = $.ajax({
                         type: 'POST',       
                         url: "/SalioViaje/PHP/Backend.php",
@@ -123,6 +123,7 @@ function traerUsuarios(seccion){
 
 function tablas_usuarios(seccion){
     console.log(seccion)
+
     for (var i = 0;i < usuarios.length; i++) {
         switch(seccion){
             case "Dashboard":
@@ -136,37 +137,41 @@ function tablas_usuarios(seccion){
     }
 }
 
-function tabla_usuarios_dashboard(usuario){
-    $("#cantidad-usuarios").html('<h2>'+usuarios.length+'</h2><i class="fas fa-user-friends"></i>')
-    var tabla = document.getElementById('tbody')
-    var row = document.createElement("tr")
-    let ID_USUARIO;
+function tabla_usuarios_dashboard(){
 
-
-    for (const property in usuario) {
-        let td = document.createElement("td");
-
-        if (property == "NOMBRE" || property == "APELLIDO" || property == "TIPO_USUARIO" || property == "DEPARTAMENTO" || property == "TELEFONO") {
-           td.innerHTML = usuario[property]
-           row.appendChild(td);
-        }else if(property == "ID"){
-            ID_USUARIO = usuario[property]
-        }
-    }
-
-    let td = document.createElement("td");
-    td.innerHTML += '<div class="button-wrapper"><button id="'+ID_USUARIO+'" class="button"><i class="far fa-eye"></i></button><button id="'+ID_USUARIO+'" class="button"><i class="fas fa-edit"></i></button><button id="'+ID_USUARIO+'" class="button"><i class="fas fa-trash-alt"></i></button></div>'
-    row.appendChild(td);
-    //
-    //agrego la fila a la tabla
-    //
-    tabla.appendChild(row);
+        $.ajax({ 
+            type: "POST",
+            data: {opcion:"tab_dashboard_usuarios"},
+            url: "/SalioViaje/PHP/Backend.php",
+            success: function(response){
+                let numero_usuarios
+                if(response != 0){
+                  numero_usuarios = $("#tbody-usuarios tr").length
+                  $("#tbody-usuarios").html(response)
+                }else{
+                  numero_usuarios = 0
+                  $("#tbody-usuarios").html("")
+                }
+            },
+            complete: function() {
+                let usuarios_total = $(".usuarios-table > tbody").children().length - 1;
+                $("#cantidad-usuarios").html('<h2>'+usuarios_total+'</h2><i class="fas fa-user-friends"></i>')
+                $('.ADM').hide()
+            }
+        })
 }
+
+function actualizar_tablas(){
+    tabla_usuarios_dashboard()
+    tabla_empresas_dashboard()
+}
+
 
 function tabla_seccion_usuarios(usuario){
 
     var tabla = document.getElementById('tbody')
-    var row = document.createElement("tr")
+    if (usuario['TIPO_USUARIO'] != "ADM") {
+        var row = document.createElement("tr")
         row.setAttribute('class',usuario['TIPO_USUARIO'])
     let contador = 0;
 
@@ -199,7 +204,9 @@ function tabla_seccion_usuarios(usuario){
     //
     //agrego la fila a la tabla
     //
-    tabla.appendChild(row);
+    console.log(row)
+    if (row != " ") {tabla.appendChild(row);}
+}
 }
 /*-------------------------------------------------------------------------------------------*/
 //                                     Empresas                                              //
@@ -236,13 +243,18 @@ function tablas_empresas(seccion){
     }
 }
 
-function tabla_empresas_dashboard(empresa){
-    $.ajax({
-        type: 'POST',       
-        url: "/SalioViaje/PHP/agregarEmpresaDashboard.php",
-        data: {NOMBRE_EMPRESA:empresa['NOMBRE_EMPRESA'], ID_EMPRESA:empresa['ID']},
-        success: function(response) {
-            $(".propietarios").append(response);
+function tabla_empresas_dashboard(){
+    $.ajax({ 
+        type: "POST",
+        data: {opcion:"tab_dashboard_empresas"},
+        url: "/SalioViaje/PHP/Backend.php",
+        success: function(response){
+            if(response != 0){
+                $(".propietarios").html(response)
+            }else{
+                $(".propietarios").html("")
+            } 
+
         }
     })
 }
@@ -362,7 +374,10 @@ function traigoVisitas(){
                             return response;
                         }
         }).responseText;
-        $('#visitas_hoy').html(visitas)
+        if (visitas == "null") {
+            $('#visitas_hoy').html("0")  
+        }else { $('#visitas_hoy').html(visitas) }
+
 }
 
 /*-------------------------------------------------------------------------------------------*/
@@ -395,8 +410,6 @@ function actualizar_panel(opc){
 function crear_intervalo(tiempo){
     actualizar = setInterval(function(){
         traigoVisitas()
-        traerVehiculos()
-        traerUsuarios()
-        traerEmpresas();
+        actualizar_tablas()
     },tiempo)
 }
