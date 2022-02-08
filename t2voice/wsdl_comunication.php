@@ -30,15 +30,15 @@ class notifyMeActions {
                                 ),
                                 array(
                                     "nombre"=>"texto",//nombre variable
-                                    "valor"=>$msj//nombre del cliente
+                                    "valor"=>$msj//mensaje principal
                                 ),
                                 array(
                                     "nombre"=>"opcion1",//nombre variable
-                                    "valor"=>"aceptar viaje"//nombre del cliente
+                                    "valor"=>"Gracias por aceptar el viaje"//mensaje cuando presiona 1
                                 ),
                                 array(
                                     "nombre"=>"opcion3",//nombre variable
-                                    "valor"=>"rechazar viaje"//nombre del cliente
+                                    "valor"=>"Usted ha rechazado el viaje"//pensaje cuando presiona 2
                                 )
                             )
                         )
@@ -51,6 +51,31 @@ class notifyMeActions {
             $response = json_encode($input->return);
 
             echo $response;
+
+            //se fija que haya realizado la llamada
+            if(strpos($response, "OK") !== false){
+
+                //espera a que termine la llamada
+                do{
+                    $llamarFunction = new notifyMeActions();
+                    $estado = $llamarFunction->watchCall($id);
+
+                } while(strpos($estado, "ENTREGADA") === false);
+
+                //se fija si el usuario selecciono alguna de las opciones
+                if(strpos($estado, "ENTREGADA") !== false){
+                    if(strpos($estado, "Opci\\u00f3n 1") !== false){
+
+                        //codigo acepto viaje
+
+                    }else if(strpos($estado, "Opci\\u00f3n 3") !== false){
+
+                        //codigo rechazo viaje
+                    }
+
+                }
+            }
+
     }
 
     //devuelve el estado de la llamada realizada
@@ -69,7 +94,7 @@ class notifyMeActions {
          // muestro el resultado con un formato correcto
          $response = json_encode($input->return);
 
-         echo $response;//
+         return $response;
     }
 
     //manda mensaje al cliente
