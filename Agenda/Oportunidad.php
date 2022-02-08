@@ -127,6 +127,11 @@
             <div class="oportunidad-info">
 
               <div class="info">
+                <b><i class="far fa-address-card"></i> N° Viaje</b>
+                <p>#021</p>
+              </div>
+
+              <div class="info">
                 <b><i class="fas fa-map-marker-alt"></i> Origen</b>
                 <p>Montevideo</p>
               </div>

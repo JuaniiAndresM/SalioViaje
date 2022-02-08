@@ -501,6 +501,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  display: none;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -517,7 +518,6 @@
 
 .oportunidades .oportunidades-wrapper .oportunidades-list {
   width: 100%;
-  display: none;
   margin-top: 10px;
   max-height: 350px;
   overflow: hidden;
