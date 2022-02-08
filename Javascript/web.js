@@ -47,3 +47,7 @@ function suscripcion(){
         }
     });
 }
+
+function comprar_oportunidad(id){
+    location.href = "/SalioViaje/Oportunidad/" + id;
+}
