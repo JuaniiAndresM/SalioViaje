@@ -6,7 +6,8 @@
     header('Location: /SalioViaje/Login');
   }else{
 
-    $usuario_perfil = $_GET['Usuario'];
+    $usuario_get = $_GET['Usuario'];
+    $usuario_perfil = str_replace('_', ' ', $usuario_get);
     $tipo = 0;
 
     if(isset($_SESSION['tipo_usuario'])){
@@ -167,9 +168,14 @@
           </div>
           <div class="user-right">
             <div class="button-wrapper">
-            <?php 
-                echo '<button class="button"><i class="fas fa-edit"></i></button>';
-                echo '<button class="button"><i class="fas fa-star"></i></button>';
+            <?php
+            if($usuario_perfil == $_SESSION['usuario']){
+              echo '<button class="button"><i class="fas fa-edit"></i></button>';
+            }else{
+              echo '<button class="button"><i class="fas fa-star"></i></button>';
+            }
+                
+                
             ?>
             </div>
           </div>
