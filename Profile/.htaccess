@@ -1,0 +1,4 @@
+RewriteEngine on
+
+RewriteRule ^([a-zA-Z0-9_]+)$ Usuario.php?Usuario=$1
+RewriteRule ^Editar/([a-zA-Z0-9_\.]+)$ EditarUsuario.php?Usuario=$1

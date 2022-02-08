@@ -5,8 +5,6 @@
   if(!isset($_SESSION['usuario'])){
     header('Location: /SalioViaje/Login');
   }else{
-
-    $usuario_perfil = $_GET['Usuario'];
     $tipo = 0;
 
     if(isset($_SESSION['tipo_usuario'])){
@@ -33,7 +31,7 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <title>SalióViaje | <?php echo $usuario_perfil; ?></title>
+    <title>SalióViaje | Empresa</title>
 
     <!-- // Meta Etiquetas -->
 
@@ -121,7 +119,7 @@
           <button onclick="navbar()"><i class="fas fa-bars"></i></button>
         </div>
         <div class="header-title">
-          <h2><?php echo $usuario_perfil; ?></h2>
+          <h2>Empresa</h2>
         </div>
       </div>
       <div class="header-right">
@@ -147,21 +145,8 @@
               <img src="/SalioViaje/media/svg/Logo-SalioViaje.svg" alt="Logo SalióViaje">
             </div>
             <div class="user-desc">
-              <h2><?php echo $usuario_perfil; ?></h2>
-              <p><i class="fas fa-bus"></i> <?php echo $_SESSION['tipo_usuario']; ?></p>
-
-              <?php 
-
-              if($tipo == 2 || $tipo == 3){
-                echo '<p class="calificacion">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half"></i>
-                      </p>';
-              }
-              ?>
+              <h2>Nombre de la Empresa</h2>
+              <p><i class="fas fa-building"></i> Empresa</p>
               
             </div>
           </div>
@@ -169,115 +154,83 @@
             <div class="button-wrapper">
             <?php 
                 echo '<button class="button"><i class="fas fa-edit"></i></button>';
-                echo '<button class="button"><i class="fas fa-star"></i></button>';
             ?>
             </div>
           </div>
         </div>
 
         <div class="profile-grid">
-          <div class="user-informacion">
-            <h3><i class="fas fa-address-card"></i> Información Personal</h3>
+            <div class="user-informacion">
 
-            <div class="informacion-wrapper">
+                <h3><i class="fas fa-bus"></i> Vehiculos de la Empresa</h3>
 
-              <div class="info">
-                <b><i class="far fa-address-card"></i> C.I</b>
-                
-                <p>5487923-9</p>
-              </div>
-              <div class="info">
-                <b><i class="far fa-envelope"></i> Correo Electrónico</b>
-                <p>thewolfmodzyt@gmail.com</p>
-              </div>
-              <div class="info">
-                <b><i class="fas fa-thumbtack"></i> Dirección</b>
-                <p>Canelones, El Pinar, Rondeau.</p>
-              </div>
-              <div class="info">
-                <b><i class="fas fa-phone"></i> Teléfono</b>
-                <p>098234717</p>
-              </div>
-              <div class="info">
-                <b><i class="fas fa-bus"></i> Tipo de Usuario</b>
-                <p>TTA</p>
-              </div>
+                <div class="search">
+                <i class="fas fa-search"></i>
+                <input
+                    type="text"
+                    placeholder="Buscar"
+                    id="searchbar"
+                    onkeyup="buscarUsuarios()"
+                />
+                </div>
+
+                <div class="table-overflow">
+                    <table class="vehiculos-table" id="search-table">
+                        <thead>
+                            <tr>
+                            <th>ID <i class="fas fa-angle-down"></i></th>
+                            <th>Matrícula <i class="fas fa-angle-down"></i></th>
+                            <th>Marca <i class="fas fa-angle-down"></i></th>
+                            <th>Modelo <i class="fas fa-angle-down"></i></th>
+                            <th>Combustible <i class="fas fa-angle-down"></i></th>
+                            <th>Capacidad <i class="fas fa-angle-down"></i></th>
+                            <th>Equipaje <i class="fas fa-angle-down"></i></th>
+                            <th>RUT E <i class="fas fa-angle-down"></i></th>
+                            <th>Pet Friendly <i class="fas fa-angle-down"></i></th>
+                            <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody">
+                            <td>1</td>
+                            <td>STU6746</td>
+                            <td>Hyundai</td>
+                            <td>H1 2001</td>
+                            <td>Nafta</td>
+                            <td>12</td>
+                            <td>8kg</td>
+                            <td>-</td>
+                            <td>Si</td>
+                        </tbody>
+                    </table>
+                </div>
+
             </div>
-          </div>
 
           <div class="viajes-wrapper">
+                <h3><i class="fas fa-user-friends"></i> Choferes Asociados</h3>
 
-            <?php
-
-              if($tipo == 1){
-                echo '<h3><i class="fas fa-history"></i> Historial de Viajes</h3>
                 <div class="search">
                   <i class="fas fa-search"></i>
                   <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarusuarios()"/>
                 </div>
-                <div class="table-wrapper">
-                  <table class="table-viajes">
-                    <thead>
-                      <tr>
-                        <th>Origen</th>
-                        <th>Destino</th>
-                        <th>Fecha</th>
-                        <th></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>Montevideo</td>
-                        <td>Canelones</td>
-                        <td>17/02/2022</td>
-                        <td>
-                          <div class="button-wrapper">
-                            <button class="button"><i class="far fa-eye"></i></button>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>P. Del Este</td>
-                        <td>Carrasco</td>
-                        <td>22/03/2022</td>
-                        <td>
-                          <div class="button-wrapper">
-                            <button class="button"><i class="far fa-eye"></i></button>
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>';
-              }else if($tipo == 2 || $tipo == 3){
-                echo '<h3><i class="fas fa-building"></i> Tus Empresas</h3>
-                      <div class="search">
-                            <i class="fas fa-search"></i>
-                            <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarusuarios()"/>
-                      </div>
-                      <div class="empresas">
+                <div class="empresas">
 
-                        <div class="empresa">
-                          <div class="empresa-left">
-                            <div class="empresa-icon">
-                              <i class="fas fa-building"></i>
-                            </div>
-                            <div class="empresa-info">
-                              <h3>Nombre de la Empresa</h3>
-                              <p><i class="fas fa-bus"></i> 2 Vehiculos</p>
-                            </div>
-                          </div>
-                          <div class="empresa-button">
-                            <button class="button"><i class="far fa-eye"></i></button>
-                            <button class="button"><i class="fas fa-edit"></i></button>
-                            <button class="button"><i class="fas fa-trash-alt"></i></button>
-                          </div>
+                    <div class="empresa">
+                        <div class="empresa-left">
+                        <div class="empresa-icon">
+                            <i class="fas fa-user"></i>
                         </div>
+                        <div class="empresa-info">
+                            <h3>Nombre del Chofer</h3>
+                        </div>
+                        </div>
+                        <div class="empresa-button">
+                        <button class="button"><i class="far fa-eye"></i></button>
+                        <button class="button"><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                    </div>
             
-                      </div>';
-              }
-
-            ?>
+                </div>
           </div>
         </div>
         <div class="profile_grid2"></div>
