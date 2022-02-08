@@ -145,6 +145,8 @@ class Backend extends procedimientosBD
                   			</div>
                   			<div class="propietario-button">
 								<button id="'.$datos_e[$i]["ID"].'"><i class="far fa-eye"></i></button>
+								<button id="'.$datos_e[$i]["ID"].'"><i class="fas fa-edit"></i></button>
+								<button id="'.$datos_e[$i]["ID"].'"><i class="fas fa-trash-alt"></i></button>
                   			</div>
                 		</div>
 					';
