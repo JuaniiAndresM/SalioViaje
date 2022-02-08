@@ -9630,6 +9630,9 @@ footer .totum p a:hover {
   border: none;
   outline: none;
   color: #555;
+  border-bottom: 1px solid #ccc;
+  -webkit-transition: border-bottom 3s;
+  transition: border-bottom 3s;
   text-decoration: none;
   cursor: pointer;
   padding: 1rem 0;
@@ -9702,6 +9705,10 @@ footer .totum p a:hover {
 .faq .accordion-container .accordion-item .accordion-link:hover .faq-left .faq-icon i, .faq .accordion-container .accordion-item .accordion-link.active .faq-left .faq-icon i {
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
+}
+
+.faq .accordion-container .accordion-item .accordion-link.active {
+  border-bottom: none;
 }
 
 .faq .accordion-container .accordion-item .accordion-link.active .faq-right #arrow-down {

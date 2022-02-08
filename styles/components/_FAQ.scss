@@ -36,6 +36,10 @@
                 outline: none;
                 color: #555;
 
+                border-bottom: 1px solid #ccc;
+
+                transition: border-bottom 3s;
+
                 text-decoration: none;
 
                 cursor: pointer;
@@ -106,12 +110,14 @@
             }
 
             .accordion-link.active{
+                border-bottom: none;
                 .faq-right{
                     #arrow-down{
                         transform: rotate(180deg);
                     }
                 }
             }
+
             .content {
                 overflow: hidden;
                 max-height: 0;
