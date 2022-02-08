@@ -59,10 +59,10 @@ class validaciones
 				switch ($clave) {
 					case 'CI':
 					$CI = preg_match($this->PATTERN_CI, $valor);
-					echo $this->validar_existencia_ci($valor);
-					if($CI == 1){
+					//&& $this->validar_existencia_ci($valor) == 1
+					if($CI == 1 ){
 						$VALIDACION['CI'] = 1;
-					} else { $VALIDACION['CI'] = 0; }
+					}else{ $VALIDACION['CI'] = 0; }
 					break;
 					case 'NOMBRE':
 					$NOMBRE = preg_match($this->PATTERN_NOMBRES, $valor);

@@ -154,10 +154,11 @@ function tabla_usuarios_dashboard(){
                 }
             },
             complete: function() {
-                let usuarios_total = $(".usuarios-table > tbody").children().length - 1;
-                if (usuarios_total == -1) {
+                let usuarios_total = $(".usuarios-table > tbody").children().length;
+                if (usuarios_total == 1) {
                     $("#cantidad-usuarios").html('<h2>0</h2><i class="fas fa-user-friends"></i>')
                 }else{
+                    usuarios_total = usuarios_total-1
                     $("#cantidad-usuarios").html('<h2>'+usuarios_total+'</h2><i class="fas fa-user-friends"></i>')
                 }
 
