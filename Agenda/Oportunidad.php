@@ -1,3 +1,17 @@
+<?php 
+
+  session_start(); 
+
+  if(!isset($_SESSION['usuario'])){
+      header('Location: /SalioViaje/Login');
+  }else{
+    if($_SESSION['tipo_usuario'] == "Chofer"){
+      header('Location: /SalioViaje/');
+    }
+  }
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
   <head>
