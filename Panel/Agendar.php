@@ -88,6 +88,7 @@
     <script src="/SalioViaje/Javascript/settings.js"></script>
     <script src="/SalioViaje/Javascript/agendar.js"></script>
     <script src="/SalioViaje/Javascript/loader.js"></script>
+    <script type="text/javascript">select_vehiculos()</script>
   </head>
   <body>
     <div id="pre-loader">
@@ -165,11 +166,11 @@
                   </div>
                   <div class="vehicle-info">
                     <h3><i class="fas fa-info"></i> Información del Vehiculo</h3>
-                    <p><i class="fas fa-address-card"></i> STU6574</p>
-                    <p><i class="fas fa-car"></i> Hyundai</p>
-                    <p><i class="fas fa-list"></i> H1 2001</p>
-                    <p><i class="fas fa-users"></i> 12</p>
-                    <p><i class="fas fa-gas-pump"></i> Diesel</p>
+                    <p id="matricula"><i class="fas fa-address-card"></i> STU6574</p>
+                    <p id="marca"><i class="fas fa-car"></i> Hyundai</p>
+                    <p id="modelo"><i class="fas fa-list"></i> H1 2001</p>
+                    <p id="capacidad"><i class="fas fa-users"></i> 12</p>
+                    <p id="combustible"><i class="fas fa-gas-pump"></i> Diesel</p>
                   </div>
                 </div>
 
@@ -178,7 +179,13 @@
                 </div>
 
               </div>
+              <!--
 
+
+              formularios
+
+
+              -->
               <div class="column">
                 <div class="input" id="vehiculos">
                   <i class="fas fa-bus" id="icon"></i>

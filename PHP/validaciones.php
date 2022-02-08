@@ -59,8 +59,7 @@ class validaciones
 				switch ($clave) {
 					case 'CI':
 					$CI = preg_match($this->PATTERN_CI, $valor);
-					//&& $this->validar_existencia_ci($valor) == 1
-					if($CI == 1 ){
+					if($CI == 1 && $this->validar_existencia_ci($valor) == 1){
 						$VALIDACION['CI'] = 1;
 					}else{ $VALIDACION['CI'] = 0; }
 					break;
@@ -294,11 +293,13 @@ class validaciones
 		require_once "procedimientosBD.php";
 		$ci_bd = new procedimientosBD();
 		$datos_ci = $ci_bd->traigo_ci();
-		for ($i=0; $i < count($datos_ci); $i++) { 
-			if($datos_ci[$i] == $ci){
-				return 0;
-			}else{ return 1; }
-		}
+		if ($datos_ci != null) {
+			for ($i=0; $i < count($datos_ci); $i++) { 
+				if($datos_ci[$i] == $ci){
+					return 0;
+				}else{ return 1; }
+			}
+		}else{ return 1; }
 	}
 }
 
