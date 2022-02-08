@@ -303,23 +303,23 @@
       </div>
 
       <div class="panel-settings">
-        <button onclick="settings(1)" class="settings-button">
+        <button onclick="settings(1)" class="settings-button" disabled>
           <i class="fas fa-user-edit"></i>
           <p>Editar Información</p>
         </button>
-        <button onclick="settings(2)" class="settings-button">
+        <button onclick="settings(2)" class="settings-button" disabled>
           <i class="fas fa-key"></i>
           <p>Cambiar Contraseña</p>
         </button>
-        <button onclick="settings(3)" class="settings-button">
+        <button onclick="settings(3)" class="settings-button" disabled>
           <i class="fas fa-users-cog"></i>
           <p>Administrar Usuarios</p>
         </button>
-        <button onclick="settings(4)" class="settings-button">
+        <button onclick="settings(4)" class="settings-button" disabled>
           <i class="fas fa-globe-americas"></i>
           <p>Cambiar Idioma</p>
         </button>
-        <button onclick="settings(5)" class="settings-button">
+        <button onclick="settings(5)" class="settings-button" disabled>
           <i class="fas fa-wrench"></i>
           <p>Configuración Panel</p>
         </button>

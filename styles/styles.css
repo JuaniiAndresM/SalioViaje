@@ -5092,6 +5092,13 @@ footer .totum p a:hover {
   background-color: #2b3179;
 }
 
+.panel .panel-tables .usuarios-recientes .usuarios-table tr td .button-wrapper button[disabled], .panel .panel-tables .usuarios-recientes .usuarios-table tr td .button-wrapper button:disabled,
+.panel .panel-tables .usuarios-propietarios .usuarios-table tr td .button-wrapper button[disabled],
+.panel .panel-tables .usuarios-propietarios .usuarios-table tr td .button-wrapper button:disabled {
+  background-color: #999;
+  color: #333333;
+}
+
 .panel .panel-tables .usuarios-recientes .usuarios-table tr:hover,
 .panel .panel-tables .usuarios-propietarios .usuarios-table tr:hover {
   background-color: #eee;
@@ -5206,6 +5213,11 @@ footer .totum p a:hover {
   background-color: #2b3179;
 }
 
+.panel .panel-tables .usuarios-propietarios .propietarios .propietario .propietario-button button[disabled], .panel .panel-tables .usuarios-propietarios .propietarios .propietario .propietario-button button:disabled {
+  background-color: #999;
+  color: #333333;
+}
+
 .panel .panel-tables .usuarios-propietarios .propietarios .propietario:hover {
   background-color: #eee;
 }
@@ -5295,6 +5307,11 @@ footer .totum p a:hover {
 
 .panel .panel-settings .settings-button:hover {
   background-color: #2b3179;
+}
+
+.panel .panel-settings .settings-button[disabled], .panel .panel-settings .settings-button:disabled {
+  background-color: #999;
+  color: #333333;
 }
 
 .panel.active {
@@ -5857,6 +5874,11 @@ footer .totum p a:hover {
 
 .section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td .button-wrapper button:hover {
   background-color: #2b3179;
+}
+
+.section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td .button-wrapper button[disabled], .section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td .button-wrapper button:disabled {
+  background-color: #999;
+  color: #333333;
 }
 
 .section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td #supervisor {
