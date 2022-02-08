@@ -153,6 +153,22 @@ public function datos_empresas(){
  return $empresas;
 }
 
+public function traigo_ci(){
+    $ci = array();
+    $conn = $this->conexion();
+    $query = "SELECT CI FROM salioviajeuy_salioviajeuy.usuarios";
+    $stmt = $conn->prepare($query);
+    if ($stmt->execute()) {
+        $stmt->store_result();
+        $stmt->bind_result($ci_bd);
+        while ($stmt->fetch()) {
+         array_push($ci, $ci_bd);
+     }
+ }
+ $stmt->close();
+ return $ci;
+}
+
 public function datos_vehiculos(){
     $vehiculos = array();
     $conn = $this->conexion();
