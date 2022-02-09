@@ -24,8 +24,8 @@
 
         text-align: center;
 
-        #step_1, #step_2, #step_3{
-            .loader, .aprobado{
+        #step_1, #step_2, #step_3, #step_4{
+            .loader, .aprobado, .no-aprobado{
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -42,6 +42,12 @@
                 i{
                     animation: none;
                     color: rgb(116, 212, 129);
+                }
+            }
+            .no-aprobado{
+                i{
+                    animation: none;
+                    color: rgb(255, 91, 91);
                 }
             }
     
@@ -62,7 +68,7 @@
                 color: #555;
             }
         }
-        #step_3{
+        #step_3, #step_4{
             h2{
                 margin: 10px 0;
                 margin-bottom: 20px;
