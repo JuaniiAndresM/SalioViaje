@@ -6,7 +6,7 @@ $(document).ready(function () {
     }, 2000);
 
     setTimeout(() => {
-        steps(4);
+        steps(3);
     }, 5000);
 });
 
