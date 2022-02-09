@@ -204,6 +204,7 @@ $main_3: #6d76db;
 
       a {
         position: relative;
+        z-index: 10;
         display: block;
         width: 100%;
         display: flex;
@@ -279,7 +280,29 @@ $main_3: #6d76db;
     li:nth-child(1) {
       margin-bottom: 40px;
       margin-top: 10px;
-      pointer-events: none;
+      
+      a{
+        .icon{
+          transition: .3s;
+        }
+      }
+    }
+    li:nth-child(1):hover{
+      background-color: $main_1;
+      
+      a{
+        color: $contraste_2;
+
+        .icon{
+          transform: scale(1.2);
+        }
+      }
+    }
+    li:nth-child(1):hover a::after{
+      content: none;
+    }
+    li:nth-child(1):hover a::before{
+      content: none;
     }
   }
 }

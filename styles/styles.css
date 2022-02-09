@@ -4711,6 +4711,7 @@ footer .totum p a:hover {
 
 #panel-navbar ul li a {
   position: relative;
+  z-index: 10;
   display: block;
   width: 100%;
   display: -webkit-box;
@@ -4791,7 +4792,32 @@ footer .totum p a:hover {
 #panel-navbar ul li:nth-child(1) {
   margin-bottom: 40px;
   margin-top: 10px;
-  pointer-events: none;
+}
+
+#panel-navbar ul li:nth-child(1) a .icon {
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+#panel-navbar ul li:nth-child(1):hover {
+  background-color: #3844bc;
+}
+
+#panel-navbar ul li:nth-child(1):hover a {
+  color: #ffffff;
+}
+
+#panel-navbar ul li:nth-child(1):hover a .icon {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+#panel-navbar ul li:nth-child(1):hover a::after {
+  content: none;
+}
+
+#panel-navbar ul li:nth-child(1):hover a::before {
+  content: none;
 }
 
 #panel-navbar.active {
