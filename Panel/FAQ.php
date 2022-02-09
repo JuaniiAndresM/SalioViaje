@@ -146,7 +146,7 @@
               <textarea name="" id="" placeholder="Contenido de la Pregunta"></textarea>
             </div>
 
-            <p id="mensaje-error"></p>
+            <p id="mensaje-error">Debe completar todos los campos.</p>
             
             <div class="button-wrapper">
               <button><i class="fas fa-plus"></i> Crear Pregunta</button>
