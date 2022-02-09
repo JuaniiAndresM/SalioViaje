@@ -139,6 +139,8 @@
               <i class="fas fa-signature" id="icon2"></i>
               <textarea name="" id="respuesta" placeholder="Respuesta"></textarea>
             </div>
+
+            <p id="mensaje-error">Debe completar todos los campos.</p>
             
             <div class="button-wrapper">
               <button onclick="crear_pregunta()"><i class="fas fa-plus"></i> Crear Pregunta</button>

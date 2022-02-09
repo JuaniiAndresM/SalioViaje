@@ -28,6 +28,11 @@
             align-items: center;
             flex-direction: column;
 
+            #mensaje-error{
+                color: #ff635a;
+                margin-bottom: 20px;
+            }
+
             h2{
                 color: $main_1;
             }
@@ -87,8 +92,8 @@
                 
 
                 .faq-question{
-                    margin: 10px 0;
-                    width: 100%;
+                    margin: 10px auto;
+                    width: calc(100% - 20px);
                     text-align: left;
                     border-radius: 1em;
 
