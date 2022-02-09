@@ -73,13 +73,6 @@
                   <span class="icon"><i class="fas fa-question"></i></span>
                   <span class="title">FAQs</span>
                 </a>
-              </li>
-
-              <li>
-                <a class href="https://www.salioviaje.com.uy/">
-                  <span class="icon"><i class="fas fa-undo"></i></span>
-                  <span class="title">Página Principal</span>
-                </a>
               </li>';
     }elseif($tipo == 2){
       echo '  <li>

@@ -62,10 +62,13 @@
     <script src="https://kit.fontawesome.com/1e193e3a23.js" crossorigin="anonymous"></script>    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <script src="https://www.salioviaje.com.uy/Javascript/web.js"></script>
-    <script src="https://www.salioviaje.com.uy/Javascript/faq.js"></script>
-
-
+    <script src="/SalioViaje/Javascript/web.js"></script>
+    <script src="/SalioViaje/Javascript/faq.js"></script>
+    <script type="text/javascript">
+        window.onload = function(){
+            traer_preguntas_seccion_faq()
+        }
+    </script>
 
 </head>
 <body>
@@ -90,60 +93,6 @@
         <div class="accordion-container">
 
             <div class="accordion">
-
-                <div class="accordion-item">
-                    <button class="accordion-link" onclick="desplegar(this)">
-                        <div class="faq-left">
-                            <div class="faq-icon">
-                                <i class="fas fa-question"></i>
-                            </div>
-                            <h4>¿Pregunta N° 1?</h4>
-                        </div>
-                        <div class="faq-right">
-                            <i class="fas fa-angle-down" id="arrow-down"></i>
-                        </div>
-                    </button>
-
-                    <div class="content">
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia, fugiat.</p>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <button class="accordion-link" onclick="desplegar(this)">
-                        <div class="faq-left">
-                            <div class="faq-icon">
-                                <i class="fas fa-question"></i>
-                            </div>
-                            <h4>¿Pregunta N° 2?</h4>
-                        </div>
-                        <div class="faq-right">
-                            <i class="fas fa-angle-down" id="arrow-down"></i>
-                        </div>
-                    </button>
-
-                    <div class="content">
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia, fugiat.</p>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <button class="accordion-link" onclick="desplegar(this)">
-                        <div class="faq-left">
-                            <div class="faq-icon">
-                                <i class="fas fa-question"></i>
-                            </div>
-                            <h4>¿Pregunta N° 2?</h4>
-                        </div>
-                        <div class="faq-right">
-                            <i class="fas fa-angle-down" id="arrow-down"></i>
-                        </div>
-                    </button>
-
-                    <div class="content">
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia, fugiat.</p>
-                    </div>
-                </div>
 
             </div>
 

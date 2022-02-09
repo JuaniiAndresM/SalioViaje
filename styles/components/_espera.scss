@@ -10,7 +10,6 @@
     .espera{
         max-width: 500px;
         width: 100%;
-        height: 280px;
         box-shadow: 10px 0 20px 0 rgba($color: #000000, $alpha: .3);
 
         border-radius: 1.2em;
@@ -25,27 +24,158 @@
 
         text-align: center;
 
-        .loader{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            i{
-                font-size: 4em;
-                color: $main_2;
+        #step_1, #step_2, #step_3, #step_4{
+            .loader, .aprobado, .no-aprobado{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                i{
+                    font-size: 4em;
+                    color: $main_2;
+    
+                    animation: spinner 2s linear forwards infinite;
+    
+                    margin: 10px 0;
+                }
+            }
+            .aprobado{
+                i{
+                    animation: none;
+                    color: rgb(116, 212, 129);
+                }
+            }
+            .no-aprobado{
+                i{
+                    animation: none;
+                    color: rgb(255, 91, 91);
+                }
+            }
+    
+            h2{
+                color: $main_1;
+                font-size: 1.4em;
+                margin: 5px 0;
+                margin-top: 30px;
+            }
+            h3{
+                color: $main_1;
+                font-size: 1.1em;
+                margin: 0;
+                margin-bottom: 10px;
+            }
+            p{
+                font-size: .9em;
+                color: #555;
+            }
+        }
+        #step_3, #step_4{
+            h2{
+                margin: 10px 0;
+                margin-bottom: 20px;
+            }
 
-                animation: spinner 2s linear forwards infinite;
+            .info{
+                text-align: center;
+                margin: 5px auto;
+                margin-top: 30px;
+
+                p{
+                    font-size: .9em;
+                    color: #555;
+                    margin: 5px 0;
+
+                    b{
+                        color: $main_1;
+                    }
+
+                    a{
+                        text-decoration: none;
+                        color: #555;
+                    }
+                    a:hover{
+                        color: #888;
+                    }
+                }
             }
         }
 
-        h3{
-            color: $main_1;
-            font-size: 1.1em;
-            margin: 20px 0;
+        
+
+        .progress{
+            width: 100%;
+            margin: 30px 0;
+
+            .progress-labels{
+                width: 100%;
+
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+
+                .label{
+                    font-size: .7em;
+                    margin: 0;
+                    width: 100px;
+                    color: $main_1;
+
+                    text-align: center;
+                }
+            }
+            .progress-bar {
+                position: relative;
+                width: 80%;
+                height: 15px;
+        
+                display: flex;
+                justify-content: center;
+                align-items: center;
+        
+                margin: 0 auto;
+                text-align: center;
+                margin-top: 20px;
+        
+                .line {
+                    position: relative;
+                    width: 100%;
+                    height: 5px;
+        
+                    border-radius: 2em;
+                    background-color: #aaa;
+                }
+                .progress-line{
+                    position: absolute;
+                    left: 0;
+        
+                    width: 0%;
+                    height: 5px;
+        
+                    border-radius: 2em;
+                    background: linear-gradient(to right, $main_1, $main_2);
+                    transition: 0.8s;
+                }
+                .circle1,
+                .circle2,
+                .circle3 {
+                    width: 15px;
+                    height: 15px;
+                    border-radius: 50%;
+                    background-color: #aaa;
+                    position: absolute;
+                    left: 0;
+                }
+                .circle1 {
+                    background-color: $main_1;
+                }
+                .circle2 {
+                    left: calc(50% - 10px);
+                }
+                .circle3 {
+                    left: calc(100% - 10px);
+                }
+            }
         }
-        p{
-            font-size: .9em;
-            color: #555;
-        }
+
+        
 
     }
 }

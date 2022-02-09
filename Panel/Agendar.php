@@ -84,11 +84,15 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="https://www.salioviaje.com.uy/Javascript/panel.js"></script>
-    <script src="https://www.salioviaje.com.uy/Javascript/settings.js"></script>
-    <script src="https://www.salioviaje.com.uy/Javascript/agendar.js"></script>
-    <script src="https://www.salioviaje.com.uy/Javascript/loader.js"></script>
-    <script type="text/javascript">select_vehiculos()</script>
+    <script src="/SalioViaje/Javascript/panel.js"></script>
+    <script src="/SalioViaje/Javascript/settings.js"></script>
+    <script src="/SalioViaje/Javascript/agendar.js"></script>
+    <script src="/SalioViaje/Javascript/loader.js"></script>
+    <script type="text/javascript">
+    
+
+
+    </script>
   </head>
   <body>
     <div id="pre-loader">
@@ -166,11 +170,11 @@
                   </div>
                   <div class="vehicle-info">
                     <h3><i class="fas fa-info"></i> Información del Vehiculo</h3>
-                    <p id="matricula"><i class="fas fa-address-card"></i> STU6574</p>
-                    <p id="marca"><i class="fas fa-car"></i> Hyundai</p>
-                    <p id="modelo"><i class="fas fa-list"></i> H1 2001</p>
-                    <p id="capacidad"><i class="fas fa-users"></i> 12</p>
-                    <p id="combustible"><i class="fas fa-gas-pump"></i> Diesel</p>
+                    <p id="matricula"><i class="fas fa-address-card"></i></p>
+                    <p id="marca"><i class="fas fa-car"></i></p>
+                    <p id="modelo"><i class="fas fa-list"></i></p>
+                    <p id="capacidad"><i class="fas fa-users"></i></p>
+                    <p id="combustible"><i class="fas fa-gas-pump"></i></p>
                   </div>
                 </div>
 
@@ -338,9 +342,10 @@
           </div>
 
           <div id="step_3">
-            <div class="inputs-wrapper-agendar">
+            <div class="inputs-wrapper-agendar-rutas">
               <div class="column">
                 <h2 class="step_title"><i class="fas fa-road"></i> Rutas N° 1</h2>
+                
                 <div class="input" id="rutas">
                   <i class="fas fa-road" id="icon"></i>
                   <input list="Rutas" id="rutas_1" placeholder="Rutas" onchange="rutas()">
@@ -353,24 +358,6 @@
                 </div>
 
                 <div class="tags" id="tags_1">
-                </div>
-
-              </div>
-              <div class="column">
-                <h2 class="step_title"><i class="fas fa-road"></i> Rutas N° 2</h2>
-                <div class="input" id="rutas">
-                  <i class="fas fa-road" id="icon"></i>
-                  <input list="Rutas2" id="rutas_2" placeholder="Rutas" onchange="rutas()">
-                  <datalist id="Rutas2">
-                    <option value="Ruta 1">
-                    <option value="Ruta 2">
-                    <option value="Ruta 3">
-                    <option value="Ruta 4">
-                  </datalist> 
-                </div>
-
-                <div class="tags" id="tags_2">
-
                 </div>
 
               </div>

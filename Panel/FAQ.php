@@ -84,16 +84,10 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="https://www.salioviaje.com.uy/Javascript/panel.js"></script>
-    <script src="https://www.salioviaje.com.uy/Javascript/settings.js"></script>
-    <script src="https://www.salioviaje.com.uy/Javascript/loader.js"></script>
-        <script type="text/javascript">
-            window.onload = function(){
-              let seccion = "empresas"
-              traerEmpresas(seccion)
-              filtros()
-            }
-    </script>
+    <script src="/SalioViaje/Javascript/panel.js"></script>
+    <script src="/SalioViaje/Javascript/faq.js"></script>
+    <script src="/SalioViaje/Javascript/settings.js"></script>
+    <script src="/SalioViaje/Javascript/loader.js"></script>
   </head>
   <body>
     <div id="pre-loader">
@@ -138,18 +132,20 @@
 
             <div class="input">
               <i class="fas fa-question" id="icon"></i>
-              <input type="text" placeholder="Pregunta">
+              <input type="text" id="pregunta" placeholder="Pregunta">
             </div>
 
             <div class="input">
               <i class="fas fa-signature" id="icon2"></i>
-              <textarea name="" id="" placeholder="Contenido de la Pregunta"></textarea>
+              <textarea name="" id="respuesta" placeholder="Respuesta"></textarea>
             </div>
+
+            <p id="mensaje-error">Debe completar todos los campos.</p>
             
             <div class="button-wrapper">
-              <button><i class="fas fa-plus"></i> Crear Pregunta</button>
-              <button><i class="fas fa-save"></i> Guardar Pregunta</button>
-              <button><i class="fas fa-trash-alt"></i> Eliminar Pregunta</button>
+              <button id="crear-pregunta" onclick="crear_pregunta()"><i class="fas fa-plus"></i> Crear Pregunta</button>
+              <button id="guardar-pregunta" onclick="editar_pregunta()"><i class="fas fa-save"></i> Guardar Pregunta</button>
+              <button id="eliminar-pregunta" onclick="borrar_pregunta()"><i class="fas fa-trash-alt"></i> Eliminar Pregunta</button>
             </div>
           </div>
 
@@ -157,31 +153,6 @@
             <h2><i class="fas fa-list-ol"></i> Lista de FAQs</h2>
 
             <div class="faq-list">
-
-              <div class="faq-question">
-                <h3>¿Pregunta N° 1?</h3>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus, odio.</p>
-              </div>
-
-              <div class="faq-question">
-                <h3>¿Pregunta N° 1?</h3>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus, odio.</p>
-              </div>
-
-              <div class="faq-question">
-                <h3>¿Pregunta N° 1?</h3>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus, odio.</p>
-              </div>
-
-              <div class="faq-question">
-                <h3>¿Pregunta N° 1?</h3>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus, odio.</p>
-              </div>
-
-              <div class="faq-question">
-                <h3>¿Pregunta N° 1?</h3>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus, odio.</p>
-              </div>
 
               <div class="faq-question">
                 <h3>¿Pregunta N° 1?</h3>

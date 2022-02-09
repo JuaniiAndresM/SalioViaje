@@ -19,7 +19,7 @@ class notifyMeActions {
                         "usuario"=>$GLOBALS["user"],
                         "password"=>$GLOBALS["password"],
                         "notificacion"=>array(
-                            "dialogo"=>$dialago,//tpc_texto_a_voz (no estoy segura)
+                            "dialogo"=>"tpc_notificacion_opciones",
                             "fecha"=>$dateNhoure,// formato 2022-02-28T15:00:00+03:00 -- https://www.w3.org/TR/xmlschema-2/#dt-value-space
                             "identificadorUnico"=>$id,//identificador de la llamada
                             "telefono"=>$tel,//telefono del cliente
@@ -60,7 +60,7 @@ class notifyMeActions {
                     $llamarFunction = new notifyMeActions();
                     $estado = $llamarFunction->watchCall($id);
 
-                } while(strpos($estado, "ENTREGADA") === false);
+                } while(strpos($estado, "Mensaje para.../d") === false);
 
                 //se fija si el usuario selecciono alguna de las opciones
                 if(strpos($estado, "ENTREGADA") !== false){
