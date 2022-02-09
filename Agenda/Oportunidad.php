@@ -3,10 +3,10 @@
   session_start(); 
 
   if(!isset($_SESSION['usuario'])){
-      header('Location: /SalioViaje/Login');
+      header('Location: https://www.salioviaje.com.uy/Login');
   }else{
     if($_SESSION['tipo_usuario'] == "Chofer"){
-      header('Location: /SalioViaje/');
+      header('Location: https://www.salioviaje.com.uy/');
     }
   }
 
@@ -71,10 +71,10 @@
     <!-- Links -->
     <link
       rel="shortcut icon"
-      href="/SalioViaje/media/svg/Favicon-SalioViaje.svg"
+      href="https://www.salioviaje.com.uy/media/svg/Favicon-SalioViaje.svg"
       type="image/x-icon"
     />
-    <link rel="stylesheet" href="/SalioViaje/styles/styles.css" />
+    <link rel="stylesheet" href="https://www.salioviaje.com.uy/styles/styles.css" />
 
     <!-- Scripts -->
     <script
@@ -83,8 +83,8 @@
     ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <script src="/SalioViaje/Javascript/web.js"></script>
-    <script src="/SalioViaje/Javascript/viajar.js"></script>
+    <script src="https://www.salioviaje.com.uy/Javascript/web.js"></script>
+    <script src="https://www.salioviaje.com.uy/Javascript/viajar.js"></script>
   </head>
   <body>
     <div id="header"></div>
@@ -103,7 +103,7 @@
           <div class="oportunidad-header">
             <div class="driver-info">
               <div class="driver-icon">
-                <img src="/SalioViaje/media/svg/Logo-SalioViaje-White.svg" alt="Logo SalióViaje">
+                <img src="https://www.salioviaje.com.uy/media/svg/Logo-SalioViaje-White.svg" alt="Logo SalióViaje">
               </div>
               <div class="driver-desc">
                 <h3>Nombre del Transportista</h3>

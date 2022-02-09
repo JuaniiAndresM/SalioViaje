@@ -149,7 +149,7 @@ function tabla_usuarios_dashboard(){
         $.ajax({ 
             type: "POST",
             data: {opcion:"tab_dashboard_usuarios"},
-            url: "/SalioViaje/PHP/Backend.php",
+            url: "https://www.salioviaje.com.uy/PHP/Backend.php",
             success: function(response){
                 let numero_usuarios
                 if(response != 0){
@@ -260,7 +260,7 @@ function tabla_empresas_dashboard(){
     $.ajax({ 
         type: "POST",
         data: {opcion:"tab_dashboard_empresas"},
-        url: "/SalioViaje/PHP/Backend.php",
+        url: "https://www.salioviaje.com.uy/PHP/Backend.php",
         success: function(response){
             if(response != 0){
                 $(".propietarios").html(response)
@@ -440,7 +440,7 @@ let datos_etapa_1
 function select_vehiculos(){
 $.ajax({
     type: "POST",
-    url: "/SalioViaje/PHP/procedimientosForm.php",
+    url: "https://www.salioviaje.com.uy/PHP/procedimientosForm.php",
     data: {tipo: "vehiculos"},
     success: function (response) {
         console.log(response)

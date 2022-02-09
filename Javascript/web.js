@@ -49,5 +49,5 @@ function suscripcion(){
 }
 
 function comprar_oportunidad(id){
-    location.href = "/SalioViaje/Oportunidad/" + id;
+    location.href = "https://www.salioviaje.com.uy/Oportunidad/" + id;
 }

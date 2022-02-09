@@ -69,14 +69,14 @@
               </li>
 
               <li>
-                <a class href="/SalioViaje/FAQ_Edit">
+                <a class href="https://www.salioviaje.com.uy/FAQ_Edit">
                   <span class="icon"><i class="fas fa-question"></i></span>
                   <span class="title">FAQs</span>
                 </a>
               </li>
 
               <li>
-                <a class href="/SalioViaje/">
+                <a class href="https://www.salioviaje.com.uy/">
                   <span class="icon"><i class="fas fa-undo"></i></span>
                   <span class="title">Página Principal</span>
                 </a>
