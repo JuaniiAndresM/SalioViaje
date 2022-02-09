@@ -5,6 +5,9 @@
   if(!isset($_SESSION['usuario'])){
     header('Location: https://www.salioviaje.com.uy/Login');
   }else{
+
+    $usuario_get = $_GET['Usuario'];
+    $usuario_perfil = str_replace('_', ' ', $usuario_get);
     $tipo = 0;
 
     if(isset($_SESSION['tipo_usuario'])){
@@ -31,7 +34,7 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <title>SalióViaje | <?php echo $_SESSION['usuario']; ?></title>
+    <title>SalióViaje | <?php echo $usuario_perfil; ?></title>
 
     <!-- // Meta Etiquetas -->
 
@@ -119,7 +122,7 @@
           <button onclick="navbar()"><i class="fas fa-bars"></i></button>
         </div>
         <div class="header-title">
-          <h2>Perfil</h2>
+          <h2><?php echo $usuario_perfil; ?></h2>
         </div>
       </div>
       <div class="header-right">
@@ -145,7 +148,7 @@
               <img src="https://www.salioviaje.com.uy/media/svg/Logo-SalioViaje.svg" alt="Logo SalióViaje">
             </div>
             <div class="user-desc">
-              <h2><?php echo $_SESSION['usuario']; ?></h2>
+              <h2><?php echo $usuario_perfil; ?></h2>
               <p><i class="fas fa-bus"></i> <?php echo $_SESSION['tipo_usuario']; ?></p>
 
               <?php 
@@ -165,9 +168,14 @@
           </div>
           <div class="user-right">
             <div class="button-wrapper">
-            <?php 
-                echo '<button class="button"><i class="fas fa-edit"></i></button>';
-                echo '<button class="button"><i class="fas fa-star"></i></button>';
+            <?php
+            if($usuario_perfil == $_SESSION['usuario']){
+              echo '<button class="button"><i class="fas fa-edit"></i></button>';
+            }else{
+              echo '<button class="button"><i class="fas fa-star"></i></button>';
+            }
+                
+                
             ?>
             </div>
           </div>

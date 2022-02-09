@@ -27,8 +27,7 @@ $contraste_2: #ffffff;
 
 .landing {
   width: 100%;
-  height: calc(100vh - 80px);
-  min-height: 700px;
+  max-height: 700px;
   
   
   background-color: #fff;
@@ -81,7 +80,7 @@ $contraste_2: #ffffff;
           padding: 0;
           width: 270px;
           height: 50px;
-          font-size: 1.3em;
+          font-size: 1.2em;
 
           display: flex;
           justify-content: center;
@@ -99,7 +98,7 @@ $contraste_2: #ffffff;
 
       .landing-img-wrapper {
 
-        height: 600px;
+        height: 100%;
 
         border-radius: 6em 6em 0 6em;
         overflow: hidden;
@@ -204,6 +203,7 @@ $contraste_2: #ffffff;
           a {
             color: $contraste_2;
             text-decoration: none;
+            font-size: 1.2em;
           }
         }
 
@@ -381,7 +381,7 @@ $contraste_2: #ffffff;
   .oportunidades-wrapper{
     max-width: 1300px;
     width: 100%;
-    height: 300px;
+    height: 400px;
     padding: 20px;
     margin-top: 30px;
 
@@ -426,6 +426,7 @@ $contraste_2: #ffffff;
       height: 100%;
 
       display: flex;
+      //display: none;
       justify-content: center;
       align-items: center;
       margin-top: -25px;
@@ -437,61 +438,115 @@ $contraste_2: #ffffff;
 
     .oportunidades-list{
       width: 100%;
+      height: calc(100% - 50px);
       display: none;
       margin-top: 10px;
+      max-height: 350px;
+      overflow: hidden;
+      overflow-y: auto;
 
       .oportunidad{
         width: 100%;
-        min-height: 80px;
-        border-radius: 0 3em 3em 3em;
-        background-color: $contraste_2;
-        box-shadow: 10px 0 20px 0 rgba($color: #000000, $alpha: .3);
+        border-radius: 3em 0 3em 3em;
+        background-color: $main_1;
 
-        cursor: pointer;
+        margin: 15px 0;
 
-        border: none;
-        outline: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
-        .collide-hide{
-          width: calc(100% - 40px);
+        .oportunidad-left{
           display: flex;
           justify-content: flex-start;
           align-items: center;
 
-          margin: 0 auto;
-
-          .oportunidad-icon{
+          .discount{
             width: 80px;
             height: 80px;
 
             display: flex;
             justify-content: center;
             align-items: center;
+            margin: 10px;
 
-            i{
+            background-color: $contraste_2;
+
+            border-radius: 50%;
+            
+
+            h3{
               color: $main_1;
-              font-size: 3em;
+              font-size: 2em;
             }
           }
-          .travel, .time{
+          .travel{
             text-align: left;
             margin: 0 10px;
 
             p{
               margin: 5px 10px;
-              color: $main_2;
+              color: $contraste_2;
               i{
-                color: $main_1;
                 font-size: 1.1em;
               }
             }
             
           }
-          .discount{
-            margin-left: 10px;
-            h3{
-              font-size: 2em;
+        }
+        
+
+        .oportunidad-right{
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+
+          .travel{
+            text-align: center;
+            margin: 0 10px;
+
+            p{
+              margin: 5px 10px;
+              color: $contraste_2;
+
+              i{
+                font-size: 1.1em;
+              }
+            }
+            .calificacion{
+              color: #ffaa00;
+            }
+            
+          }
+
+          .button-wrapper{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-right: 20px;
+
+            button{
+              width: 150px;
+              height: 35px;
+
+              border: none;
+              outline: none;
               color: $main_1;
+              margin: 5px 10px;
+              background-color: $contraste_2;
+
+              border-radius: 10px;
+
+              transition: .3s;
+              cursor: pointer;
+            }
+            button:hover{
+              transform: scale(1.05);
+            }
+            .comprar-button{
+              background-color: #70ff7c;
+              color: $contraste_1;
             }
           }
         }
@@ -587,7 +642,7 @@ $contraste_2: #ffffff;
         .landing-img-wrapper {
           max-width: 400px;
           width: calc(100% - 20px);
-          height: 300px;
+          border-radius: 3em 3em 0 3em;
 
           img{
             width: 100%;
@@ -599,44 +654,79 @@ $contraste_2: #ffffff;
       }
     }
   }
+}
 
-  .nosotros {
-    .nosotros-wrapper-grid {
-      grid-template-columns: 1fr;
-
-      .nosotros-left {
-        .nosotros-img-wrapper {
-          max-width: 400px;
-          width: calc(100% - 20px);
-          height: 300px;
-        }
-      }
-
-      .nosotros-right {
-        width: calc(100% - 20px);
-        margin: 0 auto;
-
-        .nosotros-info {
-          width: 100%;
-          margin-top: 20px;
-          text-align: center;
-
-          h1 {
-            font-size: 3.4em;
-          }
-          hr{
-            margin: 10px auto;
-          }
-          p {
-            font-size: 1em;
-            margin: 10px auto;
-          }
-          .button-nosotros {
-            margin-top: 0;
-            margin: 0 auto;
+@media screen and(max-width: 1146px) {
+  .oportunidades{
+    .oportunidades-wrapper{
+      .oportunidades-list{
+        .oportunidad{
+          .oportunidad-left{
+            .travel:nth-child(4){
+              display: none;
+            }
           }
         }
       }
     }
-  }
+  } 
+}
+
+@media screen and(max-width: 952px) {
+  .oportunidades{
+    .oportunidades-wrapper{
+      .oportunidades-list{
+        .oportunidad{
+          .oportunidad-right{
+            .travel{
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  } 
+}
+
+@media screen and(max-width: 829px) {
+  .oportunidades{
+    .oportunidades-wrapper{
+      .oportunidades-list{
+        .oportunidad{
+          flex-direction: column;
+          width: calc(100% - 20px);
+          margin: 20px auto;
+          .oportunidad-left{
+            flex-direction: column;
+
+            .travel{
+              text-align: center;
+              p{
+                margin: 10px 5px;
+              }
+            }
+          }
+          .oportunidad-right{
+            width: 100%;
+            flex-direction: column;
+            margin: 10px 0;
+
+            .button-wrapper{
+              width: 100%;
+              margin: 10px 0;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              flex-direction: row;
+              flex-wrap: wrap;
+
+              button{
+                margin: 5px 10px;
+              }
+            }
+          }
+        }
+      }
+    }
+  } 
 }

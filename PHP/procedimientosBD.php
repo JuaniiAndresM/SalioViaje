@@ -82,7 +82,6 @@ public function login($usuario, $pin){
         $stmt->store_result();
         $stmt->bind_result($id,$pin_bd,$passwd,$nombre,$apellido,$tipo_usuario);
         while ($stmt->fetch()) {
-            echo $passwd;
             if(password_verify($pin, $pin_bd) || password_verify($pin, $passwd)){
                 $usuario = $nombre." ".$apellido;
                 session_start();
@@ -152,6 +151,22 @@ public function datos_empresas(){
  }
  $stmt->close();
  return $empresas;
+}
+
+public function traigo_ci(){
+    $ci = array();
+    $conn = $this->conexion();
+    $query = "SELECT CI FROM salioviajeuy_salioviajeuy.usuarios";
+    $stmt = $conn->prepare($query);
+    if ($stmt->execute()) {
+        $stmt->store_result();
+        $stmt->bind_result($ci_bd);
+        while ($stmt->fetch()) {
+         array_push($ci, $ci_bd);
+     }
+ }
+ $stmt->close();
+ return $ci;
 }
 
 public function datos_vehiculos(){

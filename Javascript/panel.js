@@ -19,6 +19,11 @@ $(document).ready(function () {
         actualizar_panel()
     });
 
+    $('#vehiculos-select').on('change', function (){
+        let matricula = document.getElementById('vehiculos-select').value;
+        actualizar_vista_previa(matricula);
+    });
+
     $("#cerrar_session_dashboard").on('click', function() {
         $.ajax({ 
             url: "/PHP/cerrarSession.php",
@@ -106,7 +111,7 @@ function buscarUsuarios(buscador) {
 let usuarios
 
 function traerUsuarios(seccion){
-
+         
         usuarios = $.ajax({
                         type: 'POST',       
                         url: "/PHP/Backend.php",
@@ -125,6 +130,7 @@ function traerUsuarios(seccion){
 
 function tablas_usuarios(seccion){
     console.log(seccion)
+
     for (var i = 0;i < usuarios.length; i++) {
         switch(seccion){
             case "Dashboard":
@@ -138,37 +144,47 @@ function tablas_usuarios(seccion){
     }
 }
 
-function tabla_usuarios_dashboard(usuario){
-    $("#cantidad-usuarios").html('<h2>'+usuarios.length+'</h2><i class="fas fa-user-friends"></i>')
-    var tabla = document.getElementById('tbody')
-    var row = document.createElement("tr")
-    let ID_USUARIO;
+function tabla_usuarios_dashboard(){
 
+        $.ajax({ 
+            type: "POST",
+            data: {opcion:"tab_dashboard_usuarios"},
+            url: "/SalioViaje/PHP/Backend.php",
+            success: function(response){
+                let numero_usuarios
+                if(response != 0){
+                  numero_usuarios = $("#tbody-usuarios tr").length
+                  $("#tbody-usuarios").html(response)
+                }else{
+                  numero_usuarios = 0
+                  $("#tbody-usuarios").html("")
+                }
+            },
+            complete: function() {
+                let usuarios_total = $(".usuarios-table > tbody").children().length;
+                if (usuarios_total == 1) {
+                    $("#cantidad-usuarios").html('<h2>0</h2><i class="fas fa-user-friends"></i>')
+                }else{
+                    usuarios_total = usuarios_total-1
+                    $("#cantidad-usuarios").html('<h2>'+usuarios_total+'</h2><i class="fas fa-user-friends"></i>')
+                }
 
-    for (const property in usuario) {
-        let td = document.createElement("td");
-
-        if (property == "NOMBRE" || property == "APELLIDO" || property == "TIPO_USUARIO" || property == "DEPARTAMENTO" || property == "TELEFONO") {
-           td.innerHTML = usuario[property]
-           row.appendChild(td);
-        }else if(property == "ID"){
-            ID_USUARIO = usuario[property]
-        }
-    }
-
-    let td = document.createElement("td");
-    td.innerHTML += '<div class="button-wrapper"><button id="'+ID_USUARIO+'" class="button"><i class="far fa-eye"></i></button><button id="'+ID_USUARIO+'" class="button"><i class="fas fa-edit"></i></button><button id="'+ID_USUARIO+'" class="button"><i class="fas fa-trash-alt"></i></button></div>'
-    row.appendChild(td);
-    //
-    //agrego la fila a la tabla
-    //
-    tabla.appendChild(row);
+                $('.ADM').hide()
+            }
+        })
 }
+
+function actualizar_tablas(){
+    tabla_usuarios_dashboard()
+    tabla_empresas_dashboard()
+}
+
 
 function tabla_seccion_usuarios(usuario){
 
     var tabla = document.getElementById('tbody')
-    var row = document.createElement("tr")
+    if (usuario['TIPO_USUARIO'] != "ADM") {
+        var row = document.createElement("tr")
         row.setAttribute('class',usuario['TIPO_USUARIO'])
     let contador = 0;
 
@@ -196,12 +212,14 @@ function tabla_seccion_usuarios(usuario){
     }
 
     let td = document.createElement("td");
-    td.innerHTML += '<div class="button-wrapper"><button id="'+ID_USUARIO+'" class="button"><i class="far fa-eye"></i></button><button id="'+ID_USUARIO+'" class="button"><i class="fas fa-edit"></i></button><button id="'+ID_USUARIO+'" class="button"><i class="fas fa-trash-alt"></i></button></div>'
+    td.innerHTML += '<div class="button-wrapper"><button id="'+ID_USUARIO+'" class="button" disabled><i class="far fa-eye"></i></button><button id="'+ID_USUARIO+'" class="button" disabled><i class="fas fa-edit"></i></button><button id="'+ID_USUARIO+'" class="button" disabled><i class="fas fa-trash-alt"></i></button></div>'
     row.appendChild(td);
     //
     //agrego la fila a la tabla
     //
-    tabla.appendChild(row);
+    console.log(row)
+    if (row != " ") {tabla.appendChild(row);}
+}
 }
 /*-------------------------------------------------------------------------------------------*/
 //                                     Empresas                                              //
@@ -238,13 +256,18 @@ function tablas_empresas(seccion){
     }
 }
 
-function tabla_empresas_dashboard(empresa){
-    $.ajax({
-        type: 'POST',       
-        url: "/PHP/agregarEmpresaDashboard.php",
-        data: {NOMBRE_EMPRESA:empresa['NOMBRE_EMPRESA'], ID_EMPRESA:empresa['ID']},
-        success: function(response) {
-            $(".propietarios").append(response);
+function tabla_empresas_dashboard(){
+    $.ajax({ 
+        type: "POST",
+        data: {opcion:"tab_dashboard_empresas"},
+        url: "/SalioViaje/PHP/Backend.php",
+        success: function(response){
+            if(response != 0){
+                $(".propietarios").html(response)
+            }else{
+                $(".propietarios").html("")
+            } 
+
         }
     })
 }
@@ -366,7 +389,10 @@ function traigoVisitas(){
                             return response;
                         }
         }).responseText;
-        $('#visitas_hoy').html(visitas)
+        if (visitas == "null") {
+            $('#visitas_hoy').html("0")  
+        }else { $('#visitas_hoy').html(visitas) }
+
 }
 
 /*-------------------------------------------------------------------------------------------*/
@@ -399,8 +425,60 @@ function actualizar_panel(opc){
 function crear_intervalo(tiempo){
     actualizar = setInterval(function(){
         traigoVisitas()
-        traerVehiculos()
-        traerUsuarios()
-        traerEmpresas();
+        actualizar_tablas()
     },tiempo)
+}
+
+/*-------------------------------------------------------------------------------------------*/
+//                                    Formularios Agendar                                    //
+/*-------------------------------------------------------------------------------------------*/
+let vehiculos_select
+let vehiculo_seleccionado
+let datos_etapa_1
+
+//agrego vehiculos al select
+function select_vehiculos(){
+$.ajax({
+    type: "POST",
+    url: "/SalioViaje/PHP/procedimientosForm.php",
+    data: {tipo: "vehiculos"},
+    success: function (response) {
+        console.log(response)
+      vehiculos_select = JSON.parse(response);
+      var selectVehiculos = document.getElementById('vehiculos-select');
+      $("#vehiculos-select").empty().append($("<option></option>").attr({"value": 0,"selected": true, 'disabled': true, 'hidden': true}).text('Seleccione un vehiculo'));
+      for (var i = 0; i < vehiculos_select.length; i++){
+        var opt = document.createElement('option');
+        opt.value = vehiculos_select[i]["MATRICULA"];
+        opt.text = vehiculos_select[i]["MARCA"]+" "+vehiculos_select[i]["MODELO"]+" - "+vehiculos_select[i]["MATRICULA"];
+        selectVehiculos.appendChild(opt);
+      }
+   }
+});
+}
+
+function actualizar_vista_previa(vehiculo){
+    for (var i = 0; i < vehiculos_select.length; i++) {
+        if(vehiculos_select[i]['MATRICULA'] == vehiculo){
+            /*
+            <p id="matricula"><i class="fas fa-address-card"></i> STU6574</p>
+            <p id="marca"><i class="fas fa-car"></i> Hyundai</p>
+            <p id="modelo"><i class="fas fa-list"></i> H1 2001</p>
+            <p id="capacidad"><i class="fas fa-users"></i> 12</p>
+            <p id="combustible"><i class="fas fa-gas-pump"></i> Diesel</p>
+            */
+            $("#matricula").html('<i class="fas fa-address-card"></i> '+vehiculos_select[i]['MATRICULA'])
+            $("#marca").html('<i class="fas fa-car"></i> '+vehiculos_select[i]['MARCA'])
+            $("#modelo").html('<i class="fas fa-list"></i> '+vehiculos_select[i]['MODELO'])
+            $("#capacidad").html('<i class="fas fa-users"></i> '+vehiculos_select[i]['CAPACIDAD'])
+            $("#combustible").html('<i class="fas fa-gas-pump"></i> '+vehiculos_select[i]['COMBUSTIBLE'])
+            vehiculo_seleccionado = vehiculos_select[i]
+        }
+    }
+}
+
+function etapa_1(){
+    datos_etapa_1 = {
+        
+    }
 }
