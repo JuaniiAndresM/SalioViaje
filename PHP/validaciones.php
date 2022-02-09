@@ -20,7 +20,7 @@ class validaciones
 	private $PATTERN_MARCA = "/[^0-9\.\,\"\?\!\;\:\#\$\%\&\(\)\*\+\-\/\<\>\=\@\[\]\\\^\_\{\}\|\~]+/";
 	private $PATTERN_MODELO = "/[^0-9\.\,\"\?\!\;\:\#\$\%\&\(\)\*\+\-\/\<\>\=\@\[\]\\\^\_\{\}\|\~]+/";
 	private $PATTERN_COMBUSTIBLE = "/^([A-Z][a-z]+([ ]?[a-z]?['-]?[A-Z][a-z]+)*)$/i";
-	private $PATTERN_CAPACIDAD_PASAJEROS = "/[0-9]{0,3}/i";
+	private $PATTERN_CAPACIDAD_PASAJEROS = "/^[1-9][0-9]{0,2}$/i";
 	private $PATTERN_CAPACIDAD_EQUIPAJE = "/[0-9]{0,3}/i";
 	
 	function __construct($tipo,$datos)
