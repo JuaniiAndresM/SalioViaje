@@ -145,6 +145,8 @@
               <i class="fas fa-signature" id="icon2"></i>
               <textarea name="" id="" placeholder="Contenido de la Pregunta"></textarea>
             </div>
+
+            <p id="mensaje-error"></p>
             
             <div class="button-wrapper">
               <button><i class="fas fa-plus"></i> Crear Pregunta</button>

@@ -10193,6 +10193,11 @@ footer .totum p a:hover {
           flex-direction: column;
 }
 
+.edit-faq .faq-grid .create-faq #mensaje-error, .edit-faq .faq-grid .lista-faq #mensaje-error {
+  color: #ff635a;
+  margin-bottom: 20px;
+}
+
 .edit-faq .faq-grid .create-faq h2, .edit-faq .faq-grid .lista-faq h2 {
   color: #3844bc;
 }

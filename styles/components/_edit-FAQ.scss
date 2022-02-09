@@ -28,6 +28,11 @@
             align-items: center;
             flex-direction: column;
 
+            #mensaje-error{
+                color: #ff635a;
+                margin-bottom: 20px;
+            }
+
             h2{
                 color: $main_1;
             }
