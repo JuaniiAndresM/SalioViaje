@@ -84,10 +84,10 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="/SalioViaje/Javascript/panel.js"></script>
-    <script src="/SalioViaje/Javascript/faq.js"></script>
-    <script src="/SalioViaje/Javascript/settings.js"></script>
-    <script src="/SalioViaje/Javascript/loader.js"></script>
+    <script src="https://www.salioviaje.com.uy/Javascript/panel.js"></script>
+    <script src="https://www.salioviaje.com.uy/Javascript/faq.js"></script>
+    <script src="https://www.salioviaje.com.uy/Javascript/settings.js"></script>
+    <script src="https://www.salioviaje.com.uy/Javascript/loader.js"></script>
   </head>
   <body>
     <div id="pre-loader">

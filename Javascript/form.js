@@ -724,7 +724,7 @@ function login(ADMIN){
         console.log(response)
         if (response != '') {
          $(".mensaje-error").hide();
-          window.location = "/SalioViaje/Dashboard";
+          window.location = "https://www.salioviaje.com.uy/Dashboard";
        }else{
           $(".mensaje-error").show();
           $(".mensaje-error").text("Usuario o Contraseña Incorrectos.");

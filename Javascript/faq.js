@@ -6,6 +6,8 @@ $(document).ready(function () {
     traer_preguntas_seccion_admin()
     $('#eliminar-pregunta').hide()
     $('#guardar-pregunta').hide()
+
+    $('#mensaje-error').hide();
 });
 
 function desplegar(button){
@@ -14,6 +16,7 @@ function desplegar(button){
 }
 
 function crear_pregunta(){
+    $('#mensaje-error').hide();
     let valido;
     let pregunta = {
         "PREGUNTA" : document.getElementById('pregunta').value,
@@ -28,7 +31,7 @@ function crear_pregunta(){
         pregunta['PREGUNTA'] = verificar_pregunta(pregunta);
         $.ajax({
             type: 'POST',       
-            url: "/SalioViaje/PHP/Backend.php",
+            url: "/PHP/Backend.php",
             data: {opcion:"agregarPregunta", datos: pregunta},
             success: function(response) {
                 console.log(response)
@@ -38,7 +41,7 @@ function crear_pregunta(){
 
             }
         })
-    } else { console.log("No pueden haber campos vacios") } 
+    } else { $('#mensaje-error').show(); } 
 }
 
 function traer_datos_preguntas(id){
@@ -49,7 +52,7 @@ function traer_datos_preguntas(id){
 
     $.ajax({
         type: 'POST',       
-        url: "/SalioViaje/PHP/Backend.php",
+        url: "/PHP/Backend.php",
         data: {opcion:"datosPreguntasFAQ", ID:id},
         success: function(response) {
             response = JSON.parse(response)
@@ -67,7 +70,7 @@ function traer_datos_preguntas(id){
 function traer_preguntas_seccion_admin(){
     $.ajax({
         type: 'POST',       
-        url: "/SalioViaje/PHP/Backend.php",
+        url: "/PHP/Backend.php",
         data: {opcion:"mostrarPreguntas"},
         success: function(response) {
             $(".faq-list").html(response)
@@ -83,7 +86,7 @@ function traer_preguntas_seccion_admin(){
 function traer_preguntas_seccion_faq(){
     $.ajax({
         type: 'POST',       
-        url: "/SalioViaje/PHP/Backend.php",
+        url: "/PHP/Backend.php",
         data: {opcion:"mostrarPreguntasSeccionFAQ"},
         success: function(response) {
             console.log(response)
@@ -112,7 +115,7 @@ function editar_pregunta(){
     RESPUESTA = document.getElementById('respuesta').value;
     $.ajax({
         type: 'POST',       
-        url: "/SalioViaje/PHP/Backend.php",
+        url: "/PHP/Backend.php",
         data: {opcion:"editarPreguntaFAQ", ID: ID_PREGUNTA,PREGUNTA:PREGUNTA,RESPUESTA:RESPUESTA},
         success: function(response) {
             console.log(response)
@@ -131,7 +134,7 @@ function editar_pregunta(){
 function borrar_pregunta(){
     $.ajax({
         type: 'POST',       
-        url: "/SalioViaje/PHP/Backend.php",
+        url: "/PHP/Backend.php",
         data: {opcion:"borrarPreguntaFAQ", ID: ID_PREGUNTA},
         success: function(response) {
             $('#crear-pregunta').show()

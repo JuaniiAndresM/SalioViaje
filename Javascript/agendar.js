@@ -185,7 +185,7 @@ let datos_etapa_1
 function select_vehiculos(){
 $.ajax({
     type: "POST",
-    url: "/SalioViaje/PHP/procedimientosForm.php",
+    url: "/PHP/procedimientosForm.php",
     data: {tipo: "vehiculos"},
     success: function (response) {
         console.log(response)
