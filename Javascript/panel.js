@@ -1,3 +1,4 @@
+
 let NOMBRE_USUARIO;
 $(document).ready(function () {
     let list = document.querySelectorAll('#panel-navbar li');
@@ -423,58 +424,4 @@ function crear_intervalo(tiempo){
         traigoVisitas()
         actualizar_tablas()
     },tiempo)
-}
-
-/*-------------------------------------------------------------------------------------------*/
-//                                    Formularios Agendar                                    //
-/*-------------------------------------------------------------------------------------------*/
-let vehiculos_select
-let vehiculo_seleccionado
-let datos_etapa_1
-
-//agrego vehiculos al select
-function select_vehiculos(){
-$.ajax({
-    type: "POST",
-    url: "/SalioViaje/PHP/procedimientosForm.php",
-    data: {tipo: "vehiculos"},
-    success: function (response) {
-        console.log(response)
-      vehiculos_select = JSON.parse(response);
-      var selectVehiculos = document.getElementById('vehiculos-select');
-      $("#vehiculos-select").empty().append($("<option></option>").attr({"value": 0,"selected": true, 'disabled': true, 'hidden': true}).text('Seleccione un vehiculo'));
-      for (var i = 0; i < vehiculos_select.length; i++){
-        var opt = document.createElement('option');
-        opt.value = vehiculos_select[i]["MATRICULA"];
-        opt.text = vehiculos_select[i]["MARCA"]+" "+vehiculos_select[i]["MODELO"]+" - "+vehiculos_select[i]["MATRICULA"];
-        selectVehiculos.appendChild(opt);
-      }
-   }
-});
-}
-
-function actualizar_vista_previa(vehiculo){
-    for (var i = 0; i < vehiculos_select.length; i++) {
-        if(vehiculos_select[i]['MATRICULA'] == vehiculo){
-            /*
-            <p id="matricula"><i class="fas fa-address-card"></i> STU6574</p>
-            <p id="marca"><i class="fas fa-car"></i> Hyundai</p>
-            <p id="modelo"><i class="fas fa-list"></i> H1 2001</p>
-            <p id="capacidad"><i class="fas fa-users"></i> 12</p>
-            <p id="combustible"><i class="fas fa-gas-pump"></i> Diesel</p>
-            */
-            $("#matricula").html('<i class="fas fa-address-card"></i> '+vehiculos_select[i]['MATRICULA'])
-            $("#marca").html('<i class="fas fa-car"></i> '+vehiculos_select[i]['MARCA'])
-            $("#modelo").html('<i class="fas fa-list"></i> '+vehiculos_select[i]['MODELO'])
-            $("#capacidad").html('<i class="fas fa-users"></i> '+vehiculos_select[i]['CAPACIDAD'])
-            $("#combustible").html('<i class="fas fa-gas-pump"></i> '+vehiculos_select[i]['COMBUSTIBLE'])
-            vehiculo_seleccionado = vehiculos_select[i]
-        }
-    }
-}
-
-function etapa_1(){
-    datos_etapa_1 = {
-        
-    }
 }

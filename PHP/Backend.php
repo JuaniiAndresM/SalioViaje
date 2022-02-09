@@ -155,9 +155,96 @@ class Backend extends procedimientosBD
 
 			return $EMPRESAS_DASHBOARD;
 		}
+
+		public function agregar_div_faq(){
+
+			$faq = null;
+			$contador = 0;
+			$datos = json_decode($this->traer_preguntas(), true);
+			for ($i=0; $i < count($datos); $i++) { 
+				if ($contador == 0) {
+					$faq = '
+                         <div class="faq-question" id="'.$datos[$i]["ID"].'">
+                            <h3>'.$datos[$i]["PREGUNTA"].'</h3>
+                            <p>'.$datos[$i]["RESPUESTA"].'</p>
+                         </div>
+					';
+				} else {
+					$faq = $faq.'
+                         <div class="faq-question" id="'.$datos[$i]["ID"].'">
+                            <h3>'.$datos[$i]["PREGUNTA"].'</h3>
+                            <p>'.$datos[$i]["RESPUESTA"].'</p>
+                         </div>
+					';
+				}
+				$contador++;
+			}
+			
+			return $faq;
+
+		}
+
+		public function faq_acordion(){
+			/*
+			*/
+            $faq = null;
+
+			$contador = 0;
+
+			$datos = json_decode($this->traer_preguntas(), true);
+
+			for ($i=0; $i < count($datos); $i++) { 
+				if ($contador == 0) {
+					$faq = '
+                    <div class="accordion-item">
+                    	<button class="accordion-link" onclick="desplegar(this)">
+                        		<div class="faq-left">
+                            		<div class="faq-icon">
+                                	<i class="fas fa-question"></i>
+                            		</div>
+                            		<h4>'.$datos[$i]["PREGUNTA"].'</h4>
+                        		</div>
+                        	<div class="faq-right">
+                            	<i class="fas fa-angle-down" id="arrow-down"></i>
+                        	</div>
+                    	</button>
+
+                    	<div class="content">
+                        	<p>'.$datos[$i]["RESPUESTA"].'</p>
+                    	</div>
+                	</div>
+					';
+				} else {
+					$faq = $faq.'
+                    <div class="accordion-item">
+                    	<button class="accordion-link" onclick="desplegar(this)">
+                        		<div class="faq-left">
+                            		<div class="faq-icon">
+                                	<i class="fas fa-question"></i>
+                            		</div>
+                            		<h4>'.$datos[$i]["PREGUNTA"].'</h4>
+                        		</div>
+                        	<div class="faq-right">
+                            	<i class="fas fa-angle-down" id="arrow-down"></i>
+                        	</div>
+                    	</button>
+
+                    	<div class="content">
+                        	<p>'.$datos[$i]["RESPUESTA"].'</p>
+                    	</div>
+                	</div>
+					';
+				}
+				$contador++;
+			}
+			
+			return $faq;
+		}
 	}
 
 	$Backend = new Backend($_POST['opcion']);
+
+	//mostrarPreguntasSeccionFAQ
 
 	if ($_POST['opcion'] == "usr") {
 		echo $Backend->getUsuarios();
@@ -169,6 +256,12 @@ class Backend extends procedimientosBD
 		echo $Backend->actualizar_tablas_dashboard_usuarios();
 	} else if($_POST['opcion'] == "tab_dashboard_empresas") {
 		echo $Backend->actualizar_tablas_dashboard_empresas();
+	} else if($_POST['opcion'] == "agregarPregunta") {
+		echo $Backend->agregar_pregunta($_POST['datos']);
+	} else if($_POST['opcion'] == "mostrarPreguntas") {
+		echo $Backend->agregar_div_faq();
+	} else if($_POST['opcion'] == "mostrarPreguntasSeccionFAQ") {
+		echo $Backend->faq_acordion();
 	} else {
 		echo $Backend->getVehiculos();
 	}

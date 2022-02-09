@@ -210,5 +210,31 @@ public function traigo_visitas(){
  $stmt->close();
  return $visitas;
 }
+
+public function traer_preguntas(){
+    $preguntas = array();
+    $conn = $this->conexion();
+    $query = "SELECT * FROM salioviajeuy_salioviajeuy.faqs";
+    $stmt = $conn->prepare($query);
+    if ($stmt->execute()) {
+        $stmt->store_result();
+        $stmt->bind_result($id,$pregunta,$respuesta);
+        while ($stmt->fetch()) {
+         $result = array('ID' => $id,'PREGUNTA' => $pregunta, 'RESPUESTA' => $respuesta);
+         $preguntas[] = $result;
+     }
+ }
+ $stmt->close();
+ return json_encode($preguntas);
+}
+
+public function agregar_pregunta($datos){
+    $conn = $this->conexion();
+    $query = "call agregar_faq(?,?);";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("ss", $datos['PREGUNTA'], $datos["RESPUESTA"]);
+    $stmt->execute();
+    $stmt->close();
+    }
 }
 ?>
