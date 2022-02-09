@@ -10314,8 +10314,8 @@ footer .totum p a:hover {
 }
 
 .edit-faq .faq-grid .lista-faq .faq-list .faq-question {
-  margin: 10px 0;
-  width: 100%;
+  margin: 10px auto;
+  width: calc(100% - 20px);
   text-align: left;
   border-radius: 1em;
   padding: 20px;
