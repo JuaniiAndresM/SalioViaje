@@ -1,3 +1,17 @@
+<?php 
+
+  session_start(); 
+
+  if(!isset($_SESSION['usuario'])){
+      header('Location: /SalioViaje/Login');
+  }else{
+    if($_SESSION['tipo_usuario'] == "Chofer"){
+      header('Location: /SalioViaje/');
+    }
+  }
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -111,6 +125,11 @@
           <div class="oportunidad-content">
 
             <div class="oportunidad-info">
+
+              <div class="info">
+                <b><i class="far fa-address-card"></i> N° Viaje</b>
+                <p>#021</p>
+              </div>
 
               <div class="info">
                 <b><i class="fas fa-map-marker-alt"></i> Origen</b>

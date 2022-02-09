@@ -206,7 +206,8 @@
     }
 
     .inputs-wrapper-agendar,
-    .inputs-agendar {
+    .inputs-agendar,
+    .inputs-wrapper-agendar-rutas {
       width: 100%;
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -359,6 +360,9 @@
           }
         }
       }
+    }
+    .inputs-wrapper-agendar-rutas{
+      grid-template-columns: 1fr;
     }
     .inputs-agendar {
       display: block;

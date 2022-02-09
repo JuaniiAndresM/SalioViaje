@@ -1,0 +1,120 @@
+.edit-faq{
+    width: 100%;
+    height: 100%;
+    padding: 20px;    
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    .faq-grid{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+
+        margin: 20px 0;
+
+        .create-faq, .lista-faq{
+            width: 100%;
+            background-color: $contraste_2;
+            box-shadow: 10px 0 20px 0 rgba(0, 0, 0, .3);
+            border-radius: 2em;
+            text-align: center;
+            padding: 20px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            h2{
+                color: $main_1;
+            }
+
+            .input {
+                position: relative;
+                width: calc(100% - 60px);
+                margin: 30px auto;
+      
+                input, textarea {
+                  width: 100%;
+                  height: 40px;
+                  background-color: transparent;
+                  border: none;
+                  border-bottom: 1px solid #aaa;
+                  outline: none;
+                  padding-left: 25px;
+                  color: #555;
+                  font-size: 0.85em;
+                }
+                textarea{
+                    min-height: 100px;
+                    resize: vertical;
+                }
+                input::placeholder, textarea::placeholder {
+                  color: #888;
+                }
+      
+                #icon, #icon2 {
+                  position: absolute;
+                  top: 10px;
+                  left: 5px;
+                  color: #555;
+                }
+                #icon2{
+                    top: 0;
+                    left: 0;
+                }
+            }
+            .button-wrapper{
+                button{
+                    @include button();
+                    margin: 10px;
+                }
+                button:hover{
+                    @include button-hover();
+                }
+            }
+        }
+        .lista-faq{
+            height: 600px;
+            .faq-list{
+                margin: 20px 0;
+                height: 500px;
+                overflow: hidden;
+                overflow-y: auto;
+                
+
+                .faq-question{
+                    margin: 10px 0;
+                    width: 100%;
+                    text-align: left;
+                    border-radius: 1em;
+
+                    padding: 20px;
+                    cursor: pointer;
+                    transition: .3s;
+
+                    h3{
+                        color: $main_1;
+                    }
+                    p{
+                        color: #555;
+                    }
+                }
+                .faq-question:hover{
+                    box-shadow: 10px 0 20px 0 rgba(0, 0, 0, .3);
+                }
+            }
+        }
+    }
+}
+
+@media screen and(max-width: 750px) {
+    .edit-faq{
+        .faq-grid{
+            grid-template-columns: 1fr;
+        }
+    }    
+}

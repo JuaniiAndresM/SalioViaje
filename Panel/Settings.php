@@ -229,14 +229,15 @@
                 <button><i class="fas fa-trash-alt"></i></button>
               </div>
             </div>
+
             <div class="usuario">
               <div class="user-left">
                 <div class="user-img">
                   <i class="fas fa-user"></i>
                 </div>
                 <div class="user-info">
-                  <h2><?php echo $_SESSION['usuario']; ?></h2> 
-                  <p><i class="fas fa-user-tie"></i> <?php echo $_SESSION['tipo_usuario'] ?></p>
+                  <h3>Jhon Doee</h3> 
+                  <p><i class="fas fa-user-tie"></i> Administrador</p>
                 </div>
               </div>
               <div class="user-buttons">
@@ -274,10 +275,10 @@
       </div>
       <div class="header-right">
         <div class="header-user">
-          <div class="icon"><i class="fab fa-apple"></i></div>
+          <div class="icon"><img src="/SalioViaje/media/svg/Logo-SalioViaje-White.svg" alt="Logo SalióViaje"></div>
           <div class="user">
-            <h2>John Doe</h2>
-            <p><i class="fas fa-user-tie"></i> Administrador</p>
+            <h2><?php echo $_SESSION['usuario'] ?></h2>
+            <p><i class="fas fa-user-tie"></i> <?php echo $_SESSION['tipo_usuario'] ?></p>
           </div>
           <button><i class="fas fa-sign-out-alt"></i></button>
         </div>
@@ -302,23 +303,23 @@
       </div>
 
       <div class="panel-settings">
-        <button onclick="settings(1)" class="settings-button">
+        <button onclick="settings(1)" class="settings-button" disabled>
           <i class="fas fa-user-edit"></i>
           <p>Editar Información</p>
         </button>
-        <button onclick="settings(2)" class="settings-button">
+        <button onclick="settings(2)" class="settings-button" disabled>
           <i class="fas fa-key"></i>
           <p>Cambiar Contraseña</p>
         </button>
-        <button onclick="settings(3)" class="settings-button">
+        <button onclick="settings(3)" class="settings-button" disabled>
           <i class="fas fa-users-cog"></i>
           <p>Administrar Usuarios</p>
         </button>
-        <button onclick="settings(4)" class="settings-button">
+        <button onclick="settings(4)" class="settings-button" disabled>
           <i class="fas fa-globe-americas"></i>
           <p>Cambiar Idioma</p>
         </button>
-        <button onclick="settings(5)" class="settings-button">
+        <button onclick="settings(5)" class="settings-button" disabled>
           <i class="fas fa-wrench"></i>
           <p>Configuración Panel</p>
         </button>

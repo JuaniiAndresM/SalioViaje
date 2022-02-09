@@ -92,6 +92,9 @@ if ($_POST['tipo'] == 1) {
 		case 'empresas':
 		echo $procedimientosForm->empresas();
 		break;
+		case 'vehiculos':
+		echo json_encode($procedimientosForm->datos_vehiculos());
+		break;
 		case 'login':
 		echo $procedimientosForm->login($_POST['usuario'],$_POST['pin']);
 		break;

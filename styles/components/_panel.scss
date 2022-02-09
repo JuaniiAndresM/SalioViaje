@@ -505,6 +505,10 @@ $main_3: #6d76db;
               button:hover {
                 background-color: $main_2;
               }
+              button[disabled],button:disabled{
+                background-color: #999;
+                color: $contraste_1;
+              }
             }
           }
         }
@@ -580,6 +584,10 @@ $main_3: #6d76db;
             button:hover {
               background-color: $main_2;
             }
+            button[disabled],button:disabled{
+              background-color: #999;
+              color: $contraste_1;
+            }
           }
         }
         .propietario:hover {
@@ -652,6 +660,10 @@ $main_3: #6d76db;
     }
     .settings-button:hover {
       background-color: $main_2;
+    }
+    .settings-button[disabled],.settings-button:disabled{
+      background-color: #999;
+      color: $contraste_1;
     }
   }
 }
@@ -1069,6 +1081,10 @@ $main_3: #6d76db;
               }
               button:hover {
                 background-color: $main_2;
+              }
+              button[disabled],button:disabled{
+                background-color: #999;
+                color: $contraste_1;
               }
             }
             

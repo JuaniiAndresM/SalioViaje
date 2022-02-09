@@ -1,9 +1,5 @@
 $(document).ready(function () {
-  $('#mensaje-error1').hide();
-  $('#mensaje-error2').hide();
-  $('#mensaje-error3').hide();
-  $('#mensaje-error4').hide();
-  $('#mensaje-error5').hide();
+  $('#mensaje-error').hide();
   $('#guardar-cambios').hide();
 
   $('.progress-bar').hide();
@@ -727,9 +723,10 @@ function login(ADMIN){
       success: function (response) {
         console.log(response)
         if (response != '') {
-          $("#mensaje-error").text("");
+         $("#mensaje-error").hide();
           window.location = "/SalioViaje/Dashboard";
        }else{
+          $("#mensaje-error").show();
           $("#mensaje-error").text("Usuario o Contraseña Incorrectos.");
           console.log("Usuario o contraseña incorrectos...");
        }
@@ -765,9 +762,8 @@ function validacion(TIPO,DATOS){
     console.log(validacion)
     if (validacion == "VALIDO") {VALIDO = true}
      else if(validacion == "Err-1"){
-       $('#mensaje-error1').show();
-       $('#mensaje-error2').show();
-       $('#mensaje-error3').show();
+       $('#mensaje-error').show();
+       $('#mensaje-error').text("Debe completar todos los campos.");
     } else {marcar_errores(validacion)}
     break;
     case "EMPRESA":
@@ -783,9 +779,8 @@ function validacion(TIPO,DATOS){
    }).responseText;
     if (validacion == "VALIDO") {VALIDO = true}
      else if(validacion == "Err-1"){
-       $('#mensaje-error1').show();
-       $('#mensaje-error2').show();
-       $('#mensaje-error3').show();
+       $('#mensaje-error').show();
+       $('#mensaje-error').text("Debe completar todos los campos.");
     } else {marcar_errores(validacion)}
     break;
     case "VEHICULO":
@@ -801,9 +796,8 @@ function validacion(TIPO,DATOS){
    }).responseText;
     if (validacion == "VALIDO") {VALIDO = true}
      else if(validacion == "Err-1"){
-       $('#mensaje-error1').show();
-       $('#mensaje-error2').show();
-       $('#mensaje-error3').show();
+       $('#mensaje-error').show();
+       $('#mensaje-error').text("Debe completar todos los campos.");
     } else {marcar_errores(validacion)}
     break;
     case "HOTEL":
@@ -819,9 +813,8 @@ function validacion(TIPO,DATOS){
    }).responseText;
     if (validacion == "VALIDO") {VALIDO = true}
      else if(validacion == "Err-1"){
-       $('#mensaje-error1').show();
-       $('#mensaje-error2').show();
-       $('#mensaje-error3').show();
+       $('#mensaje-error').show();
+       $('#mensaje-error').text("Debe completar todos los campos.");
     } else {marcar_errores(validacion)}
     break;
  }
@@ -831,43 +824,67 @@ function validacion(TIPO,DATOS){
 
 function marcar_errores(resultado_validacion){
 
+   $('#mensaje-error').show();
+
   console.log(resultado_validacion)
   let resultado = JSON.parse(resultado_validacion)
 
   for (const property in resultado) {
     switch(property){
        case "CI":
-       if (resultado[property] == 0) {$('#CI').css('border-bottom', '1px solid #ff635a') }       
+       if (resultado[property] == 0) {
+          $('#CI').css('border-bottom', '1px solid #ff635a');
+          $('#mensaje-error').text("C.I ya registrada o no válida.");
+         }    
 
          break;
       case "NOMBRE":
-      if (resultado[property] == 0) {$('#nombre').css('border-bottom', '1px solid #ff635a')} 
+      if (resultado[property] == 0) {
+         $('#nombre').css('border-bottom', '1px solid #ff635a');
+         $('#mensaje-error').text("El nombre no debe contener espacios ni caracteres especiales.");
+      } 
 
          break;
       case "APELLIDO":
-      if (resultado[property] == 0) {$('#apellido').css('border-bottom', '1px solid #ff635a') } 
+      if (resultado[property] == 0) {
+         $('#apellido').css('border-bottom', '1px solid #ff635a');
+         $('#mensaje-error').text("El apellido no debe contener espacios ni caracteres especiales.");
+       } 
 
          break;
       case "MAIL":
-      if (resultado[property] == 0) {$('#correo').css('border-bottom', '1px solid #ff635a')  } 
+      if (resultado[property] == 0) {
+         $('#correo').css('border-bottom', '1px solid #ff635a');
+         $('#mensaje-error').text("Correo Electrónico no válido.");
+        } 
 
          break;
       case "DIRECCION":
-      if (resultado[property] == 0) {$('#direccion').css('border-bottom', '1px solid #ff635a') } 
+      if (resultado[property] == 0) {
+         $('#direccion').css('border-bottom', '1px solid #ff635a');
+         $('#mensaje-error').text("Dirección no válida.");
+      } 
 
          break;
       case "BARRIO":
-      if (resultado[property] == 0) { $('#barrio').css('border-bottom', '1px solid #ff635a')} 
+      if (resultado[property] == 0) {
+          $('#barrio').css('border-bottom', '1px solid #ff635a');
+          $('#mensaje-error').text("Barrio no válido.");
+         } 
 
          break;
       case "DEPARTAMENTO":
-      if (resultado[property] == 0) { $('#departamento').css('border-bottom', '1px solid #ff635a') } 
+      if (resultado[property] == 0) {
+          $('#departamento').css('border-bottom', '1px solid #ff635a');
+          $('#mensaje-error').text("Departamento no válido."); 
+         } 
 
          break;
       case "TELEFONO":
       if (resultado[property] == 0) { 
         $('#numero_telefono').css('border-bottom', '1px solid #ff635a') 
         $('#numero_telefono_hotel').css('border-bottom', '1px solid #ff635a')
+        $('#mensaje-error').text("Teléfono no válido.");
      } 
 
      break;
@@ -875,77 +892,123 @@ function marcar_errores(resultado_validacion){
      if (resultado[property] == 0) {
         $('#rutt').css('border-bottom', '1px solid #ff635a') 
         $('#rut_usuario').css('border-bottom', '1px solid #ff635a')
+        $('#mensaje-error').text("RUT no válido, debe contener 12 caracteres.");
      }  
      break;
      case "AGENCIA_CONTRATISTA":
-     if (resultado[property] == 0) { $('#empresas').css('border-bottom', '1px solid #ff635a') } 
+     if (resultado[property] == 0) {
+         $('#empresas').css('border-bottom', '1px solid #ff635a');
+         $('#mensaje-error').text("Debe seleccionar una Agencia Contratista.");
+      } 
 
       break;
    case "NOMBRE_HOTEL":
-   if (resultado[property] == 0) { $('#nombre-hotel').css('border-bottom', '1px solid #ff635a') } 
+   if (resultado[property] == 0) {
+       $('#nombre-hotel').css('border-bottom', '1px solid #ff635a');
+       $('#mensaje-error').text("Nombre del hotel no válido.");
+      } 
 
       break;
    case "DIRECCION_HOTEL":
-   if (resultado[property] == 0) { $('#direccion-hotel').css('border-bottom', '1px solid #ff635a') } 
+   if (resultado[property] == 0) {
+       $('#direccion-hotel').css('border-bottom', '1px solid #ff635a')
+       $('#mensaje-error').text("Dirección del hotel no válida.");
+      } 
 
       break;
    case "SUPERVISOR":
-   if (resultado[property] == 0) {$('#es_supervisor').css('border-bottom', '1px solid #ff635a') } 
+   if (resultado[property] == 0) {
+      $('#es_supervisor').css('border-bottom', '1px solid #ff635a')
+      $('#mensaje-error').text("Debe seleccionar si es o no supervisor.");
+   } 
 
       break;
    case "NOMBRE_COMERCIAL":
-   if (resultado[property] == 0) { $('#nombre_comercial').css('border-bottom', '1px solid #ff635a')  } 
+   if (resultado[property] == 0) {
+       $('#nombre_comercial').css('border-bottom', '1px solid #ff635a');
+       $('#mensaje-error').text("Nombre comercial no válido.");
+      } 
 
       break;
    case "RAZON_SOCIAL":
-   if (resultado[property] == 0) { $('#razon_social').css('border-bottom', '1px solid #ff635a') } 
+   if (resultado[property] == 0) {
+       $('#razon_social').css('border-bottom', '1px solid #ff635a');
+       $('#mensaje-error').text("Debe seleccionar una razón social.");
+      } 
 
       break;
    case "MTOP":
-   if (resultado[property] == 0) { $('#numero_mtop').css('border-bottom', '1px solid #ff635a') } 
+   if (resultado[property] == 0) {
+       $('#numero_mtop').css('border-bottom', '1px solid #ff635a');
+       $('#mensaje-error').text("N° MTOP no válido.");
+       } 
 
       break;
    case "PASSWORD_MTOP":
-   if (resultado[property] == 0) {$('#password_mtop').css('border-bottom', '1px solid #ff635a') } 
+   if (resultado[property] == 0) {
+      $('#password_mtop').css('border-bottom', '1px solid #ff635a');
+      $('#mensaje-error').text("Contraseña MTOP no válida."); 
+   } 
 
       break;
    case "MATRICULA":
-   if (resultado[property] == 0) { $('#matricula').css('border-bottom', '1px solid #ff635a')  } 
+   if (resultado[property] == 0) { 
+      $('#matricula').css('border-bottom', '1px solid #ff635a');
+      $('#mensaje-error').text("Matrícula no válida.");
+    } 
 
       break;
    case "MARCA":
-   if (resultado[property] == 0) { $('#marca').css('border-bottom', '1px solid #ff635a')  } 
+   if (resultado[property] == 0) {
+       $('#marca').css('border-bottom', '1px solid #ff635a');
+       $('#mensaje-error').text("Marca no válida.");
+       } 
 
       break;
    case "MODELO":
-   if (resultado[property] == 0) { $('#modelo').css('border-bottom', '1px solid #ff635a')  } 
+   if (resultado[property] == 0) {
+       $('#modelo').css('border-bottom', '1px solid #ff635a');
+       $('#mensaje-error').text("Modelo no válido.");
+       } 
 
       break;
    case "COMBUSTIBLE":
-   if (resultado[property] == 0) { $('#combustible').css('border-bottom', '1px solid #ff635a')  } 
+   if (resultado[property] == 0) {
+       $('#combustible').css('border-bottom', '1px solid #ff635a');
+       $('#mensaje-error').text("Debe seleccionar el tipo de combustible.");
+      } 
 
       break;
    case "CAPACIDAD_PASAJEROS":
-   if (resultado[property] == 0) { $('#capacidad_pasajeros').css('border-bottom', '1px solid #ff635a')  } 
+   if (resultado[property] == 0) {
+       $('#capacidad_pasajeros').css('border-bottom', '1px solid #ff635a');
+       $('#mensaje-error').text("Capacidad de pasajeros no válida.");
+      } 
 
       break;
    case "CAPACIDAD_EQUIPAJE":
-   if (resultado[property] == 0) { $('#capacidad_equipaje').css('border-bottom', '1px solid #ff635a')  } 
+   if (resultado[property] == 0) {
+       $('#capacidad_equipaje').css('border-bottom', '1px solid #ff635a');
+       $('#mensaje-error').text("Capacidad de equipaje no válida.");
+        } 
 
       break;
    case "PET_FRIENDLY":
-   if (resultado[property] == 0) { $('#pet_friendly').css('border-bottom', '1px solid #ff635a')  } 
+   if (resultado[property] == 0) {
+       $('#pet_friendly').css('border-bottom', '1px solid #ff635a');
+       $('#mensaje-error').text("Debe definir si su vehiculo es Pet Friendly o no.");
+        } 
 
       break;
 }   
 }
 
 if (resultado['PIN'] == 0) { 
- $('#mensaje-error4').show();
+ $('#mensaje-error').show();
  $('#password').css('border-bottom', '1px solid #ff635a') 
 }
 else if (resultado['PIN-MATCH'] == 0) { 
- $('#mensaje-error5').show(); 
+ $('#mensaje-error').show(); 
  $('#password').css('border-bottom', '1px solid #ff635a') 
  $('#re-password').css('border-bottom', '1px solid #ff635a') 
 }
@@ -953,11 +1016,7 @@ else if (resultado['PIN-MATCH'] == 0) {
 
 function reset_errores(){
 
-  $('#mensaje-error1').hide();
-  $('#mensaje-error2').hide();
-  $('#mensaje-error3').hide();
-  $('#mensaje-error4').hide();
-  $('#mensaje-error5').hide();
+  $('#mensaje-error').hide();
 
   $('#CI').css('border-bottom', '1px solid #aaaaaa')
   $('#nombre').css('border-bottom', '1px solid #aaaaaa')

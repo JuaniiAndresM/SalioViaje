@@ -1,5 +1,9 @@
 function settings(setting_name){
 
+    document.getElementById('settings-menu').classList.toggle('active');
+
+    console.log(setting_name);
+
     $('#editar-info').hide();
     $('#editar-contra').hide();
     $('#administrar-usuarios').hide();
