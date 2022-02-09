@@ -262,6 +262,12 @@ class Backend extends procedimientosBD
 		echo $Backend->agregar_div_faq();
 	} else if($_POST['opcion'] == "mostrarPreguntasSeccionFAQ") {
 		echo $Backend->faq_acordion();
+	} else if($_POST['opcion'] == "datosPreguntasFAQ") {
+		echo $Backend->traer_pregunta_por_id($_POST['ID']);
+	} else if($_POST['opcion'] == "editarPreguntaFAQ") {
+		echo $Backend->editar_pregunta_FAQ($_POST['ID'],$_POST['PREGUNTA'],$_POST['RESPUESTA']);
+	} else if($_POST['opcion'] == "borrarPreguntaFAQ") {
+		echo $Backend->borrar_pregunta_FAQ($_POST['ID']);
 	} else {
 		echo $Backend->getVehiculos();
 	}

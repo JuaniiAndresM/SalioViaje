@@ -1,5 +1,11 @@
+let ID_PREGUNTA;
+let PREGUNTA;
+let RESPUESTA;
+
 $(document).ready(function () {
-    traer_preguntas()
+    traer_preguntas_seccion_admin()
+    $('#eliminar-pregunta').hide()
+    $('#guardar-pregunta').hide()
 });
 
 function desplegar(button){
@@ -26,7 +32,7 @@ function crear_pregunta(){
             data: {opcion:"agregarPregunta", datos: pregunta},
             success: function(response) {
                 console.log(response)
-                traer_preguntas(response);
+                traer_preguntas_seccion_admin(response);
             },
             complete: function(){
 
@@ -35,13 +41,41 @@ function crear_pregunta(){
     } else { console.log("No pueden haber campos vacios") } 
 }
 
-function traer_preguntas(){
+function traer_datos_preguntas(id){
+
+    $('#crear-pregunta').hide()
+    $('#eliminar-pregunta').show()
+    $('#guardar-pregunta').show()
+
+    $.ajax({
+        type: 'POST',       
+        url: "/SalioViaje/PHP/Backend.php",
+        data: {opcion:"datosPreguntasFAQ", ID:id},
+        success: function(response) {
+            response = JSON.parse(response)
+
+            ID_PREGUNTA = response['ID']
+            PREGUNTA = response['PREGUNTA']
+            RESPUESTA = response['RESPUESTA']
+
+            document.getElementById('pregunta').value = response['PREGUNTA']
+            document.getElementById('respuesta').value = response['RESPUESTA']
+        }
+    })
+}
+
+function traer_preguntas_seccion_admin(){
     $.ajax({
         type: 'POST',       
         url: "/SalioViaje/PHP/Backend.php",
         data: {opcion:"mostrarPreguntas"},
         success: function(response) {
             $(".faq-list").html(response)
+        },
+        complete: function(){
+          $(".faq-question").on('click', function() {
+            traer_datos_preguntas(this.id);
+          });
         }
     })
 }
@@ -71,4 +105,43 @@ function verificar_pregunta(pregunta){
     }
 
     return pregunta;
+}
+
+function editar_pregunta(){
+    PREGUNTA = document.getElementById('pregunta').value;
+    RESPUESTA = document.getElementById('respuesta').value;
+    $.ajax({
+        type: 'POST',       
+        url: "/SalioViaje/PHP/Backend.php",
+        data: {opcion:"editarPreguntaFAQ", ID: ID_PREGUNTA,PREGUNTA:PREGUNTA,RESPUESTA:RESPUESTA},
+        success: function(response) {
+            console.log(response)
+            $('#crear-pregunta').show()
+            $('#eliminar-pregunta').hide()
+            $('#guardar-pregunta').hide()
+            document.getElementById('pregunta').value = "";
+            document.getElementById('respuesta').value = "";
+        },
+        complete: function(){
+            traer_preguntas_seccion_admin();
+        }
+    })
+}
+
+function borrar_pregunta(){
+    $.ajax({
+        type: 'POST',       
+        url: "/SalioViaje/PHP/Backend.php",
+        data: {opcion:"borrarPreguntaFAQ", ID: ID_PREGUNTA},
+        success: function(response) {
+            $('#crear-pregunta').show()
+            $('#eliminar-pregunta').hide()
+            $('#guardar-pregunta').hide()
+            document.getElementById('pregunta').value = "";
+            document.getElementById('respuesta').value = "";
+        },
+        complete: function(){
+            traer_preguntas_seccion_admin();
+        }
+    })
 }

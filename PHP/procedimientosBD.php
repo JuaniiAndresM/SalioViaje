@@ -236,5 +236,39 @@ public function agregar_pregunta($datos){
     $stmt->execute();
     $stmt->close();
     }
+
+public function traer_pregunta_por_id($id){
+    $conn = $this->conexion();
+    $query = "SELECT * FROM salioviajeuy_salioviajeuy.faqs WHERE idPregunta = $id";
+    $stmt = $conn->prepare($query);
+    if ($stmt->execute()) {
+        $stmt->store_result();
+        $stmt->bind_result($id,$pregunta,$respuesta);
+        while ($stmt->fetch()) {
+         $result = array('ID' => $id,'PREGUNTA' => $pregunta, 'RESPUESTA' => $respuesta);
+     }
+ }
+ $stmt->close();
+ return json_encode($result);
+}
+//UPDATE `salioviajeuy_salioviajeuy`.`faqs` SET `Respuesta` = 'respuesta' WHERE (`idPregunta` = '38');
+
+public function editar_pregunta_FAQ($ID_PREGUNTA,$PREGUNTA,$RESPUESTA){
+    $conn = $this->conexion();
+    $query = "call editar_pregunta_FAQ(?,?,?)";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("ssi", $PREGUNTA, $RESPUESTA, $ID_PREGUNTA);
+    $stmt->execute();
+    $stmt->close();
+}
+
+public function borrar_pregunta_FAQ($ID){
+    $conn = $this->conexion();
+    $query = "DELETE FROM `salioviajeuy_salioviajeuy`.`faqs` WHERE (`idPregunta` = $ID)";
+    $stmt = $conn->prepare($query);
+    $stmt->execute();
+    $stmt->close();
+}
+
 }
 ?>

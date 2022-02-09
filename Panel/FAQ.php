@@ -143,9 +143,9 @@
             <p id="mensaje-error">Debe completar todos los campos.</p>
             
             <div class="button-wrapper">
-              <button onclick="crear_pregunta()"><i class="fas fa-plus"></i> Crear Pregunta</button>
-              <button><i class="fas fa-save"></i> Guardar Pregunta</button>
-              <button><i class="fas fa-trash-alt"></i> Eliminar Pregunta</button>
+              <button id="crear-pregunta" onclick="crear_pregunta()"><i class="fas fa-plus"></i> Crear Pregunta</button>
+              <button id="guardar-pregunta" onclick="editar_pregunta()"><i class="fas fa-save"></i> Guardar Pregunta</button>
+              <button id="eliminar-pregunta" onclick="borrar_pregunta()"><i class="fas fa-trash-alt"></i> Eliminar Pregunta</button>
             </div>
           </div>
 
