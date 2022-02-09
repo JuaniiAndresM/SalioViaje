@@ -24,36 +24,76 @@
 
         text-align: center;
 
-        .loader{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            i{
-                font-size: 4em;
-                color: $main_2;
-
-                animation: spinner 2s linear forwards infinite;
-
+        #step_1, #step_2, #step_3{
+            .loader, .aprobado{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                i{
+                    font-size: 4em;
+                    color: $main_2;
+    
+                    animation: spinner 2s linear forwards infinite;
+    
+                    margin: 10px 0;
+                }
+            }
+            .aprobado{
+                i{
+                    animation: none;
+                    color: rgb(116, 212, 129);
+                }
+            }
+    
+            h2{
+                color: $main_1;
+                font-size: 1.4em;
+                margin: 5px 0;
+                margin-top: 30px;
+            }
+            h3{
+                color: $main_1;
+                font-size: 1.1em;
+                margin: 0;
+                margin-bottom: 10px;
+            }
+            p{
+                font-size: .9em;
+                color: #555;
+            }
+        }
+        #step_3{
+            h2{
                 margin: 10px 0;
+                margin-bottom: 20px;
+            }
+
+            .info{
+                text-align: center;
+                margin: 5px auto;
+                margin-top: 30px;
+
+                p{
+                    font-size: .9em;
+                    color: #555;
+                    margin: 5px 0;
+
+                    b{
+                        color: $main_1;
+                    }
+
+                    a{
+                        text-decoration: none;
+                        color: #555;
+                    }
+                    a:hover{
+                        color: #888;
+                    }
+                }
             }
         }
 
-        h2{
-            color: $main_1;
-            font-size: 1.4em;
-            margin: 5px 0;
-            margin-top: 30px;
-        }
-        h3{
-            color: $main_1;
-            font-size: 1.1em;
-            margin: 0;
-            margin-bottom: 10px;
-        }
-        p{
-            font-size: .9em;
-            color: #555;
-        }
+        
 
         .progress{
             width: 100%;

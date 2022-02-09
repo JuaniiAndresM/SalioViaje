@@ -9858,7 +9858,7 @@ footer .totum p a:hover {
   text-align: center;
 }
 
-.espera-wrapper .espera .loader {
+.espera-wrapper .espera #step_1 .loader, .espera-wrapper .espera #step_1 .aprobado, .espera-wrapper .espera #step_2 .loader, .espera-wrapper .espera #step_2 .aprobado, .espera-wrapper .espera #step_3 .loader, .espera-wrapper .espera #step_3 .aprobado {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -9870,7 +9870,7 @@ footer .totum p a:hover {
           align-items: center;
 }
 
-.espera-wrapper .espera .loader i {
+.espera-wrapper .espera #step_1 .loader i, .espera-wrapper .espera #step_1 .aprobado i, .espera-wrapper .espera #step_2 .loader i, .espera-wrapper .espera #step_2 .aprobado i, .espera-wrapper .espera #step_3 .loader i, .espera-wrapper .espera #step_3 .aprobado i {
   font-size: 4em;
   color: #2b3179;
   -webkit-animation: spinner 2s linear forwards infinite;
@@ -9878,23 +9878,59 @@ footer .totum p a:hover {
   margin: 10px 0;
 }
 
-.espera-wrapper .espera h2 {
+.espera-wrapper .espera #step_1 .aprobado i, .espera-wrapper .espera #step_2 .aprobado i, .espera-wrapper .espera #step_3 .aprobado i {
+  -webkit-animation: none;
+          animation: none;
+  color: #74d481;
+}
+
+.espera-wrapper .espera #step_1 h2, .espera-wrapper .espera #step_2 h2, .espera-wrapper .espera #step_3 h2 {
   color: #3844bc;
   font-size: 1.4em;
   margin: 5px 0;
   margin-top: 30px;
 }
 
-.espera-wrapper .espera h3 {
+.espera-wrapper .espera #step_1 h3, .espera-wrapper .espera #step_2 h3, .espera-wrapper .espera #step_3 h3 {
   color: #3844bc;
   font-size: 1.1em;
   margin: 0;
   margin-bottom: 10px;
 }
 
-.espera-wrapper .espera p {
+.espera-wrapper .espera #step_1 p, .espera-wrapper .espera #step_2 p, .espera-wrapper .espera #step_3 p {
   font-size: .9em;
   color: #555;
+}
+
+.espera-wrapper .espera #step_3 h2 {
+  margin: 10px 0;
+  margin-bottom: 20px;
+}
+
+.espera-wrapper .espera #step_3 .info {
+  text-align: center;
+  margin: 5px auto;
+  margin-top: 30px;
+}
+
+.espera-wrapper .espera #step_3 .info p {
+  font-size: .9em;
+  color: #555;
+  margin: 5px 0;
+}
+
+.espera-wrapper .espera #step_3 .info p b {
+  color: #3844bc;
+}
+
+.espera-wrapper .espera #step_3 .info p a {
+  text-decoration: none;
+  color: #555;
+}
+
+.espera-wrapper .espera #step_3 .info p a:hover {
+  color: #888;
 }
 
 .espera-wrapper .espera .progress {
