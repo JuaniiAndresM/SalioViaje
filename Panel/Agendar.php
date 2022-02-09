@@ -338,9 +338,10 @@
           </div>
 
           <div id="step_3">
-            <div class="inputs-wrapper-agendar">
+            <div class="inputs-wrapper-agendar-rutas">
               <div class="column">
                 <h2 class="step_title"><i class="fas fa-road"></i> Rutas N° 1</h2>
+                
                 <div class="input" id="rutas">
                   <i class="fas fa-road" id="icon"></i>
                   <input list="Rutas" id="rutas_1" placeholder="Rutas" onchange="rutas()">
@@ -353,24 +354,6 @@
                 </div>
 
                 <div class="tags" id="tags_1">
-                </div>
-
-              </div>
-              <div class="column">
-                <h2 class="step_title"><i class="fas fa-road"></i> Rutas N° 2</h2>
-                <div class="input" id="rutas">
-                  <i class="fas fa-road" id="icon"></i>
-                  <input list="Rutas2" id="rutas_2" placeholder="Rutas" onchange="rutas()">
-                  <datalist id="Rutas2">
-                    <option value="Ruta 1">
-                    <option value="Ruta 2">
-                    <option value="Ruta 3">
-                    <option value="Ruta 4">
-                  </datalist> 
-                </div>
-
-                <div class="tags" id="tags_2">
-
                 </div>
 
               </div>

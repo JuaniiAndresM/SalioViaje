@@ -883,7 +883,7 @@ header .header-wrapper .header-right .header-links .links {
 }
 
 header .header-wrapper .header-right .header-links .links a {
-  margin-left: 3em;
+  margin-left: 2.5em;
   text-decoration: none;
   color: #3844bc;
   font-size: 1.1em;
@@ -7579,16 +7579,22 @@ footer .totum p a:hover {
 
 .agendarViaje #step_1 .inputs-wrapper-agendar,
 .agendarViaje #step_1 .inputs-agendar,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas,
 .agendarViaje #step_2 .inputs-wrapper-agendar,
 .agendarViaje #step_2 .inputs-agendar,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas,
 .agendarViaje #step_3 .inputs-wrapper-agendar,
 .agendarViaje #step_3 .inputs-agendar,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas,
 .agendarViaje #step_4 .inputs-wrapper-agendar,
 .agendarViaje #step_4 .inputs-agendar,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas,
 .agendarViaje #step_5 .inputs-wrapper-agendar,
 .agendarViaje #step_5 .inputs-agendar,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas,
 .agendarViaje #step_hotel .inputs-wrapper-agendar,
-.agendarViaje #step_hotel .inputs-agendar {
+.agendarViaje #step_hotel .inputs-agendar,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas {
   width: 100%;
   display: -ms-grid;
   display: grid;
@@ -7598,16 +7604,22 @@ footer .totum p a:hover {
 
 .agendarViaje #step_1 .inputs-wrapper-agendar .input,
 .agendarViaje #step_1 .inputs-agendar .input,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .input,
 .agendarViaje #step_2 .inputs-wrapper-agendar .input,
 .agendarViaje #step_2 .inputs-agendar .input,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .input,
 .agendarViaje #step_3 .inputs-wrapper-agendar .input,
 .agendarViaje #step_3 .inputs-agendar .input,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .input,
 .agendarViaje #step_4 .inputs-wrapper-agendar .input,
 .agendarViaje #step_4 .inputs-agendar .input,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .input,
 .agendarViaje #step_5 .inputs-wrapper-agendar .input,
 .agendarViaje #step_5 .inputs-agendar .input,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .input,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .input,
-.agendarViaje #step_hotel .inputs-agendar .input {
+.agendarViaje #step_hotel .inputs-agendar .input,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .input {
   position: relative;
   width: calc(100% - 60px);
   margin: 30px auto;
@@ -7617,26 +7629,38 @@ footer .totum p a:hover {
 .agendarViaje #step_1 .inputs-wrapper-agendar .input select,
 .agendarViaje #step_1 .inputs-agendar .input input,
 .agendarViaje #step_1 .inputs-agendar .input select,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .input input,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .input select,
 .agendarViaje #step_2 .inputs-wrapper-agendar .input input,
 .agendarViaje #step_2 .inputs-wrapper-agendar .input select,
 .agendarViaje #step_2 .inputs-agendar .input input,
 .agendarViaje #step_2 .inputs-agendar .input select,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .input input,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .input select,
 .agendarViaje #step_3 .inputs-wrapper-agendar .input input,
 .agendarViaje #step_3 .inputs-wrapper-agendar .input select,
 .agendarViaje #step_3 .inputs-agendar .input input,
 .agendarViaje #step_3 .inputs-agendar .input select,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .input input,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .input select,
 .agendarViaje #step_4 .inputs-wrapper-agendar .input input,
 .agendarViaje #step_4 .inputs-wrapper-agendar .input select,
 .agendarViaje #step_4 .inputs-agendar .input input,
 .agendarViaje #step_4 .inputs-agendar .input select,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .input input,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .input select,
 .agendarViaje #step_5 .inputs-wrapper-agendar .input input,
 .agendarViaje #step_5 .inputs-wrapper-agendar .input select,
 .agendarViaje #step_5 .inputs-agendar .input input,
 .agendarViaje #step_5 .inputs-agendar .input select,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .input input,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .input select,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .input input,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .input select,
 .agendarViaje #step_hotel .inputs-agendar .input input,
-.agendarViaje #step_hotel .inputs-agendar .input select {
+.agendarViaje #step_hotel .inputs-agendar .input select,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .input input,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .input select {
   width: 100%;
   height: 40px;
   background-color: transparent;
@@ -7652,26 +7676,38 @@ footer .totum p a:hover {
 .agendarViaje #step_1 .inputs-wrapper-agendar .input select::-webkit-input-placeholder,
 .agendarViaje #step_1 .inputs-agendar .input input::-webkit-input-placeholder,
 .agendarViaje #step_1 .inputs-agendar .input select::-webkit-input-placeholder,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .input input::-webkit-input-placeholder,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .input select::-webkit-input-placeholder,
 .agendarViaje #step_2 .inputs-wrapper-agendar .input input::-webkit-input-placeholder,
 .agendarViaje #step_2 .inputs-wrapper-agendar .input select::-webkit-input-placeholder,
 .agendarViaje #step_2 .inputs-agendar .input input::-webkit-input-placeholder,
 .agendarViaje #step_2 .inputs-agendar .input select::-webkit-input-placeholder,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .input input::-webkit-input-placeholder,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .input select::-webkit-input-placeholder,
 .agendarViaje #step_3 .inputs-wrapper-agendar .input input::-webkit-input-placeholder,
 .agendarViaje #step_3 .inputs-wrapper-agendar .input select::-webkit-input-placeholder,
 .agendarViaje #step_3 .inputs-agendar .input input::-webkit-input-placeholder,
 .agendarViaje #step_3 .inputs-agendar .input select::-webkit-input-placeholder,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .input input::-webkit-input-placeholder,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .input select::-webkit-input-placeholder,
 .agendarViaje #step_4 .inputs-wrapper-agendar .input input::-webkit-input-placeholder,
 .agendarViaje #step_4 .inputs-wrapper-agendar .input select::-webkit-input-placeholder,
 .agendarViaje #step_4 .inputs-agendar .input input::-webkit-input-placeholder,
 .agendarViaje #step_4 .inputs-agendar .input select::-webkit-input-placeholder,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .input input::-webkit-input-placeholder,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .input select::-webkit-input-placeholder,
 .agendarViaje #step_5 .inputs-wrapper-agendar .input input::-webkit-input-placeholder,
 .agendarViaje #step_5 .inputs-wrapper-agendar .input select::-webkit-input-placeholder,
 .agendarViaje #step_5 .inputs-agendar .input input::-webkit-input-placeholder,
 .agendarViaje #step_5 .inputs-agendar .input select::-webkit-input-placeholder,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .input input::-webkit-input-placeholder,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .input select::-webkit-input-placeholder,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .input input::-webkit-input-placeholder,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .input select::-webkit-input-placeholder,
 .agendarViaje #step_hotel .inputs-agendar .input input::-webkit-input-placeholder,
-.agendarViaje #step_hotel .inputs-agendar .input select::-webkit-input-placeholder {
+.agendarViaje #step_hotel .inputs-agendar .input select::-webkit-input-placeholder,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .input input::-webkit-input-placeholder,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .input select::-webkit-input-placeholder {
   color: #888;
 }
 
@@ -7679,26 +7715,38 @@ footer .totum p a:hover {
 .agendarViaje #step_1 .inputs-wrapper-agendar .input select:-ms-input-placeholder,
 .agendarViaje #step_1 .inputs-agendar .input input:-ms-input-placeholder,
 .agendarViaje #step_1 .inputs-agendar .input select:-ms-input-placeholder,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .input input:-ms-input-placeholder,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .input select:-ms-input-placeholder,
 .agendarViaje #step_2 .inputs-wrapper-agendar .input input:-ms-input-placeholder,
 .agendarViaje #step_2 .inputs-wrapper-agendar .input select:-ms-input-placeholder,
 .agendarViaje #step_2 .inputs-agendar .input input:-ms-input-placeholder,
 .agendarViaje #step_2 .inputs-agendar .input select:-ms-input-placeholder,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .input input:-ms-input-placeholder,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .input select:-ms-input-placeholder,
 .agendarViaje #step_3 .inputs-wrapper-agendar .input input:-ms-input-placeholder,
 .agendarViaje #step_3 .inputs-wrapper-agendar .input select:-ms-input-placeholder,
 .agendarViaje #step_3 .inputs-agendar .input input:-ms-input-placeholder,
 .agendarViaje #step_3 .inputs-agendar .input select:-ms-input-placeholder,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .input input:-ms-input-placeholder,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .input select:-ms-input-placeholder,
 .agendarViaje #step_4 .inputs-wrapper-agendar .input input:-ms-input-placeholder,
 .agendarViaje #step_4 .inputs-wrapper-agendar .input select:-ms-input-placeholder,
 .agendarViaje #step_4 .inputs-agendar .input input:-ms-input-placeholder,
 .agendarViaje #step_4 .inputs-agendar .input select:-ms-input-placeholder,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .input input:-ms-input-placeholder,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .input select:-ms-input-placeholder,
 .agendarViaje #step_5 .inputs-wrapper-agendar .input input:-ms-input-placeholder,
 .agendarViaje #step_5 .inputs-wrapper-agendar .input select:-ms-input-placeholder,
 .agendarViaje #step_5 .inputs-agendar .input input:-ms-input-placeholder,
 .agendarViaje #step_5 .inputs-agendar .input select:-ms-input-placeholder,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .input input:-ms-input-placeholder,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .input select:-ms-input-placeholder,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .input input:-ms-input-placeholder,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .input select:-ms-input-placeholder,
 .agendarViaje #step_hotel .inputs-agendar .input input:-ms-input-placeholder,
-.agendarViaje #step_hotel .inputs-agendar .input select:-ms-input-placeholder {
+.agendarViaje #step_hotel .inputs-agendar .input select:-ms-input-placeholder,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .input input:-ms-input-placeholder,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .input select:-ms-input-placeholder {
   color: #888;
 }
 
@@ -7706,26 +7754,38 @@ footer .totum p a:hover {
 .agendarViaje #step_1 .inputs-wrapper-agendar .input select::-ms-input-placeholder,
 .agendarViaje #step_1 .inputs-agendar .input input::-ms-input-placeholder,
 .agendarViaje #step_1 .inputs-agendar .input select::-ms-input-placeholder,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .input input::-ms-input-placeholder,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .input select::-ms-input-placeholder,
 .agendarViaje #step_2 .inputs-wrapper-agendar .input input::-ms-input-placeholder,
 .agendarViaje #step_2 .inputs-wrapper-agendar .input select::-ms-input-placeholder,
 .agendarViaje #step_2 .inputs-agendar .input input::-ms-input-placeholder,
 .agendarViaje #step_2 .inputs-agendar .input select::-ms-input-placeholder,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .input input::-ms-input-placeholder,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .input select::-ms-input-placeholder,
 .agendarViaje #step_3 .inputs-wrapper-agendar .input input::-ms-input-placeholder,
 .agendarViaje #step_3 .inputs-wrapper-agendar .input select::-ms-input-placeholder,
 .agendarViaje #step_3 .inputs-agendar .input input::-ms-input-placeholder,
 .agendarViaje #step_3 .inputs-agendar .input select::-ms-input-placeholder,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .input input::-ms-input-placeholder,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .input select::-ms-input-placeholder,
 .agendarViaje #step_4 .inputs-wrapper-agendar .input input::-ms-input-placeholder,
 .agendarViaje #step_4 .inputs-wrapper-agendar .input select::-ms-input-placeholder,
 .agendarViaje #step_4 .inputs-agendar .input input::-ms-input-placeholder,
 .agendarViaje #step_4 .inputs-agendar .input select::-ms-input-placeholder,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .input input::-ms-input-placeholder,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .input select::-ms-input-placeholder,
 .agendarViaje #step_5 .inputs-wrapper-agendar .input input::-ms-input-placeholder,
 .agendarViaje #step_5 .inputs-wrapper-agendar .input select::-ms-input-placeholder,
 .agendarViaje #step_5 .inputs-agendar .input input::-ms-input-placeholder,
 .agendarViaje #step_5 .inputs-agendar .input select::-ms-input-placeholder,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .input input::-ms-input-placeholder,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .input select::-ms-input-placeholder,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .input input::-ms-input-placeholder,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .input select::-ms-input-placeholder,
 .agendarViaje #step_hotel .inputs-agendar .input input::-ms-input-placeholder,
-.agendarViaje #step_hotel .inputs-agendar .input select::-ms-input-placeholder {
+.agendarViaje #step_hotel .inputs-agendar .input select::-ms-input-placeholder,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .input input::-ms-input-placeholder,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .input select::-ms-input-placeholder {
   color: #888;
 }
 
@@ -7733,26 +7793,38 @@ footer .totum p a:hover {
 .agendarViaje #step_1 .inputs-wrapper-agendar .input select::placeholder,
 .agendarViaje #step_1 .inputs-agendar .input input::placeholder,
 .agendarViaje #step_1 .inputs-agendar .input select::placeholder,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .input input::placeholder,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .input select::placeholder,
 .agendarViaje #step_2 .inputs-wrapper-agendar .input input::placeholder,
 .agendarViaje #step_2 .inputs-wrapper-agendar .input select::placeholder,
 .agendarViaje #step_2 .inputs-agendar .input input::placeholder,
 .agendarViaje #step_2 .inputs-agendar .input select::placeholder,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .input input::placeholder,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .input select::placeholder,
 .agendarViaje #step_3 .inputs-wrapper-agendar .input input::placeholder,
 .agendarViaje #step_3 .inputs-wrapper-agendar .input select::placeholder,
 .agendarViaje #step_3 .inputs-agendar .input input::placeholder,
 .agendarViaje #step_3 .inputs-agendar .input select::placeholder,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .input input::placeholder,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .input select::placeholder,
 .agendarViaje #step_4 .inputs-wrapper-agendar .input input::placeholder,
 .agendarViaje #step_4 .inputs-wrapper-agendar .input select::placeholder,
 .agendarViaje #step_4 .inputs-agendar .input input::placeholder,
 .agendarViaje #step_4 .inputs-agendar .input select::placeholder,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .input input::placeholder,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .input select::placeholder,
 .agendarViaje #step_5 .inputs-wrapper-agendar .input input::placeholder,
 .agendarViaje #step_5 .inputs-wrapper-agendar .input select::placeholder,
 .agendarViaje #step_5 .inputs-agendar .input input::placeholder,
 .agendarViaje #step_5 .inputs-agendar .input select::placeholder,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .input input::placeholder,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .input select::placeholder,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .input input::placeholder,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .input select::placeholder,
 .agendarViaje #step_hotel .inputs-agendar .input input::placeholder,
-.agendarViaje #step_hotel .inputs-agendar .input select::placeholder {
+.agendarViaje #step_hotel .inputs-agendar .input select::placeholder,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .input input::placeholder,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .input select::placeholder {
   color: #888;
 }
 
@@ -7760,36 +7832,54 @@ footer .totum p a:hover {
 .agendarViaje #step_1 .inputs-agendar .input input#distancia-input,
 .agendarViaje #step_1 .inputs-agendar .input input#desc_oport1,
 .agendarViaje #step_1 .inputs-agendar .input input#desc_oport2,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .input input#distancia-input,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .input input#desc_oport1,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .input input#desc_oport2,
 .agendarViaje #step_2 .inputs-wrapper-agendar .input input#distancia-input,
 .agendarViaje #step_2 .inputs-wrapper-agendar .input input#desc_oport1,
 .agendarViaje #step_2 .inputs-wrapper-agendar .input input#desc_oport2,
 .agendarViaje #step_2 .inputs-agendar .input input#distancia-input,
 .agendarViaje #step_2 .inputs-agendar .input input#desc_oport1,
 .agendarViaje #step_2 .inputs-agendar .input input#desc_oport2,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .input input#distancia-input,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .input input#desc_oport1,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .input input#desc_oport2,
 .agendarViaje #step_3 .inputs-wrapper-agendar .input input#distancia-input,
 .agendarViaje #step_3 .inputs-wrapper-agendar .input input#desc_oport1,
 .agendarViaje #step_3 .inputs-wrapper-agendar .input input#desc_oport2,
 .agendarViaje #step_3 .inputs-agendar .input input#distancia-input,
 .agendarViaje #step_3 .inputs-agendar .input input#desc_oport1,
 .agendarViaje #step_3 .inputs-agendar .input input#desc_oport2,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .input input#distancia-input,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .input input#desc_oport1,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .input input#desc_oport2,
 .agendarViaje #step_4 .inputs-wrapper-agendar .input input#distancia-input,
 .agendarViaje #step_4 .inputs-wrapper-agendar .input input#desc_oport1,
 .agendarViaje #step_4 .inputs-wrapper-agendar .input input#desc_oport2,
 .agendarViaje #step_4 .inputs-agendar .input input#distancia-input,
 .agendarViaje #step_4 .inputs-agendar .input input#desc_oport1,
 .agendarViaje #step_4 .inputs-agendar .input input#desc_oport2,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .input input#distancia-input,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .input input#desc_oport1,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .input input#desc_oport2,
 .agendarViaje #step_5 .inputs-wrapper-agendar .input input#distancia-input,
 .agendarViaje #step_5 .inputs-wrapper-agendar .input input#desc_oport1,
 .agendarViaje #step_5 .inputs-wrapper-agendar .input input#desc_oport2,
 .agendarViaje #step_5 .inputs-agendar .input input#distancia-input,
 .agendarViaje #step_5 .inputs-agendar .input input#desc_oport1,
 .agendarViaje #step_5 .inputs-agendar .input input#desc_oport2,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .input input#distancia-input,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .input input#desc_oport1,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .input input#desc_oport2,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .input input#distancia-input,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .input input#desc_oport1,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .input input#desc_oport2,
 .agendarViaje #step_hotel .inputs-agendar .input input#distancia-input,
 .agendarViaje #step_hotel .inputs-agendar .input input#desc_oport1,
-.agendarViaje #step_hotel .inputs-agendar .input input#desc_oport2 {
+.agendarViaje #step_hotel .inputs-agendar .input input#desc_oport2,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .input input#distancia-input,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .input input#desc_oport1,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .input input#desc_oport2 {
   padding-right: 30px;
   text-align: right;
 }
@@ -7798,36 +7888,54 @@ footer .totum p a:hover {
 .agendarViaje #step_1 .inputs-agendar .input input#distancia-input::-webkit-input-placeholder,
 .agendarViaje #step_1 .inputs-agendar .input input#desc_oport1::-webkit-input-placeholder,
 .agendarViaje #step_1 .inputs-agendar .input input#desc_oport2::-webkit-input-placeholder,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .input input#distancia-input::-webkit-input-placeholder,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .input input#desc_oport1::-webkit-input-placeholder,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .input input#desc_oport2::-webkit-input-placeholder,
 .agendarViaje #step_2 .inputs-wrapper-agendar .input input#distancia-input::-webkit-input-placeholder,
 .agendarViaje #step_2 .inputs-wrapper-agendar .input input#desc_oport1::-webkit-input-placeholder,
 .agendarViaje #step_2 .inputs-wrapper-agendar .input input#desc_oport2::-webkit-input-placeholder,
 .agendarViaje #step_2 .inputs-agendar .input input#distancia-input::-webkit-input-placeholder,
 .agendarViaje #step_2 .inputs-agendar .input input#desc_oport1::-webkit-input-placeholder,
 .agendarViaje #step_2 .inputs-agendar .input input#desc_oport2::-webkit-input-placeholder,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .input input#distancia-input::-webkit-input-placeholder,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .input input#desc_oport1::-webkit-input-placeholder,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .input input#desc_oport2::-webkit-input-placeholder,
 .agendarViaje #step_3 .inputs-wrapper-agendar .input input#distancia-input::-webkit-input-placeholder,
 .agendarViaje #step_3 .inputs-wrapper-agendar .input input#desc_oport1::-webkit-input-placeholder,
 .agendarViaje #step_3 .inputs-wrapper-agendar .input input#desc_oport2::-webkit-input-placeholder,
 .agendarViaje #step_3 .inputs-agendar .input input#distancia-input::-webkit-input-placeholder,
 .agendarViaje #step_3 .inputs-agendar .input input#desc_oport1::-webkit-input-placeholder,
 .agendarViaje #step_3 .inputs-agendar .input input#desc_oport2::-webkit-input-placeholder,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .input input#distancia-input::-webkit-input-placeholder,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .input input#desc_oport1::-webkit-input-placeholder,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .input input#desc_oport2::-webkit-input-placeholder,
 .agendarViaje #step_4 .inputs-wrapper-agendar .input input#distancia-input::-webkit-input-placeholder,
 .agendarViaje #step_4 .inputs-wrapper-agendar .input input#desc_oport1::-webkit-input-placeholder,
 .agendarViaje #step_4 .inputs-wrapper-agendar .input input#desc_oport2::-webkit-input-placeholder,
 .agendarViaje #step_4 .inputs-agendar .input input#distancia-input::-webkit-input-placeholder,
 .agendarViaje #step_4 .inputs-agendar .input input#desc_oport1::-webkit-input-placeholder,
 .agendarViaje #step_4 .inputs-agendar .input input#desc_oport2::-webkit-input-placeholder,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .input input#distancia-input::-webkit-input-placeholder,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .input input#desc_oport1::-webkit-input-placeholder,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .input input#desc_oport2::-webkit-input-placeholder,
 .agendarViaje #step_5 .inputs-wrapper-agendar .input input#distancia-input::-webkit-input-placeholder,
 .agendarViaje #step_5 .inputs-wrapper-agendar .input input#desc_oport1::-webkit-input-placeholder,
 .agendarViaje #step_5 .inputs-wrapper-agendar .input input#desc_oport2::-webkit-input-placeholder,
 .agendarViaje #step_5 .inputs-agendar .input input#distancia-input::-webkit-input-placeholder,
 .agendarViaje #step_5 .inputs-agendar .input input#desc_oport1::-webkit-input-placeholder,
 .agendarViaje #step_5 .inputs-agendar .input input#desc_oport2::-webkit-input-placeholder,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .input input#distancia-input::-webkit-input-placeholder,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .input input#desc_oport1::-webkit-input-placeholder,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .input input#desc_oport2::-webkit-input-placeholder,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .input input#distancia-input::-webkit-input-placeholder,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .input input#desc_oport1::-webkit-input-placeholder,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .input input#desc_oport2::-webkit-input-placeholder,
 .agendarViaje #step_hotel .inputs-agendar .input input#distancia-input::-webkit-input-placeholder,
 .agendarViaje #step_hotel .inputs-agendar .input input#desc_oport1::-webkit-input-placeholder,
-.agendarViaje #step_hotel .inputs-agendar .input input#desc_oport2::-webkit-input-placeholder {
+.agendarViaje #step_hotel .inputs-agendar .input input#desc_oport2::-webkit-input-placeholder,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .input input#distancia-input::-webkit-input-placeholder,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .input input#desc_oport1::-webkit-input-placeholder,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .input input#desc_oport2::-webkit-input-placeholder {
   text-align: left;
 }
 
@@ -7835,36 +7943,54 @@ footer .totum p a:hover {
 .agendarViaje #step_1 .inputs-agendar .input input#distancia-input:-ms-input-placeholder,
 .agendarViaje #step_1 .inputs-agendar .input input#desc_oport1:-ms-input-placeholder,
 .agendarViaje #step_1 .inputs-agendar .input input#desc_oport2:-ms-input-placeholder,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .input input#distancia-input:-ms-input-placeholder,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .input input#desc_oport1:-ms-input-placeholder,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .input input#desc_oport2:-ms-input-placeholder,
 .agendarViaje #step_2 .inputs-wrapper-agendar .input input#distancia-input:-ms-input-placeholder,
 .agendarViaje #step_2 .inputs-wrapper-agendar .input input#desc_oport1:-ms-input-placeholder,
 .agendarViaje #step_2 .inputs-wrapper-agendar .input input#desc_oport2:-ms-input-placeholder,
 .agendarViaje #step_2 .inputs-agendar .input input#distancia-input:-ms-input-placeholder,
 .agendarViaje #step_2 .inputs-agendar .input input#desc_oport1:-ms-input-placeholder,
 .agendarViaje #step_2 .inputs-agendar .input input#desc_oport2:-ms-input-placeholder,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .input input#distancia-input:-ms-input-placeholder,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .input input#desc_oport1:-ms-input-placeholder,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .input input#desc_oport2:-ms-input-placeholder,
 .agendarViaje #step_3 .inputs-wrapper-agendar .input input#distancia-input:-ms-input-placeholder,
 .agendarViaje #step_3 .inputs-wrapper-agendar .input input#desc_oport1:-ms-input-placeholder,
 .agendarViaje #step_3 .inputs-wrapper-agendar .input input#desc_oport2:-ms-input-placeholder,
 .agendarViaje #step_3 .inputs-agendar .input input#distancia-input:-ms-input-placeholder,
 .agendarViaje #step_3 .inputs-agendar .input input#desc_oport1:-ms-input-placeholder,
 .agendarViaje #step_3 .inputs-agendar .input input#desc_oport2:-ms-input-placeholder,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .input input#distancia-input:-ms-input-placeholder,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .input input#desc_oport1:-ms-input-placeholder,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .input input#desc_oport2:-ms-input-placeholder,
 .agendarViaje #step_4 .inputs-wrapper-agendar .input input#distancia-input:-ms-input-placeholder,
 .agendarViaje #step_4 .inputs-wrapper-agendar .input input#desc_oport1:-ms-input-placeholder,
 .agendarViaje #step_4 .inputs-wrapper-agendar .input input#desc_oport2:-ms-input-placeholder,
 .agendarViaje #step_4 .inputs-agendar .input input#distancia-input:-ms-input-placeholder,
 .agendarViaje #step_4 .inputs-agendar .input input#desc_oport1:-ms-input-placeholder,
 .agendarViaje #step_4 .inputs-agendar .input input#desc_oport2:-ms-input-placeholder,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .input input#distancia-input:-ms-input-placeholder,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .input input#desc_oport1:-ms-input-placeholder,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .input input#desc_oport2:-ms-input-placeholder,
 .agendarViaje #step_5 .inputs-wrapper-agendar .input input#distancia-input:-ms-input-placeholder,
 .agendarViaje #step_5 .inputs-wrapper-agendar .input input#desc_oport1:-ms-input-placeholder,
 .agendarViaje #step_5 .inputs-wrapper-agendar .input input#desc_oport2:-ms-input-placeholder,
 .agendarViaje #step_5 .inputs-agendar .input input#distancia-input:-ms-input-placeholder,
 .agendarViaje #step_5 .inputs-agendar .input input#desc_oport1:-ms-input-placeholder,
 .agendarViaje #step_5 .inputs-agendar .input input#desc_oport2:-ms-input-placeholder,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .input input#distancia-input:-ms-input-placeholder,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .input input#desc_oport1:-ms-input-placeholder,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .input input#desc_oport2:-ms-input-placeholder,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .input input#distancia-input:-ms-input-placeholder,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .input input#desc_oport1:-ms-input-placeholder,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .input input#desc_oport2:-ms-input-placeholder,
 .agendarViaje #step_hotel .inputs-agendar .input input#distancia-input:-ms-input-placeholder,
 .agendarViaje #step_hotel .inputs-agendar .input input#desc_oport1:-ms-input-placeholder,
-.agendarViaje #step_hotel .inputs-agendar .input input#desc_oport2:-ms-input-placeholder {
+.agendarViaje #step_hotel .inputs-agendar .input input#desc_oport2:-ms-input-placeholder,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .input input#distancia-input:-ms-input-placeholder,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .input input#desc_oport1:-ms-input-placeholder,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .input input#desc_oport2:-ms-input-placeholder {
   text-align: left;
 }
 
@@ -7872,36 +7998,54 @@ footer .totum p a:hover {
 .agendarViaje #step_1 .inputs-agendar .input input#distancia-input::-ms-input-placeholder,
 .agendarViaje #step_1 .inputs-agendar .input input#desc_oport1::-ms-input-placeholder,
 .agendarViaje #step_1 .inputs-agendar .input input#desc_oport2::-ms-input-placeholder,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .input input#distancia-input::-ms-input-placeholder,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .input input#desc_oport1::-ms-input-placeholder,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .input input#desc_oport2::-ms-input-placeholder,
 .agendarViaje #step_2 .inputs-wrapper-agendar .input input#distancia-input::-ms-input-placeholder,
 .agendarViaje #step_2 .inputs-wrapper-agendar .input input#desc_oport1::-ms-input-placeholder,
 .agendarViaje #step_2 .inputs-wrapper-agendar .input input#desc_oport2::-ms-input-placeholder,
 .agendarViaje #step_2 .inputs-agendar .input input#distancia-input::-ms-input-placeholder,
 .agendarViaje #step_2 .inputs-agendar .input input#desc_oport1::-ms-input-placeholder,
 .agendarViaje #step_2 .inputs-agendar .input input#desc_oport2::-ms-input-placeholder,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .input input#distancia-input::-ms-input-placeholder,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .input input#desc_oport1::-ms-input-placeholder,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .input input#desc_oport2::-ms-input-placeholder,
 .agendarViaje #step_3 .inputs-wrapper-agendar .input input#distancia-input::-ms-input-placeholder,
 .agendarViaje #step_3 .inputs-wrapper-agendar .input input#desc_oport1::-ms-input-placeholder,
 .agendarViaje #step_3 .inputs-wrapper-agendar .input input#desc_oport2::-ms-input-placeholder,
 .agendarViaje #step_3 .inputs-agendar .input input#distancia-input::-ms-input-placeholder,
 .agendarViaje #step_3 .inputs-agendar .input input#desc_oport1::-ms-input-placeholder,
 .agendarViaje #step_3 .inputs-agendar .input input#desc_oport2::-ms-input-placeholder,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .input input#distancia-input::-ms-input-placeholder,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .input input#desc_oport1::-ms-input-placeholder,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .input input#desc_oport2::-ms-input-placeholder,
 .agendarViaje #step_4 .inputs-wrapper-agendar .input input#distancia-input::-ms-input-placeholder,
 .agendarViaje #step_4 .inputs-wrapper-agendar .input input#desc_oport1::-ms-input-placeholder,
 .agendarViaje #step_4 .inputs-wrapper-agendar .input input#desc_oport2::-ms-input-placeholder,
 .agendarViaje #step_4 .inputs-agendar .input input#distancia-input::-ms-input-placeholder,
 .agendarViaje #step_4 .inputs-agendar .input input#desc_oport1::-ms-input-placeholder,
 .agendarViaje #step_4 .inputs-agendar .input input#desc_oport2::-ms-input-placeholder,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .input input#distancia-input::-ms-input-placeholder,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .input input#desc_oport1::-ms-input-placeholder,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .input input#desc_oport2::-ms-input-placeholder,
 .agendarViaje #step_5 .inputs-wrapper-agendar .input input#distancia-input::-ms-input-placeholder,
 .agendarViaje #step_5 .inputs-wrapper-agendar .input input#desc_oport1::-ms-input-placeholder,
 .agendarViaje #step_5 .inputs-wrapper-agendar .input input#desc_oport2::-ms-input-placeholder,
 .agendarViaje #step_5 .inputs-agendar .input input#distancia-input::-ms-input-placeholder,
 .agendarViaje #step_5 .inputs-agendar .input input#desc_oport1::-ms-input-placeholder,
 .agendarViaje #step_5 .inputs-agendar .input input#desc_oport2::-ms-input-placeholder,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .input input#distancia-input::-ms-input-placeholder,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .input input#desc_oport1::-ms-input-placeholder,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .input input#desc_oport2::-ms-input-placeholder,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .input input#distancia-input::-ms-input-placeholder,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .input input#desc_oport1::-ms-input-placeholder,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .input input#desc_oport2::-ms-input-placeholder,
 .agendarViaje #step_hotel .inputs-agendar .input input#distancia-input::-ms-input-placeholder,
 .agendarViaje #step_hotel .inputs-agendar .input input#desc_oport1::-ms-input-placeholder,
-.agendarViaje #step_hotel .inputs-agendar .input input#desc_oport2::-ms-input-placeholder {
+.agendarViaje #step_hotel .inputs-agendar .input input#desc_oport2::-ms-input-placeholder,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .input input#distancia-input::-ms-input-placeholder,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .input input#desc_oport1::-ms-input-placeholder,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .input input#desc_oport2::-ms-input-placeholder {
   text-align: left;
 }
 
@@ -7909,36 +8053,54 @@ footer .totum p a:hover {
 .agendarViaje #step_1 .inputs-agendar .input input#distancia-input::placeholder,
 .agendarViaje #step_1 .inputs-agendar .input input#desc_oport1::placeholder,
 .agendarViaje #step_1 .inputs-agendar .input input#desc_oport2::placeholder,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .input input#distancia-input::placeholder,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .input input#desc_oport1::placeholder,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .input input#desc_oport2::placeholder,
 .agendarViaje #step_2 .inputs-wrapper-agendar .input input#distancia-input::placeholder,
 .agendarViaje #step_2 .inputs-wrapper-agendar .input input#desc_oport1::placeholder,
 .agendarViaje #step_2 .inputs-wrapper-agendar .input input#desc_oport2::placeholder,
 .agendarViaje #step_2 .inputs-agendar .input input#distancia-input::placeholder,
 .agendarViaje #step_2 .inputs-agendar .input input#desc_oport1::placeholder,
 .agendarViaje #step_2 .inputs-agendar .input input#desc_oport2::placeholder,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .input input#distancia-input::placeholder,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .input input#desc_oport1::placeholder,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .input input#desc_oport2::placeholder,
 .agendarViaje #step_3 .inputs-wrapper-agendar .input input#distancia-input::placeholder,
 .agendarViaje #step_3 .inputs-wrapper-agendar .input input#desc_oport1::placeholder,
 .agendarViaje #step_3 .inputs-wrapper-agendar .input input#desc_oport2::placeholder,
 .agendarViaje #step_3 .inputs-agendar .input input#distancia-input::placeholder,
 .agendarViaje #step_3 .inputs-agendar .input input#desc_oport1::placeholder,
 .agendarViaje #step_3 .inputs-agendar .input input#desc_oport2::placeholder,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .input input#distancia-input::placeholder,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .input input#desc_oport1::placeholder,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .input input#desc_oport2::placeholder,
 .agendarViaje #step_4 .inputs-wrapper-agendar .input input#distancia-input::placeholder,
 .agendarViaje #step_4 .inputs-wrapper-agendar .input input#desc_oport1::placeholder,
 .agendarViaje #step_4 .inputs-wrapper-agendar .input input#desc_oport2::placeholder,
 .agendarViaje #step_4 .inputs-agendar .input input#distancia-input::placeholder,
 .agendarViaje #step_4 .inputs-agendar .input input#desc_oport1::placeholder,
 .agendarViaje #step_4 .inputs-agendar .input input#desc_oport2::placeholder,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .input input#distancia-input::placeholder,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .input input#desc_oport1::placeholder,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .input input#desc_oport2::placeholder,
 .agendarViaje #step_5 .inputs-wrapper-agendar .input input#distancia-input::placeholder,
 .agendarViaje #step_5 .inputs-wrapper-agendar .input input#desc_oport1::placeholder,
 .agendarViaje #step_5 .inputs-wrapper-agendar .input input#desc_oport2::placeholder,
 .agendarViaje #step_5 .inputs-agendar .input input#distancia-input::placeholder,
 .agendarViaje #step_5 .inputs-agendar .input input#desc_oport1::placeholder,
 .agendarViaje #step_5 .inputs-agendar .input input#desc_oport2::placeholder,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .input input#distancia-input::placeholder,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .input input#desc_oport1::placeholder,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .input input#desc_oport2::placeholder,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .input input#distancia-input::placeholder,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .input input#desc_oport1::placeholder,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .input input#desc_oport2::placeholder,
 .agendarViaje #step_hotel .inputs-agendar .input input#distancia-input::placeholder,
 .agendarViaje #step_hotel .inputs-agendar .input input#desc_oport1::placeholder,
-.agendarViaje #step_hotel .inputs-agendar .input input#desc_oport2::placeholder {
+.agendarViaje #step_hotel .inputs-agendar .input input#desc_oport2::placeholder,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .input input#distancia-input::placeholder,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .input input#desc_oport1::placeholder,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .input input#desc_oport2::placeholder {
   text-align: left;
 }
 
@@ -7946,41 +8108,59 @@ footer .totum p a:hover {
 .agendarViaje #step_1 .inputs-wrapper-agendar .input input#fecha_2,
 .agendarViaje #step_1 .inputs-agendar .input input#fecha_1,
 .agendarViaje #step_1 .inputs-agendar .input input#fecha_2,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .input input#fecha_1,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .input input#fecha_2,
 .agendarViaje #step_2 .inputs-wrapper-agendar .input input#fecha_1,
 .agendarViaje #step_2 .inputs-wrapper-agendar .input input#fecha_2,
 .agendarViaje #step_2 .inputs-agendar .input input#fecha_1,
 .agendarViaje #step_2 .inputs-agendar .input input#fecha_2,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .input input#fecha_1,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .input input#fecha_2,
 .agendarViaje #step_3 .inputs-wrapper-agendar .input input#fecha_1,
 .agendarViaje #step_3 .inputs-wrapper-agendar .input input#fecha_2,
 .agendarViaje #step_3 .inputs-agendar .input input#fecha_1,
 .agendarViaje #step_3 .inputs-agendar .input input#fecha_2,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .input input#fecha_1,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .input input#fecha_2,
 .agendarViaje #step_4 .inputs-wrapper-agendar .input input#fecha_1,
 .agendarViaje #step_4 .inputs-wrapper-agendar .input input#fecha_2,
 .agendarViaje #step_4 .inputs-agendar .input input#fecha_1,
 .agendarViaje #step_4 .inputs-agendar .input input#fecha_2,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .input input#fecha_1,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .input input#fecha_2,
 .agendarViaje #step_5 .inputs-wrapper-agendar .input input#fecha_1,
 .agendarViaje #step_5 .inputs-wrapper-agendar .input input#fecha_2,
 .agendarViaje #step_5 .inputs-agendar .input input#fecha_1,
 .agendarViaje #step_5 .inputs-agendar .input input#fecha_2,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .input input#fecha_1,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .input input#fecha_2,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .input input#fecha_1,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .input input#fecha_2,
 .agendarViaje #step_hotel .inputs-agendar .input input#fecha_1,
-.agendarViaje #step_hotel .inputs-agendar .input input#fecha_2 {
+.agendarViaje #step_hotel .inputs-agendar .input input#fecha_2,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .input input#fecha_1,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .input input#fecha_2 {
   padding-right: 0;
 }
 
 .agendarViaje #step_1 .inputs-wrapper-agendar .input #end-text,
 .agendarViaje #step_1 .inputs-agendar .input #end-text,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .input #end-text,
 .agendarViaje #step_2 .inputs-wrapper-agendar .input #end-text,
 .agendarViaje #step_2 .inputs-agendar .input #end-text,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .input #end-text,
 .agendarViaje #step_3 .inputs-wrapper-agendar .input #end-text,
 .agendarViaje #step_3 .inputs-agendar .input #end-text,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .input #end-text,
 .agendarViaje #step_4 .inputs-wrapper-agendar .input #end-text,
 .agendarViaje #step_4 .inputs-agendar .input #end-text,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .input #end-text,
 .agendarViaje #step_5 .inputs-wrapper-agendar .input #end-text,
 .agendarViaje #step_5 .inputs-agendar .input #end-text,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .input #end-text,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .input #end-text,
-.agendarViaje #step_hotel .inputs-agendar .input #end-text {
+.agendarViaje #step_hotel .inputs-agendar .input #end-text,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .input #end-text {
   position: absolute;
   top: 11px;
   right: 0;
@@ -7990,16 +8170,22 @@ footer .totum p a:hover {
 
 .agendarViaje #step_1 .inputs-wrapper-agendar .input #icon,
 .agendarViaje #step_1 .inputs-agendar .input #icon,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .input #icon,
 .agendarViaje #step_2 .inputs-wrapper-agendar .input #icon,
 .agendarViaje #step_2 .inputs-agendar .input #icon,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .input #icon,
 .agendarViaje #step_3 .inputs-wrapper-agendar .input #icon,
 .agendarViaje #step_3 .inputs-agendar .input #icon,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .input #icon,
 .agendarViaje #step_4 .inputs-wrapper-agendar .input #icon,
 .agendarViaje #step_4 .inputs-agendar .input #icon,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .input #icon,
 .agendarViaje #step_5 .inputs-wrapper-agendar .input #icon,
 .agendarViaje #step_5 .inputs-agendar .input #icon,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .input #icon,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .input #icon,
-.agendarViaje #step_hotel .inputs-agendar .input #icon {
+.agendarViaje #step_hotel .inputs-agendar .input #icon,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .input #icon {
   position: absolute;
   top: 10px;
   left: 0;
@@ -8008,16 +8194,22 @@ footer .totum p a:hover {
 
 .agendarViaje #step_1 .inputs-wrapper-agendar .input .password-eye,
 .agendarViaje #step_1 .inputs-agendar .input .password-eye,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .input .password-eye,
 .agendarViaje #step_2 .inputs-wrapper-agendar .input .password-eye,
 .agendarViaje #step_2 .inputs-agendar .input .password-eye,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .input .password-eye,
 .agendarViaje #step_3 .inputs-wrapper-agendar .input .password-eye,
 .agendarViaje #step_3 .inputs-agendar .input .password-eye,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .input .password-eye,
 .agendarViaje #step_4 .inputs-wrapper-agendar .input .password-eye,
 .agendarViaje #step_4 .inputs-agendar .input .password-eye,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .input .password-eye,
 .agendarViaje #step_5 .inputs-wrapper-agendar .input .password-eye,
 .agendarViaje #step_5 .inputs-agendar .input .password-eye,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .input .password-eye,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .input .password-eye,
-.agendarViaje #step_hotel .inputs-agendar .input .password-eye {
+.agendarViaje #step_hotel .inputs-agendar .input .password-eye,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .input .password-eye {
   background-color: transparent;
   border: none;
   position: absolute;
@@ -8031,48 +8223,66 @@ footer .totum p a:hover {
 
 .agendarViaje #step_1 .inputs-wrapper-agendar .input .password-eye:hover,
 .agendarViaje #step_1 .inputs-agendar .input .password-eye:hover,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .input .password-eye:hover,
 .agendarViaje #step_2 .inputs-wrapper-agendar .input .password-eye:hover,
 .agendarViaje #step_2 .inputs-agendar .input .password-eye:hover,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .input .password-eye:hover,
 .agendarViaje #step_3 .inputs-wrapper-agendar .input .password-eye:hover,
 .agendarViaje #step_3 .inputs-agendar .input .password-eye:hover,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .input .password-eye:hover,
 .agendarViaje #step_4 .inputs-wrapper-agendar .input .password-eye:hover,
 .agendarViaje #step_4 .inputs-agendar .input .password-eye:hover,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .input .password-eye:hover,
 .agendarViaje #step_5 .inputs-wrapper-agendar .input .password-eye:hover,
 .agendarViaje #step_5 .inputs-agendar .input .password-eye:hover,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .input .password-eye:hover,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .input .password-eye:hover,
-.agendarViaje #step_hotel .inputs-agendar .input .password-eye:hover {
+.agendarViaje #step_hotel .inputs-agendar .input .password-eye:hover,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .input .password-eye:hover {
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
 }
 
 .agendarViaje #step_1 .inputs-wrapper-agendar .input:nth-child(3) input,
 .agendarViaje #step_1 .inputs-agendar .input:nth-child(3) input,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .input:nth-child(3) input,
 .agendarViaje #step_2 .inputs-wrapper-agendar .input:nth-child(3) input,
 .agendarViaje #step_2 .inputs-agendar .input:nth-child(3) input,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .input:nth-child(3) input,
 .agendarViaje #step_3 .inputs-wrapper-agendar .input:nth-child(3) input,
 .agendarViaje #step_3 .inputs-agendar .input:nth-child(3) input,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .input:nth-child(3) input,
 .agendarViaje #step_4 .inputs-wrapper-agendar .input:nth-child(3) input,
 .agendarViaje #step_4 .inputs-agendar .input:nth-child(3) input,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .input:nth-child(3) input,
 .agendarViaje #step_5 .inputs-wrapper-agendar .input:nth-child(3) input,
 .agendarViaje #step_5 .inputs-agendar .input:nth-child(3) input,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .input:nth-child(3) input,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .input:nth-child(3) input,
-.agendarViaje #step_hotel .inputs-agendar .input:nth-child(3) input {
+.agendarViaje #step_hotel .inputs-agendar .input:nth-child(3) input,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .input:nth-child(3) input {
   padding-right: 30px;
   margin-bottom: 0;
 }
 
 .agendarViaje #step_1 .inputs-wrapper-agendar .column_resumen,
 .agendarViaje #step_1 .inputs-agendar .column_resumen,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .column_resumen,
 .agendarViaje #step_2 .inputs-wrapper-agendar .column_resumen,
 .agendarViaje #step_2 .inputs-agendar .column_resumen,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .column_resumen,
 .agendarViaje #step_3 .inputs-wrapper-agendar .column_resumen,
 .agendarViaje #step_3 .inputs-agendar .column_resumen,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .column_resumen,
 .agendarViaje #step_4 .inputs-wrapper-agendar .column_resumen,
 .agendarViaje #step_4 .inputs-agendar .column_resumen,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .column_resumen,
 .agendarViaje #step_5 .inputs-wrapper-agendar .column_resumen,
 .agendarViaje #step_5 .inputs-agendar .column_resumen,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .column_resumen,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .column_resumen,
-.agendarViaje #step_hotel .inputs-agendar .column_resumen {
+.agendarViaje #step_hotel .inputs-agendar .column_resumen,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .column_resumen {
   text-align: left;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -8087,31 +8297,43 @@ footer .totum p a:hover {
 
 .agendarViaje #step_1 .inputs-wrapper-agendar .column_resumen .column-wrapper .step_title,
 .agendarViaje #step_1 .inputs-agendar .column_resumen .column-wrapper .step_title,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .column_resumen .column-wrapper .step_title,
 .agendarViaje #step_2 .inputs-wrapper-agendar .column_resumen .column-wrapper .step_title,
 .agendarViaje #step_2 .inputs-agendar .column_resumen .column-wrapper .step_title,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .column_resumen .column-wrapper .step_title,
 .agendarViaje #step_3 .inputs-wrapper-agendar .column_resumen .column-wrapper .step_title,
 .agendarViaje #step_3 .inputs-agendar .column_resumen .column-wrapper .step_title,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .column_resumen .column-wrapper .step_title,
 .agendarViaje #step_4 .inputs-wrapper-agendar .column_resumen .column-wrapper .step_title,
 .agendarViaje #step_4 .inputs-agendar .column_resumen .column-wrapper .step_title,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .column_resumen .column-wrapper .step_title,
 .agendarViaje #step_5 .inputs-wrapper-agendar .column_resumen .column-wrapper .step_title,
 .agendarViaje #step_5 .inputs-agendar .column_resumen .column-wrapper .step_title,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .column_resumen .column-wrapper .step_title,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .column_resumen .column-wrapper .step_title,
-.agendarViaje #step_hotel .inputs-agendar .column_resumen .column-wrapper .step_title {
+.agendarViaje #step_hotel .inputs-agendar .column_resumen .column-wrapper .step_title,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .column_resumen .column-wrapper .step_title {
   margin: 20px auto;
 }
 
 .agendarViaje #step_1 .inputs-wrapper-agendar .column_resumen .column-wrapper .info,
 .agendarViaje #step_1 .inputs-agendar .column_resumen .column-wrapper .info,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .column_resumen .column-wrapper .info,
 .agendarViaje #step_2 .inputs-wrapper-agendar .column_resumen .column-wrapper .info,
 .agendarViaje #step_2 .inputs-agendar .column_resumen .column-wrapper .info,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .column_resumen .column-wrapper .info,
 .agendarViaje #step_3 .inputs-wrapper-agendar .column_resumen .column-wrapper .info,
 .agendarViaje #step_3 .inputs-agendar .column_resumen .column-wrapper .info,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .column_resumen .column-wrapper .info,
 .agendarViaje #step_4 .inputs-wrapper-agendar .column_resumen .column-wrapper .info,
 .agendarViaje #step_4 .inputs-agendar .column_resumen .column-wrapper .info,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .column_resumen .column-wrapper .info,
 .agendarViaje #step_5 .inputs-wrapper-agendar .column_resumen .column-wrapper .info,
 .agendarViaje #step_5 .inputs-agendar .column_resumen .column-wrapper .info,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .column_resumen .column-wrapper .info,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .column_resumen .column-wrapper .info,
-.agendarViaje #step_hotel .inputs-agendar .column_resumen .column-wrapper .info {
+.agendarViaje #step_hotel .inputs-agendar .column_resumen .column-wrapper .info,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .column_resumen .column-wrapper .info {
   margin: 20px auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -8131,47 +8353,65 @@ footer .totum p a:hover {
 
 .agendarViaje #step_1 .inputs-wrapper-agendar .column_resumen .column-wrapper .info b,
 .agendarViaje #step_1 .inputs-agendar .column_resumen .column-wrapper .info b,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .column_resumen .column-wrapper .info b,
 .agendarViaje #step_2 .inputs-wrapper-agendar .column_resumen .column-wrapper .info b,
 .agendarViaje #step_2 .inputs-agendar .column_resumen .column-wrapper .info b,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .column_resumen .column-wrapper .info b,
 .agendarViaje #step_3 .inputs-wrapper-agendar .column_resumen .column-wrapper .info b,
 .agendarViaje #step_3 .inputs-agendar .column_resumen .column-wrapper .info b,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .column_resumen .column-wrapper .info b,
 .agendarViaje #step_4 .inputs-wrapper-agendar .column_resumen .column-wrapper .info b,
 .agendarViaje #step_4 .inputs-agendar .column_resumen .column-wrapper .info b,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .column_resumen .column-wrapper .info b,
 .agendarViaje #step_5 .inputs-wrapper-agendar .column_resumen .column-wrapper .info b,
 .agendarViaje #step_5 .inputs-agendar .column_resumen .column-wrapper .info b,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .column_resumen .column-wrapper .info b,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .column_resumen .column-wrapper .info b,
-.agendarViaje #step_hotel .inputs-agendar .column_resumen .column-wrapper .info b {
+.agendarViaje #step_hotel .inputs-agendar .column_resumen .column-wrapper .info b,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .column_resumen .column-wrapper .info b {
   color: #3844bc;
 }
 
 .agendarViaje #step_1 .inputs-wrapper-agendar .column_resumen .column-wrapper .info p,
 .agendarViaje #step_1 .inputs-agendar .column_resumen .column-wrapper .info p,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .column_resumen .column-wrapper .info p,
 .agendarViaje #step_2 .inputs-wrapper-agendar .column_resumen .column-wrapper .info p,
 .agendarViaje #step_2 .inputs-agendar .column_resumen .column-wrapper .info p,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .column_resumen .column-wrapper .info p,
 .agendarViaje #step_3 .inputs-wrapper-agendar .column_resumen .column-wrapper .info p,
 .agendarViaje #step_3 .inputs-agendar .column_resumen .column-wrapper .info p,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .column_resumen .column-wrapper .info p,
 .agendarViaje #step_4 .inputs-wrapper-agendar .column_resumen .column-wrapper .info p,
 .agendarViaje #step_4 .inputs-agendar .column_resumen .column-wrapper .info p,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .column_resumen .column-wrapper .info p,
 .agendarViaje #step_5 .inputs-wrapper-agendar .column_resumen .column-wrapper .info p,
 .agendarViaje #step_5 .inputs-agendar .column_resumen .column-wrapper .info p,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .column_resumen .column-wrapper .info p,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .column_resumen .column-wrapper .info p,
-.agendarViaje #step_hotel .inputs-agendar .column_resumen .column-wrapper .info p {
+.agendarViaje #step_hotel .inputs-agendar .column_resumen .column-wrapper .info p,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .column_resumen .column-wrapper .info p {
   color: #555;
   margin: 0;
 }
 
 .agendarViaje #step_1 .inputs-wrapper-agendar .tags,
 .agendarViaje #step_1 .inputs-agendar .tags,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .tags,
 .agendarViaje #step_2 .inputs-wrapper-agendar .tags,
 .agendarViaje #step_2 .inputs-agendar .tags,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .tags,
 .agendarViaje #step_3 .inputs-wrapper-agendar .tags,
 .agendarViaje #step_3 .inputs-agendar .tags,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .tags,
 .agendarViaje #step_4 .inputs-wrapper-agendar .tags,
 .agendarViaje #step_4 .inputs-agendar .tags,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .tags,
 .agendarViaje #step_5 .inputs-wrapper-agendar .tags,
 .agendarViaje #step_5 .inputs-agendar .tags,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .tags,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .tags,
-.agendarViaje #step_hotel .inputs-agendar .tags {
+.agendarViaje #step_hotel .inputs-agendar .tags,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .tags {
   width: calc(100% - 40px);
   background-color: #eee;
   border-radius: 10px;
@@ -8191,16 +8431,22 @@ footer .totum p a:hover {
 
 .agendarViaje #step_1 .inputs-wrapper-agendar .tags .tag,
 .agendarViaje #step_1 .inputs-agendar .tags .tag,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .tags .tag,
 .agendarViaje #step_2 .inputs-wrapper-agendar .tags .tag,
 .agendarViaje #step_2 .inputs-agendar .tags .tag,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .tags .tag,
 .agendarViaje #step_3 .inputs-wrapper-agendar .tags .tag,
 .agendarViaje #step_3 .inputs-agendar .tags .tag,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .tags .tag,
 .agendarViaje #step_4 .inputs-wrapper-agendar .tags .tag,
 .agendarViaje #step_4 .inputs-agendar .tags .tag,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .tags .tag,
 .agendarViaje #step_5 .inputs-wrapper-agendar .tags .tag,
 .agendarViaje #step_5 .inputs-agendar .tags .tag,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .tags .tag,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .tags .tag,
-.agendarViaje #step_hotel .inputs-agendar .tags .tag {
+.agendarViaje #step_hotel .inputs-agendar .tags .tag,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .tags .tag {
   margin: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -8218,16 +8464,22 @@ footer .totum p a:hover {
 
 .agendarViaje #step_1 .inputs-wrapper-agendar .tags .tag p,
 .agendarViaje #step_1 .inputs-agendar .tags .tag p,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .tags .tag p,
 .agendarViaje #step_2 .inputs-wrapper-agendar .tags .tag p,
 .agendarViaje #step_2 .inputs-agendar .tags .tag p,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .tags .tag p,
 .agendarViaje #step_3 .inputs-wrapper-agendar .tags .tag p,
 .agendarViaje #step_3 .inputs-agendar .tags .tag p,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .tags .tag p,
 .agendarViaje #step_4 .inputs-wrapper-agendar .tags .tag p,
 .agendarViaje #step_4 .inputs-agendar .tags .tag p,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .tags .tag p,
 .agendarViaje #step_5 .inputs-wrapper-agendar .tags .tag p,
 .agendarViaje #step_5 .inputs-agendar .tags .tag p,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .tags .tag p,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .tags .tag p,
-.agendarViaje #step_hotel .inputs-agendar .tags .tag p {
+.agendarViaje #step_hotel .inputs-agendar .tags .tag p,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .tags .tag p {
   margin: 0 10px;
   color: #ffffff;
   font-size: 0.9em;
@@ -8235,16 +8487,22 @@ footer .totum p a:hover {
 
 .agendarViaje #step_1 .inputs-wrapper-agendar .tags .tag button,
 .agendarViaje #step_1 .inputs-agendar .tags .tag button,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .tags .tag button,
 .agendarViaje #step_2 .inputs-wrapper-agendar .tags .tag button,
 .agendarViaje #step_2 .inputs-agendar .tags .tag button,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .tags .tag button,
 .agendarViaje #step_3 .inputs-wrapper-agendar .tags .tag button,
 .agendarViaje #step_3 .inputs-agendar .tags .tag button,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .tags .tag button,
 .agendarViaje #step_4 .inputs-wrapper-agendar .tags .tag button,
 .agendarViaje #step_4 .inputs-agendar .tags .tag button,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .tags .tag button,
 .agendarViaje #step_5 .inputs-wrapper-agendar .tags .tag button,
 .agendarViaje #step_5 .inputs-agendar .tags .tag button,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .tags .tag button,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .tags .tag button,
-.agendarViaje #step_hotel .inputs-agendar .tags .tag button {
+.agendarViaje #step_hotel .inputs-agendar .tags .tag button,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .tags .tag button {
   height: 100%;
   background-color: rgba(30, 30, 30, 0.5);
   padding: 5px 10px;
@@ -8254,16 +8512,22 @@ footer .totum p a:hover {
 
 .agendarViaje #step_1 .inputs-wrapper-agendar .tags .tag button i,
 .agendarViaje #step_1 .inputs-agendar .tags .tag button i,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .tags .tag button i,
 .agendarViaje #step_2 .inputs-wrapper-agendar .tags .tag button i,
 .agendarViaje #step_2 .inputs-agendar .tags .tag button i,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .tags .tag button i,
 .agendarViaje #step_3 .inputs-wrapper-agendar .tags .tag button i,
 .agendarViaje #step_3 .inputs-agendar .tags .tag button i,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .tags .tag button i,
 .agendarViaje #step_4 .inputs-wrapper-agendar .tags .tag button i,
 .agendarViaje #step_4 .inputs-agendar .tags .tag button i,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .tags .tag button i,
 .agendarViaje #step_5 .inputs-wrapper-agendar .tags .tag button i,
 .agendarViaje #step_5 .inputs-agendar .tags .tag button i,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .tags .tag button i,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .tags .tag button i,
-.agendarViaje #step_hotel .inputs-agendar .tags .tag button i {
+.agendarViaje #step_hotel .inputs-agendar .tags .tag button i,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .tags .tag button i {
   color: #ffffff;
   -webkit-transition: 0.3s;
   transition: 0.3s;
@@ -8271,18 +8535,34 @@ footer .totum p a:hover {
 
 .agendarViaje #step_1 .inputs-wrapper-agendar .tags .tag button:hover i,
 .agendarViaje #step_1 .inputs-agendar .tags .tag button:hover i,
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .tags .tag button:hover i,
 .agendarViaje #step_2 .inputs-wrapper-agendar .tags .tag button:hover i,
 .agendarViaje #step_2 .inputs-agendar .tags .tag button:hover i,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .tags .tag button:hover i,
 .agendarViaje #step_3 .inputs-wrapper-agendar .tags .tag button:hover i,
 .agendarViaje #step_3 .inputs-agendar .tags .tag button:hover i,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .tags .tag button:hover i,
 .agendarViaje #step_4 .inputs-wrapper-agendar .tags .tag button:hover i,
 .agendarViaje #step_4 .inputs-agendar .tags .tag button:hover i,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .tags .tag button:hover i,
 .agendarViaje #step_5 .inputs-wrapper-agendar .tags .tag button:hover i,
 .agendarViaje #step_5 .inputs-agendar .tags .tag button:hover i,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .tags .tag button:hover i,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .tags .tag button:hover i,
-.agendarViaje #step_hotel .inputs-agendar .tags .tag button:hover i {
+.agendarViaje #step_hotel .inputs-agendar .tags .tag button:hover i,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .tags .tag button:hover i {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
+}
+
+.agendarViaje #step_1 .inputs-wrapper-agendar-rutas,
+.agendarViaje #step_2 .inputs-wrapper-agendar-rutas,
+.agendarViaje #step_3 .inputs-wrapper-agendar-rutas,
+.agendarViaje #step_4 .inputs-wrapper-agendar-rutas,
+.agendarViaje #step_5 .inputs-wrapper-agendar-rutas,
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas {
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
 }
 
 .agendarViaje #step_1 .inputs-agendar,
