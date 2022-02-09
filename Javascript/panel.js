@@ -163,11 +163,11 @@ function tabla_usuarios_dashboard(){
                 if (usuarios_total == 1) {
                     $("#cantidad-usuarios").html('<h2>0</h2><i class="fas fa-user-friends"></i>')
                 }else{
-                    usuarios_total = usuarios_total-1
+                    usuarios_total = usuarios_total-2
                     $("#cantidad-usuarios").html('<h2>'+usuarios_total+'</h2><i class="fas fa-user-friends"></i>')
                 }
 
-                $('.ADM').hide()
+                $('.ADM').hide();
             }
         })
 }
