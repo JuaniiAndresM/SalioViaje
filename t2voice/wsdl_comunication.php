@@ -60,7 +60,7 @@ class notifyMeActions {
                     $llamarFunction = new notifyMeActions();
                     $estado = $llamarFunction->watchCall($id);
 
-                } while(strpos($estado, "ENTREGADA") === false);
+                } while(strpos($estado, "Mensaje para.../d") === false);
 
                 //se fija si el usuario selecciono alguna de las opciones
                 if(strpos($estado, "ENTREGADA") !== false){
