@@ -399,7 +399,13 @@ switch(opcion){
      btn_finalizar_carga()
          setTimeout(function() {
             registrar_usuario("PAX");
-            window.location = "/SalioViaje/Success";
+
+
+            setTimeout(function() {
+               window.location = "/SalioViaje/Success";
+            }, 500);
+            
+
          }, 1000);
                }else{ console.log("No valido...") }
                break;
@@ -415,7 +421,10 @@ switch(opcion){
                         data: { tipo:"2",idUsuario: ID_USUARIO,empresas:JSON.stringify(empresas) },
                         success: function (response) {
                           console.log(response)
-                          window.location = "/SalioViaje/Success";
+                          
+                         },
+                         complete: function(response2){
+                           window.location = "/SalioViaje/Success";
                          },
                       });
                   }, 1000);
@@ -434,7 +443,9 @@ switch(opcion){
                      data: { tipo:'3',idUsuario: ID_USUARIO, empresas:JSON.stringify(empresas) },
                      success: function (response) {
                         console.log(response)
-                            window.location = "/SalioViaje/Success";
+                         },
+                         complete: function(response2){
+                           window.location = "/SalioViaje/Success";
                          },
                       });
                 }, 1000);
@@ -512,7 +523,7 @@ switch(opcion){
             data: { tipo:'7',idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas)  },
             success: function (response) {
                console.log(response)      
-
+               window.location = "/SalioViaje/Success";
             },
          });
       }, 1000);
