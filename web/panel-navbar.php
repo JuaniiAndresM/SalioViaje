@@ -86,6 +86,12 @@
                   <span class="icon"><i class="fas fa-book"></i></span>
                   <span class="title">Agenda</span>
                 </a>
+              </li>
+              <li>
+                <a href="/SalioViaje/FAQ">
+                  <span class="icon"><i class="fas fa-question"></i></span>
+                  <span class="title">FAQ</span>
+                </a>
               </li>';
     }
     ?>

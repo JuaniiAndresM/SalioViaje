@@ -6,8 +6,7 @@ $(document).ready(function () {
     traer_preguntas_seccion_admin()
     $('#eliminar-pregunta').hide()
     $('#guardar-pregunta').hide()
-
-    $('#mensaje-error').hide();
+    $('#mensaje-error').hide()
 });
 
 function desplegar(button){
@@ -22,6 +21,8 @@ function crear_pregunta(){
         "PREGUNTA" : document.getElementById('pregunta').value,
         "RESPUESTA" : document.getElementById('respuesta').value
     }
+
+    $('#mensaje-error').hide()
 
     for (const property in pregunta) {
         if (pregunta[property] == null || pregunta[property] == undefined || pregunta[property] == '') { valido = 0 }
@@ -41,7 +42,7 @@ function crear_pregunta(){
 
             }
         })
-    } else { $('#mensaje-error').show(); } 
+    } else { $('#mensaje-error').show() } 
 }
 
 function traer_datos_preguntas(id){

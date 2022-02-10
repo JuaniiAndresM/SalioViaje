@@ -4,23 +4,23 @@
  */
 class validaciones 
 {
-	private $PATTERN_NOMBRES = "/^([A-Z][a-z]+([ ]?[a-z]?['-]?[A-Z][a-z]+)*)$/i";
+	private $PATTERN_NOMBRES = "/[^0-9\.\,\"\?\!\;\:\#\$\%\&\(\)\*\+\-\/\<\>\=\@\[\]\\\^\_\{\}\|\~]+/";
 	private $PATTERN_CI = "/^[0-9]{7,8}$/i";
 	private $PATTERN_MAIL = "/.+@[a-z]{4,5}.+\.[?=com]\w.+/i";
-	private $PATTERN_DIRECCION = "/^[a-zA-Z_]+([a-zA-Z0-9\s]*)$/i";
+	private $PATTERN_DIRECCION = "/[^\.\,\"\?\!\;\:\#\$\%\&\(\)\*\+\-\/\<\>\=\@\[\]\\\^\_\{\}\|\~]+/i";
 	private $PATTERN_TELEFONO = "/^(?=09[\d]){3}[0-9]{9}$/i";
 	private $PATTERN_PIN = "/[0-9]{4}/i";
 
 	private $PATTERN_RUT = "/^[\d]{12}$/i";
 	private $PATTERN_RAZON_SOCIAL = "/^[a-zA-Z_]+([a-zA-Z0-9\s\.]*)$/i";
-	private $PATTERN_NUMERO_MTOP = "/^[\d]{8,10}$/i";
-	private $PATTERN_PASSWORD_MTOP = "/^([\w\d]){8,10}$/i";
+	private $PATTERN_NUMERO_MTOP = "/^[\d]{8,}$/i";
+	private $PATTERN_PASSWORD_MTOP = "/^([\w\d]){8,}$/i";
 
 	private $PATTERN_MATRICULA = "/^(\w){3}([0-9]){4}$/i";
-	private $PATTERN_MARCA = "/^([A-Z][a-z]+([ ]?[a-z]?['-]?[A-Z][a-z]+)*)$/i";
-	private $PATTERN_MODELO = "/^[a-zA-Z_]+([a-zA-Z0-9\s\.]*)$/i";
+	private $PATTERN_MARCA = "/[^0-9\.\,\"\?\!\;\:\#\$\%\&\(\)\*\+\-\/\<\>\=\@\[\]\\\^\_\{\}\|\~]+/";
+	private $PATTERN_MODELO = "/[^0-9\.\,\"\?\!\;\:\#\$\%\&\(\)\*\+\-\/\<\>\=\@\[\]\\\^\_\{\}\|\~]+/";
 	private $PATTERN_COMBUSTIBLE = "/^([A-Z][a-z]+([ ]?[a-z]?['-]?[A-Z][a-z]+)*)$/i";
-	private $PATTERN_CAPACIDAD_PASAJEROS = "/[0-9]{0,3}/i";
+	private $PATTERN_CAPACIDAD_PASAJEROS = "/^[1-9][0-9]{0,2}$/i";
 	private $PATTERN_CAPACIDAD_EQUIPAJE = "/[0-9]{0,3}/i";
 	
 	function __construct($tipo,$datos)
@@ -293,13 +293,15 @@ class validaciones
 		require_once "procedimientosBD.php";
 		$ci_bd = new procedimientosBD();
 		$datos_ci = $ci_bd->traigo_ci();
+		$encontrado = 1;
 		if ($datos_ci != null) {
 			for ($i=0; $i < count($datos_ci); $i++) { 
 				if($datos_ci[$i] == $ci){
-					return 0;
-				}else{ return 1; }
+					$encontrado = 0;
+				}
 			}
-		}else{ return 1; }
+		}
+		return $encontrado;
 	}
 }
 

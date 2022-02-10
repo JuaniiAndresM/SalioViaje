@@ -154,7 +154,7 @@ $contraste_2: #ffffff;
     .card {
       max-width: 300px;
       width: 100%;
-      min-height: 420px;
+      min-height: 430px;
 
       background: linear-gradient(45deg, $main_1, $main_2);
       box-shadow: 10px 0px 20px 0 rgba($color: #000000, $alpha: 0.3);
@@ -175,6 +175,7 @@ $contraste_2: #ffffff;
             color: $contraste_2;
             font-size: 3em;
             margin-bottom: 10px;
+            overflow: hidden;
           }
         }
         .card-info {
@@ -188,7 +189,7 @@ $contraste_2: #ffffff;
           .info_1 {
             color: $contraste_2;
             margin: 20px 0;
-            font-size: 1.1em;
+            font-size: 1em;
           }
         }
       }

@@ -181,6 +181,13 @@
       .button-register[disabled]{
         background: #cccccc;
         color: #666666;
+
+        span{
+          i{
+            animation: loader-finalizar 1s infinite forwards linear;
+            margin: 0;
+          }
+        }
       }
 
       .login-bottom,
