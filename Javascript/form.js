@@ -402,7 +402,7 @@ switch(opcion){
 
 
             setTimeout(function() {
-               window.location = "/SalioViaje/Success";
+               window.location = "https://www.salioviaje.com.uy/Success";
             }, 500);
             
 
@@ -424,7 +424,7 @@ switch(opcion){
                           
                          },
                          complete: function(response2){
-                           window.location = "/SalioViaje/Success";
+                           window.location = "https://www.salioviaje.com.uy/Success";
                          },
                       });
                   }, 1000);
@@ -445,7 +445,7 @@ switch(opcion){
                         console.log(response)
                          },
                          complete: function(response2){
-                           window.location = "/SalioViaje/Success";
+                           window.location = "https://www.salioviaje.com.uy/Success";
                          },
                       });
                 }, 1000);
@@ -523,7 +523,7 @@ switch(opcion){
             data: { tipo:'7',idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas)  },
             success: function (response) {
                console.log(response)      
-               window.location = "/SalioViaje/Success";
+               window.location = "https://www.salioviaje.com.uy/Success";
             },
          });
       }, 1000);

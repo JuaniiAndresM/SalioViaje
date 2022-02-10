@@ -88,7 +88,7 @@
                 </a>
               </li>
               <li>
-                <a href="/SalioViaje/FAQ">
+                <a href="https://www.salioviaje.com.uy/FAQ">
                   <span class="icon"><i class="fas fa-question"></i></span>
                   <span class="title">FAQ</span>
                 </a>
