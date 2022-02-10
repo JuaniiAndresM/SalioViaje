@@ -845,8 +845,11 @@ function marcar_errores(resultado_validacion){
        case "CI":
        if (resultado[property] == 0) {
           $('#CI').css('border-bottom', '1px solid #ff635a');
-          $('.mensaje-error').text("C.I ya registrada o no válida.");
-         }    
+          $('.mensaje-error').text("C.I no válida.");
+         }else if(resultado[property] == 2){
+            $('#CI').css('border-bottom', '1px solid #ff635a');
+            $('.mensaje-error').text("C.I ya registrada.");
+         }
 
          break;
       case "NOMBRE":

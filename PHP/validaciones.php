@@ -41,7 +41,7 @@ class validaciones
 			case 'HOTEL':
 			$validacion = $this->validar_formulario_hotel($datos);				
 			if($validacion == 1){ echo "VALIDO"; } else {echo $validacion;}
-			break;							
+			break;														
 			default:
 			echo "Esperando para validar...";
 			break;
@@ -59,9 +59,13 @@ class validaciones
 				switch ($clave) {
 					case 'CI':
 					$CI = preg_match($this->PATTERN_CI, $valor);
-					if($CI == 1 && $this->validar_existencia_ci($valor) == 1){
+					if($this->validar_digito_ci($valor) == 1 && $this->validar_existencia_ci($valor) == 1){
 						$VALIDACION['CI'] = 1;
-					}else{ $VALIDACION['CI'] = 0; }
+					}else if($this->validar_existencia_ci($valor) == 0){ 
+						$VALIDACION['CI'] = 2; 
+					}else{
+						$VALIDACION['CI'] = 0; 
+					}
 					break;
 					case 'NOMBRE':
 					$NOMBRE = preg_match($this->PATTERN_NOMBRES, $valor);
@@ -112,7 +116,7 @@ class validaciones
 		}
 
 		foreach ($VALIDACION as $clave => $valor){
-			if ($valor  == 0) {
+			if ($valor  == 0 || $valor == 2) {
 				$errores++;
 			}
 		}
@@ -303,6 +307,32 @@ class validaciones
 		}
 		return $encontrado;
 	}
+
+	private function validar_digito_ci($ci){
+
+		$lastDigit = substr($ci, -1);
+
+        $ci = str_pad( $ci, 7, '0', STR_PAD_LEFT );
+        $a = 0;
+
+		
+
+        $baseNumber = "2987634";
+        for ( $i = 0; $i < 7; $i++ ) {
+            $baseDigit = $baseNumber[ $i ];
+            $ciDigit = $ci[ $i ];
+
+            $a += ( intval($baseDigit ) * intval( $ciDigit ) ) % 10;
+        }
+
+        $verify = $a % 10 == 0 ? 0 : 10 - $a % 10;
+
+		if($lastDigit == $verify){
+			return 1;
+		}else{
+			return 0;
+		}
+    }
 }
 
 $Validar = new validaciones($_POST['tipo'],$_POST['datos']);
