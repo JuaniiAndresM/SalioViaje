@@ -293,13 +293,15 @@ class validaciones
 		require_once "procedimientosBD.php";
 		$ci_bd = new procedimientosBD();
 		$datos_ci = $ci_bd->traigo_ci();
+		$encontrado = 1;
 		if ($datos_ci != null) {
 			for ($i=0; $i < count($datos_ci); $i++) { 
 				if($datos_ci[$i] == $ci){
-					return 0;
-				}else{ return 1; }
+					$encontrado = 0;
+				}
 			}
-		}else{ return 1; }
+		}
+		return $encontrado;
 	}
 }
 
