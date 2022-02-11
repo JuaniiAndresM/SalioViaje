@@ -1,0 +1,30 @@
+#faq-float{
+    position: fixed;
+
+    z-index: 10;
+    bottom: 100px;
+    right: 20px;
+
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: $main_1;
+
+    padding: 13px;
+    transition: .3s;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    border: 5px solid $main_3;
+
+    i{
+        font-size: 2em;
+        color: white;
+        margin: 0;
+    }
+}
+#faq-float:hover{
+    transform: scale(1.1);
+}
