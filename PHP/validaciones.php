@@ -13,8 +13,8 @@ class validaciones
 
 	private $PATTERN_RUT = "/^[\d]{12}$/i";
 	private $PATTERN_RAZON_SOCIAL = "/^[a-zA-Z_]+([a-zA-Z0-9\s\.]*)$/i";
-	private $PATTERN_NUMERO_MTOP = "/^[\d]{8,}$/i";
-	private $PATTERN_PASSWORD_MTOP = "/^([\w\d]){8,}$/i";
+	private $PATTERN_NUMERO_MTOP = "/^[\d]{1,}$/i";
+	private $PATTERN_PASSWORD_MTOP = "/^([\w\d]){1,}$/i";
 
 	private $PATTERN_MATRICULA = "/^(\w){3}([0-9]){4}$/i";
 	private $PATTERN_MARCA = "/[^0-9\.\,\"\?\!\;\:\#\$\%\&\(\)\*\+\-\/\<\>\=\@\[\]\\\^\_\{\}\|\~]+/";
