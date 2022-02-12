@@ -268,6 +268,10 @@ class Backend extends procedimientosBD
 		echo $Backend->editar_pregunta_FAQ($_POST['ID'],$_POST['PREGUNTA'],$_POST['RESPUESTA']);
 	} else if($_POST['opcion'] == "borrarPreguntaFAQ") {
 		echo $Backend->borrar_pregunta_FAQ($_POST['ID']);
+	} else if($_POST['opcion'] == "agendarViaje") {
+		echo $Backend->borrar_pregunta_FAQ($_POST['']);
+	} else if($_POST['opcion'] == "agregarOportunidad") {
+		echo $Backend->borrar_pregunta_FAQ($_POST['ID']);
 	} else {
 		echo $Backend->getVehiculos();
 	}

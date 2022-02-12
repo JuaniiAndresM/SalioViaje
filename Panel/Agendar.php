@@ -89,9 +89,14 @@
     <script src="/SalioViaje/Javascript/agendar.js"></script>
     <script src="/SalioViaje/Javascript/loader.js"></script>
     <script type="text/javascript">
-    
-
-
+        window.onload = function(){
+          $("#step-next-1").on('click', function() {
+            etapa_1();
+          });
+          $("#step-next-2").on('click', function() {
+            etapa_2();
+          });
+        }
     </script>
   </head>
   <body>
@@ -142,9 +147,9 @@
             </div>
             <div class="column2">
               <div>
-                <p><i class="fas fa-address-card"></i> 5487923-9</p>
-                <p><i class="fas fa-phone"></i> 098 234 717</p>
-                <p><i class="fas fa-map-marker-alt"></i> Ciudad de la Costa, Canelones.</p>
+                <p><i class="fas fa-address-card"></i> <?php echo $_SESSION['datos_usuario']['CI']; ?></p>
+                <p><i class="fas fa-phone"></i> <?php echo $_SESSION['datos_usuario']['TELEFONO']; ?></p>
+                <p><i class="fas fa-map-marker-alt"></i> <?php echo $_SESSION['datos_usuario']['BARRIO'].", ".$_SESSION['datos_usuario']['DEPARTAMENTO']; ?></p>
               </div>
             </div>
           </div>
@@ -170,11 +175,11 @@
                   </div>
                   <div class="vehicle-info">
                     <h3><i class="fas fa-info"></i> Información del Vehiculo</h3>
-                    <p id="matricula"><i class="fas fa-address-card"></i></p>
-                    <p id="marca"><i class="fas fa-car"></i></p>
-                    <p id="modelo"><i class="fas fa-list"></i></p>
-                    <p id="capacidad"><i class="fas fa-users"></i></p>
-                    <p id="combustible"><i class="fas fa-gas-pump"></i></p>
+                    <p class="matricula"><i class="fas fa-address-card"></i></p>
+                    <p class="marca"><i class="fas fa-car"></i></p>
+                    <p class="modelo"><i class="fas fa-list"></i></p>
+                    <p class="capacidad"><i class="fas fa-users"></i></p>
+                    <p class="combustible"><i class="fas fa-gas-pump"></i></p>
                   </div>
                 </div>
 
@@ -200,12 +205,12 @@
 
                 <div class="input" id="pasajeros">
                   <i class="fas fa-user-friends" id="icon"></i>
-                  <input type="number" id="pasajeros-input" placeholder="Cantidad de Pasajeros" />
+                  <input type="number" pattern="[1-9]" id="pasajeros-input" placeholder="Cantidad de Pasajeros" />
                 </div>
 
                 <div class="input" id="km">
                   <i class="fas fa-road" id="icon"></i>
-                  <input type="number" id="distancia-input" placeholder="Distancia del Viaje" />
+                  <input type="number" pattern="[1-9]" id="distancia-input" placeholder="Distancia del Viaje" />
                   <p id="end-text">km</p>
                 </div>
 
@@ -216,7 +221,7 @@
             <button class="button-agendar" id="button_volver" onclick="volver()">
               <i class="fas fa-arrow-circle-left"></i> Volver
             </button>
-            <button class="button-agendar" id="step-next" onclick="next()">
+            <button class="button-agendar" id="step-next-1">
               <i class="fas fa-arrow-circle-right"></i> Siguiente
             </button>
           </div>
@@ -336,7 +341,7 @@
             <button class="button-agendar" id="button_volver" onclick="volver()">
               <i class="fas fa-arrow-circle-left"></i> Volver
             </button>
-            <button class="button-agendar" id="step-next" onclick="next()">
+            <button class="button-agendar" id="step-next-2">
               <i class="fas fa-arrow-circle-right"></i> Siguiente
             </button>
           </div>
@@ -367,10 +372,10 @@
             <button class="button-agendar" id="button_volver" onclick="volver()">
               <i class="fas fa-arrow-circle-left"></i> Volver
             </button>
-            <button class="button-agendar" id="step-agendar" onclick="next(1)">
+            <button class="button-agendar" id="step-agendar" onclick="cargar_vista_previa()">
               <i class="fas fa-book"></i> Agendar
             </button>
-            <button class="button-agendar" id="step-agendar_MTOP" onclick="next(2)">
+            <button class="button-agendar" id="step-agendar_MTOP_vista_previa" onclick="verificar_rutas_para_MTOP()">
               <i class="fas fa-id-card"></i> Agendar con MTOP
             </button>
           </div>
@@ -384,11 +389,11 @@
               </div>
               <div class="vehicle-info">
                 <h3><i class="fas fa-info"></i> Información del Vehiculo</h3>
-                <p><i class="fas fa-address-card"></i> STU6574</p>
-                <p><i class="fas fa-car"></i> Hyundai</p>
-                <p><i class="fas fa-list"></i> H1 2001</p>
-                <p><i class="fas fa-users"></i> 12</p>
-                <p><i class="fas fa-gas-pump"></i> Diesel</p>
+                    <p class="matricula"><i class="fas fa-address-card"></i></p>
+                    <p class="marca"><i class="fas fa-car"></i></p>
+                    <p class="modelo"><i class="fas fa-list"></i></p>
+                    <p class="capacidad"><i class="fas fa-users"></i></p>
+                    <p class="combustible"><i class="fas fa-gas-pump"></i></p>
               </div>
             </div>
 
@@ -397,8 +402,8 @@
             <h2 class="step_title"><i class="fas fa-compass"></i> Información del Viaje</h2>
             
             <div class="info">
-              <p><i class="fas fa-user-friends"></i> 13</p>
-              <p><i class="fas fa-road"></i> 120km</p>
+              <p class="pasajeros"><i class="fas fa-user-friends"></i> 13</p>
+              <p class="distancia"><i class="fas fa-road"></i> 120km</p>
               <p><i class="fas fa-address-card"></i> MTOP: No</p>
             </div>           
 
@@ -410,24 +415,24 @@
                   
                   <div class="info">
                     <b><i class="fas fa-list-ul"></i> Tipo</b>
-                    <p>Oportunidad</p>
+                    <p class="tipo_1">Oportunidad</p>
                   </div>
                   
                   <div class="info">
                     <b><i class="far fa-calendar-alt"></i> Fecha y Hora</b>
-                    <p>18/02/22 18:30</p>
+                    <p class="fecha_1">18/02/22 18:30</p>
                   </div>
                   <div class="info">
                     <b><i class="fas fa-map-marker-alt"></i> Origen</b>
-                    <p>Montevideo</p>
+                    <p class="origen_1">Montevideo</p>
                   </div>
                   <div class="info">
                     <b><i class="fas fa-route"></i> Destino</b>
-                    <p>Maldonado</p>
+                    <p class="destino_1">Maldonado</p>
                   </div>
                   <div class="info">
                     <b><i class="fas fa-dollar-sign"></i> Precio</b>
-                    <p>$4080</p>
+                    <p class="precio_1">$4080</p>
                   </div>
                 </div>
               </div>
@@ -438,24 +443,24 @@
                   
                   <div class="info">
                     <b><i class="fas fa-list-ul"></i> Tipo</b>
-                    <p>Agenda</p>
+                    <p class="tipo_2">Agenda</p>
                   </div>
                   
                   <div class="info">
                     <b><i class="far fa-calendar-alt"></i> Fecha y Hora</b>
-                    <p>19/02/22 03:30</p>
+                    <p class="fecha_2">19/02/22 03:30</p>
                   </div>
                   <div class="info">
                     <b><i class="fas fa-map-marker-alt"></i> Origen</b>
-                    <p>Maldonado</p>
+                    <p class="origen_2">Maldonado</p>
                   </div>
                   <div class="info">
                     <b><i class="fas fa-route"></i> Destino</b>
-                    <p>Montevideo</p>
+                    <p class="destino_2">Montevideo</p>
                   </div>
                   <div class="info">
                     <b><i class="fas fa-dollar-sign"></i> Precio</b>
-                    <p>$4080</p>
+                    <p class="precio_2">$4080</p>
                   </div>
                 </div>
               </div>
@@ -463,13 +468,13 @@
             <hr>
             <div class="rutas">
               <b><i class="fas fa-route"></i> Rutas</b>
-              <p>Ruta 1, Ruta Intelbarnearia, Ruta 5.</p>
+              <p class="rutas_ingresadas">Ruta 1, Ruta Intelbarnearia, Ruta 5.</p>
             </div>
             <div class="button-wrapper">
               <button class="button-agendar" id="button_volver" onclick="volver()">
                 <i class="fas fa-arrow-circle-left"></i> Volver
               </button>
-              <button class="button-agendar" id="step-agendar_MTOP" onclick="finalizar()">
+              <button class="button-agendar" id="step-agendar_MTOP">
                 <i class="fas fa-check"></i> Finalizar
               </button>
             </div>

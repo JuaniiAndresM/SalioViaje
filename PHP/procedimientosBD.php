@@ -80,12 +80,14 @@ public function login($usuario, $pin){
     $stmt->bind_param("s", $usuario);
     if ($stmt->execute()) {
         $stmt->store_result();
-        $stmt->bind_result($id,$pin_bd,$passwd,$nombre,$apellido,$tipo_usuario);
+        $stmt->bind_result($id,$pin_bd,$passwd,$nombre,$apellido,$tipo_usuario,$ci,$telefono,$barrio,$departamento);
         while ($stmt->fetch()) {
             if(password_verify($pin, $pin_bd) || password_verify($pin, $passwd)){
+                $datos_usuarios = array('CI' => $ci,'TELEFONO' => $telefono,'BARRIO' => $barrio,'DEPARTAMENTO' => $departamento);
                 $usuario = $nombre." ".$apellido;
                 session_start();
                 $_SESSION['usuario'] = $usuario;
+                $_SESSION['datos_usuario'] = $datos_usuarios;
                 switch ($tipo_usuario) {
                     case 'PAX':
                     $_SESSION['tipo_usuario'] = 'Pasajero';
@@ -266,6 +268,24 @@ public function borrar_pregunta_FAQ($ID){
     $conn = $this->conexion();
     $query = "DELETE FROM `salioviajeuy_salioviajeuy`.`faqs` WHERE (`idPregunta` = $ID)";
     $stmt = $conn->prepare($query);
+    $stmt->execute();
+    $stmt->close();
+}
+
+ public function agendar_viaje($matricula,$datos){
+    $conn = $this->conexion();
+    $query = "call agendar_viaje(?,?,?,?,?,?,?);";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("siisssi", $matricula, $datos["RUT"], $datos["NOMBRE_COMERCIAL"], $datos["RAZON_SOCIAL"], $datos["NUMERO_MTOP"], $datos["PASSWORD_MTOP"], $tipo_usuario, $id_usuario, $datos['CHOFERES_SUB']);
+    $stmt->execute();
+    $stmt->close();
+}
+
+ public function agregar_oportunidad($matricula,$descuento,$datos){
+    $conn = $this->conexion();
+    $query = "call register_empresa(?,?,?,?,?,?,?,?);";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("isiisssi", $contador, $datos["RUT"], $datos["NOMBRE_COMERCIAL"], $datos["RAZON_SOCIAL"], $datos["NUMERO_MTOP"], $datos["PASSWORD_MTOP"], $tipo_usuario, $id_usuario, $datos['CHOFERES_SUB']);
     $stmt->execute();
     $stmt->close();
 }
