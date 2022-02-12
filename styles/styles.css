@@ -6761,12 +6761,17 @@ footer .totum p a:hover {
   color: #aaa;
 }
 
-.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .list-empty,
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .list-empty, .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .list-empty2,
 .viajar-wrapper .oportunidades-viajar .ofertas-wrapper .list-empty,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .list-empty2,
 .viajar-wrapper .ofertas-viajar .oportunidades-wrapper .list-empty,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .list-empty2,
 .viajar-wrapper .ofertas-viajar .ofertas-wrapper .list-empty,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper .list-empty2,
 .viajar-wrapper .salioviaje .oportunidades-wrapper .list-empty,
-.viajar-wrapper .salioviaje .ofertas-wrapper .list-empty {
+.viajar-wrapper .salioviaje .oportunidades-wrapper .list-empty2,
+.viajar-wrapper .salioviaje .ofertas-wrapper .list-empty,
+.viajar-wrapper .salioviaje .ofertas-wrapper .list-empty2 {
   width: 100%;
   height: 100%;
   display: none;
@@ -6779,14 +6784,30 @@ footer .totum p a:hover {
   margin-top: -25px;
 }
 
-.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .list-empty p,
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .list-empty p, .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .list-empty2 p,
 .viajar-wrapper .oportunidades-viajar .ofertas-wrapper .list-empty p,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .list-empty2 p,
 .viajar-wrapper .ofertas-viajar .oportunidades-wrapper .list-empty p,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .list-empty2 p,
 .viajar-wrapper .ofertas-viajar .ofertas-wrapper .list-empty p,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper .list-empty2 p,
 .viajar-wrapper .salioviaje .oportunidades-wrapper .list-empty p,
-.viajar-wrapper .salioviaje .ofertas-wrapper .list-empty p {
+.viajar-wrapper .salioviaje .oportunidades-wrapper .list-empty2 p,
+.viajar-wrapper .salioviaje .ofertas-wrapper .list-empty p,
+.viajar-wrapper .salioviaje .ofertas-wrapper .list-empty2 p {
   color: #3844bc;
   margin: auto;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .list-empty2,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .list-empty2,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .list-empty2,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper .list-empty2,
+.viajar-wrapper .salioviaje .oportunidades-wrapper .list-empty2,
+.viajar-wrapper .salioviaje .ofertas-wrapper .list-empty2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list,
