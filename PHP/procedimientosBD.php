@@ -83,7 +83,7 @@ public function login($usuario, $pin){
         $stmt->bind_result($id,$pin_bd,$passwd,$nombre,$apellido,$tipo_usuario,$ci,$telefono,$barrio,$departamento);
         while ($stmt->fetch()) {
             if(password_verify($pin, $pin_bd) || password_verify($pin, $passwd)){
-                $datos_usuarios = array('CI' => $ci,'TELEFONO' => $telefono,'BARRIO' => $barrio,'DEPARTAMENTO' => $departamento);
+                $datos_usuarios = array('TIPO_USUARIO' => $tipo_usuario,'ID' => $id, 'CI' => $ci,'TELEFONO' => $telefono,'BARRIO' => $barrio,'DEPARTAMENTO' => $departamento);
                 $usuario = $nombre." ".$apellido;
                 session_start();
                 $_SESSION['usuario'] = $usuario;

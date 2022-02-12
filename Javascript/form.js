@@ -427,10 +427,9 @@ switch(opcion){
                         data: { tipo:"2",idUsuario: ID_USUARIO,empresas:JSON.stringify(empresas) },
                         success: function (response) {
                           console.log(response)
-                          
                          },
                          complete: function(response2){
-                           window.location = "/SalioViaje/Success";
+                          // window.location = "/SalioViaje/Success";
                          },
                       });
                   }, 1000);
@@ -508,14 +507,19 @@ switch(opcion){
     }else{ console.log("No valido...") }
     break;
     case "6":
-    if (validacion("USUARIO",datos_Usuario)) {
+   if (validacion("USUARIO",datos_Usuario) == true) {
      btn_finalizar_carga()
          setTimeout(function() {
             registrar_usuario("ASE");
-            window.location = "/SalioViaje/Success";
-         }, 1000);
 
-  }else{ console.log("No valido...") }
+
+            setTimeout(function() {
+               window.location = "/SalioViaje/Success";
+            }, 500);
+            
+
+         }, 1000);
+               }else{ console.log("No valido...") }
   break;
   case "7":
   if (validacion("USUARIO",datos_Usuario)) {

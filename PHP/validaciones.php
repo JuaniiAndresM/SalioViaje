@@ -76,7 +76,7 @@ class validaciones
 					$CI = preg_match($this->PATTERN_CI, $valor);
 					if($this->validar_digito_ci($valor) == 1 && $this->validar_existencia_ci($valor) == 1){
 						$VALIDACION['CI'] = 1;
-					}else if($this->validar_existencia_ci($valor) == 0){ 
+					}else if($this->validar_digito_ci($valor) == 1 && $this->validar_existencia_ci($valor) == 0){ 
 						$VALIDACION['CI'] = 2; 
 					}else{
 						$VALIDACION['CI'] = 0; 
