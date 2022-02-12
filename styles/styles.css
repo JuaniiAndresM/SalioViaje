@@ -607,6 +607,7 @@
 
 .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .travel p {
   margin: 5px 10px;
+  width: 150px;
   color: #ffffff;
 }
 
@@ -9824,6 +9825,7 @@ footer .totum p a:hover {
 
 .oportunidad-detalles-wrapper .oportunidad .oportunidad-header .driver-info .driver-desc p {
   color: #555;
+  width: 150px;
 }
 
 .oportunidad-detalles-wrapper .oportunidad .oportunidad-header .driver-info .driver-desc .calificacion i {
