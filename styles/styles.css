@@ -7215,7 +7215,7 @@ footer .totum p a:hover {
 
 #whatsapp-float {
   position: fixed;
-  z-index: 10;
+  z-index: 20;
   bottom: 20px;
   right: 20px;
   width: 60px;
@@ -7242,7 +7242,7 @@ footer .totum p a:hover {
 
 #faq-float {
   position: fixed;
-  z-index: 10;
+  z-index: 20;
   bottom: 100px;
   right: 20px;
   width: 60px;
