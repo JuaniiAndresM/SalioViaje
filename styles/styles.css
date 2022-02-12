@@ -10532,6 +10532,70 @@ footer .totum p a:hover {
   }
 }
 
+.solicitud {
+  width: 100%;
+  height: calc(100vh - 80px);
+  margin-top: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.solicitud .solicitud-wrapper {
+  max-width: 500px;
+  width: 100%;
+  -webkit-box-shadow: 10px 0 20px 0 rgba(0, 0, 0, 0.3);
+          box-shadow: 10px 0 20px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 1.2em;
+  margin: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.solicitud .solicitud-wrapper .solicitud-icon i {
+  font-size: 4em;
+  color: #74d481;
+}
+
+.solicitud .solicitud-wrapper .solicitud-info h2 {
+  color: #3844bc;
+  font-size: 1.4em;
+  margin: 5px 0;
+  margin-bottom: 10px;
+  color: #74d481;
+}
+
+.solicitud .solicitud-wrapper .solicitud-info h3 {
+  color: #3844bc;
+  font-size: 1.1em;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.solicitud .solicitud-wrapper .solicitud-info p {
+  font-size: .9em;
+  color: #555;
+}
+
 * {
   margin: 0;
   padding: 0;
