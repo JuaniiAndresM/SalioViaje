@@ -417,6 +417,11 @@
                     <b><i class="fas fa-list-ul"></i> Tipo</b>
                     <p class="tipo_1">Oportunidad</p>
                   </div>
+
+                  <div class="info">
+                    <b><i class="fas fa-tags"></i> Porcentaje de Descuento</b>
+                    <p class="porcentaje_1">50%</p>
+                  </div>
                   
                   <div class="info">
                     <b><i class="far fa-calendar-alt"></i> Fecha y Hora</b>
@@ -444,6 +449,11 @@
                   <div class="info">
                     <b><i class="fas fa-list-ul"></i> Tipo</b>
                     <p class="tipo_2">Agenda</p>
+                  </div>
+
+                  <div class="info">
+                    <b><i class="fas fa-tags"></i> Porcentaje de Descuento</b>
+                    <p class="porcentaje_2">40%</p>
                   </div>
                   
                   <div class="info">
