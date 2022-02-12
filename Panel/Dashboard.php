@@ -246,7 +246,7 @@
                       </div>
                     </div>
                   </section>';
-        }elseif($tipo == 2){
+        }elseif($tipo >= 2){
           echo '  <section class="panel" id="panel">
                     <div class="panel-cards">
                         <a href="Agendar" class="card" id="plus">
