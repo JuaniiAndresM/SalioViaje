@@ -98,6 +98,13 @@
       </div>
     </div>
 
+    <a href="https://www.salioviaje.com.uy/FAQ" target="_BLANK" id="faq-float">
+      <i class="fas fa-question"></i>
+    </a>
+    <a href="https://wa.link/mmdp0q" target="_BLANK" id="whatsapp-float">
+      <img src="/SalioViaje/media/images/whatsapp.png" alt="">
+    </a>
+
     <section class="oportunidad-detalles-wrapper">
         <div class="oportunidad">
           <div class="oportunidad-header">

@@ -66,6 +66,10 @@ function volver(){
   step--;
   steps(step);
 }
+function volver_finalizar(){
+  step = 5;
+  steps(5);
+}
 
 function next(){
   step++;
@@ -149,6 +153,7 @@ function steps(step){
   case 3:
   $('.progress-bar').show();
   $('.progress-bar2').show();
+  $('#company_volver2').hide();
 
   $('.progress').css('width', '50%');
   $('.progress2').css('width', '100%');
@@ -246,6 +251,7 @@ function new_company(){
   steps(3);
 
   $('#company_volver').hide();
+  $('#company_volver2').show();
   $('#rutt').val('');
   $('#nombre_comercial').val('');
   $('#razon_social').val('');
@@ -399,7 +405,13 @@ switch(opcion){
      btn_finalizar_carga()
          setTimeout(function() {
             registrar_usuario("PAX");
-            window.location = "/SalioViaje/Success";
+
+
+            setTimeout(function() {
+               window.location = "/SalioViaje/Success";
+            }, 500);
+            
+
          }, 1000);
                }else{ console.log("No valido...") }
                break;
@@ -415,7 +427,10 @@ switch(opcion){
                         data: { tipo:"2",idUsuario: ID_USUARIO,empresas:JSON.stringify(empresas) },
                         success: function (response) {
                           console.log(response)
-                          window.location = "/SalioViaje/Success";
+                          
+                         },
+                         complete: function(response2){
+                           window.location = "/SalioViaje/Success";
                          },
                       });
                   }, 1000);
@@ -434,7 +449,9 @@ switch(opcion){
                      data: { tipo:'3',idUsuario: ID_USUARIO, empresas:JSON.stringify(empresas) },
                      success: function (response) {
                         console.log(response)
-                            window.location = "/SalioViaje/Success";
+                         },
+                         complete: function(response2){
+                           window.location = "/SalioViaje/Success";
                          },
                       });
                 }, 1000);
@@ -512,7 +529,7 @@ switch(opcion){
             data: { tipo:'7',idUsuario: ID_USUARIO, datos_Usuario:JSON.stringify(datos_Usuario), empresas:JSON.stringify(empresas)  },
             success: function (response) {
                console.log(response)      
-
+               window.location = "/SalioViaje/Success";
             },
          });
       }, 1000);
@@ -834,8 +851,11 @@ function marcar_errores(resultado_validacion){
        case "CI":
        if (resultado[property] == 0) {
           $('#CI').css('border-bottom', '1px solid #ff635a');
-          $('.mensaje-error').text("C.I ya registrada o no válida.");
-         }    
+          $('.mensaje-error').text("C.I no válida.");
+         }else if(resultado[property] == 2){
+            $('#CI').css('border-bottom', '1px solid #ff635a');
+            $('.mensaje-error').text("C.I ya registrada.");
+         }
 
          break;
       case "NOMBRE":

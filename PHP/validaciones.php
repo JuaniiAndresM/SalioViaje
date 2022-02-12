@@ -4,23 +4,23 @@
  */
 class validaciones 
 {
-	private $PATTERN_NOMBRES = "/^([A-Z][a-z]+([ ]?[a-z]?['-]?[A-Z][a-z]+)*)$/i";
+	private $PATTERN_NOMBRES = "/[^0-9\.\,\"\?\!\;\:\#\$\%\&\(\)\*\+\-\/\<\>\=\@\[\]\\\^\_\{\}\|\~]+/";
 	private $PATTERN_CI = "/^[0-9]{7,8}$/i";
 	private $PATTERN_MAIL = "/.+@[a-z]{4,5}.+\.[?=com]\w.+/i";
-	private $PATTERN_DIRECCION = "/^[a-zA-Z_]+([a-zA-Z0-9\s]*)$/i";
+	private $PATTERN_DIRECCION = "/[^\.\,\"\?\!\;\:\#\$\%\&\(\)\*\+\-\/\<\>\=\@\[\]\\\^\_\{\}\|\~]+/i";
 	private $PATTERN_TELEFONO = "/^(?=09[\d]){3}[0-9]{9}$/i";
 	private $PATTERN_PIN = "/[0-9]{4}/i";
 
 	private $PATTERN_RUT = "/^[\d]{12}$/i";
 	private $PATTERN_RAZON_SOCIAL = "/^[a-zA-Z_]+([a-zA-Z0-9\s\.]*)$/i";
-	private $PATTERN_NUMERO_MTOP = "/^[\d]{8,10}$/i";
-	private $PATTERN_PASSWORD_MTOP = "/^([\w\d]){8,10}$/i";
+	private $PATTERN_NUMERO_MTOP = "/^[\d]{1,}$/i";
+	private $PATTERN_PASSWORD_MTOP = "/^([\w\d]){1,}$/i";
 
 	private $PATTERN_MATRICULA = "/^(\w){3}([0-9]){4}$/i";
-	private $PATTERN_MARCA = "/^([A-Z][a-z]+([ ]?[a-z]?['-]?[A-Z][a-z]+)*)$/i";
-	private $PATTERN_MODELO = "/^[a-zA-Z_]+([a-zA-Z0-9\s\.]*)$/i";
+	private $PATTERN_MARCA = "/[^0-9\.\,\"\?\!\;\:\#\$\%\&\(\)\*\+\-\/\<\>\=\@\[\]\\\^\_\{\}\|\~]+/";
+	private $PATTERN_MODELO = "/[^0-9\.\,\"\?\!\;\:\#\$\%\&\(\)\*\+\-\/\<\>\=\@\[\]\\\^\_\{\}\|\~]+/";
 	private $PATTERN_COMBUSTIBLE = "/^([A-Z][a-z]+([ ]?[a-z]?['-]?[A-Z][a-z]+)*)$/i";
-	private $PATTERN_CAPACIDAD_PASAJEROS = "/[0-9]{0,3}/i";
+	private $PATTERN_CAPACIDAD_PASAJEROS = "/^[1-9][0-9]{0,2}$/i";
 	private $PATTERN_CAPACIDAD_EQUIPAJE = "/[0-9]{0,3}/i";
 	
 	function __construct($tipo,$datos){
@@ -40,6 +40,7 @@ class validaciones
 			case 'HOTEL':
 			$validacion = $this->validar_formulario_hotel($datos);				
 			if($validacion == 1){ echo "VALIDO"; } else {echo $validacion;}
+<<<<<<< HEAD
 			break;		
 			case 'ETAPA-1':
 			$validacion = $this->validar_formulario_agendar_viaje_etapa_1($datos);
@@ -57,6 +58,9 @@ class validaciones
 			$validacion = $this->validar_formulario_agendar_viaje_etapa_3($datos);
 			if($validacion == 1){ echo "VALIDO"; } else {echo $validacion;}
 			break;					
+=======
+			break;														
+>>>>>>> 6e2f8099d7aa9791447877e29c57108de43fcf5c
 			default:
 			echo "Esperando para validar...";
 			break;
@@ -74,9 +78,13 @@ class validaciones
 				switch ($clave) {
 					case 'CI':
 					$CI = preg_match($this->PATTERN_CI, $valor);
-					if($CI == 1 && $this->validar_existencia_ci($valor) == 1){
+					if($this->validar_digito_ci($valor) == 1 && $this->validar_existencia_ci($valor) == 1){
 						$VALIDACION['CI'] = 1;
-					}else{ $VALIDACION['CI'] = 0; }
+					}else if($this->validar_existencia_ci($valor) == 0){ 
+						$VALIDACION['CI'] = 2; 
+					}else{
+						$VALIDACION['CI'] = 0; 
+					}
 					break;
 					case 'NOMBRE':
 					$NOMBRE = preg_match($this->PATTERN_NOMBRES, $valor);
@@ -127,7 +135,7 @@ class validaciones
 		}
 
 		foreach ($VALIDACION as $clave => $valor){
-			if ($valor  == 0) {
+			if ($valor  == 0 || $valor == 2) {
 				$errores++;
 			}
 		}
@@ -308,12 +316,14 @@ class validaciones
 		require_once "procedimientosBD.php";
 		$ci_bd = new procedimientosBD();
 		$datos_ci = $ci_bd->traigo_ci();
+		$encontrado = 1;
 		if ($datos_ci != null) {
 			for ($i=0; $i < count($datos_ci); $i++) { 
 				if($datos_ci[$i] == $ci){
-					return 0;
-				}else{ return 1; }
+					$encontrado = 0;
+				}
 			}
+<<<<<<< HEAD
 		}else{ return 1; }
 	
 	}
@@ -531,7 +541,37 @@ class validaciones
 		}
 
 		if($DATOS_VACIOS == null && $errores == 0) { return true; } elseif ($DATOS_VACIOS != null) { return $DATOS_VACIOS; } else { return json_encode($VALIDACION);}
+=======
+		}
+		return $encontrado;
+>>>>>>> 6e2f8099d7aa9791447877e29c57108de43fcf5c
 	}
+
+	private function validar_digito_ci($ci){
+
+		$lastDigit = substr($ci, -1);
+
+        $ci = str_pad( $ci, 7, '0', STR_PAD_LEFT );
+        $a = 0;
+
+		
+
+        $baseNumber = "2987634";
+        for ( $i = 0; $i < 7; $i++ ) {
+            $baseDigit = $baseNumber[ $i ];
+            $ciDigit = $ci[ $i ];
+
+            $a += ( intval($baseDigit ) * intval( $ciDigit ) ) % 10;
+        }
+
+        $verify = $a % 10 == 0 ? 0 : 10 - $a % 10;
+
+		if($lastDigit == $verify){
+			return 1;
+		}else{
+			return 0;
+		}
+    }
 }
 
 $Validar = new validaciones($_POST['tipo'],$_POST['datos']);

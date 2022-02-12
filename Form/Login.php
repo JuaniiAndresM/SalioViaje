@@ -85,6 +85,13 @@
 <body>
     <div id="header"></div>
 
+    <a href="https://www.salioviaje.com.uy/FAQ" target="_BLANK" id="faq-float">
+      <i class="fas fa-question"></i>
+    </a>
+    <a href="https://wa.link/mmdp0q" target="_BLANK" id="whatsapp-float">
+      <img src="/SalioViaje/media/images/whatsapp.png" alt="">
+    </a>
+
     <div id="pre-loader">
         <div class="lds-ellipsis">
             <div></div>
@@ -102,7 +109,7 @@
                 <div class="inputs-wrapper">
                     <div class="input">
                         <i class="fas fa-user" id="icon"></i>
-                        <input type="number" id="usuario" name="usuario" placeholder="C.I o RUT">
+                        <input type="number" id="usuario" name="usuario" maxlength="12" placeholder="C.I o RUT">
                     </div>
                     <div class="input">
                         <i class="fas fa-key" id="icon"></i>
