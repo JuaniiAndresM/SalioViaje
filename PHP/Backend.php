@@ -79,6 +79,8 @@ class Backend extends procedimientosBD
 							<td>
 								<div class='button-wrapper'>
 									<button id=".$datos[$i]['ID']." disabled><i class='far fa-eye'></i></button>
+									<button id=".$datos[$i]['ID']." disabled><i class='fas fa-edit'></i></button>
+									<button id=".$datos[$i]['ID']." disabled><i class='fas fa-trash-alt'></i></button>
 								</div>
 							</td>
 						</tr>
