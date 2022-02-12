@@ -118,7 +118,7 @@
                     </div>
                 </div>
 
-                <p id="mensaje-error"></p>
+                <p id="mensaje-error" class="mensaje-error"></p>
                 
                 <button class="button-login" onclick="login()"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</button>
 
