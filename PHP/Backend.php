@@ -5,7 +5,7 @@ require ('procedimientosBD.php');
  */
 class Backend extends procedimientosBD
 {
-	private $EMPRESAS_DASHBOARD = 0;
+	private $EMPRESAS_DASHBOARD = "";
 	private $visitas = 0;
 	private $datos = array();
 	private $usuarios = array();
