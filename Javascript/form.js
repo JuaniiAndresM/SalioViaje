@@ -66,6 +66,10 @@ function volver(){
   step--;
   steps(step);
 }
+function volver_finalizar(){
+  step = 5;
+  steps(5);
+}
 
 function next(){
   step++;
@@ -149,6 +153,7 @@ function steps(step){
   case 3:
   $('.progress-bar').show();
   $('.progress-bar2').show();
+  $('#company_volver2').hide();
 
   $('.progress').css('width', '50%');
   $('.progress2').css('width', '100%');
@@ -246,6 +251,7 @@ function new_company(){
   steps(3);
 
   $('#company_volver').hide();
+  $('#company_volver2').show();
   $('#rutt').val('');
   $('#nombre_comercial').val('');
   $('#razon_social').val('');
