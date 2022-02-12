@@ -40,7 +40,6 @@ class validaciones
 			case 'HOTEL':
 			$validacion = $this->validar_formulario_hotel($datos);				
 			if($validacion == 1){ echo "VALIDO"; } else {echo $validacion;}
-<<<<<<< HEAD
 			break;		
 			case 'ETAPA-1':
 			$validacion = $this->validar_formulario_agendar_viaje_etapa_1($datos);
@@ -57,10 +56,7 @@ class validaciones
 			case 'ETAPA-3':
 			$validacion = $this->validar_formulario_agendar_viaje_etapa_3($datos);
 			if($validacion == 1){ echo "VALIDO"; } else {echo $validacion;}
-			break;					
-=======
-			break;														
->>>>>>> 6e2f8099d7aa9791447877e29c57108de43fcf5c
+			break;																	
 			default:
 			echo "Esperando para validar...";
 			break;
@@ -323,8 +319,9 @@ class validaciones
 					$encontrado = 0;
 				}
 			}
-<<<<<<< HEAD
 		}else{ return 1; }
+
+		return $encontrado;
 	
 	}
 
@@ -541,10 +538,7 @@ class validaciones
 		}
 
 		if($DATOS_VACIOS == null && $errores == 0) { return true; } elseif ($DATOS_VACIOS != null) { return $DATOS_VACIOS; } else { return json_encode($VALIDACION);}
-=======
-		}
-		return $encontrado;
->>>>>>> 6e2f8099d7aa9791447877e29c57108de43fcf5c
+
 	}
 
 	private function validar_digito_ci($ci){

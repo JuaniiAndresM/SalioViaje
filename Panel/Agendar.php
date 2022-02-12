@@ -474,7 +474,7 @@
               <button class="button-agendar" id="button_volver" onclick="volver()">
                 <i class="fas fa-arrow-circle-left"></i> Volver
               </button>
-              <button class="button-agendar" id="step-agendar_MTOP">
+              <button class="button-agendar" id="step-agendar_MTOP" onclick="finalizar()">
                 <i class="fas fa-check"></i> Finalizar
               </button>
             </div>

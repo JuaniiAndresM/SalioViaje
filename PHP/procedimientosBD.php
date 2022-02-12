@@ -272,20 +272,22 @@ public function borrar_pregunta_FAQ($ID){
     $stmt->close();
 }
 
- public function agendar_viaje($matricula,$datos){
+ public function agendar_viaje($datos){
+    $datos = json_decode($datos, true);
     $conn = $this->conexion();
     $query = "call agendar_viaje(?,?,?,?,?,?,?);";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("siisssi", $matricula, $datos["RUT"], $datos["NOMBRE_COMERCIAL"], $datos["RAZON_SOCIAL"], $datos["NUMERO_MTOP"], $datos["PASSWORD_MTOP"], $tipo_usuario, $id_usuario, $datos['CHOFERES_SUB']);
+    $stmt->bind_param("siisssi", $datos['MATRICULA'], $datos["DISTANCIA"], $datos["CANTIDAD_DE_PASAJEROS"], $datos["FECHA"], $datos["ORIGEN"], $datos["DESTINO"], $datos["PRECIO_REFERENCIA"]);
     $stmt->execute();
     $stmt->close();
 }
 
- public function agregar_oportunidad($matricula,$descuento,$datos){
+ public function agregar_oportunidad($datos){
+    $datos = json_decode($datos, true);
     $conn = $this->conexion();
-    $query = "call register_empresa(?,?,?,?,?,?,?,?);";
+    $query = "call agregar_oportunidad(?,?,?,?,?,?,?,?);";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("isiisssi", $contador, $datos["RUT"], $datos["NOMBRE_COMERCIAL"], $datos["RAZON_SOCIAL"], $datos["NUMERO_MTOP"], $datos["PASSWORD_MTOP"], $tipo_usuario, $id_usuario, $datos['CHOFERES_SUB']);
+    $stmt->bind_param("isiisssi", $datos['DESCUENTO_OPORTUNIDAD'], $datos['MATRICULA'], $datos["DISTANCIA"], $datos["CANTIDAD_DE_PASAJEROS"], $datos["FECHA"], $datos["ORIGEN"], $datos["DESTINO"], $datos["PRECIO_REFERENCIA"]);
     $stmt->execute();
     $stmt->close();
 }

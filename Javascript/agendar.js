@@ -192,6 +192,7 @@ $.ajax({
     url: "/SalioViaje/PHP/procedimientosForm.php",
     data: {tipo: "vehiculos"},
     success: function (response) {
+        console.log(response)
       vehiculos_select = JSON.parse(response);
       var selectVehiculos = document.getElementById('vehiculos-select');
       $("#vehiculos-select").empty().append($("<option></option>").attr({"value": 0,"selected": true, 'disabled': true, 'hidden': true}).text('Seleccione un vehiculo'));
@@ -308,11 +309,6 @@ function verificar_rutas_para_MTOP(){
         $('.origen_2i').html(datos_etapa_2_tramo_2['ORIGEN'])
         $('.destino_2').html(datos_etapa_2_tramo_2['DESTINO'])
         $('.precio_2').html("$"+datos_etapa_2_tramo_2['PRECIO_REFERENCIA'])
-
-
-        $("#step-agendar_MTOP").on('click', function() {
-            finalizar();
-        });
     }
 }
 
@@ -342,9 +338,9 @@ function cargar_vista_previa(){
     $('.destino_2').html(datos_etapa_2_tramo_2['DESTINO'])
     $('.precio_2').html("$"+datos_etapa_2_tramo_2['PRECIO_REFERENCIA'])
 
-    $("#step-agendar_MTOP").on('click', function() {
-        finalizar();
-    });
+    for (var i = 0; i < array_rutas.length; i++) {
+        array_rutas[i]
+    }
 }
 
 /*-------------------------------------------------------------------------------------------*/
@@ -352,17 +348,86 @@ function cargar_vista_previa(){
 /*-------------------------------------------------------------------------------------------*/
 
 function finalizar(){
-    for (var i = 0; i < 2; i++) {
-        console.log[i]
+
+    let datos = {}
+    let tipos_tramo = {}
+
+    if (datos_etapa_2_tramo_1['TIPO'] == 1) {tipos_tramo['TIPO_TRAMO_1'] = 1} else if (datos_etapa_2_tramo_1['TIPO'] == 2) { tipos_tramo['TIPO_TRAMO_1'] = 2 }
+    if (datos_etapa_2_tramo_2['TIPO'] == 1) {tipos_tramo['TIPO_TRAMO_2'] = 1} else if (datos_etapa_2_tramo_2['TIPO'] == 2) { tipos_tramo['TIPO_TRAMO_2'] = 2 }
+
+    for (const property in tipos_tramo) {
+
+        switch(property){
+                case "TIPO_TRAMO_1":
+                console.log(tipos_tramo['TIPO_TRAMO_1'])
+                datos = datos_etapa_2_tramo_1;
+                datos['MATRICULA'] = vehiculo_seleccionado['MATRICULA']
+                datos['DISTANCIA'] = datos_etapa_1['DISTANCIA']
+                datos['CANTIDAD_DE_PASAJEROS'] = datos_etapa_1['CANTIDAD_DE_PASAJEROS']
+                switch(tipos_tramo['TIPO_TRAMO_1']){
+                    case 1:
+                        console.log("Registro tramo 1 como... Agenda")
+                            console.log(datos)
+                            $.ajax({
+                                type: "POST",
+                                url: "/SalioViaje/PHP/Backend.php",
+                                data: { opcion:"agendarViaje",datos:JSON.stringify(datos) },
+                                success: function (response) {
+                                    console.log(response)
+                                },
+                            });
+                        break;
+
+                        case 2:
+                            console.log("Registro tramo 1 como... Oportunidad")
+                            console.log(datos)
+                            $.ajax({
+                                type: "POST",
+                                url: "/SalioViaje/PHP/Backend.php",
+                                data: { opcion:"agregarOportunidad",datos:JSON.stringify(datos) },
+                                success: function (response) {
+                                    console.log(response)
+                                },
+                            });
+                            break;
+                        }
+                        break;
+
+                    case "TIPO_TRAMO_2":
+                    datos = datos_etapa_2_tramo_2;
+                    datos['MATRICULA'] = vehiculo_seleccionado['MATRICULA']
+                    datos['DISTANCIA'] = datos_etapa_1['DISTANCIA']
+                    datos['CANTIDAD_DE_PASAJEROS'] = datos_etapa_1['CANTIDAD_DE_PASAJEROS']
+                    switch(tipos_tramo['TIPO_TRAMO_2']){
+                        case 1:
+                            console.log("Registro tramo 2 como... Agenda")
+                            console.log(datos)
+                            $.ajax({
+                                type: "POST",
+                                url: "/SalioViaje/PHP/Backend.php",
+                                data: { opcion:"agendarViaje",datos:JSON.stringify(datos) },
+                                success: function (response) {
+                                    console.log(response)
+                                },
+                            });
+                        break;
+
+                        case 2:
+                            console.log("Registro tramo 2 como... Oportunidad")
+                            console.log(datos)
+                            $.ajax({
+                                type: "POST",
+                                url: "/SalioViaje/PHP/Backend.php",
+                                data: { opcion:"agregarOportunidad",datos:JSON.stringify(datos) },
+                                success: function (response) {
+                                    console.log(response)
+                                },
+                            });
+                            break;
+                        break;
+            }
+        }
     }
-    $.ajax({
-        type: "POST",
-        url: "/SalioViaje/PHP/Backend.php",
-        data: { tipo:"2",idUsuario: ID_USUARIO,empresas:JSON.stringify(empresas) },
-        success: function (response) {
-            console.log(response)
-        },
-    });
 }
 
 /*-------------------------------------------------------------------------------------------*/
