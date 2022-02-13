@@ -16,6 +16,37 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `agenda`
+--
+
+DROP TABLE IF EXISTS `agenda`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8 */;
+CREATE TABLE `agenda` (
+  `idViaje` int NOT NULL AUTO_INCREMENT,
+  `Vehiculo` varchar(45) NOT NULL,
+  `Distancia` int NOT NULL,
+  `CantidadPasajeros` int NOT NULL,
+  `Fecha` varchar(45) NOT NULL,
+  `Origen` varchar(45) NOT NULL,
+  `Destino` varchar(45) NOT NULL,
+  `Precio` varchar(45) NOT NULL,
+  `Rutas` varchar(45) DEFAULT NULL,
+  `Estado` varchar(45) NOT NULL DEFAULT 'Indefinido',
+  PRIMARY KEY (`idViaje`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `agenda`
+--
+
+LOCK TABLES `agenda` WRITE;
+/*!40000 ALTER TABLE `agenda` DISABLE KEYS */;
+/*!40000 ALTER TABLE `agenda` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `empresas`
 --
 
@@ -35,7 +66,7 @@ CREATE TABLE `empresas` (
   PRIMARY KEY (`ID`),
   KEY `IDUsuario_idx` (`Usuario_ID`),
   CONSTRAINT `IDUsu` FOREIGN KEY (`Usuario_ID`) REFERENCES `usuarios` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=225 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=227 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,7 +75,7 @@ CREATE TABLE `empresas` (
 
 LOCK TABLES `empresas` WRITE;
 /*!40000 ALTER TABLE `empresas` DISABLE KEYS */;
-INSERT INTO `empresas` VALUES (220,'210000000012','tta','apellidotta','1234567890','1234567890',320,'TTA',1),(221,'210000000013','SEGUDONOMBRE','SEGUNDAEMPRESA','2147483647','2222222223',320,'TTA',2),(222,'123456789012','Totum','S.A','0','',325,'TTA',1),(223,'213030000019','ChoferUNO','CHO SRL','0','',326,'CHO',0),(224,'213040000018','SegundaEmpresa','SegundaCHO','1234567890','1234567890',326,'CHO',0);
+INSERT INTO `empresas` VALUES (220,'210000000012','tta','apellidotta','1234567890','1234567890',320,'TTA',1),(221,'210000000013','SEGUDONOMBRE','SEGUNDAEMPRESA','2147483647','2222222223',320,'TTA',2),(222,'123456789012','Totum','S.A','0','',325,'TTA',1),(223,'213030000019','ChoferUNO','CHO SRL','0','',326,'CHO',0),(224,'213040000018','SegundaEmpresa','SegundaCHO','1234567890','1234567890',326,'CHO',0),(225,'211389990017','Empresa Anf 1','Anfit 1 srl','898888','123456',329,'ANF',0),(226,'212148880019','Agencia l poderoda','poder sa','0','',331,'AGT',0);
 /*!40000 ALTER TABLE `empresas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -81,10 +112,19 @@ DROP TABLE IF EXISTS `oportunidades`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `oportunidades` (
-  `id_oportunidad` varchar(45) NOT NULL,
-  `estado` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id_oportunidad`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+  `idOportunidad` int NOT NULL AUTO_INCREMENT,
+  `Descuento` int NOT NULL,
+  `Vehiculo` varchar(45) NOT NULL,
+  `Distancia` int NOT NULL,
+  `CantidadPasajeros` int NOT NULL,
+  `Fecha` varchar(45) NOT NULL,
+  `Origen` varchar(45) NOT NULL,
+  `Destino` varchar(45) NOT NULL,
+  `Precio` varchar(45) NOT NULL,
+  `Rutas` varchar(45) DEFAULT NULL,
+  `Estado` varchar(45) NOT NULL DEFAULT 'Indefinido',
+  PRIMARY KEY (`idOportunidad`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -152,7 +192,7 @@ CREATE TABLE `usuarios` (
   `Direccion_Hotel` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `Usuario_UNIQUE` (`Usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=327 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=332 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -161,7 +201,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (318,'ADM','11111111','info@salioviaje.com.uy','Daniel','Schlebinger','','','','',NULL,'$2y$10$g0BAzrmFMxU3Jw5w0avZZ.NdEZoSgh50Ru4ygZYwB7mgkFmohby22',NULL,'salioviajeuy_daniel','$2a$10$P2tUEu.tdvBIdAxkavJhgeESTVgMuGBoz30yAVmVMz1N7GGrfQ1de',NULL,NULL,NULL),(319,'ADM','88888888','info@salioviaje.com.uy','Gustavo','Gutiérrez',NULL,NULL,NULL,NULL,NULL,'$2y$10$g0BAzrmFMxU3Jw5w0avZZ.NdEZoSgh50Ru4ygZYwB7mgkFmohby22',NULL,'salioviajeuy_gustavo','$2a$10$P2tUEu.tdvBIdAxkavJhgeESTVgMuGBoz30yAVmVMz1N7GGrfQ1de',NULL,NULL,NULL),(320,'TTA','12222224','gg@salioviaje.com.uy','TTA nombre','Tta','soca 333','buceo','mvd','91833337',NULL,'$2y$10$cpkpwKapVYiL/4/R3.KqCOfKq2C.oX.oYtByIPeS5ycduNHfsNudS','210000000012',NULL,NULL,NULL,NULL,NULL),(324,'PAX','56132732','manuelalonsodesign@gmail.com','Manuel','Alonso','Juncos','Solymar','Canelones','92614110',NULL,'$2y$10$ukwHNRleY1eij4itGPG9QO49AW6SomhCcQg8W.1mF8cMEpYdG9BBW',NULL,NULL,NULL,NULL,NULL,NULL),(325,'TTA','54879239','thewolfmodzyt@gmail.com','Juan','Morena','Pereida ST','Rondeau','Canelones','98234717',NULL,'$2y$10$jyfJkXZElRnEGP7xbwISeeAnOrFVWGforjcn0Hi0Pdz.9DaQziSBi','123456789012',NULL,NULL,NULL,NULL,NULL),(326,'CHO','15555553','gg@salioviaje.com.uy','ChoferUNO','ApellidoChoUno','rivera 1234','malvin','montevideo','91833337',NULL,'$2y$10$BBPdOC/X5YGN31PrwlsRTOjs4X6FTVQv7FKwDw4EhPYSeKzhzcRbO','213030000019',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `usuarios` VALUES (318,'ADM','11111111','info@salioviaje.com.uy','Daniel','Schlebinger','','','','',NULL,'$2y$10$g0BAzrmFMxU3Jw5w0avZZ.NdEZoSgh50Ru4ygZYwB7mgkFmohby22',NULL,'salioviajeuy_daniel','$2a$10$P2tUEu.tdvBIdAxkavJhgeESTVgMuGBoz30yAVmVMz1N7GGrfQ1de',NULL,NULL,NULL),(319,'ADM','88888888','info@salioviaje.com.uy','Gustavo','Gutiérrez',NULL,NULL,NULL,NULL,NULL,'$2y$10$g0BAzrmFMxU3Jw5w0avZZ.NdEZoSgh50Ru4ygZYwB7mgkFmohby22',NULL,'salioviajeuy_gustavo','$2a$10$P2tUEu.tdvBIdAxkavJhgeESTVgMuGBoz30yAVmVMz1N7GGrfQ1de',NULL,NULL,NULL),(320,'TTA','12222224','gg@salioviaje.com.uy','TTA nombre','Tta','soca 333','buceo','mvd','91833337',NULL,'$2y$10$cpkpwKapVYiL/4/R3.KqCOfKq2C.oX.oYtByIPeS5ycduNHfsNudS','210000000012',NULL,NULL,NULL,NULL,NULL),(324,'PAX','56132732','manuelalonsodesign@gmail.com','Manuel','Alonso','Juncos','Solymar','Canelones','92614110',NULL,'$2y$10$ukwHNRleY1eij4itGPG9QO49AW6SomhCcQg8W.1mF8cMEpYdG9BBW',NULL,NULL,NULL,NULL,NULL,NULL),(325,'TTA','54879239','thewolfmodzyt@gmail.com','Juan','Morena','Pereida ST','Rondeau','Canelones','98234717',NULL,'$2y$10$jyfJkXZElRnEGP7xbwISeeAnOrFVWGforjcn0Hi0Pdz.9DaQziSBi','123456789012',NULL,NULL,NULL,NULL,NULL),(326,'CHO','15555553','gg@salioviaje.com.uy','ChoferUNO','ApellidoChoUno','rivera 1234','malvin','montevideo','91833337',NULL,'$2y$10$BBPdOC/X5YGN31PrwlsRTOjs4X6FTVQv7FKwDw4EhPYSeKzhzcRbO','213030000019',NULL,NULL,NULL,NULL,NULL),(327,'PAX','15852955','thewolfmodzyt@gmail.com','Juan Andrés','Morena Echegaray','178 Rondeau','El Pinar','Canelones','98234717',NULL,'$2y$10$5eME8ngM.TolSzV9Iu/XOOkWjIKCNHA08BwzkxzvP.0KX63yvfEji',NULL,NULL,NULL,NULL,NULL,NULL),(328,'PAX','23333335','gg@salioviaje.com.uy','Juan Pedro','pEREZ','CALLE DE PEREZ','BUCEO','MVD','91833337',NULL,'$2y$10$T3na2awNMo09xKFqm2dfCONZ0g.c07Ozzy6ee00ABBI0P6U.PvLYy',NULL,NULL,NULL,NULL,NULL,NULL),(329,'ANF','26666664','gg@salioviaje.com.uy','Anfitrion 1','apellido Anfitrio','casa del anfotrion','centro','Maldonado','99401414',NULL,'$2y$10$e6Iv/motR4fkUrzMdD5ljeoie.8Za2B4UFEEYZ.6Z/u7nLjZYsH8y','211389990017',NULL,NULL,NULL,NULL,NULL),(330,'HTL','38888888','gg@salioviaje.com.uy','hOTELERO','Hoteleriro','21 de setiebre 8888','pocitos','mvd','91833337',NULL,'$2y$10$JFh1hE92kGlarCCsMhnaweMEXKQ4NFp9/gbxzmwNRgbK3ny7gTOZK',NULL,NULL,NULL,'SI','Hotel Ibis','rambla 999'),(331,'AGT','22222222','gg@salioviaje.com.uy','Super','Agente 86','hilto 2345','borro','mvd','91833337',NULL,'$2y$10$oqpyw9cFD3WJb5MwhIV8X.xfBMYBeue/DHIBD3f.zkPZjn8BeTdeO','212148880019',NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -216,7 +256,7 @@ CREATE TABLE `visitas` (
 
 LOCK TABLES `visitas` WRITE;
 /*!40000 ALTER TABLE `visitas` DISABLE KEYS */;
-INSERT INTO `visitas` VALUES (271);
+INSERT INTO `visitas` VALUES (505);
 /*!40000 ALTER TABLE `visitas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -248,6 +288,25 @@ DELIMITER ;
 --
 -- Dumping routines for database 'salioviajeuy_salioviajeuy'
 --
+/*!50003 DROP PROCEDURE IF EXISTS `agendar_viaje` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_spanish_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `agendar_viaje`(vih varchar(7),dist int,cantPax int, fecha_viaje varchar(20), org varchar(45), dest varchar(45),prc int)
+BEGIN
+	INSERT INTO `salioviajeuy_salioviajeuy`.`agenda` (`Vehiculo`, `Distancia`, `CantidadPasajeros`, `Fecha`, `Origen`, `Destino`, `Precio`) VALUES (vih, dist, cantPax, fecha_viaje, org, dest, prc);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `agregar_faq` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -261,6 +320,25 @@ DELIMITER ;;
 CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `agregar_faq`(prg varchar(100),res LONGTEXT)
 BEGIN
 	INSERT INTO salioviajeuy_salioviajeuy.faqs (Pregunta,Respuesta) values (prg,res);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `agregar_oportunidad` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_spanish_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `agregar_oportunidad`(dsc int,vih varchar(7),dist int,cantPax int, fecha_oportunidad varchar(20), org varchar(45), dest varchar(45),prc int)
+BEGIN
+	INSERT INTO `salioviajeuy_salioviajeuy`.`oportunidades` (`Descuento`,`Vehiculo`, `Distancia`, `CantidadPasajeros`, `Fecha`, `Origen`, `Destino`, `Precio`) VALUES (dsc,vih, dist, cantPax, fecha_oportunidad, org, dest, prc);
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -323,7 +401,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `login`(usr varchar(12))
 BEGIN
-	SELECT ID,PIN,Passwd,Nombre,Apellido,Tipo_Usuario FROM usuarios where CI = usr or RUT = usr or Usuario = usr;
+	SELECT ID,PIN,Passwd,Nombre,Apellido,Tipo_Usuario,CI,Telefono,Barrio,Departamento FROM usuarios where CI = usr or RUT = usr or Usuario = usr;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -488,4 +566,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-02-11 21:54:53
+-- Dump completed on 2022-02-13 11:35:56
