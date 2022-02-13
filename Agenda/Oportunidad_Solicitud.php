@@ -57,10 +57,10 @@
     <!-- Links -->
     <link
       rel="shortcut icon"
-      href="/SalioViaje/media/svg/Favicon-SalioViaje.svg"
+      href="https://www.salioviaje.com.uy/media/svg/Favicon-SalioViaje.svg"
       type="image/x-icon"
     />
-    <link rel="stylesheet" href="/SalioViaje/styles/styles.css" />
+    <link rel="stylesheet" href="https://www.salioviaje.com.uy/styles/styles.css" />
 
     <!-- Scripts -->
     <script
@@ -69,9 +69,9 @@
     ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <script src="/SalioViaje/Javascript/web.js"></script>
-    <script src="/SalioViaje/Javascript/viajar.js"></script>
-    <script src="/SalioViaje/Javascript/solicitud.js"></script>
+    <script src="https://www.salioviaje.com.uy/Javascript/web.js"></script>
+    <script src="https://www.salioviaje.com.uy/Javascript/viajar.js"></script>
+    <script src="https://www.salioviaje.com.uy/Javascript/solicitud.js"></script>
   </head>
   <body>
     <div id="header"></div>
@@ -89,7 +89,7 @@
       <i class="fas fa-question"></i>
     </a>
     <a href="https://wa.link/mmdp0q" target="_BLANK" id="whatsapp-float">
-      <img src="/SalioViaje/media/images/whatsapp.png" alt="">
+      <img src="https://www.salioviaje.com.uy/media/images/whatsapp.png" alt="">
     </a>
 
     <section class="solicitud">

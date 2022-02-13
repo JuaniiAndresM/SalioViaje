@@ -370,7 +370,7 @@ function finalizar(){
                             console.log(datos)
                             $.ajax({
                                 type: "POST",
-                                url: "/SalioViaje/PHP/Backend.php",
+                                url: "/PHP/Backend.php",
                                 data: { opcion:"agendarViaje",datos:JSON.stringify(datos) },
                                 success: function (response) {
                                     console.log(response)
@@ -383,7 +383,7 @@ function finalizar(){
                             console.log(datos)
                             $.ajax({
                                 type: "POST",
-                                url: "/SalioViaje/PHP/Backend.php",
+                                url: "/PHP/Backend.php",
                                 data: { opcion:"agregarOportunidad",datos:JSON.stringify(datos) },
                                 success: function (response) {
                                     console.log(response)
@@ -404,7 +404,7 @@ function finalizar(){
                             console.log(datos)
                             $.ajax({
                                 type: "POST",
-                                url: "/SalioViaje/PHP/Backend.php",
+                                url: "/PHP/Backend.php",
                                 data: { opcion:"agendarViaje",datos:JSON.stringify(datos) },
                                 success: function (response) {
                                     console.log(response)
@@ -417,7 +417,7 @@ function finalizar(){
                             console.log(datos)
                             $.ajax({
                                 type: "POST",
-                                url: "/SalioViaje/PHP/Backend.php",
+                                url: "/PHP/Backend.php",
                                 data: { opcion:"agregarOportunidad",datos:JSON.stringify(datos) },
                                 success: function (response) {
                                     console.log(response)
@@ -445,7 +445,7 @@ function validacion(TIPO,DATOS){
     case "AGENDAR-VIAJE-ETAPA-1":
     validacion = $.ajax({
        type: 'POST',       
-       url: "/SalioViaje/PHP/Validaciones.php",
+       url: "/PHP/Validaciones.php",
        data: {tipo:"ETAPA-1",datos:JSON.stringify(DATOS)},
        global: false,
        async:false,
@@ -463,7 +463,7 @@ function validacion(TIPO,DATOS){
         case "AGENDAR-VIAJE-ETAPA-2-TRAMO-1":
     validacion = $.ajax({
        type: 'POST',       
-       url: "/SalioViaje/PHP/Validaciones.php",
+       url: "/PHP/Validaciones.php",
        data: {tipo:"ETAPA-2-TRAMO-1",datos:DATOS},
        global: false,
        async:false,
@@ -480,7 +480,7 @@ function validacion(TIPO,DATOS){
     case "AGENDAR-VIAJE-ETAPA-2-TRAMO-2":
     validacion = $.ajax({
        type: 'POST',       
-       url: "/SalioViaje/PHP/Validaciones.php",
+       url: "/PHP/Validaciones.php",
        data: {tipo:"ETAPA-2-TRAMO-2",datos:DATOS},
        global: false,
        async:false,
@@ -497,7 +497,7 @@ function validacion(TIPO,DATOS){
         case "AGENDAR-VIAJE-ETAPA-3":
     validacion = $.ajax({
        type: 'POST',       
-       url: "/SalioViaje/PHP/Validaciones.php",
+       url: "/PHP/Validaciones.php",
        data: {tipo:"ETAPA-3",datos:JSON.stringify(DATOS)},
        global: false,
        async:false,

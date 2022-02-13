@@ -6,7 +6,7 @@
   session_start(); 
 
   if(!isset($_SESSION['datos_usuario']['ID'])){
-    header('Location: /SalioViaje/Login');
+    header('Location: https://www.salioviaje.com.uy/Login');
   }else{
     $usuario_get = $_GET['Usuario'];
 

@@ -429,7 +429,7 @@ switch(opcion){
                           console.log(response)
                          },
                          complete: function(response2){
-                          // window.location = "/SalioViaje/Success";
+                          window.location = "https://www.salioviaje.com.uy/Success";
                          },
                       });
                   }, 1000);
@@ -514,7 +514,7 @@ switch(opcion){
 
 
             setTimeout(function() {
-               window.location = "/SalioViaje/Success";
+               window.location = "https://www.salioviaje.com.uy/Success";
             }, 500);
             
 
