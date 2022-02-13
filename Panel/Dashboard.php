@@ -17,6 +17,10 @@
         case "Transportista": case "Chofer":
           $tipo = 2;
           break;
+
+        case "Asesor": case "Agente": case "Agente": case "Anfitrión":
+          $tipo = 3;
+          break;
         
         default:
           $tipo = 0;
