@@ -5,6 +5,7 @@ require ('procedimientosBD.php');
  */
 class Backend extends procedimientosBD
 {
+	private $EMPRESAS_DASHBOARD = "";
 	private $visitas = 0;
 	private $datos = array();
 	private $usuarios = array();
@@ -78,6 +79,8 @@ class Backend extends procedimientosBD
 							<td>
 								<div class='button-wrapper'>
 									<button id=".$datos[$i]['ID']." disabled><i class='far fa-eye'></i></button>
+									<button id=".$datos[$i]['ID']." disabled><i class='fas fa-edit'></i></button>
+									<button id=".$datos[$i]['ID']." disabled><i class='fas fa-trash-alt'></i></button>
 								</div>
 							</td>
 						</tr>
@@ -107,11 +110,25 @@ class Backend extends procedimientosBD
 		}
 
 		public function actualizar_tablas_dashboard_empresas(){
-			$EMPRESAS_DASHBOARD = 0;
+
 			$datos_e = $this->datos_empresas();
+			session_start();
 			for ($i=0; $i < count($datos_e); $i++) { 
+				if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == 'TTA' && $_SESSION['datos_usuario']['ID'] == $datos_e[$i]["ID_OWNER"]) {
+					$this->tabla_empresas($i,$datos_e);
+				}else if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == 'CHO' && $_SESSION['datos_usuario']['ID'] == $datos_e[$i]["ID_OWNER"]) {
+					$this->tabla_empresas($i,$datos_e);
+				}else if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == 'ADM') {
+					$this->tabla_empresas($i,$datos_e);
+				}
+			}
+
+			return $this->EMPRESAS_DASHBOARD;
+		}
+
+		private function tabla_empresas($i,$datos_e){
 				if ($i==0) {
-		 			$EMPRESAS_DASHBOARD = '
+		 			$this->EMPRESAS_DASHBOARD = '
                 		<div class="propietario">
                   			<div class="propietario-left">
                     			<div class="propietario-icon">
@@ -130,8 +147,7 @@ class Backend extends procedimientosBD
                 		</div>
 					';
 				}else{
-
-					$EMPRESAS_DASHBOARD = $EMPRESAS_DASHBOARD.'
+					$this->EMPRESAS_DASHBOARD = $this->EMPRESAS_DASHBOARD.'
 
                 		<div class="propietario">
                   			<div class="propietario-left">
@@ -152,9 +168,6 @@ class Backend extends procedimientosBD
 					';
 				}
 			}
-
-			return $EMPRESAS_DASHBOARD;
-		}
 
 		public function agregar_div_faq(){
 
@@ -268,6 +281,10 @@ class Backend extends procedimientosBD
 		echo $Backend->editar_pregunta_FAQ($_POST['ID'],$_POST['PREGUNTA'],$_POST['RESPUESTA']);
 	} else if($_POST['opcion'] == "borrarPreguntaFAQ") {
 		echo $Backend->borrar_pregunta_FAQ($_POST['ID']);
+	} else if($_POST['opcion'] == "agendarViaje") {
+		echo $Backend->agendar_viaje($_POST['datos']);
+	} else if($_POST['opcion'] == "agregarOportunidad") {
+		echo $Backend->agregar_oportunidad($_POST['datos']);
 	} else {
 		echo $Backend->getVehiculos();
 	}

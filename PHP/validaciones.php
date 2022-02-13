@@ -23,8 +23,7 @@ class validaciones
 	private $PATTERN_CAPACIDAD_PASAJEROS = "/^[1-9][0-9]{0,2}$/i";
 	private $PATTERN_CAPACIDAD_EQUIPAJE = "/[0-9]{0,3}/i";
 	
-	function __construct($tipo,$datos)
-	{
+	function __construct($tipo,$datos){
 		switch ($tipo) {
 			case 'USUARIO':
 			$validacion = $this->validar_formulario_usuario($datos);
@@ -41,7 +40,23 @@ class validaciones
 			case 'HOTEL':
 			$validacion = $this->validar_formulario_hotel($datos);				
 			if($validacion == 1){ echo "VALIDO"; } else {echo $validacion;}
-			break;														
+			break;		
+			case 'ETAPA-1':
+			$validacion = $this->validar_formulario_agendar_viaje_etapa_1($datos);
+			if($validacion == 1){ echo "VALIDO"; } else {echo $validacion;}
+			break;
+			case 'ETAPA-2-TRAMO-1':
+			$validacion = $this->validar_formulario_agendar_viaje_etapa_2_tramo_1($datos);
+			if($validacion == 1){ echo "VALIDO"; } else {echo $validacion;}
+			break;
+			case 'ETAPA-2-TRAMO-2':
+			$validacion = $this->validar_formulario_agendar_viaje_etapa_2_tramo_2($datos);
+			if($validacion == 1){ echo "VALIDO"; } else {echo $validacion;}
+			break;
+			case 'ETAPA-3':
+			$validacion = $this->validar_formulario_agendar_viaje_etapa_3($datos);
+			if($validacion == 1){ echo "VALIDO"; } else {echo $validacion;}
+			break;																	
 			default:
 			echo "Esperando para validar...";
 			break;
@@ -61,7 +76,7 @@ class validaciones
 					$CI = preg_match($this->PATTERN_CI, $valor);
 					if($this->validar_digito_ci($valor) == 1 && $this->validar_existencia_ci($valor) == 1){
 						$VALIDACION['CI'] = 1;
-					}else if($this->validar_existencia_ci($valor) == 0){ 
+					}else if($this->validar_digito_ci($valor) == 1 && $this->validar_existencia_ci($valor) == 0){ 
 						$VALIDACION['CI'] = 2; 
 					}else{
 						$VALIDACION['CI'] = 0; 
@@ -304,8 +319,226 @@ class validaciones
 					$encontrado = 0;
 				}
 			}
-		}
+		}else{ return 1; }
+
 		return $encontrado;
+	
+	}
+
+	private function validar_formulario_agendar_viaje_etapa_1($datos){
+
+		$VALIDACION = array();
+		$DATOS_VACIOS = null;
+		$CAPACIDAD_PASAJEROS_VECHICULO = null;
+		$errores = 0;
+
+		foreach (json_decode($datos, true) as $clave => $valor){
+			if ($valor != null || $valor != '') {
+				switch ($clave) {
+					case 'VEHICULO':
+						if ($valor != null) {
+							$CAPACIDAD_PASAJEROS_VECHICULO = $valor['CAPACIDAD'];
+							$VALIDACION['VEHICULO'] = 1;
+						} else { $VALIDACION['VEHICULO'] = 0; }
+					break;
+					case 'CANTIDAD_DE_PASAJEROS':
+						if ($valor != null && $valor <= $CAPACIDAD_PASAJEROS_VECHICULO) {
+							$VALIDACION['CANTIDAD_DE_PASAJEROS'] = 1;
+						} else { $VALIDACION['CANTIDAD_DE_PASAJEROS'] = 0; }
+					break;
+					case 'DISTANCIA':
+						if ($valor != null) {
+							$VALIDACION['DISTANCIA'] = 1;
+						} else { $VALIDACION['DISTANCIA'] = 0; }
+					break;
+				}
+			}
+		}
+
+		if (count($VALIDACION) != 3) {
+			$DATOS_VACIOS = "Err-1";
+		}
+
+		foreach ($VALIDACION as $clave => $valor){
+			if ($valor  == 0) {
+				$errores++;
+			}
+		}
+
+		if($DATOS_VACIOS == null && $errores == 0) { return true; } elseif ($DATOS_VACIOS != null) { return $DATOS_VACIOS; } else { return json_encode($VALIDACION);}
+
+	}
+
+	private function validar_formulario_agendar_viaje_etapa_2_tramo_1($datos){
+
+		$VALIDACION = array();
+		$DATOS_VACIOS = null;
+		$TIENE_DESCUENTO = null;
+		$CAPACIDAD_PASAJEROS_VECHICULO = null;
+		$errores = 0;
+
+		foreach ($datos as $clave => $valor){
+			if ($valor != null || $valor != '') {
+				switch ($clave) {
+					case 'TIPO':
+						if ($valor != "0" && $valor == 2) {
+							$TIENE_DESCUENTO = 1;
+							$VALIDACION['TIPO'] = 1;
+						} else if($valor != null && $valor != 2){
+							$VALIDACION['TIPO'] = 1;
+						} else { $VALIDACION['TIPO'] = 0; }
+					break;
+					case 'FECHA':
+						if ($valor != null) {
+							$VALIDACION['FECHA'] = 1;
+						} else { $VALIDACION['FECHA'] = 0; }
+					break;
+					case 'ORIGEN':
+						if ($valor != null) {
+							$VALIDACION['ORIGEN'] = 1;
+						} else { $VALIDACION['ORIGEN'] = 0; }
+					break;
+					case 'DESTINO':
+						if ($valor != null) {
+							$VALIDACION['DESTINO'] = 1;
+						} else { $VALIDACION['DESTINO'] = 0; }
+					break;
+					case 'PRECIO_REFERENCIA':
+						if ($valor != null) {
+							$VALIDACION['PRECIO_REFERENCIA'] = 1;
+						} else { $VALIDACION['PRECIO_REFERENCIA'] = 0; }
+					break;
+					case 'DESCUENTO_OPORTUNIDAD':
+						if ($valor != null && $TIENE_DESCUENTO != null && $valor <= "100" && $valor >= "50") {
+							$VALIDACION['DESCUENTO'] = 1;
+						} else { $VALIDACION['DESCUENTO'] = 0; }
+					break;
+				}
+			}
+		}
+
+		if (count($VALIDACION) != 5 && $TIENE_DESCUENTO == null) {
+			$DATOS_VACIOS = "Err-1";
+		}else if (count($VALIDACION) != 6 && $TIENE_DESCUENTO != null) {
+			$DATOS_VACIOS = "Err-1";
+		}
+
+		foreach ($VALIDACION as $clave => $valor){
+			if ($valor  == 0) {
+				$errores++;
+			}
+		}
+
+		if($DATOS_VACIOS == null && $errores == 0) { return true; } elseif ($DATOS_VACIOS != null) { return $DATOS_VACIOS; } else { return json_encode($VALIDACION);}
+
+	}
+
+	private function validar_formulario_agendar_viaje_etapa_2_tramo_2($datos){
+
+		$VALIDACION = array();
+		$DATOS_VACIOS = null;
+		$TIENE_DESCUENTO = null;
+		$CAPACIDAD_PASAJEROS_VECHICULO = null;
+		$errores = 0;
+
+		foreach ($datos as $clave => $valor){
+			if ($valor != null || $valor != '') {
+				switch ($clave) {
+					case 'TIPO':
+						if ($valor != "0" && $valor == 2) {
+							$TIENE_DESCUENTO = 1;
+							$VALIDACION['TIPO'] = 1;
+						} else if($valor != null && $valor != 2){
+							$VALIDACION['TIPO'] = 1;
+						} else { $VALIDACION['TIPO'] = 0; }
+					break;
+					case 'FECHA':
+						if ($valor != null) {
+							$VALIDACION['FECHA'] = 1;
+						} else { $VALIDACION['FECHA'] = 0; }
+					break;
+					case 'ORIGEN':
+						if ($valor != null) {
+							$VALIDACION['ORIGEN'] = 1;
+						} else { $VALIDACION['ORIGEN'] = 0; }
+					break;
+					case 'DESTINO':
+						if ($valor != null) {
+							$VALIDACION['DESTINO'] = 1;
+						} else { $VALIDACION['DESTINO'] = 0; }
+					break;
+					case 'PRECIO_REFERENCIA':
+						if ($valor != null) {
+							$VALIDACION['PRECIO_REFERENCIA'] = 1;
+						} else { $VALIDACION['PRECIO_REFERENCIA'] = 0; }
+					break;
+					case 'DESCUENTO_OPORTUNIDAD':
+						if ($valor != null && $TIENE_DESCUENTO != null && $valor <= "100" && $valor >= "50") {
+							$VALIDACION['DESCUENTO'] = 1;
+						} else { $VALIDACION['DESCUENTO'] = 0; }
+					break;
+				}
+			}
+		}
+
+		if (count($VALIDACION) != 5 && $TIENE_DESCUENTO == null) {
+			$DATOS_VACIOS = "Err-1";
+		}else if (count($VALIDACION) != 6 && $TIENE_DESCUENTO != null) {
+			$DATOS_VACIOS = "Err-1";
+		}
+
+		foreach ($VALIDACION as $clave => $valor){
+			if ($valor  == 0) {
+				$errores++;
+			}
+		}
+
+		if($DATOS_VACIOS == null && $errores == 0) { return true; } elseif ($DATOS_VACIOS != null) { return $DATOS_VACIOS; } else { return json_encode($VALIDACION);}
+
+	}
+
+	private function validar_formulario_agendar_viaje_etapa_3($datos){
+
+		$VALIDACION = array();
+		$DATOS_VACIOS = null;
+		$CAPACIDAD_PASAJEROS_VECHICULO = null;
+		$errores = 0;
+
+		foreach (json_decode($datos, true) as $clave => $valor){
+			if ($valor != null || $valor != '') {
+				switch ($clave) {
+					case 'VEHICULO':
+						if ($valor != null) {
+							$CAPACIDAD_PASAJEROS_VECHICULO = $valor['CAPACIDAD'];
+							$VALIDACION['VEHICULO'] = 1;
+						} else { $VALIDACION['VEHICULO'] = 0; }
+					break;
+					case 'CANTIDAD_DE_PASAJEROS':
+						if ($valor != null && $valor <= $CAPACIDAD_PASAJEROS_VECHICULO) {
+							$VALIDACION['CANTIDAD_DE_PASAJEROS'] = 1;
+						} else { $VALIDACION['CANTIDAD_DE_PASAJEROS'] = 0; }
+					break;
+					case 'DISTANCIA':
+						if ($valor != null) {
+							$VALIDACION['DISTANCIA'] = 1;
+						} else { $VALIDACION['DISTANCIA'] = 0; }
+					break;
+				}
+			}
+		}
+
+		if (count($VALIDACION) != 3) {
+			$DATOS_VACIOS = "Err-1";
+		}
+
+		foreach ($VALIDACION as $clave => $valor){
+			if ($valor  == 0) {
+				$errores++;
+			}
+		}
+
+		if($DATOS_VACIOS == null && $errores == 0) { return true; } elseif ($DATOS_VACIOS != null) { return $DATOS_VACIOS; } else { return json_encode($VALIDACION);}
+
 	}
 
 	private function validar_digito_ci($ci){

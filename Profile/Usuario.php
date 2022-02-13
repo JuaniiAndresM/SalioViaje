@@ -1,13 +1,18 @@
 <?php 
+  
+  require_once '../PHP/procedimientosBD.php';
+
 
   session_start(); 
 
-  if(!isset($_SESSION['usuario'])){
-    header('Location: https://www.salioviaje.com.uy/Login');
+  if(!isset($_SESSION['datos_usuario']['ID'])){
+    header('Location: /SalioViaje/Login');
   }else{
-
     $usuario_get = $_GET['Usuario'];
+
     $usuario_perfil = str_replace('_', ' ', $usuario_get);
+
+    
     $tipo = 0;
 
     if(isset($_SESSION['tipo_usuario'])){

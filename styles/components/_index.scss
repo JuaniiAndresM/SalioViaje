@@ -426,8 +426,7 @@ $contraste_2: #ffffff;
       width: 100%;
       height: 100%;
 
-      display: flex;
-      //display: none;
+      display: none;
       justify-content: center;
       align-items: center;
       margin-top: -25px;
@@ -440,7 +439,7 @@ $contraste_2: #ffffff;
     .oportunidades-list{
       width: 100%;
       height: calc(100% - 50px);
-      display: none;
+      display: block;
       margin-top: 10px;
       max-height: 350px;
       overflow: hidden;
@@ -508,6 +507,7 @@ $contraste_2: #ffffff;
 
             p{
               margin: 5px 10px;
+              width: 150px;
               color: $contraste_2;
 
               i{

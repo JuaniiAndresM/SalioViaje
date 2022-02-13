@@ -369,7 +369,6 @@ function filtros(){
         if(!$("#cho").prop("checked")){ $(".CHO").hide() }else{ $(".CHO").show() }
         if(!$("#anf").prop("checked")){ $(".ANF").hide() }else{ $(".ANF").show() }
         if(!$("#htl").prop("checked")){ $(".HTL").hide() }else{ $(".HTL").show() }
-        if(!$("#ase").prop("checked")){ $(".ASE").hide() }else{ $(".ASE").show() }
         if(!$("#agt").prop("checked")){ $(".AGT").hide() }else{ $(".AGT").show() }
         //if(!$("#").prop("checked")){ console.log("Oculto") }else{ console.log("Muestro") }
     });

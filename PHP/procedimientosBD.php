@@ -80,12 +80,14 @@ public function login($usuario, $pin){
     $stmt->bind_param("s", $usuario);
     if ($stmt->execute()) {
         $stmt->store_result();
-        $stmt->bind_result($id,$pin_bd,$passwd,$nombre,$apellido,$tipo_usuario);
+        $stmt->bind_result($id,$pin_bd,$passwd,$nombre,$apellido,$tipo_usuario,$ci,$telefono,$barrio,$departamento);
         while ($stmt->fetch()) {
             if(password_verify($pin, $pin_bd) || password_verify($pin, $passwd)){
+                $datos_usuarios = array('TIPO_USUARIO' => $tipo_usuario,'ID' => $id, 'CI' => $ci,'TELEFONO' => $telefono,'BARRIO' => $barrio,'DEPARTAMENTO' => $departamento);
                 $usuario = $nombre." ".$apellido;
                 session_start();
                 $_SESSION['usuario'] = $usuario;
+                $_SESSION['datos_usuario'] = $datos_usuarios;
                 switch ($tipo_usuario) {
                     case 'PAX':
                     $_SESSION['tipo_usuario'] = 'Pasajero';
@@ -266,6 +268,26 @@ public function borrar_pregunta_FAQ($ID){
     $conn = $this->conexion();
     $query = "DELETE FROM `salioviajeuy_salioviajeuy`.`faqs` WHERE (`idPregunta` = $ID)";
     $stmt = $conn->prepare($query);
+    $stmt->execute();
+    $stmt->close();
+}
+
+ public function agendar_viaje($datos){
+    $datos = json_decode($datos, true);
+    $conn = $this->conexion();
+    $query = "call agendar_viaje(?,?,?,?,?,?,?);";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("siisssi", $datos['MATRICULA'], $datos["DISTANCIA"], $datos["CANTIDAD_DE_PASAJEROS"], $datos["FECHA"], $datos["ORIGEN"], $datos["DESTINO"], $datos["PRECIO_REFERENCIA"]);
+    $stmt->execute();
+    $stmt->close();
+}
+
+ public function agregar_oportunidad($datos){
+    $datos = json_decode($datos, true);
+    $conn = $this->conexion();
+    $query = "call agregar_oportunidad(?,?,?,?,?,?,?,?);";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("isiisssi", $datos['DESCUENTO_OPORTUNIDAD'], $datos['MATRICULA'], $datos["DISTANCIA"], $datos["CANTIDAD_DE_PASAJEROS"], $datos["FECHA"], $datos["ORIGEN"], $datos["DESTINO"], $datos["PRECIO_REFERENCIA"]);
     $stmt->execute();
     $stmt->close();
 }

@@ -72,12 +72,11 @@
         }
       }
 
-      .list-empty {
+      .list-empty, .list-empty2 {
         width: 100%;
         height: 100%;
 
-        display: flex;
-        //display: none;
+        display: none;
         justify-content: center;
         align-items: center;
         margin-top: -25px;
@@ -86,10 +85,13 @@
           margin: auto;
         }
       }
+      .list-empty2{
+        display: flex;
+      }
       
       .oportunidades-list{
         width: 100%;
-        display: none;
+        display: block;
         margin-top: 10px;
         height: calc(100% - 50px);
         overflow: hidden;
