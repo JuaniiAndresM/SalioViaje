@@ -39,7 +39,10 @@ $contenido_oportunidades = '0';
                 </div>
                 
                 <div class="button-wrapper">
-                  <button class="comprar-button" onclick="comprar_oportunidad('.$datos[$i]['ID'].')"><i class="fas fa-comments-dollar"></i> Comprar</button>
+                    <form action="./Agenda/Oportunidad.php" method="GET">
+                      <input type="hidden" name="oportunidad" value="'.$datos[$i]['ID'].'" />
+                      <button class="comprar-button" type="submit"><i class="fas fa-comments-dollar"></i> Comprar</button>
+                    </form>
                   <button><i class="fas fa-info"></i> Detalles</button>
                 </div>
 
@@ -77,8 +80,11 @@ $contenido_oportunidades = '0';
                 </div>
                 
                 <div class="button-wrapper">
-                  <button class="comprar-button" onclick="comprar_oportunidad('.$datos[$i]['ID'].')"><i class="fas fa-comments-dollar"></i> Comprar</button>
-                  <button><i class="fas fa-info"></i> Detalles</button>
+                    <form action="./Agenda/Oportunidad.php" method="GET">
+                      <input type="hidden" name="oportunidad" value="'.$datos[$i]['ID'].'" />
+                      <button class="comprar-button" type="submit"><i class="fas fa-comments-dollar"></i> Comprar</button>
+                    </form>                
+                    <button><i class="fas fa-info"></i> Detalles</button>
                 </div>
 
               </div>

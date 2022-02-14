@@ -4,7 +4,7 @@ $llamarFunction = new notifyMeActions();
 
 switch ($_POST["tipe"]) {
     case 0:
-        echo json_encode($llamarFunction->callClient($_POST["dialogo"],$_POST["datenHoure"],$_POST["id"],$_POST["tel"],$_POST["name"],$_POST["SMS"]));
+        echo json_encode($llamarFunction->callClient($_POST["dialogo"],$_POST["datenHoure"],$_POST["id"],$_POST["tel"],$_POST["name"],$_POST["SMS"],$_POST['ID_OPORTUNIDAD']));
     break;
     case 1:
         echo json_encode($llamarFunction->watchCall($_POST["id"]));

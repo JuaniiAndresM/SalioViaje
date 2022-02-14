@@ -429,7 +429,7 @@ switch(opcion){
                           console.log(response)
                          },
                          complete: function(response2){
-                          // window.location = "/SalioViaje/Success";
+                           window.location = "/SalioViaje/Success";
                          },
                       });
                   }, 1000);
