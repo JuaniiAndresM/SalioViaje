@@ -155,6 +155,14 @@
                 <input type="checkbox" name="" id="cho" checked />
                 <p>CHO</p>
               </div>
+              <div class="checkbox">
+                <input type="checkbox" name="" id="agt" checked />
+                <p>AGT</p>
+              </div>
+              <div class="checkbox">
+                <input type="checkbox" name="" id="anf" checked />
+                <p>ANF</p>
+              </div>
 
             </div>
           </div>

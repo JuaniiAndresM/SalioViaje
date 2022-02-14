@@ -71,7 +71,7 @@
 
     <script src="/SalioViaje/Javascript/web.js"></script>
     <script src="/SalioViaje/Javascript/viajar.js"></script>
-    <script src="/SalioViaje/Javascript/espera.js"></script>
+    <script src="/SalioViaje/Javascript/solicitud.js"></script>
   </head>
   <body>
     <div id="header"></div>
@@ -92,83 +92,19 @@
       <img src="/SalioViaje/media/images/whatsapp.png" alt="">
     </a>
 
-    <section class="espera-wrapper">
-      <div class="espera">
-        <div id="step_1">
-          <div class="loader">
-            <i class="fas fa-spinner"></i>
-          </div>
-          <h2>Enviando...</h2>
+    <section class="solicitud">
+      <div class="solicitud-wrapper">
+
+        <div class="solicitud-icon">
+          <i id="icon"></i>
         </div>
 
-        <div id="step_2">
-          <div class="loader">
-            <i class="fas fa-spinner"></i>
-          </div>
-          <h2><i class="far fa-address-card"></i> Viaje N° 21</h2>
-          <h3>
-            Estamos procesando su solicitud, este proceso puede tardar unos
-            minutos.
-          </h3>
-          <p>
-            Si gusta, mientras espera puede seguir viendo nuestras oportunidades
-            en nuestra web.
-          </p>
+        <div class="solicitud-info">
+          <h2 id="info_1"></h2>
+          <h3 id="info_2"></h3>
+          <p id="info_3"></p>
         </div>
 
-        <div id="step_3">
-          <div class="aprobado">
-            <i class="fas fa-check"></i>
-          </div>
-          <h2>Petición Aprobada</h2>
-          <p>
-            Contáctate con el transporista para coordinar el pago de la
-            oportunidad.
-          </p>
-          <div class="info">
-            <p><b>Nombre:</b> Juan Morena</p>
-            <p><b>Teléfono:</b> <a href="tel:098234717">098234717</a></p>
-          </div>
-        </div>
-
-        <div id="step_4">
-          <div class="no-aprobado">
-            <i class="fas fa-times"></i>
-          </div>
-          <h2>Petición Rechazada</h2>
-          <p>
-            Lamentamos informarte que tu petición fue rechazada, en breve nos
-            comunicaremos para comentarte los motivos.
-          </p>
-        </div>
-
-        <div class="progress">
-          <div class="progress-labels">
-            <p class="label">
-              <i class="fas fa-paper-plane"></i><br />
-              Petición <br />
-              Enviada
-            </p>
-            <p class="label">
-              <i class="far fa-clock"></i><br />
-              Pendiente Aprobación
-            </p>
-            <p class="label" id="aprobado-progress">
-              <i class="fas fa-check"></i><br />
-              Petición <br />
-              Aprobada
-            </p>
-          </div>
-          <div class="progress-bar">
-            <span class="line"></span>
-            <span class="progress-line"></span>
-
-            <span class="circle1"></span>
-            <span class="circle2"></span>
-            <span class="circle3"></span>
-            <span class="circle4"></span>
-          </div>
-        </div>
       </div>
     </section>
 

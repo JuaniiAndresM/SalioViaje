@@ -17,6 +17,10 @@
         case "Transportista": case "Chofer":
           $tipo = 2;
           break;
+
+        case "Asesor": case "Agente": case "Agente": case "Anfitrión":
+          $tipo = 3;
+          break;
         
         default:
           $tipo = 0;
@@ -246,7 +250,7 @@
                       </div>
                     </div>
                   </section>';
-        }elseif($tipo == 2){
+        }elseif($tipo >= 2){
           echo '  <section class="panel" id="panel">
                     <div class="panel-cards">
                         <a href="Agendar" class="card" id="plus">
