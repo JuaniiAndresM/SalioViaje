@@ -35,7 +35,7 @@ function comprar_oportunidad(id){
 
        console.log("comprada y mando mensaje - ID oportunidad : "+id)
 
-       let mensaje = 'Tu oportunidad ha sido comprada!!! \n Entra en este link para aceptarlo: ';
+       let mensaje = 'Tu oportunidad ha sido comprada!!! Entra en este link para aceptarlo: ';
 
         $.ajax({
             type: "POST",
