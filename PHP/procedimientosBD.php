@@ -283,13 +283,50 @@ public function borrar_pregunta_FAQ($ID){
 }
 
  public function agregar_oportunidad($datos){
+    session_start();
+    $id = $_SESSION['datos_usuario']['ID'];
     $datos = json_decode($datos, true);
     $conn = $this->conexion();
-    $query = "call agregar_oportunidad(?,?,?,?,?,?,?,?);";
+    $query = "call agregar_oportunidad(?,?,?,?,?,?,?,?,?);";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("isiisssi", $datos['DESCUENTO_OPORTUNIDAD'], $datos['MATRICULA'], $datos["DISTANCIA"], $datos["CANTIDAD_DE_PASAJEROS"], $datos["FECHA"], $datos["ORIGEN"], $datos["DESTINO"], $datos["PRECIO_REFERENCIA"]);
+    $stmt->bind_param("isiisssii", $datos['DESCUENTO_OPORTUNIDAD'], $datos['MATRICULA'], $datos["DISTANCIA"], $datos["CANTIDAD_DE_PASAJEROS"], $datos["FECHA"], $datos["ORIGEN"], $datos["DESTINO"], $datos["PRECIO_REFERENCIA"],$id);
     $stmt->execute();
     $stmt->close();
+}
+
+ public function traer_oportunidades(){
+    // ORIGEN DESTINO FECHA HORA PASAJEROS MARCA Y MODELO DEL VEHICULO nombre de transportista
+    $oportunidades = array();
+    $conn = $this->conexion();
+    $query = "SELECT idOportunidad,Descuento,Origen,Destino,Fecha,Nombre,Apellido,Marca,Modelo,CantidadPasajeros FROM oportunidades,usuarios,vehiculos where idTransportista = usuarios.ID and Vehiculo = Matricula;";
+    $stmt = $conn->prepare($query);
+    if ($stmt->execute()) {
+        $stmt->store_result();
+        $stmt->bind_result($idOportunidad,$descuento,$origen,$destino,$fecha,$nombre,$apellido,$marca,$modelo,$cantidad_pasajeros);
+        while ($stmt->fetch()) {
+         $result = array('ID' => $idOportunidad,'DESCUENTO' => $descuento, 'ORIGEN' => $origen,'DESTINO' => $destino, 'FECHA' => $fecha,'NOMBRE' => $nombre, 'APELLIDO' => $apellido,'MARCA' => $marca, 'MODELO' => $modelo, 'CANTIDAD_PASAJEROS' => $cantidad_pasajeros);
+         $oportunidades[] = $result;
+     }
+ }
+ $stmt->close();
+ return json_encode($oportunidades);
+}
+
+public function info_usuario_profile($id){
+    $usuarios = array();
+    $conn = $this->conexion();
+    $query = "SELECT ID,Tipo_Usuario,CI,Email,Nombre,Apellido,Direccion,Barrio,Departamento,Telefono,Agencia_C,RUT,Supervisor,Nombre_Hotel,Direccion_Hotel FROM salioviajeuy_salioviajeuy.usuarios where ID = $id";
+    $stmt = $conn->prepare($query);
+    if ($stmt->execute()) {
+        $stmt->store_result();
+        $stmt->bind_result($id_usuario,$tipo_usuario,$ci,$mail,$nombre,$apellido,$direccion,$barrio,$departamento,$telefono,$agencia_contratista,$rut,$supervisor,$nombre_hotel,$direccion_hotel);
+        while ($stmt->fetch()) {
+         $result = array('ID' => $id_usuario,'TIPO_USUARIO' => $tipo_usuario, 'CI' => $ci, 'EMAIL' => $mail, 'NOMBRE' => $nombre, 'APELLIDO' => $apellido, 'DIRECCION' => $direccion, 'BARRIO' => $barrio, 'DEPARTAMENTO' => $departamento, 'TELEFONO' => $telefono, 'AGENCIA_CONTRATISTA' => $agencia_contratista, 'NOMBRE_HOTEL' => $nombre_hotel, 'DIRECCION_HOTEL' => $direccion_hotel, 'SUPERVISOR' => $supervisor, 'RUT' => $rut);
+         $usuarios[] = $result;
+     }
+ }
+ $stmt->close();
+ return $usuarios;
 }
 
 }

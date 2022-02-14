@@ -15,6 +15,10 @@
     
     $tipo = 0;
 
+    $info_usuario = new procedimientosBD();
+
+    $info_usuario->info_usuario_profile($id);
+
     if(isset($_SESSION['tipo_usuario'])){
 
       switch($_SESSION['tipo_usuario']){

@@ -2,6 +2,7 @@ $(document).ready(function () {
     $('#header').load('/SalioViaje/web/header.php');
     $('#footer').load('/SalioViaje/web/footer.html');
     agregar_visita();
+    traer_oportunidades();
     document.getElementById('pre-loader').classList.toggle('load');
 });
 
@@ -50,4 +51,21 @@ function suscripcion(){
 
 function comprar_oportunidad(id){
     location.href = "/SalioViaje/Oportunidad/" + id;
+}
+
+function traer_oportunidades(){
+    
+    //class="list-empty"  
+     $.ajax({
+        type: "POST",
+        url: "/SalioViaje/PHP/oportunidadesIndex.php",
+        success: function (response) {
+            console.log(response);
+            if (response == '0') {$('.list-empty').show()} else {
+                $('.list-empty').hide()
+                $('.oportunidades-list').html(response)
+            } 
+             
+        }
+    });
 }
