@@ -92,6 +92,8 @@
       <img src="/SalioViaje/media/images/whatsapp.png" alt="">
     </a>
 
+    <input id="id_get" type="hidden" value="<?php echo $_GET['ID']; ?>">
+
     <section class="solicitud">
       <div class="solicitud-wrapper">
 

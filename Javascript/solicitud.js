@@ -1,5 +1,19 @@
 $(document).ready(function () {
-    solicitud(1);
+    ID = $("#id_get").val();
+    solicitud_response = ID.charAt(ID.length-1);
+
+    switch(solicitud_response){
+        case "A":
+            solicitud(1);
+            break;
+        case "R":
+            solicitud(2);
+            break;
+        default:
+            solicitud(3);
+            break;
+    }
+    
 });
 
 function solicitud(data){
