@@ -6,7 +6,7 @@
     header('Location: /SalioViaje/Login');
 
   }else{
-    if($_SESSION['tipo_usuario'] != "Administrador"){
+    if($_SESSION['tipo_usuario'] == "Pasajero" || $_SESSION['tipo_usuario'] == "Asesor"){
       header('Location: /SalioViaje/');
     }
   }

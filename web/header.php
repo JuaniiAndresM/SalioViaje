@@ -19,7 +19,7 @@
                     <a href="/SalioViaje/Viajar">Oportunidades</a>
                     <a href="/SalioViaje/FAQ">FAQ</a>
                     <?php   
-                    if(isset($_SESSION['tipo_usuario']) && $_SESSION['tipo_usuario'] != "Pasajero"){
+                    if(isset($_SESSION['tipo_usuario'])){
                         echo '<a href="/SalioViaje/Dashboard">Panel</a>';
                     }
                     ?>
@@ -74,7 +74,7 @@
                             <a href="/SalioViaje/Viajar"><i class="fas fa-book"></i> Oportunidades</a>
                             <a href="/SalioViaje/FAQ"><i class="fas fa-question"></i> FAQ</a>';
 
-                            if(isset($_SESSION['tipo_usuario']) && $_SESSION['tipo_usuario'] != "Pasajero"){
+                            if(isset($_SESSION['tipo_usuario'])){
                                 echo '<a href="/SalioViaje/Dashboard"><i class="fas fa-users-cog"></i> Panel</a>';
                             }
 

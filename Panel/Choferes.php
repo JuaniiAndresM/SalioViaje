@@ -6,7 +6,7 @@
     header('Location: /SalioViaje/Login');
 
   }else{
-    if($_SESSION['tipo_usuario'] != "Administrador" && $_SESSION['tipo_usuario'] != "Transportista" && $_SESSION['tipo_usuario'] != "Chofer"){
+    if($_SESSION['tipo_usuario'] != "Administrador" && $_SESSION['tipo_usuario'] != "Transportista"){
       header('Location: /SalioViaje/');
     }
   }
@@ -16,7 +16,7 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <title>SalióViaje | Vehículos</title>
+    <title>SalióViaje | Choferes</title>
 
     <!-- // Meta Etiquetas -->
 
@@ -40,8 +40,8 @@
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.salioviaje.com.uy/Vehiculos" />
-    <meta property="og:title" content="SalióViaje | Vehiculos" />
+    <meta property="og:url" content="https://www.salioviaje.com.uy/Choferes" />
+    <meta property="og:title" content="SalióViaje | Choferes" />
     <meta
       property="og:description"
       content="Plataforma que optimiza el traslado ocasional de personas."
@@ -53,10 +53,10 @@
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://www.salioviaje.com.uy/Vehiculos" />
+    <meta property="twitter:url" content="https://www.salioviaje.com.uy/Choferes" />
     <meta
       property="twitter:title"
-      content="SalióViaje | Vehiculos"
+      content="SalióViaje | Choferes"
     />
     <meta
       property="twitter:description"
@@ -89,7 +89,9 @@
     <script src="/SalioViaje/Javascript/loader.js"></script>
     <script type="text/javascript">
             window.onload = function(){
-              traerVehiculos()
+              let seccion = "usuarios"
+              traerUsuarios(seccion)
+              filtros()
             }
     </script>
   </head>
@@ -109,7 +111,7 @@
           <button onclick="navbar()"><i class="fas fa-bars"></i></button>
         </div>
         <div class="header-title">
-          <h2>Vehículos</h2>
+          <h2>Choferes</h2>
         </div>
       </div>
       <div class="header-right">
@@ -130,7 +132,7 @@
       <div class="section-usuarios">
         <div class="usuarios-recientes">
           <div class="usuarios-info">
-            <h2><i class="fas fa-bus"></i> Vehículos</h2>
+            <h2><i class="fas fa-user-friends"></i> Choferes</h2>
           </div>
           <div class="filters">
             <div class="search">
@@ -139,24 +141,51 @@
                 type="text"
                 placeholder="Buscar"
                 id="searchbar"
-                onkeyup="buscarUsuarios()"
+                onkeyup="buscarUsuarios(2)"
               />
+            </div>
+
+            <div class="checkboxs">
+              <div class="checkbox">
+                <input type="checkbox" name="" id="pax" checked />
+                <p>PAX</p>
+              </div>
+              <div class="checkbox">
+                <input type="checkbox" name="" id="tta" checked />
+                <p>TTA</p>
+              </div>
+              <div class="checkbox">
+                <input type="checkbox" name="" id="cho" checked />
+                <p>CHO</p>
+              </div>
+              <div class="checkbox">
+                <input type="checkbox" name="" id="anf" checked />
+                <p>ANF</p>
+              </div>
+              <div class="checkbox">
+                <input type="checkbox" name="" id="htl" checked />
+                <p>HTL</p>
+              </div>
             </div>
           </div>
           <div class="table-overflow">
-            <table class="usuarios-table" id="search-table">
+            <table class="usuarios-table" id="search-table-usuarios">
               <thead>
                 <tr>
-                  <th>ID <i class="fas fa-angle-down"></i></th>
-                  <th>Matrícula <i class="fas fa-angle-down"></i></th>
-                  <th>Marca <i class="fas fa-angle-down"></i></th>
-                  <th>Modelo <i class="fas fa-angle-down"></i></th>
-                  <th>Combustible <i class="fas fa-angle-down"></i></th>
-                  <th>Capacidad <i class="fas fa-angle-down"></i></th>
-                  <th>Equipaje <i class="fas fa-angle-down"></i></th>
-                  <th>RUT EM <i class="fas fa-angle-down"></i></th>
-                  <th>RUT E <i class="fas fa-angle-down"></i></th>
-                  <th>Pet Friendly <i class="fas fa-angle-down"></i></th>
+                  <th id="ID">ID <i class="fas fa-angle-down"></i></th>
+                  <th>Tipo <i class="fas fa-angle-down"></i></th>
+                  <th>CI <i class="fas fa-angle-down"></i></th>
+                  <th>Email <i class="fas fa-angle-down"></i></th>
+                  <th>Nombre <i class="fas fa-angle-down"></i></th>
+                  <th>Apellido <i class="fas fa-angle-down"></i></th>
+                  <th>Dirección <i class="fas fa-angle-down"></i></th>
+                  <th>Barrio <i class="fas fa-angle-down"></i></th>
+                  <th>Departamento <i class="fas fa-angle-down"></i></th>
+                  <th>Teléfono <i class="fas fa-angle-down"></i></th>
+                  <th class="CHO">Agencia <i class="fas fa-angle-down"></i></th>
+                  <th class="HTL">Nombre Hotel <i class="fas fa-angle-down"></i></th>
+                  <th class="HTL">Dirección Hotel <i class="fas fa-angle-down"></i></th>
+                  <th class="HTL">Supervisor <i class="fas fa-angle-down"></i></th>
                   <th></th>
                 </tr>
               </thead>
