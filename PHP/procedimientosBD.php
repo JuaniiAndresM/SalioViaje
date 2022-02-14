@@ -99,7 +99,7 @@ public function login($usuario, $pin){
                     $_SESSION['tipo_usuario'] = 'Chofer';
                     break;
                     case 'ANF':
-                    $_SESSION['tipo_usuario'] = 'Anfitrion';
+                    $_SESSION['tipo_usuario'] = 'Anfitrión';
                     break;
                     case 'HTL':
                     $_SESSION['tipo_usuario'] = 'Hotel';

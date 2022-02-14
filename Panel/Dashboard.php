@@ -17,11 +17,11 @@
         $tipo = 2;
         break;
 
-      case "Asesor": case "Agente": case "Agente": case "Anfitrión":
+      case "Agente": case "Agente": case "Anfitrión":
         $tipo = 3;
         break;
 
-      case "Pasajero":
+      case "Pasajero": case "Asesor": 
         $tipo = 4;
         break;
       
