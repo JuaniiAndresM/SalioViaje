@@ -9,9 +9,33 @@
       case "Administrador":
         $tipo = 1;
         break;
-  
-      case "Transportista": case "Chofer":
+          
+      case "Transportista":
         $tipo = 2;
+        break;
+        
+      case "Chofer":
+        $tipo = 3;
+        break;
+        
+      case "Agente":
+        $tipo = 4;
+        break;
+        
+      case "Anfitrión":
+        $tipo = 5;
+        break;
+        
+      case "Hotel":
+        $tipo = 6;
+        break;
+        
+      case "Pasajero":
+        $tipo = 7;
+        break;
+        
+      case "Asesor":
+        $tipo = 8;
         break;
       
       default:
@@ -44,7 +68,15 @@
               </a>
             </li>';
     }
-    
+
+    if($tipo != 0 && $tipo != 7){
+      echo '<li>
+              <a href="/SalioViaje/Agendar">
+                <span class="icon"><i class="fas fa-plus"></i></span>
+                <span class="title">Agendar Viaje</span>
+              </a>
+            </li>';
+    }
     
     if($tipo == 1){
       echo '  <li>
@@ -52,48 +84,68 @@
                   <span class="icon"><i class="fas fas fa-user-friends"></i></span>
                   <span class="title">Usuarios</span>
                 </a>
-              </li>
+              </li>';
+    }
 
-              <li>
-                <a href="/SalioViaje/Empresas">
-                  <span class="icon"><i class="fas fas fa-building"></i></span>
-                  <span class="title">Empresas</span>
-                </a>
-              </li>
-
-              <li>
-                <a href="/SalioViaje/Vehiculos">
-                  <span class="icon"><i class="fas fa-bus"></i></span>
-                  <span class="title">Vehículos</span>
-                </a>
-              </li>
-
-              <li>
-                <a class href="/SalioViaje/FAQ_Edit">
-                  <span class="icon"><i class="fas fa-question"></i></span>
-                  <span class="title">FAQs</span>
+    if($tipo == 2){
+      echo '  <li>
+                <a href="/SalioViaje/Choferes">
+                  <span class="icon"><i class="fas fas fa-user-friends"></i></span>
+                  <span class="title">Choferes</span>
                 </a>
               </li>';
-    }elseif($tipo == 2){
+    }
+
+    if($tipo == 1 || $tipo == 2 || $tipo == 3 || $tipo == 4 || $tipo == 5 || $tipo == 6){
+      echo '<li>
+              <a href="/SalioViaje/Empresas">
+                <span class="icon"><i class="fas fas fa-building"></i></span>
+                <span class="title">Empresas</span>
+              </a>
+            </li>';
+
+    }
+
+    if($tipo == 2 || $tipo == 3){
+      echo '<li>
+              <a href="/SalioViaje/Vehiculos">
+                <span class="icon"><i class="fas fa-bus"></i></span>
+                <span class="title">Vehículos</span>
+              </a>
+            </li>';
+    }
+
+    if($tipo != 0){
       echo '  <li>
-                <a href="/SalioViaje/Agendar">
-                  <span class="icon"><i class="fas fa-plus"></i></span>
-                  <span class="title">Agendar Viaje</span>
-                </a>
-              </li>
-              <li>
                 <a href="/SalioViaje/Viajes">
                   <span class="icon"><i class="fas fa-book"></i></span>
                   <span class="title">Agenda</span>
                 </a>
-              </li>
-              <li>
-                <a href="/SalioViaje/FAQ">
-                  <span class="icon"><i class="fas fa-question"></i></span>
-                  <span class="title">FAQ</span>
-                </a>
               </li>';
     }
+    
+    ?>
+
+    <li>
+      <a class href="/SalioViaje/FAQ_Edit">
+        <span class="icon"><i class="fas fa-question"></i></span>
+        <span class="title">FAQs</span>
+      </a>
+    </li>
+
+    <?php
+
+    $usuario = str_replace(' ', '_', $_SESSION['usuario']);
+
+    echo '<li>
+            <a class href="/SalioViaje/Profile/'.$usuario.'">
+              <span class="icon"><i class="fas fa-address-card"></i></span>
+              <span class="title">Mi Perfil</span>
+            </a>
+          </li>';
+
+    
+
     ?>
     
     <li>

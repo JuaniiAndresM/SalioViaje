@@ -5,10 +5,6 @@
   if(!isset($_SESSION['usuario'])){
     header('Location: /SalioViaje/Login');
 
-  }else{
-    if($_SESSION['tipo_usuario'] == "Pasajero"){
-      header('Location: /SalioViaje/');
-    }
   }
 
 ?>
