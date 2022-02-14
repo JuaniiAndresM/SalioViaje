@@ -37,7 +37,7 @@ class procedimientosBD
  }
 
  public function register_empresa($contador,$tipo_usuario,$id_usuario,$datos){
-    if ($tipo_usuario == "CHO" || !isset($datos['CHOFERES_SUB'])) { $datos['CHOFERES_SUB'] = 0; }
+    if ($tipo_usuario == "CHO" || !isset($datos['CHOFERES_SUB'])) { $datos['CHOFERES_SUB'] = 0; } 
     $conn = $this->conexion();
     $query = "call register_empresa(?,?,?,?,?,?,?,?,?);";
     $stmt = $conn->prepare($query);
@@ -273,11 +273,13 @@ public function borrar_pregunta_FAQ($ID){
 }
 
  public function agendar_viaje($datos){
+    session_start();
+    $id = $_SESSION['datos_usuario']['ID'];
     $datos = json_decode($datos, true);
     $conn = $this->conexion();
-    $query = "call agendar_viaje(?,?,?,?,?,?,?);";
+    $query = "call agendar_viaje(?,?,?,?,?,?,?,?);";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("siisssi", $datos['MATRICULA'], $datos["DISTANCIA"], $datos["CANTIDAD_DE_PASAJEROS"], $datos["FECHA"], $datos["ORIGEN"], $datos["DESTINO"], $datos["PRECIO_REFERENCIA"]);
+    $stmt->bind_param("siisssii", $datos['MATRICULA'], $datos["DISTANCIA"], $datos["CANTIDAD_DE_PASAJEROS"], $datos["FECHA"], $datos["ORIGEN"], $datos["DESTINO"], $datos["PRECIO_REFERENCIA"],$id);
     $stmt->execute();
     $stmt->close();
 }
@@ -298,18 +300,35 @@ public function borrar_pregunta_FAQ($ID){
     // ORIGEN DESTINO FECHA HORA PASAJEROS MARCA Y MODELO DEL VEHICULO nombre de transportista
     $oportunidades = array();
     $conn = $this->conexion();
-    $query = "SELECT idOportunidad,Descuento,Origen,Destino,Fecha,Nombre,Apellido,Marca,Modelo,CantidadPasajeros FROM oportunidades,usuarios,vehiculos where idTransportista = usuarios.ID and Vehiculo = Matricula;";
+    $query = "SELECT idOportunidad,Descuento,Origen,Destino,Fecha,Nombre,Apellido,Marca,Modelo,CantidadPasajeros,Estado,Matricula,Distancia,Precio FROM oportunidades,usuarios,vehiculos where idTransportista = usuarios.ID and Vehiculo = Matricula;";
     $stmt = $conn->prepare($query);
     if ($stmt->execute()) {
         $stmt->store_result();
-        $stmt->bind_result($idOportunidad,$descuento,$origen,$destino,$fecha,$nombre,$apellido,$marca,$modelo,$cantidad_pasajeros);
+        $stmt->bind_result($idOportunidad,$descuento,$origen,$destino,$fecha,$nombre,$apellido,$marca,$modelo,$cantidad_pasajeros,$estado,$matricula,$distancia,$precio);
         while ($stmt->fetch()) {
-         $result = array('ID' => $idOportunidad,'DESCUENTO' => $descuento, 'ORIGEN' => $origen,'DESTINO' => $destino, 'FECHA' => $fecha,'NOMBRE' => $nombre, 'APELLIDO' => $apellido,'MARCA' => $marca, 'MODELO' => $modelo, 'CANTIDAD_PASAJEROS' => $cantidad_pasajeros);
+         $result = array('ID' => $idOportunidad,'DESCUENTO' => $descuento, 'ORIGEN' => $origen,'DESTINO' => $destino, 'FECHA' => $fecha,'NOMBRE' => $nombre, 'APELLIDO' => $apellido,'MARCA' => $marca, 'MODELO' => $modelo, 'CANTIDAD_PASAJEROS' => $cantidad_pasajeros, 'ESTADO' => $estado, 'MATRICULA' => $matricula, 'DISTANCIA' => $distancia, 'PRECIO' => $precio);
          $oportunidades[] = $result;
      }
  }
  $stmt->close();
  return json_encode($oportunidades);
+}
+
+ public function traer_viajes(){
+    $viajes = array();
+    $conn = $this->conexion();
+    $query = "SELECT idViaje,Origen,Destino,Fecha,Nombre,Apellido,Marca,Modelo,CantidadPasajeros,Estado,Matricula,Distancia,Precio FROM agenda,usuarios,vehiculos where idTransportista = usuarios.ID and Vehiculo = Matricula;";
+    $stmt = $conn->prepare($query);
+    if ($stmt->execute()) {
+        $stmt->store_result();
+        $stmt->bind_result($id,$origen,$destino,$fecha,$nombre,$apellido,$marca,$modelo,$cantidad_pasajeros,$estado,$matricula,$distancia,$precio);
+        while ($stmt->fetch()) {
+         $result = array('ID' => $id, 'ORIGEN' => $origen,'DESTINO' => $destino, 'FECHA' => $fecha,'NOMBRE' => $nombre, 'APELLIDO' => $apellido,'MARCA' => $marca, 'MODELO' => $modelo, 'CANTIDAD_PASAJEROS' => $cantidad_pasajeros, 'ESTADO' => $estado, 'MATRICULA' => $matricula, 'DISTANCIA' => $distancia, 'PRECIO' => $precio);
+         $viajes[] = $result;
+     }
+ }
+ $stmt->close();
+ return json_encode($viajes);
 }
 
 public function info_usuario_profile($id){

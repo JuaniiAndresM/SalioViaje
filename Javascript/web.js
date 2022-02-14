@@ -58,7 +58,7 @@ function traer_oportunidades(){
     //class="list-empty"  
      $.ajax({
         type: "POST",
-        url: "/SalioViaje/PHP/oportunidadesIndex.php",
+        url: "/SalioViaje/PHP/Tablas/oportunidadesIndex.php",
         success: function (response) {
             console.log(response);
             if (response == '0') {$('.list-empty').show()} else {

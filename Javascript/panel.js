@@ -372,6 +372,34 @@ function filtros(){
     });
 }
 
+
+function tabla_oportunidades(){
+    $.ajax({
+        type: 'POST',       
+        url: "/SalioViaje/PHP/Tablas/tabla_viajes_panel.php",
+        success: function(response) {
+            console.log(response)
+            $('#tbody-agenda').html(response)
+        }
+    });
+
+}
+
+function tabla_oportunidades_dashboard(){
+    $.ajax({
+        type: 'POST',       
+        url: "/SalioViaje/PHP/Tablas/tabla_viajes_panel_principal.php",
+        success: function(response) {
+            console.log(response)
+            $('#tbody-viajes-dashboard').html(response)
+        }
+    });
+
+}
+
+
+
+
 /*-------------------------------------------------------------------------------------------*/
 //                                       Visitas                                             //
 /*-------------------------------------------------------------------------------------------*/

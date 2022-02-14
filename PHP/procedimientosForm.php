@@ -44,7 +44,7 @@ class procedimientosForm extends procedimientosBD
 					//rut_ec = RUT de la empresa creada por el chofer.
     				//rut = RUT de la agencia contratista del chofer.
 					$rut_ec = $empresa[$x]["RUT"];
-					$rut = $empresa[$x]["CHOFERES_SUB"];
+					$rut = $empresa[$x]["CHOFERES_SUB"]; 
 				}else{
 					$rut = $empresa[$x]["RUT"];
 					$rut_ec = "0";

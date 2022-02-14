@@ -38,7 +38,7 @@ class Backend extends procedimientosBD
 
 		public function getUsuarios(){
 		/*
-			Panel de administrador
+			Panel de administrador  
 		*/
 			return json_encode($this->usuarios);
 		}

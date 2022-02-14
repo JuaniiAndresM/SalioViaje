@@ -111,6 +111,7 @@
             window.onload = function(){
               tabla_usuarios_dashboard()
               tabla_empresas_dashboard()
+              tabla_oportunidades_dashboard()
             }
         </script>
       </head>
@@ -307,7 +308,7 @@
                                 <th></th>
                               </tr>
                             </thead>
-                            <tbody id="tbody"></tbody>
+                            <tbody id="tbody-viajes-dashboard"></tbody>
                           </table>
                         </div>
                         <div class="usuarios-propietarios">

@@ -89,9 +89,7 @@
     <script src="/SalioViaje/Javascript/loader.js"></script>
     <script type="text/javascript">
             window.onload = function(){
-              let seccion = "usuarios"
-              traerUsuarios(seccion)
-              filtros()
+              tabla_oportunidades()
             }
     </script>
   </head>
@@ -170,26 +168,8 @@
                   <th></th>
                 </tr>
               </thead>
-              <tbody>
-                  <tr>
-                      <td>1</td>
-                      <td>17/02/2022</td>
-                      <td>18:30</td>
-                      <td>STU4565</td>
-                      <td>Montevideo</td>
-                      <td>Maldonado</td>
-                      <td>120 km</td>
-                      <td>12</td>
-                      <td>4080</td>
-                      <td>50%</td>
-                      <td>Activa</td>
-                      <td>
-                          <div class="button-wrapper">
-                              <button class="button"><i class="fas fa-pen"></i></button>
-                              <button class="button"><i class="fas fa-trash-alt"></i></button>
-                          </div>
-                        </td>
-                  </tr>
+              <tbody id="tbody-agenda">
+
               </tbody>
             </table>
           </div>

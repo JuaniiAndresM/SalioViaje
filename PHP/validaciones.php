@@ -46,7 +46,7 @@ class validaciones
 			if($validacion == 1){ echo "VALIDO"; } else {echo $validacion;}
 			break;
 			case 'ETAPA-2-TRAMO-1':
-			$validacion = $this->validar_formulario_agendar_viaje_etapa_2_tramo_1($datos);
+			$validacion = $this->validar_formulario_agendar_viaje_etapa_2_tramo_1($datos); 
 			if($validacion == 1){ echo "VALIDO"; } else {echo $validacion;}
 			break;
 			case 'ETAPA-2-TRAMO-2':
