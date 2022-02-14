@@ -50,12 +50,13 @@ function suscripcion(){
 }
 
 function comprar_oportunidad(id){
+    
     location.href = "/SalioViaje/Oportunidad/" + id;
+
 }
 
 function traer_oportunidades(){
     
-    //class="list-empty"  
      $.ajax({
         type: "POST",
         url: "/SalioViaje/PHP/Tablas/oportunidadesIndex.php",

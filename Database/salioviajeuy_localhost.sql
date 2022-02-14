@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `agenda`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `agenda` (
-  `idViaje` int(5) unsigned zerofill NOT NULL,
+  `idViaje` int(5) unsigned zerofill NOT NULL AUTO_INCREMENT,
   `Vehiculo` varchar(45) NOT NULL,
   `Distancia` int NOT NULL,
   `CantidadPasajeros` int NOT NULL,
@@ -33,8 +33,9 @@ CREATE TABLE `agenda` (
   `Precio` varchar(45) NOT NULL,
   `Rutas` varchar(45) DEFAULT NULL,
   `Estado` varchar(45) NOT NULL DEFAULT 'Indefinido',
+  `idTransportista` int NOT NULL,
   PRIMARY KEY (`idViaje`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +44,7 @@ CREATE TABLE `agenda` (
 
 LOCK TABLES `agenda` WRITE;
 /*!40000 ALTER TABLE `agenda` DISABLE KEYS */;
-INSERT INTO `agenda` VALUES (00006,'DFG2345',345,12,'2022-02-18 00:31','Montevideo','Maldonado','5234',NULL,'Indefinido');
+INSERT INTO `agenda` VALUES (00003,'JHG3462',345,12,'2022-02-18 00:31','Montevideo','Maldonado','5234',NULL,'Indefinido',319),(00004,'DFG2345',3986,12,'2022-02-18 00:31','Montevideo','Maldonado','5234',NULL,'Indefinido',319);
 /*!40000 ALTER TABLE `agenda` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -113,7 +114,7 @@ DROP TABLE IF EXISTS `oportunidades`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `oportunidades` (
-  `idOportunidad` int NOT NULL AUTO_INCREMENT,
+  `idOportunidad` int(5) unsigned zerofill NOT NULL AUTO_INCREMENT,
   `Descuento` int NOT NULL,
   `Vehiculo` varchar(45) NOT NULL,
   `Distancia` int NOT NULL,
@@ -126,7 +127,7 @@ CREATE TABLE `oportunidades` (
   `Estado` varchar(45) NOT NULL DEFAULT 'Indefinido',
   `idTransportista` varchar(45) NOT NULL,
   PRIMARY KEY (`idOportunidad`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -135,6 +136,7 @@ CREATE TABLE `oportunidades` (
 
 LOCK TABLES `oportunidades` WRITE;
 /*!40000 ALTER TABLE `oportunidades` DISABLE KEYS */;
+INSERT INTO `oportunidades` VALUES (00001,85,'JHG3462',345,12,'2022-01-17 00:31','Maldonado','Montevideo','1546',NULL,'Rechazada','319'),(00002,50,'DFG2345',3986,12,'2022-01-29 05:06','Maldonado','Montevideo','7000',NULL,'Indefinido','319');
 /*!40000 ALTER TABLE `oportunidades` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -203,7 +205,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (319,'TTA','18842723','medicenfirpito@gmail.com','Gaston','Firpo','Ombu','Solymar','Canelones','91456456',NULL,'$2y$10$Um0f.sGMRYXxfby28Aa8jOomauG.6rys.Xb/zc.iEv53VnFEuNstu','345623456789',NULL,NULL,NULL,NULL,NULL),(325,'ADM','53493317','gastonfirpo78@gmail.com','Gaston','Firpo','Ombu','Solymar','Canelones','91345345',NULL,'$2y$10$FIL2ZkUwS7QvG9D9vtoVgOQoYefci/hdNfEfOChGd4h3YeCxpIzka',NULL,NULL,NULL,NULL,NULL,NULL),(330,'TTA','57380938','gastonfirpo78@gmail.com','Gaston','Firpo','Ombu','Solymar','Canelones','91345345',NULL,'$2y$10$hIOIe000.zeUtTpLHA/a3.GIcJZdDL1oAImPtduiSwB7BO9wrh5/y','234523452345',NULL,NULL,NULL,NULL,NULL),(331,'TTA','66503131','gastonfirpo78@gmail.com','Fernando ','Firpo','Ombu','Solymar','Canelones','99144040',NULL,'$2y$10$tuqlfH4ZVLWVawsRBNLc1eeGbRH0myEEQ55wwlR8vVw3XC.g0hNnC','345612344567',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `usuarios` VALUES (319,'TTA','18842723','medicenfirpito@gmail.com','Gaston','Firpo','Ombu','Solymar','Canelones','091446483',NULL,'$2y$10$Um0f.sGMRYXxfby28Aa8jOomauG.6rys.Xb/zc.iEv53VnFEuNstu','345623456789',NULL,NULL,NULL,NULL,NULL),(325,'ADM','53493317','gastonfirpo78@gmail.com','Gaston','Firpo','Ombu','Solymar','Canelones','91345345',NULL,'$2y$10$FIL2ZkUwS7QvG9D9vtoVgOQoYefci/hdNfEfOChGd4h3YeCxpIzka',NULL,NULL,NULL,NULL,NULL,NULL),(330,'TTA','57380938','gastonfirpo78@gmail.com','Gaston','Firpo','Ombu','Solymar','Canelones','91345345',NULL,'$2y$10$hIOIe000.zeUtTpLHA/a3.GIcJZdDL1oAImPtduiSwB7BO9wrh5/y','234523452345',NULL,NULL,NULL,NULL,NULL),(331,'TTA','66503131','gastonfirpo78@gmail.com','Fernando ','Firpo','Ombu','Solymar','Canelones','99144040',NULL,'$2y$10$tuqlfH4ZVLWVawsRBNLc1eeGbRH0myEEQ55wwlR8vVw3XC.g0hNnC','345612344567',NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -258,7 +260,7 @@ CREATE TABLE `visitas` (
 
 LOCK TABLES `visitas` WRITE;
 /*!40000 ALTER TABLE `visitas` DISABLE KEYS */;
-INSERT INTO `visitas` VALUES (51);
+INSERT INTO `visitas` VALUES (65);
 /*!40000 ALTER TABLE `visitas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -300,9 +302,9 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `agendar_viaje`(vih varchar(7),dist int,cantPax int, fecha_viaje varchar(20), org varchar(45), dest varchar(45),prc int)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `agendar_viaje`(vih varchar(7),dist int,cantPax int, fecha_viaje varchar(20), org varchar(45), dest varchar(45),prc int,idTrp int)
 BEGIN
-	INSERT INTO `salioviajeuy_salioviajeuy`.`agenda` (`Vehiculo`, `Distancia`, `CantidadPasajeros`, `Fecha`, `Origen`, `Destino`, `Precio`) VALUES (vih, dist, cantPax, fecha_viaje, org, dest, prc);
+	INSERT INTO `salioviajeuy_salioviajeuy`.`agenda` (`Vehiculo`, `Distancia`, `CantidadPasajeros`, `Fecha`, `Origen`, `Destino`, `Precio`, `idTransportista`) VALUES (vih, dist, cantPax, fecha_viaje, org, dest, prc, idTrp);
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -372,6 +374,25 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `cambio_estado_oportunidad` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `cambio_estado_oportunidad`(est varchar(45), id int)
+BEGIN
+ UPDATE `salioviajeuy_salioviajeuy`.`oportunidades` SET `Estado` = est WHERE (`idOportunidad` = id);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `editar_pregunta_FAQ` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -422,7 +443,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `login`(usr varchar(12))
 BEGIN
-	SELECT ID,PIN,Passwd,Nombre,Apellido,Tipo_Usuario,CI,Telefono,Barrio,Departamento FROM usuarios where CI = usr or RUT = usr or Usuario = usr;
+	SELECT ID,PIN,Passwd,Nombre,Apellido,Tipo_Usuario,CI,Telefono,Barrio,Departamento,Email FROM usuarios where CI = usr or RUT = usr or Usuario = usr;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -439,24 +460,9 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `prueba`(id varchar(45),opcion varchar(45))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `prueba`(est varchar(45), id int)
 BEGIN
-
-IF opcion = "comprar" THEN
-		start transaction;
-		INSERT INTO oportunidades (id_oportunidad,estado) VALUES (id,"Comprada y pendiente de aprobacion");
-ELSEIF opcion = "2" THEN
-		UPDATE `salioviajeuy_salioviajeuy`.`oportunidades` SET `estado` = "aprobada" WHERE (`id_oportunidad` = id);
-ELSEIF opcion = "3" THEN
-		UPDATE `salioviajeuy_salioviajeuy`.`oportunidades` SET `estado` = "en curso" WHERE (`id_oportunidad` = id);
-ELSEIF opcion = "4" THEN
-		UPDATE `salioviajeuy_salioviajeuy`.`oportunidades` SET `estado` = "arrivado" WHERE (`id_oportunidad` = id);
-ELSEIF opcion = "5" THEN
-		UPDATE `salioviajeuy_salioviajeuy`.`oportunidades` SET `estado` = "terminado" WHERE (`id_oportunidad` = id);
-ELSEIF opcion = "cancelar" THEN
-		UPDATE `salioviajeuy_salioviajeuy`.`oportunidades` SET `estado` = "cancelado" WHERE (`id_oportunidad` = id);
-END IF;
-
+ UPDATE `salioviajeuy_salioviajeuy`.`oportunidades` SET `Estado` = est WHERE (`idOportunidad` = id);
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -587,4 +593,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-02-13 22:25:42
+-- Dump completed on 2022-02-14 19:04:16

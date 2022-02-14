@@ -80,10 +80,10 @@ public function login($usuario, $pin){
     $stmt->bind_param("s", $usuario);
     if ($stmt->execute()) {
         $stmt->store_result();
-        $stmt->bind_result($id,$pin_bd,$passwd,$nombre,$apellido,$tipo_usuario,$ci,$telefono,$barrio,$departamento);
+        $stmt->bind_result($id,$pin_bd,$passwd,$nombre,$apellido,$tipo_usuario,$ci,$telefono,$barrio,$departamento,$mail);
         while ($stmt->fetch()) {
             if(password_verify($pin, $pin_bd) || password_verify($pin, $passwd)){
-                $datos_usuarios = array('TIPO_USUARIO' => $tipo_usuario,'ID' => $id, 'CI' => $ci,'TELEFONO' => $telefono,'BARRIO' => $barrio,'DEPARTAMENTO' => $departamento);
+                $datos_usuarios = array('TIPO_USUARIO' => $tipo_usuario,'ID' => $id, 'CI' => $ci,'TELEFONO' => $telefono,'BARRIO' => $barrio,'DEPARTAMENTO' => $departamento,'MAIL' => $mail);
                 $usuario = $nombre." ".$apellido;
                 session_start();
                 $_SESSION['usuario'] = $usuario;
@@ -314,6 +314,22 @@ public function borrar_pregunta_FAQ($ID){
  return json_encode($oportunidades);
 }
 
+ public function traer_oportunidades_por_id($id){
+    $conn = $this->conexion();
+    $query = "SELECT idOportunidad,Descuento,Origen,Destino,Fecha,Nombre,Apellido,Marca,Modelo,CantidadPasajeros,Estado,Matricula,Distancia,Precio,idTransportista FROM oportunidades,usuarios,vehiculos where idTransportista = usuarios.ID and Vehiculo = Matricula and idOportunidad = $id;";
+    $stmt = $conn->prepare($query);
+    if ($stmt->execute()) {
+        $stmt->store_result();
+        $stmt->bind_result($idOportunidad,$descuento,$origen,$destino,$fecha,$nombre,$apellido,$marca,$modelo,$cantidad_pasajeros,$estado,$matricula,$distancia,$precio,$idTransportista);
+        while ($stmt->fetch()) {
+         $result = array('ID' => $idOportunidad,'DESCUENTO' => $descuento, 'ORIGEN' => $origen,'DESTINO' => $destino, 'FECHA' => $fecha,'NOMBRE' => $nombre, 'APELLIDO' => $apellido,'MARCA' => $marca, 'MODELO' => $modelo, 'CANTIDAD_PASAJEROS' => $cantidad_pasajeros, 'ESTADO' => $estado, 'MATRICULA' => $matricula, 'DISTANCIA' => $distancia, 'PRECIO' => $precio, 'ID_TRANSPORTISTA' => $idTransportista);
+     }
+ }
+ $stmt->close();
+ return json_encode($result);
+}
+
+
  public function traer_viajes(){
     $viajes = array();
     $conn = $this->conexion();
@@ -346,6 +362,30 @@ public function info_usuario_profile($id){
  }
  $stmt->close();
  return $usuarios;
+}
+
+ public function traer_datos_transportista($id){
+    $conn = $this->conexion();
+    $query = "SELECT Telefono,Nombre,idOportunidad,Email from usuarios,oportunidades where ID = $id;";
+    $stmt = $conn->prepare($query);
+    if ($stmt->execute()) {
+        $stmt->store_result();
+        $stmt->bind_result($telefono,$nombre,$idOportunidad,$mail);
+        while ($stmt->fetch()) {
+         $result = array('TELEFONO' => $telefono,'NOMBRE' => $nombre,'ID_OPORTUNIDAD' => $idOportunidad,'MAIL' => $mail);
+     }
+ }
+ $stmt->close();
+ return json_encode($result);
+}
+
+ public function cambio_estado_oportunidad($estado,$id){
+    $conn = $this->conexion();
+    $query = "call cambio_estado_oportunidad(?,?)";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("si", $estado, $id);
+    $stmt->execute();
+    $stmt->close();
 }
 
 }

@@ -10,6 +10,15 @@
     }
   }
 
+  require_once "../PHP/procedimientosBD.php";
+
+  $datos = new procedimientosBD();
+  $datos = json_decode($datos->traer_oportunidades_por_id($_GET['oportunidad']),true);
+
+  $descuento = $datos['DESCUENTO']/100;
+  $PRECIO_CON_DESCUENTO_APLICADO =  round($datos['PRECIO'] - $datos['PRECIO'] * $descuento);
+
+  $fecha = explode(' ', $datos['FECHA']);
 ?>
 
 <!DOCTYPE html>
@@ -82,9 +91,10 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
     <script src="/SalioViaje/Javascript/web.js"></script>
     <script src="/SalioViaje/Javascript/viajar.js"></script>
+    <script src="/SalioViaje/t2voice/send_data.js"></script>
+    <script src="/SalioViaje/t2voice/functionsJS.js"></script>
   </head>
   <body>
     <div id="header"></div>
@@ -97,6 +107,9 @@
         <div></div>
       </div>
     </div>
+
+
+
 
     <a href="https://www.salioviaje.com.uy/FAQ" target="_BLANK" id="faq-float">
       <i class="fas fa-question"></i>
@@ -113,7 +126,7 @@
                 <img src="/SalioViaje/media/svg/Logo-SalioViaje-White.svg" alt="Logo SalióViaje">
               </div>
               <div class="driver-desc">
-                <h3>Nombre del Transportista</h3>
+                <h3><?php echo $datos['NOMBRE'].' '.$datos['APELLIDO']; ?></h3>
                 <p><i class="fas fa-bus"></i> Transportista</p>
                 <p class="calificacion">
                   <i class="fas fa-star"></i>
@@ -126,7 +139,7 @@
               </div>
             </div>
             <div class="oportunidad-buttons">
-              <button class="comprar-button"><i class="fas fa-comments-dollar"></i> Comprar</button>
+                <button class="comprar-button" id="comprar_oportunidad" onclick="comprar_oportunidad(<?php echo $datos['ID']; ?>)"><i class="fas fa-comments-dollar"></i> Comprar</button>
             </div>
           </div>
           <div class="oportunidad-content">
@@ -135,42 +148,42 @@
 
               <div class="info">
                 <b><i class="far fa-address-card"></i> N° Viaje</b>
-                <p>#021</p>
+                <p>#<?php echo $datos['ID']; ?></p>
               </div>
 
               <div class="info">
                 <b><i class="fas fa-map-marker-alt"></i> Origen</b>
-                <p>Montevideo</p>
+                <p><?php echo $datos['ORIGEN']; ?></p>
               </div>
 
               <div class="info">
                 <b><i class="fas fa-route"></i> Destino</b>
-                <p>Canelones</p>
+                <p><?php echo $datos['DESTINO']; ?></p>
               </div>
 
               <div class="info">
                 <b><i class="far fa-calendar-alt"></i> Fecha</b>
-                <p>17/02/2022</p>
+                <p><?php echo $fecha[0]; ?></p>
               </div>
 
               <div class="info">
                 <b><i class="far fa-clock"></i> Hora</b>
-                <p>18:30</p>
+                <p><?php echo $fecha[1]; ?></p>
               </div>
 
               <div class="info">
                 <b><i class="fas fa-user-friends"></i> Capacidad</b>
-                <p>12</p>
+                <p><?php echo $datos['CANTIDAD_PASAJEROS']; ?></p>
               </div>
 
             </div>
             <div class="price_wrapper">
               <div class="discount">
-                <h3>50% <i class="fas fa-tags"></i></h3>
+                <h3><?php echo $datos['DESCUENTO']; ?>% <i class="fas fa-tags"></i></h3>
               </div>
               <div class="price">
-                <p class="desc">$ 8180</p>
-                <p>$ 4090</p>
+                <p class="desc">$ <?php echo $datos['PRECIO']; ?></p>
+                <p>$ <?php echo $PRECIO_CON_DESCUENTO_APLICADO; ?></p>
               </div>
             </div>
 

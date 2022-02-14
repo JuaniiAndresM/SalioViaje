@@ -1,6 +1,7 @@
+let send = new llamadas_PHP();
 $(document).ready(function () {
-    let send = new llamadas_PHP();
 
+    //
     //cuando apreta el boton manda la info
     $("#send_call").on('click', function() {
 
@@ -29,3 +30,94 @@ $(document).ready(function () {
     });
 
 });
+
+let mail_tta;
+
+function comprar_oportunidad(id){
+
+       console.log("comprada y mando mensaje - ID oportunidad : "+id)
+
+       let mensaje = 'Tu oportunidad ha sido comprada!!! aceptar: http://SalioViaje/Solicitud/2  rechazar: http://SalioViaje/Solicitud/2';
+
+        $.ajax({
+            type: "POST",
+            url: "/SalioViaje/PHP/comprar_oportunidad.php",
+            data: { ID:id },
+            success: function (response) {
+                response = JSON.parse(response)
+                send.realizarLlamada("tpc_notificacion_opciones","2022-02-07T15:00:00+03:00",'433265644',response['TELEFONO'],response['NOMBRE'],"Prueba 1 SalióViaje.Presione 1 para aceptar, 3 para rechazar",response['ID_OPORTUNIDAD']);
+                send.enviarSMS(response['TELEFONO'],"2022-02-04T15:00:00+03:00",mensaje,"732345745");
+            }
+        });
+}
+
+function mail_TTA(id){
+        $.ajax({
+            type: "POST",
+            url: "/SalioViaje/PHP/comprar_oportunidad.php",
+            data: { ID:id },
+            success: function (response) {
+                response = JSON.parse(response)
+                mail_tta=response['MAIL'];
+            }
+        });
+}
+
+function notificar_administradores(){
+
+}
+
+function cambiar_estado_oportunidad(estado){
+        $.ajax({
+            type: "POST",
+            url: "/SalioViaje/PHP/comprar_oportunidad.php",
+            data: { ID:id },
+            success: function (response) {
+                console.log(response)
+            }
+        });
+}
+
+function oportunidad_aprobada(id){
+            mail_tta = $.ajax({
+                        type: 'POST',       
+                        url: "/SalioViaje/PHP/comprar_oportunidad.php",
+                        data: { ID:id },
+                        global: false,
+                        async:false,
+                        success: function(response) {
+                            return response;
+                        }
+                    }).responseText;
+
+        $.ajax({
+            type: "POST",
+            url: "/SalioViaje/Mail/mail-Oportunidades-Aceptado.php",
+            data: { mail_tta:JSON.parse(mail_tta)['MAIL'] },
+            success: function (response) {
+                console.log(response)
+            }
+        });
+}
+
+function oportunidad_rechazada(id){
+            mail_tta = $.ajax({
+                        type: 'POST',       
+                        url: "/SalioViaje/PHP/comprar_oportunidad.php",
+                        data: { ID:id },
+                        global: false,
+                        async:false,
+                        success: function(response) {
+                            return response;
+                        }
+                    }).responseText;
+
+        $.ajax({
+            type: "POST",
+            url: "/SalioViaje/Mail/mail-Oportunidades-Rechazado.php",
+            data: { mail_tta:JSON.parse(mail_tta)['MAIL'] },
+            success: function (response) {
+                console.log(response)
+            }
+        });
+}
