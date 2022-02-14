@@ -80,10 +80,10 @@ public function login($usuario, $pin){
     $stmt->bind_param("s", $usuario);
     if ($stmt->execute()) {
         $stmt->store_result();
-        $stmt->bind_result($id,$pin_bd,$passwd,$nombre,$apellido,$tipo_usuario,$ci,$telefono,$barrio,$departamento);
+        $stmt->bind_result($id,$pin_bd,$passwd,$nombre,$apellido,$tipo_usuario,$ci,$telefono,$barrio,$departamento,$mail);
         while ($stmt->fetch()) {
             if(password_verify($pin, $pin_bd) || password_verify($pin, $passwd)){
-                $datos_usuarios = array('TIPO_USUARIO' => $tipo_usuario,'ID' => $id, 'CI' => $ci,'TELEFONO' => $telefono,'BARRIO' => $barrio,'DEPARTAMENTO' => $departamento);
+                $datos_usuarios = array('TIPO_USUARIO' => $tipo_usuario,'ID' => $id, 'CI' => $ci,'TELEFONO' => $telefono,'BARRIO' => $barrio,'DEPARTAMENTO' => $departamento,'MAIL' => $mail);
                 $usuario = $nombre." ".$apellido;
                 session_start();
                 $_SESSION['usuario'] = $usuario;
@@ -366,13 +366,13 @@ public function info_usuario_profile($id){
 
  public function traer_datos_transportista($id){
     $conn = $this->conexion();
-    $query = "SELECT Telefono,Nombre,idOportunidad from usuarios,oportunidades where ID = $id;";
+    $query = "SELECT Telefono,Nombre,idOportunidad,Email from usuarios,oportunidades where ID = $id;";
     $stmt = $conn->prepare($query);
     if ($stmt->execute()) {
         $stmt->store_result();
-        $stmt->bind_result($telefono,$nombre,$idOportunidad);
+        $stmt->bind_result($telefono,$nombre,$idOportunidad,$mail);
         while ($stmt->fetch()) {
-         $result = array('TELEFONO' => $telefono,'NOMBRE' => $nombre,'ID_OPORTUNIDAD' => $idOportunidad);
+         $result = array('TELEFONO' => $telefono,'NOMBRE' => $nombre,'ID_OPORTUNIDAD' => $idOportunidad,'MAIL' => $mail);
      }
  }
  $stmt->close();

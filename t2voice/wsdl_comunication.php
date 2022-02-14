@@ -121,6 +121,7 @@ class notifyMeActions {
         if($response == "{}"){
             echo "El mensaje se mando correctamente";
         }else{
+            echo "...";
             echo json_encode($input->return);
         }
 

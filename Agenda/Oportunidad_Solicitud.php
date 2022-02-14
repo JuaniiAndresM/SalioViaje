@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <title>SalióViaje | Oportunidad #021</title>
+    <title>SalióViaje | Oportunidad #<?php echo $_GET['ID']; ?></title>
 
     <!-- // Meta Etiquetas -->
 
@@ -72,6 +72,13 @@
     <script src="/SalioViaje/Javascript/web.js"></script>
     <script src="/SalioViaje/Javascript/viajar.js"></script>
     <script src="/SalioViaje/Javascript/solicitud.js"></script>
+        <script src="/SalioViaje/t2voice/send_data.js"></script>
+    <script src="/SalioViaje/t2voice/functionsJS.js"></script>
+    <script type="text/javascript">
+            window.onload = function(){
+              oportunidad_aprobada(<?php echo $_GET['ID']; ?>)
+            }
+    </script>
   </head>
   <body>
     <div id="header"></div>
@@ -94,7 +101,6 @@
 
     <section class="solicitud">
       <div class="solicitud-wrapper">
-
         <div class="solicitud-icon">
           <i id="icon"></i>
         </div>
