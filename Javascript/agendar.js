@@ -428,7 +428,7 @@ function finalizar(){
             }
         }
     }
-    window.location = "/SalioViaje/Success";
+    window.location = "/SalioViaje/Panel/Success";
 }
 
 /*-------------------------------------------------------------------------------------------*/
