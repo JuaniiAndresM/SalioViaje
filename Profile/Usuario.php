@@ -197,6 +197,7 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star-half"></i>
+                        (4.35) - <i id="compass" class="far fa-compass"></i> 820 Viajes
                       </p>';
               }
               ?>

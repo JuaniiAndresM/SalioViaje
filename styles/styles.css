@@ -8982,6 +8982,10 @@ footer .totum p a:hover {
   color: #ffaa00;
 }
 
+.profile-wrapper .user-info .user-left .user-desc .calificacion #compass {
+  margin: 0 5px;
+}
+
 .profile-wrapper .user-info .user-right .button-wrapper {
   margin: 0 20px;
 }

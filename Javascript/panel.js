@@ -211,7 +211,7 @@ function tabla_seccion_usuarios(usuario){
     }
 
     let td = document.createElement("td");
-    td.innerHTML += '<div class="button-wrapper"><button id="'+ID_USUARIO+'" class="button" disabled><i class="far fa-eye"></i></button><button id="'+ID_USUARIO+'" class="button" disabled><i class="fas fa-edit"></i></button><button id="'+ID_USUARIO+'" class="button" disabled><i class="fas fa-trash-alt"></i></button></div>'
+    td.innerHTML += '<div class="button-wrapper"><button id="'+ID_USUARIO+'" class="button"  onclick="ver_usuario('+ID_USUARIO+')"><i class="far fa-eye"></i></button><button id="'+ID_USUARIO+'" class="button" disabled><i class="fas fa-edit"></i></button><button id="'+ID_USUARIO+'" class="button" disabled><i class="fas fa-trash-alt"></i></button></div>'
     row.appendChild(td);
     //
     //agrego la fila a la tabla
@@ -220,6 +220,11 @@ function tabla_seccion_usuarios(usuario){
     if (row != " ") {tabla.appendChild(row);}
 }
 }
+
+function ver_usuario(id){
+    location.href = "/SalioViaje/Profile/" + id;
+}
+
 /*-------------------------------------------------------------------------------------------*/
 //                                     Empresas                                              //
 /*-------------------------------------------------------------------------------------------*/
