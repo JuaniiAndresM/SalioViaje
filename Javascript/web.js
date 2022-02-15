@@ -8,7 +8,7 @@ $(document).ready(function () {
 
 function cerrarsesion(){
     $.ajax({ 
-        url: "PHP/cerrarSession.php",
+        url: "/SalioViaje/PHP/cerrarSession.php",
         success: function(response){
             $('#header').load('/SalioViaje/web/header.php');
         }
@@ -50,6 +50,11 @@ function suscripcion(){
 }
 
 function comprar_oportunidad(id){
+
+    window.open('/SalioViaje/Espera/' + id, '_blank');
+}
+
+function detalles_oportunidad(id){
     
     location.href = "/SalioViaje/Oportunidad/" + id;
 

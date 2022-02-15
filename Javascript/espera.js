@@ -5,9 +5,9 @@ $(document).ready(function () {
         steps(2);
     }, 2000);
 
-    setTimeout(() => {
+    /*setTimeout(() => {
         steps(4);
-    }, 5000);
+    }, 5000);*/
 });
 
 

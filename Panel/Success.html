@@ -1,14 +1,7 @@
-<?php 
-$ID = $_GET['ID'];
-
-$ID = substr($ID, 0, -1);
-?>
-
-
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <title>SalióViaje | Oportunidad #<?php echo $ID; ?></title>
+    <title>SalióViaje | Success</title>
 
     <!-- // Meta Etiquetas -->
 
@@ -32,8 +25,8 @@ $ID = substr($ID, 0, -1);
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.salioviaje.com.uy/Viajar" />
-    <meta property="og:title" content="SalióViaje | Viajar" />
+    <meta property="og:url" content="https://www.salioviaje.com.uy/" />
+    <meta property="og:title" content="SalióViaje | Plataforma que optimiza el traslado ocasional de personas." />
     <meta
       property="og:description"
       content="Plataforma que optimiza el traslado ocasional de personas."
@@ -45,11 +38,11 @@ $ID = substr($ID, 0, -1);
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.salioviaje.com.uy/" />
     <meta
-      property="twitter:url"
-      content="https://www.salioviaje.com.uy/Viajar"
+      property="twitter:title"
+      content="SalióViaje - Plataforma que optimiza el traslado ocasional de personas."
     />
-    <meta property="twitter:title" content="SalióViaje | Viajar" />
     <meta
       property="twitter:description"
       content="Plataforma que optimiza el traslado ocasional de personas."
@@ -77,18 +70,16 @@ $ID = substr($ID, 0, -1);
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script src="/SalioViaje/Javascript/web.js"></script>
-    <script src="/SalioViaje/Javascript/viajar.js"></script>
-    <script src="/SalioViaje/Javascript/solicitud.js"></script>
-        <script src="/SalioViaje/t2voice/send_data.js"></script>
-    <script src="/SalioViaje/t2voice/functionsJS.js"></script>
-    <script type="text/javascript">
-            window.onload = function(){
-              console.log(oportunidad_aprobada(<?php echo $_GET['ID']; ?>))
-            }
-    </script>
   </head>
   <body>
     <div id="header"></div>
+
+    <a href="https://www.salioviaje.com.uy/FAQ" target="_BLANK" id="faq-float">
+      <i class="fas fa-question"></i>
+    </a>
+    <a href="https://wa.link/mmdp0q" target="_BLANK" id="whatsapp-float">
+      <img src="/SalioViaje/media/images/whatsapp.png" alt="">
+    </a>
 
     <div id="pre-loader">
       <div class="lds-ellipsis">
@@ -99,27 +90,19 @@ $ID = substr($ID, 0, -1);
       </div>
     </div>
 
-    <a href="https://www.salioviaje.com.uy/FAQ" target="_BLANK" id="faq-float">
-      <i class="fas fa-question"></i>
-    </a>
-    <a href="https://wa.link/mmdp0q" target="_BLANK" id="whatsapp-float">
-      <img src="/SalioViaje/media/images/whatsapp.png" alt="">
-    </a>
-
-    <input id="id_get" type="hidden" value="<?php echo $_GET['ID']; ?>">
-
-    <section class="solicitud">
-      <div class="solicitud-wrapper">
-        <div class="solicitud-icon">
-          <i id="icon"></i>
+    <section class="success">
+      <div class="success-wrapper">
+        <div class="success-icon">
+          <i class="fas fa-check-circle"></i>
         </div>
+        <h3>¡Felicitaciones!</h3>
 
-        <div class="solicitud-info">
-          <h2 id="info_1"></h2>
-          <h3 id="info_2"></h3>
-          <p id="info_3"></p>
+        <p>Su viaje ha sido agendado correctamente.</p>
+        <div class="success-buttons">
+          <a href="/SalioViaje/Dashboard"
+            ><i class="fas fa-home"></i> Volver al Panel</a
+          >
         </div>
-
       </div>
     </section>
 

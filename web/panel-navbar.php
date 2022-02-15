@@ -69,7 +69,7 @@
             </li>';
     }
 
-    if($tipo != 0 && $tipo != 7){
+    if($tipo == 2 && $tipo == 3){
       echo '<li>
               <a href="/SalioViaje/Agendar">
                 <span class="icon"><i class="fas fa-plus"></i></span>
@@ -135,10 +135,8 @@
 
     <?php
 
-    $usuario = str_replace(' ', '_', $_SESSION['usuario']);
-
     echo '<li>
-            <a class href="/SalioViaje/Profile/'.$usuario.'">
+            <a class href="/SalioViaje/Profile/'. $_SESSION['datos_usuario']['ID'] .'">
               <span class="icon"><i class="fas fa-address-card"></i></span>
               <span class="title">Mi Perfil</span>
             </a>

@@ -8,33 +8,66 @@
   if(!isset($_SESSION['datos_usuario']['ID'])){
     header('Location: /SalioViaje/Login');
   }else{
-    $usuario_get = $_GET['Usuario'];
-
-    $usuario_perfil = str_replace('_', ' ', $usuario_get);
+    $id = $_GET['ID'];
 
     
     $tipo = 0;
 
     $info_usuario = new procedimientosBD();
+      
 
-    $info_usuario->info_usuario_profile($id);
+    $usuario = $info_usuario->info_usuario_profile($id);
 
-    if(isset($_SESSION['tipo_usuario'])){
+    if(empty($usuario)){
+      header('Location: Failed/');
+    }
 
-      switch($_SESSION['tipo_usuario']){
-        case "Pasajero":
-          $tipo = 1;
-          break;
+    $nombre = $usuario[0]['NOMBRE'] ." ". $usuario[0]['APELLIDO'];
 
-        case "Chofer":
-          $tipo = 2;
-          break;
+    $cedula = substr($usuario[0]['CI'], 0, -1) . "-" . substr($usuario[0]['CI'], -1);
 
-        case "Transportista":
-          $tipo = 3;
-          break;
+    $tipo_usuario = $usuario[0]["TIPO_USUARIO"];
 
-      }
+    switch($tipo_usuario){
+      case "PAX":
+        $tipo_usuario = "Pasajero";
+        $tipo = 1;
+        break;
+
+      case "CHO":
+        $tipo_usuario = "Chofer";
+        $tipo = 2;
+        break;
+
+      case "TTA":
+        $tipo_usuario = "Transportista";
+        $tipo = 3;
+        break;
+
+      case "ASE":
+        $tipo_usuario = "Asesor";
+        $tipo = 4;
+        break;
+
+      case "ANF":
+        $tipo_usuario = "Anfitrión";
+        $tipo = 5;
+        break;
+
+      case "AGT":
+        $tipo_usuario = "Agente";
+        $tipo = 6;
+        break;
+
+      case "HTL":
+        $tipo_usuario = "Hotel";
+        $tipo = 7;
+        break;
+
+      case "ADM":
+        $tipo_usuario = "Administrador";
+        $tipo = 8;
+        break;
     }
   }
 
@@ -43,7 +76,7 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <title>SalióViaje | <?php echo $usuario_perfil; ?></title>
+    <title>SalióViaje | <?php echo $nombre; ?></title>
 
     <!-- // Meta Etiquetas -->
 
@@ -67,8 +100,8 @@
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.salioviaje.com.uy/Profile" />
-    <meta property="og:title" content="SalióViaje | Empresas" />
+    <meta property="og:url" content="https://www.salioviaje.com.uy/Profile/<?php echo $id; ?>" />
+    <meta property="og:title" content="SalióViaje | <?php echo $nombre; ?>" />
     <meta
       property="og:description"
       content="Plataforma que optimiza el traslado ocasional de personas."
@@ -80,10 +113,10 @@
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://www.salioviaje.com.uy/Empresas" />
+    <meta property="twitter:url" content="https://www.salioviaje.com.uy/Profile/<?php echo $id; ?>" />
     <meta
       property="twitter:title"
-      content="SalióViaje | Empresas"
+      content="SalióViaje | <?php echo $nombre; ?>"
     />
     <meta
       property="twitter:description"
@@ -131,7 +164,7 @@
           <button onclick="navbar()"><i class="fas fa-bars"></i></button>
         </div>
         <div class="header-title">
-          <h2><?php echo $usuario_perfil; ?></h2>
+          <h2><?php echo $nombre; ?></h2>
         </div>
       </div>
       <div class="header-right">
@@ -157,8 +190,8 @@
               <img src="/SalioViaje/media/svg/Logo-SalioViaje.svg" alt="Logo SalióViaje">
             </div>
             <div class="user-desc">
-              <h2><?php echo $usuario_perfil; ?></h2>
-              <p><i class="fas fa-bus"></i> <?php echo $_SESSION['tipo_usuario']; ?></p>
+              <h2><?php echo $nombre; ?></h2>
+              <p><i class="fas fa-bus"></i> <?php echo $tipo_usuario; ?></p>
 
               <?php 
 
@@ -169,6 +202,7 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star-half"></i>
+                        (4.35) - <i id="compass" class="far fa-compass"></i> 820 Viajes
                       </p>';
               }
               ?>
@@ -178,7 +212,7 @@
           <div class="user-right">
             <div class="button-wrapper">
             <?php
-            if($usuario_perfil == $_SESSION['usuario']){
+            if($nombre == $_SESSION['usuario']){
               echo '<button class="button"><i class="fas fa-edit"></i></button>';
             }else{
               echo '<button class="button"><i class="fas fa-star"></i></button>';
@@ -199,23 +233,23 @@
               <div class="info">
                 <b><i class="far fa-address-card"></i> C.I</b>
                 
-                <p>5487923-9</p>
+                <p><?php echo $cedula; ?></p>
               </div>
               <div class="info">
                 <b><i class="far fa-envelope"></i> Correo Electrónico</b>
-                <p>thewolfmodzyt@gmail.com</p>
+                <p><?php echo $usuario[0]['EMAIL']; ?></p>
               </div>
               <div class="info">
                 <b><i class="fas fa-thumbtack"></i> Dirección</b>
-                <p>Canelones, El Pinar, Rondeau.</p>
+                <p><?php echo $usuario[0]['DEPARTAMENTO'] . ', ' . $usuario[0]['BARRIO'] . ', ' . $usuario[0]['DIRECCION']; ?></p>
               </div>
               <div class="info">
                 <b><i class="fas fa-phone"></i> Teléfono</b>
-                <p>098234717</p>
+                <p><?php echo '0' . $usuario[0]['TELEFONO']; ?></p>
               </div>
               <div class="info">
                 <b><i class="fas fa-bus"></i> Tipo de Usuario</b>
-                <p>TTA</p>
+                <p><?php echo $tipo_usuario; ?></p>
               </div>
             </div>
           </div>
@@ -225,48 +259,56 @@
             <?php
 
               if($tipo == 1){
-                echo '<h3><i class="fas fa-history"></i> Historial de Viajes</h3>
-                <div class="search">
-                  <i class="fas fa-search"></i>
-                  <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarusuarios()"/>
-                </div>
-                <div class="table-wrapper">
-                  <table class="table-viajes">
-                    <thead>
-                      <tr>
-                        <th>Origen</th>
-                        <th>Destino</th>
-                        <th>Fecha</th>
-                        <th></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>Montevideo</td>
-                        <td>Canelones</td>
-                        <td>17/02/2022</td>
-                        <td>
-                          <div class="button-wrapper">
-                            <button class="button"><i class="far fa-eye"></i></button>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>P. Del Este</td>
-                        <td>Carrasco</td>
-                        <td>22/03/2022</td>
-                        <td>
-                          <div class="button-wrapper">
-                            <button class="button"><i class="far fa-eye"></i></button>
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>';
+                if($_SESSION['tipo_usuario'] == "Administrador" || $nombre == $_SESSION['usuario']){
+                  echo '<h3><i class="fas fa-history"></i> Historial de Viajes</h3>
+                  <div class="search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarusuarios()"/>
+                  </div>
+                  <div class="table-wrapper">
+                    <table class="table-viajes">
+                      <thead>
+                        <tr>
+                          <th>Origen</th>
+                          <th>Destino</th>
+                          <th>Fecha</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Montevideo</td>
+                          <td>Canelones</td>
+                          <td>17/02/2022</td>
+                          <td>
+                            <div class="button-wrapper">
+                              <button class="button"><i class="far fa-eye"></i></button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>P. Del Este</td>
+                          <td>Carrasco</td>
+                          <td>22/03/2022</td>
+                          <td>
+                            <div class="button-wrapper">
+                              <button class="button"><i class="far fa-eye"></i></button>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>';
+                }
+                
               }else if($tipo == 2 || $tipo == 3){
-                echo '<h3><i class="fas fa-building"></i> Tus Empresas</h3>
-                      <div class="search">
+                if($nombre == $_SESSION['usuario']){
+                  echo '<h3><i class="fas fa-building"></i> Tus Empresas</h3>';
+                }else{
+                  echo '<h3><i class="fas fa-building"></i> Empresas</h3>';
+                }
+
+                echo'<div class="search">
                             <i class="fas fa-search"></i>
                             <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarusuarios()"/>
                       </div>

@@ -8982,6 +8982,10 @@ footer .totum p a:hover {
   color: #ffaa00;
 }
 
+.profile-wrapper .user-info .user-left .user-desc .calificacion #compass {
+  margin: 0 5px;
+}
+
 .profile-wrapper .user-info .user-right .button-wrapper {
   margin: 0 20px;
 }
@@ -9825,7 +9829,6 @@ footer .totum p a:hover {
 
 .oportunidad-detalles-wrapper .oportunidad .oportunidad-header .driver-info .driver-desc p {
   color: #555;
-  width: 150px;
 }
 
 .oportunidad-detalles-wrapper .oportunidad .oportunidad-header .driver-info .driver-desc .calificacion i {
@@ -9958,6 +9961,7 @@ footer .totum p a:hover {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    text-align: center;
   }
   .oportunidad-detalles-wrapper .oportunidad .oportunidad-header .driver-info .driver-desc {
     margin: 10px 0;

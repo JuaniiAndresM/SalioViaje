@@ -1,14 +1,7 @@
-<?php 
-$ID = $_GET['ID'];
-
-$ID = substr($ID, 0, -1);
-?>
-
-
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <title>SalióViaje | Oportunidad #<?php echo $ID; ?></title>
+<head> 
+    <title>SalióViaje | Failed</title>
 
     <!-- // Meta Etiquetas -->
 
@@ -32,8 +25,8 @@ $ID = substr($ID, 0, -1);
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.salioviaje.com.uy/Viajar" />
-    <meta property="og:title" content="SalióViaje | Viajar" />
+    <meta property="og:url" content="https://www.salioviaje.com.uy/" />
+    <meta property="og:title" content="SalióViaje | Plataforma que optimiza el traslado ocasional de personas." />
     <meta
       property="og:description"
       content="Plataforma que optimiza el traslado ocasional de personas."
@@ -45,11 +38,11 @@ $ID = substr($ID, 0, -1);
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.salioviaje.com.uy/" />
     <meta
-      property="twitter:url"
-      content="https://www.salioviaje.com.uy/Viajar"
+      property="twitter:title"
+      content="SalióViaje | Plataforma que optimiza el traslado ocasional de personas."
     />
-    <meta property="twitter:title" content="SalióViaje | Viajar" />
     <meta
       property="twitter:description"
       content="Plataforma que optimiza el traslado ocasional de personas."
@@ -62,42 +55,17 @@ $ID = substr($ID, 0, -1);
     <!-- // Fin de Meta Etiquetas -->
 
     <!-- Links -->
-    <link
-      rel="shortcut icon"
-      href="/SalioViaje/media/svg/Favicon-SalioViaje.svg"
-      type="image/x-icon"
-    />
-    <link rel="stylesheet" href="/SalioViaje/styles/styles.css" />
+    <link rel="shortcut icon" href="/SalioViaje/media/svg/Favicon-SalioViaje.svg" type="image/x-icon">
+    <link rel="stylesheet" href="/SalioViaje/styles/styles.css">
 
     <!-- Scripts -->
-    <script
-      src="https://kit.fontawesome.com/1e193e3a23.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://kit.fontawesome.com/1e193e3a23.js" crossorigin="anonymous"></script>    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script src="/SalioViaje/Javascript/web.js"></script>
-    <script src="/SalioViaje/Javascript/viajar.js"></script>
-    <script src="/SalioViaje/Javascript/solicitud.js"></script>
-        <script src="/SalioViaje/t2voice/send_data.js"></script>
-    <script src="/SalioViaje/t2voice/functionsJS.js"></script>
-    <script type="text/javascript">
-            window.onload = function(){
-              console.log(oportunidad_aprobada(<?php echo $_GET['ID']; ?>))
-            }
-    </script>
-  </head>
-  <body>
+</head>
+<body>
     <div id="header"></div>
-
-    <div id="pre-loader">
-      <div class="lds-ellipsis">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-    </div>
 
     <a href="https://www.salioviaje.com.uy/FAQ" target="_BLANK" id="faq-float">
       <i class="fas fa-question"></i>
@@ -106,23 +74,29 @@ $ID = substr($ID, 0, -1);
       <img src="/SalioViaje/media/images/whatsapp.png" alt="">
     </a>
 
-    <input id="id_get" type="hidden" value="<?php echo $_GET['ID']; ?>">
-
-    <section class="solicitud">
-      <div class="solicitud-wrapper">
-        <div class="solicitud-icon">
-          <i id="icon"></i>
+    <div id="pre-loader">
+        <div class="lds-ellipsis">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
-
-        <div class="solicitud-info">
-          <h2 id="info_1"></h2>
-          <h3 id="info_2"></h3>
-          <p id="info_3"></p>
-        </div>
-
       </div>
+
+    <section class="success">
+        <div class="success-wrapper">
+            <div class="success-icon">
+                <i class="fas fa-times-circle" style="color: rgb(255, 111, 111);"></i>
+            </div>
+            <h3>¡Lo Lamentamos!</h3>
+
+            <p>El usuario que estás buscando ya no esta disponible o no existe.</p>
+            <div class="success-buttons">
+                <a href="/SalioViaje/"><i class="fas fa-home"></i> Volver al Inicio</a>
+            </div>
+        </div>
     </section>
 
     <div id="footer"></div>
-  </body>
+</body>
 </html>

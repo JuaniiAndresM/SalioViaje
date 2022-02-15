@@ -37,7 +37,8 @@ function comprar_oportunidad(id){
 
        console.log("comprada y mando mensaje - ID oportunidad : "+id)
 
-       let mensaje = 'Tu oportunidad ha sido comprada!!! aceptar: http://192.168.1.4/SalioViaje/Solicitud/'+id+'  rechazar: http://192.168.1.4/SalioViaje/Solicitud/'+id;
+
+       let mensaje = 'Tu oportunidad ha sido comprada! Aceptar: http://SalioViaje/Solicitud/2A  Rechazar: http://SalioViaje/Solicitud/2R';
 
         $.ajax({
             type: "POST",
@@ -45,11 +46,12 @@ function comprar_oportunidad(id){
             data: {opcion:1, ID:id },
             success: function (response) {
                 console.log(response)
-                response = JSON.parse(response)
-
-                    send.realizarLlamada("tpc_notificacion_opciones","2022-02-07T15:00:00+03:00",'433265644',response['TELEFONO'],response['NOMBRE'],"Prueba 1 SalióViaje.Presione 1 para aceptar, 3 para rechazar",response['ID_OPORTUNIDAD']);
-                    send.enviarSMS(response['TELEFONO'],"2022-02-04T15:00:00+03:00",mensaje,"732345745");
-  
+                response = JSON.parse(response);
+                send.realizarLlamada("tpc_notificacion_opciones","2022-02-07T15:00:00+03:00",'12343431',response['TELEFONO'],response['NOMBRE'],"Prueba 1 SalióViaje.Presione 1 para aceptar, 3 para rechazar",response['ID_OPORTUNIDAD']);
+                send.enviarSMS(response['TELEFONO'],"2022-02-04T15:00:00+03:00",mensaje,"2344321");
+            },
+            complete: function (response){
+                window.open('/SalioViaje/Espera/' + id, '_blank');
             }
         });
 }
