@@ -1,7 +1,14 @@
+<?php 
+$ID = $_GET['ID'];
+
+$ID = substr($ID, 0, -1);
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <title>SalióViaje | Oportunidad #<?php echo $_GET['ID']; ?></title>
+    <title>SalióViaje | Oportunidad #<?php echo $ID; ?></title>
 
     <!-- // Meta Etiquetas -->
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <title>SalióViaje | Oportunidad #021</title>
+    <title>SalióViaje | Oportunidad #<?php echo $_GET['ID']; ?></title>
 
     <!-- // Meta Etiquetas -->
 
@@ -72,6 +72,14 @@
     <script src="/SalioViaje/Javascript/web.js"></script>
     <script src="/SalioViaje/Javascript/viajar.js"></script>
     <script src="/SalioViaje/Javascript/espera.js"></script>
+
+    <script type="text/javascript">
+        window.addEventListener('beforeunload', function (e) {
+            e.preventDefault();
+            e.returnValue = '';
+        });
+    </script>
+    
   </head>
   <body>
     <div id="header"></div>
@@ -105,7 +113,7 @@
           <div class="loader">
             <i class="fas fa-spinner"></i>
           </div>
-          <h2><i class="far fa-address-card"></i> Viaje N° 21</h2>
+          <h2><i class="far fa-address-card"></i> Viaje N° <?php echo $_GET['ID']; ?></h2>
           <h3>
             Estamos procesando su solicitud, este proceso puede tardar unos
             minutos.

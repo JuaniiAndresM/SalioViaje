@@ -13,7 +13,7 @@
   require_once "../PHP/procedimientosBD.php";
 
   $datos = new procedimientosBD();
-  $datos = json_decode($datos->traer_oportunidades_por_id($_GET['oportunidad']),true);
+  $datos = json_decode($datos->traer_oportunidades_por_id($_GET['ID']),true);
 
   $descuento = $datos['DESCUENTO']/100;
   $PRECIO_CON_DESCUENTO_APLICADO =  round($datos['PRECIO'] - $datos['PRECIO'] * $descuento);
@@ -24,7 +24,7 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <title>SalióViaje | Oportunidad #021</title>
+    <title>SalióViaje | Oportunidad #<?php echo $_GET['ID']; ?></title>
 
     <!-- // Meta Etiquetas -->
 

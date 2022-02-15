@@ -135,10 +135,8 @@
 
     <?php
 
-    $usuario = str_replace(' ', '_', $_SESSION['usuario']);
-
     echo '<li>
-            <a class href="/SalioViaje/Profile/'.$usuario.'">
+            <a class href="/SalioViaje/Profile/'. $_SESSION['datos_usuario']['ID'] .'">
               <span class="icon"><i class="fas fa-address-card"></i></span>
               <span class="title">Mi Perfil</span>
             </a>

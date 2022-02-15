@@ -41,7 +41,6 @@
                     }
                     p{
                         color: #555;
-                        width: 150px;
                     }
                     .calificacion{
                         i{
@@ -143,6 +142,7 @@
             .oportunidad-header{
                 .driver-info{
                     flex-direction: column;
+                    text-align: center;
                     .driver-desc{
                         margin: 10px 0;
                     }
