@@ -14,8 +14,13 @@
     $tipo = 0;
 
     $info_usuario = new procedimientosBD();
+      
 
     $usuario = $info_usuario->info_usuario_profile($id);
+
+    if(empty($usuario)){
+      header('Location: Failed');
+    }
 
     $nombre = $usuario[0]['NOMBRE'] ." ". $usuario[0]['APELLIDO'];
 
