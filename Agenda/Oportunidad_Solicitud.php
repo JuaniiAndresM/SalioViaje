@@ -76,7 +76,7 @@
     <script src="/SalioViaje/t2voice/functionsJS.js"></script>
     <script type="text/javascript">
             window.onload = function(){
-              oportunidad_aprobada(<?php echo $_GET['ID']; ?>)
+              console.log(oportunidad_aprobada(<?php echo $_GET['ID']; ?>))
             }
     </script>
   </head>
