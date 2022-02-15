@@ -69,7 +69,7 @@
             </li>';
     }
 
-    if($tipo == 2 && $tipo == 3){
+    if($tipo == 2 || $tipo == 3){
       echo '<li>
               <a href="/SalioViaje/Agendar">
                 <span class="icon"><i class="fas fa-plus"></i></span>

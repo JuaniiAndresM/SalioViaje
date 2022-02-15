@@ -35,7 +35,6 @@ $contenido_oportunidades = '0';
 
                 <div class="travel">
                   <p><i class="fas fa-user-tie"></i> '.$datos[$i]['NOMBRE'].' '.$datos[$i]['APELLIDO'].'</p>
-                  <p class="calificacion"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i></p>
                 </div>
                 
                 <div class="button-wrapper">
@@ -73,7 +72,6 @@ $contenido_oportunidades = '0';
 
                 <div class="travel">
                   <p><i class="fas fa-user-tie"></i> '.$datos[$i]['NOMBRE'].' '.$datos[$i]['APELLIDO'].'</p>
-                  <p class="calificacion"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i></p>
                 </div>
                 
                 <div class="button-wrapper">
