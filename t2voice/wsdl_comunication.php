@@ -1,5 +1,5 @@
 <?php  
-
+require_once '../PHP/procedimientosBD.php';
 include("nusoap/lib/nusoap.php");
 
 $user = 'salioviaje';//usuario notifyMe
@@ -59,7 +59,7 @@ class notifyMeActions {
                 do{
                     $llamarFunction = new notifyMeActions();
                     $estado = $llamarFunction->watchCall($id);
-
+                    echo $estado;
                 } while(strpos($estado, "Mensaje para.../d") === false);
 
                 //se fija si el usuario selecciono alguna de las opciones
@@ -67,6 +67,9 @@ class notifyMeActions {
                     if(strpos($estado, "Opci\\u00f3n 1") !== false){
 
                         //codigo acepto viaje
+                        $estado_oportunidad = new procedimientosBD();
+                        $estado_oportunidad->cambio_estado_oportunidad('functiona',2);
+                        echo "acceptado";
 
                     }else if(strpos($estado, "Opci\\u00f3n 3") !== false){
 

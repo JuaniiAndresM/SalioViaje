@@ -1,11 +1,11 @@
 class llamadas_PHP {
         //realizar llamda
-        realizarLlamada(dialago,dateNhoure,id,tel,nombre,msj,idOprt) {
+        realizarLlamada(dialago,dateNhoure,id,tel,nombre,msj) {
             $.ajax({
                 type: "POST",
                 url: "../t2voice/comunication_js_php.php",
                 //aca mandarias la info necesaria para el xml de llamada
-                data: {tipe:0, dialogo:dialago, datenHoure:dateNhoure, id:id, tel:tel, name:nombre, SMS:msj, ID_OPORTUNIDAD:idOprt},
+                data: {tipe:0, dialogo:dialago, datenHoure:dateNhoure, id:id, tel:tel, name:nombre, SMS:msj},
                 success: function (response) {
                     console.log(response);
                 }

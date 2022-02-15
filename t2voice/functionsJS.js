@@ -47,7 +47,7 @@ function comprar_oportunidad(id){
             success: function (response) {
                 console.log(response)
                 response = JSON.parse(response);
-                send.realizarLlamada("tpc_notificacion_opciones","2022-02-07T15:00:00+03:00",'12343431',response['TELEFONO'],response['NOMBRE'],"Prueba 1 SalióViaje.Presione 1 para aceptar, 3 para rechazar",response['ID_OPORTUNIDAD']);
+                send.realizarLlamada("tpc_notificacion_opciones","2022-02-07T15:00:00+03:00",'85675223431',response['TELEFONO'],response['NOMBRE'],"Prueba 1 SalióViaje.Presione 1 para aceptar, 3 para rechazar");
                 send.enviarSMS(response['TELEFONO'],"2022-02-04T15:00:00+03:00",mensaje,"2344321");
             },
             complete: function (response){
