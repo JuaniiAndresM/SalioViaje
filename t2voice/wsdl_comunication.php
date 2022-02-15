@@ -1,5 +1,5 @@
 <?php  
-require_once '../PHP/procedimientosBD.php';
+
 include("nusoap/lib/nusoap.php");
 
 $user = 'salioviaje';//usuario notifyMe
@@ -12,7 +12,8 @@ $objClienteSOAPMSJ = new Soapclient('http://notifyme.t2voice.com/ws/NotifymeSmsW
 class notifyMeActions {
 
     //resliza la llamda al cliente
-    function callClient($dialago,$dateNhoure,$id,$tel,$name,$msj,$idOportunidad) {
+    function callClient($dialago,$dateNhoure,$id,$tel,$name,$msj) {
+
             // parametros a pasar al metodo - por ahora estan los predeterminados pero aca irian los que manda el js
             $parameters=array(
                         "usuario"=>$GLOBALS["user"],
@@ -48,6 +49,9 @@ class notifyMeActions {
 
             // muestro el resultado con un formato correcto
             $response = json_encode($input->return);
+
+            echo $response;
+
             //se fija que haya realizado la llamada
             if(strpos($response, "OK") !== false){
 
@@ -56,22 +60,17 @@ class notifyMeActions {
                     $llamarFunction = new notifyMeActions();
                     $estado = $llamarFunction->watchCall($id);
 
-                } while(strpos($estado, "Mensaje para.../d") === false);
+                } while(strpos($estado, "Mensaje para...") === false);
 
                 //se fija si el usuario selecciono alguna de las opciones
                 if(strpos($estado, "ENTREGADA") !== false){
-                    echo "entragada";
                     if(strpos($estado, "Opci\\u00f3n 1") !== false){
 
-                        echo "aceptado";
-                        /*
-                        $cambio_de_estado = new procedimientosBD();
-
-                        $cambio_de_estado->cambio_estado_oportunidad('Aprobada',$idOportunidad);
-                        */
+                        //codigo acepto viaje
 
                     }else if(strpos($estado, "Opci\\u00f3n 3") !== false){
-                        //rechaza el viaje
+
+                        //codigo rechazo viaje
                     }
 
                 }
@@ -121,7 +120,6 @@ class notifyMeActions {
         if($response == "{}"){
             echo "El mensaje se mando correctamente";
         }else{
-            echo "...";
             echo json_encode($input->return);
         }
 
