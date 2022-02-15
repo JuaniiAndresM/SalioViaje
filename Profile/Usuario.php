@@ -19,7 +19,7 @@
     $usuario = $info_usuario->info_usuario_profile($id);
 
     if(empty($usuario)){
-      header('Location: Failed');
+      header('Location: Failed/');
     }
 
     $nombre = $usuario[0]['NOMBRE'] ." ". $usuario[0]['APELLIDO'];
