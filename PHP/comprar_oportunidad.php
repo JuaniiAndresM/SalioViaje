@@ -25,11 +25,21 @@ class comprar_oportunidad extends procedimientosBD
 	public function constancia_de_administradores(){
 		
 	}
+
+	public function estado_oportunidad($estado,$id){
+		$this->cambio_estado_oportunidad($estado,$id);
+	}
 }
 
 $comprar_oportunidad = new comprar_oportunidad();
 
-$comprar_oportunidad->traer_datos_oportunidad($_POST['ID']);
 
-$comprar_oportunidad->traer_transportista();
+if ($_POST['opcion'] == 1) {
+	$comprar_oportunidad->traer_datos_oportunidad($_POST['ID']);
+	$comprar_oportunidad->traer_transportista();
+} else if ($_POST['opcion'] == 2){
+	$comprar_oportunidad->estado_oportunidad($_POST['ESTADO'],$_POST['ID']);
+}
+
+
 ?>
