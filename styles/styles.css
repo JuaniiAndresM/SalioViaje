@@ -525,10 +525,10 @@
 }
 
 .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad {
-  width: 100%;
+  width: calc(100% - 20px);
   border-radius: 3em 0 3em 3em;
   background-color: #3844bc;
-  margin: 15px 0;
+  margin: 15px auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6831,10 +6831,10 @@ footer .totum p a:hover {
 .viajar-wrapper .ofertas-viajar .ofertas-wrapper .oportunidades-list .oportunidad,
 .viajar-wrapper .salioviaje .oportunidades-wrapper .oportunidades-list .oportunidad,
 .viajar-wrapper .salioviaje .ofertas-wrapper .oportunidades-list .oportunidad {
-  width: 100%;
+  width: calc(100% - 20px);
   border-radius: 3em 0 3em 3em;
   background-color: #3844bc;
-  margin: 15px 0;
+  margin: 15px auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

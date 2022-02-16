@@ -98,11 +98,11 @@
         overflow-y: auto;
   
         .oportunidad{
-          width: 100%;
+          width: calc(100% - 20px);
           border-radius: 3em 0 3em 3em;
           background-color: $main_1;
   
-          margin: 15px 0;
+          margin: 15px auto;
   
           display: flex;
           justify-content: space-between;
