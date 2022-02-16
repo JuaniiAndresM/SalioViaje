@@ -147,7 +147,7 @@
     ?>
     
     <li>
-      <a href="Settings">
+      <a href="/SalioViaje/Settings">
         <span class="icon"><i class="fas fa-cog"></i></span>
         <span class="title">Configuración</span>
       </a>
