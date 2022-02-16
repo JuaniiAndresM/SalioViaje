@@ -123,17 +123,24 @@
                 </a>
               </li>';
     }
+
+    if($tipo == 1){
+      echo '<li>
+              <a class href="/SalioViaje/FAQ_Edit">
+                <span class="icon"><i class="fas fa-question"></i></span>
+                <span class="title">Editar FAQs</span>
+              </a>
+            </li>';
+    }else{
+      echo '<li>
+              <a class href="/SalioViaje/FAQ">
+                <span class="icon"><i class="fas fa-question"></i></span>
+                <span class="title">FAQs</span>
+              </a>
+            </li>';
+    }
+
     
-    ?>
-
-    <li>
-      <a class href="/SalioViaje/FAQ_Edit">
-        <span class="icon"><i class="fas fa-question"></i></span>
-        <span class="title">FAQs</span>
-      </a>
-    </li>
-
-    <?php
 
     echo '<li>
             <a class href="/SalioViaje/Profile/'. $_SESSION['datos_usuario']['ID'] .'">
