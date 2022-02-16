@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head> 
+    <title>SalióViaje | Login</title>
+
+    <!-- // Meta Etiquetas -->
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <meta name="author" content="TotumDev" />
+
+    <meta
+      name="description"
+      content="Plataforma que optimiza el traslado ocasional de personas."
+    />
+    <meta
+      name="keywords"
+      content="SalióViaje, transporte, transfer, alquiler con chofer, combis para fiestas, Salió Viaje, traslados"
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.salioviaje.com.uy/Login" />
+    <meta property="og:title" content="SalióViaje | Login" />
+    <meta
+      property="og:description"
+      content="Plataforma que optimiza el traslado ocasional de personas."
+    />
+    <meta
+      property="og:image"
+      content="https://www.salioviaje.com.uy/media/images/MetaImagen.png"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.salioviaje.com.uy/Login" />
+    <meta
+      property="twitter:title"
+      content="SalióViaje | Login"
+    />
+    <meta
+      property="twitter:description"
+      content="Plataforma que optimiza el traslado ocasional de personas."
+    />
+    <meta
+      property="twitter:image"
+      content="https://www.salioviaje.com.uy/media/images/MetaImagen.png"
+    />
+
+    <!-- // Fin de Meta Etiquetas -->
+
+    <!-- Links -->
+    <link rel="shortcut icon" href="/SalioViaje/media/svg/Favicon-SalioViaje.svg" type="image/x-icon">
+    <link rel="stylesheet" href="/SalioViaje/styles/styles.css">
+
+    <!-- Scripts -->
+    <script src="https://kit.fontawesome.com/1e193e3a23.js" crossorigin="anonymous"></script>    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="/SalioViaje/Javascript/web.js"></script>
+    <script src="/SalioViaje/Javascript/form.js"></script>
+    <script src="/SalioViaje/Javascript/cambiarPassword.js"></script>
+
+
+
+</head>
+<body>
+    <div id="header"></div>
+
+    <a href="https://www.salioviaje.com.uy/FAQ" target="_BLANK" id="faq-float">
+      <i class="fas fa-question"></i>
+    </a>
+    <a href="https://wa.link/mmdp0q" target="_BLANK" id="whatsapp-float">
+      <img src="/SalioViaje/media/images/whatsapp.png" alt="">
+    </a>
+
+    <div id="pre-loader">
+        <div class="lds-ellipsis">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+      </div>
+
+    <section class="change_password">
+        <div class="change_password-wrapper">
+            <h1>Salió<span>Viaje</span></h1>
+
+            <div id="change_password">
+                <div class="inputs-wrapper">
+                    <h2 class="step_title"><i class="fas fa-user-lock"></i> Cambiar Contraseña</h2>
+
+                    <div class="progress-bar3">
+                        <span class="line"></span>
+                        <span class="progress"></span>
+              
+                        <span class="circle1"></span>
+                        <span class="circle2"></span>
+                        <span class="circle3"></span>
+                    </div>
+
+                    <div class="step_1">
+                        <p class="desc">Le enviaremos un codigo de verificación a su correo electrónico.</p> 
+                        <div class="input">
+                            <i class="fas fa-envelope" id="icon"></i>
+                            <input type="mail" id="correo" name="correo" placeholder="Correo Electrónico">
+                        </div>
+
+                        <p id="mensaje-error" class="mensaje-error"></p>
+                                 
+                        <button class="button-change" onclick="cambiar_password_next()"><i class="fas fa-sign-in-alt"></i> Siguiente</button>
+                           
+                    </div>
+
+                    <div class="step_2">
+                        <p class="desc">El código fue enviado correctamente, en caso de no recibirlo verifique la casilla de spam.</p>
+
+                        <div class="input">
+                            <i class="fas fa-key" id="icon"></i>
+                            <input type="text" maxlength="8" placeholder="Código de Verificación">
+                        </div>
+                        
+
+                        <p id="mensaje-error" class="mensaje-error"></p>
+                
+                        <button class="button-change" onclick="cambiar_password_volver()"><i class="fas fa-arrow-circle-left"></i> Volver</button>
+                        <button class="button-change" onclick="cambiar_password_next()"><i class="fas fa-sign-in-alt"></i> Siguiente</button>
+
+                        <p>¿No recibiste el mensaje? <a href="">Reenviar</a>.</p>
+                    </div>
+
+                    <div class="step_3">
+
+                        <div class="input">
+                            <i class="fas fa-key" id="icon"></i>
+                            <input type="password" maxlength="4" placeholder="Nuevo PIN">
+                        </div>
+
+                        <div class="input">
+                            <i class="fas fa-lock" id="icon"></i>
+                            <input type="password" maxlength="4" placeholder="Confirmar Nuevo PIN">
+                        </div>
+
+                        <p id="mensaje-error" class="mensaje-error"></p>
+                
+                        <button class="button-change" onclick="cambiar_password_volver()"><i class="fas fa-arrow-circle-left"></i> Volver</button>
+                        <button class="button-change" onclick="cambiar_password_finalizar()"><i class="fas fa-check"></i> Finalizar</button>
+                    </div>
+
+                    
+
+                </div>
+
+                
+            </div>
+
+            
+
+        </div>
+    </section>
+
+    <div id="footer"></div>
+</body>
+</html>

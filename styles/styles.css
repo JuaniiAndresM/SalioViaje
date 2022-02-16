@@ -10600,6 +10600,304 @@ footer .totum p a:hover {
   color: #555;
 }
 
+.change_password {
+  width: 100%;
+  min-height: calc(100vh - 80px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 20px 0;
+  margin-top: 80px;
+}
+
+.change_password .change_password-wrapper {
+  position: relative;
+  z-index: 10;
+  max-width: 330px;
+  width: 100%;
+  padding: 30px 0;
+  margin: 0 20px;
+  -webkit-box-shadow: 10px 0px 20px 0 rgba(0, 0, 0, 0.3);
+          box-shadow: 10px 0px 20px 0 rgba(0, 0, 0, 0.3);
+  background-color: #ffffff;
+  border-radius: 3em 0 3em 3em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.change_password .change_password-wrapper h1 {
+  color: #333333;
+  font-size: 2em;
+}
+
+.change_password .change_password-wrapper h1 span {
+  color: #3844bc;
+}
+
+.change_password .change_password-wrapper #change_password {
+  width: 100%;
+  text-align: center;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper {
+  width: 100%;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_title {
+  color: #3844bc;
+  margin-top: 10px;
+  font-size: 1.2em;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .progress-bar3 {
+  position: relative;
+  width: 90%;
+  height: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .progress-bar3 .line {
+  position: relative;
+  width: 100%;
+  height: 5px;
+  border-radius: 2em;
+  background-color: #aaa;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .progress-bar3 .progress {
+  position: absolute;
+  left: 0;
+  width: 0%;
+  height: 5px;
+  border-radius: 2em;
+  background: -webkit-gradient(linear, left top, right top, from(#3844bc), to(#2b3179));
+  background: linear-gradient(to right, #3844bc, #2b3179);
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .progress-bar3 .circle1,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .progress-bar3 .circle2,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .progress-bar3 .circle3 {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #aaa;
+  position: absolute;
+  left: 0;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .progress-bar3 .circle1 {
+  background-color: #3844bc;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .progress-bar3 .circle2 {
+  left: calc(50% - 10px);
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .progress-bar3 .circle3 {
+  left: calc(100% - 10px);
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 .desc,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 .desc,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 .desc {
+  color: #555;
+  font-size: .9em;
+  margin: 0 10px;
+  margin-top: 30px;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 .input,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 .input,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 .input {
+  position: relative;
+  width: calc(100% - 60px);
+  margin: 30px auto;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 .input input,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 .input select,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 .input input,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 .input select,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 .input input,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 .input select {
+  width: 100%;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #aaa;
+  outline: none;
+  padding-left: 25px;
+  color: #555;
+  font-size: 0.85em;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 .input input::-webkit-input-placeholder,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 .input select::-webkit-input-placeholder,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 .input input::-webkit-input-placeholder,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 .input select::-webkit-input-placeholder,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 .input input::-webkit-input-placeholder,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 .input select::-webkit-input-placeholder {
+  color: #888;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 .input input:-ms-input-placeholder,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 .input select:-ms-input-placeholder,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 .input input:-ms-input-placeholder,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 .input select:-ms-input-placeholder,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 .input input:-ms-input-placeholder,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 .input select:-ms-input-placeholder {
+  color: #888;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 .input input::-ms-input-placeholder,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 .input select::-ms-input-placeholder,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 .input input::-ms-input-placeholder,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 .input select::-ms-input-placeholder,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 .input input::-ms-input-placeholder,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 .input select::-ms-input-placeholder {
+  color: #888;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 .input input::placeholder,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 .input select::placeholder,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 .input input::placeholder,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 .input select::placeholder,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 .input input::placeholder,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 .input select::placeholder {
+  color: #888;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 .input #icon,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 .input #icon,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 .input #icon {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  color: #555;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 .input .password-eye,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 .input .password-eye,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 .input .password-eye {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 12px;
+  right: 0;
+  color: #555;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 .input .password-eye:hover,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 .input .password-eye:hover,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 .input .password-eye:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 .input:nth-child(3) input,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 .input:nth-child(3) input,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 .input:nth-child(3) input {
+  padding-right: 30px;
+  margin-bottom: 0;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 .button-change,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 .button-change,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 .button-change {
+  background: -webkit-gradient(linear, left top, right top, from(#3844bc), to(#2b3179));
+  background: linear-gradient(to right, #3844bc, #2b3179);
+  color: #ffffff;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 2em;
+  margin-top: 10px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  margin-top: 0;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 .button-change i,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 .button-change i,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 .button-change i {
+  margin-right: 5px;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 .button-change:disabled,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 .button-change[disabled],
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 .button-change:disabled,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 .button-change[disabled],
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 .button-change:disabled,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 .button-change[disabled] {
+  background: #cccccc;
+  color: #666666;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 .button-change:disabled span i,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 .button-change[disabled] span i,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 .button-change:disabled span i,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 .button-change[disabled] span i,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 .button-change:disabled span i,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 .button-change[disabled] span i {
+  -webkit-animation: loader-finalizar 1s infinite forwards linear;
+          animation: loader-finalizar 1s infinite forwards linear;
+  margin: 0;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 p,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 p,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 p {
+  color: #3844bc;
+  font-size: .85em;
+  margin: 10px 0;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 p a,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 p a,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 p a {
+  text-decoration: none;
+}
+
+.change_password .change_password-wrapper #change_password .mensaje-error,
+.change_password .change_password-wrapper #change_password #mensaje-error {
+  color: #ff635a;
+  margin-bottom: 20px;
+}
+
 * {
   margin: 0;
   padding: 0;

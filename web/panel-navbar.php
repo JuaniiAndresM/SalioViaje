@@ -106,7 +106,7 @@
 
     }
 
-    if($tipo == 2 || $tipo == 3){
+    if($tipo == 1 || $tipo == 2 || $tipo == 3){
       echo '<li>
               <a href="/SalioViaje/Vehiculos">
                 <span class="icon"><i class="fas fa-bus"></i></span>
