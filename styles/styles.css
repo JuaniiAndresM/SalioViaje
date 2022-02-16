@@ -499,7 +499,9 @@
 .oportunidades .oportunidades-wrapper .list-empty {
   width: 100%;
   height: 100%;
-  display: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -517,7 +519,7 @@
 .oportunidades .oportunidades-wrapper .oportunidades-list {
   width: 100%;
   height: calc(100% - 50px);
-  display: block;
+  display: none;
   margin-top: 10px;
   max-height: 350px;
   overflow: hidden;
@@ -6776,7 +6778,9 @@ footer .totum p a:hover {
 .viajar-wrapper .salioviaje .ofertas-wrapper .list-empty2 {
   width: 100%;
   height: 100%;
-  display: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -6819,7 +6823,7 @@ footer .totum p a:hover {
 .viajar-wrapper .salioviaje .oportunidades-wrapper .oportunidades-list,
 .viajar-wrapper .salioviaje .ofertas-wrapper .oportunidades-list {
   width: 100%;
-  display: block;
+  display: none;
   margin-top: 10px;
   height: calc(100% - 50px);
   overflow: hidden;
