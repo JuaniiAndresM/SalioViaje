@@ -7,6 +7,8 @@ $(document).ready(function () {
 
 var step = 1;
 var count_rutas = 0;
+let fecha_1;
+let fecha_2;
 
 function next(){
     step++;
@@ -125,9 +127,49 @@ function precio_referencia(){
         referencia = distancia * 120;
     }
 
-    $("#precioref_1").attr('placeholder', referencia);
-    $("#precioref_2").attr('placeholder', referencia);
+    $("#precioref_1").attr('value', referencia);
+    $("#precioref_2").attr('value', referencia);
 }
+
+function calcular_hora(){
+    
+    fecha_1 =  $("#fecha_1").val();
+
+    let km = document.getElementById('distancia-input').value
+    let tiempo = $("#fecha_1").val().substring(11,16);
+    let tiempo_2;
+    let horas = tiempo.substring(0,2)
+    let minutos = tiempo.substring(3,5)
+    
+    for (var i = 0; i < km; i++) {
+        if (minutos == 60) {
+            horas++
+            minutos = 0
+        }else if(horas == 24){
+            horas = 0
+            minutos++
+        }else{
+            minutos++
+        }
+    }
+
+    horas++
+
+    if (horas < 10 && minutos < 10) {
+        tiempo_2 = '0'+horas+':0'+minutos
+    }else if(horas < 10 && minutos > 10){
+        tiempo_2 = '0'+horas+':'+minutos
+    }else if(horas > 10 && minutos < 10){
+        tiempo_2 = horas+':0'+minutos
+    }else{
+        tiempo_2 = horas+':'+minutos       
+    }
+
+    fecha_2 = $("#fecha_1").val().substring(0,11)+tiempo_2
+
+    $("#fecha_2").val(fecha_2)
+}
+
 
 function select_origen_destino(type){
     switch(type){
@@ -284,14 +326,15 @@ function etapa_2(){
 /*-------------------------------------------------------------------------------------------*/
 
 function verificar_rutas_para_MTOP(){
-    if (array_rutas == null) {
+
+    if (array_rutas.length == 0) {
 
         console.log("Para agendar con MTOP debe ingresar almenos una ruta")
 
     }else{
 
-        datos_etapa_2_tramo_1['FECHA'] = datos_etapa_2_tramo_1['FECHA'].replace("T", " ");
-        datos_etapa_2_tramo_2['FECHA'] = datos_etapa_2_tramo_2['FECHA'].replace("T", " ");
+        datos_etapa_2_tramo_1['FECHA'] = fecha_1.replace("T", " ");
+        datos_etapa_2_tramo_2['FECHA'] = fecha_2.replace("T", " ");
 
             next(2)
 
@@ -299,12 +342,14 @@ function verificar_rutas_para_MTOP(){
         $('.distancia').html('<i class="fas fa-road"></i> '+datos_etapa_1['DISTANCIA']+" Km")
 
         if (datos_etapa_2_tramo_1['TIPO'] == 1) { $('.tipo_1').html("Agenda") } else { $('.tipo_1').html("Oportunidad") }
+        if (datos_etapa_2_tramo_1['DESCUENTO_OPORTUNIDAD'] != undefined) { $('.tipo_1').html("Agenda") } else { $('.tipo_1').html("Oportunidad") }
         $('.fecha_1').html(datos_etapa_2_tramo_1['FECHA'])
         $('.origen_1').html(datos_etapa_2_tramo_1['ORIGEN'])
         $('.destino_1').html(datos_etapa_2_tramo_1['DESTINO'])
         $('.precio_1').html("$"+datos_etapa_2_tramo_1['PRECIO_REFERENCIA'])
     
         if (datos_etapa_2_tramo_2['TIPO'] == 1) { $('.tipo_2').html("Agenda") } else { $('.tipo_2').html("Oportunidad") }
+        if (datos_etapa_2_tramo_1['DESCUENTO_OPORTUNIDAD'] != undefined) { $('.tipo_1').html("Agenda") } else { $('.tipo_1').html("Oportunidad") }
         $('.fecha_2').html(datos_etapa_2_tramo_2['FECHA'])
         $('.origen_2i').html(datos_etapa_2_tramo_2['ORIGEN'])
         $('.destino_2').html(datos_etapa_2_tramo_2['DESTINO'])
@@ -327,12 +372,14 @@ function cargar_vista_previa(){
     $('.distancia').html('<i class="fas fa-road"></i> '+datos_etapa_1['DISTANCIA']+" Km")
 
     if (datos_etapa_2_tramo_1['TIPO'] == 1) { $('.tipo_1').html("Agenda") } else { $('.tipo_1').html("Oportunidad") }
+    if (datos_etapa_2_tramo_1['DESCUENTO_OPORTUNIDAD'] != undefined) { $('.porcentaje_1').html(datos_etapa_2_tramo_1['DESCUENTO_OPORTUNIDAD']+"%") } else { $('.porcentaje_1').html("No hay descuento") }
     $('.fecha_1').html(datos_etapa_2_tramo_1['FECHA'])
     $('.origen_1').html(datos_etapa_2_tramo_1['ORIGEN'])
     $('.destino_1').html(datos_etapa_2_tramo_1['DESTINO'])
     $('.precio_1').html("$"+datos_etapa_2_tramo_1['PRECIO_REFERENCIA'])
     
     if (datos_etapa_2_tramo_2['TIPO'] == 1) { $('.tipo_2').html("Agenda") } else { $('.tipo_2').html("Oportunidad") }
+    if (datos_etapa_2_tramo_2['DESCUENTO_OPORTUNIDAD'] != undefined) { $('.porcentaje_2').html(datos_etapa_2_tramo_2['DESCUENTO_OPORTUNIDAD']+"%") } else { $('.porcentaje_2').html("No hay descuento") }
     $('.fecha_2').html(datos_etapa_2_tramo_2['FECHA'])
     $('.origen_2i').html(datos_etapa_2_tramo_2['ORIGEN'])
     $('.destino_2').html(datos_etapa_2_tramo_2['DESTINO'])

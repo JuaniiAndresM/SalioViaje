@@ -249,7 +249,7 @@
 
                 <div class="input" id="origen">
                   <i class="far fa-calendar-alt" id="icon"></i>
-                  <input type="datetime-local" id="fecha_1" placeholder="Fecha y Hora" />
+                  <input type="datetime-local" id="fecha_1" placeholder="Fecha y Hora" onchange="calcular_hora()" />
                 </div>
 
                 <div class="input" id="origen">

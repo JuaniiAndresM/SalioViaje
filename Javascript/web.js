@@ -50,7 +50,6 @@ function suscripcion(){
 }
 
 function comprar_oportunidad(id){
-
     window.open('/SalioViaje/Espera/' + id, '_blank');
 }
 

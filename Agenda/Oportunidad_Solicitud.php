@@ -83,7 +83,7 @@ $ID = substr($ID, 0, -1);
     <script src="/SalioViaje/t2voice/functionsJS.js"></script>
     <script type="text/javascript">
             window.onload = function(){
-              console.log(oportunidad_aprobada(<?php echo $_GET['ID']; ?>))
+              oportunidad_aprobada(<?php echo $_GET['ID']; ?>)
             }
     </script>
   </head>

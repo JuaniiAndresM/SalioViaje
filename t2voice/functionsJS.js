@@ -33,11 +33,29 @@ $(document).ready(function () {
 
 let mail_tta;
 
+
+/*
+require_once '../PHP/procedimientosBD.php';
+
+                    if(strpos($estado, "Opci\\u00f3n 1") !== false){
+
+                        $bd = new procedimientosBD();
+                        $bd->cambio_estado_oportunidad("Aprobada",$id_oportunidad);
+
+                    }else if(strpos($estado, "Opci\\u00f3n 3") !== false){
+
+                        $bd = new procedimientosBD();
+                        $bd->cambio_estado_oportunidad("Rechazada",$id_oportunidad);
+
+                    }
+*/
+
+
 function comprar_oportunidad(id){
 
        console.log("comprada y mando mensaje - ID oportunidad : "+id)
 
-
+       let id_llamada = Math.floor(Math.random() * 10000000)
        let mensaje = 'Tu oportunidad ha sido comprada! Aceptar: http://SalioViaje/Solicitud/2A  Rechazar: http://SalioViaje/Solicitud/2R';
 
         $.ajax({
@@ -47,11 +65,8 @@ function comprar_oportunidad(id){
             success: function (response) {
                 console.log(response)
                 response = JSON.parse(response);
-                send.realizarLlamada("tpc_notificacion_opciones","2022-02-07T15:00:00+03:00",'85675223431',response['TELEFONO'],response['NOMBRE'],"Prueba 1 SalióViaje.Presione 1 para aceptar, 3 para rechazar");
-                send.enviarSMS(response['TELEFONO'],"2022-02-04T15:00:00+03:00",mensaje,"2344321");
-            },
-            complete: function (response){
-                window.open('/SalioViaje/Espera/' + id, '_blank');
+                send.realizarLlamada("tpc_notificacion_opciones","2022-02-07T15:00:00+03:00",id_llamada,response['TELEFONO'],response['NOMBRE'],"Su oportunidad numero "+id+" fue comprada. Presione 1 para aceptar, 3 para rechazar",id);
+                send.enviarSMS(response['TELEFONO'],"2022-02-04T15:00:00+03:00",mensaje,id_llamada);
             }
         });
 }

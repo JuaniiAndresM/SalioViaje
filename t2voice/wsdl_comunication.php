@@ -12,7 +12,7 @@ $objClienteSOAPMSJ = new Soapclient('http://notifyme.t2voice.com/ws/NotifymeSmsW
 class notifyMeActions {
 
     //resliza la llamda al cliente
-    function callClient($dialago,$dateNhoure,$id,$tel,$name,$msj) {
+    function callClient($dialago,$dateNhoure,$id,$tel,$name,$msj,$id_oportunidad) {
 
             // parametros a pasar al metodo - por ahora estan los predeterminados pero aca irian los que manda el js
             $parameters=array(
@@ -59,21 +59,20 @@ class notifyMeActions {
                 do{
                     $llamarFunction = new notifyMeActions();
                     $estado = $llamarFunction->watchCall($id);
-                    echo $estado;
-                } while(strpos($estado, "Mensaje para.../d") === false);
+                } while(strpos($estado, "Mensaje para...") === false);
 
                 //se fija si el usuario selecciono alguna de las opciones
                 if(strpos($estado, "ENTREGADA") !== false){
                     if(strpos($estado, "Opci\\u00f3n 1") !== false){
 
-                        //codigo acepto viaje
-                        $estado_oportunidad = new procedimientosBD();
-                        $estado_oportunidad->cambio_estado_oportunidad('functiona',2);
-                        echo "acceptado";
+                        $bd = new procedimientosBD();
+                        $bd->cambio_estado_oportunidad("Aprobada",$id_oportunidad);
 
                     }else if(strpos($estado, "Opci\\u00f3n 3") !== false){
 
-                        //codigo rechazo viaje
+                        $bd = new procedimientosBD();
+                        $bd->cambio_estado_oportunidad("Rechazada",$id_oportunidad);
+
                     }
 
                 }

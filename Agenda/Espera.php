@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -72,12 +73,19 @@
     <script src="/SalioViaje/Javascript/web.js"></script>
     <script src="/SalioViaje/Javascript/viajar.js"></script>
     <script src="/SalioViaje/Javascript/espera.js"></script>
+    <script src="/SalioViaje/t2voice/send_data.js"></script>
+    <script src="/SalioViaje/t2voice/functionsJS.js"></script>
 
     <script type="text/javascript">
         window.addEventListener('beforeunload', function (e) {
             e.preventDefault();
             e.returnValue = '';
+
         });
+
+          window.onload = function(){
+            comprar_oportunidad(<?php echo $_GET['ID']; ?>)            
+          }
     </script>
     
   </head>
