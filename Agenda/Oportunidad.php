@@ -128,14 +128,14 @@
               <div class="driver-desc">
                 <h3><?php echo $datos['NOMBRE'].' '.$datos['APELLIDO']; ?></h3>
                 <p><i class="fas fa-bus"></i> Transportista</p>
-                <p class="calificacion">
+                <!-- <p class="calificacion">
                   <i class="fas fa-star"></i>
                   <i class="fas fa-star"></i>
                   <i class="fas fa-star"></i>
                   <i class="fas fa-star"></i>
                   <i class="fas fa-star-half"></i>
                   (4.35) - <i class="far fa-compass"></i> 820 Viajes
-                </p>
+                </p> -->
               </div>
             </div>
             <div class="oportunidad-buttons">

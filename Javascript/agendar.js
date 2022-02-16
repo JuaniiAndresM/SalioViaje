@@ -182,16 +182,6 @@ function select_origen_destino(type){
             destino = $("#destino_1").val();
             $("#origen_2").val(destino);
             break;
-
-        case 3:
-            origen = $("#origen_2").val();
-            $("#destino_1").val(origen);
-            break;
-
-        case 4:
-            destino = $("#destino_2").val();
-            $("#origen_1").val(destino);
-            break;
     }   
 }
 
@@ -371,14 +361,14 @@ function cargar_vista_previa(){
     $('.pasajeros').html('<i class="fas fa-user-friends"></i> '+datos_etapa_1['CANTIDAD_DE_PASAJEROS'])
     $('.distancia').html('<i class="fas fa-road"></i> '+datos_etapa_1['DISTANCIA']+" Km")
 
-    if (datos_etapa_2_tramo_1['TIPO'] == 1) { $('.tipo_1').html("Agenda") } else { $('.tipo_1').html("Oportunidad") }
+    if (datos_etapa_2_tramo_1['TIPO'] == 1) { $('.tipo_1').html("Agenda") } else { $('.tipo_1').html("Agenda") }
     if (datos_etapa_2_tramo_1['DESCUENTO_OPORTUNIDAD'] != undefined) { $('.porcentaje_1').html(datos_etapa_2_tramo_1['DESCUENTO_OPORTUNIDAD']+"%") } else { $('.porcentaje_1').html("No hay descuento") }
     $('.fecha_1').html(datos_etapa_2_tramo_1['FECHA'])
     $('.origen_1').html(datos_etapa_2_tramo_1['ORIGEN'])
     $('.destino_1').html(datos_etapa_2_tramo_1['DESTINO'])
     $('.precio_1').html("$"+datos_etapa_2_tramo_1['PRECIO_REFERENCIA'])
     
-    if (datos_etapa_2_tramo_2['TIPO'] == 1) { $('.tipo_2').html("Agenda") } else { $('.tipo_2').html("Oportunidad") }
+    if (datos_etapa_2_tramo_2['TIPO'] == 1) { $('.tipo_2').html("Agenda") } else { $('.tipo_2').html("Agenda") }
     if (datos_etapa_2_tramo_2['DESCUENTO_OPORTUNIDAD'] != undefined) { $('.porcentaje_2').html(datos_etapa_2_tramo_2['DESCUENTO_OPORTUNIDAD']+"%") } else { $('.porcentaje_2').html("No hay descuento") }
     $('.fecha_2').html(datos_etapa_2_tramo_2['FECHA'])
     $('.origen_2i').html(datos_etapa_2_tramo_2['ORIGEN'])
