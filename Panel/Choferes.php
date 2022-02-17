@@ -144,29 +144,6 @@
                 onkeyup="buscarUsuarios(2)"
               />
             </div>
-
-            <div class="checkboxs">
-              <div class="checkbox">
-                <input type="checkbox" name="" id="pax" checked />
-                <p>PAX</p>
-              </div>
-              <div class="checkbox">
-                <input type="checkbox" name="" id="tta" checked />
-                <p>TTA</p>
-              </div>
-              <div class="checkbox">
-                <input type="checkbox" name="" id="cho" checked />
-                <p>CHO</p>
-              </div>
-              <div class="checkbox">
-                <input type="checkbox" name="" id="anf" checked />
-                <p>ANF</p>
-              </div>
-              <div class="checkbox">
-                <input type="checkbox" name="" id="htl" checked />
-                <p>HTL</p>
-              </div>
-            </div>
           </div>
           <div class="table-overflow">
             <table class="usuarios-table" id="search-table-usuarios">
