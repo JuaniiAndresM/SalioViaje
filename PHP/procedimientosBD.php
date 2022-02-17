@@ -388,5 +388,82 @@ public function info_usuario_profile($id){
     $stmt->close();
 }
 
+public function traer_datos_empresa($rut){
+    $conn = $this->conexion();
+    $query = "CALL traigo_empresa(?)";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $rut);
+    if ($stmt->execute()) {
+        $stmt->store_result();
+        $stmt->bind_result($id,$rut,$nombre_c,$razon_social,$nro_mtop,$pass_mtop,$id_usuario,$choferes_sub);
+        while ($stmt->fetch()) {
+         $result = array('ID' => $id,'RUT' => $rut, 'NOMBRE_COMERCIAL' => $nombre_c,'RAZON_SOCIAL' => $razon_social,'NRO_MTOP' => $nro_mtop,'PASS_MTOP' => $pass_mtop,'ID_USUARIO' => $id_usuario,'CHOFERES_SUB' => $choferes_sub);
+         $empresa[] = $result;
+     }
+ }
+ $stmt->close();
+ return json_encode($result);
+}
+
+public function traer_datos_vehiculo($rut){
+    $conn = $this->conexion();
+    $query = "CALL traigo_vehiculos(?)";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $rut);
+    if ($stmt->execute()) {
+        $stmt->store_result();
+        $stmt->bind_result($id,$matricula,$marca,$modelo,$combustible,$capacidad,$equipaje,$pet_friendly,$rut_em,$rut_ec);
+        while ($stmt->fetch()) {
+         $result = array('ID' => $id,'MATRICULA' => $matricula, 'MARCA' => $marca,'MODELO' => $modelo,'COMBUSTIBLE' => $combustible,'CAPACIDAD' => $capacidad,'EQUIPAJE' => $equipaje,'PET_FRIENDLY' => $pet_friendly,'RUT_EM' => $rut_em,'RUT_EC' => $rut_ec);
+         $empresa[] = $result;
+     }
+ }
+ $stmt->close();
+ return json_encode($result);
+}
+
+public function editar_usuario($id,$ci,$nombre,$apellido,$mail,$departamento,$barrio,$direccion,$telefono){
+    $conn = $this->conexion();
+    $query = "call editar_usuario(?,?,?,?,?,?,?,?,?)";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("issssssss", $id, $ci, $nombre, $apellido, $mail, $departamento, $barrio, $direccion, $telefono);
+    $stmt->execute();
+    $stmt->close();
+}
+
+public function eliminar_usuario($id){
+    $conn = $this->conexion();
+    $query = "call eliminar_usuario(?)";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $stmt->close();
+}
+
+public function eliminar_empresa($rut){
+    $conn = $this->conexion();
+    $query = "call eliminar_empresa(?)";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("i", $rut);
+    $stmt->execute();
+    $stmt->close();
+}
+
+public function traer_agenda_usuario($id){
+    $conn = $this->conexion();
+    $query = "CALL traigo_agenda(?)";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $id);
+    if ($stmt->execute()) {
+        $stmt->store_result();
+        $stmt->bind_result($id,$vehiculo,$distancia,$cantidad_pasajeros,$fecha,$origen,$destino,$precio,$rutas,$estado,$id_transportista);
+        while ($stmt->fetch()) {
+         $result = array('ID' => $id,'VEHICULO' => $vehiculo, 'DISTANCIA' => $distancia,'CANTIDAD_PASAJERO' => $cantidad_pasajeros,'FECHA' => $fecha,'ORIGEN' => $origen,'DESTINO' => $destino,'PRECIO' => $precio,'RUTAS' => $rutas,'ESTADO' => $estado,'ID_TRANSPORTISTA' => $id_transportista);
+         $empresa[] = $result;
+     }
+ }
+ $stmt->close();
+ return json_encode($result);
+}
 }
 ?>
