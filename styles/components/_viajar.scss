@@ -145,16 +145,12 @@
           margin: auto;
         }
       }
-      .list-empty2 {
-        display: flex;
-      }
 
       .oportunidades-list {
         width: 100%;
         height: 500px;
         display: none;
         margin-top: 10px;
-        height: calc(100% - 50px);
         overflow: hidden;
         overflow-y: auto;
 
@@ -175,21 +171,41 @@
             align-items: center;
 
             .discount {
-              width: 80px;
               height: 80px;
-
+              padding: 10px;
+    
               display: flex;
               justify-content: center;
               align-items: center;
               margin: 10px;
-
+    
               background-color: $contraste_2;
-
-              border-radius: 50%;
-
+    
+              border-radius: 2em;
+    
               h3 {
                 color: $main_1;
                 font-size: 2em;
+              }
+    
+              .precio{
+                margin: 0 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+    
+                p{
+                  font-size: .9em;
+                  margin: 0;
+                }
+                .precio_total{
+                  color: #ff5353;
+                  text-decoration-line: line-through;
+                }
+                .precio_desc{
+                  color: #329e3b;
+                }
               }
             }
             .travel {
@@ -344,7 +360,7 @@
     }
   }
 }
-@media screen and(max-width: 1146px) {
+@media screen and(max-width: 1197px) {
   .viajar-wrapper {
     .oportunidades-viajar {
       .oportunidades-wrapper {
@@ -362,7 +378,7 @@
   }
 }
 
-@media screen and(max-width: 952px) {
+@media screen and(max-width: 1001px) {
   .viajar-wrapper {
     .oportunidades-viajar {
       .oportunidades-wrapper {
@@ -380,7 +396,7 @@
   }
 }
 
-@media screen and(max-width: 829px) {
+@media screen and(max-width: 862px) {
   .viajar-wrapper {
     .oportunidades-viajar {
       .oportunidades-wrapper {

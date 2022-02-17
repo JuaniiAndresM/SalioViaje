@@ -35,7 +35,7 @@ CREATE TABLE `agenda` (
   `Estado` varchar(45) NOT NULL DEFAULT 'Indefinido',
   `idTransportista` int NOT NULL,
   PRIMARY KEY (`idViaje`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,7 +44,34 @@ CREATE TABLE `agenda` (
 
 LOCK TABLES `agenda` WRITE;
 /*!40000 ALTER TABLE `agenda` DISABLE KEYS */;
+INSERT INTO `agenda` VALUES (00010,'STU1111',120,12,'2022-02-17 23:18','Maldonado','Tacuarembó','4080',NULL,'Indefinido',337);
 /*!40000 ALTER TABLE `agenda` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cambio_password`
+--
+
+DROP TABLE IF EXISTS `cambio_password`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `cambio_password` (
+  `ID` int NOT NULL AUTO_INCREMENT,
+  `Usuario_ID` int NOT NULL,
+  `Codigo` varchar(8) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `UID_idx` (`Usuario_ID`),
+  CONSTRAINT `UID` FOREIGN KEY (`Usuario_ID`) REFERENCES `usuarios` (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cambio_password`
+--
+
+LOCK TABLES `cambio_password` WRITE;
+/*!40000 ALTER TABLE `cambio_password` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cambio_password` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -126,7 +153,7 @@ CREATE TABLE `oportunidades` (
   `Estado` varchar(45) NOT NULL DEFAULT 'Indefinido',
   `idTransportista` varchar(45) NOT NULL,
   PRIMARY KEY (`idOportunidad`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -135,6 +162,7 @@ CREATE TABLE `oportunidades` (
 
 LOCK TABLES `oportunidades` WRITE;
 /*!40000 ALTER TABLE `oportunidades` DISABLE KEYS */;
+INSERT INTO `oportunidades` VALUES (00007,60,'STU1111',120,12,'2022-02-17 20:20','Tacuarembó','Maldonado','4080',NULL,'Indefinido','337');
 /*!40000 ALTER TABLE `oportunidades` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -175,7 +203,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (336,'PAX','54879239','johndoe@gmail.com','John','Doe 1','Rondeau','El Pinar','Canelones','98234717',NULL,'$2y$10$ZK.dJGUDaPlY2bZXfjBSjO4s4ymsuLFWJ3XZp9zu.69hqqZlKdlAa',NULL,NULL,NULL,NULL,NULL,NULL),(337,'TTA','95275137','thewolfmodzyt@gmail.com','John','Doe 2','Rondeau','El Pinar','Canelones','98234717',NULL,'$2y$10$xJZ9RlgQSnxTN3UcQ57.LuGyYZPIeZkNjhXpqUj8sU5PoUBAuyVnm','123456789012',NULL,NULL,NULL,NULL,NULL),(338,'CHO','60730766','thewolfmodzyt@gmail.com','John','Doe 3','Rondeau','El Pinar','Canelones','98234717',NULL,'$2y$10$wTs9zzBESKMJVqWRSchv/.uDABxfqZxAUZaQTyxjPSbdoX3yG6sae','123456789010',NULL,NULL,NULL,NULL,NULL),(339,'ANF','37902938','thewolfmodzyt@gmail.com','John','Doe 4','Rondeau','El Pinar','Canelones','98234717',NULL,'$2y$10$YieZ/9YM1mliRSClaXgFB.nj9lgnZJwfxjWxvB4.Ibt2lqatqB8x.','123456789011',NULL,NULL,NULL,NULL,NULL),(340,'HTL','32549606','thewolfmodzyt@gmail.com','John','Doe 5','Rondeau','El Pinar','Canelones','98234717',NULL,'$2y$10$od.c1KWbuCbjG.16l22GlOslfrKU/6QK4K9.3eBxi40Y0gA9RSlK.',NULL,NULL,NULL,'NO','Conrad','Maldonado, P. del Este.'),(341,'ASE','66810354','thewolfmodzyt@gmail.com','John','Doe 6','Rondeau','El Pinar','Canelones','98234717',NULL,'$2y$10$dy8AfQdR2tixUOWKVwnE9.L7FRoat8Lnfigf4Jpa0RC7p1hr26Fre',NULL,NULL,NULL,NULL,NULL,NULL),(342,'AGT','80566971','thewolfmodzyt@gmail.com','John','Doe 7','Rondeau','El Pinar','Canelones','98234717',NULL,'$2y$10$Iws1sHUbu9AkLDkJX1AeSewLVvqcqvA8OH7uEYZtM1l/symZHCHja','123456789013',NULL,NULL,NULL,NULL,NULL),(343,'ADM','15247819','thewolfmodzyt@gmail.com','Admin','Example','Rondeau','El Pinar','Canelones','98234717',NULL,'$2y$10$zW8fdNgU9GdbL0R9Q3ltd.ykIB9PjlLTF7D/wYoKPuxEMWfMMaIRy',NULL,'admin','$2y$10$zW8fdNgU9GdbL0R9Q3ltd.ykIB9PjlLTF7D/wYoKPuxEMWfMMaIRy',NULL,NULL,NULL);
+INSERT INTO `usuarios` VALUES (336,'PAX','54879239','johndoe@gmail.com','John','Doe 1','Rondeau','El Pinar','Canelones','98234717',NULL,'$2a$10$/FGMzd9cedBaOcmbqrCCWemwbhRBUSUmf6/db0X7auS6uCDLTTMfi',NULL,NULL,NULL,NULL,NULL,NULL),(337,'TTA','95275137','thewolfmodzyt@gmail.com','John','Doe 2','Rondeau','El Pinar','Canelones','98234717',NULL,'$2y$10$xJZ9RlgQSnxTN3UcQ57.LuGyYZPIeZkNjhXpqUj8sU5PoUBAuyVnm','123456789012',NULL,NULL,NULL,NULL,NULL),(338,'CHO','60730766','thewolfmodzyt@gmail.com','John','Doe 3','Rondeau','El Pinar','Canelones','98234717',NULL,'$2y$10$wTs9zzBESKMJVqWRSchv/.uDABxfqZxAUZaQTyxjPSbdoX3yG6sae','123456789010',NULL,NULL,NULL,NULL,NULL),(339,'ANF','37902938','thewolfmodzyt@gmail.com','John','Doe 4','Rondeau','El Pinar','Canelones','98234717',NULL,'$2y$10$YieZ/9YM1mliRSClaXgFB.nj9lgnZJwfxjWxvB4.Ibt2lqatqB8x.','123456789011',NULL,NULL,NULL,NULL,NULL),(340,'HTL','32549606','thewolfmodzyt@gmail.com','John','Doe 5','Rondeau','El Pinar','Canelones','98234717',NULL,'$2y$10$od.c1KWbuCbjG.16l22GlOslfrKU/6QK4K9.3eBxi40Y0gA9RSlK.',NULL,NULL,NULL,'NO','Conrad','Maldonado, P. del Este.'),(341,'ASE','66810354','thewolfmodzyt@gmail.com','John','Doe 6','Rondeau','El Pinar','Canelones','98234717',NULL,'$2y$10$dy8AfQdR2tixUOWKVwnE9.L7FRoat8Lnfigf4Jpa0RC7p1hr26Fre',NULL,NULL,NULL,NULL,NULL,NULL),(342,'AGT','80566971','thewolfmodzyt@gmail.com','John','Doe 7','Rondeau','El Pinar','Canelones','98234717',NULL,'$2y$10$Iws1sHUbu9AkLDkJX1AeSewLVvqcqvA8OH7uEYZtM1l/symZHCHja','123456789013',NULL,NULL,NULL,NULL,NULL),(343,'ADM','15247819','thewolfmodzyt@gmail.com','Admin','Example','Rondeau','El Pinar','Canelones','98234717',NULL,'$2y$10$zW8fdNgU9GdbL0R9Q3ltd.ykIB9PjlLTF7D/wYoKPuxEMWfMMaIRy',NULL,'admin','$2y$10$zW8fdNgU9GdbL0R9Q3ltd.ykIB9PjlLTF7D/wYoKPuxEMWfMMaIRy',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -230,7 +258,7 @@ CREATE TABLE `visitas` (
 
 LOCK TABLES `visitas` WRITE;
 /*!40000 ALTER TABLE `visitas` DISABLE KEYS */;
-INSERT INTO `visitas` VALUES (1008);
+INSERT INTO `visitas` VALUES (111);
 /*!40000 ALTER TABLE `visitas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -344,6 +372,25 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `cambiar_password` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `cambiar_password`(IN id_u INT, IN PIN_nuevo varchar(70))
+BEGIN
+	UPDATE salioviajeuy_salioviajeuy.usuarios SET PIN = PIN_Nuevo WHERE ID = id_u;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `cambio_estado_oportunidad` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -363,6 +410,44 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `codigo_cambiar_password` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `codigo_cambiar_password`(IN id_u INT, IN codigo varchar(8))
+BEGIN
+	INSERT INTO salioviajeuy_salioviajeuy.cambio_password (Usuario_ID,Codigo) values (id_u,codigo);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `confirmo_mail` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `confirmo_mail`(IN mail VARCHAR(300))
+BEGIN
+	SELECT ID FROM usuarios WHERE Email = mail;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `editar_pregunta_FAQ` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -376,6 +461,63 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `editar_pregunta_FAQ`(PRG varchar(150), RES longtext, ID int)
 BEGIN
 	UPDATE `salioviajeuy_salioviajeuy`.`faqs` SET `Pregunta` = PRG, `Respuesta` = RES WHERE (`idPregunta` = ID);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `editar_usuario` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `editar_usuario`(IN id_u INT, IN CI_u varchar(8), IN Nombre_u varchar(45), IN Apellido_u varchar(45), IN mail_u varchar(300), IN Dep_u varchar(45), IN Barr_u varchar(45), IN Dir_u varchar(45), IN Tel_u varchar(9))
+BEGIN
+	UPDATE salioviajeuy_salioviajeuy.usuarios SET CI = CI_u, Nombre = Nombre_u, Apellido = Apellido_u, Email = mail_u, Departamento = Dep_u, Barrio = Barr_u, Direccion = Dir_u, Telefono = Tel_u WHERE ID = id_u;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `eliminar_empresa` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `eliminar_empresa`(IN RUT_EM INT)
+BEGIN
+DELETE FROM empresas WHERE RUT_EM = RUT;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `eliminar_usuario` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `eliminar_usuario`(IN id_u INT)
+BEGIN
+DELETE FROM usuarios WHERE id_u = ID;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -509,6 +651,63 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `traer_agenda` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `traer_agenda`(IN id_u VARCHAR(12))
+BEGIN
+SELECT * FROM agenda WHERE id_u = idTransportista;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `traigo_agenda` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `traigo_agenda`(IN id_u VARCHAR(12))
+BEGIN
+SELECT * FROM agenda WHERE id_u = idTransportista;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `traigo_empresa` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `traigo_empresa`(IN rut_e VARCHAR(12))
+BEGIN
+SELECT * FROM empresas WHERE rut_e = RUT;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `traigo_empresas` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -522,6 +721,25 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `traigo_empresas`()
 BEGIN
 SELECT Nombre_C,Razon_S,RUT,Choferes_sub FROM empresas;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `traigo_vehiculos` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `traigo_vehiculos`(IN rut_e VARCHAR(12))
+BEGIN
+SELECT * FROM vehiculos WHERE rut_e = RUT_EM;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -563,4 +781,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-02-16 20:00:17
+-- Dump completed on 2022-02-17 17:21:17
