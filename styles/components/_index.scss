@@ -28,8 +28,7 @@ $contraste_2: #ffffff;
 .landing {
   width: 100%;
   max-height: 700px;
-  
-  
+
   background-color: #fff;
   margin-top: 80px;
 
@@ -97,7 +96,6 @@ $contraste_2: #ffffff;
       align-items: center;
 
       .landing-img-wrapper {
-
         height: 100%;
 
         border-radius: 6em 6em 0 6em;
@@ -133,7 +131,7 @@ $contraste_2: #ffffff;
     }
   }
 
-  #hr{
+  #hr {
     margin: 10px auto;
   }
   hr {
@@ -341,7 +339,7 @@ $contraste_2: #ffffff;
           padding: 0;
 
           text-decoration: none;
-          font-size: .9em;
+          font-size: 0.9em;
 
           display: flex;
           justify-content: center;
@@ -379,25 +377,32 @@ $contraste_2: #ffffff;
     margin: 10px auto;
   }
 
-  .oportunidades-wrapper{
+  .oportunidades-wrapper {
     max-width: 1300px;
     width: 100%;
-    height: 400px;
     padding: 20px;
     margin-top: 30px;
 
     border-radius: 3em 0 3em 3em;
 
     background-color: $contraste_2;
-    box-shadow: 10px 0 20px 0 rgba($color: #000000, $alpha: .3);
+    box-shadow: 10px 0 20px 0 rgba($color: #000000, $alpha: 0.3);
+  }
 
-    .search{
+  .filter-wrapper {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .search {
       position: relative;
 
       width: 200px;
       height: 40px;
 
-      input{
+      input {
         width: 100%;
         height: 40px;
         padding-left: 25px;
@@ -405,15 +410,15 @@ $contraste_2: #ffffff;
         border: none;
         color: #666;
       }
-      input::placeholder{
+      input::placeholder {
         color: #aaa;
       }
-      input:focus{
+      input:focus {
         outline: 1px solid #aaa;
         border-radius: 10px;
       }
 
-      i{
+      i {
         position: absolute;
         top: 12px;
         left: 5px;
@@ -422,133 +427,182 @@ $contraste_2: #ffffff;
       }
     }
 
-    .list-empty{
-      width: 100%;
-      height: 100%;
-
-      display: none;
-      justify-content: center;
-      align-items: center;
-      margin-top: -25px;
-      p{
-        color: $main_1;
-        margin: auto;
+    .button-filtrar{
+      button{
+        background-color: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        color: #888;
+        width: 100px;
+        transition: .3s;
+      }
+      button:hover{
+        color: #555;
       }
     }
+  }
 
-    .oportunidades-list{
-      width: 100%;
-      height: calc(100% - 50px);
-      display: block;
-      margin-top: 10px;
-      max-height: 350px;
-      overflow: hidden;
-      overflow-y: auto;
+  #filters {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 
-      .oportunidad{
-        width: calc(100% - 20px);
-        border-radius: 3em 0 3em 3em;
-        background-color: $main_1;
+    .input {
+      position: relative;
+      width: 180px;
+      margin: 10px;
 
-        margin: 15px auto;
+      input,
+      select {
+        width: 100%;
+        height: 40px;
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid #aaa;
+        outline: none;
+        padding-left: 25px;
+        color: #555;
+        font-size: 0.85em;
+      }
+      input::placeholder,
+      select::placeholder {
+        color: #888;
+      }
 
+      #icon {
+        position: absolute;
+        top: 10px;
+        left: 0;
+        color: #555;
+      }
+    }
+  }
+
+  .list-empty {
+    width: 100%;
+    height: 400px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -25px;
+    p {
+      color: $main_1;
+      margin: auto;
+    }
+  }
+
+  .oportunidades-list {
+    width: 100%;
+    height: 400px;
+    display: none;
+    margin-top: 10px;
+    max-height: 350px;
+    overflow: hidden;
+    overflow-y: auto;
+
+    .oportunidad {
+      width: calc(100% - 20px);
+      border-radius: 3em 0 3em 3em;
+      background-color: $main_1;
+
+      margin: 15px auto;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .oportunidad-left {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: center;
 
-        .oportunidad-left{
+        .discount {
+          width: 80px;
+          height: 80px;
+
           display: flex;
-          justify-content: flex-start;
+          justify-content: center;
           align-items: center;
+          margin: 10px;
 
-          .discount{
-            width: 80px;
-            height: 80px;
+          background-color: $contraste_2;
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 10px;
+          border-radius: 50%;
 
-            background-color: $contraste_2;
-
-            border-radius: 50%;
-            
-
-            h3{
-              color: $main_1;
-              font-size: 2em;
-            }
-          }
-          .travel{
-            text-align: left;
-            margin: 0 10px;
-
-            p{
-              margin: 5px 10px;
-              color: $contraste_2;
-              i{
-                font-size: 1.1em;
-              }
-            }
-            
+          h3 {
+            color: $main_1;
+            font-size: 2em;
           }
         }
-        
+        .travel {
+          text-align: left;
+          margin: 0 10px;
 
-        .oportunidad-right{
-          display: flex;
-          justify-content: flex-end;
-          align-items: center;
-
-          .travel{
-            text-align: center;
-            margin: 0 10px;
-
-            p{
-              margin: 5px 10px;
-              width: 150px;
-              color: $contraste_2;
-
-              i{
-                font-size: 1.1em;
-              }
+          p {
+            margin: 5px 10px;
+            color: $contraste_2;
+            i {
+              font-size: 1.1em;
             }
-            .calificacion{
-              color: #ffaa00;
-            }
-            
           }
+        }
+      }
 
-          .button-wrapper{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            margin-right: 20px;
+      .oportunidad-right {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
 
-            button{
-              width: 150px;
-              height: 35px;
+        .travel {
+          text-align: center;
+          margin: 0 10px;
 
-              border: none;
-              outline: none;
-              color: $main_1;
-              margin: 5px 10px;
-              background-color: $contraste_2;
+          p {
+            margin: 5px 10px;
+            width: 150px;
+            color: $contraste_2;
 
-              border-radius: 10px;
-
-              transition: .3s;
-              cursor: pointer;
+            i {
+              font-size: 1.1em;
             }
-            button:hover{
-              transform: scale(1.05);
-            }
-            .comprar-button{
-              background-color: #70ff7c;
-              color: $contraste_1;
-            }
+          }
+          .calificacion {
+            color: #ffaa00;
+          }
+        }
+
+        .button-wrapper {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          margin-right: 20px;
+
+          button {
+            width: 150px;
+            height: 35px;
+
+            border: none;
+            outline: none;
+            color: $main_1;
+            margin: 5px 10px;
+            background-color: $contraste_2;
+
+            border-radius: 10px;
+
+            transition: 0.3s;
+            cursor: pointer;
+          }
+          button:hover {
+            transform: scale(1.05);
+          }
+          .comprar-button {
+            background-color: #70ff7c;
+            color: $contraste_1;
           }
         }
       }
@@ -596,11 +650,11 @@ $contraste_2: #ffffff;
 }
 
 @media screen and(max-width: 1550px) {
-  .landing{
+  .landing {
     .landing-wrapper-grid {
-      .landing-right{
+      .landing-right {
         .landing-img-wrapper {
-          img{
+          img {
             object-position: right;
           }
         }
@@ -645,7 +699,7 @@ $contraste_2: #ffffff;
           width: calc(100% - 20px);
           border-radius: 3em 3em 0 3em;
 
-          img{
+          img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -658,61 +712,61 @@ $contraste_2: #ffffff;
 }
 
 @media screen and(max-width: 1146px) {
-  .oportunidades{
-    .oportunidades-wrapper{
-      .oportunidades-list{
-        .oportunidad{
-          .oportunidad-left{
-            .travel:nth-child(4){
+  .oportunidades {
+    .oportunidades-wrapper {
+      .oportunidades-list {
+        .oportunidad {
+          .oportunidad-left {
+            .travel:nth-child(4) {
               display: none;
             }
           }
         }
       }
     }
-  } 
+  }
 }
 
 @media screen and(max-width: 952px) {
-  .oportunidades{
-    .oportunidades-wrapper{
-      .oportunidades-list{
-        .oportunidad{
-          .oportunidad-right{
-            .travel{
+  .oportunidades {
+    .oportunidades-wrapper {
+      .oportunidades-list {
+        .oportunidad {
+          .oportunidad-right {
+            .travel {
               display: none;
             }
           }
         }
       }
     }
-  } 
+  }
 }
 
 @media screen and(max-width: 829px) {
-  .oportunidades{
-    .oportunidades-wrapper{
-      .oportunidades-list{
-        .oportunidad{
+  .oportunidades {
+    .oportunidades-wrapper {
+      .oportunidades-list {
+        .oportunidad {
           flex-direction: column;
           width: calc(100% - 20px);
           margin: 20px auto;
-          .oportunidad-left{
+          .oportunidad-left {
             flex-direction: column;
 
-            .travel{
+            .travel {
               text-align: center;
-              p{
+              p {
                 margin: 10px 5px;
               }
             }
           }
-          .oportunidad-right{
+          .oportunidad-right {
             width: 100%;
             flex-direction: column;
             margin: 10px 0;
 
-            .button-wrapper{
+            .button-wrapper {
               width: 100%;
               margin: 10px 0;
               display: flex;
@@ -721,7 +775,7 @@ $contraste_2: #ffffff;
               flex-direction: row;
               flex-wrap: wrap;
 
-              button{
+              button {
                 margin: 5px 10px;
               }
             }
@@ -729,5 +783,5 @@ $contraste_2: #ffffff;
         }
       }
     }
-  } 
+  }
 }
