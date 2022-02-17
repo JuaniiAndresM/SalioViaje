@@ -643,8 +643,8 @@
 }
 
 .oportunidades .oportunidades-list .oportunidad .oportunidad-left .discount {
-  width: 80px;
   height: 80px;
+  padding: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -656,12 +656,43 @@
           align-items: center;
   margin: 10px;
   background-color: #ffffff;
-  border-radius: 50%;
+  border-radius: 2em;
 }
 
 .oportunidades .oportunidades-list .oportunidad .oportunidad-left .discount h3 {
   color: #3844bc;
   font-size: 2em;
+}
+
+.oportunidades .oportunidades-list .oportunidad .oportunidad-left .discount .precio {
+  margin: 0 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.oportunidades .oportunidades-list .oportunidad .oportunidad-left .discount .precio p {
+  font-size: .9em;
+}
+
+.oportunidades .oportunidades-list .oportunidad .oportunidad-left .discount .precio .precio_total {
+  color: #ff5353;
+  -webkit-text-decoration-line: line-through;
+          text-decoration-line: line-through;
+}
+
+.oportunidades .oportunidades-list .oportunidad .oportunidad-left .discount .precio .precio_desc {
+  color: #329e3b;
 }
 
 .oportunidades .oportunidades-list .oportunidad .oportunidad-left .travel {
@@ -847,19 +878,19 @@
   }
 }
 
-@media screen and (max-width: 1146px) {
+@media screen and (max-width: 1226px) {
   .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel:nth-child(4) {
     display: none;
   }
 }
 
-@media screen and (max-width: 952px) {
+@media screen and (max-width: 1031px) {
   .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .travel {
     display: none;
   }
 }
 
-@media screen and (max-width: 829px) {
+@media screen and (max-width: 842px) {
   .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -8080,6 +8111,18 @@ footer .totum p a:hover {
   color: #555;
 }
 
+.agendarViaje #step_1 #mensaje-agenda-info,
+.agendarViaje #step_2 #mensaje-agenda-info,
+.agendarViaje #step_3 #mensaje-agenda-info,
+.agendarViaje #step_4 #mensaje-agenda-info,
+.agendarViaje #step_5 #mensaje-agenda-info,
+.agendarViaje #step_hotel #mensaje-agenda-info {
+  color: #ffaa00;
+  font-size: .9em;
+  text-align: center;
+  margin: 20px 0;
+}
+
 .agendarViaje #step_1 .inputs-wrapper-agendar,
 .agendarViaje #step_1 .inputs-agendar,
 .agendarViaje #step_1 .inputs-wrapper-agendar-rutas,
@@ -8331,58 +8374,24 @@ footer .totum p a:hover {
   color: #888;
 }
 
-.agendarViaje #step_1 .inputs-wrapper-agendar .input input#distancia-input, .agendarViaje #step_1 .inputs-wrapper-agendar .input input#desc_oport1, .agendarViaje #step_1 .inputs-wrapper-agendar .input input#desc_oport2,
+.agendarViaje #step_1 .inputs-wrapper-agendar .input input#distancia-input,
 .agendarViaje #step_1 .inputs-agendar .input input#distancia-input,
-.agendarViaje #step_1 .inputs-agendar .input input#desc_oport1,
-.agendarViaje #step_1 .inputs-agendar .input input#desc_oport2,
 .agendarViaje #step_1 .inputs-wrapper-agendar-rutas .input input#distancia-input,
-.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .input input#desc_oport1,
-.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .input input#desc_oport2,
 .agendarViaje #step_2 .inputs-wrapper-agendar .input input#distancia-input,
-.agendarViaje #step_2 .inputs-wrapper-agendar .input input#desc_oport1,
-.agendarViaje #step_2 .inputs-wrapper-agendar .input input#desc_oport2,
 .agendarViaje #step_2 .inputs-agendar .input input#distancia-input,
-.agendarViaje #step_2 .inputs-agendar .input input#desc_oport1,
-.agendarViaje #step_2 .inputs-agendar .input input#desc_oport2,
 .agendarViaje #step_2 .inputs-wrapper-agendar-rutas .input input#distancia-input,
-.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .input input#desc_oport1,
-.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .input input#desc_oport2,
 .agendarViaje #step_3 .inputs-wrapper-agendar .input input#distancia-input,
-.agendarViaje #step_3 .inputs-wrapper-agendar .input input#desc_oport1,
-.agendarViaje #step_3 .inputs-wrapper-agendar .input input#desc_oport2,
 .agendarViaje #step_3 .inputs-agendar .input input#distancia-input,
-.agendarViaje #step_3 .inputs-agendar .input input#desc_oport1,
-.agendarViaje #step_3 .inputs-agendar .input input#desc_oport2,
 .agendarViaje #step_3 .inputs-wrapper-agendar-rutas .input input#distancia-input,
-.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .input input#desc_oport1,
-.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .input input#desc_oport2,
 .agendarViaje #step_4 .inputs-wrapper-agendar .input input#distancia-input,
-.agendarViaje #step_4 .inputs-wrapper-agendar .input input#desc_oport1,
-.agendarViaje #step_4 .inputs-wrapper-agendar .input input#desc_oport2,
 .agendarViaje #step_4 .inputs-agendar .input input#distancia-input,
-.agendarViaje #step_4 .inputs-agendar .input input#desc_oport1,
-.agendarViaje #step_4 .inputs-agendar .input input#desc_oport2,
 .agendarViaje #step_4 .inputs-wrapper-agendar-rutas .input input#distancia-input,
-.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .input input#desc_oport1,
-.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .input input#desc_oport2,
 .agendarViaje #step_5 .inputs-wrapper-agendar .input input#distancia-input,
-.agendarViaje #step_5 .inputs-wrapper-agendar .input input#desc_oport1,
-.agendarViaje #step_5 .inputs-wrapper-agendar .input input#desc_oport2,
 .agendarViaje #step_5 .inputs-agendar .input input#distancia-input,
-.agendarViaje #step_5 .inputs-agendar .input input#desc_oport1,
-.agendarViaje #step_5 .inputs-agendar .input input#desc_oport2,
 .agendarViaje #step_5 .inputs-wrapper-agendar-rutas .input input#distancia-input,
-.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .input input#desc_oport1,
-.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .input input#desc_oport2,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .input input#distancia-input,
-.agendarViaje #step_hotel .inputs-wrapper-agendar .input input#desc_oport1,
-.agendarViaje #step_hotel .inputs-wrapper-agendar .input input#desc_oport2,
 .agendarViaje #step_hotel .inputs-agendar .input input#distancia-input,
-.agendarViaje #step_hotel .inputs-agendar .input input#desc_oport1,
-.agendarViaje #step_hotel .inputs-agendar .input input#desc_oport2,
-.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .input input#distancia-input,
-.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .input input#desc_oport1,
-.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .input input#desc_oport2 {
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .input input#distancia-input {
   padding-right: 30px;
   text-align: right;
 }

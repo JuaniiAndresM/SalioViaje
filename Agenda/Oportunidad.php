@@ -125,18 +125,6 @@
               <div class="driver-icon">
                 <img src="/SalioViaje/media/svg/Logo-SalioViaje-White.svg" alt="Logo SalióViaje">
               </div>
-              <div class="driver-desc">
-                <h3><?php echo $datos['NOMBRE'].' '.$datos['APELLIDO']; ?></h3>
-                <p><i class="fas fa-bus"></i> Transportista</p>
-                <!-- <p class="calificacion">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star-half"></i>
-                  (4.35) - <i class="far fa-compass"></i> 820 Viajes
-                </p> -->
-              </div>
             </div>
             <div class="oportunidad-buttons">
                 <button class="comprar-button" id="comprar_oportunidad" onclick="comprar_oportunidad(<?php echo $datos['ID']; ?>)"><i class="fas fa-comments-dollar"></i> Comprar</button>
@@ -182,8 +170,8 @@
                 <h3><?php echo $datos['DESCUENTO']; ?>% <i class="fas fa-tags"></i></h3>
               </div>
               <div class="price">
-                <p class="desc">$ <?php echo $datos['PRECIO']; ?></p>
-                <p>$ <?php echo $PRECIO_CON_DESCUENTO_APLICADO; ?></p>
+                <p class="desc">$ <?php echo number_format($datos['PRECIO']); ?></p>
+                <p>$ <?php echo number_format($PRECIO_CON_DESCUENTO_APLICADO); ?></p>
               </div>
             </div>
 

@@ -68,9 +68,10 @@ function traer_oportunidades(){
         url: "/SalioViaje/PHP/Tablas/oportunidadesIndex.php",
         success: function (response) {
             console.log(response);
-            if (response == '0') {$('.list-empty').show()} else {
-                $('.list-empty').hide()
-                $('.oportunidades-list').html(response)
+            if (response == '0') {$('.list-empty').css('display', 'flex')} else {
+                $('.list-empty').hide();                
+                $('.oportunidades-list').html(response);
+                $('.oportunidades-list').show();
             } 
              
         }

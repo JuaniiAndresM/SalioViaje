@@ -99,6 +99,18 @@ function select_tipo(tipo){
             }
             break;
     }
+
+    if($("#tipo-select_1").val() == 2 && $("#tipo-select_2").val() == 2){
+        $('#mensaje-agenda-info').hide();
+    }else{
+        $('#mensaje-agenda-info').show();
+
+        if($("#tipo-select_1").val() == 2){
+            $('#mensaje-agenda-info').html('<i class="fas fa-info-circle"></i> Debes llenar primero el Tramo N° 2.');
+        }else if($("#tipo-select_2").val() == 2){
+            $('#mensaje-agenda-info').html('<i class="fas fa-info-circle"></i> Debes llenar primero el Tramo N° 1.');
+        }
+    }
 }
 
 function precio_referencia(){
@@ -361,7 +373,7 @@ function cargar_vista_previa(){
     $('.pasajeros').html('<i class="fas fa-user-friends"></i> '+datos_etapa_1['CANTIDAD_DE_PASAJEROS'])
     $('.distancia').html('<i class="fas fa-road"></i> '+datos_etapa_1['DISTANCIA']+" Km")
 
-    if (datos_etapa_2_tramo_1['TIPO'] == 1) { $('.tipo_1').html("Agenda") } else { $('.tipo_1').html("Agenda") }
+    if (datos_etapa_2_tramo_1['TIPO'] == 1) { $('.tipo_1').html("Agenda") } else { $('.tipo_1').html("Oportunidad") }
     if (datos_etapa_2_tramo_1['DESCUENTO_OPORTUNIDAD'] != undefined) { $('.porcentaje_1').html(datos_etapa_2_tramo_1['DESCUENTO_OPORTUNIDAD']+"%") } else { $('.porcentaje_1').html("No hay descuento") }
     $('.fecha_1').html(datos_etapa_2_tramo_1['FECHA'])
     $('.origen_1').html(datos_etapa_2_tramo_1['ORIGEN'])

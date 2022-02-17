@@ -227,8 +227,9 @@
           </div>
           
           <div id="step_2">
-            <div class="inputs-wrapper-agendar">
+            <p id="mensaje-agenda-info"></p>
 
+            <div class="inputs-wrapper-agendar">
               <div class="column">
                 <h2 class="step_title"><i class="fas fa-road"></i> Tramo N° 1</h2>
 
@@ -243,8 +244,14 @@
 
                 <div class="input" id="descuento1">
                   <i class="fas fa-tags" id="icon"></i>
-                  <input type="number" id="desc_oport1" placeholder="Descuento de la Oportunidad" />
-                  <p id="end-text">%</p>
+                  <select name="" id="desc_oport1" placeholder="Descuento de la Oportunidad">
+                    <option value="0" disabled selected hidden>Seleccione un Descuento</option>
+                    <option value="1">50%</option>
+                    <option value="2">60%</option>
+                    <option value="3">70%</option>
+                    <option value="4">80%</option>
+                    <option value="5">90%</option>
+                  </select>
                 </div>
 
                 <div class="input" id="origen">
@@ -296,8 +303,14 @@
 
                 <div class="input" id="descuento2">
                   <i class="fas fa-tags" id="icon"></i>
-                  <input type="number" id="desc_oport2" placeholder="Descuento de la Oportunidad" />
-                  <p id="end-text">%</p>
+                  <select name="" id="desc_oport2" placeholder="Descuento de la Oportunidad">
+                    <option value="0" disabled selected hidden>Seleccione un Descuento</option>
+                    <option value="1">50%</option>
+                    <option value="2">60%</option>
+                    <option value="3">70%</option>
+                    <option value="4">80%</option>
+                    <option value="5">90%</option>
+                  </select>
                 </div>
 
                 <div class="input" id="origen">
