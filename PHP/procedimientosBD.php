@@ -500,6 +500,23 @@ public function traer_agenda_usuario($id){
  return json_encode($result);
 }
 
+public function traer_oportunidades_usuario($id){
+    $conn = $this->conexion();
+    $query = "CALL traigo_oportunidades(?)";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $id);
+    if ($stmt->execute()) {
+        $stmt->store_result();
+        $stmt->bind_result($id,$descuento,$vehiculo,$distancia,$cantidad_pasajeros,$fecha,$origen,$destino,$precio,$rutas,$estado,$id_transportista);
+        while ($stmt->fetch()) {
+         $result = array('ID' => $id,'DESCUENTO' => $descuento,'VEHICULO' => $vehiculo, 'DISTANCIA' => $distancia,'CANTIDAD_PASAJERO' => $cantidad_pasajeros,'FECHA' => $fecha,'ORIGEN' => $origen,'DESTINO' => $destino,'PRECIO' => $precio,'RUTAS' => $rutas,'ESTADO' => $estado,'ID_TRANSPORTISTA' => $id_transportista);
+         $agenda[] = $result;
+     }
+ }
+ $stmt->close();
+ return json_encode($result);
+}
+
 public function confirmar_mail($mail){
     $conn = $this->conexion();
     $query = "CALL confirmo_mail(?)";
