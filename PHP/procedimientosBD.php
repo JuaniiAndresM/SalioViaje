@@ -423,6 +423,23 @@ public function traer_datos_empresa($rut){
  return json_encode($result);
 }
 
+public function traer_empresas_usuario($id){
+    $conn = $this->conexion();
+    $query = "CALL traigo_empresas_usuario(?)";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("i", $id);
+    if ($stmt->execute()) {
+        $stmt->store_result();
+        $stmt->bind_result($id,$rut,$nombre_c,$razon_social,$nro_mtop,$pass_mtop,$id_usuario,$choferes_sub);
+        while ($stmt->fetch()) {
+         $result = array('ID' => $id,'RUT' => $rut, 'NOMBRE_COMERCIAL' => $nombre_c,'RAZON_SOCIAL' => $razon_social,'NRO_MTOP' => $nro_mtop,'PASS_MTOP' => $pass_mtop,'ID_USUARIO' => $id_usuario,'CHOFERES_SUB' => $choferes_sub);
+         $empresa[] = $result;
+     }
+ }
+ $stmt->close();
+ return json_encode($result);
+}
+
 public function traer_datos_vehiculo($rut){
     $conn = $this->conexion();
     $query = "CALL traigo_vehiculos(?)";
