@@ -768,6 +768,7 @@ function validacion(TIPO,DATOS){
 
   reset_errores()
 
+
   switch(TIPO){
     case "USUARIO":
     validacion = $.ajax({
@@ -1071,4 +1072,34 @@ function reset_errores(){
   $('#password_mtop').css('border-bottom', '1px solid #aaaaaa')
   $('#combustible').css('border-bottom', '1px solid #aaaaaa')
 
+}
+
+/*-------------------------------------------------------------------------------------------*/
+//                                     Edicion                                             //
+/*-------------------------------------------------------------------------------------------*/
+
+function guardarEdicionUsuario(id){
+   datos_Usuario = {
+       "CI": document.getElementById("CIEdicion").value,
+       "CORREO": document.getElementById("CorreoEdicion").value,
+       "NOMBRE": document.getElementById("NombreEdicion").value,
+       "APELLIDO": document.getElementById("ApellidoEdicion").value,
+       "DIRECCION": document.getElementById("DireccionEdicion").value,
+       "BARRIO": document.getElementById("BarrioEdicion").value,
+       "DEPARTAMENTO": document.getElementById("DepartamentoEdicion").value,
+       "TELEFONO": document.getElementById("TelEdicion").value,
+       "PIN": 1111,
+       "RE-PIN": 1111
+    };
+   if(validacion("USUARIO",datos_Usuario) == true){
+           $.ajax({
+               type: "POST",
+               url: "../../PHP/llamadosSol.php",
+               //aca mandarias la info necesaria para el xml de llamada
+               data: {tipe:0, ID:id, CI:datos_Usuario["CI"], NOMBRE:datos_Usuario["NOMBRE"], APELLIDO:datos_Usuario["APELLIDO"], CORREO:datos_Usuario["CORREO"], DEPARTAMENTO:datos_Usuario["DEPARTAMENTO"], BARRIO:datos_Usuario["BARRIO"], DIRECCION:datos_Usuario["DIRECCION"], TEL:datos_Usuario["TELEFONO"]},
+               success: function (response) {
+                   editarUsuario(id);
+               }
+           });
+   }
 }

@@ -211,7 +211,7 @@ function tabla_seccion_usuarios(usuario){
     }
 
     let td = document.createElement("td");
-    td.innerHTML += '<div class="button-wrapper"><button id="'+ID_USUARIO+'" class="button"  onclick="ver_usuario('+ID_USUARIO+')"><i class="far fa-eye"></i></button><button id="'+ID_USUARIO+'" class="button" onclick="editarUsuario('+ID_USUARIO+')"><i class="fas fa-edit"></i></button><button id="'+ID_USUARIO+'" class="button" disabled><i class="fas fa-trash-alt"></i></button></div>'
+    td.innerHTML += '<div class="button-wrapper"><button id="'+ID_USUARIO+'" class="button"  onclick="ver_usuario('+ID_USUARIO+')"><i class="far fa-eye"></i></button><button id="'+ID_USUARIO+'" class="button" onclick="editarUsuario('+ID_USUARIO+')"><i class="fas fa-edit"></i></button><button id="'+ID_USUARIO+'" class="button" onclick="eliminar_usuario('+ID_USUARIO+')"><i class="fas fa-trash-alt"></i></button></div>'
     row.appendChild(td);
     //
     //agrego la fila a la tabla
@@ -464,17 +464,16 @@ function editarUsuario(id){
     location.href = "/SalioViaje/Profile/EditarUsuario.php/" + "?ID=" + id;
 }
 
-function guardarEdicionUsuario(id){
-    var ci=document.getElementById("CIEdicion").value;
-    var nombre = document.getElementById("NombreEdicion").value;
-    var apellido = document.getElementById("ApellidoEdicion").value;
-    var correo = document.getElementById("CorreoEdicion").value;
-    var departamento = document.getElementById("DepartamentoEdicion").value;
-    var barrio = document.getElementById("BarrioEdicion").value;
-    var direccion = document.getElementById("DireccionEdicion").value;
-    var tel = document.getElementById("TelEdicion").value;
 
-    if(ci == "" ||nombre == "" ||apellido == "" ||correo == "" ||departamento == "" ||barrio == "" ||direccion == "" ||tel == ""){
+function guardarEdicionEmpresa(){
+    var rut=document.getElementById("RUTEdicion").value;
+    var nombre = document.getElementById("NcEdicion").value;
+    var rs = document.getElementById("RsEdicion").value;
+    var ca = document.getElementById("CaEdicion").value;
+    var nm = document.getElementById("NmEdicion").value;
+    var cm = document.getElementById("CmEdicion").value;
+
+    if(rut == "" ||nombre == "" ||rs == "" ||nm == "" ||cm == "" ||ca == "Choferes Asociados"){
         $(".mensaje-error").show();
         $(".mensaje-error").text("Debe ingresar todos los datos.");
     }else{
@@ -483,9 +482,9 @@ function guardarEdicionUsuario(id){
             type: "POST",
             url: "../../PHP/llamadosSol.php",
             //aca mandarias la info necesaria para el xml de llamada
-            data: {tipe:0, ID:id, CI:ci, NOMBRE:nombre, APELLIDO:apellido, CORREO:correo, DEPARTAMENTO:departamento, BARRIO:barrio, DIRECCION:direccion, TEL:tel},
+            data: {tipe:0, RUT:rut, NOMBRE:nombre, RS:rs, CA:ca, NM:nm, CM:cm},
             success: function (response) {
-                editarUsuario(id);
+                editarEmpresa(rut);
             }
         });
     }
@@ -540,6 +539,36 @@ function cambiarPin(id){
                     $(".mensaje-error-PIN").text("El nuevo PIN no coincide.");
                 }
             }
+        }
+    });
+}
+
+function verEmpresa(rut){
+    location.href = "/SalioViaje/Profile/Empresa.php/" + "?RUT=" + rut;
+}
+
+function editarEmpresa(rut){
+    location.href = "/SalioViaje/Profile/EditarEmpresa.php/" + "?RUT=" + rut;
+}
+
+function eliminarEmpresa(rut){
+    $.ajax({
+        type: "POST",
+        url: "PHP/llamadosSol.php",
+        data: {tipe:3, RUT:rut},
+        success: function () {
+            location.reload();
+        }
+    });
+}
+
+function eliminar_usuario(id){
+    $.ajax({
+        type: "POST",
+        url: "PHP/llamadosSol.php",
+        data: {tipe:4, ID:id},
+        success: function () {
+            location.reload();
         }
     });
 }

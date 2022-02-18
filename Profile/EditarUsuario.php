@@ -95,6 +95,7 @@
       crossorigin="anonymous"
     ></script>
 
+    <script src="/SalioViaje/Javascript/form.js"></script>
     <script src="/SalioViaje/Javascript/panel.js"></script>
     <script src="/SalioViaje/Javascript/settings.js"></script>
     <script src="/SalioViaje/Javascript/loader.js"></script>
