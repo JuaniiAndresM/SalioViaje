@@ -19,6 +19,11 @@
   $PRECIO_CON_DESCUENTO_APLICADO =  round($datos['PRECIO'] - $datos['PRECIO'] * $descuento);
 
   $fecha = explode(' ', $datos['FECHA']);
+
+
+  if ($datos['TIPO_USUARIO'] == 'TTA') { $datos['TIPO_USUARIO'] = "Transportista"; }
+  else if ($datos['TIPO_USUARIO'] == 'CHO') { $datos['TIPO_USUARIO'] = "Chofer"; }
+  else if ($datos['TIPO_USUARIO'] == 'AGT') { $datos['TIPO_USUARIO'] = "Agente"; }
 ?>
 
 <!DOCTYPE html>
@@ -127,7 +132,7 @@
               </div>
               <div class="driver-desc">
                 <h3><?php echo $datos['NOMBRE'].' '.$datos['APELLIDO']; ?></h3>
-                <p><i class="fas fa-bus"></i> Transportista</p>
+                <p><i class="fas fa-bus"></i> <?php echo $datos['TIPO_USUARIO']; ?></p>
                 <p class="calificacion">
                   <i class="fas fa-star"></i>
                   <i class="fas fa-star"></i>
@@ -173,7 +178,7 @@
 
               <div class="info">
                 <b><i class="fas fa-user-friends"></i> Capacidad</b>
-                <p><?php echo $datos['CANTIDAD_PASAJEROS']; ?></p>
+                <p><?php echo $datos['CAPACIDAD_VEHICULO']; ?></p>
               </div>
 
             </div>

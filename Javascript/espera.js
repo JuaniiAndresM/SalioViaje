@@ -56,4 +56,34 @@ function steps(step){
             break;
 
     }
+
+}
+
+let id_oportunidad;
+let esperar_aprobacion = setInterval(function(){ esperandoAprobacion(id_oportunidad) },2000)
+
+function getIdOportunidad(id){
+    id_oportunidad = id
+}
+
+function esperandoAprobacion(){
+    console.log("Esperando estado 'Aprobado' en Oportunidad (id): "+id_oportunidad)
+
+    $.ajax({
+        type: "POST",
+        url: "/SalioViaje/PHP/comprar_oportunidad.php",
+        data: {opcion:3,ID: id_oportunidad},
+        success: function (response) {
+            response = JSON.parse(response)
+            console.log();
+            if (response['ESTADO'] == 'Aprobada') { 
+                steps(3) 
+                clearInterval(esperar_aprobacion)
+            }
+            else if (response['ESTADO'] == 'Rechazada') { 
+                steps(4) 
+                clearInterval(esperar_aprobacion)
+            }
+        }
+    });
 }

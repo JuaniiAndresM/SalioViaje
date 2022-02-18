@@ -170,6 +170,45 @@ function calcular_hora(){
     $("#fecha_2").val(fecha_2)
 }
 
+function calcular_hora_invertido(){
+    
+    fecha_1 =  $("#fecha_2").val();
+
+    let km = document.getElementById('distancia-input').value
+    let tiempo = $("#fecha_2").val().substring(11,16);
+    let tiempo_2;
+    let horas = tiempo.substring(0,2)
+    let minutos = tiempo.substring(3,5)
+    
+    for (var i = 0; i < km; i++) {
+        if (minutos == 0) {
+            --horas
+            minutos = 60
+        }else if(horas == 0){
+            horas = 24
+            --minutos
+        }else{
+            --minutos
+        }
+    }
+
+    --horas
+
+    if (horas < 10 && minutos < 10) {
+        tiempo_2 = '0'+horas+':0'+minutos
+    }else if(horas < 10 && minutos > 10){
+        tiempo_2 = '0'+horas+':'+minutos
+    }else if(horas > 10 && minutos < 10){
+        tiempo_2 = horas+':0'+minutos
+    }else{
+        tiempo_2 = horas+':'+minutos       
+    }
+
+    fecha_2 = $("#fecha_2").val().substring(0,11)+tiempo_2
+
+    $("#fecha_1").val(fecha_2)
+}
+
 
 function select_origen_destino(type){
     switch(type){
@@ -232,17 +271,19 @@ function select_vehiculos(){
 $.ajax({
     type: "POST",
     url: "/SalioViaje/PHP/procedimientosForm.php",
-    data: {tipo: "vehiculos"},
+    data: {tipo: "vehiculos-agenda"},
     success: function (response) {
         console.log(response)
       vehiculos_select = JSON.parse(response);
       var selectVehiculos = document.getElementById('vehiculos-select');
       $("#vehiculos-select").empty().append($("<option></option>").attr({"value": 0,"selected": true, 'disabled': true, 'hidden': true}).text('Seleccione un vehiculo'));
       for (var i = 0; i < vehiculos_select.length; i++){
-        var opt = document.createElement('option');
-        opt.value = vehiculos_select[i]["MATRICULA"];
-        opt.text = vehiculos_select[i]["MARCA"]+" "+vehiculos_select[i]["MODELO"]+" ("+vehiculos_select[i]["MATRICULA"]+")";
-        selectVehiculos.appendChild(opt);
+        if (vehiculos_select[i]["MATRICULA"] != undefined) {
+            var opt = document.createElement('option');
+            opt.value = vehiculos_select[i]["MATRICULA"];
+            opt.text = vehiculos_select[i]["MARCA"]+" "+vehiculos_select[i]["MODELO"]+" ("+vehiculos_select[i]["MATRICULA"]+")";
+            selectVehiculos.appendChild(opt);
+        }
       }
    }
 });
@@ -316,8 +357,10 @@ function etapa_2(){
     if (datos_etapa_2_tramo_1['TIPO'] == 2) { datos_etapa_2_tramo_1['DESCUENTO_OPORTUNIDAD'] = document.getElementById('desc_oport1').value }
     if (datos_etapa_2_tramo_2['TIPO'] == 2) { datos_etapa_2_tramo_2['DESCUENTO_OPORTUNIDAD'] = document.getElementById('desc_oport2').value }    
 
-    if (validacion('AGENDAR-VIAJE-ETAPA-2-TRAMO-1',datos_etapa_2_tramo_1) && validacion('AGENDAR-VIAJE-ETAPA-2-TRAMO-2',datos_etapa_2_tramo_2)){
-        next()
+    if (validacion('AGENDAR-VIAJE-ETAPA-2-TRAMO-1',datos_etapa_2_tramo_1)){
+        if (validacion('AGENDAR-VIAJE-ETAPA-2-TRAMO-2',datos_etapa_2_tramo_2)){
+            next()
+        }else{console.log("No valido...")}
     }else{console.log("No valido...")}
 }
 
@@ -523,7 +566,7 @@ function validacion(TIPO,DATOS){
      else if(validacion == "Err-1"){
        $('.mensaje-error').show();
        $('.mensaje-error').text("Debe completar todos los campos.");
-    } else {marcar_errores(validacion)}
+    } else {marcar_errores(validacion,1)}
     break;
     case "AGENDAR-VIAJE-ETAPA-2-TRAMO-2":
     validacion = $.ajax({
@@ -540,7 +583,7 @@ function validacion(TIPO,DATOS){
      else if(validacion == "Err-1"){
        $('.mensaje-error').show();
        $('.mensaje-error').text("Debe completar todos los campos.");
-    } else {marcar_errores(validacion)}
+    } else {marcar_errores(validacion,2)}
     break;
         case "AGENDAR-VIAJE-ETAPA-3":
     validacion = $.ajax({
@@ -564,219 +607,48 @@ function validacion(TIPO,DATOS){
  return VALIDO
 }
 
-function marcar_errores(resultado_validacion){
-
+function marcar_errores(resultado_validacion,TRAMO){
+    console.log("hola")
    $('.mensaje-error').show();
 
   console.log(resultado_validacion)
-  /*let resultado = JSON.parse(resultado_validacion)
+  let resultado = JSON.parse(resultado_validacion)
 
   for (const property in resultado) {
     switch(property){
-       case "CI":
-       if (resultado[property] == 0) {
-          $('#CI').css('border-bottom', '1px solid #ff635a');
-          $('.mensaje-error').text("C.I ya registrada o no válida.");
-         }    
 
-         break;
-      case "NOMBRE":
+      case "CANTIDAD_DE_PASAJEROS":
       if (resultado[property] == 0) {
-         $('#nombre').css('border-bottom', '1px solid #ff635a');
-         $('.mensaje-error').text("El nombre no debe contener espacios ni caracteres especiales.");
+         $('#pasajeros-input').css('border-bottom', '1px solid #ff635a');
+         $('.mensaje-error').text("El numero de pasajeros no puede ser mayor a la capacidad del vehiculo.");
       } 
 
          break;
-      case "APELLIDO":
+      case "TIPO":
+
       if (resultado[property] == 0) {
-         $('#apellido').css('border-bottom', '1px solid #ff635a');
-         $('.mensaje-error').text("El apellido no debe contener espacios ni caracteres especiales.");
+
+        if (TRAMO == 1) {
+         $('#tipo-select_1').css('border-bottom', '1px solid #ff635a');
+        }
+        if (TRAMO == 2) {
+         $('#tipo-select_2').css('border-bottom', '1px solid #ff635a');
+        }
+        
+        $('.mensaje-error').text("Debe seleccionar un tipo de viaje.");
        } 
 
          break;
-      case "MAIL":
-      if (resultado[property] == 0) {
-         $('#correo').css('border-bottom', '1px solid #ff635a');
-         $('.mensaje-error').text("Correo Electrónico no válido.");
-        } 
+    }     
 
-         break;
-      case "DIRECCION":
-      if (resultado[property] == 0) {
-         $('#direccion').css('border-bottom', '1px solid #ff635a');
-         $('.mensaje-error').text("Dirección no válida.");
-      } 
-
-         break;
-      case "BARRIO":
-      if (resultado[property] == 0) {
-          $('#barrio').css('border-bottom', '1px solid #ff635a');
-          $('.mensaje-error').text("Barrio no válido.");
-         } 
-
-         break;
-      case "DEPARTAMENTO":
-      if (resultado[property] == 0) {
-          $('#departamento').css('border-bottom', '1px solid #ff635a');
-          $('.mensaje-error').text("Departamento no válido."); 
-         } 
-
-         break;
-      case "TELEFONO":
-      if (resultado[property] == 0) { 
-        $('#numero_telefono').css('border-bottom', '1px solid #ff635a') 
-        $('#numero_telefono_hotel').css('border-bottom', '1px solid #ff635a')
-        $('.mensaje-error').text("Teléfono no válido.");
-     } 
-
-     break;
-     case "RUT":
-     if (resultado[property] == 0) {
-        $('#rutt').css('border-bottom', '1px solid #ff635a') 
-        $('#rut_usuario').css('border-bottom', '1px solid #ff635a');
-        $('.mensaje-error').text("RUT no válido, debe contener 12 caracteres.");
-     }  
-     break;
-     case "AGENCIA_CONTRATISTA":
-     if (resultado[property] == 0) {
-         $('#empresas').css('border-bottom', '1px solid #ff635a');
-         $('.mensaje-error').text("Debe seleccionar una Agencia Contratista.");
-      } 
-
-      break;
-   case "NOMBRE_HOTEL":
-   if (resultado[property] == 0) {
-       $('#nombre-hotel').css('border-bottom', '1px solid #ff635a');
-       $('.mensaje-error').text("Nombre del hotel no válido.");
-      } 
-
-      break;
-   case "DIRECCION_HOTEL":
-   if (resultado[property] == 0) {
-       $('#direccion-hotel').css('border-bottom', '1px solid #ff635a')
-       $('.mensaje-error').text("Dirección del hotel no válida.");
-      } 
-
-      break;
-   case "SUPERVISOR":
-   if (resultado[property] == 0) {
-      $('#es_supervisor').css('border-bottom', '1px solid #ff635a')
-      $('.mensaje-error').text("Debe seleccionar si es o no supervisor.");
-   } 
-
-      break;
-   case "NOMBRE_COMERCIAL":
-   if (resultado[property] == 0) {
-       $('#nombre_comercial').css('border-bottom', '1px solid #ff635a');
-       $('.mensaje-error').text("Nombre comercial no válido.");
-      } 
-
-      break;
-   case "RAZON_SOCIAL":
-   if (resultado[property] == 0) {
-       $('#razon_social').css('border-bottom', '1px solid #ff635a');
-       $('.mensaje-error').text("Debe seleccionar una razón social.");
-      } 
-
-      break;
-   case "MTOP":
-   if (resultado[property] == 0) {
-       $('#numero_mtop').css('border-bottom', '1px solid #ff635a');
-       $('.mensaje-error').text("N° MTOP no válido.");
-       } 
-
-      break;
-   case "PASSWORD_MTOP":
-   if (resultado[property] == 0) {
-      $('#password_mtop').css('border-bottom', '1px solid #ff635a');
-      $('.mensaje-error').text("Contraseña MTOP no válida."); 
-   } 
-
-      break;
-   case "MATRICULA":
-   if (resultado[property] == 0) { 
-      $('#matricula').css('border-bottom', '1px solid #ff635a');
-      $('.mensaje-error').text("Matrícula no válida.");
-    } 
-
-      break;
-   case "MARCA":
-   if (resultado[property] == 0) {
-       $('#marca').css('border-bottom', '1px solid #ff635a');
-       $('.mensaje-error').text("Marca no válida.");
-       } 
-
-      break;
-   case "MODELO":
-   if (resultado[property] == 0) {
-       $('#modelo').css('border-bottom', '1px solid #ff635a');
-       $('.mensaje-error').text("Modelo no válido.");
-       } 
-
-      break;
-   case "COMBUSTIBLE":
-   if (resultado[property] == 0) {
-       $('#combustible').css('border-bottom', '1px solid #ff635a');
-       $('.mensaje-error').text("Debe seleccionar el tipo de combustible.");
-      } 
-
-      break;
-   case "CAPACIDAD_PASAJEROS":
-   if (resultado[property] == 0) {
-       $('#capacidad_pasajeros').css('border-bottom', '1px solid #ff635a');
-       $('.mensaje-error').text("Capacidad de pasajeros no válida.");
-      } 
-
-      break;
-   case "CAPACIDAD_EQUIPAJE":
-   if (resultado[property] == 0) {
-       $('#capacidad_equipaje').css('border-bottom', '1px solid #ff635a');
-       $('.mensaje-error').text("Capacidad de equipaje no válida.");
-        } 
-
-      break;
-   case "PET_FRIENDLY":
-   if (resultado[property] == 0) {
-       $('#pet_friendly').css('border-bottom', '1px solid #ff635a');
-       $('.mensaje-error').text("Debe definir si su vehiculo es Pet Friendly o no.");
-        } 
-
-      break;
-
-}   
-
-}
-*/
+    }
 }
 
 function reset_errores(){
 
   $('.mensaje-error').hide();
 
-  $('#CI').css('border-bottom', '1px solid #aaaaaa')
-  $('#nombre').css('border-bottom', '1px solid #aaaaaa')
-  $('#apellido').css('border-bottom', '1px solid #aaaaaa')
-  $('#correo').css('border-bottom', '1px solid #aaaaaa')
-  $('#direccion').css('border-bottom', '1px solid #aaaaaa')
-  $('#barrio').css('border-bottom', '1px solid #aaaaaa')
-  $('#departamento').css('border-bottom', '1px solid #aaaaaa')
-  $('#numero_telefono').css('border-bottom', '1px solid #aaaaaa')
-  $('#numero_telefono_hotel').css('border-bottom', '1px solid #aaaaaa')
-  $('#direccion-hotel').css('border-bottom', '1px solid #aaaaaa')
-  $('#password').css('border-bottom', '1px solid #aaaaaa')
-  $('#re-password').css('border-bottom', '1px solid #aaaaaa')
-  $('#rutt').css('border-bottom', '1px solid #aaaaaa')
-  $('#rut_usuario').css('border-bottom', '1px solid #aaaaaa')
-  $('#es_supervisor').css('border-bottom', '1px solid #aaaaaa')
-  $('#nombre-hotel').css('border-bottom', '1px solid #aaaaaa')
-  $('#matricula').css('border-bottom', '1px solid #aaaaaa')
-  $('#marca').css('border-bottom', '1px solid #aaaaaa')
-  $('#pet_friendly').css('border-bottom', '1px solid #aaaaaa')
-  $('#empresas').css('border-bottom', '1px solid #aaaaaa')
-  $('#modelo').css('border-bottom', '1px solid #aaaaaa')
-  $('#razon_social').css('border-bottom', '1px solid #aaaaaa')
-  $('#nombre_comercial').css('border-bottom', '1px solid #aaaaaa')
-  $('#numero_mtop').css('border-bottom', '1px solid #aaaaaa')
-  $('#password_mtop').css('border-bottom', '1px solid #aaaaaa')
-  $('#combustible').css('border-bottom', '1px solid #aaaaaa')
+  $('#pasajeros-input').css('border-bottom', '1px solid #aaaaaa')
+  $('#tipo-select_1').css('border-bottom', '1px solid #aaaaaa')
+  $('#tipo-select_2').css('border-bottom', '1px solid #aaaaaa')
 }

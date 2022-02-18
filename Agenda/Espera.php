@@ -84,7 +84,8 @@
         });
 
           window.onload = function(){
-            comprar_oportunidad(<?php echo $_GET['ID']; ?>)            
+            comprar_oportunidad(<?php echo $_GET['ID']; ?>)        
+            getIdOportunidad(<?php echo $_GET['ID']; ?>)      
           }
     </script>
     
