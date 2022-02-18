@@ -79,7 +79,7 @@ class Backend extends procedimientosBD
 							<td>
 								<div class='button-wrapper'>
 									<button id=".$datos[$i]['ID']." onclick='ver_usuario(".$datos[$i]['ID'].")'><i class='far fa-eye'></i></button>
-									<button id=".$datos[$i]['ID']." disabled><i class='fas fa-edit'></i></button>
+									<button id=".$datos[$i]['ID']." onclick='editarUsuario(".$datos[$i]['ID'].")'><i class='fas fa-edit'></i></button>
 									<button id=".$datos[$i]['ID']." disabled><i class='fas fa-trash-alt'></i></button>
 								</div>
 							</td>
@@ -97,7 +97,7 @@ class Backend extends procedimientosBD
 							<td>
 								<div class='button-wrapper'>
 									<button id=".$datos[$i]['ID']." onclick='ver_usuario(".$datos[$i]['ID'].")'><i class='far fa-eye'></i></button>
-									<button id=".$datos[$i]['ID']." disabled><i class='fas fa-edit'></i></button>
+									<button id=".$datos[$i]['ID']." onclick='editarUsuario(".$datos[$i]['ID'].")'><i class='fas fa-edit'></i></button>
 									<button id=".$datos[$i]['ID']." disabled><i class='fas fa-trash-alt'></i></button>
 								</div>
 							</td>

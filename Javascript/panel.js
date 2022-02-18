@@ -211,7 +211,7 @@ function tabla_seccion_usuarios(usuario){
     }
 
     let td = document.createElement("td");
-    td.innerHTML += '<div class="button-wrapper"><button id="'+ID_USUARIO+'" class="button"  onclick="ver_usuario('+ID_USUARIO+')"><i class="far fa-eye"></i></button><button id="'+ID_USUARIO+'" class="button" disabled><i class="fas fa-edit"></i></button><button id="'+ID_USUARIO+'" class="button" disabled><i class="fas fa-trash-alt"></i></button></div>'
+    td.innerHTML += '<div class="button-wrapper"><button id="'+ID_USUARIO+'" class="button"  onclick="ver_usuario('+ID_USUARIO+')"><i class="far fa-eye"></i></button><button id="'+ID_USUARIO+'" class="button" onclick="editarUsuario('+ID_USUARIO+')"><i class="fas fa-edit"></i></button><button id="'+ID_USUARIO+'" class="button" disabled><i class="fas fa-trash-alt"></i></button></div>'
     row.appendChild(td);
     //
     //agrego la fila a la tabla
@@ -458,4 +458,70 @@ function crear_intervalo(tiempo){
         traigoVisitas()
         actualizar_tablas()
     },tiempo)
+}
+
+function editarUsuario(id){
+    location.href = "/SalioViaje/Profile/EditarUsuario.php/" + "?ID=" + id;
+}
+
+function guardarEdicionUsuario(id){
+    var ci=document.getElementById("CIEdicion").value;
+    var nombre = document.getElementById("NombreEdicion").value;
+    var apellido = document.getElementById("ApellidoEdicion").value;
+    var correo = document.getElementById("CorreoEdicion").value;
+    var departamento = document.getElementById("DepartamentoEdicion").value;
+    var barrio = document.getElementById("BarrioEdicion").value;
+    var direccion = document.getElementById("DireccionEdicion").value;
+    var tel = document.getElementById("TelEdicion").value;
+
+    $.ajax({
+        type: "POST",
+        url: "../../PHP/llamadosSol.php",
+        //aca mandarias la info necesaria para el xml de llamada
+        data: {tipe:0, ID:id, CI:ci, NOMBRE:nombre, APELLIDO:apellido, CORREO:correo, DEPARTAMENTO:departamento, BARRIO:barrio, DIRECCION:direccion, TEL:tel},
+        success: function (response) {
+            editarUsuario(id);
+        }
+    });
+}
+
+function cambiarPinAdmin(id){
+    var nuevoPin = document.getElementById("password2").value;
+    var nuevoPin2 = document.getElementById("re-password").value;
+
+    if(nuevoPin == nuevoPin2){
+
+        $.ajax({
+            type: "POST",
+            url: "../../PHP/llamadosSol.php",
+            //aca mandarias la info necesaria para el xml de llamada
+            data: {tipe:1, ID:id, PIN:nuevoPin},
+            success: function (response) {
+                editarUsuario(id);
+            }
+        });
+    }else{
+        //error
+    }
+}
+
+function cambiarPin(id){
+    var pinAnterior=document.getElementById("password").value;
+    var nuevoPin = document.getElementById("password2").value;
+    var nuevoPin2 = document.getElementById("re-password").value;
+
+    if(nuevoPin == nuevoPin2){
+
+        $.ajax({
+            type: "POST",
+            url: "../../PHP/llamadosSol.php",
+            //aca mandarias la info necesaria para el xml de llamada
+            data: {tipe:1, ID:id, PIN:nuevoPin},
+            success: function (response) {
+                editarUsuario(id);
+            }
+        });
+    }else{
+        //error
+    }
 }
