@@ -4,13 +4,14 @@ require_once "../procedimientosBD.php";
 $datos = new procedimientosBD();
 
 $datos = json_decode($datos->traer_oportunidades(),true);
-$contenido_oportunidades = '0';
+$contenido_oportunidades = ' ';
 
 
 			for ($i=0; $i < count($datos); $i++) { 
 				$fecha = explode(' ', $datos[$i]['FECHA']);
         $PRECIO_CON_DESCUENTO_APLICADO =  round($datos[$i]['PRECIO'] - $datos[$i]['PRECIO'] * ($datos[$i]['DESCUENTO']/100));
-				if ($i==0) {
+				if ($i==0 && $datos[$i]['ESTADO'] == 'En venta') {
+
 					$contenido_oportunidades = '
 					<div class="oportunidad">
 
@@ -31,7 +32,7 @@ $contenido_oportunidades = '0';
                   <p><i class="far fa-clock"></i> '.$fecha[1].'</p>
                 </div>
                 <div class="travel">
-                  <p><i class="fas fa-user-friends"></i> '.$datos[$i]['CANTIDAD_PASAJEROS'].'</p>
+                  <p><i class="fas fa-user-friends"></i> '.$datos[$i]['CAPACIDAD_VEHICULO'].'</p>
                   <p><i class="fas fa-bus"></i> '.$datos[$i]['MARCA'].' '.$datos[$i]['MODELO'].'</p>
                 </div>
               </div>
@@ -49,7 +50,7 @@ $contenido_oportunidades = '0';
                 </div>
                 
                 <div class="button-wrapper">
-                      <button class="comprar-button" type="submit" onclick="comprar_oportunidad('.$datos[$i]['ID'].')"><i class="fas fa-comments-dollar"></i> Comprar</button>
+                  <button class="comprar-button" type="submit" onclick="comprar_oportunidad('.$datos[$i]['ID'].')"><i class="fas fa-comments-dollar"></i> Comprar</button>
                   <button onclick="detalles_oportunidad('.$datos[$i]['ID'].')"><i class="fas fa-info"></i> Detalles</button>
                 </div>
 
@@ -57,7 +58,7 @@ $contenido_oportunidades = '0';
               </div>
 					';
 
-				}else{
+				}else if ($datos[$i]['ESTADO'] == 'En venta'){
 					$contenido_oportunidades = $contenido_oportunidades.'
 					<div class="oportunidad">
 
@@ -77,7 +78,7 @@ $contenido_oportunidades = '0';
                   <p><i class="far fa-clock"></i> '.$fecha[1].'</p>
                 </div>
                 <div class="travel">
-                  <p><i class="fas fa-user-friends"></i> '.$datos[$i]['CANTIDAD_PASAJEROS'].'</p>
+                  <p><i class="fas fa-user-friends"></i> '.$datos[$i]['CAPACIDAD_VEHICULO'].'</p>
                   <p><i class="fas fa-bus"></i> '.$datos[$i]['MARCA'].' '.$datos[$i]['MODELO'].'</p>
                 </div>
               </div>

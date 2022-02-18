@@ -447,12 +447,12 @@ class validaciones
 			if ($valor != null || $valor != '') {
 				switch ($clave) {
 					case 'TIPO':
-						if ($valor != "0" && $valor == 2) {
+						if ($valor != 0 && $valor == 2) {
 							$TIENE_DESCUENTO = 1;
 							$VALIDACION['TIPO'] = 1;
-						} else if($valor != null && $valor != 2){
+						} else if($valor != 0 && $valor == 1){
 							$VALIDACION['TIPO'] = 1;
-						} else { $VALIDACION['TIPO'] = 0; }
+						} else if ($valor == 0) { $VALIDACION['TIPO'] = 0; }
 					break;
 					case 'FECHA':
 						if ($valor != null) {
@@ -511,12 +511,12 @@ class validaciones
 			if ($valor != null || $valor != '') {
 				switch ($clave) {
 					case 'TIPO':
-						if ($valor != "0" && $valor == 2) {
+						if ($valor != 0 && $valor == 2) {
 							$TIENE_DESCUENTO = 1;
 							$VALIDACION['TIPO'] = 1;
-						} else if($valor != null && $valor != 2){
+						} else if($valor != 0 && $valor == 1){
 							$VALIDACION['TIPO'] = 1;
-						} else { $VALIDACION['TIPO'] = 0; }
+						} else if ($valor == 0) { $VALIDACION['TIPO'] = 0; }
 					break;
 					case 'FECHA':
 						if ($valor != null) {

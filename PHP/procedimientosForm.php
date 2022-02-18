@@ -94,6 +94,13 @@ if ($_POST['tipo'] == 1) {
 		break;
 		case 'vehiculos':
 		echo json_encode($procedimientosForm->datos_vehiculos());
+		case 'vehiculos-agenda':
+		session_start();
+		$vehiculos = array();
+		for ($i=0; $i < count($_SESSION['datos_usuario']['RUT_EMPRESAS']); $i++) { 
+			$vehiculos[] = $procedimientosForm->datos_vehiculos_por_rut($_SESSION['datos_usuario']['RUT_EMPRESAS'][$i]);
+		}
+		echo json_encode($vehiculos);
 		break;
 		case 'login':
 		echo $procedimientosForm->login($_POST['usuario'],$_POST['pin']);
