@@ -189,6 +189,7 @@
               </div>
 
             </div>
+            <p id="mensaje-error" class="mensaje-error"></p>
             <div class="button-wrapper">
                 <button class="button-guardar" onclick="editarUsuario('<?php echo$_GET['ID']?>')"><i class="fas fa-arrow-left"></i> Cancelar</button>
                 <button class="button-guardar" onclick="guardarEdicionUsuario('<?php echo$_GET['ID']?>')"><i class="fas fa-save"></i> Guardar Cambios</button>
@@ -241,7 +242,7 @@
                       <button onclick="passwd(3)" class="password-eye"><i id="passeye3" class="fas fa-eye-slash"></i></button>
                     </div>
 
-
+                    <p id="mensaje-error-PIN" class="mensaje-error"></p>
                     <div class="button-wrapper">
                       <button class="button-pin" onclick="cambiarPin('.$_GET['ID'].')"><i class="fas fa-save"></i> Cambiar PIN</button>
                     </div>
@@ -281,7 +282,7 @@
                   <button onclick="passwd(3)" class="password-eye"><i id="passeye3" class="fas fa-eye-slash"></i></button>
                 </div>
 
-
+                <p id="mensaje-error-PIN" class="mensaje-error"></p>
                 <div class="button-wrapper">
                   <button class="button-pin" onclick="cambiarPinAdmin('.$_GET['ID'].')"><i class="fas fa-save"></i> Cambiar PIN</button>
                 </div>

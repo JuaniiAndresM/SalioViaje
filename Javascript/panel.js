@@ -474,15 +474,21 @@ function guardarEdicionUsuario(id){
     var direccion = document.getElementById("DireccionEdicion").value;
     var tel = document.getElementById("TelEdicion").value;
 
-    $.ajax({
-        type: "POST",
-        url: "../../PHP/llamadosSol.php",
-        //aca mandarias la info necesaria para el xml de llamada
-        data: {tipe:0, ID:id, CI:ci, NOMBRE:nombre, APELLIDO:apellido, CORREO:correo, DEPARTAMENTO:departamento, BARRIO:barrio, DIRECCION:direccion, TEL:tel},
-        success: function (response) {
-            editarUsuario(id);
-        }
-    });
+    if(ci == "" ||nombre == "" ||apellido == "" ||correo == "" ||departamento == "" ||barrio == "" ||direccion == "" ||tel == ""){
+        $(".mensaje-error").show();
+        $(".mensaje-error").text("Debe ingresar todos los datos.");
+    }else{
+        $(".mensaje-error").hide();
+        $.ajax({
+            type: "POST",
+            url: "../../PHP/llamadosSol.php",
+            //aca mandarias la info necesaria para el xml de llamada
+            data: {tipe:0, ID:id, CI:ci, NOMBRE:nombre, APELLIDO:apellido, CORREO:correo, DEPARTAMENTO:departamento, BARRIO:barrio, DIRECCION:direccion, TEL:tel},
+            success: function (response) {
+                editarUsuario(id);
+            }
+        });
+    }
 }
 
 function cambiarPinAdmin(id){
@@ -490,7 +496,7 @@ function cambiarPinAdmin(id){
     var nuevoPin2 = document.getElementById("re-password").value;
 
     if(nuevoPin == nuevoPin2){
-
+        $(".mensaje-error-PIN").hide();
         $.ajax({
             type: "POST",
             url: "../../PHP/llamadosSol.php",
@@ -501,7 +507,8 @@ function cambiarPinAdmin(id){
             }
         });
     }else{
-        //error
+        $(".mensaje-error-PIN").show();
+        $(".mensaje-error-PIN").text("El nuevo PIN no coincide.");
     }
 }
 
@@ -510,18 +517,29 @@ function cambiarPin(id){
     var nuevoPin = document.getElementById("password2").value;
     var nuevoPin2 = document.getElementById("re-password").value;
 
-    if(nuevoPin == nuevoPin2){
-
-        $.ajax({
-            type: "POST",
-            url: "../../PHP/llamadosSol.php",
-            //aca mandarias la info necesaria para el xml de llamada
-            data: {tipe:1, ID:id, PIN:nuevoPin},
-            success: function (response) {
-                editarUsuario(id);
+    $.ajax({
+        type: "POST",
+        url: "../../PHP/llamadosSol.php",
+        //aca mandarias la info necesaria para el xml de llamada
+        data: {tipe:2, ID:id, PIN:pinAnterior},
+        success: function (response) {
+            if(response != ""){
+                if(nuevoPin == nuevoPin2){
+                    $(".mensaje-error-PIN").hide();
+                    $.ajax({
+                        type: "POST",
+                        url: "../../PHP/llamadosSol.php",
+                        //aca mandarias la info necesaria para el xml de llamada
+                        data: {tipe:1, ID:id, PIN:nuevoPin},
+                        success: function (response) {
+                            editarUsuario(id);
+                        }
+                    });
+                }else{
+                    $(".mensaje-error-PIN").show();
+                    $(".mensaje-error-PIN").text("El nuevo PIN no coincide.");
+                }
             }
-        });
-    }else{
-        //error
-    }
+        }
+    });
 }
