@@ -80,7 +80,7 @@ class Backend extends procedimientosBD
 								<div class='button-wrapper'>
 									<button id=".$datos[$i]['ID']." onclick='ver_usuario(".$datos[$i]['ID'].")'><i class='far fa-eye'></i></button>
 									<button id=".$datos[$i]['ID']." onclick='editarUsuario(".$datos[$i]['ID'].")'><i class='fas fa-edit'></i></button>
-									<button id=".$datos[$i]['ID']." disabled><i class='fas fa-trash-alt'></i></button>
+									<button id=".$datos[$i]['ID']." onclick='eliminar_usuario(".$datos[$i]['ID'].")'><i class='fas fa-trash-alt'></i></button>
 								</div>
 							</td>
 						</tr>
@@ -98,7 +98,7 @@ class Backend extends procedimientosBD
 								<div class='button-wrapper'>
 									<button id=".$datos[$i]['ID']." onclick='ver_usuario(".$datos[$i]['ID'].")'><i class='far fa-eye'></i></button>
 									<button id=".$datos[$i]['ID']." onclick='editarUsuario(".$datos[$i]['ID'].")'><i class='fas fa-edit'></i></button>
-									<button id=".$datos[$i]['ID']." disabled><i class='fas fa-trash-alt'></i></button>
+									<button id=".$datos[$i]['ID']." onclick='eliminar_usuario(".$datos[$i]['ID'].")'><i class='fas fa-trash-alt'></i></button>
 								</div>
 							</td>
 						</tr>
@@ -130,6 +130,14 @@ class Backend extends procedimientosBD
 		}
 
 		private function tabla_empresas($i,$datos_e){
+			require_once '../PHP/procedimientosBD.php';
+			$info_empresa = new procedimientosBD();
+    		$vehiculos = $info_empresa->traer_datos_vehiculo($datos_e[$i]["RUT"]);
+			if($vehiculos != null){
+				$size = sizeof($vehiculos);
+			}else{
+				$size = 0;
+			}
 				if ($i==0) {
 		 			$this->EMPRESAS_DASHBOARD = '
                 		<div class="propietario">
@@ -139,13 +147,13 @@ class Backend extends procedimientosBD
                     			</div>
                     				<div class="propietario-info">
                       				<h3>'.$datos_e[$i]["NOMBRE_EMPRESA"].'</h3>
-                      				<p><i class="fas fa-bus"></i> 2 Vehiculos</p>
+                      				<p><i class="fas fa-bus"></i> '.$size.' Vehiculos</p>
                     			</div>
                   			</div>
                   			<div class="propietario-button">
-							  	<button id="'.$datos_e[$i]["ID"].'" disabled><i class="far fa-eye"></i></button>
-								<button id="'.$datos_e[$i]["ID"].'" disabled><i class="fas fa-edit"></i></button>
-								<button id="'.$datos_e[$i]["ID"].'" disabled><i class="fas fa-trash-alt"></i></button>
+							  	<button id="'.$datos_e[$i]["RUT"].'" onclick="verEmpresa('.$datos_e[$i]['RUT'].')"><i class="far fa-eye"></i></button>
+								<button id="'.$datos_e[$i]["RUT"].'" onclick="editarEmpresa('.$datos_e[$i]['RUT'].')"><i class="fas fa-edit"></i></button>
+								<button id="'.$datos_e[$i]["RUT"].'" onclick="eliminarEmpresa('.$datos_e[$i]['RUT'].')"><i class="fas fa-trash-alt"></i></button>
                   			</div>
                 		</div>
 					';
@@ -159,13 +167,13 @@ class Backend extends procedimientosBD
                     			</div>
                     				<div class="propietario-info">
                       				<h3>'.$datos_e[$i]["NOMBRE_EMPRESA"].'</h3>
-                      				<p><i class="fas fa-bus"></i> 2 Vehiculos</p>
+                      				<p><i class="fas fa-bus"></i> '.$size.' Vehiculos</p>
                     			</div>
                   			</div>
                   			<div class="propietario-button">
-								<button id="'.$datos_e[$i]["ID"].'" disabled><i class="far fa-eye"></i></button>
-								<button id="'.$datos_e[$i]["ID"].'" disabled><i class="fas fa-edit"></i></button>
-								<button id="'.$datos_e[$i]["ID"].'" disabled><i class="fas fa-trash-alt"></i></button>
+							  <button id="'.$datos_e[$i]["RUT"].'" onclick="verEmpresa('.$datos_e[$i]['RUT'].')"><i class="far fa-eye"></i></button>
+							  <button id="'.$datos_e[$i]["RUT"].'" onclick="editarEmpresa('.$datos_e[$i]['RUT'].')"><i class="fas fa-edit"></i></button>
+							  <button id="'.$datos_e[$i]["RUT"].'" onclick="eliminarEmpresa('.$datos_e[$i]['RUT'].')"><i class="fas fa-trash-alt"></i></button>
                   			</div>
                 		</div>
 					';

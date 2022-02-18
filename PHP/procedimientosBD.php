@@ -333,6 +333,8 @@ public function borrar_pregunta_FAQ($ID){
 }
 
  public function traer_oportunidades_por_id($id){
+    $return = null;
+    $size = 0;
     $conn = $this->conexion();
     $query = "SELECT idOportunidad,Descuento,Origen,Destino,Fecha,Nombre,Apellido,Marca,Modelo,Capacidad,Estado,Matricula,Distancia,Precio,idTransportista,Tipo_Usuario FROM oportunidades,usuarios,vehiculos where idTransportista = usuarios.ID and Vehiculo = Matricula and idOportunidad = $id;";
     $stmt = $conn->prepare($query);
@@ -340,11 +342,14 @@ public function borrar_pregunta_FAQ($ID){
         $stmt->store_result();
         $stmt->bind_result($idOportunidad,$descuento,$origen,$destino,$fecha,$nombre,$apellido,$marca,$modelo,$capacidad_vehiculo,$estado,$matricula,$distancia,$precio,$idTransportista,$tipo_usuario);
         while ($stmt->fetch()) {
-         $result = array('ID' => $idOportunidad,'DESCUENTO' => $descuento, 'ORIGEN' => $origen,'DESTINO' => $destino, 'FECHA' => $fecha,'NOMBRE' => $nombre, 'APELLIDO' => $apellido,'MARCA' => $marca, 'MODELO' => $modelo, 'CAPACIDAD_VEHICULO' => $capacidad_vehiculo, 'ESTADO' => $estado, 'MATRICULA' => $matricula, 'DISTANCIA' => $distancia, 'PRECIO' => $precio, 'ID_TRANSPORTISTA' => $idTransportista,'TIPO_USUARIO' => $tipo_usuario);
+            $result = array('ID' => $idOportunidad,'DESCUENTO' => $descuento, 'ORIGEN' => $origen,'DESTINO' => $destino, 'FECHA' => $fecha,'NOMBRE' => $nombre, 'APELLIDO' => $apellido,'MARCA' => $marca, 'MODELO' => $modelo, 'CAPACIDAD_VEHICULO' => $capacidad_vehiculo, 'ESTADO' => $estado, 'MATRICULA' => $matricula, 'DISTANCIA' => $distancia, 'PRECIO' => $precio, 'ID_TRANSPORTISTA' => $idTransportista,'TIPO_USUARIO' => $tipo_usuario);
+         $oportunidades[$size] = $result;
+         $return =  $oportunidades;
+         $size ++;
+        }
      }
- }
  $stmt->close();
- return json_encode($result);
+ return $return;
 }
 
 
@@ -406,41 +411,47 @@ public function info_usuario_profile($id){
     $stmt->close();
 }
 
-public function traer_datos_empresa($rut){
+public function traer_datos_empresa($RUT){
     $conn = $this->conexion();
     $query = "CALL traigo_empresa(?)";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("s", $rut);
+    $stmt->bind_param("s", $RUT);
     if ($stmt->execute()) {
         $stmt->store_result();
-        $stmt->bind_result($id,$rut,$nombre_c,$razon_social,$nro_mtop,$pass_mtop,$id_usuario,$choferes_sub);
+        $stmt->bind_result($id,$rut,$nombre_c,$razon_social,$nro_mtop,$pass_mtop,$id_usuario,$tipo_usuario,$choferes_sub);
         while ($stmt->fetch()) {
          $result = array('ID' => $id,'RUT' => $rut, 'NOMBRE_COMERCIAL' => $nombre_c,'RAZON_SOCIAL' => $razon_social,'NRO_MTOP' => $nro_mtop,'PASS_MTOP' => $pass_mtop,'ID_USUARIO' => $id_usuario,'CHOFERES_SUB' => $choferes_sub);
          $empresa[] = $result;
      }
  }
  $stmt->close();
- return json_encode($result);
+ return $result;
 }
 
-public function traer_empresas_usuario($id){
+public function traer_empresas_usuario($ID){
+    $return = null;
+    $size = 0;
     $conn = $this->conexion();
     $query = "CALL traigo_empresas_usuario(?)";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("i", $id);
+    $stmt->bind_param("i", $ID);
     if ($stmt->execute()) {
         $stmt->store_result();
-        $stmt->bind_result($id,$rut,$nombre_c,$razon_social,$nro_mtop,$pass_mtop,$id_usuario,$choferes_sub);
+        $stmt->bind_result($id,$rut,$nombre_c,$razon_social,$nro_mtop,$pass_mtop,$usuario_id,$id_usuario,$choferes_sub);
         while ($stmt->fetch()) {
-         $result = array('ID' => $id,'RUT' => $rut, 'NOMBRE_COMERCIAL' => $nombre_c,'RAZON_SOCIAL' => $razon_social,'NRO_MTOP' => $nro_mtop,'PASS_MTOP' => $pass_mtop,'ID_USUARIO' => $id_usuario,'CHOFERES_SUB' => $choferes_sub);
-         $empresa[] = $result;
+         $result = array('ID' => $id,'RUT' => $rut, 'NOMBRE_COMERCIAL' => $nombre_c,'RAZON_SOCIAL' => $razon_social,'NRO_MTOP' => $nro_mtop,'PASS_MTOP' => $pass_mtop,'ID_USUARIO' => $usuario_id,'TIPO_USUARIO' => $id_usuario,'CHOFERES_SUB' => $choferes_sub);
+         $empresa[$size] = $result;
+         $return =  $empresa;
+         $size ++;
      }
  }
  $stmt->close();
- return json_encode($result);
+ return $return;
 }
 
 public function traer_datos_vehiculo($rut){
+    $return = null;
+    $size = 0;
     $conn = $this->conexion();
     $query = "CALL traigo_vehiculos(?)";
     $stmt = $conn->prepare($query);
@@ -450,11 +461,13 @@ public function traer_datos_vehiculo($rut){
         $stmt->bind_result($id,$matricula,$marca,$modelo,$combustible,$capacidad,$equipaje,$pet_friendly,$rut_em,$rut_ec);
         while ($stmt->fetch()) {
          $result = array('ID' => $id,'MATRICULA' => $matricula, 'MARCA' => $marca,'MODELO' => $modelo,'COMBUSTIBLE' => $combustible,'CAPACIDAD' => $capacidad,'EQUIPAJE' => $equipaje,'PET_FRIENDLY' => $pet_friendly,'RUT_EM' => $rut_em,'RUT_EC' => $rut_ec);
-         $vehiculo[] = $result;
+         $vehiculo[$size] = $result;
+         $return =  $vehiculo;
+         $size ++;
      }
  }
  $stmt->close();
- return json_encode($result);
+ return $return;
 }
 
 public function editar_usuario($id,$ci,$nombre,$apellido,$mail,$departamento,$barrio,$direccion,$telefono){
@@ -483,10 +496,11 @@ public function editar_empresa($rut_e, $rut_nuevo, $nombre_c, $razon_social, $ch
 }
 
 public function eliminar_usuario($id){
+    $ID= intval($id);
     $conn = $this->conexion();
     $query = "call eliminar_usuario(?)";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("i", $id);
+    $stmt->bind_param("i", $ID);
     $stmt->execute();
     $stmt->close();
 }
@@ -495,12 +509,14 @@ public function eliminar_empresa($rut){
     $conn = $this->conexion();
     $query = "call eliminar_empresa(?)";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("i", $rut);
+    $stmt->bind_param("s", $rut);
     $stmt->execute();
     $stmt->close();
 }
 
 public function traer_agenda_usuario($id){
+    $return = null;
+    $size = 0;
     $conn = $this->conexion();
     $query = "CALL traigo_agenda(?)";
     $stmt = $conn->prepare($query);
@@ -510,14 +526,18 @@ public function traer_agenda_usuario($id){
         $stmt->bind_result($id,$vehiculo,$distancia,$cantidad_pasajeros,$fecha,$origen,$destino,$precio,$rutas,$estado,$id_transportista);
         while ($stmt->fetch()) {
          $result = array('ID' => $id,'VEHICULO' => $vehiculo, 'DISTANCIA' => $distancia,'CANTIDAD_PASAJERO' => $cantidad_pasajeros,'FECHA' => $fecha,'ORIGEN' => $origen,'DESTINO' => $destino,'PRECIO' => $precio,'RUTAS' => $rutas,'ESTADO' => $estado,'ID_TRANSPORTISTA' => $id_transportista);
-         $agenda[] = $result;
+         $agenda[$size] = $result;
+         $return =  $agenda;
+         $size ++;
      }
  }
  $stmt->close();
- return json_encode($result);
+ return $return;
 }
 
 public function traer_oportunidades_usuario($id){
+    $return = null;
+    $size = 0;
     $conn = $this->conexion();
     $query = "CALL traigo_oportunidades(?)";
     $stmt = $conn->prepare($query);
@@ -527,11 +547,13 @@ public function traer_oportunidades_usuario($id){
         $stmt->bind_result($id,$descuento,$vehiculo,$distancia,$cantidad_pasajeros,$fecha,$origen,$destino,$precio,$rutas,$estado,$id_transportista);
         while ($stmt->fetch()) {
          $result = array('ID' => $id,'DESCUENTO' => $descuento,'VEHICULO' => $vehiculo, 'DISTANCIA' => $distancia,'CANTIDAD_PASAJERO' => $cantidad_pasajeros,'FECHA' => $fecha,'ORIGEN' => $origen,'DESTINO' => $destino,'PRECIO' => $precio,'RUTAS' => $rutas,'ESTADO' => $estado,'ID_TRANSPORTISTA' => $id_transportista);
-         $agenda[] = $result;
+         $agenda[$size] = $result;
+         $return =  $agenda;
+         $size ++;
      }
  }
  $stmt->close();
- return json_encode($result);
+ return $return;
 }
 
 public function confirmar_mail($mail){
@@ -571,17 +593,22 @@ public function codigo_cambiar_password($id,$codigo){
     $stmt->close();
 }
 
-public function confirmar_password($id){
+public function confirmar_password($id,$pin){
+    $ID= intval($id);
     $conn = $this->conexion();
     $query = "CALL confirmo_password(?)";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("i", $id);
     if ($stmt->execute()) {
         $stmt->store_result();
-        $stmt->bind_result($pin);
+        $stmt->bind_result($PIN);
         while ($stmt->fetch()) {
-         $result = array('PIN' => $pin);
-         $usuario[] = $result;
+         $result = array('PIN' => $PIN);
+         if(password_verify($pin, $PIN)){
+            $usuario[] = $result;
+         }else{
+            $result = '';
+         }
      }
  }
  $stmt->close();

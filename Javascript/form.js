@@ -1,4 +1,5 @@
 $(document).ready(function () {
+   window.ciAnterior = null;
   $('.mensaje-error').hide();
   $('#guardar-cambios').hide();
 
@@ -767,13 +768,18 @@ function validacion(TIPO,DATOS){
   let VALIDO = false;
 
   reset_errores()
+   if( window.ciAnterior !=null){
+      ciAnterior = window.ciAnterior;
+   }else{
+      ciAnterior = null;
+   }
 
   switch(TIPO){
     case "USUARIO":
     validacion = $.ajax({
        type: 'POST',       
        url: "/SalioViaje/PHP/Validaciones.php",
-       data: {tipo:"USUARIO",datos:JSON.stringify(DATOS)},
+       data: {tipo:"USUARIO",datos:JSON.stringify(DATOS),CIANTERIOR:ciAnterior},
        global: false,
        async:false,
        success: function(response) {
@@ -791,7 +797,7 @@ function validacion(TIPO,DATOS){
     validacion = $.ajax({
        type: 'POST',       
        url: "/SalioViaje/PHP/Validaciones.php",
-       data: {tipo:"EMP",datos:JSON.stringify(DATOS)},
+       data: {tipo:"EMP",datos:JSON.stringify(DATOS),CIANTERIOR:null},
        global: false,
        async:false,
        success: function(response) {
@@ -808,7 +814,7 @@ function validacion(TIPO,DATOS){
     validacion = $.ajax({
        type: 'POST',       
        url: "/SalioViaje/PHP/Validaciones.php",
-       data: {tipo:"VIH",datos:JSON.stringify(DATOS)},
+       data: {tipo:"VIH",datos:JSON.stringify(DATOS),CIANTERIOR:null},
        global: false,
        async:false,
        success: function(response) {
@@ -825,7 +831,7 @@ function validacion(TIPO,DATOS){
     validacion = $.ajax({
        type: 'POST',       
        url: "/SalioViaje/PHP/Validaciones.php",
-       data: {tipo:"HOTEL",datos:JSON.stringify(DATOS)},
+       data: {tipo:"HOTEL",datos:JSON.stringify(DATOS),CIANTERIOR:null},
        global: false,
        async:false,
        success: function(response) {
@@ -1071,4 +1077,169 @@ function reset_errores(){
   $('#password_mtop').css('border-bottom', '1px solid #aaaaaa')
   $('#combustible').css('border-bottom', '1px solid #aaaaaa')
 
+}
+
+/*-------------------------------------------------------------------------------------------*/
+//                                     Edicion                                             //
+/*-------------------------------------------------------------------------------------------*/
+
+function guardarEdicionUsuario(id,ciAnterior){
+   window.ciAnterior = ciAnterior;
+   datos_Usuario = {
+       "CI": document.getElementById("CIEdicion").value,
+       "CORREO": document.getElementById("CorreoEdicion").value,
+       "NOMBRE": document.getElementById("NombreEdicion").value,
+       "APELLIDO": document.getElementById("ApellidoEdicion").value,
+       "DIRECCION": document.getElementById("DireccionEdicion").value,
+       "BARRIO": document.getElementById("BarrioEdicion").value,
+       "DEPARTAMENTO": document.getElementById("DepartamentoEdicion").value,
+       "TELEFONO": document.getElementById("TelEdicion").value,
+       "PIN": 1111,
+       "RE-PIN": 1111
+    };
+   if(validacion("USUARIO",datos_Usuario) == true){
+           $.ajax({
+               type: "POST",
+               url: "../../PHP/llamadosSol.php",
+               //aca mandarias la info necesaria para el xml de llamada
+               data: {tipe:0, ID:id, CI:datos_Usuario["CI"], NOMBRE:datos_Usuario["NOMBRE"], APELLIDO:datos_Usuario["APELLIDO"], CORREO:datos_Usuario["CORREO"], DEPARTAMENTO:datos_Usuario["DEPARTAMENTO"], BARRIO:datos_Usuario["BARRIO"], DIRECCION:datos_Usuario["DIRECCION"], TEL:datos_Usuario["TELEFONO"]},
+               success: function (response) {
+                   location.reload();
+               }
+           });
+   }
+}
+function cambiarPin(id,ciAnterior){
+   var pinAnterior=document.getElementById("password1").value;
+   window.ciAnterior = ciAnterior;
+
+   datos_Usuario = {
+      "CI": document.getElementById("CIEdicion").value,
+      "CORREO": document.getElementById("CorreoEdicion").value,
+      "NOMBRE": document.getElementById("NombreEdicion").value,
+      "APELLIDO": document.getElementById("ApellidoEdicion").value,
+      "DIRECCION": document.getElementById("DireccionEdicion").value,
+      "BARRIO": document.getElementById("BarrioEdicion").value,
+      "DEPARTAMENTO": document.getElementById("DepartamentoEdicion").value,
+      "TELEFONO": document.getElementById("TelEdicion").value,
+      "PIN": document.getElementById("password").value,
+      "RE-PIN":  document.getElementById("re-password").value
+   };
+   $.ajax({
+       type: "POST",
+       url: "../../PHP/llamadosSol.php",
+       //aca mandarias la info necesaria para el xml de llamada
+       data: {tipe:2, ID:id, PIN:pinAnterior},
+       success: function (response) {
+           if(response != ""){
+               if(validacion("USUARIO",datos_Usuario) == true){
+                     $(".mensaje-error").hide();
+                     $.ajax({
+                        type: "POST",
+                        url: "../../PHP/llamadosSol.php",
+                        //aca mandarias la info necesaria para el xml de llamada
+                        data: {tipe:1, ID:id, PIN:datos_Usuario["PIN"]},
+                        success: function (response) {
+                           location.reload();
+                        }
+                     });
+               }
+           }
+       }
+   });
+}
+
+function cambiarPinAdmin(id,ciAnterior){
+   window.ciAnterior = ciAnterior;
+
+   datos_Usuario = {
+      "CI": document.getElementById("CIEdicion").value,
+      "CORREO": document.getElementById("CorreoEdicion").value,
+      "NOMBRE": document.getElementById("NombreEdicion").value,
+      "APELLIDO": document.getElementById("ApellidoEdicion").value,
+      "DIRECCION": document.getElementById("DireccionEdicion").value,
+      "BARRIO": document.getElementById("BarrioEdicion").value,
+      "DEPARTAMENTO": document.getElementById("DepartamentoEdicion").value,
+      "TELEFONO": document.getElementById("TelEdicion").value,
+      "PIN": document.getElementById("password").value,
+      "RE-PIN":  document.getElementById("re-password").value
+   };
+               if(validacion("USUARIO",datos_Usuario) == true){
+                     $(".mensaje-error").hide();
+                     $.ajax({
+                        type: "POST",
+                        url: "../../PHP/llamadosSol.php",
+                        //aca mandarias la info necesaria para el xml de llamada
+                        data: {tipe:1, ID:id, PIN:datos_Usuario["PIN"]},
+                        success: function (response) {
+                           location.reload();
+                        }
+                     });
+               }
+}
+
+function guardarEdicionEmpresa(rut){
+
+   datos_Empresa = {
+      "RUT": document.getElementById("RUTEdicion").value,
+      "NOMBRE_COMERCIAL": document.getElementById("NcEdicion").value,
+      "RAZON_SOCIAL": document.getElementById("RsEdicion").value,
+      "NUMERO_MTOP": document.getElementById("NmEdicion").value,
+      "PASSWORD_MTOP": document.getElementById("CmEdicion").value,
+      "CHOFERES_SUB": document.getElementById("CaEdicion").value,
+      "VEHICULOS": {}
+   };
+   val =validacion("EMPRESA",datos_Empresa);
+   if(datos_Empresa["CHOFERES_SUB"] != 0){
+      if (validacion("EMPRESA",datos_Empresa)) {     
+         $(".mensaje-error").hide();
+         $.ajax({
+            type: "POST",
+            url: "../../PHP/llamadosSol.php",
+            //aca mandarias la info necesaria para el xml de llamada
+            data: {tipe:5, RUTANTERIOR:rut, RUT:datos_Empresa["RUT"], NOMBRE:datos_Empresa["NOMBRE_COMERCIAL"], RS:datos_Empresa["RAZON_SOCIAL"], CA:datos_Empresa["CHOFERES_SUB"], NM:datos_Empresa["NUMERO_MTOP"], CM:datos_Empresa["PASSWORD_MTOP"]},
+            success: function (response) {
+                  location.reload();
+            }
+         });
+      }
+   }else{
+      $('.mensaje-error').show();
+       $('.mensaje-error').text("Debe completar todos los campos.");
+   }
+}
+
+function editarUsuario(id){
+   location.href = "/SalioViaje/Profile/EditarUsuario.php/" + "?ID=" + id;
+}
+
+
+function verEmpresa(rut){
+   location.href = "/SalioViaje/Profile/Empresa.php/" + "?RUT=" + rut;
+}
+
+function editarEmpresa(rut){
+   location.href = "/SalioViaje/Profile/EditarEmpresa.php/" + "?RUT=" + rut;
+}
+
+function eliminarEmpresa(rut){
+   $.ajax({
+       type: "POST",
+       url: "PHP/llamadosSol.php",
+       data: {tipe:3, RUT:rut},
+       success: function () {
+           location.reload();
+       }
+   });
+}
+
+function eliminar_usuario(id){
+   $.ajax({
+       type: "POST",
+       url: "PHP/llamadosSol.php",
+       data: {tipe:4, ID:id},
+       success: function () {
+           location.reload();
+       }
+   });
 }

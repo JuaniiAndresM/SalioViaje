@@ -1,10 +1,18 @@
 <?php 
+require_once '../PHP/procedimientosBD.php';
 
   session_start(); 
 
   if(!isset($_SESSION['usuario'])){
     header('Location: /SalioViaje/Login');
 
+  }else{
+    $info_usuario = new procedimientosBD();
+
+      $vehiculos = $info_usuario->traer_agenda_usuario($_SESSION['datos_usuario']["ID"]);
+      $oportunidades = $info_usuario->traer_oportunidades_usuario($_SESSION['datos_usuario']["ID"]);
+
+      $vehiculos;
   }
 
 ?>
@@ -84,9 +92,6 @@
     <script src="/SalioViaje/Javascript/settings.js"></script>
     <script src="/SalioViaje/Javascript/loader.js"></script>
     <script type="text/javascript">
-            window.onload = function(){
-              tabla_oportunidades()
-            }
     </script>
   </head>
   <body>
@@ -158,7 +163,54 @@
                 </tr>
               </thead>
               <tbody id="tbody-agenda">
-
+              <?php 
+                  if($vehiculos === null){
+                    
+                  }else{
+                    $size = sizeof($vehiculos);
+                    for($i = 0; $i< sizeof($vehiculos); $i++){
+                      $info = explode(" ", $vehiculos[$i]['FECHA']);
+                      $FECHA =$info[0];
+                      $HORA = $info[1];
+                      echo '<tbody id="tbody">
+                          <td>'.$vehiculos[$i]['ID'].'</td>
+                          <td>'.$FECHA.'</td>
+                          <td>'.$HORA.'</td>
+                          <td>'.$vehiculos[$i]['VEHICULO'].'</td>
+                          <td>'.$vehiculos[$i]['ORIGEN'].'</td>
+                          <td>'.$vehiculos[$i]['DESTINO'].'</td>
+                          <td>'.$vehiculos[$i]['DISTANCIA'].'</td>
+                          <td>'.$vehiculos[$i]['CANTIDAD_PASAJERO'].'</td>
+                          <td>'.$vehiculos[$i]['PRECIO'].'</td>
+                          <td>-</td>
+                          <td>'.$vehiculos[$i]['ESTADO'].'</td>
+                      </tbody>';
+                    }
+                  }
+                  if($oportunidades === null){
+                    
+                  }else{
+                    $size = sizeof($oportunidades);
+                    for($i = 0; $i< sizeof($oportunidades); $i++){
+                      $info = explode(" ", $oportunidades[$i]['FECHA']);
+                      $FECHA =$info[0];
+                      $HORA = $info[1];
+                      echo '<tbody id="tbody">
+                          <td>'.$oportunidades[$i]['ID'].'</td>
+                          <td>'.$FECHA.'</td>
+                          <td>'.$HORA.'</td>
+                          <td>'.$oportunidades[$i]['VEHICULO'].'</td>
+                          <td>'.$oportunidades[$i]['ORIGEN'].'</td>
+                          <td>'.$oportunidades[$i]['DESTINO'].'</td>
+                          <td>'.$oportunidades[$i]['DISTANCIA'].'</td>
+                          <td>'.$oportunidades[$i]['CANTIDAD_PASAJERO'].'</td>
+                          <td>'.$oportunidades[$i]['PRECIO'].'</td>
+                          <td>'.$oportunidades[$i]['DESCUENTO'].'</td>
+                          <td>'.$oportunidades[$i]['ESTADO'].'</td>
+                      </tbody>';
+                    }
+                  }
+              ?>
               </tbody>
             </table>
           </div>

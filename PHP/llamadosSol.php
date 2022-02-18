@@ -10,9 +10,17 @@ switch ($_POST["tipe"]) {
         echo json_encode($llamarFunction->cambiar_password($_POST["ID"],$_POST["PINNUEVO"]));
     break;
     case 2:
-        echo json_encode($llamarFunction->confirmar_password($_POST["ID"],$_POST["PIN"]));
+        echo $llamarFunction->confirmar_password($_POST["ID"],$_POST["PIN"]);
     break;
-    
+    case 3:
+        echo $llamarFunction->eliminar_empresa($_POST["RUT"]);
+    break;
+    case 4:
+        echo $llamarFunction->eliminar_usuario($_POST["ID"]);
+    break;
+    case 5:
+        echo $llamarFunction->editar_empresa($_POST['RUTANTERIOR'],$_POST["RUT"],$_POST["NOMBRE"],$_POST["RS"],$_POST["CA"],$_POST["NM"],$_POST['CM']);
+    break;
 }
 
 ?>

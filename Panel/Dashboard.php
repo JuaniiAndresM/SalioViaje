@@ -1,5 +1,5 @@
 <?php 
-
+require_once '../PHP/procedimientosBD.php';
   session_start(); 
 
   $tipo = 0;
@@ -29,7 +29,7 @@
         $tipo = 0;
         break;
     }
-  }
+}
 
 ?>
 
@@ -110,7 +110,7 @@
         <script type="text/javascript">
             window.onload = function(){
               tabla_usuarios_dashboard()
-              tabla_empresas_dashboard()
+              tabla_empresas_dashboard() 
               tabla_oportunidades_dashboard()
             }
         </script>
@@ -269,14 +269,14 @@
                         </div>
                         <div class="card">
                           <div class="number">
-                            <h2>2</h2>
+                            <h2></h2>
                             <i class="fas fa-search-dollar"></i>
                           </div>
                           <p>Oportunidades</p>
                         </div>
                         <div class="card">
                           <div class="number">
-                            <h2>1</h2>
+                            <h2></h2>
                             <i class="fas fa-tags"></i>
                           </div>
                           <p>Ofertas</p>
@@ -308,7 +308,8 @@
                                 <th></th>
                               </tr>
                             </thead>
-                            <tbody id="tbody-viajes-dashboard"></tbody>
+                            <tbody id="tbody-viajes-dashboard">
+                            </tbody>
                           </table>
                         </div>
                         <div class="usuarios-propietarios">
@@ -326,7 +327,6 @@
                           <div class="propietarios">
                 
                           </div>
-                          
                         </div>
                       </div>
                     </section>';
