@@ -9,6 +9,9 @@ switch ($_POST["tipe"]) {
     case 1:
         echo json_encode($llamarFunction->cambiar_password($_POST["ID"],$_POST["PINNUEVO"]));
     break;
+    case 2:
+        echo json_encode($llamarFunction->cambiar_password($_POST["ID"],$_POST["PIN"]));
+    break;
     
 }
 
