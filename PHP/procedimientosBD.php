@@ -476,7 +476,7 @@ public function confirmar_mail($mail){
         $stmt->bind_result($id);
         while ($stmt->fetch()) {
          $result = array('ID' => $id);
-         $empresa[] = $result;
+         $usuario[] = $result;
      }
  }
  $stmt->close();
@@ -499,6 +499,23 @@ public function codigo_cambiar_password($id,$codigo){
     $stmt->bind_param("is", $id, $codigo);
     $stmt->execute();
     $stmt->close();
+}
+
+public function confirmar_password($id,$pin){
+    $conn = $this->conexion();
+    $query = "CALL confirmo_password(?,?)";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("is", $id,$pin);
+    if ($stmt->execute()) {
+        $stmt->store_result();
+        $stmt->bind_result($id);
+        while ($stmt->fetch()) {
+         $result = array('ID' => $id);
+         $usuario[] = $result;
+     }
+ }
+ $stmt->close();
+ return json_encode($result);
 }
 
 }
