@@ -4,18 +4,24 @@ require_once "../procedimientosBD.php";
 $datos = new procedimientosBD();
 
 $datos = json_decode($datos->traer_oportunidades(),true);
-$contenido_oportunidades = '0';
+$contenido_oportunidades = ' ';
 
 
 			for ($i=0; $i < count($datos); $i++) { 
 				$fecha = explode(' ', $datos[$i]['FECHA']);
+        $PRECIO_CON_DESCUENTO_APLICADO =  round($datos[$i]['PRECIO'] - $datos[$i]['PRECIO'] * ($datos[$i]['DESCUENTO']/100));
 				if ($i==0 && $datos[$i]['ESTADO'] == 'En venta') {
+
 					$contenido_oportunidades = '
 					<div class="oportunidad">
 
               <div class="oportunidad-left">
                 <div class="discount">
                   <h3>'.$datos[$i]['DESCUENTO'].'%</h3>
+                  <div class="precio">
+                    <p class="precio_total">$'.number_format($datos[$i]['PRECIO']).'</p>
+                    <p class="precio_desc">$'.number_format($PRECIO_CON_DESCUENTO_APLICADO).'</p>
+                  </div>
                 </div>
                 <div class="travel">
                   <p><i class="fas fa-map-marker-alt"></i> Origen: '.$datos[$i]['ORIGEN'].'.</p>
@@ -34,7 +40,13 @@ $contenido_oportunidades = '0';
               <div class="oportunidad-right">
 
                 <div class="travel">
-                  <p><i class="fas fa-user-tie"></i> '.$datos[$i]['NOMBRE'].' '.$datos[$i]['APELLIDO'].'</p>
+                  <p class="calificacion">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half"></i>
+                  </p>
                 </div>
                 
                 <div class="button-wrapper">
@@ -53,6 +65,9 @@ $contenido_oportunidades = '0';
               <div class="oportunidad-left">
                 <div class="discount">
                   <h3>'.$datos[$i]['DESCUENTO'].'%</h3>
+                  <div class="precio">
+                  '.$datos[$i]['PRECIO'].'
+                  </div>
                 </div>
                 <div class="travel">
                   <p><i class="fas fa-map-marker-alt"></i> Origen: '.$datos[$i]['ORIGEN'].'.</p>
@@ -71,7 +86,13 @@ $contenido_oportunidades = '0';
               <div class="oportunidad-right">
 
                 <div class="travel">
-                  <p><i class="fas fa-user-tie"></i> '.$datos[$i]['NOMBRE'].' '.$datos[$i]['APELLIDO'].'</p>
+                  <p class="calificacion">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half"></i>
+                  </p>
                 </div>
                 
                 <div class="button-wrapper">

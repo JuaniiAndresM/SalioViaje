@@ -99,6 +99,18 @@ function select_tipo(tipo){
             }
             break;
     }
+
+    if($("#tipo-select_1").val() == 2 && $("#tipo-select_2").val() == 2){
+        $('#mensaje-agenda-info').hide();
+    }else{
+        $('#mensaje-agenda-info').show();
+
+        if($("#tipo-select_1").val() == 2){
+            $('#mensaje-agenda-info').html('<i class="fas fa-info-circle"></i> Debes llenar primero el Tramo N° 2.');
+        }else if($("#tipo-select_2").val() == 2){
+            $('#mensaje-agenda-info').html('<i class="fas fa-info-circle"></i> Debes llenar primero el Tramo N° 1.');
+        }
+    }
 }
 
 function precio_referencia(){
@@ -220,16 +232,6 @@ function select_origen_destino(type){
         case 2:
             destino = $("#destino_1").val();
             $("#origen_2").val(destino);
-            break;
-
-        case 3:
-            origen = $("#origen_2").val();
-            $("#destino_1").val(origen);
-            break;
-
-        case 4:
-            destino = $("#destino_2").val();
-            $("#origen_1").val(destino);
             break;
     }   
 }
@@ -421,7 +423,7 @@ function cargar_vista_previa(){
     $('.destino_1').html(datos_etapa_2_tramo_1['DESTINO'])
     $('.precio_1').html("$"+datos_etapa_2_tramo_1['PRECIO_REFERENCIA'])
     
-    if (datos_etapa_2_tramo_2['TIPO'] == 1) { $('.tipo_2').html("Agenda") } else { $('.tipo_2').html("Oportunidad") }
+    if (datos_etapa_2_tramo_2['TIPO'] == 1) { $('.tipo_2').html("Agenda") } else { $('.tipo_2').html("Agenda") }
     if (datos_etapa_2_tramo_2['DESCUENTO_OPORTUNIDAD'] != undefined) { $('.porcentaje_2').html(datos_etapa_2_tramo_2['DESCUENTO_OPORTUNIDAD']+"%") } else { $('.porcentaje_2').html("No hay descuento") }
     $('.fecha_2').html(datos_etapa_2_tramo_2['FECHA'])
     $('.origen_2i').html(datos_etapa_2_tramo_2['ORIGEN'])

@@ -101,15 +101,55 @@
           Conseguí las mejores oportunidades con nosotros.
         </p>
         <div class="oportunidades-wrapper">
-          <div class="search">
-            <i class="fas fa-search"></i>
-            <input
-              type="text"
-              placeholder="Buscar"
-              id="searchbar"
-              onkeyup="buscarOportunidades()"
-            />
+          <div class="filter-wrapper">
+            <div class="search">
+              <i class="fas fa-search"></i>
+              <input
+                type="text"
+                placeholder="Buscar"
+                id="searchbar"
+                onkeyup="buscarOportunidades()"
+              />
+            </div>
+  
+            <div class="button-filtrar">
+              <button onclick="filtros(1)"><i class="fas fa-sort-amount-down"></i> Filtrar</button>
+            </div>
           </div>
+  
+          <div id="filters">
+  
+            <div class="input" id="destino">
+              <i class="fas fa-route" id="icon"></i>
+              <input list="Destino" id="destino_2" placeholder="Destino">
+              <datalist id="Destino">
+                <option value="Canelones">
+                <option value="Montevideo">
+                <option value="Tacuarembó">
+                <option value="Maldonado">
+                <option value="Rivera">
+              </datalist> 
+            </div>
+  
+            <div class="input" id="destino">
+              <i class="fas fa-route" id="icon"></i>
+              <input list="Destino" id="destino_2" placeholder="Destino">
+              <datalist id="Destino">
+                <option value="Canelones">
+                <option value="Montevideo">
+                <option value="Tacuarembó">
+                <option value="Maldonado">
+                <option value="Rivera">
+              </datalist> 
+            </div>
+  
+            <div class="input" id="origen">
+              <i class="far fa-calendar-alt" id="icon"></i>
+              <input type="date" id="fecha_2" placeholder="Fecha y Hora" />
+            </div>
+  
+          </div>
+
           <div class="list-empty">
             <p>Lo sentimos, de momento no hay oportunidades disponibles.</p>
           </div>
@@ -336,15 +376,56 @@
         <hr />
         <p class="description">Conseguí las mejores ofertas con nosotros.</p>
         <div class="ofertas-wrapper">
-          <div class="search">
-            <i class="fas fa-search"></i>
-            <input
-              type="text"
-              placeholder="Buscar"
-              id="searchbar"
-              onkeyup="buscarOfertas()"
-            />
+
+          <div class="filter-wrapper">
+            <div class="search">
+              <i class="fas fa-search"></i>
+              <input
+                type="text"
+                placeholder="Buscar"
+                id="searchbar"
+                onkeyup="buscarOportunidades()"
+              />
+            </div>
+  
+            <div class="button-filtrar">
+              <button onclick="filtros(2)"><i class="fas fa-sort-amount-down"></i> Filtrar</button>
+            </div>
           </div>
+  
+          <div id="filters2">
+  
+            <div class="input" id="destino">
+              <i class="fas fa-route" id="icon"></i>
+              <input list="Destino" id="destino_2" placeholder="Destino">
+              <datalist id="Destino">
+                <option value="Canelones">
+                <option value="Montevideo">
+                <option value="Tacuarembó">
+                <option value="Maldonado">
+                <option value="Rivera">
+              </datalist> 
+            </div>
+  
+            <div class="input" id="destino">
+              <i class="fas fa-route" id="icon"></i>
+              <input list="Destino" id="destino_2" placeholder="Destino">
+              <datalist id="Destino">
+                <option value="Canelones">
+                <option value="Montevideo">
+                <option value="Tacuarembó">
+                <option value="Maldonado">
+                <option value="Rivera">
+              </datalist> 
+            </div>
+  
+            <div class="input" id="origen">
+              <i class="far fa-calendar-alt" id="icon"></i>
+              <input type="date" id="fecha_2" placeholder="Fecha y Hora" />
+            </div>
+  
+          </div>
+
           <div class="list-empty2">
             <p>Lo sentimos, de momento no hay ofertas disponibles.</p>
           </div>

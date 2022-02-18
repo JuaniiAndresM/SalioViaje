@@ -106,7 +106,7 @@
 
     }
 
-    if($tipo == 2 || $tipo == 3){
+    if($tipo == 1 || $tipo == 2 || $tipo == 3){
       echo '<li>
               <a href="/SalioViaje/Vehiculos">
                 <span class="icon"><i class="fas fa-bus"></i></span>
@@ -123,17 +123,24 @@
                 </a>
               </li>';
     }
+
+    if($tipo == 1){
+      echo '<li>
+              <a class href="/SalioViaje/FAQ_Edit">
+                <span class="icon"><i class="fas fa-question"></i></span>
+                <span class="title">Editar FAQs</span>
+              </a>
+            </li>';
+    }else{
+      echo '<li>
+              <a class href="/SalioViaje/FAQ">
+                <span class="icon"><i class="fas fa-question"></i></span>
+                <span class="title">FAQs</span>
+              </a>
+            </li>';
+    }
+
     
-    ?>
-
-    <li>
-      <a class href="/SalioViaje/FAQ_Edit">
-        <span class="icon"><i class="fas fa-question"></i></span>
-        <span class="title">FAQs</span>
-      </a>
-    </li>
-
-    <?php
 
     echo '<li>
             <a class href="/SalioViaje/Profile/'. $_SESSION['datos_usuario']['ID'] .'">
@@ -147,7 +154,7 @@
     ?>
     
     <li>
-      <a href="Settings">
+      <a href="/SalioViaje/Settings">
         <span class="icon"><i class="fas fa-cog"></i></span>
         <span class="title">Configuración</span>
       </a>

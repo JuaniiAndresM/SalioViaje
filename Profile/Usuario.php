@@ -213,7 +213,7 @@
             <div class="button-wrapper">
             <?php
             if($nombre == $_SESSION['usuario']){
-              echo '<button class="button"><i class="fas fa-edit"></i></button>';
+              echo '<button id='.$_SESSION['datos_usuario']['ID'].' class="button" onclick="editarUsuario('.$_SESSION['datos_usuario']['ID'].')"><i class="fas fa-edit"></i></button>';
             }else{
               echo '<button class="button"><i class="fas fa-star"></i></button>';
             }

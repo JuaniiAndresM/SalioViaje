@@ -1,3 +1,16 @@
+<?php 
+
+  session_start(); 
+
+  if(!isset($_SESSION['usuario'])){
+      header('Location: /SalioViaje/Login');
+  }else{
+    if($_SESSION['tipo_usuario'] == "Chofer"){
+      header('Location: /SalioViaje/');
+    }
+  }
+?>
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -128,6 +141,9 @@
             minutos.
           </h3>
           <p>
+            También puedes seguir este proceso por medio de tu correo electrónico. 
+          </p>
+          <p>
             Si gusta, mientras espera puede seguir viendo nuestras oportunidades
             en nuestra web.
           </p>
@@ -138,6 +154,7 @@
             <i class="fas fa-check"></i>
           </div>
           <h2>Petición Aprobada</h2>
+          <h3><i class="far fa-address-card"></i> Viaje N° <?php echo $_GET['ID']; ?></h3>
           <p>
             Contáctate con el transporista para coordinar el pago de la
             oportunidad.
@@ -153,6 +170,7 @@
             <i class="fas fa-times"></i>
           </div>
           <h2>Petición Rechazada</h2>
+          <h3><i class="far fa-address-card"></i> Viaje N° <?php echo $_GET['ID']; ?></h3>
           <p>
             Lamentamos informarte que tu petición fue rechazada, en breve nos
             comunicaremos para comentarte los motivos.

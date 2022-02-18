@@ -187,8 +187,8 @@
                 <h3><?php echo $datos['DESCUENTO']; ?>% <i class="fas fa-tags"></i></h3>
               </div>
               <div class="price">
-                <p class="desc">$ <?php echo $datos['PRECIO']; ?></p>
-                <p>$ <?php echo $PRECIO_CON_DESCUENTO_APLICADO; ?></p>
+                <p class="desc">$ <?php echo number_format($datos['PRECIO']); ?></p>
+                <p>$ <?php echo number_format($PRECIO_CON_DESCUENTO_APLICADO); ?></p>
               </div>
             </div>
 

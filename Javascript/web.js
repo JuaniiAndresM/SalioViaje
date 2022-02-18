@@ -4,6 +4,8 @@ $(document).ready(function () {
     agregar_visita();
     traer_oportunidades();
     document.getElementById('pre-loader').classList.toggle('load');
+    $('#filters').hide();
+    $('#filters2').hide();
 });
 
 function cerrarsesion(){
@@ -66,11 +68,27 @@ function traer_oportunidades(){
         url: "/SalioViaje/PHP/Tablas/oportunidadesIndex.php",
         success: function (response) {
             console.log(response);
-            if (response == '0') {$('.list-empty').show()} else {
-                $('.list-empty').hide()
-                $('.oportunidades-list').html(response)
+            if (response == '0') {$('.list-empty').css('display', 'flex')} else {
+                $('.list-empty').hide();                
+                $('.oportunidades-list').html(response);
+                $('.oportunidades-list').show();
             } 
              
         }
     });
+}
+
+
+function filtros(number){
+
+    switch(number){
+        case 1:
+            $('#filters').toggle(''); 
+            break;
+
+        case 2:
+            $('#filters2').toggle(''); 
+            break;
+    }
+     
 }

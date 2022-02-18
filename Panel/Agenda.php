@@ -138,13 +138,6 @@
                 onkeyup="buscarUsuarios(2)"
               />
             </div>
-
-            <div class="checkboxs">
-              <div class="checkbox">
-                <input type="checkbox" name="" id="pax" checked />
-                <p>PAX</p>
-              </div>
-            </div>
           </div>
           <div class="table-overflow">
             <table class="usuarios-table" id="search-table-usuarios">

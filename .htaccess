@@ -18,6 +18,7 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^Login /SalioViaje/Form/Login.php
 RewriteRule ^Admin /SalioViaje/Form/Login_A.html
 RewriteRule ^Register /SalioViaje/Form/Register.html
+RewriteRule ^Forgot_Password /SalioViaje/Form/CambiarContraseña.html
 
 RewriteRule ^Dashboard /SalioViaje/Panel/Dashboard.php
 RewriteRule ^Usuarios /SalioViaje/Panel/Usuarios.php
