@@ -507,16 +507,16 @@ public function codigo_cambiar_password($id,$codigo){
     $stmt->close();
 }
 
-public function confirmar_password($id,$pin){
+public function confirmar_password($id){
     $conn = $this->conexion();
     $query = "CALL confirmo_password(?,?)";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("is", $id,$pin);
+    $stmt->bind_param("i", $id);
     if ($stmt->execute()) {
         $stmt->store_result();
-        $stmt->bind_result($id);
+        $stmt->bind_result($pin);
         while ($stmt->fetch()) {
-         $result = array('ID' => $id);
+         $result = array('PIN' => $pin);
          $usuario[] = $result;
      }
  }
