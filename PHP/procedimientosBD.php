@@ -508,18 +508,10 @@ public function codigo_cambiar_password($id,$codigo){
 }
 
 public function confirmar_password($id){
-<<<<<<< HEAD
     $conn = $this->conexion();
-    $query = "CALL confirmo_password(?,?)";
+    $query = "CALL confirmo_password(?)";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("i", $id);
-=======
-    $ID= intval($id);
-    $conn = $this->conexion();
-    $query = "CALL confirmo_password(?,?)";
-    $stmt = $conn->prepare($query);
-    $stmt->bind_param("is", $ID);
->>>>>>> 0dbcc9a800e528fcd6948d540d33a45a5015c378
     if ($stmt->execute()) {
         $stmt->store_result();
         $stmt->bind_result($pin);
