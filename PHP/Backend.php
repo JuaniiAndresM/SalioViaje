@@ -113,10 +113,13 @@ class Backend extends procedimientosBD
 
 			$datos_e = $this->datos_empresas();
 			session_start();
+			$_SESSION['datos_usuario']['RUT_EMPRESAS'] = [];
 			for ($i=0; $i < count($datos_e); $i++) { 
 				if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == 'TTA' && $_SESSION['datos_usuario']['ID'] == $datos_e[$i]["ID_OWNER"]) {
+					$_SESSION['datos_usuario']['RUT_EMPRESAS'][] = $datos_e[$i]["RUT"];
 					$this->tabla_empresas($i,$datos_e);
 				}else if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == 'CHO' && $_SESSION['datos_usuario']['ID'] == $datos_e[$i]["ID_OWNER"]) {
+					$_SESSION['datos_usuario']['RUT_EMPRESAS'][] = $datos_e[$i]["RUT"];
 					$this->tabla_empresas($i,$datos_e);
 				}else if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == 'ADM') {
 					$this->tabla_empresas($i,$datos_e);

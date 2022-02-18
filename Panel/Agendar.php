@@ -315,7 +315,7 @@
 
                 <div class="input" id="origen">
                   <i class="far fa-calendar-alt" id="icon"></i>
-                  <input type="datetime-local" id="fecha_2" placeholder="Fecha y Hora" />
+                  <input type="datetime-local" id="fecha_2" placeholder="Fecha y Hora" onchange="calcular_hora_invertido()" />
                 </div>
 
                 <div class="input" id="origen">
