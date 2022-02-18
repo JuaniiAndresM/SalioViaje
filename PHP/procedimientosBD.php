@@ -423,12 +423,16 @@ public function traer_datos_vehiculo($rut){
 }
 
 public function editar_usuario($id,$ci,$nombre,$apellido,$mail,$departamento,$barrio,$direccion,$telefono){
+    $ID= intval($id);
     $conn = $this->conexion();
     $query = "call editar_usuario(?,?,?,?,?,?,?,?,?)";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("issssssss", $id, $ci, $nombre, $apellido, $mail, $departamento, $barrio, $direccion, $telefono);
-    $stmt->execute();
-    $stmt->close();
+    $stmt->bind_param("issssssss", $ID, $ci, $nombre, $apellido, $mail, $departamento, $barrio, $direccion, $telefono);
+    if ($stmt->execute()) {    
+        $stmt->close();
+     }else{
+         throw new Exception('Error en prepare: ' . $conn->error);
+     }
 }
 
 public function eliminar_usuario($id){
@@ -484,10 +488,12 @@ public function confirmar_mail($mail){
 }
 
 public function cambiar_password($id,$pin_nuevo){
+    $PIN = password_hash($pin_nuevo, PASSWORD_BCRYPT);
+    $ID= intval($id);
     $conn = $this->conexion();
     $query = "call cambiar_password(?,?)";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("is", $id, $pin_nuevo);
+    $stmt->bind_param("is", $ID, $PIN);
     $stmt->execute();
     $stmt->close();
 }
