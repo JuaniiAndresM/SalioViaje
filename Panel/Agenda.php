@@ -10,7 +10,7 @@ require_once '../PHP/procedimientosBD.php';
     $info_usuario = new procedimientosBD();
 
       $vehiculos = $info_usuario->traer_agenda_usuario($_SESSION['datos_usuario']["ID"]);
-      $oportunidades = $info_usuario->traer_oportunidades_por_id($_SESSION['datos_usuario']["ID"]);
+      $oportunidades = $info_usuario->traer_oportunidades_usuario($_SESSION['datos_usuario']["ID"]);
 
       $vehiculos;
   }

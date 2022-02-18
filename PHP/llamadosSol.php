@@ -19,7 +19,7 @@ switch ($_POST["tipe"]) {
         echo $llamarFunction->eliminar_usuario($_POST["ID"]);
     break;
     case 5:
-        echo $llamarFunction->editar_empresa($_POST["RUT"],$_POST["NOMBRE"],$_POST["RS"],$_POST["CA"],$_POST["NM"],$_POST['CM']);
+        echo $llamarFunction->editar_empresa($_POST['RUTANTERIOR'],$_POST["RUT"],$_POST["NOMBRE"],$_POST["RS"],$_POST["CA"],$_POST["NM"],$_POST['CM']);
     break;
 }
 

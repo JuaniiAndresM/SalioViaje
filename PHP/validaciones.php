@@ -23,10 +23,10 @@ class validaciones
 	private $PATTERN_CAPACIDAD_PASAJEROS = "/^[1-9][0-9]{0,2}$/i";
 	private $PATTERN_CAPACIDAD_EQUIPAJE = "/[0-9]{0,3}/i";
 	
-	function __construct($tipo,$datos){
+	function __construct($tipo,$datos,$ciAnterior){
 		switch ($tipo) {
 			case 'USUARIO':
-			$validacion = $this->validar_formulario_usuario($datos);
+			$validacion = $this->validar_formulario_usuario($datos,$ciAnterior);
 			if($validacion == 1){ echo "VALIDO"; } else {echo $validacion;}
 			break;
 			case 'EMP':
@@ -63,7 +63,7 @@ class validaciones
 		}
 	}
 
-	private function validar_formulario_usuario($datos){
+	private function validar_formulario_usuario($datos,$ciAnterior){
 
 		$VALIDACION = array();
 		$DATOS_VACIOS = null;
@@ -76,8 +76,16 @@ class validaciones
 					$CI = preg_match($this->PATTERN_CI, $valor);
 					if($this->validar_digito_ci($valor) == 1 && $this->validar_existencia_ci($valor) == 1){
 						$VALIDACION['CI'] = 1;
-					}else if($this->validar_digito_ci($valor) == 1 && $this->validar_existencia_ci($valor) == 0){ 
-						$VALIDACION['CI'] = 2; 
+					}else if($this->validar_digito_ci($valor) == 1 && $this->validar_existencia_ci($valor) == 0){
+						if($ciAnterior !=null){
+							if($ciAnterior == $valor){
+								$VALIDACION['CI'] = 1;
+							}else{
+								$VALIDACION['CI'] = 2;
+							}
+						}else{
+							$VALIDACION['CI'] = 2;
+						} 
 					}else{
 						$VALIDACION['CI'] = 0; 
 					}
@@ -207,70 +215,6 @@ class validaciones
 
 	}
 
-	private function validar_edicion_usuario($datos){
-
-		$VALIDACION = array();
-		$DATOS_VACIOS = null;
-		$errores = 0;
-
-		foreach (json_decode($datos) as $clave => $valor){
-			if ($valor != null || $valor != '') {
-				switch ($clave) {
-					case 'CI':
-					$CI = preg_match($this->PATTERN_CI, $valor);
-					if($this->validar_digito_ci($valor) == 1 && $this->validar_existencia_ci($valor) == 1){
-						$VALIDACION['CI'] = 1;
-					}else if($this->validar_digito_ci($valor) == 1 && $this->validar_existencia_ci($valor) == 0){ 
-						$VALIDACION['CI'] = 2; 
-					}else{
-						$VALIDACION['CI'] = 0; 
-					}
-					break;
-					case 'NOMBRE':
-					$NOMBRE = preg_match($this->PATTERN_NOMBRES, $valor);
-					$VALIDACION['NOMBRE'] = $NOMBRE;
-					break;
-					case 'APELLIDO':
-					$APELLIDO = preg_match($this->PATTERN_NOMBRES, $valor);
-					$VALIDACION['APELLIDO'] = $APELLIDO;
-					break;
-					case 'CORREO':
-					$MAIL = preg_match($this->PATTERN_MAIL, $valor);
-					$VALIDACION['MAIL'] = $MAIL;
-					break;
-					case 'DIRECCION':
-					$DIRECCION = preg_match($this->PATTERN_DIRECCION, $valor);
-					$VALIDACION['DIRECCION'] = $DIRECCION;
-					break;
-					case 'BARRIO':
-					$BARRIO = preg_match($this->PATTERN_NOMBRES, $valor);
-					$VALIDACION['BARRIO'] = $BARRIO;
-					break;
-					case 'DEPARTAMENTO':
-					$DEPARTAMENTO = preg_match($this->PATTERN_NOMBRES, $valor);
-					$VALIDACION['DEPARTAMENTO'] = $DEPARTAMENTO;
-					break;
-					case 'TELEFONO':
-					$TELEFONO = preg_match($this->PATTERN_TELEFONO, $valor);
-					$VALIDACION['TELEFONO'] = $TELEFONO;
-					break;
-				}
-			}
-		}
-
-		if (count($VALIDACION) != 10) {
-			$DATOS_VACIOS = "Err-1";
-		}
-
-		foreach ($VALIDACION as $clave => $valor){
-			if ($valor  == 0 || $valor == 2) {
-				$errores++;
-			}
-		}
-
-		if($DATOS_VACIOS == null && $errores == 0) { return true; } elseif ($DATOS_VACIOS != null) { return $DATOS_VACIOS; } else { return json_encode($VALIDACION);}
-
-	}
 
 
 	private function validar_formulario_hotel($datos){
@@ -634,6 +578,6 @@ class validaciones
     }
 }
 
-$Validar = new validaciones($_POST['tipo'],$_POST['datos']);
+$Validar = new validaciones($_POST['tipo'],$_POST['datos'],$_POST['CIANTERIOR']);
 
 ?>

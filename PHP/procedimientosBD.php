@@ -428,21 +428,25 @@ public function traer_datos_empresa($RUT){
  return $result;
 }
 
-public function traer_empresas_usuario($id){
+public function traer_empresas_usuario($ID){
+    $return = null;
+    $size = 0;
     $conn = $this->conexion();
     $query = "CALL traigo_empresas_usuario(?)";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("i", $id);
+    $stmt->bind_param("i", $ID);
     if ($stmt->execute()) {
         $stmt->store_result();
-        $stmt->bind_result($id,$rut,$nombre_c,$razon_social,$nro_mtop,$pass_mtop,$id_usuario,$choferes_sub);
+        $stmt->bind_result($id,$rut,$nombre_c,$razon_social,$nro_mtop,$pass_mtop,$usuario_id,$id_usuario,$choferes_sub);
         while ($stmt->fetch()) {
-         $result = array('ID' => $id,'RUT' => $rut, 'NOMBRE_COMERCIAL' => $nombre_c,'RAZON_SOCIAL' => $razon_social,'NRO_MTOP' => $nro_mtop,'PASS_MTOP' => $pass_mtop,'ID_USUARIO' => $id_usuario,'CHOFERES_SUB' => $choferes_sub);
-         $empresa[] = $result;
+         $result = array('ID' => $id,'RUT' => $rut, 'NOMBRE_COMERCIAL' => $nombre_c,'RAZON_SOCIAL' => $razon_social,'NRO_MTOP' => $nro_mtop,'PASS_MTOP' => $pass_mtop,'ID_USUARIO' => $usuario_id,'TIPO_USUARIO' => $id_usuario,'CHOFERES_SUB' => $choferes_sub);
+         $empresa[$size] = $result;
+         $return =  $empresa;
+         $size ++;
      }
  }
  $stmt->close();
- return json_encode($result);
+ return $return;
 }
 
 public function traer_datos_vehiculo($rut){
@@ -532,6 +536,8 @@ public function traer_agenda_usuario($id){
 }
 
 public function traer_oportunidades_usuario($id){
+    $return = null;
+    $size = 0;
     $conn = $this->conexion();
     $query = "CALL traigo_oportunidades(?)";
     $stmt = $conn->prepare($query);
@@ -541,11 +547,13 @@ public function traer_oportunidades_usuario($id){
         $stmt->bind_result($id,$descuento,$vehiculo,$distancia,$cantidad_pasajeros,$fecha,$origen,$destino,$precio,$rutas,$estado,$id_transportista);
         while ($stmt->fetch()) {
          $result = array('ID' => $id,'DESCUENTO' => $descuento,'VEHICULO' => $vehiculo, 'DISTANCIA' => $distancia,'CANTIDAD_PASAJERO' => $cantidad_pasajeros,'FECHA' => $fecha,'ORIGEN' => $origen,'DESTINO' => $destino,'PRECIO' => $precio,'RUTAS' => $rutas,'ESTADO' => $estado,'ID_TRANSPORTISTA' => $id_transportista);
-         $agenda[] = $result;
+         $agenda[$size] = $result;
+         $return =  $agenda;
+         $size ++;
      }
  }
  $stmt->close();
- return json_encode($result);
+ return $return;
 }
 
 public function confirmar_mail($mail){

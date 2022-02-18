@@ -13,7 +13,8 @@ require_once '../PHP/procedimientosBD.php';
     }else{
       $info_usuario = new procedimientosBD();
 
-      $vehiculos = $info_usuario->traer_datos_vehiculo($_SESSION['datos_usuario']["ID"]);
+      $usuario = $info_usuario->info_usuario_profile($_SESSION['datos_usuario']['ID']);
+      $vehiculos = $info_usuario->traer_datos_vehiculo($usuario[0]["RUT"]);
 
       $vehiculos;
     }

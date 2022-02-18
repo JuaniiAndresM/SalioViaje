@@ -39,6 +39,7 @@ require_once '../PHP/procedimientosBD.php';
     
   }
 
+  
 ?>
 
 <!DOCTYPE html>
@@ -111,6 +112,7 @@ require_once '../PHP/procedimientosBD.php';
       src="https://kit.fontawesome.com/1e193e3a23.js"
       crossorigin="anonymous"
     ></script>
+
 
     <script src="/SalioViaje/Javascript/panel.js"></script>
     <script src="/SalioViaje/Javascript/settings.js"></script>

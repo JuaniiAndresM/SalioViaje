@@ -193,7 +193,7 @@
             <p id="mensaje-error" class="mensaje-error"></p>
             <div class="button-wrapper">
                 <button class="button-guardar" onclick="editarUsuario('<?php echo$_GET['ID']?>')"><i class="fas fa-arrow-left"></i> Cancelar</button>
-                <button class="button-guardar" onclick="guardarEdicionUsuario('<?php echo$_GET['ID']?>')"><i class="fas fa-save"></i> Guardar Cambios</button>
+                <button class="button-guardar" onclick="guardarEdicionUsuario('<?php echo$_GET['ID']?>','<?php echo$usuario[0]['CI']?>')"><i class="fas fa-save"></i> Guardar Cambios</button>
             </div>
           </div>
           <?php 
@@ -208,7 +208,7 @@
                       <i class="fas fa-lock" id="icon"></i>
                       <input
                         type="password"
-                        id="password"
+                        id="password1"
                         name="pin"
                         placeholder="PIN Anterior"
                         maxlength="4"
@@ -221,7 +221,7 @@
                       <i class="fas fa-key" id="icon"></i>
                       <input
                         type="password"
-                        id="password2"
+                        id="password"
                         name="pin"
                         placeholder="Nuevo PIN"
                         maxlength="4"
@@ -243,9 +243,9 @@
                       <button onclick="passwd(3)" class="password-eye"><i id="passeye3" class="fas fa-eye-slash"></i></button>
                     </div>
 
-                    <p id="mensaje-error-PIN" class="mensaje-error"></p>
+                    <p id="mensaje-error" class="mensaje-error"></p>
                     <div class="button-wrapper">
-                      <button class="button-pin" onclick="cambiarPin('.$_GET['ID'].')"><i class="fas fa-save"></i> Cambiar PIN</button>
+                      <button class="button-pin" onclick="cambiarPin('.$_GET['ID'].','.$usuario[0]['CI'].')"><i class="fas fa-save"></i> Cambiar PIN</button>
                     </div>
                     
 
@@ -261,7 +261,7 @@
                   <i class="fas fa-key" id="icon"></i>
                   <input
                     type="password"
-                    id="password2"
+                    id="password"
                     name="pin"
                     placeholder="Nuevo PIN"
                     maxlength="4"
@@ -283,9 +283,9 @@
                   <button onclick="passwd(3)" class="password-eye"><i id="passeye3" class="fas fa-eye-slash"></i></button>
                 </div>
 
-                <p id="mensaje-error-PIN" class="mensaje-error"></p>
+                <p id="mensaje-error" class="mensaje-error"></p>
                 <div class="button-wrapper">
-                  <button class="button-pin" onclick="cambiarPinAdmin('.$_GET['ID'].')"><i class="fas fa-save"></i> Cambiar PIN</button>
+                  <button class="button-pin" onclick="cambiarPinAdmin('.$_GET['ID'].','.$usuario[0]['CI'].')"><i class="fas fa-save"></i> Cambiar PIN</button>
                 </div>
                 
 
