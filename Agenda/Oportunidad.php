@@ -13,17 +13,17 @@
   require_once "../PHP/procedimientosBD.php";
 
   $datos = new procedimientosBD();
-  $datos = json_decode($datos->traer_oportunidades_por_id($_GET['ID']),true);
+  $array_oportuidad = $datos->traer_oportunidades_por_id($_GET['ID']);
 
-  $descuento = $datos['DESCUENTO']/100;
-  $PRECIO_CON_DESCUENTO_APLICADO =  round($datos['PRECIO'] - $datos['PRECIO'] * $descuento);
+  $descuento = $array_oportuidad[0]['DESCUENTO']/100;
+  $PRECIO_CON_DESCUENTO_APLICADO =  round($array_oportuidad[0]['PRECIO'] - $array_oportuidad[0]['PRECIO'] * $descuento);
 
-  $fecha = explode(' ', $datos['FECHA']);
+  $fecha = explode(' ', $array_oportuidad[0]['FECHA']);
 
 
-  if ($datos['TIPO_USUARIO'] == 'TTA') { $datos['TIPO_USUARIO'] = "Transportista"; }
-  else if ($datos['TIPO_USUARIO'] == 'CHO') { $datos['TIPO_USUARIO'] = "Chofer"; }
-  else if ($datos['TIPO_USUARIO'] == 'AGT') { $datos['TIPO_USUARIO'] = "Agente"; }
+  if ($array_oportuidad[0]['TIPO_USUARIO'] == 'TTA') { $array_oportuidad[0]['TIPO_USUARIO'] = "Transportista"; }
+  else if ($array_oportuidad[0]['TIPO_USUARIO'] == 'CHO') { $array_oportuidad[0]['TIPO_USUARIO'] = "Chofer"; }
+  else if ($array_oportuidad[0]['TIPO_USUARIO'] == 'AGT') { $array_oportuidad[0]['TIPO_USUARIO'] = "Agente"; }
 ?>
 
 <!DOCTYPE html>
@@ -131,8 +131,8 @@
                 <img src="/SalioViaje/media/svg/Logo-SalioViaje-White.svg" alt="Logo SalióViaje">
               </div>
               <div class="driver-desc">
-                <h3><?php echo $datos['NOMBRE'].' '.$datos['APELLIDO']; ?></h3>
-                <p><i class="fas fa-bus"></i> <?php echo $datos['TIPO_USUARIO']; ?></p>
+                <h3><?php echo $array_oportuidad[0]['NOMBRE'].' '.$array_oportuidad[0]['APELLIDO']; ?></h3>
+                <p><i class="fas fa-bus"></i> <?php echo $array_oportuidad[0]['TIPO_USUARIO']; ?></p>
                 <p class="calificacion">
                   <i class="fas fa-star"></i>
                   <i class="fas fa-star"></i>
@@ -144,7 +144,7 @@
               </div>
             </div>
             <div class="oportunidad-buttons">
-                <button class="comprar-button" id="comprar_oportunidad" onclick="comprar_oportunidad(<?php echo $datos['ID']; ?>)"><i class="fas fa-comments-dollar"></i> Comprar</button>
+                <button class="comprar-button" id="comprar_oportunidad" onclick="comprar_oportunidad_function(<?php echo $array_oportuidad[0]['ID']; ?>)"><i class="fas fa-comments-dollar"></i> Comprar</button>
             </div>
           </div>
           <div class="oportunidad-content">
@@ -153,17 +153,17 @@
 
               <div class="info">
                 <b><i class="far fa-address-card"></i> N° Viaje</b>
-                <p>#<?php echo $datos['ID']; ?></p>
+                <p>#<?php echo $array_oportuidad[0]['ID']; ?></p>
               </div>
 
               <div class="info">
                 <b><i class="fas fa-map-marker-alt"></i> Origen</b>
-                <p><?php echo $datos['ORIGEN']; ?></p>
+                <p><?php echo $array_oportuidad[0]['ORIGEN']; ?></p>
               </div>
 
               <div class="info">
                 <b><i class="fas fa-route"></i> Destino</b>
-                <p><?php echo $datos['DESTINO']; ?></p>
+                <p><?php echo $array_oportuidad[0]['DESTINO']; ?></p>
               </div>
 
               <div class="info">
@@ -178,16 +178,16 @@
 
               <div class="info">
                 <b><i class="fas fa-user-friends"></i> Capacidad</b>
-                <p><?php echo $datos['CAPACIDAD_VEHICULO']; ?></p>
+                <p><?php echo $array_oportuidad[0]['CAPACIDAD_VEHICULO']; ?></p>
               </div>
 
             </div>
             <div class="price_wrapper">
               <div class="discount">
-                <h3><?php echo $datos['DESCUENTO']; ?>% <i class="fas fa-tags"></i></h3>
+                <h3><?php echo $array_oportuidad[0]['DESCUENTO']; ?>% <i class="fas fa-tags"></i></h3>
               </div>
               <div class="price">
-                <p class="desc">$ <?php echo number_format($datos['PRECIO']); ?></p>
+                <p class="desc">$ <?php echo number_format($array_oportuidad[0]['PRECIO']); ?></p>
                 <p>$ <?php echo number_format($PRECIO_CON_DESCUENTO_APLICADO); ?></p>
               </div>
             </div>

@@ -51,12 +51,12 @@ require_once '../PHP/procedimientosBD.php';
 */
 
 
-function comprar_oportunidad(id){
+function comprar_oportunidad_function(id){
 
        console.log("comprada y mando mensaje - ID oportunidad : "+id)
 
-       let id_llamada = Math.floor(Math.random() * 10000000)
-       let mensaje = 'Tu oportunidad ha sido comprada! Aceptar: http://SalioViaje/Solicitud/2A  Rechazar: http://SalioViaje/Solicitud/2R';
+       let id_llamada = Math.floor(Math.random() * 10000000);
+       let mensaje = 'Tu oportunidad ha sido comprada!\n Aceptar:  http://SalioViaje/Solicitud/2A\n  Rechazar: http://SalioViaje/Solicitud/2R';
 
         $.ajax({
             type: "POST",
@@ -113,14 +113,16 @@ function oportunidad_aprobada(id){
                         }
                     }).responseText;
 
-        $.ajax({
-            type: "POST",
-            url: "/SalioViaje/Mail/mail-Oportunidades-Aceptado.php",
-            data: { mail_tta:JSON.parse(mail_tta)['MAIL'] },
-            success: function (response) {
-                cambiar_estado_oportunidad('Aprobada',id)
-            }
-        });
+            console.log(JSON.parse(mail_tta)['MAIL']);
+
+        // $.ajax({
+        //     type: "POST",
+        //     url: "/SalioViaje/Mail/mail-Oportunidades-Aceptado.php",
+        //     data: { mail_tta:JSON.parse(mail_tta)['MAIL'] },
+        //     success: function (response) {
+        //         cambiar_estado_oportunidad('Aprobada',id)
+        //     }
+        // });
 }
 
 function oportunidad_rechazada(id){

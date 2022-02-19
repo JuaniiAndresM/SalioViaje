@@ -16,7 +16,7 @@ class comprar_oportunidad extends procedimientosBD
 	}
 
 	public function traer_transportista(){
-		echo $this->traer_datos_transportista(json_decode($this->datosOportunidad, true)['ID_TRANSPORTISTA']);
+		echo $this->traer_datos_transportista($this->datosOportunidad[0]['ID_TRANSPORTISTA']);
 	}
 
 	public function traer_datos_pasajero(){
