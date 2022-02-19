@@ -299,7 +299,6 @@
       margin-top: -90px;
       padding: 0 18px;
       max-height: 0;
-      overflow: hidden;
       transition: 0.6s ease-in-out;
       opacity: 0;
       position: relative;
@@ -314,43 +313,276 @@
         max-width: 600px;
         width: 100%;
 
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
+        .user-info{
+          width: 100%;
+          margin-top: 20px;
 
-        .input {
-          position: relative;
-          width: calc(100% - 60px);
-          margin: 30px auto;
+          display: flex;
+          justify-content: center;
+          align-items: center;
 
-          input {
-            width: 100%;
-            height: 40px;
-            background-color: transparent;
-            border: none;
-            border-bottom: 1px solid #aaa;
-            outline: none;
-            padding-left: 25px;
-            color: #555;
-            font-size: 0.85em;
+          .user-icon{
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: $main_1;
+            padding: 10px;
+            margin-right: 10px;
+
+            img{
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
           }
-          input::placeholder {
-            color: #888;
-          }
-
-          #icon {
-            position: absolute;
-            top: 10px;
-            left: 0;
-            color: #555;
+          .info{
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-direction: column;
+            h3{
+              color: $main_1;
+              margin: 0;
+            }
+            p{
+              color: #555;
+              margin: 0;
+            }
           }
         }
-      }
-      .enviar {
-        @include button();
-      }
-      .enviar:hover {
-        @include button-hover();
+
+        .progress-bar {
+          position: relative;
+          width: 90%;
+          height: 15px;
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          margin: 0 auto;
+          text-align: center;
+          margin-top: 20px;
+
+          .line {
+            position: relative;
+            width: 100%;
+            height: 5px;
+
+            border-radius: 2em;
+            background-color: #aaa;
+          }
+          .progress {
+            position: absolute;
+            left: 0;
+
+            width: 0%;
+            height: 5px;
+
+            border-radius: 2em;
+            background: linear-gradient(to right, $main_1, $main_2);
+            transition: 0.8s;
+          }
+          .circle1,
+          .circle2,
+          .circle3 {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #aaa;
+            position: absolute;
+            left: 0;
+          }
+          .circle1 {
+            background-color: $main_1;
+          }
+          .circle2 {
+            left: calc(50% - 10px);
+          }
+          .circle3 {
+            left: calc(100% - 10px);
+          }
+        }
+
+        .step_1,
+        .step_2_traslado,
+        .step_2_tour,
+        .step_2_transfer,
+        .step_2_fiestas,
+        .step_3,
+        .step_4{
+
+          .title{
+            font-size: 1.5em;
+            margin: 20px 0;
+            color: $main_1;
+          }
+
+          .info{
+            color: $main_1;
+            margin: 0;
+            margin-top: 20px;
+          }
+
+          .input {
+            position: relative;
+            width: 300px;
+            margin: 30px auto;
+  
+            input,
+            select {
+              width: 100%;
+              height: 40px;
+              background-color: transparent;
+              border: none;
+              border-bottom: 1px solid #aaa;
+              outline: none;
+              padding-left: 25px;
+              color: #555;
+              font-size: 0.85em;
+            }
+            input::placeholder,
+            select::placeholder {
+              color: #888;
+            }
+  
+            #icon {
+              position: absolute;
+              top: 10px;
+              left: 0;
+              color: #555;
+            }
+          }
+
+          .formulario-grid, .paradas-wrapper{
+            width: 100%;
+  
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+
+            .input {
+              position: relative;
+              width: 300px;
+              margin: 30px auto;
+
+              p{
+                margin: 0;
+                text-align: left;
+
+                color: $main_1;
+              }
+    
+              input,
+              select {
+                width: 100%;
+                height: 40px;
+                background-color: transparent;
+                border: none;
+                border-bottom: 1px solid #aaa;
+                outline: none;
+                color: #555;
+                font-size: 0.85em;
+                padding: 0;
+
+                margin: 0;
+              }
+              input::placeholder,
+              select::placeholder {
+                color: #888;
+              }
+            }
+          }
+          .paradas-wrapper{
+            display: block;
+            margin: 20px 0;
+          }
+
+          .tags {
+            width: calc(100% - 40px);
+            background-color: #eee;
+            border-radius: 10px;
+            margin: 0 auto;
+    
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-wrap: wrap;
+    
+            .tag {
+              margin: 5px;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+    
+              overflow: hidden;
+              border-radius: 10px;
+              background-color: $main_3;
+    
+              p {
+                margin: 0 10px;
+                color: $contraste_2;
+                font-size: 0.9em;
+              }
+    
+              button {
+                height: 100%;
+                background-color: rgba(30, 30, 30, 0.5);
+                padding: 5px 10px;
+                cursor: pointer;
+                border: none;
+    
+                i {
+                  color: $contraste_2;
+                  transition: 0.3s;
+                }
+              }
+              button:hover {
+                i {
+                  transform: scale(1.1);
+                }
+              }
+            }
+          }
+
+          .send-wrapper{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            width: 100%;
+            text-align: center;
+
+            margin-top: 60px;
+
+            .send-icon{
+              i{
+                color: #70ff7c;
+                font-size: 3em;
+              }
+            }
+            .send-info{
+              h2{
+                font-size: 1.2em;
+                color: $main_1;
+              }
+              p{
+                color: #555;
+                font-size: .9em;
+              }
+            }
+          }
+
+
+          .button-viajar{
+            @include button();
+            margin: 0 5px;
+          }
+          .button-viajar:hover{
+            @include button-hover();
+          }
+        }
       }
     }
 

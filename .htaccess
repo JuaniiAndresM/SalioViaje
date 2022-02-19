@@ -33,7 +33,7 @@ RewriteRule ^FAQ_Edit /SalioViaje/Panel/FAQ.php
 RewriteRule ^Success /SalioViaje/Form/Success.html
 RewriteRule ^Failed /SalioViaje/Form/Failed.html
 
-RewriteRule ^Viajar /SalioViaje/Agenda/Viajar.html
+RewriteRule ^Viajar /SalioViaje/Agenda/Viajar.php
 RewriteRule ^Oportunidad/([a-zA-Z0-9_\.]+)$ /SalioViaje/Agenda/Oportunidad.php?ID=$1
 RewriteRule ^Solicitud/([a-zA-Z0-9_\.]+)$ /SalioViaje/Agenda/Oportunidad_Solicitud.php?ID=$1
 RewriteRule ^Espera/([a-zA-Z0-9_\.]+)$ /SalioViaje/Agenda/Espera.php?ID=$1

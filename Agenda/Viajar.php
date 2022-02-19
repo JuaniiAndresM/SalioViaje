@@ -1,0 +1,553 @@
+<?php 
+  session_start();
+?>
+
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>SalióViaje | ¡Viajá Barato!</title>
+
+    <!-- // Meta Etiquetas -->
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <meta name="author" content="TotumDev" />
+
+    <meta
+      name="description"
+      content="Plataforma que optimiza el traslado ocasional de personas."
+    />
+    <meta
+      name="keywords"
+      content="SalióViaje, transporte, transfer, alquiler con chofer, combis para fiestas, Salió Viaje, traslados"
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.salioviaje.com.uy/Viajar" />
+    <meta property="og:title" content="SalióViaje | Viajar" />
+    <meta
+      property="og:description"
+      content="Plataforma que optimiza el traslado ocasional de personas."
+    />
+    <meta
+      property="og:image"
+      content="https://www.salioviaje.com.uy/media/images/MetaImagen.png"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.salioviaje.com.uy/Viajar" />
+    <meta
+      property="twitter:title"
+      content="SalióViaje | Viajar"
+    />
+    <meta
+      property="twitter:description"
+      content="Plataforma que optimiza el traslado ocasional de personas."
+    />
+    <meta
+      property="twitter:image"
+      content="https://www.salioviaje.com.uy/media/images/MetaImagen.png"
+    />
+
+    <!-- // Fin de Meta Etiquetas -->
+
+    <!-- Links -->
+    <link
+      rel="shortcut icon"
+      href="/SalioViaje/media/svg/Favicon-SalioViaje.svg"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="/SalioViaje/styles/styles.css" />
+
+    <!-- Scripts -->
+    <script
+      src="https://kit.fontawesome.com/1e193e3a23.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="/SalioViaje/Javascript/web.js"></script>
+    <script src="/SalioViaje/Javascript/viajar.js"></script>
+  </head>
+  <body>
+    <div id="header"></div>
+
+    <div id="pre-loader">
+      <div class="lds-ellipsis">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+
+    <a href="https://www.salioviaje.com.uy/FAQ" target="_BLANK" id="faq-float">
+      <i class="fas fa-question"></i>
+    </a>
+    <a href="https://wa.link/mmdp0q" target="_BLANK" id="whatsapp-float">
+      <img src="/SalioViaje/media/images/whatsapp.png" alt="">
+    </a>
+
+    <div class="viajar-wrapper">
+      <section class="oportunidades-viajar">
+        <h2>
+          Oportunidades
+        </h2>
+        <hr />
+        <p class="description">
+          Conseguí las mejores oportunidades con nosotros.
+        </p>
+        <div class="oportunidades-wrapper">
+          <div class="filter-wrapper">
+            <div class="search">
+              <i class="fas fa-search"></i>
+              <input
+                type="text"
+                placeholder="Buscar"
+                id="searchbar"
+                onkeyup="buscarOportunidades()"
+              />
+            </div>
+  
+            <div class="button-filtrar">
+              <button onclick="filtros(1)"><i class="fas fa-sort-amount-down"></i> Filtrar</button>
+            </div>
+          </div>
+  
+          <div id="filters">
+  
+            <div class="input" id="destino">
+              <i class="fas fa-route" id="icon"></i>
+              <input list="Destino" id="destino_2" placeholder="Destino">
+              <datalist id="Destino">
+                <option value="Canelones">
+                <option value="Montevideo">
+                <option value="Tacuarembó">
+                <option value="Maldonado">
+                <option value="Rivera">
+              </datalist> 
+            </div>
+  
+            <div class="input" id="destino">
+              <i class="fas fa-route" id="icon"></i>
+              <input list="Destino" id="destino_2" placeholder="Destino">
+              <datalist id="Destino">
+                <option value="Canelones">
+                <option value="Montevideo">
+                <option value="Tacuarembó">
+                <option value="Maldonado">
+                <option value="Rivera">
+              </datalist> 
+            </div>
+  
+            <div class="input" id="origen">
+              <i class="far fa-calendar-alt" id="icon"></i>
+              <input type="date" id="fecha_2" placeholder="Fecha y Hora" />
+            </div>
+  
+          </div>
+
+          <div class="list-empty">
+            <p>Lo sentimos, de momento no hay oportunidades disponibles.</p>
+          </div>
+          <div class="oportunidades-list">
+          </div>
+        </div>
+      </section>
+      <section class="ofertas-viajar">
+        <h2>
+          Ofertas
+        </h2>
+        <hr />
+        <p class="description">Conseguí las mejores ofertas con nosotros.</p>
+        <div class="ofertas-wrapper">
+
+          <div class="filter-wrapper">
+            <div class="search">
+              <i class="fas fa-search"></i>
+              <input
+                type="text"
+                placeholder="Buscar"
+                id="searchbar"
+                onkeyup="buscarOportunidades()"
+              />
+            </div>
+  
+            <div class="button-filtrar">
+              <button onclick="filtros(2)"><i class="fas fa-sort-amount-down"></i> Filtrar</button>
+            </div>
+          </div>
+  
+          <div id="filters2">
+  
+            <div class="input" id="destino">
+              <i class="fas fa-route" id="icon"></i>
+              <input list="Destino" id="destino_2" placeholder="Destino">
+              <datalist id="Destino">
+                <option value="Canelones">
+                <option value="Montevideo">
+                <option value="Tacuarembó">
+                <option value="Maldonado">
+                <option value="Rivera">
+              </datalist> 
+            </div>
+  
+            <div class="input" id="destino">
+              <i class="fas fa-route" id="icon"></i>
+              <input list="Destino" id="destino_2" placeholder="Destino">
+              <datalist id="Destino">
+                <option value="Canelones">
+                <option value="Montevideo">
+                <option value="Tacuarembó">
+                <option value="Maldonado">
+                <option value="Rivera">
+              </datalist> 
+            </div>
+  
+            <div class="input" id="origen">
+              <i class="far fa-calendar-alt" id="icon"></i>
+              <input type="date" id="fecha_2" placeholder="Fecha y Hora" />
+            </div>
+  
+          </div>
+
+          <div class="list-empty2">
+            <p>Lo sentimos, de momento no hay ofertas disponibles.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="salioviaje">
+        <h2>
+          Solicitar una Cotización
+        </h2>
+        <hr />
+        <p class="description">
+          Es gratis y sin compromiso. ¡No te lo pierdas!
+        </p>
+        <button class="button-agendar" onclick="desplegar(this, <?php if(!isset($_SESSION['usuario'])){ echo 1; }else{ echo 2; } ?>)">
+          <i class="fas fa-clipboard-list"></i> Formulario
+        </button>
+
+        <div class="salioviaje-desplegable">
+          <div class="formulario-viaje">
+
+            <div class="user-info">
+              <div class="user-icon">
+                <img src="/SalioViaje/media/svg/Logo-SalioViaje-White.svg" alt="Logo SalióViaje">
+              </div>
+              <div class="info">
+                <h3><?php echo $_SESSION['usuario']; ?></h3>
+                <p><i class="fas fa-user"></i> <?php echo $_SESSION['tipo_usuario']; ?></p>
+              </div>
+            </div>
+
+            <div class="progress-bar">
+              <span class="line"></span>
+              <span class="progress"></span>
+    
+              <span class="circle1"></span>
+              <span class="circle2"></span>
+              <span class="circle3"></span>
+            </div>
+
+            <div class="step_1">
+              
+              <div class="input">
+                <i class="fas fa-suitcase-rolling" id="icon"></i>
+                <select name="" id="select_users" onchange="select_usuario()">
+                  <option value="0" selected disabled hidden >Tipo de Viaje</option>
+                  <option value="1">Traslado</option>
+                  <option value="2">Tour</option>
+                  <option value="3">Transfer</option>
+                  <option value="4">Fiestas y Eventos</option>
+                </select>
+              </div>
+
+              <p class="info"><i class="fas fa-info-circle"></i> Seleccione un tipo de viaje a realizar.</p>
+
+            </div>
+
+            <div class="step_2_traslado">
+                                          
+              <h3 class="title"><i class="fas fa-bus"></i> Traslado</h3>
+
+              <div class="formulario-grid">
+                <div class="column">
+
+                  <div class="input">
+                    <p><i class="far fa-calendar-alt"></i> Fecha de Salida</p>                    
+                    <input type="date"/>
+                  </div>
+    
+                  <div class="input">
+                    <p><i class="fas fa-map-marker-alt"></i> Orígen</p>
+                    <input list="Destino" id="origen_1">
+                    <datalist id="Destino">
+                      <option value="Canelones">
+                      <option value="Montevideo">
+                      <option value="Tacuarembó">
+                      <option value="Maldonado">
+                      <option value="Rivera">
+                    </datalist>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p>  
+                    <input type="number"/>
+                  </div>
+
+                </div>
+    
+                <div class="column">
+
+                  <div class="input">
+                    <p><i class="far fa-calendar-alt"></i> Hora</p>
+                    <input type="time"/>
+                  </div>
+    
+                  <div class="input">
+                    <p><i class="fas fa-route"></i> Destino</p>
+                    
+                    <input list="Destino" id="destino_1">
+                    <datalist id="Destino">
+                      <option value="Canelones">
+                      <option value="Montevideo">
+                      <option value="Tacuarembó">
+                      <option value="Maldonado">
+                      <option value="Rivera">
+                    </datalist> 
+                  </div>
+                </div>
+
+              </div>
+
+              <button class="button-viajar" onclick="volver()"><i class="fas fa-arrow-circle-left"></i> Volver</button>
+              <button class="button-viajar" onclick="next()">Siguiente <i class="fas fa-arrow-circle-right"></i></button>
+
+            </div>
+
+            <div class="step_2_tour">
+                            
+              <h3 class="title"><i class="fas fa-city"></i> Tour</h3>
+
+              <div class="formulario-grid">
+                <div class="column">
+
+                  <div class="input">
+                    <p><i class="far fa-calendar-alt"></i> Día de Inicio</p>                    
+                    <input type="date"/>
+                  </div>
+    
+                  <div class="input">
+                    <p><i class="fas fa-map-marker-alt"></i> Orígen</p>
+                    <input list="Destino" id="origen_1">
+                    <datalist id="Destino">
+                      <option value="Canelones">
+                      <option value="Montevideo">
+                      <option value="Tacuarembó">
+                      <option value="Maldonado">
+                      <option value="Rivera">
+                    </datalist>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p>  
+                    <input type="number"/>
+                  </div>
+
+                </div>
+    
+                <div class="column">
+
+                  <div class="input">
+                    <p><i class="far fa-calendar-alt"></i> Hora</p>
+                    <input type="time"/>
+                  </div>
+    
+                  <div class="input">
+                    <p><i class="fas fa-city"></i> Ciudad</p>
+                    
+                    <input list="Destino" id="destino_1">
+                    <datalist id="Destino">
+                      <option value="Canelones">
+                      <option value="Montevideo">
+                      <option value="Tacuarembó">
+                      <option value="Maldonado">
+                      <option value="Rivera">
+                    </datalist> 
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-clock"></i> Duración (Horas)</p>  
+                    <input type="number"/>
+                  </div>
+                  
+                </div>
+
+              </div>
+
+              <button class="button-viajar" onclick="volver()"><i class="fas fa-arrow-circle-left"></i> Volver</button>
+              <button class="button-viajar" onclick="next()">Siguiente <i class="fas fa-arrow-circle-right"></i></button>
+
+            </div>
+
+            <div class="step_2_transfer">
+              
+              <h3 class="title"><i class="fas fa-plane-departure"></i> Transfer</h3>
+
+              <div class="formulario-grid">
+                <div class="column">
+
+                  <div class="input">
+                    <p><i class="far fa-calendar-alt"></i> Día de Inicio</p>                    
+                    <input type="date"/>
+                  </div>
+    
+                  <div class="input">
+                    <p><i class="fas fa-map-marker-alt"></i> Orígen</p>
+                    <input list="Destino" id="origen_1">
+                    <datalist id="Destino">
+                      <option value="Canelones">
+                      <option value="Montevideo">
+                      <option value="Tacuarembó">
+                      <option value="Maldonado">
+                      <option value="Rivera">
+                    </datalist>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p> 
+                    <input type="number"/>
+                  </div>
+
+                </div>
+    
+                <div class="column">
+
+                  <div class="input">
+                    <p><i class="far fa-calendar-alt"></i> Hora</p>
+                    <input type="time"/>
+                  </div>
+    
+                  <div class="input">
+                    <p><i class="fas fa-plane-departure"></i> Destino (Puerto o Aeropuerto)</p> 
+                    <input type="text" id="aeropuerto_1">
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-suitcase-rolling"></i> Equipaje (Cant. Maletas)</p> 
+                    <input type="number"/>
+                  </div>
+                  
+                </div>
+
+              </div>
+
+              <button class="button-viajar" onclick="volver()"><i class="fas fa-arrow-circle-left"></i> Volver</button>
+              <button class="button-viajar" onclick="next()">Siguiente <i class="fas fa-arrow-circle-right"></i></button>
+
+            </div>
+
+            <div class="step_2_fiestas">
+
+              <h3 class="title"><i class="fas fa-glass-cheers"></i> Fiestas y Eventos</h3>
+
+              <div class="formulario-grid">
+                <div class="column">
+
+                  <div class="input">
+                    <p><i class="far fa-calendar-alt"></i> Día de Inicio</p>                  
+                    <input type="date"/>
+                  </div>
+    
+                  <div class="input">
+                    <p><i class="fas fa-map-marker-alt"></i> Orígen</p>
+                    <input list="Destino" id="origen_1">
+                    <datalist id="Destino">
+                      <option value="Canelones">
+                      <option value="Montevideo">
+                      <option value="Tacuarembó">
+                      <option value="Maldonado">
+                      <option value="Rivera">
+                    </datalist>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p> 
+                    <input type="number"/>
+                  </div>
+
+                </div>
+    
+                <div class="column">
+
+                  <div class="input">
+                    <p><i class="far fa-calendar-alt"></i> Hora</p>
+                    <input type="time"/>
+                  </div>
+    
+                  <div class="input">
+                    <p><i class="fas fa-route"></i> Destino</p> 
+                    <input type="text" id="aeropuerto_1">
+                  </div>
+                  
+                </div>
+
+              </div>
+
+              <button class="button-viajar" onclick="volver()"><i class="fas fa-arrow-circle-left"></i> Volver</button>
+              <button class="button-viajar" onclick="next()">Siguiente <i class="fas fa-arrow-circle-right"></i></button>
+
+            </div>
+
+            <div class="step_3">
+
+              <div class="paradas-wrapper">
+                <div class="input">
+                  <p><i class="fas fa-stopwatch"></i> Parada</p>
+                  <input id="paradas_1" onchange="paradas()">
+                </div>
+                <div class="tags" id="tags_paradas">
+                </div>
+              </div>
+
+              <button class="button-viajar" onclick="volver()"><i class="fas fa-arrow-circle-left"></i> Volver</button>
+              <button class="button-viajar" onclick="next()">Enviar Solicitud <i class="fas fa-paper-plane"></i></button>
+
+            </div>
+
+            <div class="step_4">
+
+              <div class="send-wrapper">
+
+                <div class="send-icon">
+                  <i class="fas fa-check-circle"></i>
+                </div>
+
+                <div class="send-info">
+                  <h2>¡Solicitud Enviada!</h2>
+                  <p>En breve te llegaran cotizaciones a tu correo electrónico.</p>
+                  <button class="button-viajar" onclick="nueva_cotizacion()"><i class="fas fa-plus-circle"></i> Nueva Cotización</button>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div id="footer"></div>
+  </body>
+</html>

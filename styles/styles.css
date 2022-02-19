@@ -7483,7 +7483,6 @@ footer .totum p a:hover {
   margin-top: -90px;
   padding: 0 18px;
   max-height: 0;
-  overflow: hidden;
   -webkit-transition: 0.6s ease-in-out;
   transition: 0.6s ease-in-out;
   opacity: 0;
@@ -7507,20 +7506,175 @@ footer .totum p a:hover {
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje {
   max-width: 600px;
   width: 100%;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
-  gap: 20px;
 }
 
-.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .input {
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .user-info {
+  width: 100%;
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .user-info .user-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #3844bc;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .user-info .user-icon img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .user-info .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .user-info .info h3 {
+  color: #3844bc;
+  margin: 0;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .user-info .info p {
+  color: #555;
+  margin: 0;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .progress-bar {
   position: relative;
-  width: calc(100% - 60px);
+  width: 90%;
+  height: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .progress-bar .line {
+  position: relative;
+  width: 100%;
+  height: 5px;
+  border-radius: 2em;
+  background-color: #aaa;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .progress-bar .progress {
+  position: absolute;
+  left: 0;
+  width: 0%;
+  height: 5px;
+  border-radius: 2em;
+  background: -webkit-gradient(linear, left top, right top, from(#3844bc), to(#2b3179));
+  background: linear-gradient(to right, #3844bc, #2b3179);
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .progress-bar .circle1,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .progress-bar .circle2,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .progress-bar .circle3 {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #aaa;
+  position: absolute;
+  left: 0;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .progress-bar .circle1 {
+  background-color: #3844bc;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .progress-bar .circle2 {
+  left: calc(50% - 10px);
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .progress-bar .circle3 {
+  left: calc(100% - 10px);
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .title,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .title,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .title,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .title,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .title,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .title,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .title {
+  font-size: 1.5em;
+  margin: 20px 0;
+  color: #3844bc;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .info,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .info,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .info,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .info,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .info,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .info,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .info {
+  color: #3844bc;
+  margin: 0;
+  margin-top: 20px;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input {
+  position: relative;
+  width: 300px;
   margin: 30px auto;
 }
 
-.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .input input {
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input select,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .input input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .input select,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .input input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .input select,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .input input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .input select,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .input input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .input select,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .input input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .input select,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input select {
   width: 100%;
   height: 40px;
   background-color: transparent;
@@ -7532,30 +7686,474 @@ footer .totum p a:hover {
   font-size: 0.85em;
 }
 
-.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .input input::-webkit-input-placeholder {
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input select::-webkit-input-placeholder {
   color: #888;
 }
 
-.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .input input:-ms-input-placeholder {
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input select:-ms-input-placeholder {
   color: #888;
 }
 
-.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .input input::-ms-input-placeholder {
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input select::-ms-input-placeholder {
   color: #888;
 }
 
-.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .input input::placeholder {
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input input::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input select::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .input input::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .input select::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .input input::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .input select::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .input input::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .input select::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .input input::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .input select::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .input input::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .input select::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input input::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input select::placeholder {
   color: #888;
 }
 
-.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .input #icon {
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input #icon,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .input #icon,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .input #icon,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .input #icon,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .input #icon,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .input #icon,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input #icon {
   position: absolute;
   top: 10px;
   left: 0;
   color: #555;
 }
 
-.viajar-wrapper .salioviaje .salioviaje-desplegable .enviar {
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .formulario-grid, .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .paradas-wrapper,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .formulario-grid,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .paradas-wrapper,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .formulario-grid,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .paradas-wrapper,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .formulario-grid,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .paradas-wrapper,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .formulario-grid,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .paradas-wrapper,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .formulario-grid,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .paradas-wrapper,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .formulario-grid,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .paradas-wrapper {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .formulario-grid .input, .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .paradas-wrapper .input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .formulario-grid .input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .paradas-wrapper .input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .formulario-grid .input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .paradas-wrapper .input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .formulario-grid .input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .paradas-wrapper .input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .formulario-grid .input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .paradas-wrapper .input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .formulario-grid .input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .paradas-wrapper .input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .formulario-grid .input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .paradas-wrapper .input {
+  position: relative;
+  width: 300px;
+  margin: 30px auto;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .formulario-grid .input p, .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .paradas-wrapper .input p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .formulario-grid .input p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .paradas-wrapper .input p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .formulario-grid .input p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .paradas-wrapper .input p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .formulario-grid .input p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .paradas-wrapper .input p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .formulario-grid .input p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .paradas-wrapper .input p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .formulario-grid .input p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .paradas-wrapper .input p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .formulario-grid .input p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .paradas-wrapper .input p {
+  margin: 0;
+  text-align: left;
+  color: #3844bc;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .formulario-grid .input input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .formulario-grid .input select, .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .paradas-wrapper .input input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .paradas-wrapper .input select,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .formulario-grid .input input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .formulario-grid .input select,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .paradas-wrapper .input input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .paradas-wrapper .input select,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .formulario-grid .input input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .formulario-grid .input select,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .paradas-wrapper .input input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .paradas-wrapper .input select,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .formulario-grid .input input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .formulario-grid .input select,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .paradas-wrapper .input input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .paradas-wrapper .input select,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .formulario-grid .input input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .formulario-grid .input select,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .paradas-wrapper .input input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .paradas-wrapper .input select,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .formulario-grid .input input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .formulario-grid .input select,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .paradas-wrapper .input input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .paradas-wrapper .input select,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .formulario-grid .input input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .formulario-grid .input select,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .paradas-wrapper .input input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .paradas-wrapper .input select {
+  width: 100%;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #aaa;
+  outline: none;
+  color: #555;
+  font-size: 0.85em;
+  padding: 0;
+  margin: 0;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .formulario-grid .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .formulario-grid .input select::-webkit-input-placeholder, .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .paradas-wrapper .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .paradas-wrapper .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .formulario-grid .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .formulario-grid .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .paradas-wrapper .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .paradas-wrapper .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .formulario-grid .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .formulario-grid .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .paradas-wrapper .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .paradas-wrapper .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .formulario-grid .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .formulario-grid .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .paradas-wrapper .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .paradas-wrapper .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .formulario-grid .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .formulario-grid .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .paradas-wrapper .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .paradas-wrapper .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .formulario-grid .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .formulario-grid .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .paradas-wrapper .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .paradas-wrapper .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .formulario-grid .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .formulario-grid .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .paradas-wrapper .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .paradas-wrapper .input select::-webkit-input-placeholder {
+  color: #888;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .formulario-grid .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .formulario-grid .input select:-ms-input-placeholder, .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .paradas-wrapper .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .paradas-wrapper .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .formulario-grid .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .formulario-grid .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .paradas-wrapper .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .paradas-wrapper .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .formulario-grid .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .formulario-grid .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .paradas-wrapper .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .paradas-wrapper .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .formulario-grid .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .formulario-grid .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .paradas-wrapper .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .paradas-wrapper .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .formulario-grid .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .formulario-grid .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .paradas-wrapper .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .paradas-wrapper .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .formulario-grid .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .formulario-grid .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .paradas-wrapper .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .paradas-wrapper .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .formulario-grid .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .formulario-grid .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .paradas-wrapper .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .paradas-wrapper .input select:-ms-input-placeholder {
+  color: #888;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .formulario-grid .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .formulario-grid .input select::-ms-input-placeholder, .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .paradas-wrapper .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .paradas-wrapper .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .formulario-grid .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .formulario-grid .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .paradas-wrapper .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .paradas-wrapper .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .formulario-grid .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .formulario-grid .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .paradas-wrapper .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .paradas-wrapper .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .formulario-grid .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .formulario-grid .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .paradas-wrapper .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .paradas-wrapper .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .formulario-grid .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .formulario-grid .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .paradas-wrapper .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .paradas-wrapper .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .formulario-grid .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .formulario-grid .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .paradas-wrapper .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .paradas-wrapper .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .formulario-grid .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .formulario-grid .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .paradas-wrapper .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .paradas-wrapper .input select::-ms-input-placeholder {
+  color: #888;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .formulario-grid .input input::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .formulario-grid .input select::placeholder, .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .paradas-wrapper .input input::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .paradas-wrapper .input select::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .formulario-grid .input input::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .formulario-grid .input select::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .paradas-wrapper .input input::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .paradas-wrapper .input select::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .formulario-grid .input input::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .formulario-grid .input select::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .paradas-wrapper .input input::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .paradas-wrapper .input select::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .formulario-grid .input input::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .formulario-grid .input select::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .paradas-wrapper .input input::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .paradas-wrapper .input select::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .formulario-grid .input input::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .formulario-grid .input select::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .paradas-wrapper .input input::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .paradas-wrapper .input select::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .formulario-grid .input input::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .formulario-grid .input select::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .paradas-wrapper .input input::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .paradas-wrapper .input select::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .formulario-grid .input input::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .formulario-grid .input select::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .paradas-wrapper .input input::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .paradas-wrapper .input select::placeholder {
+  color: #888;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .paradas-wrapper,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .paradas-wrapper,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .paradas-wrapper,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .paradas-wrapper,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .paradas-wrapper,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .paradas-wrapper,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .paradas-wrapper {
+  display: block;
+  margin: 20px 0;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .tags,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .tags,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .tags,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .tags,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .tags,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .tags,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .tags {
+  width: calc(100% - 40px);
+  background-color: #eee;
+  border-radius: 10px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .tags .tag,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .tags .tag,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .tags .tag,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .tags .tag,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .tags .tag,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .tags .tag,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .tags .tag {
+  margin: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #6d76db;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .tags .tag p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .tags .tag p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .tags .tag p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .tags .tag p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .tags .tag p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .tags .tag p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .tags .tag p {
+  margin: 0 10px;
+  color: #ffffff;
+  font-size: 0.9em;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .tags .tag button,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .tags .tag button,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .tags .tag button,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .tags .tag button,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .tags .tag button,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .tags .tag button,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .tags .tag button {
+  height: 100%;
+  background-color: rgba(30, 30, 30, 0.5);
+  padding: 5px 10px;
+  cursor: pointer;
+  border: none;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .tags .tag button i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .tags .tag button i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .tags .tag button i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .tags .tag button i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .tags .tag button i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .tags .tag button i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .tags .tag button i {
+  color: #ffffff;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .tags .tag button:hover i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .tags .tag button:hover i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .tags .tag button:hover i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .tags .tag button:hover i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .tags .tag button:hover i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .tags .tag button:hover i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .tags .tag button:hover i {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .send-wrapper,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .send-wrapper,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .send-wrapper,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .send-wrapper,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .send-wrapper,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .send-wrapper,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .send-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  text-align: center;
+  margin-top: 60px;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .send-wrapper .send-icon i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .send-wrapper .send-icon i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .send-wrapper .send-icon i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .send-wrapper .send-icon i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .send-wrapper .send-icon i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .send-wrapper .send-icon i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .send-wrapper .send-icon i {
+  color: #70ff7c;
+  font-size: 3em;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .send-wrapper .send-info h2,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .send-wrapper .send-info h2,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .send-wrapper .send-info h2,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .send-wrapper .send-info h2,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .send-wrapper .send-info h2,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .send-wrapper .send-info h2,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .send-wrapper .send-info h2 {
+  font-size: 1.2em;
+  color: #3844bc;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .send-wrapper .send-info p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .send-wrapper .send-info p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .send-wrapper .send-info p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .send-wrapper .send-info p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .send-wrapper .send-info p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .send-wrapper .send-info p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .send-wrapper .send-info p {
+  color: #555;
+  font-size: .9em;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .button-viajar,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .button-viajar,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .button-viajar,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .button-viajar,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .button-viajar,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .button-viajar,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .button-viajar {
   background: -webkit-gradient(linear, left top, right top, from(#3844bc), to(#2b3179));
   background: linear-gradient(to right, #3844bc, #2b3179);
   color: #ffffff;
@@ -7566,13 +8164,26 @@ footer .totum p a:hover {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   cursor: pointer;
+  margin: 0 5px;
 }
 
-.viajar-wrapper .salioviaje .salioviaje-desplegable .enviar i {
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .button-viajar i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .button-viajar i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .button-viajar i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .button-viajar i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .button-viajar i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .button-viajar i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .button-viajar i {
   margin-right: 5px;
 }
 
-.viajar-wrapper .salioviaje .salioviaje-desplegable .enviar:hover {
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .button-viajar:hover,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .button-viajar:hover,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .button-viajar:hover,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .button-viajar:hover,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .button-viajar:hover,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .button-viajar:hover,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .button-viajar:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
