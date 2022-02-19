@@ -405,8 +405,18 @@
         }
 
         .step_1,
-        .step_2,
-        .step_3{
+        .step_2_traslado,
+        .step_2_tour,
+        .step_2_transfer,
+        .step_2_fiestas,
+        .step_3,
+        .step_4{
+
+          .title{
+            font-size: 1.5em;
+            margin: 20px 0;
+            color: $main_1;
+          }
 
           .info{
             color: $main_1;
@@ -444,7 +454,7 @@
             }
           }
 
-          .formulario-grid{
+          .formulario-grid, .paradas-wrapper{
             width: 100%;
   
             display: grid;
@@ -482,6 +492,10 @@
                 color: #888;
               }
             }
+          }
+          .paradas-wrapper{
+            display: block;
+            margin: 20px 0;
           }
 
           .tags {
@@ -527,6 +541,35 @@
                 i {
                   transform: scale(1.1);
                 }
+              }
+            }
+          }
+
+          .send-wrapper{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            width: 100%;
+            text-align: center;
+
+            margin-top: 60px;
+
+            .send-icon{
+              i{
+                color: #70ff7c;
+                font-size: 3em;
+              }
+            }
+            .send-info{
+              h2{
+                font-size: 1.2em;
+                color: $main_1;
+              }
+              p{
+                color: #555;
+                font-size: .9em;
               }
             }
           }
