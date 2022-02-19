@@ -243,10 +243,6 @@ try {
     $returnTTA = 1;
     //echo 1;
     //return 1;
-    $mail->send();
-
-    echo 1;
-    return 1;
 
 } catch (Exception $e) {
 
