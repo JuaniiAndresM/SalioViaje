@@ -96,9 +96,14 @@ function select_usuario(){
     }
 }
 
-function desplegar(button){
-    button.classList.toggle("active");
-    button.nextElementSibling.classList.toggle("show");
+function desplegar(button, session){
+
+    if(session == 1){
+        location.href = "/SalioViaje/Login";
+    }else{
+        button.classList.toggle("active");
+        button.nextElementSibling.classList.toggle("show");
+    }    
 }
 
 let array_paradas = new Array();

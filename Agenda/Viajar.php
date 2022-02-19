@@ -1,3 +1,8 @@
+<?php 
+  session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -228,7 +233,7 @@
         <p class="description">
           Es gratis y sin compromiso. ¡No te lo pierdas!
         </p>
-        <button class="button-agendar" onclick="desplegar(this)">
+        <button class="button-agendar" onclick="desplegar(this, <?php if(!isset($_SESSION['usuario'])){ echo 1; }else{ echo 2; } ?>)">
           <i class="fas fa-clipboard-list"></i> Formulario
         </button>
 
@@ -240,8 +245,8 @@
                 <img src="/SalioViaje/media/svg/Logo-SalioViaje-White.svg" alt="Logo SalióViaje">
               </div>
               <div class="info">
-                <h3>Nombre del Pasajero</h3>
-                <p><i class="fas fa-user"></i> Pasajero</p>
+                <h3><?php echo $_SESSION['usuario']; ?></h3>
+                <p><i class="fas fa-user"></i> <?php echo $_SESSION['tipo_usuario']; ?></p>
               </div>
             </div>
 
