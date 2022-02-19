@@ -577,7 +577,10 @@ class validaciones
 		}
     }
 }
-
+if(isset($_POST['CIANTERIOR'])){
 $Validar = new validaciones($_POST['tipo'],$_POST['datos'],$_POST['CIANTERIOR']);
+}else{
+	$Validar = new validaciones($_POST['tipo'],$_POST['datos'],null);
+}
 
 ?>

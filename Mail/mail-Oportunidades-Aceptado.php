@@ -97,14 +97,15 @@ $mail->Body    = '<div class="mail" style="max-width: 600px; background: white;"
 
 try {
     $mail->send();
-    echo 1;
-    return 1;
+    $returnAdmin = 1;
+    //echo 1;
+    //return 1;
 
 } catch (Exception $e) {
 
-    echo "Mailer Error: " . $mail->ErrorInfo;
-    echo 0;
-    return 0;
+    $returnAdmin = "Mailer Error: " . $mail->ErrorInfo;
+    //echo 0;
+    //return 0;
 }
 
 session_start();
@@ -168,14 +169,15 @@ $mail->Body    = '    <div class="mail" style="max-width: 600px; background: whi
 
 try {
     $mail->send();
-    echo 1;
-    return 1;
+    $returnPAX = 1;
+    //echo 1;
+    //return 1;
 
 } catch (Exception $e) {
 
-    echo "Mailer Error: " . $mail->ErrorInfo;
-    echo 0;
-    return 0;
+    $returnPAX = "Mailer Error: " . $mail->ErrorInfo;
+   // echo 0;
+   // return 0;
 }
 
 
@@ -240,12 +242,21 @@ $mail->Body    = '<div class="mail" style="max-width: 600px; background: white;"
 
 try {
     $mail->send();
-    echo 1;
-    return 1;
+    $returnTTA = 1;
+    //echo 1;
+    //return 1;
 
 } catch (Exception $e) {
 
-    echo "Mailer Error: " . $mail->ErrorInfo;
-    echo 0;
-    return 0;
+    $returnTTA = "Mailer Error: " . $mail->ErrorInfo;
+    //echo 0;
+    //return 0;
 }
+
+$return = array(
+    $returnAdmin,
+    $returnPAX,
+    $returnTTA
+);
+
+return json_encode($return);
