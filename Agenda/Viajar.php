@@ -268,9 +268,7 @@
                   <option value="1">Traslado</option>
                   <option value="2">Tour</option>
                   <option value="3">Transfer</option>
-                  <option value="4">Fiesta</option>
-                  <option value="5">Evento</option>
-                  <option value="6">Por Horas</option>
+                  <option value="4">Fiestas y Eventos</option>
                 </select>
               </div>
 
@@ -461,7 +459,7 @@
 
             <div class="step_2_fiestas">
 
-              <h3 class="title"><i class="fas fa-glass-cheers"></i> Fiesta</h3>
+              <h3 class="title"><i class="fas fa-glass-cheers"></i> Fiestas y Eventos</h3>
 
               <div class="formulario-grid">
                 <div class="column">
