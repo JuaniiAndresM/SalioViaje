@@ -615,5 +615,21 @@ public function confirmar_password($id,$pin){
  return json_encode($result);
 }
 
+public function confirmar_codigo_password($id, $codigo_u){
+    $conn = $this->conexion();
+    $query = "CALL confirmo_cambio_password(?,?)";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("is", $id, $codigo_u);
+    if ($stmt->execute()) {
+        $stmt->store_result();
+        $stmt->bind_result($codigo);
+        while ($stmt->fetch()) {
+         $result = array('CODIGO' => $codigo);
+         $usuario[] = $result;
+     }
+ }
+ $stmt->close();
+ return json_encode($result);
+}
 }
 ?>

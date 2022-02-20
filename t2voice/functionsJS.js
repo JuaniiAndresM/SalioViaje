@@ -113,16 +113,14 @@ function oportunidad_aprobada(id){
                         }
                     }).responseText;
 
-            console.log(JSON.parse(mail_tta)['MAIL']);
-
-        // $.ajax({
-        //     type: "POST",
-        //     url: "/SalioViaje/Mail/mail-Oportunidades-Aceptado.php",
-        //     data: { mail_tta:JSON.parse(mail_tta)['MAIL'] },
-        //     success: function (response) {
-        //         cambiar_estado_oportunidad('Aprobada',id)
-        //     }
-        // });
+            $.ajax({
+                type: "POST",
+                url: "/SalioViaje/Mail/mail-Oportunidades-Aceptado.php",
+                data: { mail_tta:JSON.parse(mail_tta)['MAIL'] },
+                success: function (response) {
+                    cambiar_estado_oportunidad('Aprobada',id)
+                }
+            });
 }
 
 function oportunidad_rechazada(id){
