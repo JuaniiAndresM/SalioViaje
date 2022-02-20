@@ -283,6 +283,7 @@
     padding: 20px 0;
     padding-bottom: 40px;
     margin-bottom: 80px;
+    
     .button-agendar {
       position: relative;
       z-index: 10;
@@ -296,7 +297,7 @@
     }
 
     .salioviaje-desplegable {
-      margin-top: -90px;
+      margin-top: -80px;
       padding: 0 18px;
       max-height: 0;
       transition: 0.6s ease-in-out;
@@ -461,6 +462,10 @@
             grid-template-columns: 1fr 1fr;
             gap: 20px;
 
+            h3{
+              color: $main_2;
+            }
+
             .input {
               position: relative;
               width: 300px;
@@ -588,7 +593,7 @@
 
     .salioviaje-desplegable.show {
       opacity: 1;
-      max-height: 500px;
+      max-height: max-content;
     }
   }
 }
@@ -660,14 +665,26 @@
   }
 }
 
-@media screen and(max-width: 520px) {
+@media screen and(max-width: 680px) {
   .viajar-wrapper {
     .salioviaje {
       .salioviaje-desplegable {
-        .formulario-viaje {
-          grid-template-columns: 1fr;
-          gap: 0;
+        .formulario-viaje{
+          .step_1,
+          .step_2_traslado,
+          .step_2_tour,
+          .step_2_transfer,
+          .step_2_fiestas,
+          .step_3,
+          .step_4{
+            .formulario-grid {
+              grid-template-columns: 1fr;
+              gap: 0;
+            }
+          }
+          
         }
+        
       }
     }
   }

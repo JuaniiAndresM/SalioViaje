@@ -1,5 +1,8 @@
 $(document).ready(function () {
     steps(1);
+    select_fiesta();
+    select_transfer();
+
 });
 
 var step = 1;
@@ -23,7 +26,7 @@ function steps(step){
     $(".step_3").hide();
     $(".step_4").hide();
 
-    console.log(step);
+    $("#paradas_vuelta").hide();
 
     switch(step){
         case 1:
@@ -66,6 +69,19 @@ function steps(step){
             break;
 
         case 3:
+
+            if($("#select_users").val() == "4"){
+                if($('#select_fiesta').val() == 3){
+                    $("#paradas_vuelta").show();
+                }else{
+                    $("#paradas_vuelta").hide();
+                }
+            }else{
+                $("#paradas_vuelta").hide();
+            }
+
+            
+
             $(".step_3").show();
 
             $('.progress').css('width', '100%');
@@ -106,29 +122,116 @@ function desplegar(button, session){
     }    
 }
 
-let array_paradas = new Array();
-var count_paradas = 0;
+let array_paradas_1 = new Array();
+var count_paradas_1 = 0;
 
-function paradas(){
-    parada = $("#paradas_1").val();
-    array_paradas[count_paradas] = parada
+let array_paradas_2 = new Array();
+var count_paradas_2 = 0;
 
-    $.ajax({
-        type: "POST",
-        url: "/SalioViaje/PHP/Tablas/agregarParada.php",
-        data: {NRO_PARADA: count_paradas, NOMBRE_PARADA: parada},
-        success: function (response) {
-            $("#tags_paradas").append(response);
-            $("#paradas_1").val("");
-        }
-    });
+function paradas(tipo){
 
-    count_paradas++
-    console.log(array_paradas);
+    switch(tipo){
+        case 1:
+            parada = $("#paradas_1").val();
+            array_paradas_1[count_paradas_1] = parada;
+
+            $.ajax({
+                type: "POST",
+                url: "/SalioViaje/PHP/Tablas/agregarParada.php",
+                data: {NRO_PARADA: count_paradas_1, NOMBRE_PARADA: parada, TIPO: 1},
+                success: function (response) {
+                    $("#tags_paradas_1").append(response);
+                    $("#paradas_1").val("");
+                }
+            });
+            count_paradas_1++;
+
+            break;
+
+        case 2:
+            parada = $("#paradas_2").val();
+            array_paradas_2[count_paradas_2] = parada;
+
+            $.ajax({
+                type: "POST",
+                url: "/SalioViaje/PHP/Tablas/agregarParada.php",
+                data: {NRO_PARADA: count_paradas_2, NOMBRE_PARADA: parada, TIPO: 2},
+                success: function (response) {
+                    $("#tags_paradas_2").append(response);
+                    $("#paradas_2").val("");
+                }
+            });
+            count_paradas_1++;
+
+            break;
+    }
+    
+
+    
+
+    
 }
 
-function borrar_parada(parada){
-    delete array_paradas[parada]
-    $('#R'+parada).remove();
-    console.log(array_paradas)
+function borrar_parada(parada, tipo){
+    switch(tipo){
+        case 1:
+            delete array_paradas_1[parada];
+            $('#R'+parada).remove();
+            console.log(array_paradas_1);
+            break;
+
+        case 2:
+            delete array_paradas_2[parada];
+            $('#R'+parada).remove();
+            console.log(array_paradas_2);
+            break;
+    }
+    
+}
+
+function select_fiesta(){
+    tipo = $('#select_fiesta').val();
+
+    $('#fiesta_ida').hide();
+    $('#fiesta_vuelta').hide();
+    $('#fiesta_idavuelta').hide();
+
+    switch(tipo){
+        case "1":
+            $('#fiesta_ida').show();
+            break;
+
+        case "2":
+            $('#fiesta_vuelta').show();
+            break;
+
+        case "3":
+            $('#fiesta_idavuelta').show();
+            break;
+
+        default:
+            $('#fiesta_ida').show();
+            break;
+    }
+}
+
+function select_transfer(){
+    tipo = $('#select_transfer').val();
+
+    $('#transfer_in').hide();
+    $('#transfer_out').hide();
+
+    switch(tipo){
+        case "1":
+            $('#transfer_in').show();
+            break;
+
+        case "2":
+            $('#transfer_out').show();
+            break;
+
+        default:
+            $('#transfer_in').show();
+            break;
+    }
 }
