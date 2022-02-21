@@ -78,14 +78,9 @@ $ID = substr($ID, 0, -1);
 
     <script src="/SalioViaje/Javascript/web.js"></script>
     <script src="/SalioViaje/Javascript/viajar.js"></script>
-    <script src="/SalioViaje/Javascript/solicitud.js"></script>
-        <script src="/SalioViaje/t2voice/send_data.js"></script>
+    <script src="/SalioViaje/t2voice/send_data.js"></script>
     <script src="/SalioViaje/t2voice/functionsJS.js"></script>
-    <script type="text/javascript">
-            window.onload = function(){
-              oportunidad_aprobada(<?php echo $_GET['ID']; ?>)
-            }
-    </script>
+    <script src="/SalioViaje/Javascript/solicitud.js"></script>
   </head>
   <body>
     <div id="header"></div>

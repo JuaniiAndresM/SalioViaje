@@ -41,7 +41,7 @@ if ($_POST['opcion'] == 1) {
 } else if ($_POST['opcion'] == 2){
 	$comprar_oportunidad->estado_oportunidad($_POST['ESTADO'],$_POST['ID']);
 } else if ($_POST['opcion'] == 3){
-	echo $comprar_oportunidad->traer_datos_oportunidad($_POST['ID']);
+	echo json_encode($comprar_oportunidad->traer_datos_oportunidad($_POST['ID']));
 }
 
 

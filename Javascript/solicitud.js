@@ -1,19 +1,19 @@
 $(document).ready(function () {
     var ID = $("#id_get").val();
+    var ID_Slice = ID.slice(0,-1);
     
     solicitud_response = ID.charAt(ID.length-1);
 
     switch(solicitud_response){
         case "A":
-
+            oportunidad_aprobada(ID_Slice)
             solicitud(1,ID);
             break;
         case "R":
-
+            oportunidad_rechazada(ID_Slice)
             solicitud(2,ID);
             break;
         default:
-            
             solicitud(3,ID);
             break;
     }
