@@ -7,9 +7,260 @@ $(document).ready(function () {
 
 var step = 1;
 
+let datos_traslado;
+let datos_tour;
+let datos_transfer_in;
+let datos_transfer_out;
+let datos_fiestaseventos_ida;
+let datos_fiestaseventos_vuelta;
+let datos_fiestaseventos_idavuelta;
+
 function next(){
     step++;
     steps(step);
+}
+
+function finalizar(){
+    tipo = $('#select_users').val();
+    switch(tipo){
+
+        /* 
+        Traslado        
+        */
+        case "1":
+            datos_traslado = {
+                "FECHA_SALIDA": $('#fecha_salida').val(),
+                "ORIGEN": $('#origen_traslado').val(),
+                "CANTIDAD_PASAJEROS": $('#cant_pasajeros').val(),
+                "HORA": $('#hora').val(),
+                "DESTINO": $('#destino_traslado').val()
+            };
+
+            $.ajax({
+                type: "POST",
+                url: "/SalioViaje/Mail/mail-SalioViaje.php",
+                data: {TIPO: tipo, DATA: JSON.stringify(datos_traslado)},
+                success: function(response){
+
+                },
+                complete: function (response) {
+                    if(response == 1){
+                        step++;
+                        steps(step);
+                    }else{
+                        console.log(response);
+                    }         
+                }
+            });
+
+            break;
+
+        /* 
+        Tour        
+        */
+        case "2":
+            datos_tour = {
+                "FECHA_SALIDA": $('#fecha_salida_tour').val(),
+                "ORIGEN": $('#origen_tour').val(),
+                "CANTIDAD_PASAJEROS": $('#cant_pasajeros_tour').val(),
+                "HORA": $('#hora_tour').val(),
+                "CIUDAD": $('#destino_tour').val(),
+                "DURACION": $('#duracion_tour').val()
+            };
+            
+            $.ajax({
+                type: "POST",
+                url: "/SalioViaje/Mail/mail-SalioViaje.php",
+                data: {TIPO: tipo, DATA: JSON.stringify(datos_tour)},
+                success: function(response){
+
+                },
+                complete: function (response) {
+                    if(response == 1){
+                        step++;
+                        steps(step);
+                    }else{
+                        console.log(response);
+                    }         
+                }
+            });
+
+            break;
+
+        /* 
+        Transfer        
+        */
+        case "3":
+            var tipo_transfer = $('#select_transfer').val();
+            var transfer;
+
+            switch(tipo_transfer){
+                case 1:
+                    transfer = "In";
+                    datos_transfer_in = {
+                        "TIPO_TRANSFER": transfer,
+                        "FECHA_SALIDA": $('#fecha_salida_transfer').val(),
+                        "CANTIDAD_PASAJEROS": $('#cant_pasajeros_transfer').val(),
+                        "HORA": $('#hora_transfer').val(),
+                        "ORIGEN": $('#duracion_tour').val(),
+                        "AEROPUERTO": $('#aeropuerto_transfer').val(),
+                        "EQUIPAJE": $('#equipaje_transfer').val()
+                    };
+                                
+                    $.ajax({
+                        type: "POST",
+                        url: "/SalioViaje/Mail/mail-SalioViaje.php",
+                        data: {TIPO: tipo, DATA: JSON.stringify(datos_transfer_in)},
+                        success: function(response){
+
+                        },
+                        complete: function (response) {
+                            if(response == 1){
+                                step++;
+                                steps(step);
+                            }else{
+                                console.log(response);
+                            }       
+                        }
+                    });
+
+                    break;
+                case 2:
+                    transfer = "Out";
+                    datos_transfer_out = {
+                        "TIPO_TRANSFER": transfer,
+                        "FECHA_REGRESO": $('#fecha_regreso_transfer').val(),
+                        "CANTIDAD_PASAJEROS": $('#cant_pasajeros_transfer').val(),
+                        "HORA": $('#hora_transfer').val(),
+                        "AEROPUERTO": $('#aeropuerto_transfer').val(),
+                        "DESTINO": $('#destino_transfer').val(),
+                        "EQUIPAJE": $('#equipaje_transfer').val()
+                    };
+                                                    
+                    $.ajax({
+                        type: "POST",
+                        url: "/SalioViaje/Mail/mail-SalioViaje.php",
+                        data: {TIPO: tipo, DATA: JSON.stringify(datos_transfer_out)},
+                        success: function(response){
+
+                        },
+                        complete: function (response) {
+                            if(response == 1){
+                                step++;
+                                steps(step);
+                            }else{
+                                console.log(response);
+                            }         
+                        }
+                    });
+                    
+                    break;
+            }
+            break;
+
+        /* 
+        Fiestas y Eventos        
+        */
+        case "4":
+            var tramos = $('#select_fiesta').val();
+            var transfer;
+
+            switch(tipo_transfer){
+                case 1:
+                    tramos = "Solo Ida";
+                    datos_fiestaseventos_ida = {
+                        "TRAMOS_FIESTA": tramos,
+                        "FECHA_SALIDA": $('#fecha_salida_fiestas_ida').val(),
+                        "ORIGEN": $('#origen_fiestas_ida').val(),
+                        "CANTIDAD_PASAJEROS_IDA": $('#cant_pasajeros_fiesta_ida').val(),
+                        "HORA": $('#hora_fiesta_ida').val(),
+                        "DESTINO": $('#destino_fiesta_ida').val()
+                    };
+                                                                                            
+                    $.ajax({
+                        type: "POST",
+                        url: "/SalioViaje/Mail/mail-SalioViaje.php",
+                        data: {TIPO: tipo, DATA: JSON.stringify(datos_fiestaseventos_ida)},
+                        success: function(response){
+
+                        },
+                        complete: function (response) {
+                            if(response == 1){
+                                step++;
+                                steps(step);
+                            }else{
+                                console.log(response);
+                            }         
+                        }
+                    });
+                    break;
+                case 2:
+                    transfer = "Solo Vuelta";
+                    datos_fiestaseventos_vuelta = {
+                        "TRAMOS_FIESTA": tramos,
+                        "FECHA_REGRESO": $('#fecha_regreso_fiestas_vuelta').val(),
+                        "ORIGEN": $('#origen_fiestas_vuelta').val(),
+                        "CANTIDAD_PASAJEROS_VUELTA": $('#cant_pasajeros_fiesta_vuelta').val(),
+                        "HORA": $('#hora_fiesta_vuelta').val(),
+                        "DESTINO": $('#destino_fiesta_vuelta').val()
+                    };
+                                                                                                                
+                    $.ajax({
+                        type: "POST",
+                        url: "/SalioViaje/Mail/mail-SalioViaje.php",
+                        data: {TIPO: tipo, DATA: JSON.stringify(datos_fiestaseventos_vuelta)},
+                        success: function(response){
+
+                        },
+                        complete: function (response) {
+                            if(response == 1){
+                                step++;
+                                steps(step);
+                            }else{
+                                console.log(response);
+                            }       
+                        }
+                    });
+                    break;
+                case 3:
+                    transfer = "Ida y Vuelta";
+                    datos_fiestaseventos_idavuelta = {
+                        "TRAMOS_FIESTA": tramos,
+                        "FECHA_SALIDA": $('#fecha_salida_fiestas_idavuelta').val(),
+                        "ORIGEN": $('#origen_ida_fiestas_idavuelta').val(),
+                        "CANTIDAD_PASAJEROS_IDA": $('#cant_pasajeros_ida_fiestas_idavuelta').val(),
+                        "HORA": $('#hora_ida_fiestas_idavuelta').val(),
+                        "DESTINO": $('#destino_ida_fiestas_idavuelta').val(),
+
+                        "FECHA_REGRESO": $('#fecha_regreso_fiestas_idavuelta').val(),
+                        "ORIGEN": $('#origen_vuelta_fiestas_idavuelta').val(),
+                        "CANTIDAD_PASAJEROS_VUELTA": $('#cant_pasajeros_vuelta_fiestas_idavuelta').val(),
+                        "HORA": $('#hora_vuelta_fiestas_idavuelta').val(),
+                        "DESTINO": $('#destino_vuelta_fiestas_idavuelta').val()
+                    };
+                                                                                                                                    
+                    $.ajax({
+                        type: "POST",
+                        url: "/SalioViaje/Mail/mail-SalioViaje.php",
+                        data: {TIPO: tipo, DATA: JSON.stringify(datos_fiestaseventos_idavuelta)},
+                        success: function(response){
+
+                        },
+                        complete: function (response) {
+                            if(response == 1){
+                                step++;
+                                steps(step);
+                            }else{
+                                console.log(response);
+                            }
+                        }
+                    });
+                    break;
+            }
+            break;
+    }
+    
+    
 }
 
 function volver(){
@@ -73,11 +324,17 @@ function steps(step){
             if($("#select_users").val() == "4"){
                 if($('#select_fiesta').val() == 3){
                     $("#paradas_vuelta").show();
+                    $("#paradas_ida").show();
+                }else if($('#select_fiesta').val() == 2){
+                    $("#paradas_vuelta").show();
+                    $("#paradas_ida").hide();
                 }else{
                     $("#paradas_vuelta").hide();
+                    $("#paradas_ida").show();
                 }
             }else{
                 $("#paradas_vuelta").hide();
+                $("#paradas_ida").show();
             }
 
             
