@@ -419,12 +419,12 @@
 
                   <div class="input">
                     <p><i class="far fa-calendar-alt"></i> Fecha de Salida</p>                    
-                    <input type="date" id="fecha_salida_transfer"/>
+                    <input type="date" id="fecha_salida_transfer_in"/>
                   </div>
     
                   <div class="input">
                     <p><i class="fas fa-map-marker-alt"></i> Origen</p>
-                    <input list="Destino" id="origen_transfer">
+                    <input list="Destino" id="origen_transfer_in">
                     <datalist id="Destino">
                       <option value="Canelones">
                       <option value="Montevideo">
@@ -436,7 +436,7 @@
 
                   <div class="input">
                     <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p> 
-                    <input type="number" id="cant_pasajeros_transfer"/>
+                    <input type="number" id="cant_pasajeros_transfer_in"/>
                   </div>
 
                 </div>
@@ -445,17 +445,17 @@
 
                   <div class="input">
                     <p><i class="far fa-calendar-alt"></i> Hora</p>
-                    <input type="time" id="hora_transfer"/>
+                    <input type="time" id="hora_transfer_in"/>
                   </div>
     
                   <div class="input">
                     <p><i class="fas fa-plane-departure"></i> Destino (Puerto o Aeropuerto)</p> 
-                    <input type="text" id="aeropuerto_transfer">
+                    <input type="text" id="aeropuerto_transfer_in">
                   </div>
 
                   <div class="input">
                     <p><i class="fas fa-suitcase-rolling"></i> Equipaje (Cant. Maletas)</p> 
-                    <input type="number" id="equipaje_transfer"/>
+                    <input type="number" id="equipaje_transfer_in"/>
                   </div>
                   
                 </div>
@@ -467,17 +467,17 @@
 
                   <div class="input">
                     <p><i class="far fa-calendar-alt"></i> Fecha de Regreso</p>                    
-                    <input type="date" id="fecha_regreso_transfer"/>
+                    <input type="date" id="fecha_regreso_transfer_out"/>
                   </div>
 
                   <div class="input">
                     <p><i class="fas fa-plane-arrival"></i> Origen (Puerto o Aeropuerto)</p> 
-                    <input type="text" id="aeropuerto_transfer">
+                    <input type="text" id="aeropuerto_transfer_out">
                   </div>         
 
                   <div class="input">
                     <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p> 
-                    <input type="number" id="cant_pasajeros_transfer"/>
+                    <input type="number" id="cant_pasajeros_transfer_out"/>
                   </div>
 
                 </div>
@@ -486,12 +486,12 @@
 
                   <div class="input">
                     <p><i class="far fa-calendar-alt"></i> Hora</p>
-                    <input type="time"/>
+                    <input type="time" id="hora_transfer_out"/>
                   </div>
     
                   <div class="input">
                     <p><i class="fas fa-map-marker-alt"></i> Destino</p>
-                    <input list="Destino" id="destino_transfer">
+                    <input list="Destino" id="destino_transfer_out">
                     <datalist id="Destino">
                       <option value="Canelones">
                       <option value="Montevideo">
@@ -503,7 +503,7 @@
 
                   <div class="input">
                     <p><i class="fas fa-suitcase-rolling"></i> Equipaje (Cant. Maletas)</p> 
-                    <input type="number" id="equipaje_transfer"/>
+                    <input type="number" id="equipaje_transfer_out"/>
                   </div>
                   
                 </div>

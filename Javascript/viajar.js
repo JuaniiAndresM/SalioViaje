@@ -95,18 +95,18 @@ function finalizar(){
             var transfer;
 
             switch(tipo_transfer){
-                case 1:
+                case "1":
                     transfer = "In";
                     datos_transfer_in = {
                         "TIPO_TRANSFER": transfer,
-                        "FECHA_SALIDA": $('#fecha_salida_transfer').val(),
-                        "CANTIDAD_PASAJEROS": $('#cant_pasajeros_transfer').val(),
-                        "HORA": $('#hora_transfer').val(),
-                        "ORIGEN": $('#duracion_tour').val(),
-                        "AEROPUERTO": $('#aeropuerto_transfer').val(),
-                        "EQUIPAJE": $('#equipaje_transfer').val()
+                        "FECHA_SALIDA": $('#fecha_salida_transfer_in').val(),
+                        "CANTIDAD_PASAJEROS": $('#cant_pasajeros_transfer_in').val(),
+                        "HORA": $('#hora_transfer_in').val(),
+                        "ORIGEN": $('#origen_transfer_in').val(),
+                        "AEROPUERTO": $('#cant_pasajeros_transfer_in').val(),
+                        "EQUIPAJE": $('#equipaje_transfer_in').val()
                     };
-                                
+
                     $.ajax({
                         type: "POST",
                         url: "/SalioViaje/Mail/mail-SalioViaje.php",
@@ -125,16 +125,16 @@ function finalizar(){
                     });
 
                     break;
-                case 2:
+                case "2":
                     transfer = "Out";
                     datos_transfer_out = {
                         "TIPO_TRANSFER": transfer,
-                        "FECHA_REGRESO": $('#fecha_regreso_transfer').val(),
-                        "CANTIDAD_PASAJEROS": $('#cant_pasajeros_transfer').val(),
-                        "HORA": $('#hora_transfer').val(),
-                        "AEROPUERTO": $('#aeropuerto_transfer').val(),
-                        "DESTINO": $('#destino_transfer').val(),
-                        "EQUIPAJE": $('#equipaje_transfer').val()
+                        "FECHA_REGRESO": $('#fecha_regreso_transfer_out').val(),
+                        "CANTIDAD_PASAJEROS": $('#cant_pasajeros_transfer_out').val(),
+                        "HORA": $('#hora_transfer_out').val(),
+                        "AEROPUERTO": $('#aeropuerto_transfer_out').val(),
+                        "DESTINO": $('#destino_transfer_out').val(),
+                        "EQUIPAJE": $('#equipaje_transfer_out').val()
                     };
                                                     
                     $.ajax({
@@ -163,13 +163,13 @@ function finalizar(){
         */
         case "4":
             var tramos = $('#select_fiesta').val();
-            var transfer;
+            var fiestas;
 
-            switch(tipo_transfer){
-                case 1:
-                    tramos = "Solo Ida";
+            switch(tramos){
+                case "1":
+                    fiestas = "Solo Ida";
                     datos_fiestaseventos_ida = {
-                        "TRAMOS_FIESTA": tramos,
+                        "TRAMOS_FIESTA": fiestas,
                         "FECHA_SALIDA": $('#fecha_salida_fiestas_ida').val(),
                         "ORIGEN": $('#origen_fiestas_ida').val(),
                         "CANTIDAD_PASAJEROS_IDA": $('#cant_pasajeros_fiesta_ida').val(),
@@ -194,10 +194,10 @@ function finalizar(){
                         }
                     });
                     break;
-                case 2:
-                    transfer = "Solo Vuelta";
+                case "2":
+                    fiestas = "Solo Vuelta";
                     datos_fiestaseventos_vuelta = {
-                        "TRAMOS_FIESTA": tramos,
+                        "TRAMOS_FIESTA": fiestas,
                         "FECHA_REGRESO": $('#fecha_regreso_fiestas_vuelta').val(),
                         "ORIGEN": $('#origen_fiestas_vuelta').val(),
                         "CANTIDAD_PASAJEROS_VUELTA": $('#cant_pasajeros_fiesta_vuelta').val(),
@@ -222,10 +222,10 @@ function finalizar(){
                         }
                     });
                     break;
-                case 3:
-                    transfer = "Ida y Vuelta";
+                case "3":
+                    fiestas = "Ida y Vuelta";
                     datos_fiestaseventos_idavuelta = {
-                        "TRAMOS_FIESTA": tramos,
+                        "TRAMOS_FIESTA": fiestas,
                         "FECHA_SALIDA": $('#fecha_salida_fiestas_idavuelta').val(),
                         "ORIGEN": $('#origen_ida_fiestas_idavuelta').val(),
                         "CANTIDAD_PASAJEROS_IDA": $('#cant_pasajeros_ida_fiestas_idavuelta').val(),

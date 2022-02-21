@@ -77,12 +77,14 @@ function esperandoAprobacion(){
             response = JSON.parse(response)
             console.log();
             if (response['ESTADO'] == 'Aprobada') { 
-                steps(3) 
-                clearInterval(esperar_aprobacion)
+                steps(3);
+                oportunidad_aprobada(id_oportunidad);
+                clearInterval(esperar_aprobacion);
             }
             else if (response['ESTADO'] == 'Rechazada') { 
-                steps(4) 
-                clearInterval(esperar_aprobacion)
+                steps(4);
+                oportunidad_rechazada(id_oportunidad);
+                clearInterval(esperar_aprobacion);
             }
         }
     });
