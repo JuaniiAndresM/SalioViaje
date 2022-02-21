@@ -68,6 +68,7 @@
 
 
 
+    
 </head>
 <body>
     <div id="header"></div>
@@ -114,7 +115,7 @@
 
                         <p id="mensaje-error" class="mensaje-error"></p>
                                  
-                        <button class="button-change" onclick="cambiar_password_next()"><i class="fas fa-sign-in-alt"></i> Siguiente</button>
+                        <button class="button-change" onclick="cambiar_password_next(1)"><i class="fas fa-sign-in-alt"></i> Siguiente</button>
                            
                     </div>
 
@@ -123,33 +124,47 @@
 
                         <div class="input">
                             <i class="fas fa-key" id="icon"></i>
-                            <input type="text" maxlength="8" placeholder="Código de Verificación">
+                            <input type="text" id="codigo" maxlength="8" placeholder="Código de Verificación">
                         </div>
                         
 
                         <p id="mensaje-error" class="mensaje-error"></p>
                 
-                        <button class="button-change" onclick="cambiar_password_volver()"><i class="fas fa-arrow-circle-left"></i> Volver</button>
-                        <button class="button-change" onclick="cambiar_password_next()"><i class="fas fa-sign-in-alt"></i> Siguiente</button>
+                        <button class="button-change" onclick="cambiar_password_next(2)"><i class="fas fa-sign-in-alt"></i> Siguiente</button>
 
                         <p>¿No recibiste el mensaje? <a href="">Reenviar</a>.</p>
                     </div>
 
                     <div class="step_3">
 
-                        <div class="input">
-                            <i class="fas fa-key" id="icon"></i>
-                            <input type="password" maxlength="4" placeholder="Nuevo PIN">
-                        </div>
-
-                        <div class="input">
-                            <i class="fas fa-lock" id="icon"></i>
-                            <input type="password" maxlength="4" placeholder="Confirmar Nuevo PIN">
-                        </div>
+                      <div class="input">
+                        <i class="fas fa-key" id="icon"></i>
+                        <input
+                          type="password"
+                          id="password"
+                          name="pin"
+                          placeholder="Nuevo PIN"
+                          maxlength="4"
+                          pattern="[0-9]{4}"
+                        />
+                        <button onclick="passwd(2)" class="password-eye"><i id="passeye2" class="fas fa-eye-slash"></i></button>
+                      </div>
+  
+                      <div class="input">
+                        <i class="fas fa-key" id="icon"></i>
+                        <input
+                          type="password"
+                          id="re-password"
+                          name="pin"
+                          placeholder="Confirmar Nuevo PIN"
+                          maxlength="4"
+                          pattern="[0-9]{4}"
+                        />
+                        <button onclick="passwd(3)" class="password-eye"><i id="passeye3" class="fas fa-eye-slash"></i></button>
+                      </div>
 
                         <p id="mensaje-error" class="mensaje-error"></p>
                 
-                        <button class="button-change" onclick="cambiar_password_volver()"><i class="fas fa-arrow-circle-left"></i> Volver</button>
                         <button class="button-change" onclick="cambiar_password_finalizar()"><i class="fas fa-check"></i> Finalizar</button>
                     </div>
 

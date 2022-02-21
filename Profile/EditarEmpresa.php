@@ -89,7 +89,6 @@ require_once '../PHP/procedimientosBD.php';
       crossorigin="anonymous"
     ></script>
 
-    <script src="/SalioViaje/Javascript/form.js"></script>
     <script src="/SalioViaje/Javascript/panel.js"></script>
     <script src="/SalioViaje/Javascript/settings.js"></script>
     <script src="/SalioViaje/Javascript/loader.js"></script>
@@ -188,7 +187,8 @@ require_once '../PHP/procedimientosBD.php';
               </div>
               <div class="info">
                 <b><i class="fas fa-key"></i> Contraseña MTOP</b>
-                <input type="password"  id="CmEdicion"placeholder="Contraseña MTOP" value="<?php echo $usuario['PASS_MTOP'];?>">
+                <input type="password"  id="password" placeholder="Contraseña MTOP" value="<?php echo $usuario['PASS_MTOP'];?>">
+                
                 <button onclick="passwd(1)" class="password-eye"><i id="passeye" class="fas fa-eye-slash"></i></button>
               </div>
 

@@ -23,10 +23,10 @@ class validaciones
 	private $PATTERN_CAPACIDAD_PASAJEROS = "/^[1-9][0-9]{0,2}$/i";
 	private $PATTERN_CAPACIDAD_EQUIPAJE = "/[0-9]{0,3}/i";
 	
-	function __construct($tipo,$datos,$ciAnterior){
+	function __construct($tipo,$datos){
 		switch ($tipo) {
 			case 'USUARIO':
-			$validacion = $this->validar_formulario_usuario($datos,$ciAnterior);
+			$validacion = $this->validar_formulario_usuario($datos);
 			if($validacion == 1){ echo "VALIDO"; } else {echo $validacion;}
 			break;
 			case 'EMP':
@@ -63,7 +63,7 @@ class validaciones
 		}
 	}
 
-	private function validar_formulario_usuario($datos,$ciAnterior){
+	private function validar_formulario_usuario($datos){
 
 		$VALIDACION = array();
 		$DATOS_VACIOS = null;
@@ -77,15 +77,7 @@ class validaciones
 					if($this->validar_digito_ci($valor) == 1 && $this->validar_existencia_ci($valor) == 1){
 						$VALIDACION['CI'] = 1;
 					}else if($this->validar_digito_ci($valor) == 1 && $this->validar_existencia_ci($valor) == 0){
-						if($ciAnterior !=null){
-							if($ciAnterior == $valor){
-								$VALIDACION['CI'] = 1;
-							}else{
-								$VALIDACION['CI'] = 2;
-							}
-						}else{
 							$VALIDACION['CI'] = 2;
-						} 
 					}else{
 						$VALIDACION['CI'] = 0; 
 					}
@@ -133,9 +125,21 @@ class validaciones
 				}
 			}
 		}
-
-		if (count($VALIDACION) != 10) {
-			$DATOS_VACIOS = "Err-1";
+		$valor1 = explode("-", $valor);
+		if($valor1[0] == 'NUEVOPIN'){
+			if($valor == 'NUEVOPIN-1'){
+				if (count($VALIDACION) != 1) {
+					$DATOS_VACIOS = "Err-1";
+				}
+			}else{
+				if (count($VALIDACION) != 2) {
+					$DATOS_VACIOS = "Err-1";
+				}
+			}
+		}else{
+			if (count($VALIDACION) != 10) {
+				$DATOS_VACIOS = "Err-1";
+			}
 		}
 
 		foreach ($VALIDACION as $clave => $valor){
@@ -577,10 +581,7 @@ class validaciones
 		}
     }
 }
-if(isset($_POST['CIANTERIOR'])){
-$Validar = new validaciones($_POST['tipo'],$_POST['datos'],$_POST['CIANTERIOR']);
-}else{
-	$Validar = new validaciones($_POST['tipo'],$_POST['datos'],null);
-}
+	$Validar = new validaciones($_POST['tipo'],$_POST['datos']);
+
 
 ?>

@@ -21,6 +21,15 @@ switch ($_POST["tipe"]) {
     case 5:
         echo $llamarFunction->editar_empresa($_POST['RUTANTERIOR'],$_POST["RUT"],$_POST["NOMBRE"],$_POST["RS"],$_POST["CA"],$_POST["NM"],$_POST['CM']);
     break;
+    case 6:
+        echo $llamarFunction->confirmar_mail($_POST['CORREO']);
+    break;
+    case 7:
+        echo $llamarFunction->codigo_cambiar_password($_POST['ID'], $_POST['CODIGO']);
+    break;
+    case 8:
+        echo $llamarFunction->confirmar_codigo_password($_POST['ID'], $_POST['CODIGO']);
+    break;
 }
 
 ?>

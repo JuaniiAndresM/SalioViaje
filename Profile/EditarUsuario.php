@@ -95,8 +95,8 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="/SalioViaje/Javascript/form.js"></script>
     <script src="/SalioViaje/Javascript/panel.js"></script>
+    <script src="/SalioViaje/Javascript/form.js"></script>
     <script src="/SalioViaje/Javascript/settings.js"></script>
     <script src="/SalioViaje/Javascript/loader.js"></script>
     <script src="/SalioViaje/Javascript/profile.js"></script>
@@ -182,7 +182,7 @@
               </div>
               <div class="info">
                 <b><i class="fas fa-map-marker-alt"></i> Dirección</b>
-                <input type="text" placeholder="BaDirecciónrrio" id="DireccionEdicion" value="<?php echo $usuario[0]['DIRECCION']?>">
+                <input type="text" placeholder="Dirección" id="DireccionEdicion" value="<?php echo $usuario[0]['DIRECCION']?>">
               </div>
               <div class="info">
                 <b><i class="fas fa-phone"></i> Teléfono</b>
@@ -243,7 +243,7 @@
                       <button onclick="passwd(3)" class="password-eye"><i id="passeye3" class="fas fa-eye-slash"></i></button>
                     </div>
 
-                    <p id="mensaje-error" class="mensaje-error"></p>
+                    <p id="mensaje-error-PIN" class="mensaje-error"></p>
                     <div class="button-wrapper">
                       <button class="button-pin" onclick="cambiarPin('.$_GET['ID'].','.$usuario[0]['CI'].')"><i class="fas fa-save"></i> Cambiar PIN</button>
                     </div>
@@ -283,7 +283,7 @@
                   <button onclick="passwd(3)" class="password-eye"><i id="passeye3" class="fas fa-eye-slash"></i></button>
                 </div>
 
-                <p id="mensaje-error" class="mensaje-error"></p>
+                <p id="mensaje-error-PIN" class="mensaje-error"></p>
                 <div class="button-wrapper">
                   <button class="button-pin" onclick="cambiarPinAdmin('.$_GET['ID'].','.$usuario[0]['CI'].')"><i class="fas fa-save"></i> Cambiar PIN</button>
                 </div>

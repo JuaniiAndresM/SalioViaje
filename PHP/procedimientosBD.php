@@ -483,7 +483,8 @@ public function editar_usuario($id,$ci,$nombre,$apellido,$mail,$departamento,$ba
      }
 }
 
-public function editar_empresa($rut_e, $rut_nuevo, $nombre_c, $razon_social, $choferes_sub, $nro_mtop, $pass_mtop){
+public function editar_empresa($rut_e, $rut_nuevo, $nombre_c, $razon_social, $cho_sub, $nro_mtop, $pass_mtop){
+    $choferes_sub= intval($cho_sub);
     $conn = $this->conexion();
     $query = "call editar_empresa(?,?,?,?,?,?,?)";
     $stmt = $conn->prepare($query);
@@ -557,6 +558,7 @@ public function traer_oportunidades_usuario($id){
 }
 
 public function confirmar_mail($mail){
+    $result = NULL;
     $conn = $this->conexion();
     $query = "CALL confirmo_mail(?)";
     $stmt = $conn->prepare($query);
@@ -570,7 +572,12 @@ public function confirmar_mail($mail){
      }
  }
  $stmt->close();
- return json_encode($result);
+ if($result != null){
+    return $result["ID"];
+ }else{
+    return null;
+ }
+
 }
 
 public function cambiar_password($id,$pin_nuevo){
@@ -607,7 +614,7 @@ public function confirmar_password($id,$pin){
          if(password_verify($pin, $PIN)){
             $usuario[] = $result;
          }else{
-            $result = '';
+            $result = null;
          }
      }
  }
@@ -616,6 +623,7 @@ public function confirmar_password($id,$pin){
 }
 
 public function confirmar_codigo_password($id, $codigo_u){
+    $result = null;
     $conn = $this->conexion();
     $query = "CALL confirmo_cambio_password(?,?)";
     $stmt = $conn->prepare($query);
@@ -629,7 +637,12 @@ public function confirmar_codigo_password($id, $codigo_u){
      }
  }
  $stmt->close();
- return json_encode($result);
+ if($result != null){
+    return $result['CODIGO'];
+ }else{
+     return null;
+ }
+
 }
 }
 ?>
