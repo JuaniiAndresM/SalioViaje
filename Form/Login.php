@@ -123,7 +123,7 @@
                 <button class="button-login" onclick="login()"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</button>
 
                 <div class="login-bottom">
-                    <p><a href="#">¿Olvidaste tu contraseña?</a></p>
+                    <p><a href="/SalioViaje/Form/CambiarContraseña.html">¿Olvidaste tu contraseña?</a></p>
                     <p>¿Aún no tienes una cuenta? <a href="/SalioViaje/Register">Registrate</a>.</p>
                 </div>
             </div>

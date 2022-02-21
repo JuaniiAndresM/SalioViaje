@@ -1100,7 +1100,7 @@ function guardarEdicionUsuario(id,ciAnterior){
    if(validacion("USUARIO",datos_Usuario) == true){
            $.ajax({
                type: "POST",
-               url: "../../PHP/llamadosSol.php",
+               url: "/SalioViaje/PHP/llamadosSol.php",
                //aca mandarias la info necesaria para el xml de llamada
                data: {tipe:0, ID:id, CI:datos_Usuario["CI"], NOMBRE:datos_Usuario["NOMBRE"], APELLIDO:datos_Usuario["APELLIDO"], CORREO:datos_Usuario["CORREO"], DEPARTAMENTO:datos_Usuario["DEPARTAMENTO"], BARRIO:datos_Usuario["BARRIO"], DIRECCION:datos_Usuario["DIRECCION"], TEL:datos_Usuario["TELEFONO"]},
                success: function (response) {
@@ -1127,7 +1127,7 @@ function cambiarPin(id,ciAnterior){
    };
    $.ajax({
        type: "POST",
-       url: "../../PHP/llamadosSol.php",
+       url: "/SalioViaje/PHP/llamadosSol.php",
        //aca mandarias la info necesaria para el xml de llamada
        data: {tipe:2, ID:id, PIN:pinAnterior},
        success: function (response) {
@@ -1136,7 +1136,7 @@ function cambiarPin(id,ciAnterior){
                      $(".mensaje-error").hide();
                      $.ajax({
                         type: "POST",
-                        url: "../../PHP/llamadosSol.php",
+                        url: "/SalioViaje/PHP/llamadosSol.php",
                         //aca mandarias la info necesaria para el xml de llamada
                         data: {tipe:1, ID:id, PIN:datos_Usuario["PIN"]},
                         success: function (response) {
@@ -1168,7 +1168,7 @@ function cambiarPinAdmin(id,ciAnterior){
                      $(".mensaje-error").hide();
                      $.ajax({
                         type: "POST",
-                        url: "../../PHP/llamadosSol.php",
+                        url: "/SalioViaje/PHP/llamadosSol.php",
                         //aca mandarias la info necesaria para el xml de llamada
                         data: {tipe:1, ID:id, PIN:datos_Usuario["PIN"]},
                         success: function (response) {
@@ -1195,7 +1195,7 @@ function guardarEdicionEmpresa(rut){
          $(".mensaje-error").hide();
          $.ajax({
             type: "POST",
-            url: "../../PHP/llamadosSol.php",
+            url: "/SalioViaje/PHP/llamadosSol.php",
             //aca mandarias la info necesaria para el xml de llamada
             data: {tipe:5, RUTANTERIOR:rut, RUT:datos_Empresa["RUT"], NOMBRE:datos_Empresa["NOMBRE_COMERCIAL"], RS:datos_Empresa["RAZON_SOCIAL"], CA:datos_Empresa["CHOFERES_SUB"], NM:datos_Empresa["NUMERO_MTOP"], CM:datos_Empresa["PASSWORD_MTOP"]},
             success: function (response) {

@@ -133,9 +133,21 @@ class validaciones
 				}
 			}
 		}
-
-		if (count($VALIDACION) != 10) {
-			$DATOS_VACIOS = "Err-1";
+		$valor1 = explode("-", $valor);
+		if($valor1[0] == 'NUEVOPIN'){
+			if($valor == 'NUEVOPIN-1'){
+				if (count($VALIDACION) != 1) {
+					$DATOS_VACIOS = "Err-1";
+				}
+			}else{
+				if (count($VALIDACION) != 2) {
+					$DATOS_VACIOS = "Err-1";
+				}
+			}
+		}else{
+			if (count($VALIDACION) != 10) {
+				$DATOS_VACIOS = "Err-1";
+			}
 		}
 
 		foreach ($VALIDACION as $clave => $valor){
