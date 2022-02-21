@@ -5,12 +5,15 @@ $(document).ready(function () {
 
     switch(solicitud_response){
         case "A":
+
             solicitud(1,ID);
             break;
         case "R":
+
             solicitud(2,ID);
             break;
         default:
+            
             solicitud(3,ID);
             break;
     }
