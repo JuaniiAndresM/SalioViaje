@@ -245,7 +245,7 @@
               </div>
               <div class="info">
                 <b><i class="fas fa-phone"></i> Teléfono</b>
-                <p><?php echo '0' . $usuario[0]['TELEFONO']; ?></p>
+                <p><?php echo $usuario[0]['TELEFONO']; ?></p>
               </div>
               <div class="info">
                 <b><i class="fas fa-bus"></i> Tipo de Usuario</b>

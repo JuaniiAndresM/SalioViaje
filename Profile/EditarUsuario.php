@@ -182,7 +182,7 @@
               </div>
               <div class="info">
                 <b><i class="fas fa-map-marker-alt"></i> Dirección</b>
-                <input type="text" placeholder="BaDirecciónrrio" id="DireccionEdicion" value="<?php echo $usuario[0]['DIRECCION']?>">
+                <input type="text" placeholder="Dirección" id="DireccionEdicion" value="<?php echo $usuario[0]['DIRECCION']?>">
               </div>
               <div class="info">
                 <b><i class="fas fa-phone"></i> Teléfono</b>

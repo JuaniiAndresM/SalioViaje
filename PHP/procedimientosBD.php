@@ -613,7 +613,7 @@ public function confirmar_password($id,$pin){
          if(password_verify($pin, $PIN)){
             $usuario[] = $result;
          }else{
-            $result = '';
+            $result = null;
          }
      }
  }

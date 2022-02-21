@@ -1109,6 +1109,7 @@ function guardarEdicionUsuario(id,ciAnterior){
            });
    }
 }
+
 function cambiarPin(id,ciAnterior){
    var pinAnterior=document.getElementById("password1").value;
    window.ciAnterior = ciAnterior;
@@ -1131,19 +1132,22 @@ function cambiarPin(id,ciAnterior){
        //aca mandarias la info necesaria para el xml de llamada
        data: {tipe:2, ID:id, PIN:pinAnterior},
        success: function (response) {
-           if(response != ""){
+           if(response != "null"){
                if(validacion("USUARIO",datos_Usuario) == true){
                      $(".mensaje-error").hide();
                      $.ajax({
                         type: "POST",
                         url: "/SalioViaje/PHP/llamadosSol.php",
                         //aca mandarias la info necesaria para el xml de llamada
-                        data: {tipe:1, ID:id, PIN:datos_Usuario["PIN"]},
+                        data: {tipe:1, ID:id, PINNUEVO:datos_Usuario["PIN"]},
                         success: function (response) {
                            location.reload();
                         }
                      });
                }
+           }else{
+            $('.mensaje-error').show();
+            $('.mensaje-error').text("Pin anterior incorrecto.");
            }
        }
    });
