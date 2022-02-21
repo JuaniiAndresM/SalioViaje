@@ -657,11 +657,10 @@ function guardarEdicionUsuario(id,ciAnterior){
        "NOMBRE_COMERCIAL": document.getElementById("NcEdicion").value,
        "RAZON_SOCIAL": document.getElementById("RsEdicion").value,
        "NUMERO_MTOP": document.getElementById("NmEdicion").value,
-       "PASSWORD_MTOP": document.getElementById("CmEdicion").value,
-       "CHOFERES_SUB": document.getElementById("CaEdicion").value,
+       "PASSWORD_MTOP": document.getElementById("password").value,
+       "CHOFERES_SUB": 0,
        "VEHICULOS": {}
     };
-    if(datos_Empresa["CHOFERES_SUB"] != 0){
         validacion = $.ajax({
             type: 'POST',       
             url: "/SalioViaje/PHP/Validaciones.php",
@@ -677,9 +676,9 @@ function guardarEdicionUsuario(id,ciAnterior){
             type: "POST",
             url: "/SalioViaje/PHP/llamadosSol.php",
             //aca mandarias la info necesaria para el xml de llamada
-            data: {tipe:5, RUTANTERIOR:rut, RUT:datos_Empresa["RUT"], NOMBRE:datos_Empresa["NOMBRE_COMERCIAL"], RS:datos_Empresa["RAZON_SOCIAL"], CA:datos_Empresa["CHOFERES_SUB"], NM:datos_Empresa["NUMERO_MTOP"], CM:datos_Empresa["PASSWORD_MTOP"]},
+            data: {tipe:5, RUTANTERIOR:rut, RUT:datos_Empresa["RUT"], NOMBRE:datos_Empresa["NOMBRE_COMERCIAL"], RS:datos_Empresa["RAZON_SOCIAL"], CA:document.getElementById("CaEdicion").value, NM:datos_Empresa["NUMERO_MTOP"], CM:datos_Empresa["PASSWORD_MTOP"]},
             success: function (response) {
-                    location.reload();
+                    editarEmpresa(datos_Empresa["RUT"]);
             }
             });
         }
@@ -687,10 +686,6 @@ function guardarEdicionUsuario(id,ciAnterior){
             $("#mensaje-error").show();
             $('#mensaje-error').text("Debe completar todos los campos.");
         } else {marcar_errores(validacion)}
-    }else{
-       $('#mensaje-error').show();
-        $('#mensaje-error').text("Debe completar todos los campos.");
-    }
  }
  
  function editarUsuario(id){
@@ -803,7 +798,7 @@ function guardarEdicionUsuario(id,ciAnterior){
          $('#rut_usuario').css('border-bottom', '1px solid #ff635a');
          $('#mensaje-error').text("RUT no válido, debe contener 12 caracteres.");
       }  
-
+      break;
       case "NOMBRE_COMERCIAL":
         if (resultado[property] == 0) {
             $('#nombre_comercial').css('border-bottom', '1px solid #ff635a');

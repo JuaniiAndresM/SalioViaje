@@ -483,7 +483,8 @@ public function editar_usuario($id,$ci,$nombre,$apellido,$mail,$departamento,$ba
      }
 }
 
-public function editar_empresa($rut_e, $rut_nuevo, $nombre_c, $razon_social, $choferes_sub, $nro_mtop, $pass_mtop){
+public function editar_empresa($rut_e, $rut_nuevo, $nombre_c, $razon_social, $cho_sub, $nro_mtop, $pass_mtop){
+    $choferes_sub= intval($cho_sub);
     $conn = $this->conexion();
     $query = "call editar_empresa(?,?,?,?,?,?,?)";
     $stmt = $conn->prepare($query);
