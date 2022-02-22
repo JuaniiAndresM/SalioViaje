@@ -24,7 +24,7 @@ function steps(step){
             $('.mensaje-error').hide();
             validacion = $.ajax({
                 type: 'POST',       
-                url: "/SalioViaje/PHP/Validaciones.php",
+                url: "/PHP/Validaciones.php",
                 data: {tipo:"USUARIO",datos:JSON.stringify({"CORREO" : document.getElementById("correo").value,"CAMBIARPIN":"NUEVOPIN-1"})},
                 global: false,
                 async:false,
@@ -36,7 +36,7 @@ function steps(step){
              if (validacion == "VALIDO") {
                 $.ajax({
                     type: "POST",
-                    url: "/SalioViaje/PHP/llamadosSol.php",
+                    url: "/PHP/llamadosSol.php",
                     //aca mandarias la info necesaria para el xml de llamada
                     data: {tipe:6, CORREO:document.getElementById("correo").value},
                     success: function (response) {
@@ -45,13 +45,13 @@ function steps(step){
                             codigo = generadosCodigo();
                             $.ajax({
                                 type: "POST",
-                                url: "/SalioViaje/PHP/llamadosSol.php",
+                                url: "/PHP/llamadosSol.php",
                                 //aca mandarias la info necesaria para el xml de llamada
                                 data: {tipe:7, CODIGO: codigo, ID:window.id},
                                 success: function (response) {
                                     $.ajax({
                                         type: "POST",
-                                        url: "/SalioViaje/Mail/mail-restablecerpassword.php",
+                                        url: "/Mail/mail-restablecerpassword.php",
                                         data: { mail_tta:"", PIN: codigo, CORREO:document.getElementById("correo").value},
                                         success: function (response) {
                                             console.log(response);
@@ -88,7 +88,7 @@ function steps(step){
             $('.mensaje-error').hide();
             $.ajax({
                 type: "POST",
-                url: "/SalioViaje/PHP/llamadosSol.php",
+                url: "/PHP/llamadosSol.php",
                 //aca mandarias la info necesaria para el xml de llamada
                 data: {tipe:8, CODIGO: document.getElementById("codigo").value, ID:window.id},
                 success: function (response) {
@@ -126,7 +126,7 @@ function cambiar_password_finalizar(){
     document.getElementById("re-password").value;
     validacion = $.ajax({
         type: 'POST',       
-        url: "/SalioViaje/PHP/Validaciones.php",
+        url: "/PHP/Validaciones.php",
         data: {tipo:"USUARIO",datos:JSON.stringify({"PIN" : document.getElementById("password").value, "RE-PIN" : document.getElementById("re-password").value,"CAMBIARPIN":"NUEVOPIN-2"})},
         global: false,
         async:false,
@@ -137,11 +137,11 @@ function cambiar_password_finalizar(){
      if (validacion == "VALIDO") { 
          $.ajax({
             type: "POST",
-            url: "/SalioViaje/PHP/llamadosSol.php",
+            url: "/PHP/llamadosSol.php",
             //aca mandarias la info necesaria para el xml de llamada
             data: {tipe:1,ID:window.id, PINNUEVO:document.getElementById("password").value},
             success: function (response) {
-                window.location = "/SalioViaje/Success";
+                window.location = "/Success";
             }
          });
     }else if(validacion == "Err-1"){

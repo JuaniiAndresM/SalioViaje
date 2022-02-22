@@ -7,7 +7,7 @@ require_once '../PHP/procedimientosBD.php';
 
   }else{
     if($_SESSION['tipo_usuario'] == "Pasajero" || $_SESSION['tipo_usuario'] == "Asesor"){
-      header('Location: /SalioViaje/');
+      header('Location: https://www.salioviaje.com.uy/');
     }else{
       $info_usuario = new procedimientosBD();
 

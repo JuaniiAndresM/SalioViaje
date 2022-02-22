@@ -92,9 +92,6 @@ class validaciones
 					break;
 					case 'CORREO':
 					$MAIL = preg_match($this->PATTERN_MAIL, $valor);
-					if($this->validar_existencia_mail($MAIL) == 1){
-						$VALIDACION['MAIL'] = 1;
-					}
 					$VALIDACION['MAIL'] = $MAIL;
 					break;
 					case 'DIRECCION':

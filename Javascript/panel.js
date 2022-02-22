@@ -224,7 +224,7 @@ function tabla_seccion_usuarios(usuario){
 }
 
 function ver_usuario(id){
-    location.href = "/SalioViaje/Profile/" + id;
+    location.href = "/Profile/" + id;
 }
 
 /*-------------------------------------------------------------------------------------------*/
@@ -383,7 +383,7 @@ function filtros(){
 function tabla_oportunidades(){
     $.ajax({
         type: 'POST',       
-        url: "/SalioViaje/PHP/Tablas/tabla_viajes_panel.php",
+        url: "/PHP/Tablas/tabla_viajes_panel.php",
         success: function(response) {
             console.log(response)
             $('#tbody-agenda').html(response)
@@ -395,7 +395,7 @@ function tabla_oportunidades(){
 function tabla_oportunidades_dashboard(){
     $.ajax({
         type: 'POST',       
-        url: "/SalioViaje/PHP/Tablas/tabla_viajes_panel_principal.php",
+        url: "/PHP/Tablas/tabla_viajes_panel_principal.php",
         success: function(response) {
             console.log(response)
             $('#tbody-viajes-dashboard').html(response)
@@ -463,16 +463,16 @@ function crear_intervalo(tiempo){
 }
 
 function editarUsuario(id){
-    location.href = "/SalioViaje/Profile/EditarUsuario.php/" + "?ID=" + id;
+    location.href = "/Profile/EditarUsuario.php/" + "?ID=" + id;
 }
 
 
 function verEmpresa(rut){
-    location.href = "/SalioViaje/Profile/Empresa.php/" + "?RUT=" + rut;
+    location.href = "/Profile/Empresa.php/" + "?RUT=" + rut;
 }
 
 function editarEmpresa(rut){
-    location.href = "/SalioViaje/Profile/EditarEmpresa.php/" + "?RUT=" + rut;
+    location.href = "/Profile/EditarEmpresa.php/" + "?RUT=" + rut;
 }
 
 function eliminarEmpresa(rut){
@@ -517,7 +517,7 @@ function guardarEdicionUsuario(id,ciAnterior){
      };
      validacion = $.ajax({
         type: 'POST',       
-        url: "/SalioViaje/PHP/Validaciones.php",
+        url: "/PHP/Validaciones.php",
         data: {tipo:"USUARIO",datos:JSON.stringify(datos_Usuario)},
         global: false,
         async:false,
@@ -532,7 +532,7 @@ function guardarEdicionUsuario(id,ciAnterior){
         if (validacion == "VALIDO") {
                 $.ajax({
                     type: "POST",
-                    url: "/SalioViaje/PHP/llamadosSol.php",
+                    url: "/PHP/llamadosSol.php",
                     //aca mandarias la info necesaria para el xml de llamada
                     data: {tipe:0, ID:id, CI:datos_Usuario["CI"], NOMBRE:datos_Usuario["NOMBRE"], APELLIDO:datos_Usuario["APELLIDO"], CORREO:datos_Usuario["CORREO"], DEPARTAMENTO:datos_Usuario["DEPARTAMENTO"], BARRIO:datos_Usuario["BARRIO"], DIRECCION:datos_Usuario["DIRECCION"], TEL:datos_Usuario["TELEFONO"]},
                     success: function (response) {
@@ -566,14 +566,14 @@ function guardarEdicionUsuario(id,ciAnterior){
     };
     $.ajax({
         type: "POST",
-        url: "/SalioViaje/PHP/llamadosSol.php",
+        url: "/PHP/llamadosSol.php",
         //aca mandarias la info necesaria para el xml de llamada
         data: {tipe:2, ID:id, PIN:pinAnterior},
         success: function (response) {
             if(response != "null"){
                 validacion = $.ajax({
                     type: 'POST',       
-                    url: "/SalioViaje/PHP/Validaciones.php",
+                    url: "/PHP/Validaciones.php",
                     data: {tipo:"USUARIO",datos:JSON.stringify(datos_Usuario)},
                     global: false,
                     async:false,
@@ -589,7 +589,7 @@ function guardarEdicionUsuario(id,ciAnterior){
                       $(".mensaje-error").hide();
                       $.ajax({
                          type: "POST",
-                         url: "/SalioViaje/PHP/llamadosSol.php",
+                         url: "/PHP/llamadosSol.php",
                          //aca mandarias la info necesaria para el xml de llamada
                          data: {tipe:1, ID:id, PINNUEVO:datos_Usuario["PIN"]},
                          success: function (response) {
@@ -631,7 +631,7 @@ function guardarEdicionUsuario(id,ciAnterior){
     };
                 validacion = $.ajax({
                     type: 'POST',       
-                    url: "/SalioViaje/PHP/Validaciones.php",
+                    url: "/PHP/Validaciones.php",
                     data: {tipo:"USUARIO",datos:JSON.stringify(datos_Usuario)},
                     global: false,
                     async:false,
@@ -665,7 +665,7 @@ function guardarEdicionUsuario(id,ciAnterior){
     };
         validacion = $.ajax({
             type: 'POST',       
-            url: "/SalioViaje/PHP/Validaciones.php",
+            url: "/PHP/Validaciones.php",
             data: {tipo:"EMP",datos:JSON.stringify(datos_Empresa)},
             global: false,
             async:false,
@@ -676,7 +676,7 @@ function guardarEdicionUsuario(id,ciAnterior){
             $(".mensaje-error").hide();
             $.ajax({
             type: "POST",
-            url: "/SalioViaje/PHP/llamadosSol.php",
+            url: "/PHP/llamadosSol.php",
             //aca mandarias la info necesaria para el xml de llamada
             data: {tipe:5, RUTANTERIOR:rut, RUT:datos_Empresa["RUT"], NOMBRE:datos_Empresa["NOMBRE_COMERCIAL"], RS:datos_Empresa["RAZON_SOCIAL"], CA:document.getElementById("CaEdicion").value, NM:datos_Empresa["NUMERO_MTOP"], CM:datos_Empresa["PASSWORD_MTOP"]},
             success: function (response) {
@@ -691,16 +691,16 @@ function guardarEdicionUsuario(id,ciAnterior){
  }
  
  function editarUsuario(id){
-    location.href = "/SalioViaje/Profile/EditarUsuario.php/" + "?ID=" + id;
+    location.href = "/Profile/EditarUsuario.php/" + "?ID=" + id;
  }
  
  
  function verEmpresa(rut){
-    location.href = "/SalioViaje/Profile/Empresa.php/" + "?RUT=" + rut;
+    location.href = "/Profile/Empresa.php/" + "?RUT=" + rut;
  }
  
  function editarEmpresa(rut){
-    location.href = "/SalioViaje/Profile/EditarEmpresa.php/" + "?RUT=" + rut;
+    location.href = "/Profile/EditarEmpresa.php/" + "?RUT=" + rut;
  }
  
  function eliminarEmpresa(rut){

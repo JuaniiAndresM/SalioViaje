@@ -20,7 +20,7 @@
                     <a href="https://www.salioviaje.com.uy/FAQ">FAQ</a>
                     <?php   
                     if(isset($_SESSION['tipo_usuario'])){
-                        echo '<a href="/SalioViaje/Dashboard">Panel</a>';
+                        echo '<a href="https://www.salioviaje.com.uy/Dashboard">Panel</a>';
                     }
                     ?>
                 </div>
@@ -75,7 +75,7 @@
                             <a href="https://www.salioviaje.com.uy/FAQ"><i class="fas fa-question"></i> FAQ</a>';
 
                             if(isset($_SESSION['tipo_usuario'])){
-                                echo '<a href="/SalioViaje/Dashboard"><i class="fas fa-users-cog"></i> Panel</a>';
+                                echo '<a href="https://www.salioviaje.com.uy/Dashboard"><i class="fas fa-users-cog"></i> Panel</a>';
                             }
 
 

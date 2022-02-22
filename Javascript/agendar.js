@@ -243,7 +243,7 @@ function rutas(){
     array_rutas[count_rutas] = ruta
     $.ajax({
         type: "POST",
-        url: "/SalioViaje/PHP/Tablas/agregarTag.php",
+        url: "/PHP/Tablas/agregarTag.php",
         data: {NRO_RUTA: count_rutas, NOMBRE_RUTA: ruta},
         success: function (response) {
             $("#tags_1").append(response);
@@ -272,7 +272,7 @@ let datos_etapa_1
 function select_vehiculos(){
 $.ajax({
     type: "POST",
-    url: "/SalioViaje/PHP/procedimientosForm.php",
+    url: "/PHP/procedimientosForm.php",
     data: {tipo: "vehiculos-agenda"},
     success: function (response) {
         console.log(response)
@@ -520,7 +520,7 @@ function finalizar(){
             }
         }
     }
-    window.location = "/SalioViaje/Panel/Success";
+    window.location = "/Panel/Success";
 }
 
 /*-------------------------------------------------------------------------------------------*/

@@ -44,7 +44,7 @@ function finalizar(){
 
             $.ajax({
                 type: "POST",
-                url: "/SalioViaje/Mail/mail-SalioViaje.php",
+                url: "/Mail/mail-SalioViaje.php",
                 data: {TIPO: tipo, DATA: JSON.stringify(datos_traslado), PARADAS_IDA: JSON.stringify(array_paradas_1)},
                 success: function(response){
 
@@ -76,7 +76,7 @@ function finalizar(){
             
             $.ajax({
                 type: "POST",
-                url: "/SalioViaje/Mail/mail-SalioViaje.php",
+                url: "/Mail/mail-SalioViaje.php",
                 data: {TIPO: tipo, DATA: JSON.stringify(datos_tour), PARADAS_IDA: JSON.stringify(array_paradas_1)},
                 success: function(response){
 
@@ -115,7 +115,7 @@ function finalizar(){
 
                     $.ajax({
                         type: "POST",
-                        url: "/SalioViaje/Mail/mail-SalioViaje.php",
+                        url: "/Mail/mail-SalioViaje.php",
                         data: {TIPO: tipo, DATA: JSON.stringify(datos_transfer_in), PARADAS_IDA: JSON.stringify(array_paradas_1)},
                         success: function(response){
 
@@ -145,7 +145,7 @@ function finalizar(){
                                                     
                     $.ajax({
                         type: "POST",
-                        url: "/SalioViaje/Mail/mail-SalioViaje.php",
+                        url: "/Mail/mail-SalioViaje.php",
                         data: {TIPO: tipo, DATA: JSON.stringify(datos_transfer_out), PARADAS_VUELTA: JSON.stringify(array_paradas_2)},
                         success: function(response){
 
@@ -185,7 +185,7 @@ function finalizar(){
                                                                                             
                     $.ajax({
                         type: "POST",
-                        url: "/SalioViaje/Mail/mail-SalioViaje.php",
+                        url: "/Mail/mail-SalioViaje.php",
                         data: {TIPO: tipo, DATA: JSON.stringify(datos_fiestaseventos_ida), PARADAS_IDA: JSON.stringify(array_paradas_1)},
                         success: function(response){
 
@@ -213,7 +213,7 @@ function finalizar(){
                                                                                                                 
                     $.ajax({
                         type: "POST",
-                        url: "/SalioViaje/Mail/mail-SalioViaje.php",
+                        url: "/Mail/mail-SalioViaje.php",
                         data: {TIPO: tipo, DATA: JSON.stringify(datos_fiestaseventos_vuelta), PARADAS_VUELTA: JSON.stringify(array_paradas_2)},
                         success: function(response){
 
@@ -247,7 +247,7 @@ function finalizar(){
                                                                                                                                     
                     $.ajax({
                         type: "POST",
-                        url: "/SalioViaje/Mail/mail-SalioViaje.php",
+                        url: "/Mail/mail-SalioViaje.php",
                         data: {TIPO: tipo, DATA: JSON.stringify(datos_fiestaseventos_idavuelta), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2)},
                         success: function(response){
 
@@ -378,7 +378,7 @@ function select_usuario(){
 function desplegar(button, session){
 
     if(session == 1){
-        location.href = "/SalioViaje/Login";
+        location.href = "/Login";
     }else{
         button.classList.toggle("active");
         button.nextElementSibling.classList.toggle("show");
@@ -394,7 +394,7 @@ function paradas(tipo){
 
             $.ajax({
                 type: "POST",
-                url: "/SalioViaje/PHP/Tablas/agregarParada.php",
+                url: "/PHP/Tablas/agregarParada.php",
                 data: {NRO_PARADA: count_paradas_1, NOMBRE_PARADA: parada, TIPO: 1},
                 success: function (response) {
                     $("#tags_paradas_1").append(response);
@@ -411,7 +411,7 @@ function paradas(tipo){
 
             $.ajax({
                 type: "POST",
-                url: "/SalioViaje/PHP/Tablas/agregarParada.php",
+                url: "/PHP/Tablas/agregarParada.php",
                 data: {NRO_PARADA: count_paradas_2, NOMBRE_PARADA: parada, TIPO: 2},
                 success: function (response) {
                     $("#tags_paradas_2").append(response);

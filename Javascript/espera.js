@@ -67,7 +67,7 @@ function esperandoAprobacion(){
 
     $.ajax({
         type: "POST",
-        url: "/SalioViaje/PHP/comprar_oportunidad.php",
+        url: "/PHP/comprar_oportunidad.php",
         data: {opcion:3,ID: id_oportunidad},
         success: function (response) {
             response = JSON.parse(response)

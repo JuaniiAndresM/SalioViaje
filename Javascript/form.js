@@ -429,7 +429,7 @@ switch(opcion){
                           console.log(response)
                          },
                          complete: function(response2){
-                           window.location = "/SalioViaje/Success";
+                           window.location = "/Success";
                          },
                       });
                   }, 1000);
@@ -572,7 +572,7 @@ function add_vehicle(){
     vehiculos.push(datos_Vehiculo)
     $.ajax({
       type: "POST",
-      url: "/SalioViaje/PHP/Tablas/agregarVehiculo.php",
+      url: "/PHP/Tablas/agregarVehiculo.php",
       data: {datos:JSON.stringify(datos_Vehiculo) },
       success: function (response) {
         $('.vehiculos').append(response);
@@ -702,7 +702,7 @@ function editar_vehiculo(){
       vehiculos[i]['PET_FRIENDLY'] = document.getElementById('pet_friendly').value;
       $.ajax({
         type: "POST",
-        url: "/SalioViaje/PHP/Tablas/agregarVehiculo.php",
+        url: "/PHP/Tablas/agregarVehiculo.php",
         data: {datos:JSON.stringify(vehiculos[i]) },
           success: function (response) {
             $('#'+matricula).remove();

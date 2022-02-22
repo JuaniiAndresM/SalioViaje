@@ -3,10 +3,10 @@
   session_start(); 
 
   if(!isset($_SESSION['usuario'])){
-      header('Location: /SalioViaje/Login');
+      header('Location: https://www.salioviaje.com.uy/Login');
   }else{
     if($_SESSION['tipo_usuario'] == "Chofer"){
-      header('Location: /SalioViaje/');
+      header('Location: https://www.salioviaje.com.uy/');
     }
   }
 ?>
@@ -83,13 +83,13 @@
     ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <script src="/SalioViaje/Javascript/web.js"></script>
-    <script src="/SalioViaje/Javascript/viajar.js"></script>
+    <script src="https://www.salioviaje.com.uy/Javascript/web.js"></script>
+    <script src="https://www.salioviaje.com.uy/Javascript/viajar.js"></script>
     
-    <script src="/SalioViaje/t2voice/functionsJS.js"></script>
-    <script src="/SalioViaje/t2voice/send_data.js"></script>
+    <script src="https://www.salioviaje.com.uy/t2voice/functionsJS.js"></script>
+    <script src="https://www.salioviaje.com.uy/t2voice/send_data.js"></script>
     
-    <script src="/SalioViaje/Javascript/espera.js"></script>
+    <script src="https://www.salioviaje.com.uy/Javascript/espera.js"></script>
     
     
 

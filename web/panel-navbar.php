@@ -71,7 +71,7 @@
 
     if($tipo == 2 || $tipo == 3){
       echo '<li>
-              <a href="/SalioViaje/Agendar">
+              <a href="https://www.salioviaje.com.uy/Agendar">
                 <span class="icon"><i class="fas fa-plus"></i></span>
                 <span class="title">Agendar Viaje</span>
               </a>
@@ -89,7 +89,7 @@
 
     if($tipo == 2){
       echo '  <li>
-                <a href="/SalioViaje/Choferes">
+                <a href="https://www.salioviaje.com.uy/Choferes">
                   <span class="icon"><i class="fas fas fa-user-friends"></i></span>
                   <span class="title">Choferes</span>
                 </a>
@@ -98,7 +98,7 @@
 
     if($tipo == 1 || $tipo == 2 || $tipo == 3 || $tipo == 4 || $tipo == 5 || $tipo == 6){
       echo '<li>
-              <a href="/SalioViaje/Empresas">
+              <a href="https://www.salioviaje.com.uy/Empresas">
                 <span class="icon"><i class="fas fas fa-building"></i></span>
                 <span class="title">Empresas</span>
               </a>
@@ -108,7 +108,7 @@
 
     if($tipo == 1 || $tipo == 2 || $tipo == 3){
       echo '<li>
-              <a href="/SalioViaje/Vehiculos">
+              <a href="https://www.salioviaje.com.uy/Vehiculos">
                 <span class="icon"><i class="fas fa-bus"></i></span>
                 <span class="title">Vehículos</span>
               </a>
@@ -117,7 +117,7 @@
 
     if($tipo != 0){
       echo '  <li>
-                <a href="/SalioViaje/Viajes">
+                <a href="https://www.salioviaje.com.uy/Viajes">
                   <span class="icon"><i class="fas fa-book"></i></span>
                   <span class="title">Agenda</span>
                 </a>
@@ -126,14 +126,14 @@
 
     if($tipo == 1){
       echo '<li>
-              <a class href="/SalioViaje/FAQ_Edit">
+              <a class href="https://www.salioviaje.com.uy/FAQ_Edit">
                 <span class="icon"><i class="fas fa-question"></i></span>
                 <span class="title">Editar FAQs</span>
               </a>
             </li>';
     }else{
       echo '<li>
-              <a class href="/SalioViaje/FAQ">
+              <a class href="https://www.salioviaje.com.uy/FAQ">
                 <span class="icon"><i class="fas fa-question"></i></span>
                 <span class="title">FAQs</span>
               </a>
@@ -143,7 +143,7 @@
     
 
     echo '<li>
-            <a class href="/SalioViaje/Profile/'. $_SESSION['datos_usuario']['ID'] .'">
+            <a class href="https://www.salioviaje.com.uy/Profile/'. $_SESSION['datos_usuario']['ID'] .'">
               <span class="icon"><i class="fas fa-address-card"></i></span>
               <span class="title">Mi Perfil</span>
             </a>
@@ -154,7 +154,7 @@
     ?>
     
     <li>
-      <a href="/SalioViaje/Settings">
+      <a href="https://www.salioviaje.com.uy/Settings">
         <span class="icon"><i class="fas fa-cog"></i></span>
         <span class="title">Configuración</span>
       </a>

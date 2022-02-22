@@ -10,7 +10,7 @@ $(document).ready(function () {
 
 function cerrarsesion(){
     $.ajax({ 
-        url: "/SalioViaje/PHP/cerrarSession.php",
+        url: "/PHP/cerrarSession.php",
         success: function(response){
             $('#header').load('/web/header.php');
         }
@@ -52,12 +52,12 @@ function suscripcion(){
 }
 
 function comprar_oportunidad(id){
-    window.open('/SalioViaje/Espera/' + id, '_blank');
+    window.open('/Espera/' + id, '_blank');
 }
 
 function detalles_oportunidad(id){
     
-    location.href = "/SalioViaje/Oportunidad/" + id;
+    location.href = "/Oportunidad/" + id;
 
 }
 
@@ -65,7 +65,7 @@ function traer_oportunidades(){
     
      $.ajax({
         type: "POST",
-        url: "/SalioViaje/PHP/Tablas/oportunidadesIndex.php",
+        url: "/PHP/Tablas/oportunidadesIndex.php",
         success: function (response) {
             console.log(response);
             if (response == ' ' || response == '0') {$('.list-empty').css('display', 'flex')} else {
