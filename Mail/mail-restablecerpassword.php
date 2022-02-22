@@ -19,6 +19,16 @@ $mail_tta = $_POST['mail_tta'];
 $mail = new PHPMailer(true);
 
 session_start();
+
+$mail->SMTPDebug = 0; 
+$mail->IsSMTP();
+$mail->Host = 'mail.salioviaje.com.uy';
+$mail->SMTPAuth = true;
+$mail->Username ='info@salioviaje.com.uy';
+$mail->Password = 'SalioViaje_info';
+$mail->SMTPSecure = 'ssl';
+$mail->Port = 465;
+
 $mail->CharSet = 'UTF-8';
 $mail->From = 'info@salioviaje.com.uy'; //  Editar
 $mail->FromName = 'SalióViaje';  //  Editar
