@@ -658,7 +658,7 @@ function guardarEdicionUsuario(id,ciAnterior){
        "RAZON_SOCIAL": document.getElementById("RsEdicion").value,
        "NUMERO_MTOP": document.getElementById("NmEdicion").value,
        "PASSWORD_MTOP": document.getElementById("password").value,
-       "CHOFERES_SUB": "0",
+       "CHOFERES_SUB": 0,
        "VEHICULOS": {}
     };
         validacion = $.ajax({
