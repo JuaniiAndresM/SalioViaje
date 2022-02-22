@@ -171,6 +171,22 @@ public function traigo_ci(){
  return $ci;
 }
 
+public function traigo_mail(){
+    $mail = array();
+    $conn = $this->conexion();
+    $query = "SELECT Email FROM salioviajeuy_salioviajeuy.usuarios";
+    $stmt = $conn->prepare($query);
+    if ($stmt->execute()) {
+        $stmt->store_result();
+        $stmt->bind_result($mail_bd);
+        while ($stmt->fetch()) {
+         array_push($mail, $mail_bd);
+     }
+ }
+ $stmt->close();
+ return $mail;
+}
+
 public function datos_vehiculos(){
     $conn = $this->conexion();
     $query = "SELECT * FROM salioviajeuy_salioviajeuy.vehiculos";

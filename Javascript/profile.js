@@ -4,11 +4,11 @@ function passwd(tipo){
           // Login
           case 1:
           if($('#passeye').hasClass('show')){
-             $('#password').attr('type', 'password');
+             $('#password1').attr('type', 'password');
              $('#passeye').html('<i class="fas fa-eye-slash"></i>');
              $('#passeye').attr('class','hidden');
           }else{
-             $('#password').attr('type', 'text');
+             $('#password1').attr('type', 'text');
              $('#passeye').html('<i class="fas fa-eye"></i>');
              $('#passeye').attr('class','show');
           }
@@ -17,11 +17,11 @@ function passwd(tipo){
           // PIN 1
           case 2:
           if($('#passeye2').hasClass('show')){
-             $('#password2').attr('type', 'password');
+             $('#password').attr('type', 'password');
              $('#passeye2').html('<i class="fas fa-eye-slash"></i>');
              $('#passeye2').attr('class','hidden');
           }else{
-             $('#password2').attr('type', 'text');
+             $('#password').attr('type', 'text');
              $('#passeye2').html('<i class="fas fa-eye"></i>');
              $('#passeye2').attr('class','show');
           }
