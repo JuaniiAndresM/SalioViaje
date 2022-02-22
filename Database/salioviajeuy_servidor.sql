@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `agenda`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `agenda` (
-  `idViaje` int NOT NULL AUTO_INCREMENT,
+  `idViaje` int(5) unsigned zerofill NOT NULL AUTO_INCREMENT,
   `Vehiculo` varchar(45) NOT NULL,
   `Distancia` int NOT NULL,
   `CantidadPasajeros` int NOT NULL,
@@ -33,8 +33,9 @@ CREATE TABLE `agenda` (
   `Precio` varchar(45) NOT NULL,
   `Rutas` varchar(45) DEFAULT NULL,
   `Estado` varchar(45) NOT NULL DEFAULT 'Indefinido',
+  `idTransportista` int NOT NULL,
   PRIMARY KEY (`idViaje`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,6 +45,32 @@ CREATE TABLE `agenda` (
 LOCK TABLES `agenda` WRITE;
 /*!40000 ALTER TABLE `agenda` DISABLE KEYS */;
 /*!40000 ALTER TABLE `agenda` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cambio_password`
+--
+
+DROP TABLE IF EXISTS `cambio_password`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8 */;
+CREATE TABLE `cambio_password` (
+  `ID` int NOT NULL AUTO_INCREMENT,
+  `Usuario_ID` int NOT NULL,
+  `Codigo` varchar(8) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `UID_idx` (`Usuario_ID`),
+  CONSTRAINT `UID` FOREIGN KEY (`Usuario_ID`) REFERENCES `usuarios` (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cambio_password`
+--
+
+LOCK TABLES `cambio_password` WRITE;
+/*!40000 ALTER TABLE `cambio_password` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cambio_password` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -66,7 +93,7 @@ CREATE TABLE `empresas` (
   PRIMARY KEY (`ID`),
   KEY `IDUsuario_idx` (`Usuario_ID`),
   CONSTRAINT `IDUsu` FOREIGN KEY (`Usuario_ID`) REFERENCES `usuarios` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=227 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=235 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -75,7 +102,6 @@ CREATE TABLE `empresas` (
 
 LOCK TABLES `empresas` WRITE;
 /*!40000 ALTER TABLE `empresas` DISABLE KEYS */;
-INSERT INTO `empresas` VALUES (220,'210000000012','tta','apellidotta','1234567890','1234567890',320,'TTA',1),(221,'210000000013','SEGUDONOMBRE','SEGUNDAEMPRESA','2147483647','2222222223',320,'TTA',2),(222,'123456789012','Totum','S.A','0','',325,'TTA',1),(223,'213030000019','ChoferUNO','CHO SRL','0','',326,'CHO',0),(224,'213040000018','SegundaEmpresa','SegundaCHO','1234567890','1234567890',326,'CHO',0),(225,'211389990017','Empresa Anf 1','Anfit 1 srl','898888','123456',329,'ANF',0),(226,'212148880019','Agencia l poderoda','poder sa','0','',331,'AGT',0);
 /*!40000 ALTER TABLE `empresas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -91,7 +117,7 @@ CREATE TABLE `faqs` (
   `Pregunta` varchar(150) NOT NULL,
   `Respuesta` longtext NOT NULL,
   PRIMARY KEY (`idPregunta`)
-) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -100,7 +126,7 @@ CREATE TABLE `faqs` (
 
 LOCK TABLES `faqs` WRITE;
 /*!40000 ALTER TABLE `faqs` DISABLE KEYS */;
-INSERT INTO `faqs` VALUES (41,'¿Cuándo es el lanzamiento de Salió Viaje?','Esta previsto para fines de febrero.');
+INSERT INTO `faqs` VALUES (41,'¿Qué es  Salió Viaje?','Es una Plataforma que optimiza el traslado ocasional de personas.\n\nGratis para el pasajero y un mínimo canon al transportista.'),(42,'¿Cómo pedir un viaje?','Puede llamarnos al 099 401 414 o al 095 411 004.\nEn pocos días podrá hacerlo con un práctico formulario.'),(43,'¿Si soy transportista, cómo puedo registrarme y aumentar mi trabajo?','Con gusto le informaremos por los telefonos 099 401 414 o 095 411 004 .');
 /*!40000 ALTER TABLE `faqs` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -112,7 +138,7 @@ DROP TABLE IF EXISTS `oportunidades`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `oportunidades` (
-  `idOportunidad` int NOT NULL AUTO_INCREMENT,
+  `idOportunidad` int(5) unsigned zerofill NOT NULL AUTO_INCREMENT,
   `Descuento` int NOT NULL,
   `Vehiculo` varchar(45) NOT NULL,
   `Distancia` int NOT NULL,
@@ -122,9 +148,10 @@ CREATE TABLE `oportunidades` (
   `Destino` varchar(45) NOT NULL,
   `Precio` varchar(45) NOT NULL,
   `Rutas` varchar(45) DEFAULT NULL,
-  `Estado` varchar(45) NOT NULL DEFAULT 'Indefinido',
+  `Estado` varchar(45) NOT NULL DEFAULT 'En venta',
+  `idTransportista` varchar(45) NOT NULL,
   PRIMARY KEY (`idOportunidad`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -134,34 +161,6 @@ CREATE TABLE `oportunidades` (
 LOCK TABLES `oportunidades` WRITE;
 /*!40000 ALTER TABLE `oportunidades` DISABLE KEYS */;
 /*!40000 ALTER TABLE `oportunidades` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `usuario-empresa`
---
-
-DROP TABLE IF EXISTS `usuario-empresa`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8 */;
-CREATE TABLE `usuario-empresa` (
-  `ID` int NOT NULL AUTO_INCREMENT,
-  `ID_Usuario` int NOT NULL,
-  `ID_Empresa` int NOT NULL,
-  PRIMARY KEY (`ID`),
-  KEY `Usuario_idx` (`ID_Usuario`),
-  KEY `Empresa_idx` (`ID_Empresa`),
-  CONSTRAINT `Empresa` FOREIGN KEY (`ID_Empresa`) REFERENCES `empresas` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `Usuario` FOREIGN KEY (`ID_Usuario`) REFERENCES `usuarios` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `usuario-empresa`
---
-
-LOCK TABLES `usuario-empresa` WRITE;
-/*!40000 ALTER TABLE `usuario-empresa` DISABLE KEYS */;
-/*!40000 ALTER TABLE `usuario-empresa` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -182,7 +181,7 @@ CREATE TABLE `usuarios` (
   `Barrio` varchar(45) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
   `Departamento` varchar(45) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
   `Telefono` varchar(9) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
-  `Agencia_C` varchar(200) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
+  `Agencia_C` varchar(12) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
   `PIN` varchar(70) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   `RUT` varchar(45) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
   `Usuario` varchar(45) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
@@ -192,7 +191,7 @@ CREATE TABLE `usuarios` (
   `Direccion_Hotel` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `Usuario_UNIQUE` (`Usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=332 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=346 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -201,7 +200,6 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (318,'ADM','11111111','info@salioviaje.com.uy','Daniel','Schlebinger','','','','',NULL,'$2y$10$g0BAzrmFMxU3Jw5w0avZZ.NdEZoSgh50Ru4ygZYwB7mgkFmohby22',NULL,'salioviajeuy_daniel','$2a$10$P2tUEu.tdvBIdAxkavJhgeESTVgMuGBoz30yAVmVMz1N7GGrfQ1de',NULL,NULL,NULL),(319,'ADM','88888888','info@salioviaje.com.uy','Gustavo','Gutiérrez',NULL,NULL,NULL,NULL,NULL,'$2y$10$g0BAzrmFMxU3Jw5w0avZZ.NdEZoSgh50Ru4ygZYwB7mgkFmohby22',NULL,'salioviajeuy_gustavo','$2a$10$P2tUEu.tdvBIdAxkavJhgeESTVgMuGBoz30yAVmVMz1N7GGrfQ1de',NULL,NULL,NULL),(320,'TTA','12222224','gg@salioviaje.com.uy','TTA nombre','Tta','soca 333','buceo','mvd','91833337',NULL,'$2y$10$cpkpwKapVYiL/4/R3.KqCOfKq2C.oX.oYtByIPeS5ycduNHfsNudS','210000000012',NULL,NULL,NULL,NULL,NULL),(324,'PAX','56132732','manuelalonsodesign@gmail.com','Manuel','Alonso','Juncos','Solymar','Canelones','92614110',NULL,'$2y$10$ukwHNRleY1eij4itGPG9QO49AW6SomhCcQg8W.1mF8cMEpYdG9BBW',NULL,NULL,NULL,NULL,NULL,NULL),(325,'TTA','54879239','thewolfmodzyt@gmail.com','Juan','Morena','Pereida ST','Rondeau','Canelones','98234717',NULL,'$2y$10$jyfJkXZElRnEGP7xbwISeeAnOrFVWGforjcn0Hi0Pdz.9DaQziSBi','123456789012',NULL,NULL,NULL,NULL,NULL),(326,'CHO','15555553','gg@salioviaje.com.uy','ChoferUNO','ApellidoChoUno','rivera 1234','malvin','montevideo','91833337',NULL,'$2y$10$BBPdOC/X5YGN31PrwlsRTOjs4X6FTVQv7FKwDw4EhPYSeKzhzcRbO','213030000019',NULL,NULL,NULL,NULL,NULL),(327,'PAX','15852955','thewolfmodzyt@gmail.com','Juan Andrés','Morena Echegaray','178 Rondeau','El Pinar','Canelones','98234717',NULL,'$2y$10$5eME8ngM.TolSzV9Iu/XOOkWjIKCNHA08BwzkxzvP.0KX63yvfEji',NULL,NULL,NULL,NULL,NULL,NULL),(328,'PAX','23333335','gg@salioviaje.com.uy','Juan Pedro','pEREZ','CALLE DE PEREZ','BUCEO','MVD','91833337',NULL,'$2y$10$T3na2awNMo09xKFqm2dfCONZ0g.c07Ozzy6ee00ABBI0P6U.PvLYy',NULL,NULL,NULL,NULL,NULL,NULL),(329,'ANF','26666664','gg@salioviaje.com.uy','Anfitrion 1','apellido Anfitrio','casa del anfotrion','centro','Maldonado','99401414',NULL,'$2y$10$e6Iv/motR4fkUrzMdD5ljeoie.8Za2B4UFEEYZ.6Z/u7nLjZYsH8y','211389990017',NULL,NULL,NULL,NULL,NULL),(330,'HTL','38888888','gg@salioviaje.com.uy','hOTELERO','Hoteleriro','21 de setiebre 8888','pocitos','mvd','91833337',NULL,'$2y$10$JFh1hE92kGlarCCsMhnaweMEXKQ4NFp9/gbxzmwNRgbK3ny7gTOZK',NULL,NULL,NULL,'SI','Hotel Ibis','rambla 999'),(331,'AGT','22222222','gg@salioviaje.com.uy','Super','Agente 86','hilto 2345','borro','mvd','91833337',NULL,'$2y$10$oqpyw9cFD3WJb5MwhIV8X.xfBMYBeue/DHIBD3f.zkPZjn8BeTdeO','212148880019',NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -224,7 +222,7 @@ CREATE TABLE `vehiculos` (
   `RUT_EM` varchar(12) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   `RUT_EC` varchar(12) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=164 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=171 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -233,7 +231,6 @@ CREATE TABLE `vehiculos` (
 
 LOCK TABLES `vehiculos` WRITE;
 /*!40000 ALTER TABLE `vehiculos` DISABLE KEYS */;
-INSERT INTO `vehiculos` VALUES (158,'STU2007','TOYOTA','COROLLA XS','Nafta',4,2,1,'210000000012','0'),(159,'SRE0001','cITROEN','RT','Hibrido',4,2,2,'210000000012','0'),(160,'STU1123','HYUNDAI','HX','Gasoil',8,5,1,'210000000013','0'),(161,'ATU6754','MERCEDES BENZ','SPRINTER','Gasoil',17,15,1,'210000000013','0'),(162,'STU6767','Hyundai','H1 2001','Gasoil',12,12,2,'123456789012','0'),(163,'STU9999','Mercedes Benz','nfnd','Nafta',18,13,2,'210000000012','213030000019');
 /*!40000 ALTER TABLE `vehiculos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -256,7 +253,7 @@ CREATE TABLE `visitas` (
 
 LOCK TABLES `visitas` WRITE;
 /*!40000 ALTER TABLE `visitas` DISABLE KEYS */;
-INSERT INTO `visitas` VALUES (505);
+INSERT INTO `visitas` VALUES (1071);
 /*!40000 ALTER TABLE `visitas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -298,9 +295,9 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `agendar_viaje`(vih varchar(7),dist int,cantPax int, fecha_viaje varchar(20), org varchar(45), dest varchar(45),prc int)
+CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `agendar_viaje`(vih varchar(7),dist int,cantPax int, fecha_viaje varchar(20), org varchar(45), dest varchar(45),prc int,idTrp int)
 BEGIN
-	INSERT INTO `salioviajeuy_salioviajeuy`.`agenda` (`Vehiculo`, `Distancia`, `CantidadPasajeros`, `Fecha`, `Origen`, `Destino`, `Precio`) VALUES (vih, dist, cantPax, fecha_viaje, org, dest, prc);
+	INSERT INTO `salioviajeuy_salioviajeuy`.`agenda` (`Vehiculo`, `Distancia`, `CantidadPasajeros`, `Fecha`, `Origen`, `Destino`, `Precio`, `idTransportista`) VALUES (vih, dist, cantPax, fecha_viaje, org, dest, prc, idTrp);
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -336,9 +333,9 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `agregar_oportunidad`(dsc int,vih varchar(7),dist int,cantPax int, fecha_oportunidad varchar(20), org varchar(45), dest varchar(45),prc int)
+CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `agregar_oportunidad`(dsc int,vih varchar(7),dist int,cantPax int, fecha_oportunidad varchar(20), org varchar(45), dest varchar(45),prc int,idTTA int)
 BEGIN
-	INSERT INTO `salioviajeuy_salioviajeuy`.`oportunidades` (`Descuento`,`Vehiculo`, `Distancia`, `CantidadPasajeros`, `Fecha`, `Origen`, `Destino`, `Precio`) VALUES (dsc,vih, dist, cantPax, fecha_oportunidad, org, dest, prc);
+	INSERT INTO `salioviajeuy_salioviajeuy`.`oportunidades` (`Descuento`,`Vehiculo`, `Distancia`, `CantidadPasajeros`, `Fecha`, `Origen`, `Destino`, `Precio`, `idTransportista`) VALUES (dsc,vih, dist, cantPax, fecha_oportunidad, org, dest, prc,idTTA);
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -370,6 +367,139 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `cambiar_password` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_spanish_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `cambiar_password`(IN id_u INT, IN PIN_nuevo varchar(70))
+BEGIN
+	UPDATE salioviajeuy_salioviajeuy.usuarios SET PIN = PIN_Nuevo WHERE ID = id_u;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `cambio_estado_oportunidad` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_spanish_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `cambio_estado_oportunidad`(est varchar(45), id int)
+BEGIN
+ UPDATE `salioviajeuy_salioviajeuy`.`oportunidades` SET `Estado` = est WHERE (`idOportunidad` = id);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `codigo_cambiar_password` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_spanish_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `codigo_cambiar_password`(IN id_u INT, IN codigo_c varchar(8))
+BEGIN
+	INSERT INTO salioviajeuy_salioviajeuy.cambio_password (Usuario_ID,Codigo) values (id_u,codigo_c);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `confirmo_cambio_password` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_spanish_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `confirmo_cambio_password`(IN id_u INT, IN codigo_u VARCHAR(8))
+BEGIN
+	SELECT Codigo FROM cambio_password WHERE id_u = Usuario_ID AND codigo_u = Codigo;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `confirmo_mail` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_spanish_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `confirmo_mail`(IN mail VARCHAR(300))
+BEGIN
+	SELECT ID FROM usuarios WHERE Email = mail;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `confirmo_password` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_spanish_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `confirmo_password`(IN id_u INT)
+BEGIN
+	SELECT PIN FROM usuarios WHERE id_u = ID;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `editar_empresa` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_spanish_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `editar_empresa`(IN rut_e INT, IN RUT_en varchar(12), IN nombre_e varchar(200), IN razon_social_e varchar(200), IN choferes_sub_e INT, IN num_mtop_e varchar(100), IN pass_mtop_e varchar(300))
+BEGIN
+	UPDATE salioviajeuy_salioviajeuy.empresas SET RUT = RUT_en, Nombre_C = nombre_e, Razon_S = razon_social_e, Choferes_sub = choferes_sub_e, Nro_MTOP = num_mtop_e, Pass_MTOP = pass_mtop_e WHERE RUT = rut_e;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `editar_pregunta_FAQ` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -389,6 +519,82 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `editar_usuario` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_spanish_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `editar_usuario`(IN id_u INT, IN CI_u varchar(8), IN Nombre_u varchar(45), IN Apellido_u varchar(45), IN mail_u varchar(300), IN Dep_u varchar(45), IN Barr_u varchar(45), IN Dir_u varchar(45), IN Tel_u varchar(9))
+BEGIN
+	UPDATE salioviajeuy_salioviajeuy.usuarios SET CI = CI_u, Nombre = Nombre_u, Apellido = Apellido_u, Email = mail_u, Departamento = Dep_u, Barrio = Barr_u, Direccion = Dir_u, Telefono = Tel_u WHERE ID = id_u;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `eliminar_empresa` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_spanish_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `eliminar_empresa`(IN RUT_EM VARCHAR(12))
+BEGIN
+DELETE FROM empresas WHERE RUT_EM = RUT;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `eliminar_usuario` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_spanish_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `eliminar_usuario`(IN id_u INT)
+BEGIN
+DELETE FROM usuarios WHERE id_u = ID;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `info_usuario_profile` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_spanish_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `info_usuario_profile`(id_usuario int)
+BEGIN
+	SELECT ID,Tipo_Usuario,CI,Email,Nombre,Apellido,Direccion,Barrio,Departamento,Telefono,Agencia_C,RUT,Supervisor,Nombre_Hotel,Direccion_Hotel FROM salioviajeuy_salioviajeuy.usuarios where ID = id_usuario;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `login` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -399,9 +605,9 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `login`(usr varchar(12))
+CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `login`(usr varchar(40))
 BEGIN
-	SELECT ID,PIN,Passwd,Nombre,Apellido,Tipo_Usuario,CI,Telefono,Barrio,Departamento FROM usuarios where CI = usr or RUT = usr or Usuario = usr;
+	SELECT ID,PIN,Passwd,Nombre,Apellido,Tipo_Usuario,CI,Telefono,Barrio,Departamento,Email FROM usuarios where CI = usr or RUT = usr or Usuario = usr;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -418,24 +624,9 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `prueba`(id varchar(45),opcion varchar(45))
+CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `prueba`(est varchar(45), id int)
 BEGIN
-
-IF opcion = "comprar" THEN
-		start transaction;
-		INSERT INTO oportunidades (id_oportunidad,estado) VALUES (id,"Comprada y pendiente de aprobacion");
-ELSEIF opcion = "2" THEN
-		UPDATE `salioviajeuy_salioviajeuy`.`oportunidades` SET `estado` = "aprobada" WHERE (`id_oportunidad` = id);
-ELSEIF opcion = "3" THEN
-		UPDATE `salioviajeuy_salioviajeuy`.`oportunidades` SET `estado` = "en curso" WHERE (`id_oportunidad` = id);
-ELSEIF opcion = "4" THEN
-		UPDATE `salioviajeuy_salioviajeuy`.`oportunidades` SET `estado` = "arrivado" WHERE (`id_oportunidad` = id);
-ELSEIF opcion = "5" THEN
-		UPDATE `salioviajeuy_salioviajeuy`.`oportunidades` SET `estado` = "terminado" WHERE (`id_oportunidad` = id);
-ELSEIF opcion = "cancelar" THEN
-		UPDATE `salioviajeuy_salioviajeuy`.`oportunidades` SET `estado` = "cancelado" WHERE (`id_oportunidad` = id);
-END IF;
-
+ UPDATE `salioviajeuy_salioviajeuy`.`oportunidades` SET `Estado` = est WHERE (`idOportunidad` = id);
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -512,6 +703,82 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `traer_agenda` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_spanish_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `traer_agenda`(IN id_u VARCHAR(12))
+BEGIN
+SELECT * FROM agenda WHERE id_u = idTransportista;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `traigo_agenda` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_spanish_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `traigo_agenda`(IN id_u VARCHAR(12))
+BEGIN
+SELECT * FROM agenda WHERE id_u = idTransportista;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `traigo_choferes` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_spanish_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `traigo_choferes`(IN rut_e VARCHAR(12))
+BEGIN
+SELECT ID FROM usuarios WHERE rut_e = RUT_EC;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `traigo_empresa` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_spanish_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `traigo_empresa`(IN rut_e VARCHAR(12))
+BEGIN
+SELECT * FROM empresas WHERE rut_e = RUT;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `traigo_empresas` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -525,6 +792,63 @@ DELIMITER ;;
 CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `traigo_empresas`()
 BEGIN
 SELECT Nombre_C,Razon_S,RUT,Choferes_sub FROM empresas;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `traigo_empresas_usuario` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_spanish_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `traigo_empresas_usuario`(IN id_u INT)
+BEGIN
+SELECT * FROM empresas WHERE id_u = Usuario_ID;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `traigo_oportunidades` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_spanish_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `traigo_oportunidades`(IN id_u VARCHAR(12))
+BEGIN
+SELECT * FROM oportunidades WHERE id_u = idTransportista;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `traigo_vehiculos` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_spanish_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `traigo_vehiculos`(IN rut_e VARCHAR(12))
+BEGIN
+SELECT * FROM vehiculos WHERE rut_e = RUT_EM;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -566,4 +890,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-02-13 11:35:56
+-- Dump completed on 2022-02-22 13:26:41

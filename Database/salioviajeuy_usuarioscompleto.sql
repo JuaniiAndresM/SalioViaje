@@ -44,7 +44,6 @@ CREATE TABLE `agenda` (
 
 LOCK TABLES `agenda` WRITE;
 /*!40000 ALTER TABLE `agenda` DISABLE KEYS */;
-INSERT INTO `agenda` VALUES (00010,'STU1111',120,12,'2022-02-17 23:18','Maldonado','Tacuarembó','4080',NULL,'Indefinido',337);
 /*!40000 ALTER TABLE `agenda` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -62,7 +61,7 @@ CREATE TABLE `cambio_password` (
   PRIMARY KEY (`ID`),
   KEY `UID_idx` (`Usuario_ID`),
   CONSTRAINT `UID` FOREIGN KEY (`Usuario_ID`) REFERENCES `usuarios` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -103,7 +102,6 @@ CREATE TABLE `empresas` (
 
 LOCK TABLES `empresas` WRITE;
 /*!40000 ALTER TABLE `empresas` DISABLE KEYS */;
-INSERT INTO `empresas` VALUES (228,'123456789012','Example Uno','S.A','12345678','12345678',337,'TTA',1),(229,'123456789010','Example Uno Chofer','S.A','12345678','12345678',338,'CHO',0),(230,'123456789011','Example Anfitrión Uno','S.A','12345678','12345678',339,'ANF',0),(231,'123456789013','Example Agente Uno','S.A','12345678','12345678',342,'AGT',0),(232,'123456789012','Example','S.A','12345678','12345678',344,'CHO',0),(234,'123456789000','Example','S.A','12345678','12345678',345,'CHO',0);
 /*!40000 ALTER TABLE `empresas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -128,7 +126,7 @@ CREATE TABLE `faqs` (
 
 LOCK TABLES `faqs` WRITE;
 /*!40000 ALTER TABLE `faqs` DISABLE KEYS */;
-INSERT INTO `faqs` VALUES (41,'¿Cuándo es el lanzamiento de Salió Viaje?','Esta previsto para fines de febrero.'),(42,'¿Cómo pedir un viaje?','Llame a nuestros números, en pocos días podrá hacerlo con un práctico formulario'),(43,'¿Si soy transportista. Cómo puedo registrarme y aumentar mucho mi trabajo?','Llame a nuestros números, le informaremos con mucho gusto.');
+INSERT INTO `faqs` VALUES (41,'¿Qué es  Salió Viaje?','Es una Plataforma que optimiza el traslado ocasional de personas.\n\nGratis para el pasajero y un mínimo canon al transportista.'),(42,'¿Cómo pedir un viaje?','Puede llamarnos al 099 401 414 o al 095 411 004.\nEn pocos días podrá hacerlo con un práctico formulario.'),(43,'¿Si soy transportista, cómo puedo registrarme y aumentar mi trabajo?','Con gusto le informaremos por los telefonos 099 401 414 o 095 411 004 .');
 /*!40000 ALTER TABLE `faqs` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -162,7 +160,6 @@ CREATE TABLE `oportunidades` (
 
 LOCK TABLES `oportunidades` WRITE;
 /*!40000 ALTER TABLE `oportunidades` DISABLE KEYS */;
-INSERT INTO `oportunidades` VALUES (00007,60,'STU1111',120,12,'2022-02-17 20:20','Tacuarembó','Maldonado','4080',NULL,'Aprobada','337');
 /*!40000 ALTER TABLE `oportunidades` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -203,7 +200,6 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (336,'PAX','54879239','thewolfmodzyt@gmail.com','John','Doe 1','Rondeau','El Pinar','Canelones','98234717',NULL,'$2a$10$HAJbXU2cqKKJRvy8em.Z2u9FCxiC.SPY6cerzIC9Gk8Pid738ANYu',NULL,NULL,NULL,NULL,NULL,NULL),(337,'TTA','95275137','thewolfmodzyt@gmail.com','John','Doe 2','Rondeau','El Pinar','Canelones','98234717',NULL,'$2y$10$xJZ9RlgQSnxTN3UcQ57.LuGyYZPIeZkNjhXpqUj8sU5PoUBAuyVnm','123456789012',NULL,NULL,NULL,NULL,NULL),(338,'CHO','60730766','thewolfmodzyt@gmail.com','John','Doe 3','Rondeau','El Pinar','Canelones','98234717',NULL,'$2y$10$wTs9zzBESKMJVqWRSchv/.uDABxfqZxAUZaQTyxjPSbdoX3yG6sae','123456789010',NULL,NULL,NULL,NULL,NULL),(339,'ANF','37902938','thewolfmodzyt@gmail.com','John','Doe 4','Rondeau','El Pinar','Canelones','98234717',NULL,'$2y$10$YieZ/9YM1mliRSClaXgFB.nj9lgnZJwfxjWxvB4.Ibt2lqatqB8x.','123456789011',NULL,NULL,NULL,NULL,NULL),(340,'HTL','32549606','thewolfmodzyt@gmail.com','John','Doe 5','Rondeau','El Pinar','Canelones','98234717',NULL,'$2y$10$od.c1KWbuCbjG.16l22GlOslfrKU/6QK4K9.3eBxi40Y0gA9RSlK.',NULL,NULL,NULL,'NO','Conrad','Maldonado, P. del Este.'),(341,'ASE','66810354','thewolfmodzyt@gmail.com','John','Doe 6','Rondeau','El Pinar','Canelones','98234717',NULL,'$2y$10$dy8AfQdR2tixUOWKVwnE9.L7FRoat8Lnfigf4Jpa0RC7p1hr26Fre',NULL,NULL,NULL,NULL,NULL,NULL),(342,'AGT','80566971','thewolfmodzyt@gmail.com','John','Doe 7','Rondeau','El Pinar','Canelones','98234717',NULL,'$2y$10$Iws1sHUbu9AkLDkJX1AeSewLVvqcqvA8OH7uEYZtM1l/symZHCHja','123456789013',NULL,NULL,NULL,NULL,NULL),(343,'ADM','15247819','thewolfmodzyt@gmail.com','Admin','Example','Rondeau','El Pinar','Canelones','98234717',NULL,'$2y$10$zW8fdNgU9GdbL0R9Q3ltd.ykIB9PjlLTF7D/wYoKPuxEMWfMMaIRy',NULL,'admin','$2y$10$zW8fdNgU9GdbL0R9Q3ltd.ykIB9PjlLTF7D/wYoKPuxEMWfMMaIRy',NULL,NULL,NULL),(344,'CHO','67564510','thewolfmodzyt@gmail.com','Chofer','Morena','Rondeau','El Pinar','Canelones','98234717',NULL,'$2y$10$mOVbucBaO8e98aA9favJVu1aanzY66hpXZSBfZHjJ8EGgNxxAu3R.','123456789012',NULL,NULL,NULL,NULL,NULL),(345,'CHO','31061609','thewolfmodzyt@gmail.com','Juan','Morena','Rondeau','El Pinar','Canelones','98234717',NULL,'$2y$10$FMrQDQT4brMHOySrTE8pCeuYYABv3ihpfNJR.bxmwU1VjTV5sbXta','123456789000',NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -235,7 +231,6 @@ CREATE TABLE `vehiculos` (
 
 LOCK TABLES `vehiculos` WRITE;
 /*!40000 ALTER TABLE `vehiculos` DISABLE KEYS */;
-INSERT INTO `vehiculos` VALUES (166,'STU1111','Hyundai','H1 2001','Nafta',16,12,2,'123456789012','0'),(167,'STU2222','Hyundai','HB20','Nafta',3,12,2,'123456789012','123456789010'),(168,'STU6787','Hyundai','H1 2001','Nafta',12,12,2,'123456789012','123456789012'),(169,'STU6787','Hyundai','H1 2001','Nafta',12,12,2,'123456789012','123456789017'),(170,'STU6787','Hyundai','H1 2001','Nafta',12,12,2,'123456789012','123456789000');
 /*!40000 ALTER TABLE `vehiculos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -258,6 +253,7 @@ CREATE TABLE `visitas` (
 
 LOCK TABLES `visitas` WRITE;
 /*!40000 ALTER TABLE `visitas` DISABLE KEYS */;
+INSERT INTO `visitas` VALUES (1071);
 /*!40000 ALTER TABLE `visitas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -419,9 +415,9 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `codigo_cambiar_password`(IN id_u INT, IN codigo varchar(8))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `codigo_cambiar_password`(IN id_u INT, IN codigo_c varchar(8))
 BEGIN
-	INSERT INTO salioviajeuy_salioviajeuy.cambio_password (Usuario_ID,Codigo) values (id_u,codigo);
+	INSERT INTO salioviajeuy_salioviajeuy.cambio_password (Usuario_ID,Codigo) values (id_u,codigo_c);
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -894,4 +890,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-02-20 17:05:08
+-- Dump completed on 2022-02-22 13:26:41
