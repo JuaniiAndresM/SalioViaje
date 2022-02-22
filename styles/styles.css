@@ -8212,6 +8212,39 @@ footer .totum p a:hover {
           transform: scale(1.1);
 }
 
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .loader_step3,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .loader_step3,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .loader_step3,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .loader_step3,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .loader_step3,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .loader_step3,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .loader_step3 {
+  width: 100%;
+  height: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .loader_step3 #spinner,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .loader_step3 #spinner,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .loader_step3 #spinner,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .loader_step3 #spinner,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .loader_step3 #spinner,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .loader_step3 #spinner,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .loader_step3 #spinner {
+  font-size: 2em;
+  color: #555;
+  -webkit-animation: spinner 2s infinite linear forwards;
+          animation: spinner 2s infinite linear forwards;
+}
+
 .viajar-wrapper .salioviaje .salioviaje-desplegable.show {
   opacity: 1;
   max-height: -webkit-max-content;
@@ -8275,6 +8308,28 @@ footer .totum p a:hover {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
     gap: 0;
+  }
+}
+
+@-webkit-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
 
@@ -11210,17 +11265,6 @@ footer .totum p a:hover {
 
 .espera-wrapper .espera .progress .progress-bar .circle3 {
   left: calc(100% - 10px);
-}
-
-@-webkit-keyframes spinner {
-  0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
 }
 
 @keyframes spinner {
