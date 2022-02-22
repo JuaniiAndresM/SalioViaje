@@ -587,6 +587,21 @@
           .button-viajar:hover{
             @include button-hover();
           }
+
+          .loader_step3{
+            width: 100%;
+            height: 200px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            #spinner{
+              font-size: 2em;
+              color: #555;
+              animation: spinner 2s infinite linear forwards;
+            }
+          }
         }
       }
     }
@@ -687,5 +702,14 @@
         
       }
     }
+  }
+}
+
+@keyframes spinner{
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
   }
 }

@@ -42,6 +42,11 @@ function finalizar(){
                 "DESTINO": $('#destino_traslado').val()
             };
 
+            $('#paradas_ida').hide();
+            $('#paradas_vuelta').hide();
+
+            $('.loader_step3').show();
+
             $.ajax({
                 type: "POST",
                 url: "/SalioViaje/Mail/mail-SalioViaje.php",
@@ -50,11 +55,11 @@ function finalizar(){
 
                 },
                 complete: function (response) {
-                    if(response == 1){
+                    if(response.responseText == 1){
                         step++;
                         steps(step);
                     }else{
-                        console.log(response);
+                        console.log(response.responseText);
                     }         
                 }
             });
@@ -74,6 +79,11 @@ function finalizar(){
                 "DURACION": $('#duracion_tour').val()
             };
             
+            $('#paradas_ida').hide();
+            $('#paradas_vuelta').hide();
+
+            $('.loader_step3').show();
+
             $.ajax({
                 type: "POST",
                 url: "/SalioViaje/Mail/mail-SalioViaje.php",
@@ -82,11 +92,11 @@ function finalizar(){
 
                 },
                 complete: function (response) {
-                    if(response == 1){
+                    if(response.responseText == 1){
                         step++;
                         steps(step);
                     }else{
-                        console.log(response);
+                        console.log(response.responseText);
                     }         
                 }
             });
@@ -113,6 +123,11 @@ function finalizar(){
                         "EQUIPAJE": $('#equipaje_transfer_in').val()
                     };
 
+                    $('#paradas_ida').hide();
+                    $('#paradas_vuelta').hide();
+
+                    $('.loader_step3').show();
+
                     $.ajax({
                         type: "POST",
                         url: "/SalioViaje/Mail/mail-SalioViaje.php",
@@ -121,11 +136,11 @@ function finalizar(){
 
                         },
                         complete: function (response) {
-                            if(response == 1){
+                            if(response.responseText == 1){
                                 step++;
                                 steps(step);
                             }else{
-                                console.log(response);
+                                console.log(response.responseText);
                             }       
                         }
                     });
@@ -142,7 +157,12 @@ function finalizar(){
                         "DESTINO": $('#destino_transfer_out').val(),
                         "EQUIPAJE": $('#equipaje_transfer_out').val()
                     };
-                                                    
+                       
+                    $('#paradas_ida').hide();
+                    $('#paradas_vuelta').hide();
+
+                    $('.loader_step3').show();
+                             
                     $.ajax({
                         type: "POST",
                         url: "/SalioViaje/Mail/mail-SalioViaje.php",
@@ -151,11 +171,11 @@ function finalizar(){
 
                         },
                         complete: function (response) {
-                            if(response == 1){
+                            if(response.responseText == 1){
                                 step++;
                                 steps(step);
                             }else{
-                                console.log(response);
+                                console.log(response.responseText);
                             }         
                         }
                     });
@@ -182,7 +202,12 @@ function finalizar(){
                         "HORA": $('#hora_fiesta_ida').val(),
                         "DESTINO": $('#destino_fiesta_ida').val()
                     };
-                                                                                            
+                       
+                    $('#paradas_ida').hide();
+                    $('#paradas_vuelta').hide();
+
+                    $('.loader_step3').show();
+                                                                     
                     $.ajax({
                         type: "POST",
                         url: "/SalioViaje/Mail/mail-SalioViaje.php",
@@ -191,11 +216,11 @@ function finalizar(){
 
                         },
                         complete: function (response) {
-                            if(response == 1){
+                            if(response.responseText == 1){
                                 step++;
                                 steps(step);
                             }else{
-                                console.log(response);
+                                console.log(response.responseText);
                             }         
                         }
                     });
@@ -210,7 +235,12 @@ function finalizar(){
                         "HORA": $('#hora_fiesta_vuelta').val(),
                         "DESTINO": $('#destino_fiesta_vuelta').val()
                     };
-                                                                                                                
+                      
+                    $('#paradas_ida').hide();
+                    $('#paradas_vuelta').hide();
+
+                    $('.loader_step3').show();
+                                                                                          
                     $.ajax({
                         type: "POST",
                         url: "/SalioViaje/Mail/mail-SalioViaje.php",
@@ -219,11 +249,11 @@ function finalizar(){
 
                         },
                         complete: function (response) {
-                            if(response == 1){
+                            if(response.responseText == 1){
                                 step++;
                                 steps(step);
                             }else{
-                                console.log(response);
+                                console.log(response.responseText);
                             }       
                         }
                     });
@@ -244,7 +274,12 @@ function finalizar(){
                         "HORA": $('#hora_vuelta_fiestas_idavuelta').val(),
                         "DESTINO": $('#destino_vuelta_fiestas_idavuelta').val()
                     };
-                                                                                                                                    
+                                         
+                    $('#paradas_ida').hide();
+                    $('#paradas_vuelta').hide();
+
+                    $('.loader_step3').show();
+                                                                                                                                      
                     $.ajax({
                         type: "POST",
                         url: "/SalioViaje/Mail/mail-SalioViaje.php",
@@ -253,11 +288,11 @@ function finalizar(){
 
                         },
                         complete: function (response) {
-                            if(response == 1){
+                            if(response.responseText == 1){
                                 step++;
                                 steps(step);
                             }else{
-                                console.log(response);
+                                console.log(response.responseText);
                             }
                         }
                     });
@@ -326,6 +361,8 @@ function steps(step){
             break;
 
         case 3:
+
+            $('.loader_step3').hide();
 
             if($("#select_users").val() == "4"){
                 if($('#select_fiesta').val() == 3){

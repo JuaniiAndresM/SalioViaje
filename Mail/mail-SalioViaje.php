@@ -70,7 +70,7 @@ $mail->Port = 465;
 $mail->CharSet = 'UTF-8';
 $mail->From = 'info@salioviaje.com.uy';             //  Editar
 $mail->FromName = 'SalióViaje';                     //  Editar
-$mail->addAddress('admin@salioviaje.com.uy');       //  Editar
+$mail->addAddress('thewolfmodzyt@gmail.com');       //  Editar
 $mail->isHTML(true);
 $mail->Subject = "Nueva Solicitud de Cotización - SalióViaje";   //  Editar
 
@@ -246,7 +246,6 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
 try {
     $mail->send();
     echo 1;
-    return 1;
 
 } catch (Exception $e) {
 
