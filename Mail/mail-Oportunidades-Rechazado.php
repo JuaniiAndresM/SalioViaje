@@ -31,7 +31,7 @@ $mail->From = 'info@salioviaje.com.uy'; //  Editar
 $mail->FromName = 'SalióViaje';  //  Editar
 $mail->addAddress('info@salioviaje.com.uy');  //  Editar
 $mail->isHTML(true);
-$mail->Subject = "Oops una oportunidad ha sido rechazada :(";    //  Editar
+$mail->Subject = "Oops una oportunidad ha sido rechazada :( - SalióViaje";    //  Editar
 //adm
 $mail->Body    = '<div class="mail" style="max-width: 600px; background: white;">
         <table style="width: 100%; background: linear-gradient(120deg, #3844bc, #2b3179); border: none;" cellspacing="0" cellpadding="0">
@@ -113,7 +113,7 @@ $mail->From = 'info@salioviaje.com.uy'; //  Editar
 $mail->FromName = 'SalióViaje';  //  Editar
 $mail->addAddress($_SESSION['datos_usuario']['MAIL']);  //  Editar
 $mail->isHTML(true);
-$mail->Subject = "Oportunidad rechazada";    //  Editar
+$mail->Subject = "Oportunidad Rechazada - SalióViaje";    //  Editar
 //pax
 $mail->Body    = '    <div class="mail" style="max-width: 600px; background: white;">
         <table style="width: 100%; background: linear-gradient(120deg, #3844bc, #2b3179); border: none;" cellspacing="0" cellpadding="0">
@@ -185,7 +185,7 @@ $mail->From = 'info@salioviaje.com.uy'; //  Editar
 $mail->FromName = 'SalióViaje';  //  Editar
 $mail->addAddress($mail_tta);  //  Editar
 $mail->isHTML(true);
-$mail->Subject = "Oportunidad rechazada con exito";    //  Editar
+$mail->Subject = "Oportunidad Rechazada con Exito - SalióViaje";    //  Editar
 //tta
 $mail->Body    = '       <div class="mail" style="max-width: 600px; background: white;">
         <table style="width: 100%; background: linear-gradient(120deg, #3844bc, #2b3179); border: none;" cellspacing="0" cellpadding="0">
