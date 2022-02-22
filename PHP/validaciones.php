@@ -46,7 +46,7 @@ class validaciones
 			if($validacion == 1){ echo "VALIDO"; } else {echo $validacion;}
 			break;
 			case 'ETAPA-2-TRAMO-1':
-			$validacion = $this->validar_formulario_agendar_viaje_etapa_2_tramo_1($datos);
+			$validacion = $this->validar_formulario_agendar_viaje_etapa_2_tramo_1($datos); 
 			if($validacion == 1){ echo "VALIDO"; } else {echo $validacion;}
 			break;
 			case 'ETAPA-2-TRAMO-2':
@@ -76,8 +76,8 @@ class validaciones
 					$CI = preg_match($this->PATTERN_CI, $valor);
 					if($this->validar_digito_ci($valor) == 1 && $this->validar_existencia_ci($valor) == 1){
 						$VALIDACION['CI'] = 1;
-					}else if($this->validar_digito_ci($valor) == 1 && $this->validar_existencia_ci($valor) == 0){ 
-						$VALIDACION['CI'] = 2; 
+					}else if($this->validar_digito_ci($valor) == 1 && $this->validar_existencia_ci($valor) == 0){
+							$VALIDACION['CI'] = 2;
 					}else{
 						$VALIDACION['CI'] = 0; 
 					}
@@ -92,6 +92,9 @@ class validaciones
 					break;
 					case 'CORREO':
 					$MAIL = preg_match($this->PATTERN_MAIL, $valor);
+					if($this->validar_existencia_mail($MAIL) == 1){
+						$VALIDACION['MAIL'] = 1;
+					}
 					$VALIDACION['MAIL'] = $MAIL;
 					break;
 					case 'DIRECCION':
@@ -125,9 +128,21 @@ class validaciones
 				}
 			}
 		}
-
-		if (count($VALIDACION) != 10) {
-			$DATOS_VACIOS = "Err-1";
+		$valor1 = explode("-", $valor);
+		if($valor1[0] == 'NUEVOPIN'){
+			if($valor == 'NUEVOPIN-1'){
+				if (count($VALIDACION) != 1) {
+					$DATOS_VACIOS = "Err-1";
+				}
+			}else{
+				if (count($VALIDACION) != 2) {
+					$DATOS_VACIOS = "Err-1";
+				}
+			}
+		}else{
+			if (count($VALIDACION) != 10) {
+				$DATOS_VACIOS = "Err-1";
+			}
 		}
 
 		foreach ($VALIDACION as $clave => $valor){
@@ -206,6 +221,8 @@ class validaciones
 		if($DATOS_VACIOS == null && $errores == 0) { return true; } elseif ($DATOS_VACIOS != null) { return $DATOS_VACIOS; } else { return json_encode($VALIDACION);}
 
 	}
+
+
 
 	private function validar_formulario_hotel($datos){
 
@@ -325,6 +342,23 @@ class validaciones
 	
 	}
 
+	private function validar_existencia_mail($mail){
+		require_once "procedimientosBD.php";
+		$mail_bd = new procedimientosBD();
+		$datos_mail = $mail_bd->traigo_mail();
+		$encontrado = 1;
+		if ($datos_mail != null) {
+			for ($i=0; $i < count($datos_mail); $i++) { 
+				if($datos_mail[$i] == $mail){
+					$encontrado = 0;
+				}
+			}
+		}else{ return 1; }
+
+		return $encontrado;
+	
+	}
+
 	private function validar_formulario_agendar_viaje_etapa_1($datos){
 
 		$VALIDACION = array();
@@ -381,12 +415,12 @@ class validaciones
 			if ($valor != null || $valor != '') {
 				switch ($clave) {
 					case 'TIPO':
-						if ($valor != "0" && $valor == 2) {
+						if ($valor != 0 && $valor == 2) {
 							$TIENE_DESCUENTO = 1;
 							$VALIDACION['TIPO'] = 1;
-						} else if($valor != null && $valor != 2){
+						} else if($valor != 0 && $valor == 1){
 							$VALIDACION['TIPO'] = 1;
-						} else { $VALIDACION['TIPO'] = 0; }
+						} else if ($valor == 0) { $VALIDACION['TIPO'] = 0; }
 					break;
 					case 'FECHA':
 						if ($valor != null) {
@@ -445,12 +479,12 @@ class validaciones
 			if ($valor != null || $valor != '') {
 				switch ($clave) {
 					case 'TIPO':
-						if ($valor != "0" && $valor == 2) {
+						if ($valor != 0 && $valor == 2) {
 							$TIENE_DESCUENTO = 1;
 							$VALIDACION['TIPO'] = 1;
-						} else if($valor != null && $valor != 2){
+						} else if($valor != 0 && $valor == 1){
 							$VALIDACION['TIPO'] = 1;
-						} else { $VALIDACION['TIPO'] = 0; }
+						} else if ($valor == 0) { $VALIDACION['TIPO'] = 0; }
 					break;
 					case 'FECHA':
 						if ($valor != null) {
@@ -567,7 +601,7 @@ class validaciones
 		}
     }
 }
+	$Validar = new validaciones($_POST['tipo'],$_POST['datos']);
 
-$Validar = new validaciones($_POST['tipo'],$_POST['datos']);
 
 ?>

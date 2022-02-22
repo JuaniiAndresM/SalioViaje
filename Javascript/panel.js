@@ -166,7 +166,7 @@ function tabla_usuarios_dashboard(){
                 if (usuarios_total == 1) {
                     $("#cantidad-usuarios").html('<h2>0</h2><i class="fas fa-user-friends"></i>')
                 }else{
-                    usuarios_total = usuarios_total-2
+                    usuarios_total = usuarios_total-2;
                     $("#cantidad-usuarios").html('<h2>'+usuarios_total+'</h2><i class="fas fa-user-friends"></i>')
                 }
 
@@ -213,7 +213,7 @@ function tabla_seccion_usuarios(usuario){
     }
 
     let td = document.createElement("td");
-    td.innerHTML += '<div class="button-wrapper"><button id="'+ID_USUARIO+'" class="button" disabled><i class="far fa-eye"></i></button><button id="'+ID_USUARIO+'" class="button" disabled><i class="fas fa-edit"></i></button><button id="'+ID_USUARIO+'" class="button" disabled><i class="fas fa-trash-alt"></i></button></div>'
+    td.innerHTML += '<div class="button-wrapper"><button id="'+ID_USUARIO+'" class="button"  onclick="ver_usuario('+ID_USUARIO+')"><i class="far fa-eye"></i></button><button id="'+ID_USUARIO+'" class="button" onclick="editarUsuario('+ID_USUARIO+')"><i class="fas fa-edit"></i></button><button id="'+ID_USUARIO+'" class="button" onclick="eliminar_usuario('+ID_USUARIO+')"><i class="fas fa-trash-alt"></i></button></div>'
     row.appendChild(td);
     //
     //agrego la fila a la tabla
@@ -222,6 +222,11 @@ function tabla_seccion_usuarios(usuario){
     if (row != " ") {tabla.appendChild(row);}
 }
 }
+
+function ver_usuario(id){
+    location.href = "/SalioViaje/Profile/" + id;
+}
+
 /*-------------------------------------------------------------------------------------------*/
 //                                     Empresas                                              //
 /*-------------------------------------------------------------------------------------------*/
@@ -374,6 +379,34 @@ function filtros(){
     });
 }
 
+
+function tabla_oportunidades(){
+    $.ajax({
+        type: 'POST',       
+        url: "/SalioViaje/PHP/Tablas/tabla_viajes_panel.php",
+        success: function(response) {
+            console.log(response)
+            $('#tbody-agenda').html(response)
+        }
+    });
+
+}
+
+function tabla_oportunidades_dashboard(){
+    $.ajax({
+        type: 'POST',       
+        url: "/SalioViaje/PHP/Tablas/tabla_viajes_panel_principal.php",
+        success: function(response) {
+            console.log(response)
+            $('#tbody-viajes-dashboard').html(response)
+        }
+    });
+
+}
+
+
+
+
 /*-------------------------------------------------------------------------------------------*/
 //                                       Visitas                                             //
 /*-------------------------------------------------------------------------------------------*/
@@ -427,4 +460,410 @@ function crear_intervalo(tiempo){
         traigoVisitas()
         actualizar_tablas()
     },tiempo)
+}
+
+function editarUsuario(id){
+    location.href = "/SalioViaje/Profile/EditarUsuario.php/" + "?ID=" + id;
+}
+
+
+function verEmpresa(rut){
+    location.href = "/SalioViaje/Profile/Empresa.php/" + "?RUT=" + rut;
+}
+
+function editarEmpresa(rut){
+    location.href = "/SalioViaje/Profile/EditarEmpresa.php/" + "?RUT=" + rut;
+}
+
+function eliminarEmpresa(rut){
+    $.ajax({
+        type: "POST",
+        url: "PHP/llamadosSol.php",
+        data: {tipe:3, RUT:rut},
+        success: function () {
+            location.reload();
+        }
+    });
+}
+
+function eliminar_usuario(id){
+    $.ajax({
+        type: "POST",
+        url: "PHP/llamadosSol.php",
+        data: {tipe:4, ID:id},
+        success: function () {
+            location.reload();
+        }
+    });
+}
+
+/*-------------------------------------------------------------------------------------------*/
+//                                     Edicion                                             //
+/*-------------------------------------------------------------------------------------------*/
+
+function guardarEdicionUsuario(id,ciAnterior){
+    window.ciAnterior = ciAnterior;
+    datos_Usuario = {
+        "CI": document.getElementById("CIEdicion").value,
+        "CORREO": document.getElementById("CorreoEdicion").value,
+        "NOMBRE": document.getElementById("NombreEdicion").value,
+        "APELLIDO": document.getElementById("ApellidoEdicion").value,
+        "DIRECCION": document.getElementById("DireccionEdicion").value,
+        "BARRIO": document.getElementById("BarrioEdicion").value,
+        "DEPARTAMENTO": document.getElementById("DepartamentoEdicion").value,
+        "TELEFONO": document.getElementById("TelEdicion").value,
+        "PIN": 1111,
+        "RE-PIN": 1111
+     };
+     validacion = $.ajax({
+        type: 'POST',       
+        url: "/SalioViaje/PHP/Validaciones.php",
+        data: {tipo:"USUARIO",datos:JSON.stringify(datos_Usuario)},
+        global: false,
+        async:false,
+        success: function(response) {
+          
+       }
+    }).responseText;
+     console.log(validacion)
+    if(confirmar_ci(validacion) == false){
+        validacion ="VALIDO"
+    }
+        if (validacion == "VALIDO") {
+                $.ajax({
+                    type: "POST",
+                    url: "/SalioViaje/PHP/llamadosSol.php",
+                    //aca mandarias la info necesaria para el xml de llamada
+                    data: {tipe:0, ID:id, CI:datos_Usuario["CI"], NOMBRE:datos_Usuario["NOMBRE"], APELLIDO:datos_Usuario["APELLIDO"], CORREO:datos_Usuario["CORREO"], DEPARTAMENTO:datos_Usuario["DEPARTAMENTO"], BARRIO:datos_Usuario["BARRIO"], DIRECCION:datos_Usuario["DIRECCION"], TEL:datos_Usuario["TELEFONO"]},
+                    success: function (response) {
+                        location.reload();
+                    }
+                });
+            }else if(validacion == "Err-1"){
+                next=false;
+            $('#mensaje-error').show();
+            $('#mensaje-error').text("Debe completar todos los campos.");
+        } else {
+            marcar_errores(validacion)
+            }
+ }
+ 
+ function cambiarPin(id,ciAnterior){
+    var pinAnterior=document.getElementById("password1").value;
+    window.ciAnterior = ciAnterior;
+ 
+    datos_Usuario = {
+       "CI": document.getElementById("CIEdicion").value,
+       "CORREO": document.getElementById("CorreoEdicion").value,
+       "NOMBRE": document.getElementById("NombreEdicion").value,
+       "APELLIDO": document.getElementById("ApellidoEdicion").value,
+       "DIRECCION": document.getElementById("DireccionEdicion").value,
+       "BARRIO": document.getElementById("BarrioEdicion").value,
+       "DEPARTAMENTO": document.getElementById("DepartamentoEdicion").value,
+       "TELEFONO": document.getElementById("TelEdicion").value,
+       "PIN": document.getElementById("password").value,
+       "RE-PIN":  document.getElementById("re-password").value
+    };
+    $.ajax({
+        type: "POST",
+        url: "/SalioViaje/PHP/llamadosSol.php",
+        //aca mandarias la info necesaria para el xml de llamada
+        data: {tipe:2, ID:id, PIN:pinAnterior},
+        success: function (response) {
+            if(response != "null"){
+                validacion = $.ajax({
+                    type: 'POST',       
+                    url: "/SalioViaje/PHP/Validaciones.php",
+                    data: {tipo:"USUARIO",datos:JSON.stringify(datos_Usuario)},
+                    global: false,
+                    async:false,
+                    success: function(response) {
+                      
+                   }
+                }).responseText;
+                 console.log(validacion)
+                 if(confirmar_ci(validacion) == false){
+                    validacion ="VALIDO"
+                }
+                 if (validacion == "VALIDO") {
+                      $(".mensaje-error").hide();
+                      $.ajax({
+                         type: "POST",
+                         url: "/SalioViaje/PHP/llamadosSol.php",
+                         //aca mandarias la info necesaria para el xml de llamada
+                         data: {tipe:1, ID:id, PINNUEVO:datos_Usuario["PIN"]},
+                         success: function (response) {
+                             if(pinAnterior != null){
+                                location.reload();
+                             }else{
+                                $('#mensaje-error-PIN').show();
+                                $('#mensaje-error-PIN').text("Debe completar todos los campos.");
+                             }
+                         }
+                      });
+                    }else if(validacion == "Err-1"){
+                        next=false;
+                      $('#mensaje-error-PIN').show();
+                      $('#mensaje-error-PIN').text("Debe completar todos los campos.");
+                   } else {marcar_errores(validacion)}
+            }else{
+             $('#mensaje-error-PIN').show();
+             $('#mensaje-error-PIN').text("Pin anterior incorrecto.");
+            }
+        }
+    });
+ }
+ 
+ function cambiarPinAdmin(id,ciAnterior){
+    window.ciAnterior = ciAnterior;
+ 
+    datos_Usuario = {
+       "CI": document.getElementById("CIEdicion").value,
+       "CORREO": document.getElementById("CorreoEdicion").value,
+       "NOMBRE": document.getElementById("NombreEdicion").value,
+       "APELLIDO": document.getElementById("ApellidoEdicion").value,
+       "DIRECCION": document.getElementById("DireccionEdicion").value,
+       "BARRIO": document.getElementById("BarrioEdicion").value,
+       "DEPARTAMENTO": document.getElementById("DepartamentoEdicion").value,
+       "TELEFONO": document.getElementById("TelEdicion").value,
+       "PIN": document.getElementById("password").value,
+       "RE-PIN":  document.getElementById("re-password").value
+    };
+                validacion = $.ajax({
+                    type: 'POST',       
+                    url: "/SalioViaje/PHP/Validaciones.php",
+                    data: {tipo:"USUARIO",datos:JSON.stringify(datos_Usuario)},
+                    global: false,
+                    async:false,
+                    success: function(response) {
+                    
+                }
+                }).responseText;
+                console.log(validacion)
+                if(confirmar_ci(validacion) == false){
+                    validacion ="VALIDO"
+                }
+                if (validacion == "VALIDO") {
+                            location.reload();
+                         }else if(validacion == "Err-1"){
+                            next=false;
+                          $('#mensaje-error-PIN').show();
+                          $('#mensaje-error-PIN').text("Debe completar todos los campos.");
+                       } else {marcar_errores(validacion)}
+                    ;
+ }
+ 
+ function guardarEdicionEmpresa(rut){
+    datos_Empresa = {
+       "RUT": document.getElementById("RUTEdicion").value,
+       "NOMBRE_COMERCIAL": document.getElementById("NcEdicion").value,
+       "RAZON_SOCIAL": document.getElementById("RsEdicion").value,
+       "NUMERO_MTOP": document.getElementById("NmEdicion").value,
+       "PASSWORD_MTOP": document.getElementById("password").value,
+       "CHOFERES_SUB": 0,
+       "VEHICULOS": {}
+    };
+        validacion = $.ajax({
+            type: 'POST',       
+            url: "/SalioViaje/PHP/Validaciones.php",
+            data: {tipo:"EMP",datos:JSON.stringify(datos_Empresa)},
+            global: false,
+            async:false,
+            success: function(response) {
+        }
+        }).responseText;
+        if (validacion == "VALIDO") {
+            $(".mensaje-error").hide();
+            $.ajax({
+            type: "POST",
+            url: "/SalioViaje/PHP/llamadosSol.php",
+            //aca mandarias la info necesaria para el xml de llamada
+            data: {tipe:5, RUTANTERIOR:rut, RUT:datos_Empresa["RUT"], NOMBRE:datos_Empresa["NOMBRE_COMERCIAL"], RS:datos_Empresa["RAZON_SOCIAL"], CA:document.getElementById("CaEdicion").value, NM:datos_Empresa["NUMERO_MTOP"], CM:datos_Empresa["PASSWORD_MTOP"]},
+            success: function (response) {
+                    editarEmpresa(datos_Empresa["RUT"]);
+            }
+            });
+        }
+        else if(validacion == "Err-1"){
+            $("#mensaje-error").show();
+            $('#mensaje-error').text("Debe completar todos los campos.");
+        } else {marcar_errores(validacion)}
+ }
+ 
+ function editarUsuario(id){
+    location.href = "/SalioViaje/Profile/EditarUsuario.php/" + "?ID=" + id;
+ }
+ 
+ 
+ function verEmpresa(rut){
+    location.href = "/SalioViaje/Profile/Empresa.php/" + "?RUT=" + rut;
+ }
+ 
+ function editarEmpresa(rut){
+    location.href = "/SalioViaje/Profile/EditarEmpresa.php/" + "?RUT=" + rut;
+ }
+ 
+ function eliminarEmpresa(rut){
+    $.ajax({
+        type: "POST",
+        url: "PHP/llamadosSol.php",
+        data: {tipe:3, RUT:rut},
+        success: function () {
+            location.reload();
+        }
+    });
+ }
+ 
+ function eliminar_usuario(id){
+    $.ajax({
+        type: "POST",
+        url: "PHP/llamadosSol.php",
+        data: {tipe:4, ID:id},
+        success: function () {
+            location.reload();
+        }
+    });
+ }
+
+ function marcar_errores(resultado_validacion){
+ 
+   console.log(resultado_validacion)
+   let resultado = JSON.parse(resultado_validacion)
+ 
+   for (const property in resultado) {
+     switch(property){
+        case "CI":
+        if (resultado[property] == 0) {
+           $('#CI').css('border-bottom', '1px solid #ff635a');
+           $('#mensaje-error').text("C.I no válida.");
+          }else if(resultado[property] == 2){
+             $('#CI').css('border-bottom', '1px solid #ff635a');
+             $('#mensaje-error').text("C.I ya registrada.");
+          }
+ 
+          break;
+       case "NOMBRE":
+       if (resultado[property] == 0) {
+          $('#nombre').css('border-bottom', '1px solid #ff635a');
+          $('#mensaje-error').text("El nombre no debe contener espacios ni caracteres especiales.");
+       } 
+ 
+          break;
+       case "APELLIDO":
+       if (resultado[property] == 0) {
+          $('#apellido').css('border-bottom', '1px solid #ff635a');
+          $('#mensaje-error').text("El apellido no debe contener espacios ni caracteres especiales.");
+        } 
+ 
+          break;
+       case "MAIL":
+       if (resultado[property] == 0) {
+          $('#correo').css('border-bottom', '1px solid #ff635a');
+          $('#mensaje-error').text("Correo Electrónico no válido.");
+         } 
+ 
+          break;
+       case "DIRECCION":
+       if (resultado[property] == 0) {
+          $('#direccion').css('border-bottom', '1px solid #ff635a');
+          $('#mensaje-error').text("Dirección no válida.");
+       } 
+ 
+          break;
+       case "BARRIO":
+       if (resultado[property] == 0) {
+           $('#barrio').css('border-bottom', '1px solid #ff635a');
+           $('#mensaje-error').text("Barrio no válido.");
+          } 
+ 
+          break;
+       case "DEPARTAMENTO":
+       if (resultado[property] == 0) {
+           $('#departamento').css('border-bottom', '1px solid #ff635a');
+           $('#mensaje-error').text("Departamento no válido."); 
+          } 
+ 
+          break;
+       case "TELEFONO":
+       if (resultado[property] == 0) { 
+         $('#numero_telefono').css('border-bottom', '1px solid #ff635a') 
+         $('#numero_telefono_hotel').css('border-bottom', '1px solid #ff635a')
+         $('#mensaje-error').text("Teléfono no válido.");
+      } 
+ 
+      break;
+      case "RUT":
+      if (resultado[property] == 0) {
+         $('#rutt').css('border-bottom', '1px solid #ff635a') 
+         $('#rut_usuario').css('border-bottom', '1px solid #ff635a');
+         $('#mensaje-error').text("RUT no válido, debe contener 12 caracteres.");
+      }  
+      break;
+      case "NOMBRE_COMERCIAL":
+        if (resultado[property] == 0) {
+            $('#nombre_comercial').css('border-bottom', '1px solid #ff635a');
+            $('#mensaje-error').text("Nombre comercial no válido.");
+           } 
+     
+           break;
+        case "RAZON_SOCIAL":
+        if (resultado[property] == 0) {
+            $('#razon_social').css('border-bottom', '1px solid #ff635a');
+            $('#mensaje-error').text("Debe seleccionar una razón social.");
+           } 
+     
+           break;
+        case "MTOP":
+        if (resultado[property] == 0) {
+            $('#numero_mtop').css('border-bottom', '1px solid #ff635a');
+            $('#mensaje-error').text("N° MTOP no válido.");
+            } 
+     
+           break;
+        case "PASSWORD_MTOP":
+        if (resultado[property] == 0) {
+           $('#password_mtop').css('border-bottom', '1px solid #ff635a');
+           $('#mensaje-error').text("Contraseña MTOP no válida."); 
+        } 
+        break;
+    }
+        if (resultado['PIN'] == 0) { 
+            $('#mensaje-error-PIN').show();
+            $('#mensaje-error-PIN').text("Los PINS deben coincidir.");
+            $('#password').css('border-bottom', '1px solid #ff635a') 
+           }
+        else if (resultado['PIN-MATCH'] == 0) { 
+            $('#mensaje-error-PIN').show(); 
+            $('#mensaje-error-PIN').text("Los PINS deben coincidir.");
+            $('#password').css('border-bottom', '1px solid #ff635a') 
+            $('#re-password').css('border-bottom', '1px solid #ff635a') 
+        }
+    }
+}
+
+function confirmar_ci(validacion){
+    if(validacion != "VALIDO"){
+        if(validacion != "Err-1"){
+            errores= JSON.parse(validacion);
+            if(errores["CI"] == 2 && window.ciAnterior == document.getElementById("CIEdicion").value){
+                for (const property in errores) {
+                    if(errores[property] == 1 && property != "CI"){
+                        error = false;
+                    }else{
+                        if(property != "CI"){
+                            error = true;
+                            return;
+                        }
+                    }
+                }
+            }else{
+                error =true;
+            }
+        }else{
+            error = true;
+        }
+    }else{
+        error = true;
+    }
+    return error;
 }

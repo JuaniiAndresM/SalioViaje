@@ -2,12 +2,15 @@ $(document).ready(function () {
     $('#header').load('/web/header.php');
     $('#footer').load('/web/footer.html');
     agregar_visita();
+    traer_oportunidades();
     document.getElementById('pre-loader').classList.toggle('load');
+    $('#filters').hide();
+    $('#filters2').hide();
 });
 
 function cerrarsesion(){
     $.ajax({ 
-        url: "PHP/cerrarSession.php",
+        url: "/SalioViaje/PHP/cerrarSession.php",
         success: function(response){
             $('#header').load('/web/header.php');
         }
@@ -49,5 +52,43 @@ function suscripcion(){
 }
 
 function comprar_oportunidad(id){
-    location.href = "https://www.salioviaje.com.uy/Oportunidad/" + id;
+    window.open('/SalioViaje/Espera/' + id, '_blank');
+}
+
+function detalles_oportunidad(id){
+    
+    location.href = "/SalioViaje/Oportunidad/" + id;
+
+}
+
+function traer_oportunidades(){
+    
+     $.ajax({
+        type: "POST",
+        url: "/SalioViaje/PHP/Tablas/oportunidadesIndex.php",
+        success: function (response) {
+            console.log(response);
+            if (response == ' ' || response == '0') {$('.list-empty').css('display', 'flex')} else {
+                $('.list-empty').hide();                
+                $('.oportunidades-list').html(response);
+                $('.oportunidades-list').show();
+            } 
+             
+        }
+    });
+}
+
+
+function filtros(number){
+
+    switch(number){
+        case 1:
+            $('#filters').toggle(''); 
+            break;
+
+        case 2:
+            $('#filters2').toggle(''); 
+            break;
+    }
+     
 }

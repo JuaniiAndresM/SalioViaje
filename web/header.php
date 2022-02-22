@@ -19,8 +19,8 @@
                     <a href="https://www.salioviaje.com.uy/Viajar">Oportunidades</a>
                     <a href="https://www.salioviaje.com.uy/FAQ">FAQ</a>
                     <?php   
-                    if(isset($_SESSION['tipo_usuario']) && $_SESSION['tipo_usuario'] != "Pasajero"){
-                        echo '<a href="https://www.salioviaje.com.uy/Dashboard">Panel</a>';
+                    if(isset($_SESSION['tipo_usuario'])){
+                        echo '<a href="/SalioViaje/Dashboard">Panel</a>';
                     }
                     ?>
                 </div>
@@ -74,8 +74,8 @@
                             <a href="https://www.salioviaje.com.uy/Viajar"><i class="fas fa-book"></i> Oportunidades</a>
                             <a href="https://www.salioviaje.com.uy/FAQ"><i class="fas fa-question"></i> FAQ</a>';
 
-                            if(isset($_SESSION['tipo_usuario']) && $_SESSION['tipo_usuario'] != "Pasajero"){
-                                echo '<a href="https://www.salioviaje.com.uy/Dashboard"><i class="fas fa-users-cog"></i> Panel</a>';
+                            if(isset($_SESSION['tipo_usuario'])){
+                                echo '<a href="/SalioViaje/Dashboard"><i class="fas fa-users-cog"></i> Panel</a>';
                             }
 
 

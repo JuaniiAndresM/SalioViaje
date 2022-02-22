@@ -1,10 +1,18 @@
 <?php 
 
+require_once '../PHP/procedimientosBD.php';
   session_start(); 
 
   if(!isset($_SESSION['usuario'])){
     header('Location: https://www.salioviaje.com.uy/Login');
   }else{
+
+    $rut = $_GET['RUT'];
+
+    $info_empresa = new procedimientosBD();
+
+    $usuario = $info_empresa->traer_datos_empresa($rut);
+    $vehiculos = $info_empresa->traer_datos_vehiculo($rut);
 
   }
 
@@ -81,10 +89,11 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="https://www.salioviaje.com.uy/Javascript/panel.js"></script>
-    <script src="https://www.salioviaje.com.uy/Javascript/settings.js"></script>
-    <script src="https://www.salioviaje.com.uy/Javascript/loader.js"></script>
-    <script src="https://www.salioviaje.com.uy/Javascript/profile.js"></script>
+    <script src="/SalioViaje/Javascript/panel.js"></script>
+    <script src="/SalioViaje/Javascript/settings.js"></script>
+    <script src="/SalioViaje/Javascript/loader.js"></script>
+    <script src="/SalioViaje/Javascript/profile.js"></script>
+
   </head>
   <body>
     <div id="pre-loader">
@@ -128,7 +137,7 @@
               <img src="https://www.salioviaje.com.uy/media/svg/Logo-SalioViaje.svg" alt="Logo SalióViaje">
             </div>
             <div class="user-desc">
-                <h2>Nombre de la Empresa</h2>
+                <h2><?php echo $usuario['NOMBRE_COMERCIAL'];?></h2>
                 <p><i class="fas fa-building"></i> Empresa</p>
               
             </div>
@@ -143,38 +152,51 @@
 
               <div class="info">
                 <b><i class="far fa-address-card"></i> RUT</b>
-                <input type="number" placeholder="RUT" value="123456123456">
+                <input type="number" placeholder="RUT" id="RUTEdicion" value="<?php echo $usuario['RUT'];?>">
               </div>
               <div class="info">
                 <b><i class="fas fa-signature"></i> Nombre Comercial</b>
-                <input type="text" placeholder="Nombre Comercial" value="Nombre de la Empresa">
+                <input type="text" placeholder="Nombre Comercial" id="NcEdicion"value="<?php echo $usuario['NOMBRE_COMERCIAL'];?>">
               </div>
               <div class="info">
                 <b><i class="fas fa-building"></i> Razón Social</b>
-                <input type="text" placeholder="Razón Social" value="S.A">
+                <input type="text" placeholder="Razón Social" id="RsEdicion"value="<?php echo $usuario['RAZON_SOCIAL'];?>">
               </div>
               <div class="info">
                 <b><i class="fas fa-user-friends"></i> Choferes Asociados</b>
-                <select name="" id="">
-                    <option value="0" selected disabled hidden>Choferes Asociados</option>
-                    <option value="1">Si</option>
-                    <option value="1">No</option>
+                <select name="" id="CaEdicion">
+                    <?php 
+                      if($usuario['CHOFERES_SUB'] == 1){
+                        echo '
+                          <option value="1" selected>Si</option>
+                          <option value="0">No</option>
+                        ';
+                      }else{
+                        echo '
+                          <option value="0" selected>No</option>
+                          <option value="1">Si</option>
+                        ';
+                        }
+                    ?>
+            
                 </select>
               </div>
               <div class="info">
                 <b><i class="fas fa-user-lock"></i> N° MTOP</b>
-                <input type="text" placeholder="N° MTOP" value="">
+                <input type="text" placeholder="N° MTOP" id="NmEdicion"value="<?php echo $usuario['NRO_MTOP'];?>">
               </div>
               <div class="info">
                 <b><i class="fas fa-key"></i> Contraseña MTOP</b>
-                <input type="password" id="password" placeholder="Contraseña MTOP" value="1234">
+                <input type="password"  id="password" placeholder="Contraseña MTOP" value="<?php echo $usuario['PASS_MTOP'];?>">
+                
                 <button onclick="passwd(1)" class="password-eye"><i id="passeye" class="fas fa-eye-slash"></i></button>
               </div>
 
             </div>
+            <p id="mensaje-error" class="mensaje-error"></p>
             <div class="button-wrapper">
-                <button class="button-guardar"><i class="fas fa-arrow-left"></i> Cancelar</button>
-                <button class="button-guardar"><i class="fas fa-save"></i> Guardar Cambios</button>
+                <button class="button-guardar" onclick="editarEmpresa('<?php echo$_GET['RUT']?>')"><i class="fas fa-arrow-left"></i> Cancelar</button>
+                <button class="button-guardar" onclick="guardarEdicionEmpresa('<?php echo$_GET['RUT']?>')"><i class="fas fa-save"></i> Guardar Cambios</button>
             </div>
           </div>
 
@@ -233,22 +255,32 @@
 
                 <div class="vehiculos-wrapper">
                     <div class="vehiculos">
-                        <div class="vehiculo">
-                            <div class="vehiculo-left">
-                                <div class="vehiculo-icon">
-                                    <i class="fas fa-car"></i>
-                                </div>
-                                <div class="vehiculo-info">
-                                    <h3 class="matricula">STU6743</h3>
-                                    <p><i class="fas fa-users"></i>12</p>
-                                </div>
-                            </div>
+                    <?php 
+                        if($vehiculos === null){
+                          
+                        }else{
+                          $size = sizeof($vehiculos);
+                          for($i = 0; $i< sizeof($vehiculos); $i++){
+                            echo '
+                            <div class="vehiculo">
+                              <div class="vehiculo-left">
+                                  <div class="vehiculo-icon">
+                                      <i class="fas fa-car"></i>
+                                  </div>
+                                  <div class="vehiculo-info">
+                                      <h3 class="matricula">'.$vehiculos[$i]['MATRICULA'].'</h3>
+                                      <p><i class="fas fa-users"></i>'.$vehiculos[$i]['CAPACIDAD'].'</p>
+                                  </div>
+                              </div>
 
-                            <div class="edit-button">
-                                <button class="editar_vehiculo" onclick="formulario_editar_vehiculo('STU6743')"><i class="fas fa-pencil-alt"></i></button>
-                                <button class="eliminar_vehiculo" onclick="eliminar_vehiculo('STU6743')"><i class="fas fa-trash-alt"></i></button>
-                            </div>
-                        </div>
+                              <div class="edit-button">
+                                  <button class="editar_vehiculo" onclick="formulario_editar_vehiculo('.$vehiculos[$i]['MATRICULA'].')"><i class="fas fa-pencil-alt"></i></button>
+                                  <button class="eliminar_vehiculo" onclick="eliminar_vehiculo('.$vehiculos[$i]['MATRICULA'].')"><i class="fas fa-trash-alt"></i></button>
+                              </div>
+                          </div>';
+                        }
+                      }
+                    ?>
                     </div>
                     <button class="save-button" id="finalizar_empresa_2"><i class="fas fa-save"></i> Guardar Cambios</button>
 

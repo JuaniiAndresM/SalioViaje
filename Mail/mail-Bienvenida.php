@@ -31,7 +31,7 @@ $mail->From = 'info@salioviaje.com.uy'; //  Editar
 $mail->FromName = 'SalióViaje';  //  Editar
 $mail->addAddress($email);  //  Editar
 $mail->isHTML(true);
-$mail->Subject = "Suscripción SalióViaje";    //  Editar
+$mail->Subject = "Suscripción - SalióViaje";    //  Editar
 
 $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white;">
                         <table style="width: 100%; background: linear-gradient(120deg, #3844bc, #2b3179); border: none;" cellspacing="0" cellpadding="0">

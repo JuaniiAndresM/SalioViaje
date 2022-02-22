@@ -1,7 +1,21 @@
+<?php 
+
+  session_start(); 
+
+  if(!isset($_SESSION['usuario'])){
+      header('Location: /SalioViaje/Login');
+  }else{
+    if($_SESSION['tipo_usuario'] == "Chofer"){
+      header('Location: /SalioViaje/');
+    }
+  }
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <title>SalióViaje | Oportunidad #021</title>
+    <title>SalióViaje | Oportunidad #<?php echo $_GET['ID']; ?></title>
 
     <!-- // Meta Etiquetas -->
 
@@ -69,9 +83,29 @@
     ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <script src="https://www.salioviaje.com.uy/Javascript/web.js"></script>
-    <script src="https://www.salioviaje.com.uy/Javascript/viajar.js"></script>
-    <script src="https://www.salioviaje.com.uy/Javascript/espera.js"></script>
+    <script src="/SalioViaje/Javascript/web.js"></script>
+    <script src="/SalioViaje/Javascript/viajar.js"></script>
+    
+    <script src="/SalioViaje/t2voice/functionsJS.js"></script>
+    <script src="/SalioViaje/t2voice/send_data.js"></script>
+    
+    <script src="/SalioViaje/Javascript/espera.js"></script>
+    
+    
+
+    <script type="text/javascript">
+        window.addEventListener('beforeunload', function (e) {
+            e.preventDefault();
+            e.returnValue = '';
+
+        });
+
+          window.onload = function(){
+            comprar_oportunidad(<?php echo $_GET['ID']; ?>)        
+            getIdOportunidad(<?php echo $_GET['ID']; ?>)      
+          }
+    </script>
+    
   </head>
   <body>
     <div id="header"></div>
@@ -105,11 +139,14 @@
           <div class="loader">
             <i class="fas fa-spinner"></i>
           </div>
-          <h2><i class="far fa-address-card"></i> Viaje N° 21</h2>
+          <h2><i class="far fa-address-card"></i> Viaje N° <?php echo $_GET['ID']; ?></h2>
           <h3>
             Estamos procesando su solicitud, este proceso puede tardar unos
             minutos.
           </h3>
+          <p>
+            También puedes seguir este proceso por medio de tu correo electrónico. 
+          </p>
           <p>
             Si gusta, mientras espera puede seguir viendo nuestras oportunidades
             en nuestra web.
@@ -121,6 +158,7 @@
             <i class="fas fa-check"></i>
           </div>
           <h2>Petición Aprobada</h2>
+          <h3><i class="far fa-address-card"></i> Viaje N° <?php echo $_GET['ID']; ?></h3>
           <p>
             Contáctate con el transporista para coordinar el pago de la
             oportunidad.
@@ -136,6 +174,7 @@
             <i class="fas fa-times"></i>
           </div>
           <h2>Petición Rechazada</h2>
+          <h3><i class="far fa-address-card"></i> Viaje N° <?php echo $_GET['ID']; ?></h3>
           <p>
             Lamentamos informarte que tu petición fue rechazada, en breve nos
             comunicaremos para comentarte los motivos.

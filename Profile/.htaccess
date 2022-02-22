@@ -1,7 +1,8 @@
 RewriteEngine on
 
-RewriteRule ^([a-zA-Z0-9_]+)$ Usuario.php?Usuario=$1
-RewriteRule ^Editar/([a-zA-Z0-9_\.]+)$ EditarUsuario.php?Usuario=$1
+RewriteRule ^([a-zA-Z0-9_]+)$ Usuario.php?ID=$1
+RewriteRule ^Editar/([a-zA-Z0-9_\.]+)$ EditarUsuario.php?ID=$1
 
 RewriteRule ^Empresa/([a-zA-Z0-9_]+)$ Empresa.php?Usuario=$1
 RewriteRule ^Empresa/Editar/([a-zA-Z0-9_\.]+)$ EditarEmpresa.php?Usuario=$1
+RewriteRule ^Failed/ Failed.html

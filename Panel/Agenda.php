@@ -1,4 +1,5 @@
 <?php 
+require_once '../PHP/procedimientosBD.php';
 
   session_start(); 
 
@@ -6,9 +7,12 @@
     header('Location: https://www.salioviaje.com.uy/Login');
 
   }else{
-    if($_SESSION['tipo_usuario'] == "Pasajero"){
-      header('Location: https://www.salioviaje.com.uy/');
-    }
+    $info_usuario = new procedimientosBD();
+
+      $vehiculos = $info_usuario->traer_agenda_usuario($_SESSION['datos_usuario']["ID"]);
+      $oportunidades = $info_usuario->traer_oportunidades_usuario($_SESSION['datos_usuario']["ID"]);
+
+      $vehiculos;
   }
 
 ?>
@@ -88,11 +92,6 @@
     <script src="https://www.salioviaje.com.uy/Javascript/settings.js"></script>
     <script src="https://www.salioviaje.com.uy/Javascript/loader.js"></script>
     <script type="text/javascript">
-            window.onload = function(){
-              let seccion = "usuarios"
-              traerUsuarios(seccion)
-              filtros()
-            }
     </script>
   </head>
   <body>
@@ -144,13 +143,6 @@
                 onkeyup="buscarUsuarios(2)"
               />
             </div>
-
-            <div class="checkboxs">
-              <div class="checkbox">
-                <input type="checkbox" name="" id="pax" checked />
-                <p>PAX</p>
-              </div>
-            </div>
           </div>
           <div class="table-overflow">
             <table class="usuarios-table" id="search-table-usuarios">
@@ -170,26 +162,55 @@
                   <th></th>
                 </tr>
               </thead>
-              <tbody>
-                  <tr>
-                      <td>1</td>
-                      <td>17/02/2022</td>
-                      <td>18:30</td>
-                      <td>STU4565</td>
-                      <td>Montevideo</td>
-                      <td>Maldonado</td>
-                      <td>120 km</td>
-                      <td>12</td>
-                      <td>4080</td>
-                      <td>50%</td>
-                      <td>Activa</td>
-                      <td>
-                          <div class="button-wrapper">
-                              <button class="button"><i class="fas fa-pen"></i></button>
-                              <button class="button"><i class="fas fa-trash-alt"></i></button>
-                          </div>
-                        </td>
-                  </tr>
+              <tbody id="tbody-agenda">
+              <?php 
+                  if($vehiculos === null){
+                    
+                  }else{
+                    $size = sizeof($vehiculos);
+                    for($i = 0; $i< sizeof($vehiculos); $i++){
+                      $info = explode(" ", $vehiculos[$i]['FECHA']);
+                      $FECHA =$info[0];
+                      $HORA = $info[1];
+                      echo '<tbody id="tbody">
+                          <td>'.$vehiculos[$i]['ID'].'</td>
+                          <td>'.$FECHA.'</td>
+                          <td>'.$HORA.'</td>
+                          <td>'.$vehiculos[$i]['VEHICULO'].'</td>
+                          <td>'.$vehiculos[$i]['ORIGEN'].'</td>
+                          <td>'.$vehiculos[$i]['DESTINO'].'</td>
+                          <td>'.$vehiculos[$i]['DISTANCIA'].'</td>
+                          <td>'.$vehiculos[$i]['CANTIDAD_PASAJERO'].'</td>
+                          <td>'.$vehiculos[$i]['PRECIO'].'</td>
+                          <td>-</td>
+                          <td>'.$vehiculos[$i]['ESTADO'].'</td>
+                      </tbody>';
+                    }
+                  }
+                  if($oportunidades === null){
+                    
+                  }else{
+                    $size = sizeof($oportunidades);
+                    for($i = 0; $i< sizeof($oportunidades); $i++){
+                      $info = explode(" ", $oportunidades[$i]['FECHA']);
+                      $FECHA =$info[0];
+                      $HORA = $info[1];
+                      echo '<tbody id="tbody">
+                          <td>'.$oportunidades[$i]['ID'].'</td>
+                          <td>'.$FECHA.'</td>
+                          <td>'.$HORA.'</td>
+                          <td>'.$oportunidades[$i]['VEHICULO'].'</td>
+                          <td>'.$oportunidades[$i]['ORIGEN'].'</td>
+                          <td>'.$oportunidades[$i]['DESTINO'].'</td>
+                          <td>'.$oportunidades[$i]['DISTANCIA'].'</td>
+                          <td>'.$oportunidades[$i]['CANTIDAD_PASAJERO'].'</td>
+                          <td>'.$oportunidades[$i]['PRECIO'].'</td>
+                          <td>'.$oportunidades[$i]['DESCUENTO'].'</td>
+                          <td>'.$oportunidades[$i]['ESTADO'].'</td>
+                      </tbody>';
+                    }
+                  }
+              ?>
               </tbody>
             </table>
           </div>

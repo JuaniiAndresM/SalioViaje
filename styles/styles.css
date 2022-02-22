@@ -398,7 +398,7 @@
   border-radius: 0 2em 2em 2em;
   padding: 0;
   text-decoration: none;
-  font-size: .9em;
+  font-size: 0.9em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -444,7 +444,6 @@
 .oportunidades .oportunidades-wrapper {
   max-width: 1300px;
   width: 100%;
-  height: 400px;
   padding: 20px;
   margin-top: 30px;
   border-radius: 3em 0 3em 3em;
@@ -453,13 +452,26 @@
           box-shadow: 10px 0 20px 0 rgba(0, 0, 0, 0.3);
 }
 
-.oportunidades .oportunidades-wrapper .search {
+.oportunidades .filter-wrapper {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.oportunidades .filter-wrapper .search {
   position: relative;
   width: 200px;
   height: 40px;
 }
 
-.oportunidades .oportunidades-wrapper .search input {
+.oportunidades .filter-wrapper .search input {
   width: 100%;
   height: 40px;
   padding-left: 25px;
@@ -468,37 +480,113 @@
   color: #666;
 }
 
-.oportunidades .oportunidades-wrapper .search input::-webkit-input-placeholder {
+.oportunidades .filter-wrapper .search input::-webkit-input-placeholder {
   color: #aaa;
 }
 
-.oportunidades .oportunidades-wrapper .search input:-ms-input-placeholder {
+.oportunidades .filter-wrapper .search input:-ms-input-placeholder {
   color: #aaa;
 }
 
-.oportunidades .oportunidades-wrapper .search input::-ms-input-placeholder {
+.oportunidades .filter-wrapper .search input::-ms-input-placeholder {
   color: #aaa;
 }
 
-.oportunidades .oportunidades-wrapper .search input::placeholder {
+.oportunidades .filter-wrapper .search input::placeholder {
   color: #aaa;
 }
 
-.oportunidades .oportunidades-wrapper .search input:focus {
+.oportunidades .filter-wrapper .search input:focus {
   outline: 1px solid #aaa;
   border-radius: 10px;
 }
 
-.oportunidades .oportunidades-wrapper .search i {
+.oportunidades .filter-wrapper .search i {
   position: absolute;
   top: 12px;
   left: 5px;
   color: #aaa;
 }
 
-.oportunidades .oportunidades-wrapper .list-empty {
+.oportunidades .filter-wrapper .button-filtrar button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #888;
+  width: 100px;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.oportunidades .filter-wrapper .button-filtrar button:hover {
+  color: #555;
+}
+
+.oportunidades #filters {
   width: 100%;
-  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.oportunidades #filters .input {
+  position: relative;
+  width: 180px;
+  margin: 10px;
+}
+
+.oportunidades #filters .input input,
+.oportunidades #filters .input select {
+  width: 100%;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #aaa;
+  outline: none;
+  padding-left: 25px;
+  color: #555;
+  font-size: 0.85em;
+}
+
+.oportunidades #filters .input input::-webkit-input-placeholder,
+.oportunidades #filters .input select::-webkit-input-placeholder {
+  color: #888;
+}
+
+.oportunidades #filters .input input:-ms-input-placeholder,
+.oportunidades #filters .input select:-ms-input-placeholder {
+  color: #888;
+}
+
+.oportunidades #filters .input input::-ms-input-placeholder,
+.oportunidades #filters .input select::-ms-input-placeholder {
+  color: #888;
+}
+
+.oportunidades #filters .input input::placeholder,
+.oportunidades #filters .input select::placeholder {
+  color: #888;
+}
+
+.oportunidades #filters .input #icon {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  color: #555;
+}
+
+.oportunidades .list-empty {
+  width: 100%;
+  height: 400px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -511,14 +599,14 @@
   margin-top: -25px;
 }
 
-.oportunidades .oportunidades-wrapper .list-empty p {
+.oportunidades .list-empty p {
   color: #3844bc;
   margin: auto;
 }
 
-.oportunidades .oportunidades-wrapper .oportunidades-list {
+.oportunidades .oportunidades-list {
   width: 100%;
-  height: calc(100% - 50px);
+  height: 400px;
   display: none;
   margin-top: 10px;
   max-height: 350px;
@@ -526,11 +614,11 @@
   overflow-y: auto;
 }
 
-.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad {
-  width: 100%;
+.oportunidades .oportunidades-list .oportunidad {
+  width: calc(100% - 20px);
   border-radius: 3em 0 3em 3em;
   background-color: #3844bc;
-  margin: 15px 0;
+  margin: 15px auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -542,7 +630,7 @@
           align-items: center;
 }
 
-.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left {
+.oportunidades .oportunidades-list .oportunidad .oportunidad-left {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -554,9 +642,9 @@
           align-items: center;
 }
 
-.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount {
-  width: 80px;
+.oportunidades .oportunidades-list .oportunidad .oportunidad-left .discount {
   height: 80px;
+  padding: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -568,29 +656,61 @@
           align-items: center;
   margin: 10px;
   background-color: #ffffff;
-  border-radius: 50%;
+  border-radius: 2em;
 }
 
-.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount h3 {
+.oportunidades .oportunidades-list .oportunidad .oportunidad-left .discount h3 {
   color: #3844bc;
   font-size: 2em;
 }
 
-.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel {
+.oportunidades .oportunidades-list .oportunidad .oportunidad-left .discount .precio {
+  margin: 0 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.oportunidades .oportunidades-list .oportunidad .oportunidad-left .discount .precio p {
+  font-size: .9em;
+  margin: 0;
+}
+
+.oportunidades .oportunidades-list .oportunidad .oportunidad-left .discount .precio .precio_total {
+  color: #ff5353;
+  -webkit-text-decoration-line: line-through;
+          text-decoration-line: line-through;
+}
+
+.oportunidades .oportunidades-list .oportunidad .oportunidad-left .discount .precio .precio_desc {
+  color: #329e3b;
+}
+
+.oportunidades .oportunidades-list .oportunidad .oportunidad-left .travel {
   text-align: left;
   margin: 0 10px;
 }
 
-.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel p {
+.oportunidades .oportunidades-list .oportunidad .oportunidad-left .travel p {
   margin: 5px 10px;
   color: #ffffff;
 }
 
-.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel p i {
+.oportunidades .oportunidades-list .oportunidad .oportunidad-left .travel p i {
   font-size: 1.1em;
 }
 
-.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right {
+.oportunidades .oportunidades-list .oportunidad .oportunidad-right {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -602,26 +722,26 @@
           align-items: center;
 }
 
-.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .travel {
+.oportunidades .oportunidades-list .oportunidad .oportunidad-right .travel {
   text-align: center;
   margin: 0 10px;
 }
 
-.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .travel p {
+.oportunidades .oportunidades-list .oportunidad .oportunidad-right .travel p {
   margin: 5px 10px;
   width: 150px;
   color: #ffffff;
 }
 
-.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .travel p i {
+.oportunidades .oportunidades-list .oportunidad .oportunidad-right .travel p i {
   font-size: 1.1em;
 }
 
-.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .travel .calificacion {
+.oportunidades .oportunidades-list .oportunidad .oportunidad-right .travel .calificacion {
   color: #ffaa00;
 }
 
-.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper {
+.oportunidades .oportunidades-list .oportunidad .oportunidad-right .button-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -638,7 +758,7 @@
   margin-right: 20px;
 }
 
-.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper button {
+.oportunidades .oportunidades-list .oportunidad .oportunidad-right .button-wrapper button {
   width: 150px;
   height: 35px;
   border: none;
@@ -647,17 +767,17 @@
   margin: 5px 10px;
   background-color: #ffffff;
   border-radius: 10px;
-  -webkit-transition: .3s;
-  transition: .3s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
   cursor: pointer;
 }
 
-.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper button:hover {
+.oportunidades .oportunidades-list .oportunidad .oportunidad-right .button-wrapper button:hover {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
 }
 
-.oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper .comprar-button {
+.oportunidades .oportunidades-list .oportunidad .oportunidad-right .button-wrapper .comprar-button {
   background-color: #70ff7c;
   color: #333333;
 }
@@ -759,19 +879,19 @@
   }
 }
 
-@media screen and (max-width: 1146px) {
+@media screen and (max-width: 1226px) {
   .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel:nth-child(4) {
     display: none;
   }
 }
 
-@media screen and (max-width: 952px) {
+@media screen and (max-width: 1031px) {
   .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .travel {
     display: none;
   }
 }
 
-@media screen and (max-width: 829px) {
+@media screen and (max-width: 842px) {
   .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -6673,7 +6793,6 @@ footer .totum p a:hover {
 .viajar-wrapper .salioviaje .ofertas-wrapper {
   max-width: 1300px;
   width: 100%;
-  height: 600px;
   padding: 20px;
   margin-top: 30px;
   border-radius: 3em 0 3em 3em;
@@ -6682,23 +6801,41 @@ footer .totum p a:hover {
           box-shadow: 10px 0 20px 0 rgba(0, 0, 0, 0.3);
 }
 
-.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .search,
-.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .search,
-.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .search,
-.viajar-wrapper .ofertas-viajar .ofertas-wrapper .search,
-.viajar-wrapper .salioviaje .oportunidades-wrapper .search,
-.viajar-wrapper .salioviaje .ofertas-wrapper .search {
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .filter-wrapper,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .filter-wrapper,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .filter-wrapper,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper .filter-wrapper,
+.viajar-wrapper .salioviaje .oportunidades-wrapper .filter-wrapper,
+.viajar-wrapper .salioviaje .ofertas-wrapper .filter-wrapper {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .filter-wrapper .search,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .filter-wrapper .search,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .filter-wrapper .search,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper .filter-wrapper .search,
+.viajar-wrapper .salioviaje .oportunidades-wrapper .filter-wrapper .search,
+.viajar-wrapper .salioviaje .ofertas-wrapper .filter-wrapper .search {
   position: relative;
   width: 200px;
   height: 40px;
 }
 
-.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .search input,
-.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .search input,
-.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .search input,
-.viajar-wrapper .ofertas-viajar .ofertas-wrapper .search input,
-.viajar-wrapper .salioviaje .oportunidades-wrapper .search input,
-.viajar-wrapper .salioviaje .ofertas-wrapper .search input {
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .filter-wrapper .search input,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .filter-wrapper .search input,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .filter-wrapper .search input,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper .filter-wrapper .search input,
+.viajar-wrapper .salioviaje .oportunidades-wrapper .filter-wrapper .search input,
+.viajar-wrapper .salioviaje .ofertas-wrapper .filter-wrapper .search input {
   width: 100%;
   height: 40px;
   padding-left: 25px;
@@ -6707,65 +6844,287 @@ footer .totum p a:hover {
   color: #666;
 }
 
-.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .search input::-webkit-input-placeholder,
-.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .search input::-webkit-input-placeholder,
-.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .search input::-webkit-input-placeholder,
-.viajar-wrapper .ofertas-viajar .ofertas-wrapper .search input::-webkit-input-placeholder,
-.viajar-wrapper .salioviaje .oportunidades-wrapper .search input::-webkit-input-placeholder,
-.viajar-wrapper .salioviaje .ofertas-wrapper .search input::-webkit-input-placeholder {
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .filter-wrapper .search input::-webkit-input-placeholder,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .filter-wrapper .search input::-webkit-input-placeholder,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .filter-wrapper .search input::-webkit-input-placeholder,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper .filter-wrapper .search input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .oportunidades-wrapper .filter-wrapper .search input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .ofertas-wrapper .filter-wrapper .search input::-webkit-input-placeholder {
   color: #aaa;
 }
 
-.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .search input:-ms-input-placeholder,
-.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .search input:-ms-input-placeholder,
-.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .search input:-ms-input-placeholder,
-.viajar-wrapper .ofertas-viajar .ofertas-wrapper .search input:-ms-input-placeholder,
-.viajar-wrapper .salioviaje .oportunidades-wrapper .search input:-ms-input-placeholder,
-.viajar-wrapper .salioviaje .ofertas-wrapper .search input:-ms-input-placeholder {
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .filter-wrapper .search input:-ms-input-placeholder,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .filter-wrapper .search input:-ms-input-placeholder,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .filter-wrapper .search input:-ms-input-placeholder,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper .filter-wrapper .search input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .oportunidades-wrapper .filter-wrapper .search input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .ofertas-wrapper .filter-wrapper .search input:-ms-input-placeholder {
   color: #aaa;
 }
 
-.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .search input::-ms-input-placeholder,
-.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .search input::-ms-input-placeholder,
-.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .search input::-ms-input-placeholder,
-.viajar-wrapper .ofertas-viajar .ofertas-wrapper .search input::-ms-input-placeholder,
-.viajar-wrapper .salioviaje .oportunidades-wrapper .search input::-ms-input-placeholder,
-.viajar-wrapper .salioviaje .ofertas-wrapper .search input::-ms-input-placeholder {
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .filter-wrapper .search input::-ms-input-placeholder,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .filter-wrapper .search input::-ms-input-placeholder,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .filter-wrapper .search input::-ms-input-placeholder,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper .filter-wrapper .search input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .oportunidades-wrapper .filter-wrapper .search input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .ofertas-wrapper .filter-wrapper .search input::-ms-input-placeholder {
   color: #aaa;
 }
 
-.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .search input::placeholder,
-.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .search input::placeholder,
-.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .search input::placeholder,
-.viajar-wrapper .ofertas-viajar .ofertas-wrapper .search input::placeholder,
-.viajar-wrapper .salioviaje .oportunidades-wrapper .search input::placeholder,
-.viajar-wrapper .salioviaje .ofertas-wrapper .search input::placeholder {
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .filter-wrapper .search input::placeholder,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .filter-wrapper .search input::placeholder,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .filter-wrapper .search input::placeholder,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper .filter-wrapper .search input::placeholder,
+.viajar-wrapper .salioviaje .oportunidades-wrapper .filter-wrapper .search input::placeholder,
+.viajar-wrapper .salioviaje .ofertas-wrapper .filter-wrapper .search input::placeholder {
   color: #aaa;
 }
 
-.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .search input:focus,
-.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .search input:focus,
-.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .search input:focus,
-.viajar-wrapper .ofertas-viajar .ofertas-wrapper .search input:focus,
-.viajar-wrapper .salioviaje .oportunidades-wrapper .search input:focus,
-.viajar-wrapper .salioviaje .ofertas-wrapper .search input:focus {
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .filter-wrapper .search input:focus,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .filter-wrapper .search input:focus,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .filter-wrapper .search input:focus,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper .filter-wrapper .search input:focus,
+.viajar-wrapper .salioviaje .oportunidades-wrapper .filter-wrapper .search input:focus,
+.viajar-wrapper .salioviaje .ofertas-wrapper .filter-wrapper .search input:focus {
   outline: 1px solid #aaa;
   border-radius: 10px;
 }
 
-.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .search i,
-.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .search i,
-.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .search i,
-.viajar-wrapper .ofertas-viajar .ofertas-wrapper .search i,
-.viajar-wrapper .salioviaje .oportunidades-wrapper .search i,
-.viajar-wrapper .salioviaje .ofertas-wrapper .search i {
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .filter-wrapper .search i,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .filter-wrapper .search i,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .filter-wrapper .search i,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper .filter-wrapper .search i,
+.viajar-wrapper .salioviaje .oportunidades-wrapper .filter-wrapper .search i,
+.viajar-wrapper .salioviaje .ofertas-wrapper .filter-wrapper .search i {
   position: absolute;
   top: 12px;
   left: 5px;
   color: #aaa;
 }
 
-.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .list-empty, .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .list-empty2,
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .filter-wrapper .button-filtrar button,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .filter-wrapper .button-filtrar button,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .filter-wrapper .button-filtrar button,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper .filter-wrapper .button-filtrar button,
+.viajar-wrapper .salioviaje .oportunidades-wrapper .filter-wrapper .button-filtrar button,
+.viajar-wrapper .salioviaje .ofertas-wrapper .filter-wrapper .button-filtrar button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #888;
+  width: 100px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .filter-wrapper .button-filtrar button:hover,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .filter-wrapper .button-filtrar button:hover,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .filter-wrapper .button-filtrar button:hover,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper .filter-wrapper .button-filtrar button:hover,
+.viajar-wrapper .salioviaje .oportunidades-wrapper .filter-wrapper .button-filtrar button:hover,
+.viajar-wrapper .salioviaje .ofertas-wrapper .filter-wrapper .button-filtrar button:hover {
+  color: #555;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper #filters, .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper #filters2,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper #filters,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper #filters2,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper #filters,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper #filters2,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper #filters,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper #filters2,
+.viajar-wrapper .salioviaje .oportunidades-wrapper #filters,
+.viajar-wrapper .salioviaje .oportunidades-wrapper #filters2,
+.viajar-wrapper .salioviaje .ofertas-wrapper #filters,
+.viajar-wrapper .salioviaje .ofertas-wrapper #filters2 {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper #filters .input, .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper #filters2 .input,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper #filters .input,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper #filters2 .input,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper #filters .input,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper #filters2 .input,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper #filters .input,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper #filters2 .input,
+.viajar-wrapper .salioviaje .oportunidades-wrapper #filters .input,
+.viajar-wrapper .salioviaje .oportunidades-wrapper #filters2 .input,
+.viajar-wrapper .salioviaje .ofertas-wrapper #filters .input,
+.viajar-wrapper .salioviaje .ofertas-wrapper #filters2 .input {
+  position: relative;
+  width: 180px;
+  margin: 10px;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper #filters .input input,
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper #filters .input select, .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper #filters2 .input input,
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper #filters2 .input select,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper #filters .input input,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper #filters .input select,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper #filters2 .input input,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper #filters2 .input select,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper #filters .input input,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper #filters .input select,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper #filters2 .input input,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper #filters2 .input select,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper #filters .input input,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper #filters .input select,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper #filters2 .input input,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper #filters2 .input select,
+.viajar-wrapper .salioviaje .oportunidades-wrapper #filters .input input,
+.viajar-wrapper .salioviaje .oportunidades-wrapper #filters .input select,
+.viajar-wrapper .salioviaje .oportunidades-wrapper #filters2 .input input,
+.viajar-wrapper .salioviaje .oportunidades-wrapper #filters2 .input select,
+.viajar-wrapper .salioviaje .ofertas-wrapper #filters .input input,
+.viajar-wrapper .salioviaje .ofertas-wrapper #filters .input select,
+.viajar-wrapper .salioviaje .ofertas-wrapper #filters2 .input input,
+.viajar-wrapper .salioviaje .ofertas-wrapper #filters2 .input select {
+  width: 100%;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #aaa;
+  outline: none;
+  padding-left: 25px;
+  color: #555;
+  font-size: 0.85em;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper #filters .input input::-webkit-input-placeholder,
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper #filters .input select::-webkit-input-placeholder, .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper #filters2 .input input::-webkit-input-placeholder,
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper #filters2 .input select::-webkit-input-placeholder,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper #filters .input input::-webkit-input-placeholder,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper #filters .input select::-webkit-input-placeholder,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper #filters2 .input input::-webkit-input-placeholder,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper #filters2 .input select::-webkit-input-placeholder,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper #filters .input input::-webkit-input-placeholder,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper #filters .input select::-webkit-input-placeholder,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper #filters2 .input input::-webkit-input-placeholder,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper #filters2 .input select::-webkit-input-placeholder,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper #filters .input input::-webkit-input-placeholder,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper #filters .input select::-webkit-input-placeholder,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper #filters2 .input input::-webkit-input-placeholder,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper #filters2 .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .oportunidades-wrapper #filters .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .oportunidades-wrapper #filters .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .oportunidades-wrapper #filters2 .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .oportunidades-wrapper #filters2 .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .ofertas-wrapper #filters .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .ofertas-wrapper #filters .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .ofertas-wrapper #filters2 .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .ofertas-wrapper #filters2 .input select::-webkit-input-placeholder {
+  color: #888;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper #filters .input input:-ms-input-placeholder,
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper #filters .input select:-ms-input-placeholder, .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper #filters2 .input input:-ms-input-placeholder,
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper #filters2 .input select:-ms-input-placeholder,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper #filters .input input:-ms-input-placeholder,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper #filters .input select:-ms-input-placeholder,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper #filters2 .input input:-ms-input-placeholder,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper #filters2 .input select:-ms-input-placeholder,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper #filters .input input:-ms-input-placeholder,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper #filters .input select:-ms-input-placeholder,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper #filters2 .input input:-ms-input-placeholder,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper #filters2 .input select:-ms-input-placeholder,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper #filters .input input:-ms-input-placeholder,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper #filters .input select:-ms-input-placeholder,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper #filters2 .input input:-ms-input-placeholder,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper #filters2 .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .oportunidades-wrapper #filters .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .oportunidades-wrapper #filters .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .oportunidades-wrapper #filters2 .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .oportunidades-wrapper #filters2 .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .ofertas-wrapper #filters .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .ofertas-wrapper #filters .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .ofertas-wrapper #filters2 .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .ofertas-wrapper #filters2 .input select:-ms-input-placeholder {
+  color: #888;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper #filters .input input::-ms-input-placeholder,
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper #filters .input select::-ms-input-placeholder, .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper #filters2 .input input::-ms-input-placeholder,
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper #filters2 .input select::-ms-input-placeholder,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper #filters .input input::-ms-input-placeholder,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper #filters .input select::-ms-input-placeholder,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper #filters2 .input input::-ms-input-placeholder,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper #filters2 .input select::-ms-input-placeholder,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper #filters .input input::-ms-input-placeholder,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper #filters .input select::-ms-input-placeholder,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper #filters2 .input input::-ms-input-placeholder,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper #filters2 .input select::-ms-input-placeholder,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper #filters .input input::-ms-input-placeholder,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper #filters .input select::-ms-input-placeholder,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper #filters2 .input input::-ms-input-placeholder,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper #filters2 .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .oportunidades-wrapper #filters .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .oportunidades-wrapper #filters .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .oportunidades-wrapper #filters2 .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .oportunidades-wrapper #filters2 .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .ofertas-wrapper #filters .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .ofertas-wrapper #filters .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .ofertas-wrapper #filters2 .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .ofertas-wrapper #filters2 .input select::-ms-input-placeholder {
+  color: #888;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper #filters .input input::placeholder,
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper #filters .input select::placeholder, .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper #filters2 .input input::placeholder,
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper #filters2 .input select::placeholder,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper #filters .input input::placeholder,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper #filters .input select::placeholder,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper #filters2 .input input::placeholder,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper #filters2 .input select::placeholder,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper #filters .input input::placeholder,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper #filters .input select::placeholder,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper #filters2 .input input::placeholder,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper #filters2 .input select::placeholder,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper #filters .input input::placeholder,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper #filters .input select::placeholder,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper #filters2 .input input::placeholder,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper #filters2 .input select::placeholder,
+.viajar-wrapper .salioviaje .oportunidades-wrapper #filters .input input::placeholder,
+.viajar-wrapper .salioviaje .oportunidades-wrapper #filters .input select::placeholder,
+.viajar-wrapper .salioviaje .oportunidades-wrapper #filters2 .input input::placeholder,
+.viajar-wrapper .salioviaje .oportunidades-wrapper #filters2 .input select::placeholder,
+.viajar-wrapper .salioviaje .ofertas-wrapper #filters .input input::placeholder,
+.viajar-wrapper .salioviaje .ofertas-wrapper #filters .input select::placeholder,
+.viajar-wrapper .salioviaje .ofertas-wrapper #filters2 .input input::placeholder,
+.viajar-wrapper .salioviaje .ofertas-wrapper #filters2 .input select::placeholder {
+  color: #888;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper #filters .input #icon, .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper #filters2 .input #icon,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper #filters .input #icon,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper #filters2 .input #icon,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper #filters .input #icon,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper #filters2 .input #icon,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper #filters .input #icon,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper #filters2 .input #icon,
+.viajar-wrapper .salioviaje .oportunidades-wrapper #filters .input #icon,
+.viajar-wrapper .salioviaje .oportunidades-wrapper #filters2 .input #icon,
+.viajar-wrapper .salioviaje .ofertas-wrapper #filters .input #icon,
+.viajar-wrapper .salioviaje .ofertas-wrapper #filters2 .input #icon {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  color: #555;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .list-empty,
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .list-empty2,
 .viajar-wrapper .oportunidades-viajar .ofertas-wrapper .list-empty,
 .viajar-wrapper .oportunidades-viajar .ofertas-wrapper .list-empty2,
 .viajar-wrapper .ofertas-viajar .oportunidades-wrapper .list-empty,
@@ -6777,7 +7136,7 @@ footer .totum p a:hover {
 .viajar-wrapper .salioviaje .ofertas-wrapper .list-empty,
 .viajar-wrapper .salioviaje .ofertas-wrapper .list-empty2 {
   width: 100%;
-  height: 100%;
+  height: 500px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6790,7 +7149,8 @@ footer .totum p a:hover {
   margin-top: -25px;
 }
 
-.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .list-empty p, .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .list-empty2 p,
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .list-empty p,
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .list-empty2 p,
 .viajar-wrapper .oportunidades-viajar .ofertas-wrapper .list-empty p,
 .viajar-wrapper .oportunidades-viajar .ofertas-wrapper .list-empty2 p,
 .viajar-wrapper .ofertas-viajar .oportunidades-wrapper .list-empty p,
@@ -6805,17 +7165,6 @@ footer .totum p a:hover {
   margin: auto;
 }
 
-.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .list-empty2,
-.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .list-empty2,
-.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .list-empty2,
-.viajar-wrapper .ofertas-viajar .ofertas-wrapper .list-empty2,
-.viajar-wrapper .salioviaje .oportunidades-wrapper .list-empty2,
-.viajar-wrapper .salioviaje .ofertas-wrapper .list-empty2 {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
 .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list,
 .viajar-wrapper .oportunidades-viajar .ofertas-wrapper .oportunidades-list,
 .viajar-wrapper .ofertas-viajar .oportunidades-wrapper .oportunidades-list,
@@ -6823,9 +7172,9 @@ footer .totum p a:hover {
 .viajar-wrapper .salioviaje .oportunidades-wrapper .oportunidades-list,
 .viajar-wrapper .salioviaje .ofertas-wrapper .oportunidades-list {
   width: 100%;
+  height: 500px;
   display: none;
   margin-top: 10px;
-  height: calc(100% - 50px);
   overflow: hidden;
   overflow-y: auto;
 }
@@ -6836,10 +7185,10 @@ footer .totum p a:hover {
 .viajar-wrapper .ofertas-viajar .ofertas-wrapper .oportunidades-list .oportunidad,
 .viajar-wrapper .salioviaje .oportunidades-wrapper .oportunidades-list .oportunidad,
 .viajar-wrapper .salioviaje .ofertas-wrapper .oportunidades-list .oportunidad {
-  width: 100%;
+  width: calc(100% - 20px);
   border-radius: 3em 0 3em 3em;
   background-color: #3844bc;
-  margin: 15px 0;
+  margin: 15px auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6874,8 +7223,8 @@ footer .totum p a:hover {
 .viajar-wrapper .ofertas-viajar .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount,
 .viajar-wrapper .salioviaje .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount,
 .viajar-wrapper .salioviaje .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount {
-  width: 80px;
   height: 80px;
+  padding: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6887,7 +7236,7 @@ footer .totum p a:hover {
           align-items: center;
   margin: 10px;
   background-color: #ffffff;
-  border-radius: 50%;
+  border-radius: 2em;
 }
 
 .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount h3,
@@ -6898,6 +7247,58 @@ footer .totum p a:hover {
 .viajar-wrapper .salioviaje .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount h3 {
   color: #3844bc;
   font-size: 2em;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount .precio,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount .precio,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount .precio,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount .precio,
+.viajar-wrapper .salioviaje .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount .precio,
+.viajar-wrapper .salioviaje .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount .precio {
+  margin: 0 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount .precio p,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount .precio p,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount .precio p,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount .precio p,
+.viajar-wrapper .salioviaje .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount .precio p,
+.viajar-wrapper .salioviaje .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount .precio p {
+  font-size: .9em;
+  margin: 0;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount .precio .precio_total,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount .precio .precio_total,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount .precio .precio_total,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount .precio .precio_total,
+.viajar-wrapper .salioviaje .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount .precio .precio_total,
+.viajar-wrapper .salioviaje .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount .precio .precio_total {
+  color: #ff5353;
+  -webkit-text-decoration-line: line-through;
+          text-decoration-line: line-through;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount .precio .precio_desc,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount .precio .precio_desc,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount .precio .precio_desc,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount .precio .precio_desc,
+.viajar-wrapper .salioviaje .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount .precio .precio_desc,
+.viajar-wrapper .salioviaje .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount .precio .precio_desc {
+  color: #329e3b;
 }
 
 .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel,
@@ -7020,8 +7421,8 @@ footer .totum p a:hover {
   margin: 5px 10px;
   background-color: #ffffff;
   border-radius: 10px;
-  -webkit-transition: .3s;
-  transition: .3s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
   cursor: pointer;
 }
 
@@ -7080,10 +7481,9 @@ footer .totum p a:hover {
 }
 
 .viajar-wrapper .salioviaje .salioviaje-desplegable {
-  margin-top: -90px;
+  margin-top: -80px;
   padding: 0 18px;
   max-height: 0;
-  overflow: hidden;
   -webkit-transition: 0.6s ease-in-out;
   transition: 0.6s ease-in-out;
   opacity: 0;
@@ -7107,20 +7507,175 @@ footer .totum p a:hover {
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje {
   max-width: 600px;
   width: 100%;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
-  gap: 20px;
 }
 
-.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .input {
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .user-info {
+  width: 100%;
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .user-info .user-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #3844bc;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .user-info .user-icon img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .user-info .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .user-info .info h3 {
+  color: #3844bc;
+  margin: 0;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .user-info .info p {
+  color: #555;
+  margin: 0;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .progress-bar {
   position: relative;
-  width: calc(100% - 60px);
+  width: 90%;
+  height: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .progress-bar .line {
+  position: relative;
+  width: 100%;
+  height: 5px;
+  border-radius: 2em;
+  background-color: #aaa;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .progress-bar .progress {
+  position: absolute;
+  left: 0;
+  width: 0%;
+  height: 5px;
+  border-radius: 2em;
+  background: -webkit-gradient(linear, left top, right top, from(#3844bc), to(#2b3179));
+  background: linear-gradient(to right, #3844bc, #2b3179);
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .progress-bar .circle1,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .progress-bar .circle2,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .progress-bar .circle3 {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #aaa;
+  position: absolute;
+  left: 0;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .progress-bar .circle1 {
+  background-color: #3844bc;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .progress-bar .circle2 {
+  left: calc(50% - 10px);
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .progress-bar .circle3 {
+  left: calc(100% - 10px);
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .title,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .title,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .title,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .title,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .title,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .title,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .title {
+  font-size: 1.5em;
+  margin: 20px 0;
+  color: #3844bc;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .info,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .info,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .info,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .info,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .info,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .info,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .info {
+  color: #3844bc;
+  margin: 0;
+  margin-top: 20px;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input {
+  position: relative;
+  width: 300px;
   margin: 30px auto;
 }
 
-.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .input input {
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input select,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .input input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .input select,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .input input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .input select,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .input input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .input select,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .input input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .input select,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .input input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .input select,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input select {
   width: 100%;
   height: 40px;
   background-color: transparent;
@@ -7132,30 +7687,490 @@ footer .totum p a:hover {
   font-size: 0.85em;
 }
 
-.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .input input::-webkit-input-placeholder {
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input select::-webkit-input-placeholder {
   color: #888;
 }
 
-.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .input input:-ms-input-placeholder {
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input select:-ms-input-placeholder {
   color: #888;
 }
 
-.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .input input::-ms-input-placeholder {
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input select::-ms-input-placeholder {
   color: #888;
 }
 
-.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .input input::placeholder {
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input input::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input select::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .input input::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .input select::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .input input::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .input select::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .input input::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .input select::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .input input::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .input select::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .input input::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .input select::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input input::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input select::placeholder {
   color: #888;
 }
 
-.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .input #icon {
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input #icon,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .input #icon,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .input #icon,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .input #icon,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .input #icon,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .input #icon,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input #icon {
   position: absolute;
   top: 10px;
   left: 0;
   color: #555;
 }
 
-.viajar-wrapper .salioviaje .salioviaje-desplegable .enviar {
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .formulario-grid, .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .paradas-wrapper,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .formulario-grid,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .paradas-wrapper,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .formulario-grid,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .paradas-wrapper,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .formulario-grid,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .paradas-wrapper,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .formulario-grid,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .paradas-wrapper,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .formulario-grid,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .paradas-wrapper,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .formulario-grid,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .paradas-wrapper {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .formulario-grid h3, .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .paradas-wrapper h3,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .formulario-grid h3,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .paradas-wrapper h3,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .formulario-grid h3,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .paradas-wrapper h3,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .formulario-grid h3,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .paradas-wrapper h3,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .formulario-grid h3,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .paradas-wrapper h3,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .formulario-grid h3,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .paradas-wrapper h3,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .formulario-grid h3,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .paradas-wrapper h3 {
+  color: #2b3179;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .formulario-grid .input, .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .paradas-wrapper .input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .formulario-grid .input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .paradas-wrapper .input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .formulario-grid .input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .paradas-wrapper .input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .formulario-grid .input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .paradas-wrapper .input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .formulario-grid .input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .paradas-wrapper .input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .formulario-grid .input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .paradas-wrapper .input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .formulario-grid .input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .paradas-wrapper .input {
+  position: relative;
+  width: 300px;
+  margin: 30px auto;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .formulario-grid .input p, .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .paradas-wrapper .input p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .formulario-grid .input p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .paradas-wrapper .input p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .formulario-grid .input p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .paradas-wrapper .input p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .formulario-grid .input p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .paradas-wrapper .input p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .formulario-grid .input p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .paradas-wrapper .input p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .formulario-grid .input p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .paradas-wrapper .input p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .formulario-grid .input p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .paradas-wrapper .input p {
+  margin: 0;
+  text-align: left;
+  color: #3844bc;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .formulario-grid .input input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .formulario-grid .input select, .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .paradas-wrapper .input input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .paradas-wrapper .input select,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .formulario-grid .input input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .formulario-grid .input select,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .paradas-wrapper .input input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .paradas-wrapper .input select,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .formulario-grid .input input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .formulario-grid .input select,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .paradas-wrapper .input input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .paradas-wrapper .input select,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .formulario-grid .input input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .formulario-grid .input select,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .paradas-wrapper .input input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .paradas-wrapper .input select,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .formulario-grid .input input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .formulario-grid .input select,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .paradas-wrapper .input input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .paradas-wrapper .input select,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .formulario-grid .input input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .formulario-grid .input select,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .paradas-wrapper .input input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .paradas-wrapper .input select,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .formulario-grid .input input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .formulario-grid .input select,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .paradas-wrapper .input input,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .paradas-wrapper .input select {
+  width: 100%;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #aaa;
+  outline: none;
+  color: #555;
+  font-size: 0.85em;
+  padding: 0;
+  margin: 0;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .formulario-grid .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .formulario-grid .input select::-webkit-input-placeholder, .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .paradas-wrapper .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .paradas-wrapper .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .formulario-grid .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .formulario-grid .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .paradas-wrapper .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .paradas-wrapper .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .formulario-grid .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .formulario-grid .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .paradas-wrapper .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .paradas-wrapper .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .formulario-grid .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .formulario-grid .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .paradas-wrapper .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .paradas-wrapper .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .formulario-grid .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .formulario-grid .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .paradas-wrapper .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .paradas-wrapper .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .formulario-grid .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .formulario-grid .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .paradas-wrapper .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .paradas-wrapper .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .formulario-grid .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .formulario-grid .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .paradas-wrapper .input input::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .paradas-wrapper .input select::-webkit-input-placeholder {
+  color: #888;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .formulario-grid .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .formulario-grid .input select:-ms-input-placeholder, .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .paradas-wrapper .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .paradas-wrapper .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .formulario-grid .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .formulario-grid .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .paradas-wrapper .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .paradas-wrapper .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .formulario-grid .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .formulario-grid .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .paradas-wrapper .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .paradas-wrapper .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .formulario-grid .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .formulario-grid .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .paradas-wrapper .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .paradas-wrapper .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .formulario-grid .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .formulario-grid .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .paradas-wrapper .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .paradas-wrapper .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .formulario-grid .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .formulario-grid .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .paradas-wrapper .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .paradas-wrapper .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .formulario-grid .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .formulario-grid .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .paradas-wrapper .input input:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .paradas-wrapper .input select:-ms-input-placeholder {
+  color: #888;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .formulario-grid .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .formulario-grid .input select::-ms-input-placeholder, .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .paradas-wrapper .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .paradas-wrapper .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .formulario-grid .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .formulario-grid .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .paradas-wrapper .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .paradas-wrapper .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .formulario-grid .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .formulario-grid .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .paradas-wrapper .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .paradas-wrapper .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .formulario-grid .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .formulario-grid .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .paradas-wrapper .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .paradas-wrapper .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .formulario-grid .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .formulario-grid .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .paradas-wrapper .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .paradas-wrapper .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .formulario-grid .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .formulario-grid .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .paradas-wrapper .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .paradas-wrapper .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .formulario-grid .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .formulario-grid .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .paradas-wrapper .input input::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .paradas-wrapper .input select::-ms-input-placeholder {
+  color: #888;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .formulario-grid .input input::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .formulario-grid .input select::placeholder, .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .paradas-wrapper .input input::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .paradas-wrapper .input select::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .formulario-grid .input input::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .formulario-grid .input select::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .paradas-wrapper .input input::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .paradas-wrapper .input select::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .formulario-grid .input input::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .formulario-grid .input select::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .paradas-wrapper .input input::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .paradas-wrapper .input select::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .formulario-grid .input input::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .formulario-grid .input select::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .paradas-wrapper .input input::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .paradas-wrapper .input select::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .formulario-grid .input input::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .formulario-grid .input select::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .paradas-wrapper .input input::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .paradas-wrapper .input select::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .formulario-grid .input input::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .formulario-grid .input select::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .paradas-wrapper .input input::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .paradas-wrapper .input select::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .formulario-grid .input input::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .formulario-grid .input select::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .paradas-wrapper .input input::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .paradas-wrapper .input select::placeholder {
+  color: #888;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .paradas-wrapper,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .paradas-wrapper,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .paradas-wrapper,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .paradas-wrapper,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .paradas-wrapper,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .paradas-wrapper,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .paradas-wrapper {
+  display: block;
+  margin: 20px 0;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .tags,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .tags,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .tags,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .tags,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .tags,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .tags,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .tags {
+  width: calc(100% - 40px);
+  background-color: #eee;
+  border-radius: 10px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .tags .tag,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .tags .tag,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .tags .tag,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .tags .tag,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .tags .tag,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .tags .tag,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .tags .tag {
+  margin: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #6d76db;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .tags .tag p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .tags .tag p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .tags .tag p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .tags .tag p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .tags .tag p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .tags .tag p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .tags .tag p {
+  margin: 0 10px;
+  color: #ffffff;
+  font-size: 0.9em;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .tags .tag button,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .tags .tag button,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .tags .tag button,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .tags .tag button,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .tags .tag button,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .tags .tag button,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .tags .tag button {
+  height: 100%;
+  background-color: rgba(30, 30, 30, 0.5);
+  padding: 5px 10px;
+  cursor: pointer;
+  border: none;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .tags .tag button i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .tags .tag button i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .tags .tag button i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .tags .tag button i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .tags .tag button i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .tags .tag button i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .tags .tag button i {
+  color: #ffffff;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .tags .tag button:hover i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .tags .tag button:hover i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .tags .tag button:hover i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .tags .tag button:hover i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .tags .tag button:hover i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .tags .tag button:hover i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .tags .tag button:hover i {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .send-wrapper,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .send-wrapper,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .send-wrapper,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .send-wrapper,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .send-wrapper,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .send-wrapper,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .send-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  text-align: center;
+  margin-top: 60px;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .send-wrapper .send-icon i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .send-wrapper .send-icon i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .send-wrapper .send-icon i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .send-wrapper .send-icon i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .send-wrapper .send-icon i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .send-wrapper .send-icon i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .send-wrapper .send-icon i {
+  color: #70ff7c;
+  font-size: 3em;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .send-wrapper .send-info h2,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .send-wrapper .send-info h2,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .send-wrapper .send-info h2,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .send-wrapper .send-info h2,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .send-wrapper .send-info h2,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .send-wrapper .send-info h2,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .send-wrapper .send-info h2 {
+  font-size: 1.2em;
+  color: #3844bc;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .send-wrapper .send-info p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .send-wrapper .send-info p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .send-wrapper .send-info p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .send-wrapper .send-info p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .send-wrapper .send-info p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .send-wrapper .send-info p,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .send-wrapper .send-info p {
+  color: #555;
+  font-size: .9em;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .button-viajar,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .button-viajar,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .button-viajar,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .button-viajar,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .button-viajar,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .button-viajar,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .button-viajar {
   background: -webkit-gradient(linear, left top, right top, from(#3844bc), to(#2b3179));
   background: linear-gradient(to right, #3844bc, #2b3179);
   color: #ffffff;
@@ -7166,35 +8181,50 @@ footer .totum p a:hover {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   cursor: pointer;
+  margin: 0 5px;
 }
 
-.viajar-wrapper .salioviaje .salioviaje-desplegable .enviar i {
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .button-viajar i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .button-viajar i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .button-viajar i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .button-viajar i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .button-viajar i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .button-viajar i,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .button-viajar i {
   margin-right: 5px;
 }
 
-.viajar-wrapper .salioviaje .salioviaje-desplegable .enviar:hover {
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .button-viajar:hover,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .button-viajar:hover,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .button-viajar:hover,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .button-viajar:hover,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .button-viajar:hover,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .button-viajar:hover,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .button-viajar:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
 
 .viajar-wrapper .salioviaje .salioviaje-desplegable.show {
   opacity: 1;
-  max-height: 500px;
+  max-height: -webkit-max-content;
+  max-height: -moz-max-content;
+  max-height: max-content;
 }
 
-@media screen and (max-width: 1146px) {
+@media screen and (max-width: 1197px) {
   .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel:nth-child(4) {
     display: none;
   }
 }
 
-@media screen and (max-width: 952px) {
+@media screen and (max-width: 1001px) {
   .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel:nth-child(3) {
     display: none;
   }
 }
 
-@media screen and (max-width: 829px) {
+@media screen and (max-width: 862px) {
   .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .oportunidad {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -7227,8 +8257,14 @@ footer .totum p a:hover {
   }
 }
 
-@media screen and (max-width: 520px) {
-  .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje {
+@media screen and (max-width: 680px) {
+  .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .formulario-grid,
+  .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .formulario-grid,
+  .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .formulario-grid,
+  .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .formulario-grid,
+  .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .formulario-grid,
+  .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .formulario-grid,
+  .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .formulario-grid {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
     gap: 0;
@@ -7753,6 +8789,18 @@ footer .totum p a:hover {
   color: #555;
 }
 
+.agendarViaje #step_1 #mensaje-agenda-info,
+.agendarViaje #step_2 #mensaje-agenda-info,
+.agendarViaje #step_3 #mensaje-agenda-info,
+.agendarViaje #step_4 #mensaje-agenda-info,
+.agendarViaje #step_5 #mensaje-agenda-info,
+.agendarViaje #step_hotel #mensaje-agenda-info {
+  color: #ffaa00;
+  font-size: .9em;
+  text-align: center;
+  margin: 20px 0;
+}
+
 .agendarViaje #step_1 .inputs-wrapper-agendar,
 .agendarViaje #step_1 .inputs-agendar,
 .agendarViaje #step_1 .inputs-wrapper-agendar-rutas,
@@ -8004,58 +9052,24 @@ footer .totum p a:hover {
   color: #888;
 }
 
-.agendarViaje #step_1 .inputs-wrapper-agendar .input input#distancia-input, .agendarViaje #step_1 .inputs-wrapper-agendar .input input#desc_oport1, .agendarViaje #step_1 .inputs-wrapper-agendar .input input#desc_oport2,
+.agendarViaje #step_1 .inputs-wrapper-agendar .input input#distancia-input,
 .agendarViaje #step_1 .inputs-agendar .input input#distancia-input,
-.agendarViaje #step_1 .inputs-agendar .input input#desc_oport1,
-.agendarViaje #step_1 .inputs-agendar .input input#desc_oport2,
 .agendarViaje #step_1 .inputs-wrapper-agendar-rutas .input input#distancia-input,
-.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .input input#desc_oport1,
-.agendarViaje #step_1 .inputs-wrapper-agendar-rutas .input input#desc_oport2,
 .agendarViaje #step_2 .inputs-wrapper-agendar .input input#distancia-input,
-.agendarViaje #step_2 .inputs-wrapper-agendar .input input#desc_oport1,
-.agendarViaje #step_2 .inputs-wrapper-agendar .input input#desc_oport2,
 .agendarViaje #step_2 .inputs-agendar .input input#distancia-input,
-.agendarViaje #step_2 .inputs-agendar .input input#desc_oport1,
-.agendarViaje #step_2 .inputs-agendar .input input#desc_oport2,
 .agendarViaje #step_2 .inputs-wrapper-agendar-rutas .input input#distancia-input,
-.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .input input#desc_oport1,
-.agendarViaje #step_2 .inputs-wrapper-agendar-rutas .input input#desc_oport2,
 .agendarViaje #step_3 .inputs-wrapper-agendar .input input#distancia-input,
-.agendarViaje #step_3 .inputs-wrapper-agendar .input input#desc_oport1,
-.agendarViaje #step_3 .inputs-wrapper-agendar .input input#desc_oport2,
 .agendarViaje #step_3 .inputs-agendar .input input#distancia-input,
-.agendarViaje #step_3 .inputs-agendar .input input#desc_oport1,
-.agendarViaje #step_3 .inputs-agendar .input input#desc_oport2,
 .agendarViaje #step_3 .inputs-wrapper-agendar-rutas .input input#distancia-input,
-.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .input input#desc_oport1,
-.agendarViaje #step_3 .inputs-wrapper-agendar-rutas .input input#desc_oport2,
 .agendarViaje #step_4 .inputs-wrapper-agendar .input input#distancia-input,
-.agendarViaje #step_4 .inputs-wrapper-agendar .input input#desc_oport1,
-.agendarViaje #step_4 .inputs-wrapper-agendar .input input#desc_oport2,
 .agendarViaje #step_4 .inputs-agendar .input input#distancia-input,
-.agendarViaje #step_4 .inputs-agendar .input input#desc_oport1,
-.agendarViaje #step_4 .inputs-agendar .input input#desc_oport2,
 .agendarViaje #step_4 .inputs-wrapper-agendar-rutas .input input#distancia-input,
-.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .input input#desc_oport1,
-.agendarViaje #step_4 .inputs-wrapper-agendar-rutas .input input#desc_oport2,
 .agendarViaje #step_5 .inputs-wrapper-agendar .input input#distancia-input,
-.agendarViaje #step_5 .inputs-wrapper-agendar .input input#desc_oport1,
-.agendarViaje #step_5 .inputs-wrapper-agendar .input input#desc_oport2,
 .agendarViaje #step_5 .inputs-agendar .input input#distancia-input,
-.agendarViaje #step_5 .inputs-agendar .input input#desc_oport1,
-.agendarViaje #step_5 .inputs-agendar .input input#desc_oport2,
 .agendarViaje #step_5 .inputs-wrapper-agendar-rutas .input input#distancia-input,
-.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .input input#desc_oport1,
-.agendarViaje #step_5 .inputs-wrapper-agendar-rutas .input input#desc_oport2,
 .agendarViaje #step_hotel .inputs-wrapper-agendar .input input#distancia-input,
-.agendarViaje #step_hotel .inputs-wrapper-agendar .input input#desc_oport1,
-.agendarViaje #step_hotel .inputs-wrapper-agendar .input input#desc_oport2,
 .agendarViaje #step_hotel .inputs-agendar .input input#distancia-input,
-.agendarViaje #step_hotel .inputs-agendar .input input#desc_oport1,
-.agendarViaje #step_hotel .inputs-agendar .input input#desc_oport2,
-.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .input input#distancia-input,
-.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .input input#desc_oport1,
-.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .input input#desc_oport2 {
+.agendarViaje #step_hotel .inputs-wrapper-agendar-rutas .input input#distancia-input {
   padding-right: 30px;
   text-align: right;
 }
@@ -8988,6 +10002,10 @@ footer .totum p a:hover {
   color: #ffaa00;
 }
 
+.profile-wrapper .user-info .user-left .user-desc .calificacion #compass {
+  margin: 0 5px;
+}
+
 .profile-wrapper .user-info .user-right .button-wrapper {
   margin: 0 20px;
 }
@@ -9831,7 +10849,6 @@ footer .totum p a:hover {
 
 .oportunidad-detalles-wrapper .oportunidad .oportunidad-header .driver-info .driver-desc p {
   color: #555;
-  width: 150px;
 }
 
 .oportunidad-detalles-wrapper .oportunidad .oportunidad-header .driver-info .driver-desc .calificacion i {
@@ -9964,6 +10981,7 @@ footer .totum p a:hover {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    text-align: center;
   }
   .oportunidad-detalles-wrapper .oportunidad .oportunidad-header .driver-info .driver-desc {
     margin: 10px 0;
@@ -10600,6 +11618,304 @@ footer .totum p a:hover {
 .solicitud .solicitud-wrapper .solicitud-info p {
   font-size: .9em;
   color: #555;
+}
+
+.change_password {
+  width: 100%;
+  min-height: calc(100vh - 80px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 20px 0;
+  margin-top: 80px;
+}
+
+.change_password .change_password-wrapper {
+  position: relative;
+  z-index: 10;
+  max-width: 330px;
+  width: 100%;
+  padding: 30px 0;
+  margin: 0 20px;
+  -webkit-box-shadow: 10px 0px 20px 0 rgba(0, 0, 0, 0.3);
+          box-shadow: 10px 0px 20px 0 rgba(0, 0, 0, 0.3);
+  background-color: #ffffff;
+  border-radius: 3em 0 3em 3em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.change_password .change_password-wrapper h1 {
+  color: #333333;
+  font-size: 2em;
+}
+
+.change_password .change_password-wrapper h1 span {
+  color: #3844bc;
+}
+
+.change_password .change_password-wrapper #change_password {
+  width: 100%;
+  text-align: center;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper {
+  width: 100%;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_title {
+  color: #3844bc;
+  margin-top: 10px;
+  font-size: 1.2em;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .progress-bar3 {
+  position: relative;
+  width: 90%;
+  height: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .progress-bar3 .line {
+  position: relative;
+  width: 100%;
+  height: 5px;
+  border-radius: 2em;
+  background-color: #aaa;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .progress-bar3 .progress {
+  position: absolute;
+  left: 0;
+  width: 0%;
+  height: 5px;
+  border-radius: 2em;
+  background: -webkit-gradient(linear, left top, right top, from(#3844bc), to(#2b3179));
+  background: linear-gradient(to right, #3844bc, #2b3179);
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .progress-bar3 .circle1,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .progress-bar3 .circle2,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .progress-bar3 .circle3 {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #aaa;
+  position: absolute;
+  left: 0;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .progress-bar3 .circle1 {
+  background-color: #3844bc;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .progress-bar3 .circle2 {
+  left: calc(50% - 10px);
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .progress-bar3 .circle3 {
+  left: calc(100% - 10px);
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 .desc,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 .desc,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 .desc {
+  color: #555;
+  font-size: .9em;
+  margin: 0 10px;
+  margin-top: 30px;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 .input,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 .input,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 .input {
+  position: relative;
+  width: calc(100% - 60px);
+  margin: 30px auto;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 .input input,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 .input select,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 .input input,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 .input select,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 .input input,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 .input select {
+  width: 100%;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #aaa;
+  outline: none;
+  padding-left: 25px;
+  color: #555;
+  font-size: 0.85em;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 .input input::-webkit-input-placeholder,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 .input select::-webkit-input-placeholder,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 .input input::-webkit-input-placeholder,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 .input select::-webkit-input-placeholder,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 .input input::-webkit-input-placeholder,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 .input select::-webkit-input-placeholder {
+  color: #888;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 .input input:-ms-input-placeholder,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 .input select:-ms-input-placeholder,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 .input input:-ms-input-placeholder,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 .input select:-ms-input-placeholder,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 .input input:-ms-input-placeholder,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 .input select:-ms-input-placeholder {
+  color: #888;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 .input input::-ms-input-placeholder,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 .input select::-ms-input-placeholder,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 .input input::-ms-input-placeholder,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 .input select::-ms-input-placeholder,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 .input input::-ms-input-placeholder,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 .input select::-ms-input-placeholder {
+  color: #888;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 .input input::placeholder,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 .input select::placeholder,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 .input input::placeholder,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 .input select::placeholder,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 .input input::placeholder,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 .input select::placeholder {
+  color: #888;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 .input #icon,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 .input #icon,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 .input #icon {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  color: #555;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 .input .password-eye,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 .input .password-eye,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 .input .password-eye {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 12px;
+  right: 0;
+  color: #555;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 .input .password-eye:hover,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 .input .password-eye:hover,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 .input .password-eye:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 .input:nth-child(3) input,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 .input:nth-child(3) input,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 .input:nth-child(3) input {
+  padding-right: 30px;
+  margin-bottom: 0;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 .button-change,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 .button-change,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 .button-change {
+  background: -webkit-gradient(linear, left top, right top, from(#3844bc), to(#2b3179));
+  background: linear-gradient(to right, #3844bc, #2b3179);
+  color: #ffffff;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 2em;
+  margin-top: 10px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  margin-top: 0;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 .button-change i,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 .button-change i,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 .button-change i {
+  margin-right: 5px;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 .button-change:disabled,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 .button-change[disabled],
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 .button-change:disabled,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 .button-change[disabled],
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 .button-change:disabled,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 .button-change[disabled] {
+  background: #cccccc;
+  color: #666666;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 .button-change:disabled span i,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 .button-change[disabled] span i,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 .button-change:disabled span i,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 .button-change[disabled] span i,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 .button-change:disabled span i,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 .button-change[disabled] span i {
+  -webkit-animation: loader-finalizar 1s infinite forwards linear;
+          animation: loader-finalizar 1s infinite forwards linear;
+  margin: 0;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 p,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 p,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 p {
+  color: #3844bc;
+  font-size: .85em;
+  margin: 10px 0;
+}
+
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_1 p a,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_2 p a,
+.change_password .change_password-wrapper #change_password .inputs-wrapper .step_3 p a {
+  text-decoration: none;
+}
+
+.change_password .change_password-wrapper #change_password .mensaje-error,
+.change_password .change_password-wrapper #change_password #mensaje-error {
+  color: #ff635a;
+  margin-bottom: 20px;
 }
 
 * {

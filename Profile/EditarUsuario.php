@@ -1,11 +1,25 @@
 <?php 
 
+  require_once '../PHP/procedimientosBD.php';
+
   session_start(); 
 
   if(!isset($_SESSION['usuario'])){
     header('Location: https://www.salioviaje.com.uy/Login');
   }else{
+    $id = $_GET['ID'];
     
+    $tipo = 0;
+
+    $info_usuario = new procedimientosBD();
+      
+
+    $usuario = $info_usuario->info_usuario_profile($id);
+
+    if(empty($usuario)){
+      header('Location: Failed/');
+    }
+
   }
 
 ?>
@@ -81,10 +95,11 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="https://www.salioviaje.com.uy/Javascript/panel.js"></script>
-    <script src="https://www.salioviaje.com.uy/Javascript/settings.js"></script>
-    <script src="https://www.salioviaje.com.uy/Javascript/loader.js"></script>
-    <script src="https://www.salioviaje.com.uy/Javascript/profile.js"></script>
+    <script src="/SalioViaje/Javascript/panel.js"></script>
+    <script src="/SalioViaje/Javascript/form.js"></script>
+    <script src="/SalioViaje/Javascript/settings.js"></script>
+    <script src="/SalioViaje/Javascript/loader.js"></script>
+    <script src="/SalioViaje/Javascript/profile.js"></script>
   </head>
   <body>
     <div id="pre-loader">
@@ -128,8 +143,8 @@
               <img src="https://www.salioviaje.com.uy/media/svg/Logo-SalioViaje.svg" alt="Logo SalióViaje">
             </div>
             <div class="user-desc">
-              <h2><?php echo $_SESSION['usuario']; ?></h2>
-              <p><i class="fas fa-bus"></i> <?php echo $_SESSION['tipo_usuario']; ?></p>
+              <h2><?php echo $usuario[0]['NOMBRE'] ." ". $usuario[0]['APELLIDO']; ?></h2>
+              <p><i class="fas fa-bus"></i> <?php echo $usuario[0]["TIPO_USUARIO"]; ?></p>
               
             </div>
           </div>
@@ -143,96 +158,141 @@
 
               <div class="info">
                 <b><i class="far fa-address-card"></i> C.I</b>
-                <input type="number" placeholder="C.I" value="54879239">
+                <input type="number" placeholder="C.I" id="CIEdicion" value="<?php echo $usuario[0]['CI']?>">
               </div>
               <div class="info">
                 <b><i class="fas fa-signature"></i> Nombre</b>
-                <input type="text" placeholder="Nombre" value="Juan">
+                <input type="text" placeholder="Nombre" id="NombreEdicion" value="<?php echo $usuario[0]['NOMBRE']?>">
               </div>
               <div class="info">
                 <b><i class="fas fa-signature"></i> Apellido</b>
-                <input type="text" placeholder="Apellido" value="Morena">
+                <input type="text" placeholder="Apellido" id="ApellidoEdicion" value="<?php echo $usuario[0]['APELLIDO']?>">
               </div>
               <div class="info">
                 <b><i class="far fa-envelope"></i> Correo Electrónico</b>
-                <input type="email" placeholder="Correo Electrónico" value="thewolfmodzyt@gmail.com">
+                <input type="email" placeholder="Correo Electrónico" id="CorreoEdicion" value="<?php echo $usuario[0]['EMAIL']?>">
               </div>
               <div class="info">
                 <b><i class="fas fa-map"></i> Departamento</b>
-                <input type="text" placeholder="Departamento" value="Canelones">
+                <input type="text" placeholder="Departamento" id="DepartamentoEdicion" value="<?php echo $usuario[0]['DEPARTAMENTO']?>">
               </div>
               <div class="info">
                 <b><i class="fas fa-map-marked-alt"></i> Barrio</b>
-                <input type="text" placeholder="Barrio" value="El Pinar">
+                <input type="text" placeholder="Barrio" id="BarrioEdicion" value="<?php echo $usuario[0]['BARRIO']?>">
               </div>
               <div class="info">
                 <b><i class="fas fa-map-marker-alt"></i> Dirección</b>
-                <input type="text" placeholder="BaDirecciónrrio" value="Rondeau">
+                <input type="text" placeholder="Dirección" id="DireccionEdicion" value="<?php echo $usuario[0]['DIRECCION']?>">
               </div>
               <div class="info">
                 <b><i class="fas fa-phone"></i> Teléfono</b>
-                <input type="number" placeholder="Teléfono" value="098234717">
+                <input type="number" placeholder="Teléfono" id="TelEdicion" value="<?php echo $usuario[0]['TELEFONO']?>">
               </div>
 
             </div>
+            <p id="mensaje-error" class="mensaje-error"></p>
             <div class="button-wrapper">
-                <button class="button-guardar"><i class="fas fa-arrow-left"></i> Cancelar</button>
-                <button class="button-guardar"><i class="fas fa-save"></i> Guardar Cambios</button>
+                <button class="button-guardar" onclick="editarUsuario('<?php echo$_GET['ID']?>')"><i class="fas fa-arrow-left"></i> Cancelar</button>
+                <button class="button-guardar" onclick="guardarEdicionUsuario('<?php echo$_GET['ID']?>','<?php echo$usuario[0]['CI']?>')"><i class="fas fa-save"></i> Guardar Cambios</button>
             </div>
           </div>
+          <?php 
 
-          <div class="viajes-wrapper">
-            <h3><i class="fas fa-key"></i> Cambiar PIN</h3>
+              if($_SESSION['usuario'] == $usuario[0]['NOMBRE'] ." ". $usuario[0]['APELLIDO']){
+                echo '<div class="viajes-wrapper">
+                  <h3><i class="fas fa-key"></i> Cambiar PIN</h3>
 
-            <div class="password-change">
+                  <div class="password-change">
 
-              <div class="input">
-                <i class="fas fa-lock" id="icon"></i>
-                <input
-                  type="password"
-                  id="password"
-                  name="pin"
-                  placeholder="PIN Anterior"
-                  maxlength="4"
-                  pattern="[0-9]{4}"
-                />
-                <button onclick="passwd(1)" class="password-eye"><i id="passeye" class="fas fa-eye-slash"></i></button>
+                    <div class="input">
+                      <i class="fas fa-lock" id="icon"></i>
+                      <input
+                        type="password"
+                        id="password1"
+                        name="pin"
+                        placeholder="PIN Anterior"
+                        maxlength="4"
+                        pattern="[0-9]{4}"
+                      />
+                      <button onclick="passwd(1)" class="password-eye"><i id="passeye" class="fas fa-eye-slash"></i></button>
+                    </div>
+
+                    <div class="input">
+                      <i class="fas fa-key" id="icon"></i>
+                      <input
+                        type="password"
+                        id="password"
+                        name="pin"
+                        placeholder="Nuevo PIN"
+                        maxlength="4"
+                        pattern="[0-9]{4}"
+                      />
+                      <button onclick="passwd(2)" class="password-eye"><i id="passeye2" class="fas fa-eye-slash"></i></button>
+                    </div>
+
+                    <div class="input">
+                      <i class="fas fa-key" id="icon"></i>
+                      <input
+                        type="password"
+                        id="re-password"
+                        name="pin"
+                        placeholder="Confirmar Nuevo PIN"
+                        maxlength="4"
+                        pattern="[0-9]{4}"
+                      />
+                      <button onclick="passwd(3)" class="password-eye"><i id="passeye3" class="fas fa-eye-slash"></i></button>
+                    </div>
+
+                    <p id="mensaje-error-PIN" class="mensaje-error"></p>
+                    <div class="button-wrapper">
+                      <button class="button-pin" onclick="cambiarPin('.$_GET['ID'].','.$usuario[0]['CI'].')"><i class="fas fa-save"></i> Cambiar PIN</button>
+                    </div>
+                    
+
+                  </div>
+                </div>';
+            }else{
+              echo '<div class="viajes-wrapper">
+              <h3><i class="fas fa-key"></i> Cambiar PIN</h3>
+
+              <div class="password-change">
+
+                <div class="input">
+                  <i class="fas fa-key" id="icon"></i>
+                  <input
+                    type="password"
+                    id="password"
+                    name="pin"
+                    placeholder="Nuevo PIN"
+                    maxlength="4"
+                    pattern="[0-9]{4}"
+                  />
+                  <button onclick="passwd(2)" class="password-eye"><i id="passeye2" class="fas fa-eye-slash"></i></button>
+                </div>
+
+                <div class="input">
+                  <i class="fas fa-key" id="icon"></i>
+                  <input
+                    type="password"
+                    id="re-password"
+                    name="pin"
+                    placeholder="Confirmar Nuevo PIN"
+                    maxlength="4"
+                    pattern="[0-9]{4}"
+                  />
+                  <button onclick="passwd(3)" class="password-eye"><i id="passeye3" class="fas fa-eye-slash"></i></button>
+                </div>
+
+                <p id="mensaje-error-PIN" class="mensaje-error"></p>
+                <div class="button-wrapper">
+                  <button class="button-pin" onclick="cambiarPinAdmin('.$_GET['ID'].','.$usuario[0]['CI'].')"><i class="fas fa-save"></i> Cambiar PIN</button>
+                </div>
+                
+
               </div>
-
-              <div class="input">
-                <i class="fas fa-key" id="icon"></i>
-                <input
-                  type="password"
-                  id="password2"
-                  name="pin"
-                  placeholder="Nuevo PIN"
-                  maxlength="4"
-                  pattern="[0-9]{4}"
-                />
-                <button onclick="passwd(2)" class="password-eye"><i id="passeye2" class="fas fa-eye-slash"></i></button>
-              </div>
-
-              <div class="input">
-                <i class="fas fa-key" id="icon"></i>
-                <input
-                  type="password"
-                  id="re-password"
-                  name="pin"
-                  placeholder="Confirmar Nuevo PIN"
-                  maxlength="4"
-                  pattern="[0-9]{4}"
-                />
-                <button onclick="passwd(3)" class="password-eye"><i id="passeye3" class="fas fa-eye-slash"></i></button>
-              </div>
-
-
-              <div class="button-wrapper">
-                <button class="button-pin"><i class="fas fa-save"></i> Cambiar PIN</button>
-              </div>
-              
-
-            </div>
-          </div>
+            </div>';
+            }
+          ?>
         </div>
         <div class="profile_grid2"></div>
 

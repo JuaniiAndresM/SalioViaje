@@ -1,6 +1,7 @@
 <?php 
-
+require_once '../PHP/procedimientosBD.php';
   session_start(); 
+
 
   if(!isset($_SESSION['usuario'])){
     header('Location: https://www.salioviaje.com.uy/Login');
@@ -24,8 +25,21 @@
 
       }
     }
+
+    $rut = $_GET['RUT'];
+
+    $info_empresa = new procedimientosBD();
+
+    $usuario = $info_empresa->traer_datos_empresa($rut);
+    $vehiculos = $info_empresa->traer_datos_vehiculo($rut);
+
+    if(empty($usuario)){
+      header('Location: Failed/');
+    }
+    
   }
 
+  
 ?>
 
 <!DOCTYPE html>
@@ -99,9 +113,10 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="https://www.salioviaje.com.uy/Javascript/panel.js"></script>
-    <script src="https://www.salioviaje.com.uy/Javascript/settings.js"></script>
-    <script src="https://www.salioviaje.com.uy/Javascript/loader.js"></script>
+
+    <script src="/SalioViaje/Javascript/panel.js"></script>
+    <script src="/SalioViaje/Javascript/settings.js"></script>
+    <script src="/SalioViaje/Javascript/loader.js"></script>
   </head>
   <body>
     <div id="pre-loader">
@@ -145,7 +160,7 @@
               <img src="https://www.salioviaje.com.uy/media/svg/Logo-SalioViaje.svg" alt="Logo SalióViaje">
             </div>
             <div class="user-desc">
-              <h2>Nombre de la Empresa</h2>
+              <h2><?php echo $usuario['NOMBRE_COMERCIAL'];?></h2>
               <p><i class="fas fa-building"></i> Empresa</p>
               
             </div>
@@ -153,7 +168,7 @@
           <div class="user-right">
             <div class="button-wrapper">
             <?php 
-                echo '<button class="button"><i class="fas fa-edit"></i></button>';
+                echo '<button class="button" onclick="editarEmpresa('.$usuario['RUT'].')"><i class="fas fa-edit"></i></button>';
             ?>
             </div>
           </div>
@@ -173,37 +188,45 @@
                     onkeyup="buscarUsuarios()"
                 />
                 </div>
-
                 <div class="table-overflow">
-                    <table class="vehiculos-table" id="search-table">
-                        <thead>
-                            <tr>
-                            <th>ID <i class="fas fa-angle-down"></i></th>
-                            <th>Matrícula <i class="fas fa-angle-down"></i></th>
-                            <th>Marca <i class="fas fa-angle-down"></i></th>
-                            <th>Modelo <i class="fas fa-angle-down"></i></th>
-                            <th>Combustible <i class="fas fa-angle-down"></i></th>
-                            <th>Capacidad <i class="fas fa-angle-down"></i></th>
-                            <th>Equipaje <i class="fas fa-angle-down"></i></th>
-                            <th>RUT E <i class="fas fa-angle-down"></i></th>
-                            <th>Pet Friendly <i class="fas fa-angle-down"></i></th>
-                            <th></th>
-                            </tr>
-                        </thead>
-                        <tbody id="tbody">
-                            <td>1</td>
-                            <td>STU6746</td>
-                            <td>Hyundai</td>
-                            <td>H1 2001</td>
-                            <td>Nafta</td>
-                            <td>12</td>
-                            <td>8kg</td>
-                            <td>-</td>
-                            <td>Si</td>
-                        </tbody>
-                    </table>
+                            <table class="vehiculos-table" id="search-table">
+                                <thead>
+                                    <tr>
+                                    <th>ID <i class="fas fa-angle-down"></i></th>
+                                    <th>Matrícula <i class="fas fa-angle-down"></i></th>
+                                    <th>Marca <i class="fas fa-angle-down"></i></th>
+                                    <th>Modelo <i class="fas fa-angle-down"></i></th>
+                                    <th>Combustible <i class="fas fa-angle-down"></i></th>
+                                    <th>Capacidad <i class="fas fa-angle-down"></i></th>
+                                    <th>Equipaje <i class="fas fa-angle-down"></i></th>
+                                    <th>RUT E <i class="fas fa-angle-down"></i></th>
+                                    <th>Pet Friendly <i class="fas fa-angle-down"></i></th>
+                                    <th></th>
+                                    </tr>
+                                </thead>
+                <?php 
+                  if($vehiculos === null){
+                    
+                  }else{
+                    $size = sizeof($vehiculos);
+                    for($i = 0; $i< sizeof($vehiculos); $i++){
+                      echo '
+                                <tbody id="tbody">
+                                    <td>'.$vehiculos[$i]['ID'].'</td>
+                                    <td>'.$vehiculos[$i]['MATRICULA'].'</td>
+                                    <td>'.$vehiculos[$i]['MARCA'].'</td>
+                                    <td>'.$vehiculos[$i]['MODELO'].'</td>
+                                    <td>'.$vehiculos[$i]['COMBUSTIBLE'].'</td>
+                                    <td>'.$vehiculos[$i]['CAPACIDAD'].'</td>
+                                    <td>'.$vehiculos[$i]['EQUIPAJE'].'</td>
+                                    <td>'.$vehiculos[$i]['RUT_EM'].'</td>
+                                    <td>'.$vehiculos[$i]['PET_FRIENDLY'].'</td>
+                                </tbody>';
+                    }
+                  }
+                ?>
+                </table>
                 </div>
-
             </div>
 
           <div class="viajes-wrapper">

@@ -205,6 +205,13 @@
       }
     }
 
+    #mensaje-agenda-info{
+      color: #ffaa00;
+      font-size: .9em;
+      text-align: center;
+      margin: 20px 0;
+    }
+
     .inputs-wrapper-agendar,
     .inputs-agendar,
     .inputs-wrapper-agendar-rutas {
@@ -233,7 +240,7 @@
           color: #888;
         }
 
-        input#distancia-input, input#desc_oport1, input#desc_oport2 {
+        input#distancia-input{
           padding-right: 30px;
           text-align: right;
         }

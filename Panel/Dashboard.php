@@ -1,5 +1,5 @@
 <?php 
-
+require_once '../PHP/procedimientosBD.php';
   session_start(); 
 
   $tipo = 0;
@@ -8,28 +8,28 @@
     header('Location: https://www.salioviaje.com.uy/Login');
 
   }else{
-    if($_SESSION['tipo_usuario'] != "Pasajero" ){
-      switch($_SESSION['tipo_usuario']){
-        case "Administrador":
-          $tipo = 1;
-          break;
-    
-        case "Transportista": case "Chofer":
-          $tipo = 2;
-          break;
+    switch($_SESSION['tipo_usuario']){
+      case "Administrador":
+        $tipo = 1;
+        break;
+  
+      case "Transportista": case "Chofer":
+        $tipo = 2;
+        break;
 
-        case "Asesor": case "Agente": case "Agente": case "Anfitrión":
-          $tipo = 3;
-          break;
-        
-        default:
-          $tipo = 0;
-          break;
-      }
-    }else{
-      header('Location: https://www.salioviaje.com.uy/');
+      case "Agente": case "Agente": case "Anfitrión":
+        $tipo = 3;
+        break;
+
+      case "Pasajero": case "Asesor": 
+        $tipo = 4;
+        break;
+      
+      default:
+        $tipo = 0;
+        break;
     }
-  }
+}
 
 ?>
 
@@ -110,7 +110,8 @@
         <script type="text/javascript">
             window.onload = function(){
               tabla_usuarios_dashboard()
-              tabla_empresas_dashboard()
+              tabla_empresas_dashboard() 
+              tabla_oportunidades_dashboard()
             }
         </script>
       </head>
@@ -250,7 +251,7 @@
                       </div>
                     </div>
                   </section>';
-        }elseif($tipo >= 2){
+        }elseif($tipo == 2 || $tipo == 3){
           echo '  <section class="panel" id="panel">
                     <div class="panel-cards">
                         <a href="Agendar" class="card" id="plus">
@@ -268,14 +269,14 @@
                         </div>
                         <div class="card">
                           <div class="number">
-                            <h2>2</h2>
+                            <h2></h2>
                             <i class="fas fa-search-dollar"></i>
                           </div>
                           <p>Oportunidades</p>
                         </div>
                         <div class="card">
                           <div class="number">
-                            <h2>1</h2>
+                            <h2></h2>
                             <i class="fas fa-tags"></i>
                           </div>
                           <p>Ofertas</p>
@@ -307,7 +308,8 @@
                                 <th></th>
                               </tr>
                             </thead>
-                            <tbody id="tbody"></tbody>
+                            <tbody id="tbody-viajes-dashboard">
+                            </tbody>
                           </table>
                         </div>
                         <div class="usuarios-propietarios">
@@ -325,10 +327,72 @@
                           <div class="propietarios">
                 
                           </div>
-                          
                         </div>
                       </div>
                     </section>';
+        }elseif($tipo == 4){
+          echo '  <section class="panel" id="panel">
+                    <div class="panel-cards">
+                      <div class="card">
+                        <div class="number">
+                          <h2>-</h2>
+                          <i class="fas fa-bus"></i>
+                        </div>
+                        <p>Viajes Realizados</p>
+                      </div>
+                      <div class="card">
+                        <div class="number">
+                          <h2>-</h2>
+                          <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <p>Viajes Comprados</p>
+                      </div>
+                      <div class="card">
+                        <div class="number">
+                          <h2>-</h2>
+                          <i class="fas fa-tags"></i>
+                        </div>
+                        <p>Oportunidades Compradas</p>
+                      </div>
+                      <div class="card">
+                        <div class="number">
+                          <h2>-</h2>
+                          <i class="fas fa-hand-holding-usd"></i>
+                        </div>
+                        <p>Ofertas Compradas</p>
+                      </div>
+                    </div>
+                    <div class="panel-tables">
+                        <div class="usuarios-recientes">
+                          <div class="usuarios-info">
+                            <h2><i class="fas fa-bus"></i> Tus Viajes</h2>
+                            <div class="button-wrapper">
+                              <a href="Agendar" class="add"><i class="fas fa-plus"></i></a>
+                              <a href="Viajes.html"><i class="fas fa-list-ul"></i></a>
+                            </div>
+                          </div>
+                          <div class="search">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarUsuarios(1)"/>
+                          </div>
+                          <table class="usuarios-table" id="search-table">
+                            <thead>
+                              <tr>
+                                <th>ID <i class="fas fa-angle-down"></i></th>
+                                <th>
+                                  Origen <i class="fas fa-angle-down"></i>
+                                </th>
+                                <th>Destino <i class="fas fa-angle-down"></i></th>
+                                <th>Fecha <i class="fas fa-angle-down"></i></th>
+                                <th>Estado <i class="fas fa-angle-down"></i></th>
+                                <th></th>
+                              </tr>
+                            </thead>
+                            <tbody id="tbody-viajes-dashboard"></tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </section>'; 
         }
         ?>
 

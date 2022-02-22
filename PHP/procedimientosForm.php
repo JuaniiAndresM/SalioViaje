@@ -44,7 +44,7 @@ class procedimientosForm extends procedimientosBD
 					//rut_ec = RUT de la empresa creada por el chofer.
     				//rut = RUT de la agencia contratista del chofer.
 					$rut_ec = $empresa[$x]["RUT"];
-					$rut = $empresa[$x]["CHOFERES_SUB"];
+					$rut = $empresa[$x]["CHOFERES_SUB"]; 
 				}else{
 					$rut = $empresa[$x]["RUT"];
 					$rut_ec = "0";
@@ -94,6 +94,13 @@ if ($_POST['tipo'] == 1) {
 		break;
 		case 'vehiculos':
 		echo json_encode($procedimientosForm->datos_vehiculos());
+		case 'vehiculos-agenda':
+		session_start();
+		$vehiculos = array();
+		for ($i=0; $i < count($_SESSION['datos_usuario']['RUT_EMPRESAS']); $i++) { 
+			$vehiculos[] = $procedimientosForm->datos_vehiculos_por_rut($_SESSION['datos_usuario']['RUT_EMPRESAS'][$i]);
+		}
+		echo json_encode($vehiculos);
 		break;
 		case 'login':
 		echo $procedimientosForm->login($_POST['usuario'],$_POST['pin']);

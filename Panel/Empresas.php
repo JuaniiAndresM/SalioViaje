@@ -1,13 +1,18 @@
 <?php 
-
+require_once '../PHP/procedimientosBD.php';
   session_start(); 
 
   if(!isset($_SESSION['usuario'])){
     header('Location: https://www.salioviaje.com.uy/Login');
 
   }else{
-    if($_SESSION['tipo_usuario'] != "Administrador"){
-      header('Location: https://www.salioviaje.com.uy/');
+    if($_SESSION['tipo_usuario'] == "Pasajero" || $_SESSION['tipo_usuario'] == "Asesor"){
+      header('Location: /SalioViaje/');
+    }else{
+      $info_usuario = new procedimientosBD();
+
+      $empresas = $info_usuario->traer_empresas_usuario($_SESSION['datos_usuario']["ID"]);
+
     }
   }
 
@@ -88,11 +93,6 @@
     <script src="https://www.salioviaje.com.uy/Javascript/settings.js"></script>
     <script src="https://www.salioviaje.com.uy/Javascript/loader.js"></script>
         <script type="text/javascript">
-            window.onload = function(){
-              let seccion = "empresas"
-              traerEmpresas(seccion)
-              filtros()
-            }
     </script>
   </head>
   <body>
@@ -179,7 +179,25 @@
                   <th></th>
                 </tr>
               </thead>
-              <tbody id="tbody"></tbody>
+              <tbody id="tbody">
+              <?php 
+                  if($empresas === null){
+                    
+                  }else{
+                    $size = sizeof($empresas);
+                    for($i = 0; $i< sizeof($empresas); $i++){
+                      echo '<tbody id="tbody">
+                          <td>'.$empresas[$i]['ID'].'</td>
+                          <td>'.$empresas[$i]['RUT'].'</td>
+                          <td>'.$empresas[$i]['NOMBRE_COMERCIAL'].'</td>
+                          <td>'.$empresas[$i]['RAZON_SOCIAL'].'</td>
+                          <td>'.$empresas[$i]['ID_USUARIO'].'</td>
+                          <td>'.$empresas[$i]['TIPO_USUARIO'].'</td>
+                      </tbody>';
+                    }
+                  }
+              ?>
+              </tbody>
             </table>
           </div>
         </div>
