@@ -723,9 +723,7 @@ function guardarEdicionUsuario(id,ciAnterior){
     });
  }
 
- function marcar_errores(resultado_validacion,mensaje){
-
-    $(mensaje).show();
+ function marcar_errores(resultado_validacion){
  
    console.log(resultado_validacion)
    let resultado = JSON.parse(resultado_validacion)
