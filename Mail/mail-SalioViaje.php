@@ -180,7 +180,7 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                                             $mail->Body .= '
                                             <h4 style="font-size: 16px; margin-top: 40px;">Información Paradas:</h4>';
 
-                                            if(isset($paradas_ida_array)){
+                                            if($paradas_ida_array[0] != ""){
                                                 $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Paradas (Ida): </b>';
                                                 
                                                 for($a = 0; $a < count($paradas_ida_array); $a++){
@@ -194,7 +194,7 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                                                 $mail->Body .= '</p>';
                                                 
                                             }
-                                            if(isset($paradas_vuelta_array)){
+                                            if($paradas_vuelta_array[0] != ""){
                                                 $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Paradas (Vuelta): </b>';
                                                 
                                                 for($a = 0; $a < count($paradas_vuelta_array); $a++){

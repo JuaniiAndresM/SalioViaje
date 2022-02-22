@@ -663,6 +663,8 @@ function guardarEdicionUsuario(id,ciAnterior){
        "CHOFERES_SUB": 0,
        "VEHICULOS": {}
     };
+
+    console.log(datos_Empresa);
         validacion = $.ajax({
             type: 'POST',       
             url: "/PHP/Validaciones.php",
@@ -672,6 +674,8 @@ function guardarEdicionUsuario(id,ciAnterior){
             success: function(response) {
         }
         }).responseText;
+
+        console.log(validacion);
         if (validacion == "VALIDO") {
             $(".mensaje-error").hide();
             $.ajax({
