@@ -245,7 +245,6 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
 
 try {
     $mail->send();
-    echo 1;
     return 1;
 
 } catch (Exception $e) {
