@@ -5224,6 +5224,13 @@ footer .totum p a:hover {
   background-color: #2b3179;
 }
 
+.panel .panel-tables .usuarios-recientes .usuarios-info .button-wrapper a[disabled], .panel .panel-tables .usuarios-recientes .usuarios-info .button-wrapper a:disabled,
+.panel .panel-tables .usuarios-propietarios .usuarios-info .button-wrapper a[disabled],
+.panel .panel-tables .usuarios-propietarios .usuarios-info .button-wrapper a:disabled {
+  background: #999;
+  color: #333333;
+}
+
 .panel .panel-tables .usuarios-recientes .search,
 .panel .panel-tables .usuarios-propietarios .search {
   margin-top: 20px;
@@ -10359,6 +10366,11 @@ footer .totum p a:hover {
   margin-right: 5px;
 }
 
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .button-wrapper button[disabled], .profile-wrapper .profile-grid .viajes-wrapper .password-change .button-wrapper button:disabled, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .button-wrapper button[disabled], .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .button-wrapper button:disabled {
+  background: #999;
+  color: #333333;
+}
+
 .profile-wrapper .profile-grid .viajes-wrapper .password-change .vehiculos-wrapper, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .vehiculos-wrapper {
   width: 100%;
   height: 510px;
@@ -10531,6 +10543,11 @@ footer .totum p a:hover {
 
 .profile-wrapper .profile-grid .viajes-wrapper .password-change .vehiculos-wrapper .save-button i, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .vehiculos-wrapper .save-button i {
   margin-right: 5px;
+}
+
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .vehiculos-wrapper button[disabled], .profile-wrapper .profile-grid .viajes-wrapper .password-change .vehiculos-wrapper button:disabled, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .vehiculos-wrapper button[disabled], .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .vehiculos-wrapper button:disabled {
+  background: #999;
+  color: #333333;
 }
 
 .profile-wrapper .profile-grid .viajes-wrapper .table-wrapper {

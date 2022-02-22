@@ -250,7 +250,7 @@ require_once '../PHP/procedimientosBD.php';
                 </div>
 
                 <div class="button-wrapper">
-                    <button class="button-agregar"><i class="fas fa-plus"></i> Agregar Vehiculo</button>
+                    <button class="button-agregar" disabled><i class="fas fa-plus"></i> Agregar Vehiculo</button>
                 </div>
 
                 <div class="vehiculos-wrapper">
@@ -282,7 +282,7 @@ require_once '../PHP/procedimientosBD.php';
                       }
                     ?>
                     </div>
-                    <button class="save-button" id="finalizar_empresa_2"><i class="fas fa-save"></i> Guardar Cambios</button>
+                    <button class="save-button" id="finalizar_empresa_2" disabled><i class="fas fa-save"></i> Guardar Cambios</button>
 
                 </div>
             </div>

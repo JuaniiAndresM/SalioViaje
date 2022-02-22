@@ -324,6 +324,10 @@
                         @include button();
                         margin: 10px auto;
                     }
+                    button[disabled],button:disabled{
+                      background: #999;
+                      color: $contraste_1;
+                    }
                 }
 
                 .vehiculos-wrapper {
@@ -435,6 +439,10 @@
                   }
                   .save-button {
                     @include button();
+                  }
+                  button[disabled],button:disabled{
+                    background: #999;
+                    color: $contraste_1;
                   }
                 }
                 

@@ -451,6 +451,10 @@ $main_3: #6d76db;
           a:hover {
             background-color: $main_2;
           }
+          a[disabled],a:disabled{
+            background: #999;
+            color: $contraste_1;
+          }
         }
         
       }

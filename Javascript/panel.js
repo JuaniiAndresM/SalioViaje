@@ -463,22 +463,22 @@ function crear_intervalo(tiempo){
 }
 
 function editarUsuario(id){
-    location.href = "/Profile/EditarUsuario.php/" + "?ID=" + id;
+    location.href = "/Profile/Editar/" + id;
 }
 
 
 function verEmpresa(rut){
-    location.href = "/Profile/Empresa.php/" + "?RUT=" + rut;
+    location.href = "/Profile/Empresa/" + rut;
 }
 
 function editarEmpresa(rut){
-    location.href = "/Profile/EditarEmpresa.php/" + "?RUT=" + rut;
+    location.href = "/Profile/Empresa/Editar" + rut;
 }
 
 function eliminarEmpresa(rut){
     $.ajax({
         type: "POST",
-        url: "PHP/llamadosSol.php",
+        url: "/PHP/llamadosSol.php",
         data: {tipe:3, RUT:rut},
         success: function () {
             location.reload();
@@ -489,7 +489,7 @@ function eliminarEmpresa(rut){
 function eliminar_usuario(id){
     $.ajax({
         type: "POST",
-        url: "PHP/llamadosSol.php",
+        url: "/PHP/llamadosSol.php",
         data: {tipe:4, ID:id},
         success: function () {
             location.reload();
@@ -691,22 +691,22 @@ function guardarEdicionUsuario(id,ciAnterior){
  }
  
  function editarUsuario(id){
-    location.href = "/Profile/EditarUsuario.php/" + "?ID=" + id;
+    location.href = "/Profile/Editar/" + id;
  }
  
  
  function verEmpresa(rut){
-    location.href = "/Profile/Empresa.php/" + "?RUT=" + rut;
+    location.href = "/Profile/Empresa/" + rut;
  }
  
  function editarEmpresa(rut){
-    location.href = "/Profile/EditarEmpresa.php/" + "?RUT=" + rut;
+    location.href = "/Profile/Empresa/Editar/" + rut;
  }
  
  function eliminarEmpresa(rut){
     $.ajax({
         type: "POST",
-        url: "PHP/llamadosSol.php",
+        url: "/PHP/llamadosSol.php",
         data: {tipe:3, RUT:rut},
         success: function () {
             location.reload();
@@ -717,7 +717,7 @@ function guardarEdicionUsuario(id,ciAnterior){
  function eliminar_usuario(id){
     $.ajax({
         type: "POST",
-        url: "PHP/llamadosSol.php",
+        url: "/PHP/llamadosSol.php",
         data: {tipe:4, ID:id},
         success: function () {
             location.reload();
