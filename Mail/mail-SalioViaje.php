@@ -15,10 +15,12 @@ require '../Plugins/PHPMailer/src/SMTP.php';
 
 $TIPO = $_POST['TIPO'];
 $DATOS = $_POST['DATA'];
+$PARADAS_IDA = $_POST['PARADAS_IDA'];
+$PARADAS_VUELTA = $_POST['PARADAS_VUELTA'];
 
 $datos_array = json_decode(stripslashes($DATOS),true);
 
-echo $datos_array;
+$paradas_array = json_decode($PARADAS_IDA,true);
 
 $TIPO_VIAJE = "";
 
@@ -56,7 +58,7 @@ $mail->Port = 465;
 $mail->CharSet = 'UTF-8';
 $mail->From = 'info@salioviaje.com.uy';             //  Editar
 $mail->FromName = 'SalióViaje';                     //  Editar
-$mail->addAddress('admin@salioviaje.com.uy');       //  Editar
+$mail->addAddress('thewolfmodzyt@gmail.com');       //  Editar
 $mail->isHTML(true);
 $mail->Subject = "Nueva Solicitud de Cotización - SalióViaje";   //  Editar
 
@@ -160,10 +162,33 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                                                 $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Duración: </b>'.$datos_array["DURACION"].' horas</p>';
                                             }
                                         }
+
+                                        if(isset($PARADAS_IDA) || isset($PARADAS_VUELTA) ){
+
+                                            $mail->Body .= '
+                                            <h4 style="font-size: 16px; margin-top: 40px;">Información Paradas:</h4>';
+
+                                            if(isset($PARADAS_IDA)){
+                                                $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Paradas (Ida): </b>';
+                                                
+                                                for($a = 0; $a < count($PARADAS_IDA); $a++){
+
+                                                    $mail->Body .= $PARADAS_IDA[$a];
+                                                }
+                                                $mail->Body .= '</p>';
+                                                
+                                            }
+                                            if(isset($PARADAS_VUELTA)){
+                                                $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Paradas (Vuelta): </b>';
+                                                
+                                                for($a = 0; $a < count($PARADAS_VUELTA); $a++){
+
+                                                    $mail->Body .= $PARADAS_VUELTA[$a];
+                                                }
+                                                $mail->Body .= '</p>';
+                                            }
+                                        }
                                         $mail->Body .= '
-                                        <h4 style="font-size: 16px; margin-top: 40px;">Información Paradas:</h4>
-                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Paradas (Ida): </b>Parada1, Parada2</p>
-                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Paradas (Vuelta): </b>Parada1, Parada2</p>
                                     </div>
                                 </td>
                             </tr>

@@ -164,7 +164,7 @@ function tabla_usuarios_dashboard(){
                 if (usuarios_total == 1) {
                     $("#cantidad-usuarios").html('<h2>0</h2><i class="fas fa-user-friends"></i>')
                 }else{
-                    usuarios_total = usuarios_total-2
+                    usuarios_total = usuarios_total-2;
                     $("#cantidad-usuarios").html('<h2>'+usuarios_total+'</h2><i class="fas fa-user-friends"></i>')
                 }
 
@@ -658,7 +658,7 @@ function guardarEdicionUsuario(id,ciAnterior){
        "RAZON_SOCIAL": document.getElementById("RsEdicion").value,
        "NUMERO_MTOP": document.getElementById("NmEdicion").value,
        "PASSWORD_MTOP": document.getElementById("password").value,
-       "CHOFERES_SUB": 0,
+       "CHOFERES_SUB": "0",
        "VEHICULOS": {}
     };
         validacion = $.ajax({

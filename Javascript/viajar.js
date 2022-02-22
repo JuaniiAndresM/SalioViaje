@@ -15,6 +15,12 @@ let datos_fiestaseventos_ida;
 let datos_fiestaseventos_vuelta;
 let datos_fiestaseventos_idavuelta;
 
+let array_paradas_1 = new Array();
+var count_paradas_1 = 0;
+
+let array_paradas_2 = new Array();
+var count_paradas_2 = 0;
+
 function next(){
     step++;
     steps(step);
@@ -39,7 +45,7 @@ function finalizar(){
             $.ajax({
                 type: "POST",
                 url: "/SalioViaje/Mail/mail-SalioViaje.php",
-                data: {TIPO: tipo, DATA: JSON.stringify(datos_traslado)},
+                data: {TIPO: tipo, DATA: JSON.stringify(datos_traslado), PARADAS_IDA: JSON.stringify(array_paradas_1)},
                 success: function(response){
 
                 },
@@ -378,12 +384,6 @@ function desplegar(button, session){
         button.nextElementSibling.classList.toggle("show");
     }    
 }
-
-let array_paradas_1 = new Array();
-var count_paradas_1 = 0;
-
-let array_paradas_2 = new Array();
-var count_paradas_2 = 0;
 
 function paradas(tipo){
 
