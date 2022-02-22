@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -13,8 +15,12 @@ require '../Plugins/PHPMailer/src/SMTP.php';
 
 $TIPO = $_POST['TIPO'];
 $DATOS = $_POST['DATA'];
+$PARADAS_IDA = $_POST['PARADAS_IDA'];
+$PARADAS_VUELTA = $_POST['PARADAS_VUELTA'];
 
 $datos_array = json_decode(stripslashes($DATOS),true);
+
+$paradas_array = json_decode($PARADAS_IDA,true);
 
 $TIPO_VIAJE = "";
 
@@ -54,7 +60,7 @@ $mail->From = 'info@salioviaje.com.uy';             //  Editar
 $mail->FromName = 'SalióViaje';                     //  Editar
 $mail->addAddress('thewolfmodzyt@gmail.com');       //  Editar
 $mail->isHTML(true);
-$mail->Subject = "Nueva Solicitud de Cotización";   //  Editar
+$mail->Subject = "Nueva Solicitud de Cotización - SalióViaje";   //  Editar
 
 $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white;">
                         <table style="width: 100%; background: linear-gradient(120deg, #3844bc, #2b3179); border: none;" cellspacing="0" cellpadding="0">
@@ -79,73 +85,110 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                                 <td>
                                     <div class="mail-content" style="width: 500px; margin: 20px auto; background: #fff; font-family: Montserrat; color: #3844bc;">
                                         <h1 style="font-size: 20px;">Información de la Solicitud</h1>
-                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Tipo de Viaje: </b>'.$TIPO_VIAJE.'.</p>';
+                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Tipo de Viaje: </b>'.$TIPO_VIAJE.'</p>';
 
                                         if($TIPO == 3){
-                                            $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Transfer: </b>'.$datos_array["TIPO_TRANSFER"].'.</p>';
+                                            $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Transfer: </b>'.$datos_array["TIPO_TRANSFER"].'</p>';
                                         }else if($TIPO == 4){
-                                            $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Tramos: </b>'.$datos_array["TRAMOS_FIESTA"].'.</p>';
+                                            $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Tramos: </b>'.$datos_array["TRAMOS_FIESTA"].'</p>';
                                         }
 
                                         if($TIPO == 4){
                                             if($datos_array["TRAMOS_FIESTA"] == "Solo Ida" || $datos_array["TRAMOS_FIESTA"] == "Ida y Vuelta"){
                                                 $mail->Body .= '
                                                 <h4 style="font-size: 16px; margin-top: 40px;">Información Ida:</h4>
-                                                <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Fecha de Salida: </b>'.$datos_array["FECHA_SALIDA"].'.</p>
-                                                <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Hora: </b>'.$datos_array["HORA"].'.</p>
-                                                <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Origen: </b>'.$datos_array["ORIGEN"].'.</p>
-                                                <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Destino o Punto de Interés: </b>'.$datos_array["DESTINO"].'.</p>
-                                                <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Cantidad de Pasajeros: </b>'.$datos_array["CANT_PASAJEROS_IDA"].'.</p>';
+                                                <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Fecha de Salida: </b>'.$datos_array["FECHA_SALIDA"].'</p>
+                                                <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Hora: </b>'.$datos_array["HORA"].'</p>
+                                                <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Origen: </b>'.$datos_array["ORIGEN"].'</p>
+                                                <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Destino o Punto de Interés: </b>'.$datos_array["DESTINO"].'</p>
+                                                <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Cantidad de Pasajeros: </b>'.$datos_array["CANTIDAD_PASAJEROS_IDA"].'</p>';
                                             }
                                             if($datos_array["TRAMOS_FIESTA"] == "Solo Vuelta" || $datos_array["TRAMOS_FIESTA"] == "Ida y Vuelta"){
                                                 $mail->Body .= '
                                                 <h4 style="font-size: 16px; margin-top: 40px;">Información Vuelta:</h4>
-                                                <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Fecha de Regreso: </b>'.$datos_array["FECHA_REGRESO"].'.</p>
-                                                <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Hora: </b>'.$datos_array["HORA"].'.</p>
+                                                <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Fecha de Regreso: </b>'.$datos_array["FECHA_REGRESO"].'</p>
+                                                <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Hora: </b>'.$datos_array["HORA"].'</p>
         
-                                                <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Origen o Punto de Interés: </b>'.$datos_array["ORIGEN"].'.</p>
-                                                <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Destino: </b>'.$datos_array["DESTINO"].'.</p>
-                                                <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Cantidad de Pasajeros: </b>'.$datos_array["CANT_PASAJEROS_VUELTA"].'.</p>';
+                                                <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Origen o Punto de Interés: </b>'.$datos_array["ORIGEN"].'</p>
+                                                <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Destino: </b>'.$datos_array["DESTINO"].'</p>
+                                                <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Cantidad de Pasajeros: </b>'.$datos_array["CANTIDAD_PASAJEROS_VUELTA"].'</p>';
                                             }
                                         }else{
-                                            $mail->Body .= '
-                                            <h4 style="font-size: 16px; margin-top: 40px;">Información Ida:</h4>
-                                            <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Fecha de Salida: </b>'.$datos_array["FECHA_SALIDA"].'.</p>
-                                            <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Hora: </b>'.$datos_array["HORA"].'.</p>';
+                                            if($TIPO == 3){
+                                                if($datos_array["TIPO_TRANSFER"] == "Out"){
+                                                    $mail->Body .= '<h4 style="font-size: 16px; margin-top: 40px;">Información Vuelta:</h4>';
+                                                }else{
+                                                    $mail->Body .= '<h4 style="font-size: 16px; margin-top: 40px;">Información Ida:</h4>';
+                                                }
+                                            }else{
+
+                                                $mail->Body .= '
+                                                <h4 style="font-size: 16px; margin-top: 40px;">Información Ida:</h4>
+                                                <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Fecha de Salida: </b>'.$datos_array["FECHA_SALIDA"].'</p>
+                                                <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Hora: </b>'.$datos_array["HORA"].'</p>';
+                                            
+                                            }
     
                                             if($TIPO == 3){
                                                 if($datos_array["TIPO_TRANSFER"] == "In"){
-                                                    $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Origen: </b>'.$datos_array["ORIGEN"].'.</p>';
-                                                    $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Aeropuero o Puerto: </b>'.$datos_array["AEROPUERTO"].'.</p>';
+
+                                                    $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Origen: </b>'.$datos_array["ORIGEN"].'</p>';
+                                                    $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Aeropuero o Puerto: </b>'.$datos_array["AEROPUERTO"].'</p>';
+                                                
                                                 }else if($datos_array["TIPO_TRANSFER"] == "Out"){
-                                                    $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Aeropuero o Puerto: </b>'.$datos_array["AEROPUERTO"].'.</p>';
-                                                    $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Destino: </b>'.$datos_array["DESTINO"].'.</p>';
+
+                                                    $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Aeropuero o Puerto: </b>'.$datos_array["AEROPUERTO"].'</p>';
+                                                    $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Destino: </b>'.$datos_array["DESTINO"].'</p>';
+                                                
                                                 }
-                                                $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Equipaje: </b>'.$datos_array["EQUIPAJE"].' </p>';
+                                                $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Equipaje: </b>'.$datos_array["EQUIPAJE"].'</p>';
                                             }else{
                                                 
-                                                $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Origen: </b>'.$datos_array["ORIGEN"].'.</p>';
+                                                $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Origen: </b>'.$datos_array["ORIGEN"].'</p>';
                                                 if($TIPO != 2){
-                                                    $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Destino o Punto de Interés: </b>'.$datos_array["DESTINO"].'.</p>';
+                                                    $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Destino o Punto de Interés: </b>'.$datos_array["DESTINO"].'</p>';
                                                 }
                                                                 
                                             }
     
                                             if($TIPO == 2){
-                                                $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Ciudad: </b>'.$datos_array["CIUDAD"].'.</p>';
+                                                $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Ciudad: </b>'.$datos_array["CIUDAD"].'</p>';
                                             }
     
                                             $mail->Body .= '
-                                            <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Cantidad de Pasajeros: </b>'.$datos_array["CANTIDAD_PASAJEROS"].'.</p>';
+                                            <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Cantidad de Pasajeros: </b>'.$datos_array["CANTIDAD_PASAJEROS"].'</p>';
     
                                             if($TIPO == 2){
-                                                $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Duración: </b>'.$datos_array["DURACION"].' Horas</p>';
+                                                $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Duración: </b>'.$datos_array["DURACION"].' horas</p>';
+                                            }
+                                        }
+
+                                        if(isset($PARADAS_IDA) || isset($PARADAS_VUELTA) ){
+
+                                            $mail->Body .= '
+                                            <h4 style="font-size: 16px; margin-top: 40px;">Información Paradas:</h4>';
+
+                                            if(isset($PARADAS_IDA)){
+                                                $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Paradas (Ida): </b>';
+                                                
+                                                for($a = 0; $a < count($PARADAS_IDA); $a++){
+
+                                                    $mail->Body .= $PARADAS_IDA[$a];
+                                                }
+                                                $mail->Body .= '</p>';
+                                                
+                                            }
+                                            if(isset($PARADAS_VUELTA)){
+                                                $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Paradas (Vuelta): </b>';
+                                                
+                                                for($a = 0; $a < count($PARADAS_VUELTA); $a++){
+
+                                                    $mail->Body .= $PARADAS_VUELTA[$a];
+                                                }
+                                                $mail->Body .= '</p>';
                                             }
                                         }
                                         $mail->Body .= '
-                                        <h4 style="font-size: 16px; margin-top: 40px;">Información Paradas:</h4>
-                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Paradas (Ida): </b>Parada1, Parada2</p>
-                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Paradas (Vuelta): </b>Parada1, Parada2</p>
                                     </div>
                                 </td>
                             </tr>
@@ -153,17 +196,16 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                                 <td>
                                     <div class="mail-content" style="width: 500px; margin: 20px auto; background: #fff; font-family: Montserrat; color: #3844bc;">
                                         <h1 style="font-size: 20px;">Información del Pasajero</h1>
-                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Nombre: </b>Juan Andrés</p>
-                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Apellido: </b>Morena</p>
-                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Teléfono: </b><a href="tel:098234717" style="text-decoration: none; color: #3844bc;">098234717</a></p>
-                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Correo Electrónico: </b>juandres2003@gmail.com</p>
+                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Nombre: </b>'.$_SESSION['usuario'].'</p>
+                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Teléfono: </b><a href="tel:'.$_SESSION['datos_usuario']['TELEFONO'].'" style="text-decoration: none; color: #3844bc;">'.$_SESSION['datos_usuario']['TELEFONO'].'</a></p>
+                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Correo Electrónico: </b>'.$_SESSION['datos_usuario']['MAIL'].'</p>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <div class="mail-content" style="width: 95%; margin: 20px auto; background: #fff; font-family: Montserrat; color: #555; font-size: 13px;">
-                                        <p>Este mensaje se envió a <span style="color: #3844bc; font-weight: bold;">thewolfmodzyt@gmail.com</span>.</p>
+                                        <p>Este mensaje se envió a <span style="color: #3844bc; font-weight: bold;">admin@salioviaje.com.uy</span>.</p>
                                         <p>Si no quieres recibir estos emails de SalióViaje en el futuro, puedes darte de baja de la lista de correo.</p>
                                     </div>
                                 </td>

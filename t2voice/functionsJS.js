@@ -56,7 +56,7 @@ function comprar_oportunidad_function(id){
        console.log("comprada y mando mensaje - ID oportunidad : "+id)
 
        let id_llamada = Math.floor(Math.random() * 10000000);
-       let mensaje = 'Tu oportunidad ha sido comprada!\n Aceptar:  http://SalioViaje/Solicitud/2A\n  Rechazar: http://SalioViaje/Solicitud/2R';
+       let mensaje = 'Tu oportunidad ha sido comprada!\n Aceptar:  http://localhost/SalioViaje/Solicitud/'+id+'A\n  Rechazar: http://localhost/SalioViaje/Solicitud/'+id+'R';
 
         $.ajax({
             type: "POST",
@@ -102,7 +102,7 @@ function cambiar_estado_oportunidad(estado,id){
 }
 
 function oportunidad_aprobada(id){
-            mail_tta = $.ajax({
+            let mail_tta = $.ajax({
                         type: 'POST',       
                         url: "/SalioViaje/PHP/comprar_oportunidad.php",
                         data: { opcion:1,ID:id },
@@ -116,7 +116,7 @@ function oportunidad_aprobada(id){
             $.ajax({
                 type: "POST",
                 url: "/SalioViaje/Mail/mail-Oportunidades-Aceptado.php",
-                data: { mail_tta:JSON.parse(mail_tta)['MAIL'] },
+                data: { mail_tta:JSON.parse(mail_tta)['MAIL'], id_viaje: id},
                 success: function (response) {
                     cambiar_estado_oportunidad('Aprobada',id)
                 }
@@ -124,8 +124,8 @@ function oportunidad_aprobada(id){
 }
 
 function oportunidad_rechazada(id){
-            mail_tta = $.ajax({
-                        type: 'POST',       
+            let mail_tta = $.ajax({
+                        type: 'POST',     
                         url: "/SalioViaje/PHP/comprar_oportunidad.php",
                         data: { ID:id },
                         global: false,

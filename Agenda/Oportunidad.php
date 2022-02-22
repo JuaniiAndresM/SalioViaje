@@ -130,18 +130,6 @@
               <div class="driver-icon">
                 <img src="/SalioViaje/media/svg/Logo-SalioViaje-White.svg" alt="Logo SalióViaje">
               </div>
-              <div class="driver-desc">
-                <h3><?php echo $array_oportuidad[0]['NOMBRE'].' '.$array_oportuidad[0]['APELLIDO']; ?></h3>
-                <p><i class="fas fa-bus"></i> <?php echo $array_oportuidad[0]['TIPO_USUARIO']; ?></p>
-                <p class="calificacion">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star-half"></i>
-                  (4.35) - <i class="far fa-compass"></i> 820 Viajes
-                </p>
-              </div>
             </div>
             <div class="oportunidad-buttons">
                 <button class="comprar-button" id="comprar_oportunidad" onclick="comprar_oportunidad_function(<?php echo $array_oportuidad[0]['ID']; ?>)"><i class="fas fa-comments-dollar"></i> Comprar</button>

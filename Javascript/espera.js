@@ -4,10 +4,6 @@ $(document).ready(function () {
     setTimeout(() => {
         steps(2);
     }, 2000);
-
-    setTimeout(() => {
-        steps(3);
-    }, 5000);
 });
 
 
@@ -75,14 +71,16 @@ function esperandoAprobacion(){
         data: {opcion:3,ID: id_oportunidad},
         success: function (response) {
             response = JSON.parse(response)
-            console.log();
-            if (response['ESTADO'] == 'Aprobada') { 
-                steps(3) 
-                clearInterval(esperar_aprobacion)
+            
+            if (response[0]['ESTADO'] == 'Aprobada') { 
+                steps(3);
+                oportunidad_aprobada(id_oportunidad);
+                clearInterval(esperar_aprobacion);
             }
-            else if (response['ESTADO'] == 'Rechazada') { 
-                steps(4) 
-                clearInterval(esperar_aprobacion)
+            else if (response[0]['ESTADO'] == 'Rechazada') { 
+                steps(4);
+                oportunidad_rechazada(id_oportunidad);
+                clearInterval(esperar_aprobacion);
             }
         }
     });

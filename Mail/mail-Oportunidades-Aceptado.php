@@ -12,6 +12,7 @@ require '../Plugins/PHPMailer/src/SMTP.php';
 //
 
 $mail_tta = $_POST['mail_tta'];
+$id = $_POST['id_viaje'];
 
 //
 /*------------------------------------------------------------------------------------------*/
@@ -20,12 +21,21 @@ $mail = new PHPMailer(true);
 
 
 session_start();
+$mail->SMTPDebug = 0; 
+$mail->IsSMTP();
+$mail->Host = 'mail.salioviaje.com.uy';
+$mail->SMTPAuth = true;
+$mail->Username ='info@salioviaje.com.uy';
+$mail->Password = 'SalioViaje_info';
+$mail->SMTPSecure = 'ssl';
+$mail->Port = 465;
+
 $mail->CharSet = 'UTF-8';
 $mail->From = 'info@salioviaje.com.uy'; //  Editar
 $mail->FromName = 'SalióViaje';  //  Editar
 $mail->addAddress($_SESSION['datos_usuario']['MAIL']);  //  Editar
 $mail->isHTML(true);
-$mail->Subject = "Oportunidad aprobada";    //  Editar
+$mail->Subject = "Oportunidad Aprobada - SalióViaje";    //  Editar
 //PAX
 $mail->Body    = '    <div class="mail" style="max-width: 600px; background: white;">
         <table style="width: 100%; background: linear-gradient(120deg, #3844bc, #2b3179); border: none;" cellspacing="0" cellpadding="0">
@@ -39,7 +49,7 @@ $mail->Body    = '    <div class="mail" style="max-width: 600px; background: whi
             <tr>
                 <td style="text-align: center;">
                     <h1 style="font-family: Montserrat; font-size: 25px; color: rgb(116, 212, 129);">¡Petición Aceptada!</h1>
-                    <p style="font-family: Montserrat; font-size: 18px; color: #3844bc"><b>N° Viaje: </b>21</p>
+                    <p style="font-family: Montserrat; font-size: 18px; color: #3844bc"><b>N° Viaje: </b>'.$id.'</p>
                     <div style="background-color: #dfdfdf; width: 500px; margin: 20px auto; text-align: left; font-family: Montserrat; font-size: 13px; border-left: 3px solid #3844bc; padding: 5px 10px; box-sizing: border-box; color: #3844bc;">
                         <p>¡Felicitaciones! Tu petición fue aceptada.</p>
                         <b>Pongase en contacto con el transportista para coordinar el pago.</b>
@@ -89,20 +99,12 @@ $mail->Body    = '    <div class="mail" style="max-width: 600px; background: whi
         //return 0;
     }
 
-    $mail->SMTPDebug = 0; 
-    $mail->IsSMTP();
-    $mail->Host = 'mail.salioviaje.com.uy';
-    $mail->SMTPAuth = true;
-    $mail->Username ='info@salioviaje.com.uy';
-    $mail->Password = 'SalioViaje_info';
-    $mail->SMTPSecure = 'ssl';
-    $mail->Port = 465;
     $mail->CharSet = 'UTF-8';
     $mail->From = 'info@salioviaje.com.uy'; //  Editar
     $mail->FromName = 'SalióViaje';  //  Editar
     $mail->addAddress('admin@salioviaje.com.uy');  //  Editar
     $mail->isHTML(true);
-    $mail->Subject = "Nueva oportunidad vendida";    //  Editar
+    $mail->Subject = "Nueva Oportunidad Vendida - SalióViaje";    //  Editar
 
     //ADM
     $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white;">
@@ -117,7 +119,7 @@ $mail->Body    = '    <div class="mail" style="max-width: 600px; background: whi
                                 <tr>
                                     <td style="text-align: center;">
                                         <h1 style="font-family: Montserrat; font-size: 25px; color: rgb(116, 212, 129);">¡Oportunidad Vendida!</h1>
-                                        <p style="font-family: Montserrat; font-size: 18px; color: #3844bc"><b>N° Viaje: </b>21</p>
+                                        <p style="font-family: Montserrat; font-size: 18px; color: #3844bc"><b>N° Viaje: </b>'.$id.'</p>
                                         <div style="background-color: #dfdfdf; width: 500px; margin: 20px auto; text-align: left; font-family: Montserrat; font-size: 13px; border-left: 3px solid #3844bc; padding: 5px 10px; box-sizing: border-box; color: #3844bc;">
                                             <p>¡Felicitaciones! Se vendió una oportunidad.</p>
                                             <b>El transportista se pondrá en contácto pronto.</b>
@@ -185,7 +187,7 @@ $mail->From = 'info@salioviaje.com.uy'; //  Editar
 $mail->FromName = 'SalióViaje';  //  Editar
 $mail->addAddress($mail_tta);  //  Editar
 $mail->isHTML(true);
-$mail->Subject = "Oportunidad vendida";    //  Editar
+$mail->Subject = "Oportunidad Vendida - SalióViaje";    //  Editar
 //TTA
 $mail->Body    = '<div class="mail" style="max-width: 600px; background: white;">
         <table style="width: 100%; background: linear-gradient(120deg, #3844bc, #2b3179); border: none;" cellspacing="0" cellpadding="0">
@@ -199,7 +201,7 @@ $mail->Body    = '<div class="mail" style="max-width: 600px; background: white;"
             <tr>
                 <td style="text-align: center;">
                     <h1 style="font-family: Montserrat; font-size: 25px; color: rgb(116, 212, 129);">¡Oportunidad Vendida!</h1>
-                    <p style="font-family: Montserrat; font-size: 18px; color: #3844bc"><b>N° Viaje: </b>21</p>
+                    <p style="font-family: Montserrat; font-size: 18px; color: #3844bc"><b>N° Viaje: </b>'.$id.'</p>
                     <div style="background-color: #dfdfdf; width: 500px; margin: 20px auto; text-align: left; font-family: Montserrat; font-size: 13px; border-left: 3px solid #3844bc; padding: 5px 10px; box-sizing: border-box; color: #3844bc;">
                         <p>¡Felicitaciones! Tu oportunidad fue vendida.</p>
                         <b>Pongase en contacto con el pasajero para coordinar el pago.</b>
