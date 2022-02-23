@@ -476,7 +476,7 @@ function editarEmpresa(rut){
 function eliminarEmpresa(rut){
     $.ajax({
         type: "POST",
-        url: "PHP/llamadosSol.php",
+        url: "/SalioViaje/PHP/llamadosSol.php",
         data: {tipe:3, RUT:rut},
         success: function () {
             location.reload();
@@ -487,7 +487,7 @@ function eliminarEmpresa(rut){
 function eliminar_usuario(id){
     $.ajax({
         type: "POST",
-        url: "PHP/llamadosSol.php",
+        url: "/SalioViaje/PHP/llamadosSol.php",
         data: {tipe:4, ID:id},
         success: function () {
             location.reload();
@@ -502,7 +502,7 @@ function eliminar_usuario(id){
 function guardarEdicionUsuario(id,ciAnterior){
     window.ciAnterior = ciAnterior;
     datos_Usuario = {
-        "CI": document.getElementById("CIEdicion").value,
+        "CI": ciAnterior,
         "CORREO": document.getElementById("CorreoEdicion").value,
         "NOMBRE": document.getElementById("NombreEdicion").value,
         "APELLIDO": document.getElementById("ApellidoEdicion").value,
@@ -532,7 +532,7 @@ function guardarEdicionUsuario(id,ciAnterior){
                     type: "POST",
                     url: "/SalioViaje/PHP/llamadosSol.php",
                     //aca mandarias la info necesaria para el xml de llamada
-                    data: {tipe:0, ID:id, CI:datos_Usuario["CI"], NOMBRE:datos_Usuario["NOMBRE"], APELLIDO:datos_Usuario["APELLIDO"], CORREO:datos_Usuario["CORREO"], DEPARTAMENTO:datos_Usuario["DEPARTAMENTO"], BARRIO:datos_Usuario["BARRIO"], DIRECCION:datos_Usuario["DIRECCION"], TEL:datos_Usuario["TELEFONO"]},
+                    data: {tipe:0, ID:id, CI:ciAnterior, NOMBRE:datos_Usuario["NOMBRE"], APELLIDO:datos_Usuario["APELLIDO"], CORREO:datos_Usuario["CORREO"], DEPARTAMENTO:datos_Usuario["DEPARTAMENTO"], BARRIO:datos_Usuario["BARRIO"], DIRECCION:datos_Usuario["DIRECCION"], TEL:datos_Usuario["TELEFONO"]},
                     success: function (response) {
                         location.reload();
                     }
@@ -551,7 +551,7 @@ function guardarEdicionUsuario(id,ciAnterior){
     window.ciAnterior = ciAnterior;
  
     datos_Usuario = {
-       "CI": document.getElementById("CIEdicion").value,
+       "CI": ciAnterior,
        "CORREO": document.getElementById("CorreoEdicion").value,
        "NOMBRE": document.getElementById("NombreEdicion").value,
        "APELLIDO": document.getElementById("ApellidoEdicion").value,
@@ -616,7 +616,7 @@ function guardarEdicionUsuario(id,ciAnterior){
     window.ciAnterior = ciAnterior;
  
     datos_Usuario = {
-       "CI": document.getElementById("CIEdicion").value,
+       "CI": ciAnterior,
        "CORREO": document.getElementById("CorreoEdicion").value,
        "NOMBRE": document.getElementById("NombreEdicion").value,
        "APELLIDO": document.getElementById("ApellidoEdicion").value,
@@ -653,7 +653,7 @@ function guardarEdicionUsuario(id,ciAnterior){
  
  function guardarEdicionEmpresa(rut){
     datos_Empresa = {
-       "RUT": document.getElementById("RUTEdicion").value,
+       "RUT": rut,
        "NOMBRE_COMERCIAL": document.getElementById("NcEdicion").value,
        "RAZON_SOCIAL": document.getElementById("RsEdicion").value,
        "NUMERO_MTOP": document.getElementById("NmEdicion").value,
@@ -670,15 +670,18 @@ function guardarEdicionUsuario(id,ciAnterior){
             success: function(response) {
         }
         }).responseText;
+        if(confirmar_rut(validacion) == false){
+            validacion ="VALIDO"
+        }
         if (validacion == "VALIDO") {
             $(".mensaje-error").hide();
             $.ajax({
             type: "POST",
             url: "/SalioViaje/PHP/llamadosSol.php",
             //aca mandarias la info necesaria para el xml de llamada
-            data: {tipe:5, RUTANTERIOR:rut, RUT:datos_Empresa["RUT"], NOMBRE:datos_Empresa["NOMBRE_COMERCIAL"], RS:datos_Empresa["RAZON_SOCIAL"], CA:document.getElementById("CaEdicion").value, NM:datos_Empresa["NUMERO_MTOP"], CM:datos_Empresa["PASSWORD_MTOP"]},
+            data: {tipe:5, RUTANTERIOR:rut, RUT:rut, NOMBRE:datos_Empresa["NOMBRE_COMERCIAL"], RS:datos_Empresa["RAZON_SOCIAL"], CA:document.getElementById("CaEdicion").value, NM:datos_Empresa["NUMERO_MTOP"], CM:datos_Empresa["PASSWORD_MTOP"]},
             success: function (response) {
-                    editarEmpresa(datos_Empresa["RUT"]);
+                    editarEmpresa(rut);
             }
             });
         }
@@ -704,7 +707,7 @@ function guardarEdicionUsuario(id,ciAnterior){
  function eliminarEmpresa(rut){
     $.ajax({
         type: "POST",
-        url: "PHP/llamadosSol.php",
+        url: "/SalioViaje/PHP/llamadosSol.php",
         data: {tipe:3, RUT:rut},
         success: function () {
             location.reload();
@@ -715,7 +718,7 @@ function guardarEdicionUsuario(id,ciAnterior){
  function eliminar_usuario(id){
     $.ajax({
         type: "POST",
-        url: "PHP/llamadosSol.php",
+        url: "/SalioViaje/PHP/llamadosSol.php",
         data: {tipe:4, ID:id},
         success: function () {
             location.reload();
@@ -843,12 +846,39 @@ function confirmar_ci(validacion){
     if(validacion != "VALIDO"){
         if(validacion != "Err-1"){
             errores= JSON.parse(validacion);
-            if(errores["CI"] == 2 && window.ciAnterior == document.getElementById("CIEdicion").value){
+            if(errores["CI"] == 2){
                 for (const property in errores) {
                     if(errores[property] == 1 && property != "CI"){
                         error = false;
                     }else{
                         if(property != "CI"){
+                            error = true;
+                            return;
+                        }
+                    }
+                }
+            }else{
+                error =true;
+            }
+        }else{
+            error = true;
+        }
+    }else{
+        error = true;
+    }
+    return error;
+}
+
+function confirmar_rut(validacion){
+    if(validacion != "VALIDO"){
+        if(validacion != "Err-1"){
+            errores= JSON.parse(validacion);
+            if(errores["RUT"] == 2){
+                for (const property in errores) {
+                    if(errores[property] == 1 && property != "RUT"){
+                        error = false;
+                    }else{
+                        if(property != "RUT"){
                             error = true;
                             return;
                         }

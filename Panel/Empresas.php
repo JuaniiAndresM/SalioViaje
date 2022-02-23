@@ -10,9 +10,12 @@ require_once '../PHP/procedimientosBD.php';
       header('Location: /SalioViaje/');
     }else{
       $info_usuario = new procedimientosBD();
-
-      $empresas = $info_usuario->traer_empresas_usuario($_SESSION['datos_usuario']["ID"]);
-
+      if($_SESSION['tipo_usuario'] == "Administrador"){
+        $empresas = $info_usuario->datos_empresas();
+        $empresas;
+      }else{
+        $empresas = $info_usuario->traer_empresas_usuario($_SESSION['datos_usuario']["ID"]);
+      }
     }
   }
 
@@ -184,16 +187,30 @@ require_once '../PHP/procedimientosBD.php';
                   if($empresas === null){
                     
                   }else{
-                    $size = sizeof($empresas);
-                    for($i = 0; $i< sizeof($empresas); $i++){
-                      echo '<tbody id="tbody">
-                          <td>'.$empresas[$i]['ID'].'</td>
-                          <td>'.$empresas[$i]['RUT'].'</td>
-                          <td>'.$empresas[$i]['NOMBRE_COMERCIAL'].'</td>
-                          <td>'.$empresas[$i]['RAZON_SOCIAL'].'</td>
-                          <td>'.$empresas[$i]['ID_USUARIO'].'</td>
-                          <td>'.$empresas[$i]['TIPO_USUARIO'].'</td>
-                      </tbody>';
+                    if($_SESSION['tipo_usuario'] == "Administrador"){
+                      $size = sizeof($empresas);
+                      for($i = 0; $i< sizeof($empresas); $i++){
+                        echo '<tbody id="tbody">
+                            <td>'.$empresas[$i]['ID'].'</td>
+                            <td>'.$empresas[$i]['RUT'].'</td>
+                            <td>'.$empresas[$i]['NOMBRE_EMPRESA'].'</td>
+                            <td>'.$empresas[$i]['RAZON_SOCIAL'].'</td>
+                            <td>'.$empresas[$i]['ID_OWNER'].'</td>
+                            <td>'.$empresas[$i]['TIPO_USUARIO'].'</td>
+                        </tbody>';
+                      }
+                    }else{
+                      $size = sizeof($empresas);
+                      for($i = 0; $i< sizeof($empresas); $i++){
+                        echo '<tbody id="tbody">
+                            <td>'.$empresas[$i]['ID'].'</td>
+                            <td>'.$empresas[$i]['RUT'].'</td>
+                            <td>'.$empresas[$i]['NOMBRE_COMERCIAL'].'</td>
+                            <td>'.$empresas[$i]['RAZON_SOCIAL'].'</td>
+                            <td>'.$empresas[$i]['ID_USUARIO'].'</td>
+                            <td>'.$empresas[$i]['TIPO_USUARIO'].'</td>
+                        </tbody>';
+                      }
                     }
                   }
               ?>

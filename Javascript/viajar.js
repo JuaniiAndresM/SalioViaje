@@ -15,11 +15,11 @@ let datos_fiestaseventos_ida;
 let datos_fiestaseventos_vuelta;
 let datos_fiestaseventos_idavuelta;
 
-let array_paradas_1 = new Array();
-var count_paradas_1 = 0;
-
 let array_paradas_2 = new Array();
 var count_paradas_2 = 0;
+
+let array_paradas_1 = new Array();
+var count_paradas_1 = 0;
 
 function next(){
     step++;
@@ -44,26 +44,24 @@ function finalizar(enviar_solicitud){
             if (validacion('Translado',datos_traslado)) {
                 next();
                 if (enviar_solicitud == 1) {
-                    $.ajax({
-                        type: "POST",
-                        url: "/SalioViaje/Mail/mail-SalioViaje.php",
-                        data: {TIPO: tipo, DATA: JSON.stringify(datos_traslado)},
-                        success: function(response){
-                            console.log("se ejecuta")
-                        },
-                        complete: function (response) {
-                            if(response == 1){
-                                step++;
-                                steps(step);
-                            }else{
-                                console.log(response);
-                            }         
-                        }
-                    });
+                $.ajax({
+                    type: "POST",
+                    url: "/SalioViaje/Mail/mail-SalioViaje.php",
+                    data: {TIPO: tipo, DATA: JSON.stringify(datos_traslado)},
+                    success: function(response){
+                        console.log("se ejecuta")
+                    },
+                    complete: function (response) {
+                        if(response == 1){
+                            step++;
+                            steps(step);
+                        }else{
+                            console.log(response);
+                        }         
+                    }
+                });
                 }
-            }else{
-                console.log("No valido");
-            }
+            } else { console.log("No valido") }
 
             break;
 
@@ -85,22 +83,22 @@ function finalizar(enviar_solicitud){
                 next();
                 
                 if (enviar_solicitud == 1) {
-                    $.ajax({
-                        type: "POST",
-                        url: "/SalioViaje/Mail/mail-SalioViaje.php",
-                        data: {TIPO: tipo, DATA: JSON.stringify(datos_tour)},
-                        success: function(response){
+                $.ajax({
+                    type: "POST",
+                    url: "/SalioViaje/Mail/mail-SalioViaje.php",
+                    data: {TIPO: tipo, DATA: JSON.stringify(datos_tour)},
+                    success: function(response){
 
-                        },
-                        complete: function (response) {
-                            if(response == 1){
-                                step++;
-                                steps(step);
-                            }else{
-                                console.log(response);
-                            }         
-                        }
-                    });
+                    },
+                    complete: function (response) {
+                        if(response == 1){
+                            step++;
+                            steps(step);
+                        }else{
+                            console.log(response);
+                        }         
+                    }
+                });
                 }
 
             }else{
@@ -326,7 +324,7 @@ function finalizar(enviar_solicitud){
             }
             break;
     }
-} 
+  } 
 
 function volver(){
     step--;
