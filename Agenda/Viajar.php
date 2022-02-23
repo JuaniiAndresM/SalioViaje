@@ -397,7 +397,7 @@
               </div>
 
               <button class="button-viajar" onclick="volver()"><i class="fas fa-arrow-circle-left"></i> Volver</button>
-              <button class="button-viajar" onclick="next()">Siguiente <i class="fas fa-arrow-circle-right"></i></button>
+              <button class="button-viajar" onclick="finalizar()">Siguiente <i class="fas fa-arrow-circle-right"></i></button>
 
             </div>
 
@@ -511,7 +511,7 @@
               </div>
 
               <button class="button-viajar" onclick="volver()"><i class="fas fa-arrow-circle-left"></i> Volver</button>
-              <button class="button-viajar" onclick="next()">Siguiente <i class="fas fa-arrow-circle-right"></i></button>
+              <button class="button-viajar" onclick="finalizar()">Siguiente <i class="fas fa-arrow-circle-right"></i></button>
 
             </div>
 
@@ -667,7 +667,7 @@
               </div>
 
               <button class="button-viajar" onclick="volver()"><i class="fas fa-arrow-circle-left"></i> Volver</button>
-              <button class="button-viajar" onclick="next()">Siguiente <i class="fas fa-arrow-circle-right"></i></button>
+              <button class="button-viajar" onclick="finalizar()">Siguiente <i class="fas fa-arrow-circle-right"></i></button>
 
             </div>
 

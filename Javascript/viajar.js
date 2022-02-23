@@ -14,17 +14,12 @@ let datos_transfer_out;
 let datos_fiestaseventos_ida;
 let datos_fiestaseventos_vuelta;
 let datos_fiestaseventos_idavuelta;
-let array_paradas_1 = new Array();
-var count_paradas_1 = 0;
 
 let array_paradas_2 = new Array();
 var count_paradas_2 = 0;
 
 let array_paradas_1 = new Array();
 var count_paradas_1 = 0;
-
-let array_paradas_2 = new Array();
-var count_paradas_2 = 0;
 
 function next(){
     step++;
@@ -65,6 +60,7 @@ function finalizar(enviar_solicitud){
                         }         
                     }
                 });
+                }
             } else { console.log("No valido") }
 
             break;
@@ -103,6 +99,7 @@ function finalizar(enviar_solicitud){
                         }         
                     }
                 });
+                }
             } else { console.log("No valido") }
 
             break;
@@ -147,7 +144,8 @@ function finalizar(enviar_solicitud){
                                 }       
                             }
                         });
-                        } else { console.log("No valido") }
+                        }   
+                    } else { console.log("No valido") }
 
                     break;
                 case "2":
@@ -311,7 +309,8 @@ function finalizar(enviar_solicitud){
             }
             break;
     }
-} 
+  } 
+}
 
 function volver(){
     step--;

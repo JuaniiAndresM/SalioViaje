@@ -723,7 +723,7 @@ class validaciones
 			if ($valor != null || $valor != '') {
 				switch ($clave) {
 					case 'TIPO_TRANSFER':
-						if ($valor != null) {
+						if ($valor != '0') {
 							$VALIDACION['TIPO_TRANSFER'] = 1;
 						} else { $VALIDACION['TIPO_TRANSFER'] = 0; }
 					break;
@@ -786,7 +786,7 @@ class validaciones
 			if ($valor != null || $valor != '') {
 				switch ($clave) {
 					case 'TIPO_TRANSFER':
-						if ($valor != null) {
+						if ($valor != '0') {
 							$VALIDACION['TIPO_TRANSFER'] = 1;
 						} else { $VALIDACION['TIPO_TRANSFER'] = 0; }
 					break;
@@ -849,7 +849,7 @@ class validaciones
 			if ($valor != null || $valor != '') {
 				switch ($clave) {
 					case 'TRAMOS_FIESTA':
-						if ($valor != null) {
+						if ($valor != '0') {
 							$VALIDACION['TRAMOS_FIESTA'] = 1;
 						} else { $VALIDACION['TRAMOS_FIESTA'] = 0; }
 					break;
@@ -907,7 +907,7 @@ class validaciones
 			if ($valor != null || $valor != '') {
 				switch ($clave) {
 					case 'TRAMOS_FIESTA':
-						if ($valor != null) {
+						if ($valor != '0') {
 							$VALIDACION['TRAMOS_FIESTA'] = 1;
 						} else { $VALIDACION['TRAMOS_FIESTA'] = 0; }
 					break;
@@ -952,7 +952,7 @@ class validaciones
 
 		if($DATOS_VACIOS == null && $errores == 0) { return true; } elseif ($DATOS_VACIOS != null) { return $DATOS_VACIOS; } else { return json_encode($VALIDACION);}
 
-	}
+	} 
 
 	private function validar_formulario_fiestas_y_eventos_ida_y_vuelta($datos){
 
@@ -964,7 +964,7 @@ class validaciones
 			if ($valor != null || $valor != '') {
 				switch ($clave) {
 					case 'TRAMOS_FIESTA':
-						if ($valor != null) {
+						if ($valor != '0') {
 							$VALIDACION['TRAMOS_FIESTA'] = 1;
 						} else { $VALIDACION['TRAMOS_FIESTA'] = 0; }
 					break;
@@ -1068,6 +1068,4 @@ class validaciones
     }
 }
 	$Validar = new validaciones($_POST['tipo'],$_POST['datos']);
-
-
 ?>
