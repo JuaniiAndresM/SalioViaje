@@ -151,10 +151,6 @@ require_once '../PHP/procedimientosBD.php';
             <div class="informacion-wrapper">
 
               <div class="info">
-                <b><i class="far fa-address-card"></i> RUT</b>
-                <input type="number" placeholder="RUT" id="RUTEdicion" value="<?php echo $usuario['RUT'];?>">
-              </div>
-              <div class="info">
                 <b><i class="fas fa-signature"></i> Nombre Comercial</b>
                 <input type="text" placeholder="Nombre Comercial" id="NcEdicion"value="<?php echo $usuario['NOMBRE_COMERCIAL'];?>">
               </div>
