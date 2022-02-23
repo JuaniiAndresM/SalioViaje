@@ -120,6 +120,9 @@ class validaciones
 					break;
 					case 'CORREO':
 					$MAIL = preg_match($this->PATTERN_MAIL, $valor);
+					if($this->validar_existencia_mail($MAIL) == 1){
+						$VALIDACION['MAIL'] = 1;
+					}
 					$VALIDACION['MAIL'] = $MAIL;
 					break;
 					case 'DIRECCION':
@@ -356,6 +359,23 @@ class validaciones
 		if ($datos_ci != null) {
 			for ($i=0; $i < count($datos_ci); $i++) { 
 				if($datos_ci[$i] == $ci){
+					$encontrado = 0;
+				}
+			}
+		}else{ return 1; }
+
+		return $encontrado;
+	
+	}
+
+	private function validar_existencia_mail($mail){
+		require_once "procedimientosBD.php";
+		$mail_bd = new procedimientosBD();
+		$datos_mail = $mail_bd->traigo_mail();
+		$encontrado = 1;
+		if ($datos_mail != null) {
+			for ($i=0; $i < count($datos_mail); $i++) { 
+				if($datos_mail[$i] == $mail){
 					$encontrado = 0;
 				}
 			}

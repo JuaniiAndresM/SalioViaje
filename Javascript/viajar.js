@@ -20,6 +20,12 @@ var count_paradas_1 = 0;
 let array_paradas_2 = new Array();
 var count_paradas_2 = 0;
 
+let array_paradas_1 = new Array();
+var count_paradas_1 = 0;
+
+let array_paradas_2 = new Array();
+var count_paradas_2 = 0;
+
 function next(){
     step++;
     steps(step);
@@ -59,7 +65,6 @@ function finalizar(enviar_solicitud){
                         }         
                     }
                 });
-                }
             } else { console.log("No valido") }
 
             break;
@@ -76,7 +81,6 @@ function finalizar(enviar_solicitud){
                 "CIUDAD": $('#destino_tour').val(),
                 "DURACION": $('#duracion_tour').val()
             };
-            
 
             if (validacion('Tour',datos_tour)) {
 
@@ -99,8 +103,6 @@ function finalizar(enviar_solicitud){
                         }         
                     }
                 });
-                }
-
             } else { console.log("No valido") }
 
             break;
@@ -125,7 +127,6 @@ function finalizar(enviar_solicitud){
                         "EQUIPAJE": $('#equipaje_transfer_in').val()
                     };
                     
-
                     if (validacion('Transfer_in',datos_transfer_in)) {
                         
                         next();
@@ -146,10 +147,7 @@ function finalizar(enviar_solicitud){
                                 }       
                             }
                         });
-                        }
-
-                    } else { console.log("No valido") }
-
+                        } else { console.log("No valido") }
 
                     break;
                 case "2":
@@ -184,10 +182,7 @@ function finalizar(enviar_solicitud){
                                 }         
                             }
                         });
-                        }
-
-                    } else { console.log("No valido") }
-                    
+                        } else { console.log("No valido") }
                     break;
             }
             break;
@@ -210,7 +205,7 @@ function finalizar(enviar_solicitud){
                         "HORA": $('#hora_fiesta_ida').val(),
                         "DESTINO": $('#destino_fiesta_ida').val()
                     };
-                              
+         
                     if (validacion('FIESTA-IDA',datos_fiestaseventos_ida)) {
 
                             next();
@@ -254,16 +249,16 @@ function finalizar(enviar_solicitud){
                         $.ajax({
                         type: "POST",
                         url: "/SalioViaje/Mail/mail-SalioViaje.php",
-                        data: {TIPO: tipo, DATA: JSON.stringify(datos_fiestaseventos_vuelta)},
+                        data: {TIPO: tipo, DATA: JSON.stringify(datos_fiestaseventos_vuelta), PARADAS_VUELTA: JSON.stringify(array_paradas_2)},
                         success: function(response){
 
                         },
                         complete: function (response) {
-                            if(response == 1){
+                            if(response.responseText == 1){
                                 step++;
                                 steps(step);
                             }else{
-                                console.log(response);
+                                console.log(response.responseText);
                             }       
                         }
                     });
@@ -296,16 +291,16 @@ function finalizar(enviar_solicitud){
                         $.ajax({
                         type: "POST",
                         url: "/SalioViaje/Mail/mail-SalioViaje.php",
-                        data: {TIPO: tipo, DATA: JSON.stringify(datos_fiestaseventos_idavuelta)},
+                        data: {TIPO: tipo, DATA: JSON.stringify(datos_fiestaseventos_idavuelta), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2)},
                         success: function(response){
 
                         },
                         complete: function (response) {
-                            if(response == 1){
+                            if(response.responseText == 1){
                                 step++;
                                 steps(step);
                             }else{
-                                console.log(response);
+                                console.log(response.responseText);
                             }
                         }
                     });
@@ -375,6 +370,8 @@ function steps(step){
             break;
 
         case 3:
+
+            $('.loader_step3').hide();
 
             if($("#select_users").val() == "4"){
                 if($('#select_fiesta').val() == 3){

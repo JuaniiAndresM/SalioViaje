@@ -35,7 +35,7 @@ $mail->From = 'info@salioviaje.com.uy'; //  Editar
 $mail->FromName = 'SalióViaje';  //  Editar
 $mail->addAddress($_SESSION['datos_usuario']['MAIL']);  //  Editar
 $mail->isHTML(true);
-$mail->Subject = "Oportunidad aprobada";    //  Editar
+$mail->Subject = "Oportunidad Aprobada - SalióViaje";    //  Editar
 //PAX
 $mail->Body    = '    <div class="mail" style="max-width: 600px; background: white;">
         <table style="width: 100%; background: linear-gradient(120deg, #3844bc, #2b3179); border: none;" cellspacing="0" cellpadding="0">
@@ -104,7 +104,7 @@ $mail->Body    = '    <div class="mail" style="max-width: 600px; background: whi
     $mail->FromName = 'SalióViaje';  //  Editar
     $mail->addAddress('admin@salioviaje.com.uy');  //  Editar
     $mail->isHTML(true);
-    $mail->Subject = "Nueva oportunidad vendida";    //  Editar
+    $mail->Subject = "Nueva Oportunidad Vendida - SalióViaje";    //  Editar
 
     //ADM
     $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white;">
@@ -187,7 +187,7 @@ $mail->From = 'info@salioviaje.com.uy'; //  Editar
 $mail->FromName = 'SalióViaje';  //  Editar
 $mail->addAddress($mail_tta);  //  Editar
 $mail->isHTML(true);
-$mail->Subject = "Oportunidad vendida";    //  Editar
+$mail->Subject = "Oportunidad Vendida - SalióViaje";    //  Editar
 //TTA
 $mail->Body    = '<div class="mail" style="max-width: 600px; background: white;">
         <table style="width: 100%; background: linear-gradient(120deg, #3844bc, #2b3179); border: none;" cellspacing="0" cellpadding="0">

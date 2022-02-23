@@ -673,6 +673,10 @@
 
             <div class="step_3">
 
+              <div class="loader_step3">
+                <i class="fas fa-spinner" id="spinner"></i>
+              </div>
+
               <div class="paradas-wrapper" id="paradas_ida">
                 <div class="input">
                   <p><i class="fas fa-stopwatch"></i> Paradas - <i class="fas fa-arrow-circle-up"></i> (Ida)</p>
