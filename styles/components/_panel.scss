@@ -1005,6 +1005,40 @@ $main_3: #6d76db;
         }
       }
 
+      .filters2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+
+        .input {
+          position: relative;
+          width: 180px;
+          margin: 0 10px;
+
+          input{
+            width: 100%;
+            height: 40px;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            padding-left: 25px;
+            color: #555;
+            font-size: 0.85em;
+          }
+          input::placeholder {
+            color: #888;
+          }
+
+          #icon {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            color: #555;
+          }
+        }
+      }
+
       .checkboxs{
         display: flex;
         justify-content: center;

@@ -166,6 +166,10 @@
                 <input type="checkbox" name="" id="htl" checked />
                 <p>HTL</p>
               </div>
+              <div class="checkbox">
+                <input type="checkbox" name="" id="agt" checked />
+                <p>AGT</p>
+              </div>
             </div>
           </div>
           <div class="table-overflow">

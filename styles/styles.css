@@ -5980,6 +5980,60 @@ footer .totum p a:hover {
   outline: 1px solid rgba(43, 49, 121, 0.3);
 }
 
+.section-usuarios .usuarios-recientes .filters .filters2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.section-usuarios .usuarios-recientes .filters .filters2 .input {
+  position: relative;
+  width: 180px;
+  margin: 0 10px;
+}
+
+.section-usuarios .usuarios-recientes .filters .filters2 .input input {
+  width: 100%;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding-left: 25px;
+  color: #555;
+  font-size: 0.85em;
+}
+
+.section-usuarios .usuarios-recientes .filters .filters2 .input input::-webkit-input-placeholder {
+  color: #888;
+}
+
+.section-usuarios .usuarios-recientes .filters .filters2 .input input:-ms-input-placeholder {
+  color: #888;
+}
+
+.section-usuarios .usuarios-recientes .filters .filters2 .input input::-ms-input-placeholder {
+  color: #888;
+}
+
+.section-usuarios .usuarios-recientes .filters .filters2 .input input::placeholder {
+  color: #888;
+}
+
+.section-usuarios .usuarios-recientes .filters .filters2 .input #icon {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  color: #555;
+}
+
 .section-usuarios .usuarios-recientes .filters .checkboxs {
   display: -webkit-box;
   display: -ms-flexbox;
