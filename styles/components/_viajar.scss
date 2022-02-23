@@ -588,6 +588,11 @@
             @include button-hover();
           }
 
+          .mensaje-error {
+            color: #ff635a;
+            margin-bottom: 20px;
+          }
+
           .loader_step3{
             width: 100%;
             height: 200px;

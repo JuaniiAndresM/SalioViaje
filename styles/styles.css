@@ -8204,6 +8204,17 @@ footer .totum p a:hover {
           transform: scale(1.1);
 }
 
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .mensaje-error,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .mensaje-error,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .mensaje-error,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .mensaje-error,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .mensaje-error,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .mensaje-error,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .mensaje-error {
+  color: #ff635a;
+  margin-bottom: 20px;
+}
+
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .loader_step3,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .loader_step3,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .loader_step3,
