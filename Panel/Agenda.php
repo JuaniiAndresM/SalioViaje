@@ -155,6 +155,21 @@ require_once '../PHP/procedimientosBD.php';
                 <input type="time" id="time_agenda">
               </div>
 
+              <div class="input">
+                <i class="fas fa-list" id="icon"></i>
+                <select id="estado_agenda">
+                  <option value="0" disabled selected hidden>Seleccione un Estado</option>
+                  <option value="1">En Venta</option>
+                  <option value="2">Indefinido</option>
+                  <option value="2">Aprobado</option>
+                  <option value="3">Rechazado</option>
+                </select>
+              </div>
+
+              <button class="reload-filters">
+                <i class="fa fa-refresh"></i>
+              </button>
+
             </div>
           </div>
           <div class="table-overflow">

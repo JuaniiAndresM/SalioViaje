@@ -5996,11 +5996,11 @@ footer .totum p a:hover {
 
 .section-usuarios .usuarios-recientes .filters .filters2 .input {
   position: relative;
-  width: 180px;
+  width: 200px;
   margin: 0 10px;
 }
 
-.section-usuarios .usuarios-recientes .filters .filters2 .input input {
+.section-usuarios .usuarios-recientes .filters .filters2 .input input, .section-usuarios .usuarios-recientes .filters .filters2 .input select {
   width: 100%;
   height: 40px;
   background-color: transparent;
@@ -6011,19 +6011,19 @@ footer .totum p a:hover {
   font-size: 0.85em;
 }
 
-.section-usuarios .usuarios-recientes .filters .filters2 .input input::-webkit-input-placeholder {
+.section-usuarios .usuarios-recientes .filters .filters2 .input input::-webkit-input-placeholder, .section-usuarios .usuarios-recientes .filters .filters2 .input select::-webkit-input-placeholder {
   color: #888;
 }
 
-.section-usuarios .usuarios-recientes .filters .filters2 .input input:-ms-input-placeholder {
+.section-usuarios .usuarios-recientes .filters .filters2 .input input:-ms-input-placeholder, .section-usuarios .usuarios-recientes .filters .filters2 .input select:-ms-input-placeholder {
   color: #888;
 }
 
-.section-usuarios .usuarios-recientes .filters .filters2 .input input::-ms-input-placeholder {
+.section-usuarios .usuarios-recientes .filters .filters2 .input input::-ms-input-placeholder, .section-usuarios .usuarios-recientes .filters .filters2 .input select::-ms-input-placeholder {
   color: #888;
 }
 
-.section-usuarios .usuarios-recientes .filters .filters2 .input input::placeholder {
+.section-usuarios .usuarios-recientes .filters .filters2 .input input::placeholder, .section-usuarios .usuarios-recientes .filters .filters2 .input select::placeholder {
   color: #888;
 }
 
@@ -6032,6 +6032,45 @@ footer .totum p a:hover {
   top: 10px;
   left: 0;
   color: #555;
+}
+
+.section-usuarios .usuarios-recientes .filters .filters2 .reload-filters {
+  width: 40px;
+  height: 40px;
+  background: -webkit-gradient(linear, left top, right top, from(#3844bc), to(#2b3179));
+  background: linear-gradient(to right, #3844bc, #2b3179);
+  color: #ffffff;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 2em;
+  margin-top: 10px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.section-usuarios .usuarios-recientes .filters .filters2 .reload-filters i {
+  margin-right: 5px;
+}
+
+.section-usuarios .usuarios-recientes .filters .filters2 .reload-filters i {
+  font-size: 1.2em;
+  margin: 0;
+}
+
+.section-usuarios .usuarios-recientes .filters .filters2 .reload-filters:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .section-usuarios .usuarios-recientes .filters .checkboxs {
