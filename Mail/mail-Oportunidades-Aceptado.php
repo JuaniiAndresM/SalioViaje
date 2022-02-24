@@ -25,13 +25,13 @@ $mail->SMTPDebug = 0;
 $mail->IsSMTP();
 $mail->Host = 'mail.salioviaje.com.uy';
 $mail->SMTPAuth = true;
-$mail->Username ='info@salioviaje.com.uy';
-$mail->Password = 'SalioViaje_info';
+$mail->Username ='comunicac_formal@salioviaje.com.uy';
+$mail->Password = 'La_seguridad_es un_valor';
 $mail->SMTPSecure = 'ssl';
 $mail->Port = 465;
 
 $mail->CharSet = 'UTF-8';
-$mail->From = 'info@salioviaje.com.uy'; //  Editar
+$mail->From = 'comunicac_formal@salioviaje.com.uy'; //  Editar
 $mail->FromName = 'SalióViaje';  //  Editar
 $mail->addAddress($_SESSION['datos_usuario']['MAIL']);  //  Editar
 $mail->isHTML(true);
@@ -100,7 +100,7 @@ $mail->Body    = '    <div class="mail" style="max-width: 600px; background: whi
     }
 
     $mail->CharSet = 'UTF-8';
-    $mail->From = 'info@salioviaje.com.uy'; //  Editar
+    $mail->From = 'comunicac_formal@salioviaje.com.uy'; //  Editar
     $mail->FromName = 'SalióViaje';  //  Editar
     $mail->addAddress('admin@salioviaje.com.uy');  //  Editar
     $mail->isHTML(true);
@@ -183,7 +183,7 @@ $mail->Body    = '    <div class="mail" style="max-width: 600px; background: whi
 
 
 $mail->CharSet = 'UTF-8';
-$mail->From = 'info@salioviaje.com.uy'; //  Editar
+$mail->From = 'comunicac_formal@salioviaje.com.uy'; //  Editar
 $mail->FromName = 'SalióViaje';  //  Editar
 $mail->addAddress($mail_tta);  //  Editar
 $mail->isHTML(true);
