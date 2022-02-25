@@ -1,3 +1,4 @@
 RewriteEngine on
 
-RewriteRule ^Success Success.html
+RewriteRule ^Success_Agenda Success.html
+RewriteRule ^Success_Empresa Success2.html

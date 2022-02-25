@@ -520,7 +520,7 @@ function finalizar(){
             }
         }
     }
-    window.location = "/SalioViaje/Panel/Success";
+    window.location = "/SalioViaje/Panel/Success_Agenda";
 }
 
 /*-------------------------------------------------------------------------------------------*/
