@@ -279,6 +279,7 @@ $.ajax({
       vehiculos_select = JSON.parse(response);
       var selectVehiculos = document.getElementById('vehiculos-select');
       $("#vehiculos-select").empty().append($("<option></option>").attr({"value": 0,"selected": true, 'disabled': true, 'hidden': true}).text('Seleccione un vehiculo'));
+      console.log(vehiculos_select)
       for (var i = 0; i < vehiculos_select.length; i++){
         if (vehiculos_select[i]["MATRICULA"] != undefined) {
             var opt = document.createElement('option');
