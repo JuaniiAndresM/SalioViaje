@@ -143,6 +143,34 @@ require_once '../PHP/procedimientosBD.php';
                 onkeyup="buscarUsuarios(2)"
               />
             </div>
+            <div class="filters2">
+
+              <div class="input">
+                <i class="far fa-calendar-alt" id="icon"></i>
+                <input type="date" id="date_agenda">
+              </div>
+
+              <div class="input">
+                <i class="fas fa-clock" id="icon"></i>
+                <input type="time" id="time_agenda">
+              </div>
+
+              <div class="input">
+                <i class="fas fa-list" id="icon"></i>
+                <select id="estado_agenda">
+                  <option value="0" disabled selected hidden>Seleccione un Estado</option>
+                  <option value="1">En Venta</option>
+                  <option value="2">Indefinido</option>
+                  <option value="2">Aprobado</option>
+                  <option value="3">Rechazado</option>
+                </select>
+              </div>
+
+              <button class="reload-filters">
+                <i class="fa fa-refresh"></i>
+              </button>
+
+            </div>
           </div>
           <div class="table-overflow">
             <table class="usuarios-table" id="search-table-usuarios">
