@@ -266,7 +266,7 @@
                 <select name="" id="select_users" onchange="select_usuario()">
                   <option value="0" selected disabled hidden >Tipo de Viaje</option>
                   <option value="1">Traslado</option>
-                  <option value="2">Tour</option>
+                  <option value="2">Tour o Servicio por Horas.</option>
                   <option value="3">Transfer</option>
                   <option value="4">Fiestas o Eventos</option>
                 </select>
@@ -418,29 +418,28 @@
                 </select>
               </div>
 
+              
               <div class="formulario-grid" id="transfer_in">
                 <div class="column">
 
                   <div class="input">
-                    <p><i class="far fa-calendar-alt"></i> Fecha de Salida</p>                    
-                    <input type="date" id="fecha_salida_transfer_in"/>
+                    <p><i class="far fa-calendar-alt"></i> Fecha de Regreso</p>                    
+                    <input type="date" id="fecha_regreso_transfer_in"/>
                   </div>
-    
+
                   <div class="input">
-                    <p><i class="fas fa-map-marker-alt"></i> Origen</p>
-                    <input list="Destino" id="origen_transfer_in">
-                    <datalist id="Destino">
-                      <option value="Canelones">
-                      <option value="Montevideo">
-                      <option value="Tacuarembó">
-                      <option value="Maldonado">
-                      <option value="Rivera">
-                    </datalist>
-                  </div>
+                    <p><i class="fas fa-plane-arrival"></i> Origen (Puerto o Aeropuerto)</p> 
+                    <input type="text" id="aeropuerto_transfer_in">
+                  </div>         
 
                   <div class="input">
                     <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p> 
                     <input type="number" id="cant_pasajeros_transfer_in"/>
+                  </div>
+                  
+                  <div class="input">
+                    <p><i class="fa fa-ticket"></i> N° de Vuelo / Barco</p> 
+                    <input type="number" id="nro_vuelo_barco_in"/>
                   </div>
 
                 </div>
@@ -453,8 +452,15 @@
                   </div>
     
                   <div class="input">
-                    <p><i class="fas fa-plane-departure"></i> Destino (Puerto o Aeropuerto)</p> 
-                    <input type="text" id="aeropuerto_transfer_in">
+                    <p><i class="fas fa-map-marker-alt"></i> Destino</p>
+                    <input list="Destino" id="destino_transfer_in">
+                    <datalist id="Destino">
+                      <option value="Canelones">
+                      <option value="Montevideo">
+                      <option value="Tacuarembó">
+                      <option value="Maldonado">
+                      <option value="Rivera">
+                    </datalist>
                   </div>
 
                   <div class="input">
@@ -471,17 +477,29 @@
 
                   <div class="input">
                     <p><i class="far fa-calendar-alt"></i> Fecha de Regreso</p>                    
-                    <input type="date" id="fecha_regreso_transfer_out"/>
+                    <input type="date" id="fecha_salida_transfer_out"/>
                   </div>
-
+    
                   <div class="input">
-                    <p><i class="fas fa-plane-arrival"></i> Origen (Puerto o Aeropuerto)</p> 
-                    <input type="text" id="aeropuerto_transfer_out">
-                  </div>         
+                    <p><i class="fas fa-map-marker-alt"></i> Origen</p>
+                    <input list="Destino" id="origen_transfer_out">
+                    <datalist id="Destino">
+                      <option value="Canelones">
+                      <option value="Montevideo">
+                      <option value="Tacuarembó">
+                      <option value="Maldonado">
+                      <option value="Rivera">
+                    </datalist>
+                  </div>
 
                   <div class="input">
                     <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p> 
                     <input type="number" id="cant_pasajeros_transfer_out"/>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-ticket"></i> N° de Vuelo / Barco</p> 
+                    <input type="number" id="nro_vuelo_barco_out"/>
                   </div>
 
                 </div>
@@ -494,15 +512,8 @@
                   </div>
     
                   <div class="input">
-                    <p><i class="fas fa-map-marker-alt"></i> Destino</p>
-                    <input list="Destino" id="destino_transfer_out">
-                    <datalist id="Destino">
-                      <option value="Canelones">
-                      <option value="Montevideo">
-                      <option value="Tacuarembó">
-                      <option value="Maldonado">
-                      <option value="Rivera">
-                    </datalist>
+                    <p><i class="fas fa-plane-departure"></i> Destino (Puerto o Aeropuerto)</p> 
+                    <input type="text" id="aeropuerto_transfer_out">
                   </div>
 
                   <div class="input">

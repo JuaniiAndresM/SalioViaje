@@ -122,8 +122,8 @@ function finalizar(enviar_solicitud){
                         "FECHA_SALIDA": $('#fecha_salida_transfer_in').val(),
                         "CANTIDAD_PASAJEROS": $('#cant_pasajeros_transfer_in').val(),
                         "HORA": $('#hora_transfer_in').val(),
-                        "ORIGEN": $('#origen_transfer_in').val(),
-                        "AEROPUERTO": $('#cant_pasajeros_transfer_in').val(),
+                        "DESTINO": $('#destino_transfer_in').val(),
+                        "AEROPUERTO": $('#aeropuerto_transfer_in').val(),
                         "EQUIPAJE": $('#equipaje_transfer_in').val()
                     };
                     
@@ -162,7 +162,7 @@ function finalizar(enviar_solicitud){
                         "CANTIDAD_PASAJEROS": $('#cant_pasajeros_transfer_out').val(),
                         "HORA": $('#hora_transfer_out').val(),
                         "AEROPUERTO": $('#aeropuerto_transfer_out').val(),
-                        "DESTINO": $('#destino_transfer_out').val(),
+                        "ORIGEN": $('#origen_transfer_out').val(),
                         "EQUIPAJE": $('#equipaje_transfer_out').val()
                     };
 
