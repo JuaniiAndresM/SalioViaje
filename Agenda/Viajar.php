@@ -330,7 +330,7 @@
 
                   <div class="input">
                     <p><i class="fas fa-comment-dots"></i> Observaciones</p>
-                    <textarea id="Observaciones"></textarea>
+                    <textarea id="Observaciones" id="observaciones_traslado"></textarea>
                   </div>
 
                 </div>
@@ -375,7 +375,7 @@
 
                   <div class="input">
                     <p><i class="fas fa-comment-dots"></i> Observaciones</p>
-                    <textarea id="Observaciones"></textarea>
+                    <textarea id="Observaciones" id="observaciones_tour"></textarea>
                   </div>
 
                 </div>
@@ -481,7 +481,7 @@
 
                   <div class="input">
                     <p><i class="fas fa-comment-dots"></i> Observaciones</p>
-                    <textarea id="Observaciones"></textarea>
+                    <textarea id="Observaciones" id="observaciones_transfer_in"></textarea>
                   </div>
                   
                 </div>
@@ -539,7 +539,7 @@
 
                   <div class="input">
                     <p><i class="fas fa-comment-dots"></i> Observaciones</p>
-                    <textarea id="Observaciones"></textarea>
+                    <textarea id="Observaciones" id="observaciones_transfer_out"></textarea>
                   </div>
                   
                 </div>
@@ -601,7 +601,7 @@
 
                   <div class="input">
                     <p><i class="fas fa-comment-dots"></i> Observaciones</p>
-                    <textarea id="Observaciones"></textarea>
+                    <textarea id="Observaciones" id="observaciones_fiesta_ida"></textarea>
                   </div>
                   
                 </div>
@@ -642,7 +642,7 @@
 
                   <div class="input">
                     <p><i class="fas fa-comment-dots"></i> Observaciones</p>
-                    <textarea id="Observaciones"></textarea>
+                    <textarea id="Observaciones" id="observaciones_fiesta_vuelta"></textarea>
                   </div>
                   
                 </div>
@@ -681,7 +681,7 @@
 
                   <div class="input">
                     <p><i class="fas fa-comment-dots"></i> Observaciones</p>
-                    <textarea id="Observaciones"></textarea>
+                    <textarea id="Observaciones" id="observaciones_fiesta_idavuelta"></textarea>
                   </div>
 
                 </div>
