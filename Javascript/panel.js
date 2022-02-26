@@ -460,41 +460,6 @@ function crear_intervalo(tiempo){
     },tiempo)
 }
 
-function editarUsuario(id){
-    location.href = "/SalioViaje/Profile/EditarUsuario.php/" + "?ID=" + id;
-}
-
-
-function verEmpresa(rut){
-    location.href = "/SalioViaje/Profile/Empresa.php/" + "?RUT=" + rut;
-}
-
-function editarEmpresa(rut){
-    location.href = "/SalioViaje/Profile/EditarEmpresa.php/" + "?RUT=" + rut;
-}
-
-function eliminarEmpresa(rut){
-    $.ajax({
-        type: "POST",
-        url: "/SalioViaje/PHP/llamadosSol.php",
-        data: {tipe:3, RUT:rut},
-        success: function () {
-            location.reload();
-        }
-    });
-}
-
-function eliminar_usuario(id){
-    $.ajax({
-        type: "POST",
-        url: "/SalioViaje/PHP/llamadosSol.php",
-        data: {tipe:4, ID:id},
-        success: function () {
-            location.reload();
-        }
-    });
-}
-
 /*-------------------------------------------------------------------------------------------*/
 //                                     Edicion                                             //
 /*-------------------------------------------------------------------------------------------*/
@@ -704,16 +669,16 @@ function guardarEdicionUsuario(id,ciAnterior){
  }
  
  function editarUsuario(id){
-    location.href = "/SalioViaje/Profile/EditarUsuario.php/" + "?ID=" + id;
+    location.href = "/SalioViaje/Profile/Usuario/Editar/" + id;
  }
  
  
  function verEmpresa(rut){
-    location.href = "/SalioViaje/Profile/Empresa.php/" + "?RUT=" + rut;
+    location.href = "/SalioViaje/Profile/Empresa/" + rut;
  }
  
  function editarEmpresa(rut){
-    location.href = "/SalioViaje/Profile/EditarEmpresa.php/" + "?RUT=" + rut;
+    location.href = "/SalioViaje/Profile/Empresa/Editar/" + rut;
  }
  
  function eliminarEmpresa(rut){
