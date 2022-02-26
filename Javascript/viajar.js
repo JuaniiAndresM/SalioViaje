@@ -3,6 +3,8 @@ $(document).ready(function () {
     select_fiesta();
     select_transfer();
 
+    $('.mensaje-error').hide();
+
 });
 
 var step = 1;

@@ -327,6 +327,12 @@
                     </datalist>
 
                   </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-comment-dots"></i> Observaciones</p>
+                    <textarea id="Observaciones"></textarea>
+                  </div>
+
                 </div>
 
               </div>
@@ -340,7 +346,7 @@
 
             <div class="step_2_tour">
                             
-              <h3 class="title"><i class="fas fa-city"></i> Tour</h3>
+              <h3 class="title"><i class="fas fa-city"></i> Tour o Servicio por Horas.</h3>
 
               <div class="formulario-grid">
                 <div class="column">
@@ -365,6 +371,11 @@
                   <div class="input">
                     <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p>  
                     <input type="number" id="cant_pasajeros_tour"/>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-comment-dots"></i> Observaciones</p>
+                    <textarea id="Observaciones"></textarea>
                   </div>
 
                 </div>
@@ -467,6 +478,11 @@
                     <p><i class="fas fa-suitcase-rolling"></i> Equipaje (Cant. Maletas)</p> 
                     <input type="number" id="equipaje_transfer_in"/>
                   </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-comment-dots"></i> Observaciones</p>
+                    <textarea id="Observaciones"></textarea>
+                  </div>
                   
                 </div>
 
@@ -498,7 +514,7 @@
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-ticket"></i> N° de Vuelo / Barco</p> 
+                    <p><i class="fa fa-ticket"></i> N° de Vuelo / Barco</p> 
                     <input type="number" id="nro_vuelo_barco_out"/>
                   </div>
 
@@ -519,6 +535,11 @@
                   <div class="input">
                     <p><i class="fas fa-suitcase-rolling"></i> Equipaje (Cant. Maletas)</p> 
                     <input type="number" id="equipaje_transfer_out"/>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-comment-dots"></i> Observaciones</p>
+                    <textarea id="Observaciones"></textarea>
                   </div>
                   
                 </div>
@@ -577,6 +598,11 @@
                     <p><i class="fas fa-route"></i> Destino o Punto de Interés</p> 
                     <input type="text" id="destino_fiesta_ida">
                   </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-comment-dots"></i> Observaciones</p>
+                    <textarea id="Observaciones"></textarea>
+                  </div>
                   
                 </div>
 
@@ -613,6 +639,11 @@
                     <p><i class="fas fa-route"></i> Destino</p> 
                     <input type="text" id="destino_fiesta_vuelta">
                   </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-comment-dots"></i> Observaciones</p>
+                    <textarea id="Observaciones"></textarea>
+                  </div>
                   
                 </div>
 
@@ -646,6 +677,11 @@
                   <div class="input">
                     <p><i class="fas fa-route"></i> Destino o Punto de Interés</p> 
                     <input type="text" id="destino_ida_fiestas_idavuelta">
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-comment-dots"></i> Observaciones</p>
+                    <textarea id="Observaciones"></textarea>
                   </div>
 
                 </div>
