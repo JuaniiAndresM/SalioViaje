@@ -4960,6 +4960,20 @@ footer .totum p a:hover {
   white-space: nowrap;
 }
 
+#panel-navbar ul li a .tool-tip[title-new]:hover .tool-tip[title-new]:after {
+  content: attr(title-new);
+  position: absolute;
+  border: #c0c0c0 1px dotted;
+  padding: 10px;
+  display: block;
+  z-index: 100;
+  background-color: #000000;
+  color: #ffffff;
+  max-width: 200px;
+  text-decoration: none;
+  text-align: center;
+}
+
 #panel-navbar ul li:hover,
 #panel-navbar ul li.hovered {
   background-color: white;
@@ -10560,6 +10574,27 @@ footer .totum p a:hover {
 
 .profile-wrapper .profile-grid .viajes-wrapper .password-change .button-wrapper .button-pin i, .profile-wrapper .profile-grid .viajes-wrapper .password-change .button-wrapper .button-agregar i, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .button-wrapper .button-pin i, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .button-wrapper .button-agregar i {
   margin-right: 5px;
+}
+
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .button-wrapper .button-pin span i, .profile-wrapper .profile-grid .viajes-wrapper .password-change .button-wrapper .button-agregar span i, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .button-wrapper .button-pin span i, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .button-wrapper .button-agregar span i {
+  -webkit-animation: loader-finalizar 1s infinite forwards linear;
+          animation: loader-finalizar 1s infinite forwards linear;
+  margin: 0;
+}
+
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .button-wrapper button:disabled,
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .button-wrapper button[disabled], .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .button-wrapper button:disabled,
+.profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .button-wrapper button[disabled] {
+  background: #cccccc;
+  color: #666666;
+}
+
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .mensaje-error,
+.profile-wrapper .profile-grid .viajes-wrapper .password-change #mensaje-error, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .mensaje-error,
+.profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle #mensaje-error {
+  color: #ff635a;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .profile-wrapper .profile-grid .viajes-wrapper .password-change .vehiculos-wrapper, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .vehiculos-wrapper {

@@ -131,7 +131,7 @@ require_once '../PHP/procedimientosBD.php';
       <div class="section-usuarios">
         <div class="usuarios-recientes">
           <div class="usuarios-info">
-            <h2><i class="fas fa-book"></i> Mis Viajes</h2>
+            <h2><i class="fas fa-book"></i> <?php if($_SESSION['tipo_usuario'] == "Administrador"){ echo 'Viajes'; }else{ echo 'Mis Viajes';} ?></h2>
           </div>
           <div class="filters">
             <div class="search">

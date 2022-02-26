@@ -592,7 +592,19 @@ function guardarEdicionUsuario(id,ciAnterior){
                          data: {tipe:1, ID:id, PINNUEVO:datos_Usuario["PIN"]},
                          success: function (response) {
                              if(pinAnterior != null){
-                                location.reload();
+                                $('.button-pin').attr('disabled', true);
+                                $('.button-pin').html('<span class="loader-register"><i class="fas fa-spinner"></i></span>');
+
+                                setTimeout(() => {
+                                    $('.button-pin').attr('disabled', false);
+                                    $('.button-pin').html('<i class="fas fa-save"></i> Cambiar PIN');
+
+                                    $('#mensaje-error-PIN').show();
+                                    $('#mensaje-error-PIN').css('color','rgb(97, 150, 62)');
+                                    $('#mensaje-error-PIN').text("PIN cambiado correctamente.");
+
+                                }, 2000);
+                                
                              }else{
                                 $('#mensaje-error-PIN').show();
                                 $('#mensaje-error-PIN').text("Debe completar todos los campos.");
