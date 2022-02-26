@@ -210,9 +210,9 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                                                 $mail->Body .= '</p>';
                                             }
                                         }
-                                        if(isset($datos_array["CANTIDAD_PASAJEROS"]['OBSERVACIONES'])){
+                                        if(isset($datos_array['OBSERVACIONES'])){
                                             $mail->Body .= '<h4 style="font-size: 16px; margin-top: 40px;">Observaciones:</h4>
-                                            <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">'.$datos_array["CANTIDAD_PASAJEROS"]['OBSERVACIONES'].'</b>';
+                                            <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">'.$datos_array['OBSERVACIONES'].'</b>';
                                         }
                                         $mail->Body .= '
                                     </div>
