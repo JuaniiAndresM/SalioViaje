@@ -228,10 +228,10 @@ function ver_usuario(id){
 /*-------------------------------------------------------------------------------------------*/
 //                                     Empresas                                              //
 /*-------------------------------------------------------------------------------------------*/
-let empresas
+let traer_empresas
 
 function traerEmpresas(seccion){
-    empresas = $.ajax({
+    traer_empresas = $.ajax({
                         type: 'POST',       
                         url: "/SalioViaje/PHP/Backend.php",
                         data: {opcion:"emp"},
@@ -241,20 +241,20 @@ function traerEmpresas(seccion){
                             return response;
                         }
                     }).responseText;
-    empresas = JSON.parse(empresas)
+    traer_empresas = JSON.parse(traer_empresas)
     tablas_empresas(seccion);
 }
 
 function tablas_empresas(seccion){
     console.log(seccion)
-    for (var i = 0;i < empresas.length; i++) {
+    for (var i = 0;i < traer_empresas.length; i++) {
         switch(seccion){
             case "Dashboard":
-                    tabla_empresas_dashboard(empresas[i])
+                    tabla_empresas_dashboard(traer_empresas[i])
                 break;
 
             case "empresas":
-                    tabla_seccion_empresas(empresas[i])
+                    tabla_seccion_empresas(traer_empresas[i])
                 break;
         }
     }
@@ -307,10 +307,10 @@ function tabla_seccion_empresas(empresa){
 /*-------------------------------------------------------------------------------------------*/
 //                                     Vehiculos                                             //
 /*-------------------------------------------------------------------------------------------*/
-let vehiculos
+let traer_vehiculos
 
 function traerVehiculos(){
-    vehiculos = $.ajax({
+    traer_vehiculos = $.ajax({
                         type: 'POST',       
                         url: "/SalioViaje/PHP/Backend.php",
                         data: {opcion:"vih"},
@@ -320,14 +320,14 @@ function traerVehiculos(){
                             return response;
                         }
                     }).responseText;
-    vehiculos = JSON.parse(vehiculos)
-     console.log(vehiculos)
+    traer_vehiculos = JSON.parse(traer_vehiculos)
+     console.log(traer_vehiculos)
     tablas_vehiculos();
 }
 
 function tablas_vehiculos(){
-    for (var i = 0;i < vehiculos.length; i++) {
-        tabla_seccion_vehiculos(vehiculos[i])
+    for (var i = 0;i < traer_vehiculos.length; i++) {
+        tabla_seccion_vehiculos(traer_vehiculos[i])
     }
 }
 

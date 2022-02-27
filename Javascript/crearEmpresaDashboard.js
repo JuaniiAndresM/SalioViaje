@@ -2,8 +2,14 @@ $(document).ready(function () {
 
     tipo_usuario = $("#tipo_usuario").val();
 
+    console.log(tipo_usuario)
     steps(1,tipo_usuario);    
+
+    $("#finalizar_empresa").on('click', function() {
+        crear_empresa()
+    });
 });
+
 
 step = 1;
 
@@ -78,8 +84,8 @@ function steps(step, tipo_usuario){
             break;
 
         case 3:
-            $("#step_3").show();
             $(".progress-bar").hide();
+            $("#step_3").show();
 
             break;
     }
@@ -95,12 +101,61 @@ function new_company(){
     steps(step);
 }
 
-function finalizar_empresa_total(){
+function finalizar_empresa_total(id){
     $("#add_company_button").hide();
     $("#finalizar-registro-TTA").prop('disabled', true);
     $('#finalizar-registro-TTA').html('<span class="loader-register"><i class="fas fa-spinner"></i></span>');
-
+    console.log(id)
+        switch(tipo_usuario){
+             case "Transportista":
+                     $.ajax({
+                        type: "POST",
+                        url: "/SalioViaje/PHP/procedimientosForm.php",
+                        data: { tipo:"2",idUsuario: id,empresas:JSON.stringify(empresas) },
+                        success: function (response) {
+                          console.log(response)
+                         },
+                      });
+            break;
+        }
     setTimeout(() => {
         location.href = "/SalioViaje/Panel/Success_Empresa"
     }, 2000);
+}
+
+function crear_empresa(){
+    let datos_Empresa = {
+       "RUT": document.getElementById('rutt').value,
+       "NOMBRE_COMERCIAL": document.getElementById('nombre_comercial').value,
+       "RAZON_SOCIAL": document.getElementById('razon_social').value,
+       "NUMERO_MTOP": document.getElementById('numero_mtop').value,
+       "PASSWORD_MTOP": document.getElementById('password_mtop').value,
+       "CHOFERES_SUB": document.getElementById('choferes_sub_select').value,
+       "VEHICULOS": vehiculos
+    };
+    console.log(datos_Empresa)
+if (validacion("EMPRESA",datos_Empresa)) {     
+ empresas.push(datos_Empresa)
+ datos_Empresa = {};
+ vehiculos = [];
+ reset_vehicles();
+}else{ console.log("No valido...") }
+
+}
+
+function valido_Empresa_sin_crearla(){
+
+      datos_Empresa = {
+       "RUT": document.getElementById('rutt').value,
+       "NOMBRE_COMERCIAL": document.getElementById('nombre_comercial').value,
+       "CHOFERES_SUB": document.getElementById('choferes_sub_select').value,
+       "RAZON_SOCIAL": document.getElementById('razon_social').value,
+       "NUMERO_MTOP": document.getElementById('numero_mtop').value,
+       "PASSWORD_MTOP": document.getElementById('password_mtop').value,
+    };
+
+   if (validacion("EMPRESA",datos_Empresa)) {     
+      console.log("...")
+      next();
+   }else{ console.log("No valido...") }
 }

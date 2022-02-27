@@ -53,6 +53,12 @@ class procedimientosForm extends procedimientosBD
 			}
 		}
 	}
+
+	public function guardar_vehiculos($vehiculos,$rut){
+		for ($x=0; $x < count($vehiculos); $x++) {
+			$this->register_vehiculo($rut,0,$vehiculos[$x]);
+		}
+	}
 }
 
 $procedimientosForm = new procedimientosForm();
@@ -94,6 +100,11 @@ if ($_POST['tipo'] == 1) {
 		break;
 		case 'vehiculos':
 		echo json_encode($procedimientosForm->datos_vehiculos());
+		break;
+		case 'guardar-vehiculos':
+		$datos = json_decode($_POST["vehiculos"],true);
+		echo $procedimientosForm->guardar_vehiculos($datos,$_POST['rut']);
+		break;
 		case 'vehiculos-agenda':
 		session_start();
 		$vehiculos = array();

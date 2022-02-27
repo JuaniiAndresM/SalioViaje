@@ -1,3 +1,7 @@
+var Location = location.toString();
+
+if (!Location.includes('Profile/EditarEmpresa.php')) {
+
 $(document).ready(function () {
   $('.mensaje-error').hide();
   $('#guardar-cambios').hide();
@@ -11,7 +15,6 @@ $(document).ready(function () {
   $('#finalizar-registro-TTA').html('<i class="fas fa-check"></i> Finalizar');
 
   steps(1);
-  Empresas();
 
   $("#pax-register").on('click', function() {
     register_form($('#select_users').val())
@@ -56,6 +59,8 @@ $(document).ready(function () {
  });
  });
 });
+
+}
 
 var step = 1;
 

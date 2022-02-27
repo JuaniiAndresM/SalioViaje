@@ -2,7 +2,14 @@
 
 $datos = json_decode($_POST['datos']);
 $matricula = $datos->{'MATRICULA'};
-$capacidad = $datos->{'CAPACIDAD_PASAJEROS'};
+
+if (isset($datos->{'CAPACIDAD'})) {
+  $capacidad = $datos->{'CAPACIDAD'};
+} else {
+  $capacidad = $datos->{'CAPACIDAD_PASAJEROS'};
+}
+
+
 
 if ($capacidad == "3" || $capacidad < "3") {
 	$vehiculo = '

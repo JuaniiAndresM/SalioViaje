@@ -86,6 +86,7 @@
 
     <script src="/SalioViaje/Javascript/panel.js"></script>
     <script src="/SalioViaje/Javascript/settings.js"></script>
+    <script src="/SalioViaje/Javascript/form.js"></script>
     <script src="/SalioViaje/Javascript/crearEmpresaDashboard.js"></script>
     <script src="/SalioViaje/Javascript/loader.js"></script>
   </head>
@@ -189,8 +190,9 @@
                 </div>
 
                 <p id="mensaje-error" class="mensaje-error"></p>
+                
             
-                <button class="button-register" id="add-vehicle" onclick="next()">
+                <button class="button-register" id="add-vehicle" onclick="valido_Empresa_sin_crearla()">
                     <i class="fas fa-car-side"></i> Agregar Vehículo
                 </button>
                 <button class="button-register" id="finalizar_empresa" onclick="crear_empresa(1)">
@@ -276,7 +278,7 @@
             <div id="step_3">
             <div class="button-wrapper">
                 <button onclick="new_company()" id="add_company_button"><i class="fas fa-plus"></i> Agregar Nueva Empresa</button>
-                <button id="finalizar-registro-TTA" onclick="finalizar_empresa_total()"><i class="fas fa-check"></i> Finalizar</button>
+                <button id="finalizar-registro-TTA" onclick="finalizar_empresa_total(<?php echo json_encode($_SESSION['datos_usuario']['ID']); ?>)"><i class="fas fa-check"></i> Finalizar</button>
             </div>
             </div>
 
