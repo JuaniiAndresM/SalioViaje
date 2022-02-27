@@ -3,6 +3,8 @@ $(document).ready(function () {
     select_fiesta();
     select_transfer();
 
+    $('.mensaje-error').hide();
+
 });
 
 var step = 1;
@@ -38,7 +40,8 @@ function finalizar(enviar_solicitud){
                 "ORIGEN": $('#origen_traslado').val(),
                 "CANTIDAD_PASAJEROS": $('#cant_pasajeros').val(),
                 "HORA": $('#hora').val(),
-                "DESTINO": $('#destino_traslado').val()
+                "DESTINO": $('#destino_traslado').val(),
+                "OBSERVACIONES": $('#observaciones_traslado').val()
             };
 
             if (validacion('Translado',datos_traslado)) {
@@ -75,7 +78,8 @@ function finalizar(enviar_solicitud){
                 "CANTIDAD_PASAJEROS": $('#cant_pasajeros_tour').val(),
                 "HORA": $('#hora_tour').val(),
                 "CIUDAD": $('#destino_tour').val(),
-                "DURACION": $('#duracion_tour').val()
+                "DURACION": $('#duracion_tour').val(),
+                "OBSERVACIONES": $('#observaciones_tour').val()
             };
 
             if (validacion('Tour',datos_tour)) {
@@ -122,9 +126,10 @@ function finalizar(enviar_solicitud){
                         "FECHA_SALIDA": $('#fecha_salida_transfer_in').val(),
                         "CANTIDAD_PASAJEROS": $('#cant_pasajeros_transfer_in').val(),
                         "HORA": $('#hora_transfer_in').val(),
-                        "ORIGEN": $('#origen_transfer_in').val(),
-                        "AEROPUERTO": $('#cant_pasajeros_transfer_in').val(),
-                        "EQUIPAJE": $('#equipaje_transfer_in').val()
+                        "DESTINO": $('#destino_transfer_in').val(),
+                        "AEROPUERTO": $('#aeropuerto_transfer_in').val(),
+                        "EQUIPAJE": $('#equipaje_transfer_in').val(),
+                        "OBSERVACIONES": $('#observaciones_transfer_in').val()
                     };
                     
                     if (validacion('Transfer_in',datos_transfer_in)) {
@@ -162,8 +167,9 @@ function finalizar(enviar_solicitud){
                         "CANTIDAD_PASAJEROS": $('#cant_pasajeros_transfer_out').val(),
                         "HORA": $('#hora_transfer_out').val(),
                         "AEROPUERTO": $('#aeropuerto_transfer_out').val(),
-                        "DESTINO": $('#destino_transfer_out').val(),
-                        "EQUIPAJE": $('#equipaje_transfer_out').val()
+                        "ORIGEN": $('#origen_transfer_out').val(),
+                        "EQUIPAJE": $('#equipaje_transfer_out').val(),
+                        "OBSERVACIONES": $('#observaciones_transfer_out').val()
                     };
 
                     if (validacion('Transfer_out',datos_transfer_out)) {
@@ -210,7 +216,8 @@ function finalizar(enviar_solicitud){
                         "ORIGEN": $('#origen_fiestas_ida').val(),
                         "CANTIDAD_PASAJEROS_IDA": $('#cant_pasajeros_fiesta_ida').val(),
                         "HORA": $('#hora_fiesta_ida').val(),
-                        "DESTINO": $('#destino_fiesta_ida').val()
+                        "DESTINO": $('#destino_fiesta_ida').val(),
+                        "OBSERVACIONES": $('#observaciones_fiesta_ida').val()
                     };
          
                     if (validacion('FIESTA-IDA',datos_fiestaseventos_ida)) {
@@ -248,7 +255,8 @@ function finalizar(enviar_solicitud){
                         "ORIGEN": $('#origen_fiestas_vuelta').val(),
                         "CANTIDAD_PASAJEROS_VUELTA": $('#cant_pasajeros_fiesta_vuelta').val(),
                         "HORA": $('#hora_fiesta_vuelta').val(),
-                        "DESTINO": $('#destino_fiesta_vuelta').val()
+                        "DESTINO": $('#destino_fiesta_vuelta').val(),
+                        "OBSERVACIONES": $('#observaciones_fiesta_out').val()
                     };
                                  
                     if (validacion('FIESTA-VUELTA',datos_fiestaseventos_vuelta)) {
@@ -292,7 +300,8 @@ function finalizar(enviar_solicitud){
                         "ORIGEN": $('#origen_vuelta_fiestas_idavuelta').val(),
                         "CANTIDAD_PASAJEROS_VUELTA": $('#cant_pasajeros_vuelta_fiestas_idavuelta').val(),
                         "HORA": $('#hora_vuelta_fiestas_idavuelta').val(),
-                        "DESTINO": $('#destino_vuelta_fiestas_idavuelta').val()
+                        "DESTINO": $('#destino_vuelta_fiestas_idavuelta').val(),
+                        "OBSERVACIONES": $('#observaciones_fiesta_idavuelta').val()
                     };
                         
                     if (validacion('FIESTA-IDA-VUELTA',datos_fiestaseventos_idavuelta)) {

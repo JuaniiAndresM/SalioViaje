@@ -258,7 +258,7 @@
 
             <?php
 
-              if($tipo == 1){
+              if($tipo == 9){
                 if($_SESSION['tipo_usuario'] == "Administrador" || $nombre == $_SESSION['usuario']){
                   echo '<h3><i class="fas fa-history"></i> Historial de Viajes</h3>
                   <div class="search">

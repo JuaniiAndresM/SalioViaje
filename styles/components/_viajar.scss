@@ -431,7 +431,8 @@
             margin: 30px auto;
   
             input,
-            select {
+            select,
+            textarea {
               width: 100%;
               height: 40px;
               background-color: transparent;
@@ -441,10 +442,15 @@
               padding-left: 25px;
               color: #555;
               font-size: 0.85em;
+              resize: vertical;
             }
             input::placeholder,
-            select::placeholder {
+            select::placeholder,
+            textarea::placeholder {
               color: #888;
+            }
+            textarea{
+              padding: 10px 0;
             }
   
             #icon {

@@ -198,6 +198,9 @@ function steps(step){
      $('#add-vehicle').hide();
      $('#finalizar_empresa').show();
 
+     $('#nro_mtop_rgt').hide();
+     $('#pass_mtop_rgt').hide();
+
      $('.progress-bar').hide();
      $('.progress-bar2').show();
      break;

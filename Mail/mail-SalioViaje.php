@@ -68,8 +68,8 @@ $mail->Password = 'SalioViaje_info';
 $mail->SMTPSecure = 'ssl';
 $mail->Port = 465;
 $mail->CharSet = 'UTF-8';
-$mail->From = 'info@salioviaje.com.uy';             //  Editar
-$mail->FromName = 'SalióViaje';                     //  Editar
+$mail->From = 'comunicac_formal@salioviaje.com.uy';             //  Editar
+$mail->FromName = 'La_seguridad_es un_valor';                     //  Editar
 $mail->addAddress('admin@salioviaje.com.uy');       //  Editar
 $mail->isHTML(true);
 $mail->Subject = "Nueva Solicitud de Cotización - SalióViaje";   //  Editar
@@ -209,6 +209,10 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                                                 }
                                                 $mail->Body .= '</p>';
                                             }
+                                        }
+                                        if(isset($datos_array['OBSERVACIONES'])){
+                                            $mail->Body .= '<h4 style="font-size: 16px; margin-top: 40px;">Observaciones:</h4>
+                                            <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">'.$datos_array['OBSERVACIONES'].'</b>';
                                         }
                                         $mail->Body .= '
                                     </div>

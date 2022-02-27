@@ -53,7 +53,7 @@
   </button>
   <ul>
     <li>
-      <a href="/SalioViaje/">
+      <a href="/SalioViaje/" class="tool-tip" title-new="Volver al Inicio.">
         <span class="icon"><img src="/SalioViaje/media/svg/Logo-SalioViaje-White.svg" alt="Logo SalióViaje"></span>
         <span class="title">SalióViaje</span>
       </a>
@@ -159,7 +159,9 @@
         <span class="title">Configuración</span>
       </a>
     </li>
-<!--  
+
+    <!--  
+
     <li>
       <a href="Soporte.html">
         <span class="icon"><i class="fas fa-headset"></i></span>
@@ -168,6 +170,14 @@
     </li>
     
     -->
+
+    <li>
+      <a href="/SalioViaje/">
+        <span class="icon"><i class="fa fa-home"></i></span>
+        <span class="title">Volver al Inicio</span>
+      </a>
+    </li>
+
   </ul>
 
 </nav>
