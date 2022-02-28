@@ -16,14 +16,16 @@ require '../Plugins/PHPMailer/src/SMTP.php';
 $TIPO = $_POST['TIPO'];
 $DATOS = $_POST['DATA'];
 
-$PARADAS_IDA = $_POST['PARADAS_IDA'];
-$paradas_ida_array = json_decode($PARADAS_IDA, true);
+if(isset($_POST['PARADAS_IDA'])){
+    $PARADAS_IDA = $_POST['PARADAS_IDA'];
+    $paradas_ida_array = json_decode($PARADAS_IDA, true);
+}
+if(isset($_POST['PARADAS_VUELTA'])){
+    $PARADAS_VUELTA = $_POST['PARADAS_IDA'];
+    $paradas_vuelta_array = json_decode($PARADAS_VUELTA, true);
+}
 
-$PARADAS_VUELTA = $_POST['PARADAS_VUELTA'];
-$paradas_vuelta_array = json_decode($PARADAS_VUELTA, true);
-
-$datos_array = json_decode(stripslashes($DATOS),true);
-$paradas_array = json_decode($PARADAS_IDA,true);
+$datos_array = json_decode(stripslashes($DATOS),true);  
 
 $TIPO_VIAJE = "";
 
@@ -52,15 +54,24 @@ $mail = new PHPMailer(true);
 
 $mail->SMTPDebug = 0;
 $mail->IsSMTP();
+
 $mail->Host = 'mail.salioviaje.com.uy';
 $mail->SMTPAuth = true;
-$mail->Username ='info@salioviaje.com.uy';
-$mail->Password = 'SalioViaje_info';
+$mail->Username ='sistema_sv_de_avisos@salioviaje.com.uy';
+$mail->Password = 'SalioViaje_avisa_para_exito';
 $mail->SMTPSecure = 'ssl';
 $mail->Port = 465;
+
+// $mail->Host = 'smtp.gmail.com';
+// $mail->SMTPAuth = true;
+// $mail->Username ='totumdevcontacto@gmail.com';
+// $mail->Password = 'manuni7817';
+// $mail->SMTPSecure = 'tls';
+// $mail->Port = 587;
+
 $mail->CharSet = 'UTF-8';
-$mail->From = 'comunicac_formal@salioviaje.com.uy';             //  Editar
-$mail->FromName = 'La_seguridad_es un_valor';                     //  Editar
+$mail->From = 'totumdevcontacto@gmail.com';             //  Editar
+$mail->FromName = 'TotumDev';                    //  Editar
 $mail->addAddress('thewolfmodzyt@gmail.com');       //  Editar
 $mail->isHTML(true);
 $mail->Subject = "Nueva Solicitud de Cotización - SalióViaje";   //  Editar
@@ -135,13 +146,13 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                                             if($TIPO == 3){
                                                 if($datos_array["TIPO_TRANSFER"] == "In"){
 
-                                                    $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Origen: </b>'.$datos_array["ORIGEN"].'</p>';
                                                     $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Aeropuero o Puerto: </b>'.$datos_array["AEROPUERTO"].'</p>';
+                                                    $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Destino: </b>'.$datos_array["DESTINO"].'</p>';                                                    
                                                 
                                                 }else if($datos_array["TIPO_TRANSFER"] == "Out"){
 
-                                                    $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Aeropuero o Puerto: </b>'.$datos_array["AEROPUERTO"].'</p>';
-                                                    $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Destino: </b>'.$datos_array["DESTINO"].'</p>';
+                                                    $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Origen: </b>'.$datos_array["ORIGEN"].'</p>';
+                                                    $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Aeropuero o Puerto: </b>'.$datos_array["AEROPUERTO"].'</p>';                                                    
                                                 
                                                 }
                                                 $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">N° de Vuelo / Barco: </b>'.$datos_array["NRO_VUELO"].'</p>
@@ -167,41 +178,46 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                                             }
                                         }
 
-                                        if( (count($PARADAS_IDA) > 0 ) || (count($PARADAS_VUELTA) > 0 ) ){
-
+                                        if(isset($PARADAS_IDA) || isset($PARADAS_VUELTA)){
                                             $mail->Body .= '
                                             <h4 style="font-size: 16px; margin-top: 40px;">Información Paradas:</h4>';
 
-                                            if(isset($paradas_ida_array)){
-                                                $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Paradas (Ida): </b>';
+
+                                            if(isset($PARADAS_IDA)){
+                                                if(count(json_encode($PARADAS_IDA,true))){
+                                                    $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Paradas (Ida): </b>';
                                                 
-                                                for($a = 0; $a < count($paradas_ida_array); $a++){
-                                                    if($paradas_ida_array[$a] != ""){
-                                                        if($a == (count($paradas_ida_array) - 1)){
-                                                            $mail->Body .= $paradas_ida_array[$a];
-                                                        }else{
-                                                            $mail->Body .= $paradas_ida_array[$a] . ' - ';
+                                                    for($a = 0; $a < count($paradas_ida_array); $a++){
+                                                        if($paradas_ida_array[$a] != ""){
+                                                            if($a == (count($paradas_ida_array) - 1)){
+                                                                $mail->Body .= $paradas_ida_array[$a];
+                                                            }else{
+                                                                $mail->Body .= $paradas_ida_array[$a] . ' - ';
+                                                            }
                                                         }
                                                     }
+                                                    $mail->Body .= '</p>';
                                                 }
-                                                $mail->Body .= '</p>';
-                                                
                                             }
-                                            if(isset($paradas_vuelta_array)){
-                                                $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Paradas (Vuelta): </b>';
+
+                                            if(isset($PARADAS_VUELTA)){
+                                                if(count(json_encode($PARADAS_VUELTA,true))){
+                                                    $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Paradas (Vuelta): </b>';
                                                 
-                                                for($a = 0; $a < count($paradas_vuelta_array); $a++){
-                                                    if($paradas_vuelta_array[$a] != ""){
-                                                        if($a == (count($paradas_vuelta_array) - 1) ){
-                                                            $mail->Body .= $paradas_vuelta_array[$a];
-                                                        }else{
-                                                            $mail->Body .= $paradas_vuelta_array[$a] . ' - ';
+                                                    for($a = 0; $a < count($paradas_vuelta_array); $a++){
+                                                        if($paradas_vuelta_array[$a] != ""){
+                                                            if($a == (count($paradas_vuelta_array) - 1)){
+                                                                $mail->Body .= $paradas_vuelta_array[$a];
+                                                            }else{
+                                                                $mail->Body .= $paradas_vuelta_array[$a] . ' - ';
+                                                            }
                                                         }
-                                                    }  
+                                                    }
+                                                    $mail->Body .= '</p>';
                                                 }
-                                                $mail->Body .= '</p>';
                                             }
                                         }
+
                                         if(isset($datos_array['OBSERVACIONES'])){
                                             if($datos_array['OBSERVACIONES'] != ""){
                                                 $mail->Body .= '<h4 style="font-size: 16px; margin-top: 40px;">Observaciones:</h4>
@@ -247,5 +263,5 @@ try {
 
 } catch (Exception $e) {
 
-    echo "Mailer Error: " . $mail->ErrorInfo;
+    echo $mail->ErrorInfo;
 }
