@@ -62,9 +62,16 @@ $mail->Password = 'SalioViaje_avisa_para_exito';
 $mail->SMTPSecure = 'ssl';
 $mail->Port = 465;
 
+// $mail->Host = 'smtp.gmail.com';
+// $mail->SMTPAuth = true;
+// $mail->Username ='totumdevcontacto@gmail.com';
+// $mail->Password = 'manuni7817';
+// $mail->SMTPSecure = 'tls';
+// $mail->Port = 587;
+
 $mail->CharSet = 'UTF-8';
-$mail->From = 'sistema_SV_de_avisos@salioviaje.com.uy';             //  Editar
-$mail->FromName = 'SalióViaje';                    //  Editar
+$mail->From = 'totumdevcontacto@gmail.com';             //  Editar
+$mail->FromName = 'TotumDev';                    //  Editar
 $mail->addAddress('thewolfmodzyt@gmail.com');       //  Editar
 $mail->isHTML(true);
 $mail->Subject = "Nueva Solicitud de Cotización - SalióViaje";   //  Editar
