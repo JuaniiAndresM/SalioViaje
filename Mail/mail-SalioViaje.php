@@ -61,7 +61,7 @@ $mail->Port = 465;
 $mail->CharSet = 'UTF-8';
 $mail->From = 'comunicac_formal@salioviaje.com.uy';             //  Editar
 $mail->FromName = 'La_seguridad_es un_valor';                     //  Editar
-$mail->addAddress('admin@salioviaje.com.uy');       //  Editar
+$mail->addAddress('thewolfmodzyt@gmail.com');       //  Editar
 $mail->isHTML(true);
 $mail->Subject = "Nueva Solicitud de Cotización - SalióViaje";   //  Editar
 
