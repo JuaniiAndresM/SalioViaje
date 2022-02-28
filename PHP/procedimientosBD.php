@@ -661,5 +661,24 @@ public function confirmar_codigo_password($id, $codigo_u){
  }
 
 }
+
+public function traer_choferes($rut_em){
+    $choferes = array();
+    $conn = $this->conexion();
+    $query = "CALL traigo_choferes(?)";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $rut_em);
+    if ($stmt->execute()) {
+        $stmt->store_result();
+        $stmt->bind_result($id_usuario,$tipo_usuario,$ci,$mail,$nombre,$apellido,$direccion,$barrio,$departamento,$telefono,$agencia_contratista,$rut,$supervisor,$nombre_hotel,$direccion_hotel);
+        while ($stmt->fetch()) {
+         $result = array('ID' => $id_usuario,'TIPO_USUARIO' => $tipo_usuario, 'CI' => $ci, 'EMAIL' => $mail, 'NOMBRE' => $nombre, 'APELLIDO' => $apellido, 'DIRECCION' => $direccion, 'BARRIO' => $barrio, 'DEPARTAMENTO' => $departamento, 'TELEFONO' => $telefono, 'AGENCIA_CONTRATISTA' => $agencia_contratista, 'NOMBRE_HOTEL' => $nombre_hotel, 'DIRECCION_HOTEL' => $direccion_hotel, 'SUPERVISOR' => $supervisor, 'RUT' => $rut);
+         $choferes[] = $result;
+     }
+ }
+ $stmt->close();
+ return $choferes;
+}
+
 }
 ?>
