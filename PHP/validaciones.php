@@ -742,10 +742,10 @@ class validaciones
 							$VALIDACION['HORA'] = 1;
 						} else { $VALIDACION['HORA'] = 0; }
 					 break;
-					case 'ORIGEN':
+					case 'DESTINO':
 						if ($valor != null) {
-							$VALIDACION['ORIGEN'] = 1;
-						} else { $VALIDACION['ORIGEN'] = 0; }
+							$VALIDACION['DESTINO'] = 1;
+						} else { $VALIDACION['DESTINO'] = 0; }
 					 break;
 					case 'AEROPUERTO':
 						if ($valor != null) {
@@ -765,8 +765,8 @@ class validaciones
 				}
 			}
 		}
-
-		if (count($VALIDACION) != 7) {
+		
+		if (count($VALIDACION) != 8) {
 			$DATOS_VACIOS = "Err-1";
 		}
 
@@ -799,6 +799,11 @@ class validaciones
 						if ($valor != null) {
 							$VALIDACION['FECHA_REGRESO'] = 1;
 						} else { $VALIDACION['FECHA_REGRESO'] = 0; }
+					break;
+					case 'ORIGEN':
+						if ($valor != null) {
+							$VALIDACION['ORIGEN'] = 1;
+						} else { $VALIDACION['ORIGEN'] = 0; }
 					break;
 					case 'CANTIDAD_PASAJEROS':
 						if ($valor != null) {
@@ -834,7 +839,7 @@ class validaciones
 			}
 		}
 
-		if (count($VALIDACION) != 7) {
+		if (count($VALIDACION) != 8) {
 			$DATOS_VACIOS = "Err-1";
 		}
 
