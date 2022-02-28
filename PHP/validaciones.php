@@ -757,10 +757,10 @@ class validaciones
 							$VALIDACION['EQUIPAJE'] = 1;
 						} else { $VALIDACION['EQUIPAJE'] = 0; }
 					 break;
-					case 'NUMERO_VUELO_BARCO_IN':
+					case 'NRO_VUELO':
 						if ($valor != null) {
-							$VALIDACION['NUMERO_VUELO_BARCO_IN'] = 1;
-						} else { $VALIDACION['NUMERO_VUELO_BARCO_IN'] = 0; }
+							$VALIDACION['NRO_VUELO'] = 1;
+						} else { $VALIDACION['NRO_VUELO'] = 0; }
 					 break;
 				}
 			}
@@ -825,10 +825,10 @@ class validaciones
 							$VALIDACION['EQUIPAJE'] = 1;
 						} else { $VALIDACION['EQUIPAJE'] = 0; }
 					 break;
-					case 'NUMERO_VUELO_BARCO_OUT':
+					case 'NRO_VUELO':
 						if ($valor != null) {
-							$VALIDACION['NUMERO_VUELO_BARCO_OUT'] = 1;
-						} else { $VALIDACION['NUMERO_VUELO_BARCO_OUT'] = 0; }
+							$VALIDACION['NRO_VUELO'] = 1;
+						} else { $VALIDACION['NRO_VUELO'] = 0; }
 					 break;
 				}
 			}
