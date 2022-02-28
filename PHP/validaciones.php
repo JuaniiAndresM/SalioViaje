@@ -766,7 +766,7 @@ class validaciones
 			}
 		}
 
-		if (count($VALIDACION) != 7) {
+		if (count($VALIDACION) != 8) {
 			$DATOS_VACIOS = "Err-1";
 		}
 
@@ -834,7 +834,7 @@ class validaciones
 			}
 		}
 
-		if (count($VALIDACION) != 7) {
+		if (count($VALIDACION) != 8) {
 			$DATOS_VACIOS = "Err-1";
 		}
 
