@@ -175,11 +175,12 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                                                 $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Paradas (Ida): </b>';
                                                 
                                                 for($a = 0; $a < count($paradas_ida_array); $a++){
-
-                                                    if($a == (count($paradas_ida_array) - 1)){
-                                                        $mail->Body .= $paradas_ida_array[$a];
-                                                    }else{
-                                                        $mail->Body .= $paradas_ida_array[$a] . ' - ';
+                                                    if($paradas_ida_array[$a] != ""){
+                                                        if($a == (count($paradas_ida_array) - 1)){
+                                                            $mail->Body .= $paradas_ida_array[$a];
+                                                        }else{
+                                                            $mail->Body .= $paradas_ida_array[$a] . ' - ';
+                                                        }
                                                     }
                                                 }
                                                 $mail->Body .= '</p>';
