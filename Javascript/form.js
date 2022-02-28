@@ -447,6 +447,7 @@ switch(opcion){
             case "3":
             if (validacion("USUARIO",datos_Usuario)) {
              if (empresas.length != 0) {
+                datos_Usuario['CHOFERES_SUB'] = empresas[0]['CHOFERES_SUB']
                 ID_USUARIO = registrar_usuario("CHO");
                 btn_finalizar_carga()
                 setTimeout(function() {
@@ -552,6 +553,7 @@ switch(opcion){
 }
 
 function registrar_usuario(tipoUsuario){
+  console.log(datos_Usuario)
   $.ajax({
     type: "POST",
     url: "/SalioViaje/PHP/procedimientosForm.php",

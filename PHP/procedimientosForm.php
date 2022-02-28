@@ -38,6 +38,7 @@ class procedimientosForm extends procedimientosBD
 	private function registrar_empresa($tipoUsuario,$empresa){
 
 		for ($x=0; $x < count($empresa); $x++) {
+			echo json_encode($empresa[$x]);
 			$this->register_empresa($x,$tipoUsuario,$this->idUsuario,$empresa[$x]);
 			for ($i=0; $i < count($empresa[$x]["VEHICULOS"]); $i++) { 
 				if ($tipoUsuario == "CHO") {
@@ -77,7 +78,7 @@ if ($_POST['tipo'] == 1) {
 		break;
 		case '3':
 		$empresa = json_decode($_POST["empresas"],true);
-		$procedimientosForm->register_chofer($empresa,$_POST['idUsuario']);
+		echo $procedimientosForm->register_chofer($empresa,$_POST['idUsuario']);
 		break;
 		case '4':
 		$empresa = json_decode($_POST["empresas"],true);
