@@ -54,15 +54,17 @@ $mail = new PHPMailer(true);
 
 $mail->SMTPDebug = 0;
 $mail->IsSMTP();
+
 $mail->Host = 'mail.salioviaje.com.uy';
 $mail->SMTPAuth = true;
-$mail->Username ='info@salioviaje.com.uy';
-$mail->Password = 'La_seguridad_es un_valor';
+$mail->Username ='sistema_sv_de_avisos@salioviaje.com.uy';
+$mail->Password = 'SalioViaje_avisa_para_exito';
 $mail->SMTPSecure = 'ssl';
 $mail->Port = 465;
+
 $mail->CharSet = 'UTF-8';
-$mail->From = 'info@salioviaje.com.uy';             //  Editar
-$mail->FromName = 'SalióViaje';                     //  Editar
+$mail->From = 'sistema_SV_de_avisos@salioviaje.com.uy';             //  Editar
+$mail->FromName = 'SalióViaje';                    //  Editar
 $mail->addAddress('thewolfmodzyt@gmail.com');       //  Editar
 $mail->isHTML(true);
 $mail->Subject = "Nueva Solicitud de Cotización - SalióViaje";   //  Editar
@@ -254,5 +256,5 @@ try {
 
 } catch (Exception $e) {
 
-    echo "Mailer Error: " . $mail->ErrorInfo;
+    echo $mail->ErrorInfo;
 }
