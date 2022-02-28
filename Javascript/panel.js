@@ -669,7 +669,7 @@ function guardarEdicionUsuario(id,ciAnterior){
  }
  
  function editarUsuario(id){
-    location.href = "/SalioViaje/Profile/Usuario/Editar/" + id;
+    location.href = "/SalioViaje/Profile/Editar/" + id;
  }
  
  
