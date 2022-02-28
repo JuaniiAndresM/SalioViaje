@@ -144,7 +144,8 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                                                     $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Destino: </b>'.$datos_array["DESTINO"].'</p>';
                                                 
                                                 }
-                                                $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Equipaje: </b>'.$datos_array["EQUIPAJE"].'</p>';
+                                                $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">N° de Vuelo / Barco: </b>'.$datos_array["NRO_VUELO"].'</p>
+                                                                <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Equipaje: </b>'.$datos_array["EQUIPAJE"].'</p>';
                                             }else{
                                                 
                                                 $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Origen: </b>'.$datos_array["ORIGEN"].'</p>';
@@ -202,8 +203,10 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                                             }
                                         }
                                         if(isset($datos_array['OBSERVACIONES'])){
-                                            $mail->Body .= '<h4 style="font-size: 16px; margin-top: 40px;">Observaciones:</h4>
-                                            <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">'.$datos_array['OBSERVACIONES'].'</b>';
+                                            if($datos_array['OBSERVACIONES'] != ""){
+                                                $mail->Body .= '<h4 style="font-size: 16px; margin-top: 40px;">Observaciones:</h4>
+                                                <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">'.$datos_array['OBSERVACIONES'].'</b>';
+                                            }
                                         }
                                         $mail->Body .= '
                                     </div>

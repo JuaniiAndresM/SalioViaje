@@ -129,6 +129,7 @@ function finalizar(enviar_solicitud){
                         "DESTINO": $('#destino_transfer_in').val(),
                         "AEROPUERTO": $('#aeropuerto_transfer_in').val(),
                         "EQUIPAJE": $('#equipaje_transfer_in').val(),
+                        "NRO_VUELO": $('#nro_vuelo_barco_in').val(),
                         "OBSERVACIONES": $('#observaciones_transfer_in').val()
                     };
                     
@@ -169,6 +170,7 @@ function finalizar(enviar_solicitud){
                         "AEROPUERTO": $('#aeropuerto_transfer_out').val(),
                         "ORIGEN": $('#origen_transfer_out').val(),
                         "EQUIPAJE": $('#equipaje_transfer_out').val(),
+                        "NRO_VUELO": $('#nro_vuelo_barco_out').val(),
                         "OBSERVACIONES": $('#observaciones_transfer_out').val()
                     };
 
