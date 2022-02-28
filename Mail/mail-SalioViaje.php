@@ -16,22 +16,13 @@ require '../Plugins/PHPMailer/src/SMTP.php';
 $TIPO = $_POST['TIPO'];
 $DATOS = $_POST['DATA'];
 
+$PARADAS_IDA = $_POST['PARADAS_IDA'];
+$paradas_ida_array = json_decode($PARADAS_IDA, true);
 
-
-if(isset($_POST['PARADAS_IDA'])){
-    $PARADAS_IDA = $_POST['PARADAS_IDA'];
-
-    $paradas_ida_array = json_decode($PARADAS_IDA, true);
-}
-if(isset($_POST['PARADAS_VUELTA'])){
-    $PARADAS_VUELTA = $_POST['PARADAS_VUELTA'];
-
-    $paradas_vuelta_array = json_decode($PARADAS_VUELTA, true);
-}
-
+$PARADAS_VUELTA = $_POST['PARADAS_VUELTA'];
+$paradas_vuelta_array = json_decode($PARADAS_VUELTA, true);
 
 $datos_array = json_decode(stripslashes($DATOS),true);
-
 $paradas_array = json_decode($PARADAS_IDA,true);
 
 $TIPO_VIAJE = "";
@@ -175,7 +166,7 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                                             }
                                         }
 
-                                        if(isset($PARADAS_IDA) || isset($PARADAS_VUELTA) ){
+                                        if( (count($PARADAS_IDA) > 0 ) || (count($PARADAS_VUELTA) > 0 ) ){
 
                                             $mail->Body .= '
                                             <h4 style="font-size: 16px; margin-top: 40px;">Información Paradas:</h4>';
@@ -198,14 +189,13 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                                                 $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Paradas (Vuelta): </b>';
                                                 
                                                 for($a = 0; $a < count($paradas_vuelta_array); $a++){
-
-                                                    if($a == (count($paradas_vuelta_array) - 1) ){
-                                                        $mail->Body .= $paradas_vuelta_array[$a];
-                                                    }else{
-                                                        $mail->Body .= $paradas_vuelta_array[$a] . ' - ';
-                                                    }
-
-                                                    
+                                                    if($paradas_vuelta_array[$a] != ""){
+                                                        if($a == (count($paradas_vuelta_array) - 1) ){
+                                                            $mail->Body .= $paradas_vuelta_array[$a];
+                                                        }else{
+                                                            $mail->Body .= $paradas_vuelta_array[$a] . ' - ';
+                                                        }
+                                                    }  
                                                 }
                                                 $mail->Body .= '</p>';
                                             }
