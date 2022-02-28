@@ -20,16 +20,25 @@ $mail = new PHPMailer(true);
 
 $mail->SMTPDebug = 0; 
 $mail->IsSMTP();
-$mail->Host = 'mail.salioviaje.com.uy';
+
+// $mail->Host = 'mail.salioviaje.com.uy';
+// $mail->SMTPAuth = true;
+// $mail->Username ='totumdevcontacto@gmail.com';
+// $mail->Password = 'SalioViaje_info';
+// $mail->SMTPSecure = 'ssl';
+// $mail->Port = 465;
+
+$mail->Host = 'smtp.gmail.com';
 $mail->SMTPAuth = true;
-$mail->Username ='info@salioviaje.com.uy';
-$mail->Password = 'SalioViaje_info';
-$mail->SMTPSecure = 'ssl';
-$mail->Port = 465;
+$mail->Username ='totumdevcontacto@gmail.com';
+$mail->Password = 'manuni7817';
+$mail->SMTPSecure = 'tls';
+$mail->Port = 587;
+
 $mail->CharSet = 'UTF-8';
-$mail->From = 'info@salioviaje.com.uy'; //  Editar
+$mail->From = 'totumdevcontacto@gmail.com'; //  Editar
 $mail->FromName = 'SalióViaje';  //  Editar
-$mail->addAddress('thewolfmodzyt@gmail.com');  //  Editar
+$mail->addAddress($email);  //  Editar
 $mail->isHTML(true);
 $mail->Subject = "Suscripción - SalióViaje";    //  Editar
 

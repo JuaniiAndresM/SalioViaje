@@ -23,15 +23,23 @@ $mail = new PHPMailer(true);
 session_start();
 $mail->SMTPDebug = 0; 
 $mail->IsSMTP();
-$mail->Host = 'mail.salioviaje.com.uy';
+
+// $mail->Host = 'mail.salioviaje.com.uy';
+// $mail->SMTPAuth = true;
+// $mail->Username ='totumdevcontacto@gmail.com';
+// $mail->Password = 'SalioViaje_info';
+// $mail->SMTPSecure = 'ssl';
+// $mail->Port = 465;
+
+$mail->Host = 'smtp.gmail.com';
 $mail->SMTPAuth = true;
-$mail->Username ='info@salioviaje.com.uy';
-$mail->Password = 'SalioViaje_info';
-$mail->SMTPSecure = 'ssl';
-$mail->Port = 465;
+$mail->Username ='totumdevcontacto@gmail.com';
+$mail->Password = 'manuni7817';
+$mail->SMTPSecure = 'tls';
+$mail->Port = 587;
 
 $mail->CharSet = 'UTF-8';
-$mail->From = 'info@salioviaje.com.uy'; //  Editar
+$mail->From = 'totumdevcontacto@gmail.com'; //  Editar
 $mail->FromName = 'SalióViaje';  //  Editar
 $mail->addAddress($_SESSION['datos_usuario']['MAIL']);  //  Editar
 $mail->isHTML(true);
@@ -72,7 +80,7 @@ $mail->Body    = '    <div class="mail" style="max-width: 600px; background: whi
             <tr>
                 <td>
                     <div class="mail-content" style="width: 95%; margin: 20px auto; background: #fff; font-family: Montserrat; color: #555; font-size: 13px;">
-                        <p>Este mensaje se envió a <span style="color: #3844bc; font-weight: bold;">thewolfmodzyt@gmail.com</span>.</p>
+                        <p>Este mensaje se envió a <span style="color: #3844bc; font-weight: bold;">'.$_SESSION['datos_usuario']['MAIL'].'</span>.</p>
                         <p>Si no quieres recibir estos emails de SalióViaje en el futuro, puedes darte de baja de la lista de correo.</p>
                     </div>
                 </td>
@@ -100,7 +108,7 @@ $mail->Body    = '    <div class="mail" style="max-width: 600px; background: whi
     }
 
     $mail->CharSet = 'UTF-8';
-    $mail->From = 'info@salioviaje.com.uy'; //  Editar
+    $mail->From = 'totumdevcontacto@gmail.com'; //  Editar
     $mail->FromName = 'SalióViaje';  //  Editar
     $mail->addAddress('admin@salioviaje.com.uy');  //  Editar
     $mail->isHTML(true);
@@ -153,7 +161,7 @@ $mail->Body    = '    <div class="mail" style="max-width: 600px; background: whi
                                 <tr>
                                     <td>
                                         <div class="mail-content" style="width: 95%; margin: 20px auto; background: #fff; font-family: Montserrat; color: #555; font-size: 13px;">
-                                            <p>Este mensaje se envió a <span style="color: #3844bc; font-weight: bold;">thewolfmodzyt@gmail.com</span>.</p>
+                                            <p>Este mensaje se envió a <span style="color: #3844bc; font-weight: bold;">admin@salioviaje.com.uy</span>.</p>
                                             <p>Si no quieres recibir estos emails de SalióViaje en el futuro, puedes darte de baja de la lista de correo.</p>
                                         </div>
                                     </td>
@@ -183,7 +191,7 @@ $mail->Body    = '    <div class="mail" style="max-width: 600px; background: whi
 
 
 $mail->CharSet = 'UTF-8';
-$mail->From = 'info@salioviaje.com.uy'; //  Editar
+$mail->From = 'totumdevcontacto@gmail.com'; //  Editar
 $mail->FromName = 'SalióViaje';  //  Editar
 $mail->addAddress($mail_tta);  //  Editar
 $mail->isHTML(true);
@@ -224,7 +232,7 @@ $mail->Body    = '<div class="mail" style="max-width: 600px; background: white;"
             <tr>
                 <td>
                     <div class="mail-content" style="width: 95%; margin: 20px auto; background: #fff; font-family: Montserrat; color: #555; font-size: 13px;">
-                        <p>Este mensaje se envió a <span style="color: #3844bc; font-weight: bold;">thewolfmodzyt@gmail.com</span>.</p>
+                        <p>Este mensaje se envió a <span style="color: #3844bc; font-weight: bold;">'.$mail_tta.'</span>.</p>
                         <p>Si no quieres recibir estos emails de SalióViaje en el futuro, puedes darte de baja de la lista de correo.</p>
                     </div>
                 </td>
