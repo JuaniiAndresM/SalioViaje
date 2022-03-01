@@ -53,8 +53,8 @@
   </button>
   <ul>
     <li>
-      <a href="/SalioViaje/" class="tool-tip" title-new="Volver al Inicio.">
-        <span class="icon"><img src="/SalioViaje/media/svg/Logo-SalioViaje-White.svg" alt="Logo SalióViaje"></span>
+      <a href="https://www.salioviaje.com.uy/" class="tool-tip" title-new="Volver al Inicio.">
+        <span class="icon"><img src="https://www.salioviaje.com.uy/media/svg/Logo-SalioViaje-White.svg" alt="Logo SalióViaje"></span>
         <span class="title">SalióViaje</span>
       </a>
     </li>
@@ -172,7 +172,7 @@
     -->
 
     <li>
-      <a href="/SalioViaje/">
+      <a href="https://www.salioviaje.com.uy/">
         <span class="icon"><i class="fa fa-home"></i></span>
         <span class="title">Volver al Inicio</span>
       </a>

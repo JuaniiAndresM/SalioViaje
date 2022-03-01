@@ -20,16 +20,16 @@ RewriteRule ^Admin /Form/Login_A.html
 RewriteRule ^Register /Form/Register.html
 RewriteRule ^Forgot_Password /Form/CambiarContraseña.html
 
-RewriteRule ^Dashboard /SalioViaje/Panel/Dashboard.php
-RewriteRule ^Usuarios /SalioViaje/Panel/Usuarios.php
-RewriteRule ^Choferes /SalioViaje/Panel/Choferes.php
-RewriteRule ^Empresas /SalioViaje/Panel/Empresas.php
-RewriteRule ^Vehiculos /SalioViaje/Panel/Vehiculos.php
-RewriteRule ^Settings /SalioViaje/Panel/Settings.php
-RewriteRule ^Agendar /SalioViaje/Panel/Agendar.php
-RewriteRule ^Viajes /SalioViaje/Panel/Agenda.php
-RewriteRule ^FAQ_Edit /SalioViaje/Panel/FAQ.php
-RewriteRule ^Crear_Empresa /SalioViaje/Panel/Crear_Empresa.php
+RewriteRule ^Dashboard /Panel/Dashboard.php
+RewriteRule ^Usuarios /Panel/Usuarios.php
+RewriteRule ^Choferes /Panel/Choferes.php
+RewriteRule ^Empresas /Panel/Empresas.php
+RewriteRule ^Vehiculos /Panel/Vehiculos.php
+RewriteRule ^Settings /Panel/Settings.php
+RewriteRule ^Agendar /Panel/Agendar.php
+RewriteRule ^Viajes /Panel/Agenda.php
+RewriteRule ^FAQ_Edit /Panel/FAQ.php
+RewriteRule ^Crear_Empresa /Panel/Crear_Empresa.php
 
 RewriteRule ^Success /Form/Success.html
 RewriteRule ^Failed /Form/Failed.html

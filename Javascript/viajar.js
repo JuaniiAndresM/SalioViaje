@@ -49,7 +49,7 @@ function finalizar(enviar_solicitud){
                 if (enviar_solicitud == 1) {
                 $.ajax({
                     type: "POST",
-                    url: "/SalioViaje/Mail/mail-SalioViaje.php",
+                    url: "/Mail/mail-SalioViaje.php",
                     data: {TIPO: tipo, DATA: JSON.stringify(datos_traslado)},
                     success: function(response){
                         console.log("se ejecuta")
@@ -89,7 +89,7 @@ function finalizar(enviar_solicitud){
                 if (enviar_solicitud == 1) {
                 $.ajax({
                     type: "POST",
-                    url: "/SalioViaje/Mail/mail-SalioViaje.php",
+                    url: "/Mail/mail-SalioViaje.php",
                     data: {TIPO: tipo, DATA: JSON.stringify(datos_tour)},
                     success: function(response){
 
@@ -139,7 +139,7 @@ function finalizar(enviar_solicitud){
                         if (enviar_solicitud == 1) {
                             $.ajax({
                                 type: "POST",
-                                url: "/SalioViaje/Mail/mail-SalioViaje.php",
+                                url: "/Mail/mail-SalioViaje.php",
                                 data: {TIPO: tipo, DATA: JSON.stringify(datos_transfer_in)},
                                 success: function(response){
 
@@ -180,7 +180,7 @@ function finalizar(enviar_solicitud){
                         if (enviar_solicitud == 1) {
                             $.ajax({
                                 type: "POST",
-                                url: "/SalioViaje/Mail/mail-SalioViaje.php",
+                                url: "/Mail/mail-SalioViaje.php",
                                 data: {TIPO: tipo, DATA: JSON.stringify(datos_transfer_out)},
                                 success: function(response){
 
@@ -228,7 +228,7 @@ function finalizar(enviar_solicitud){
                             if (enviar_solicitud == 1) {
                                 $.ajax({
                                     type: "POST",
-                                    url: "/SalioViaje/Mail/mail-SalioViaje.php",
+                                    url: "/Mail/mail-SalioViaje.php",
                                     data: {TIPO: tipo, DATA: JSON.stringify(datos_fiestaseventos_ida)},
                                     success: function(response){
 
@@ -267,7 +267,7 @@ function finalizar(enviar_solicitud){
                         if (enviar_solicitud == 1) {
                             $.ajax({
                             type: "POST",
-                            url: "/SalioViaje/Mail/mail-SalioViaje.php",
+                            url: "/Mail/mail-SalioViaje.php",
                             data: {TIPO: tipo, DATA: JSON.stringify(datos_fiestaseventos_vuelta), PARADAS_VUELTA: JSON.stringify(array_paradas_2)},
                             success: function(response){
 
@@ -312,7 +312,7 @@ function finalizar(enviar_solicitud){
                         if (enviar_solicitud == 1) {
                             $.ajax({
                                 type: "POST",
-                                url: "/SalioViaje/Mail/mail-SalioViaje.php",
+                                url: "/Mail/mail-SalioViaje.php",
                                 data: {TIPO: tipo, DATA: JSON.stringify(datos_fiestaseventos_idavuelta), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2)},
                                 success: function(response){
 
@@ -570,7 +570,7 @@ function validacion(TIPO,DATOS){
     case "Translado":
     validacion = $.ajax({
        type: 'POST',       
-       url: "/SalioViaje/PHP/Validaciones.php",
+       url: "/PHP/Validaciones.php",
        data: {tipo:"Translado",datos:JSON.stringify(DATOS)},
        global: false,
        async:false,
@@ -589,7 +589,7 @@ function validacion(TIPO,DATOS){
     case "Tour":
     validacion = $.ajax({
        type: 'POST',       
-       url: "/SalioViaje/PHP/Validaciones.php",
+       url: "/PHP/Validaciones.php",
        data: {tipo:"Tour",datos:JSON.stringify(DATOS)},
        global: false,
        async:false,
@@ -608,7 +608,7 @@ function validacion(TIPO,DATOS){
     case "Transfer_in":
     validacion = $.ajax({
        type: 'POST',       
-       url: "/SalioViaje/PHP/Validaciones.php",
+       url: "/PHP/Validaciones.php",
        data: {tipo:"Transfer-in",datos:JSON.stringify(DATOS)},
        global: false,
        async:false,
@@ -627,7 +627,7 @@ function validacion(TIPO,DATOS){
     case "Transfer_out":
     validacion = $.ajax({
        type: 'POST',       
-       url: "/SalioViaje/PHP/Validaciones.php",
+       url: "/PHP/Validaciones.php",
        data: {tipo:"Transfer-out",datos:JSON.stringify(DATOS)},
        global: false,
        async:false,
@@ -646,7 +646,7 @@ function validacion(TIPO,DATOS){
     case "FIESTA-IDA":
     validacion = $.ajax({
        type: 'POST',       
-       url: "/SalioViaje/PHP/Validaciones.php",
+       url: "/PHP/Validaciones.php",
        data: {tipo:"Fiestas_ida",datos:JSON.stringify(DATOS)},
        global: false,
        async:false,
@@ -665,7 +665,7 @@ function validacion(TIPO,DATOS){
     case "FIESTA-VUELTA":
     validacion = $.ajax({
        type: 'POST',       
-       url: "/SalioViaje/PHP/Validaciones.php",
+       url: "/PHP/Validaciones.php",
        data: {tipo:"Fiestas_vuelta",datos:JSON.stringify(DATOS)},
        global: false,
        async:false,
@@ -684,7 +684,7 @@ function validacion(TIPO,DATOS){
     case "FIESTA-IDA-VUELTA":
     validacion = $.ajax({
        type: 'POST',       
-       url: "/SalioViaje/PHP/Validaciones.php",
+       url: "/PHP/Validaciones.php",
        data: {tipo:"Fiestas_ida_vuelta",datos:JSON.stringify(DATOS)},
        global: false,
        async:false,

@@ -89,12 +89,12 @@ require_once '../PHP/procedimientosBD.php';
       crossorigin="anonymous"
     ></script>
 
-    <script src="/SalioViaje/Javascript/form.js"></script>
-    <script src="/SalioViaje/Javascript/panel.js"></script>
-    <script src="/SalioViaje/Javascript/settings.js"></script>
-    <script src="/SalioViaje/Javascript/loader.js"></script>
-    <script src="/SalioViaje/Javascript/profile.js"></script>
-    <script src="/SalioViaje/Javascript/editarEmpresa.js"></script>
+    <script src="https://www.salioviaje.com.uy/Javascript/form.js"></script>
+    <script src="https://www.salioviaje.com.uy/Javascript/panel.js"></script>
+    <script src="https://www.salioviaje.com.uy/Javascript/settings.js"></script>
+    <script src="https://www.salioviaje.com.uy/Javascript/loader.js"></script>
+    <script src="https://www.salioviaje.com.uy/Javascript/profile.js"></script>
+    <script src="https://www.salioviaje.com.uy/Javascript/editarEmpresa.js"></script>
 
 
 

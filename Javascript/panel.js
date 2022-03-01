@@ -673,22 +673,22 @@ function guardarEdicionUsuario(id,ciAnterior){
  }
  
  function editarUsuario(id){
-    location.href = "/SalioViaje/Profile/Editar/" + id;
+    location.href = "/Profile/Editar/" + id;
  }
  
  
  function verEmpresa(rut){
-    location.href = "/SalioViaje/Profile/Empresa/" + rut;
+    location.href = "/Profile/Empresa/" + rut;
  }
  
  function editarEmpresa(rut){
-    location.href = "/SalioViaje/Profile/Empresa/Editar/" + rut;
+    location.href = "/Profile/Empresa/Editar/" + rut;
  }
  
  function eliminarEmpresa(rut){
     $.ajax({
         type: "POST",
-        url: "/SalioViaje/PHP/llamadosSol.php",
+        url: "/PHP/llamadosSol.php",
         data: {tipe:3, RUT:rut},
         success: function () {
             location.reload();
@@ -699,7 +699,7 @@ function guardarEdicionUsuario(id,ciAnterior){
  function eliminar_usuario(id){
     $.ajax({
         type: "POST",
-        url: "/SalioViaje/PHP/llamadosSol.php",
+        url: "/PHP/llamadosSol.php",
         data: {tipe:4, ID:id},
         success: function () {
             location.reload();

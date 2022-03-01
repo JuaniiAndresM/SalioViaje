@@ -110,7 +110,7 @@ function finalizar_empresa_total(id){
              case "Transportista":
                      $.ajax({
                         type: "POST",
-                        url: "/SalioViaje/PHP/procedimientosForm.php",
+                        url: "/PHP/procedimientosForm.php",
                         data: { tipo:"2",idUsuario: id,empresas:JSON.stringify(empresas) },
                         success: function (response) {
                           console.log(response)
@@ -119,7 +119,7 @@ function finalizar_empresa_total(id){
             break;
         }
     setTimeout(() => {
-        location.href = "/SalioViaje/Panel/Success_Empresa"
+        location.href = "/Panel/Success_Empresa"
     }, 2000);
 }
 

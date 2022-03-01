@@ -316,8 +316,8 @@ require_once '../PHP/procedimientosBD.php';
                           <div class="usuarios-info">
                             <h2><i class="fas fa-building"></i> Tus Empresas</h2>
                             <div class="button-wrapper">
-                              <a href="/SalioViaje/Crear_Empresa" class="add"><i class="fas fa-plus"></i></a>
-                              <a href="/SalioViaje/Empresas"><i class="fas fa-list-ul"></i></a>
+                              <a href="https://www.salioviaje.com.uy/Crear_Empresa" class="add"><i class="fas fa-plus"></i></a>
+                              <a href="https://www.salioviaje.com.uy/Empresas"><i class="fas fa-list-ul"></i></a>
                             </div>
                           </div>
                           <div class="search">

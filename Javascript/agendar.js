@@ -521,7 +521,7 @@ function finalizar(){
             }
         }
     }
-    window.location = "/SalioViaje/Panel/Success_Agenda";
+    window.location = "https://www.salioviaje.com.uy/Panel/Success_Agenda";
 }
 
 /*-------------------------------------------------------------------------------------------*/
