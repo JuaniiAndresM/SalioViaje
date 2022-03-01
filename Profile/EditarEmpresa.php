@@ -89,10 +89,14 @@ require_once '../PHP/procedimientosBD.php';
       crossorigin="anonymous"
     ></script>
 
-    <script src="https://www.salioviaje.com.uy/Javascript/panel.js"></script>
-    <script src="https://www.salioviaje.com.uy/Javascript/settings.js"></script>
-    <script src="https://www.salioviaje.com.uy/Javascript/loader.js"></script>
-    <script src="https://www.salioviaje.com.uy/Javascript/profile.js"></script>
+    <script src="/SalioViaje/Javascript/form.js"></script>
+    <script src="/SalioViaje/Javascript/panel.js"></script>
+    <script src="/SalioViaje/Javascript/settings.js"></script>
+    <script src="/SalioViaje/Javascript/loader.js"></script>
+    <script src="/SalioViaje/Javascript/profile.js"></script>
+    <script src="/SalioViaje/Javascript/editarEmpresa.js"></script>
+
+
 
   </head>
   <body>
@@ -150,10 +154,6 @@ require_once '../PHP/procedimientosBD.php';
 
             <div class="informacion-wrapper">
 
-              <div class="info">
-                <b><i class="far fa-address-card"></i> RUT</b>
-                <input type="number" placeholder="RUT" id="RUTEdicion" value="<?php echo $usuario['RUT'];?>">
-              </div>
               <div class="info">
                 <b><i class="fas fa-signature"></i> Nombre Comercial</b>
                 <input type="text" placeholder="Nombre Comercial" id="NcEdicion"value="<?php echo $usuario['NOMBRE_COMERCIAL'];?>">
@@ -250,7 +250,7 @@ require_once '../PHP/procedimientosBD.php';
                 </div>
 
                 <div class="button-wrapper">
-                    <button class="button-agregar" disabled><i class="fas fa-plus"></i> Agregar Vehiculo</button>
+                    <button class="button-agregar" onclick="add_vehicle()"><i class="fas fa-plus"></i> Agregar Vehiculo</button>
                 </div>
 
                 <div class="vehiculos-wrapper">
@@ -261,28 +261,14 @@ require_once '../PHP/procedimientosBD.php';
                         }else{
                           $size = sizeof($vehiculos);
                           for($i = 0; $i< sizeof($vehiculos); $i++){
-                            echo '
-                            <div class="vehiculo">
-                              <div class="vehiculo-left">
-                                  <div class="vehiculo-icon">
-                                      <i class="fas fa-car"></i>
-                                  </div>
-                                  <div class="vehiculo-info">
-                                      <h3 class="matricula">'.$vehiculos[$i]['MATRICULA'].'</h3>
-                                      <p><i class="fas fa-users"></i>'.$vehiculos[$i]['CAPACIDAD'].'</p>
-                                  </div>
-                              </div>
-
-                              <div class="edit-button">
-                                  <button class="editar_vehiculo" onclick="formulario_editar_vehiculo('.$vehiculos[$i]['MATRICULA'].')"><i class="fas fa-pencil-alt"></i></button>
-                                  <button class="eliminar_vehiculo" onclick="eliminar_vehiculo('.$vehiculos[$i]['MATRICULA'].')"><i class="fas fa-trash-alt"></i></button>
-                              </div>
-                          </div>';
-                        }
+                            ?>
+                                <script type="text/javascript">vehiculos_vista_previa(<?php  echo json_encode($vehiculos[$i]); ?>)</script>  
+                            <?php 
+                          }
                       }
                     ?>
                     </div>
-                    <button class="save-button" id="finalizar_empresa_2" disabled><i class="fas fa-save"></i> Guardar Cambios</button>
+                    <button class="save-button" id="finalizar_empresa_2" onclick="guardar_cambios_vehiculos_panel(<?php echo$_GET['RUT']?>)"><i class="fas fa-save"></i> Guardar Cambios</button>
 
                 </div>
             </div>

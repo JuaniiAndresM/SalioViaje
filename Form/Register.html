@@ -69,8 +69,9 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="https://www.salioviaje.com.uy/Javascript/web.js"></script>
-    <script src="https://www.salioviaje.com.uy/Javascript/form.js"></script>
+    <script src="/SalioViaje/Javascript/web.js"></script>
+    <script src="/SalioViaje/Javascript/form.js"></script>
+    <script type="text/javascript">  Empresas(); </script>
   </head>
   <body>
     <div id="header"></div>
@@ -296,11 +297,11 @@
                   <option value="2">No</option>
                 </select>
               </div>
-              <div class="input">
+              <div class="input" id="nro_mtop_rgt">
                 <i class="fas fa-user-lock" id="icon"></i>
                 <input type="number" id="numero_mtop" placeholder="N° MTOP" />
               </div>
-              <div class="input">
+              <div class="input" id="pass_mtop_rgt">
                 <i class="fas fa-key" id="icon"></i>
                 <input
                   id="password_mtop"

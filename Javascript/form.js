@@ -1,3 +1,7 @@
+var Location = location.toString();
+
+if (!Location.includes('Profile/EditarEmpresa.php')) {
+
 $(document).ready(function () {
   $('.mensaje-error').hide();
   $('#guardar-cambios').hide();
@@ -11,7 +15,6 @@ $(document).ready(function () {
   $('#finalizar-registro-TTA').html('<i class="fas fa-check"></i> Finalizar');
 
   steps(1);
-  Empresas();
 
   $("#pax-register").on('click', function() {
     register_form($('#select_users').val())
@@ -56,6 +59,8 @@ $(document).ready(function () {
  });
  });
 });
+
+}
 
 var step = 1;
 
@@ -192,6 +197,9 @@ function steps(step){
 
      $('#add-vehicle').hide();
      $('#finalizar_empresa').show();
+
+     $('#nro_mtop_rgt').hide();
+     $('#pass_mtop_rgt').hide();
 
      $('.progress-bar').hide();
      $('.progress-bar2').show();
@@ -439,6 +447,7 @@ switch(opcion){
             case "3":
             if (validacion("USUARIO",datos_Usuario)) {
              if (empresas.length != 0) {
+                datos_Usuario['CHOFERES_SUB'] = empresas[0]['CHOFERES_SUB']
                 ID_USUARIO = registrar_usuario("CHO");
                 btn_finalizar_carga()
                 setTimeout(function() {
@@ -544,6 +553,7 @@ switch(opcion){
 }
 
 function registrar_usuario(tipoUsuario){
+  console.log(datos_Usuario)
   $.ajax({
     type: "POST",
     url: "/PHP/procedimientosForm.php",

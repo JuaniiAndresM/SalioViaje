@@ -240,7 +240,21 @@ $main_3: #6d76db;
           text-align: start;
           white-space: nowrap;
         }
+        .tool-tip[title-new]:hover .tool-tip[title-new]:after {
+          content: attr(title-new);
+          position: absolute;
+          border: #c0c0c0 1px dotted;
+          padding: 10px;
+          display: block;
+          z-index: 100;
+          background-color: #000000;
+          color: #ffffff;
+          max-width: 200px;
+          text-decoration: none;
+          text-align:center;
+        }
       }
+      
     }
 
     li:hover,
@@ -1007,6 +1021,59 @@ $main_3: #6d76db;
         }
         input:focus {
           outline: 1px solid rgba($color: $main_2, $alpha: 0.3);
+        }
+      }
+
+      .filters2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+
+        .input {
+          position: relative;
+          width: 200px;
+          margin: 0 10px;
+
+          input,select{
+            width: 100%;
+            height: 40px;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            padding-left: 25px;
+            color: #555;
+            font-size: 0.85em;
+          }
+          input::placeholder,select::placeholder {
+            color: #888;
+          }
+
+          #icon {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            color: #555;
+          }
+        }
+
+        .reload-filters{
+          width: 40px;
+          height: 40px;
+          @include button();
+          margin: 0;
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          i{
+            font-size: 1.2em;
+            margin: 0;
+          }
+        }
+        .reload-filters:hover{
+          @include button-hover();
         }
       }
 

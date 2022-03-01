@@ -56,7 +56,35 @@ class validaciones
 			case 'ETAPA-3':
 			$validacion = $this->validar_formulario_agendar_viaje_etapa_3($datos);
 			if($validacion == 1){ echo "VALIDO"; } else {echo $validacion;}
-			break;																	
+			break;
+			case 'Translado':
+			$validacion = $this->validar_formulario_translado($datos);
+			if($validacion == 1){ echo "VALIDO"; } else {echo $validacion;}
+			break;
+			case 'Tour':
+			$validacion = $this->validar_formulario_tour($datos);
+			if($validacion == 1){ echo "VALIDO"; } else {echo $validacion;}
+			break;		
+			case 'Transfer-in':
+			$validacion = $this->validar_formulario_transfer_in($datos);
+			if($validacion == 1){ echo "VALIDO"; } else {echo $validacion;}
+			break;		
+			case 'Transfer-out':
+			$validacion = $this->validar_formulario_transfer_out($datos);
+			if($validacion == 1){ echo "VALIDO"; } else {echo $validacion;}
+			break;	
+			case 'Fiestas_ida':
+			$validacion = $this->validar_formulario_fiestas_y_eventos_ida($datos);
+			if($validacion == 1){ echo "VALIDO"; } else {echo $validacion;}
+			break;
+			case 'Fiestas_vuelta':
+			$validacion = $this->validar_formulario_fiestas_y_eventos_vuelta($datos);
+			if($validacion == 1){ echo "VALIDO"; } else {echo $validacion;}
+			break;	
+			case 'Fiestas_ida_vuelta':
+			$validacion = $this->validar_formulario_fiestas_y_eventos_ida_y_vuelta($datos);
+			if($validacion == 1){ echo "VALIDO"; } else {echo $validacion;}
+			break;																			
 			default:
 			echo "Esperando para validar...";
 			break;
@@ -218,8 +246,6 @@ class validaciones
 		if($DATOS_VACIOS == null && $errores == 0) { return true; } elseif ($DATOS_VACIOS != null) { return $DATOS_VACIOS; } else { return json_encode($VALIDACION);}
 
 	}
-
-
 
 	private function validar_formulario_hotel($datos){
 
@@ -572,6 +598,460 @@ class validaciones
 
 	}
 
+	private function validar_formulario_translado($datos){
+
+		$VALIDACION = array();
+		$DATOS_VACIOS = null;
+		$CAPACIDAD_PASAJEROS_VECHICULO = null;
+		$errores = 0;
+
+		foreach (json_decode($datos, true) as $clave => $valor){
+			if ($valor != null || $valor != '') {
+				switch ($clave) {
+					case 'FECHA_SALIDA':
+						if ($valor != null) {
+							$VALIDACION['FECHA_SALIDA'] = 1;
+						} else { $VALIDACION['FECHA_SALIDA'] = 0; }
+					break;
+					case 'ORIGEN':
+						if ($valor != null) {
+							$VALIDACION['ORIGEN'] = 1;
+						} else { $VALIDACION['ORIGEN'] = 0; }
+					break;
+					case 'CANTIDAD_PASAJEROS':
+						if ($valor != null) {
+							$VALIDACION['CANTIDAD_PASAJEROS'] = 1;
+						} else { $VALIDACION['CANTIDAD_PASAJEROS'] = 0; }
+					 break;
+					case 'HORA':
+						if ($valor != null) {
+							$VALIDACION['HORA'] = 1;
+						} else { $VALIDACION['HORA'] = 0; }
+					 break;
+					case 'DESTINO':
+						if ($valor != null) {
+							$VALIDACION['DESTINO'] = 1;
+						} else { $VALIDACION['DESTINO'] = 0; }
+					 break;
+				}
+			}
+		}
+
+		if (count($VALIDACION) != 5) {
+			$DATOS_VACIOS = "Err-1";
+		}
+
+		foreach ($VALIDACION as $clave => $valor){
+			if ($valor  == 0) {
+				$errores++;
+			}
+		}
+
+		if($DATOS_VACIOS == null && $errores == 0) { return true; } elseif ($DATOS_VACIOS != null) { return $DATOS_VACIOS; } else { return json_encode($VALIDACION);}
+
+	}
+
+	private function validar_formulario_tour($datos){
+
+		$VALIDACION = array();
+		$DATOS_VACIOS = null;
+		$CAPACIDAD_PASAJEROS_VECHICULO = null;
+		$errores = 0;
+
+		foreach (json_decode($datos, true) as $clave => $valor){
+			if ($valor != null || $valor != '') {
+				switch ($clave) {
+					case 'FECHA_SALIDA':
+						if ($valor != null) {
+							$VALIDACION['FECHA_SALIDA'] = 1;
+						} else { $VALIDACION['FECHA_SALIDA'] = 0; }
+					break;
+					case 'ORIGEN':
+						if ($valor != null) {
+							$VALIDACION['ORIGEN'] = 1;
+						} else { $VALIDACION['ORIGEN'] = 0; }
+					break;
+					case 'CANTIDAD_PASAJEROS':
+						if ($valor != null) {
+							$VALIDACION['CANTIDAD_PASAJEROS'] = 1;
+						} else { $VALIDACION['CANTIDAD_PASAJEROS'] = 0; }
+					 break;
+					case 'HORA':
+						if ($valor != null) {
+							$VALIDACION['HORA'] = 1;
+						} else { $VALIDACION['HORA'] = 0; }
+					 break;
+					case 'CIUDAD':
+						if ($valor != null) {
+							$VALIDACION['CIUDAD'] = 1;
+						} else { $VALIDACION['CIUDAD'] = 0; }
+					 break;
+					case 'DURACION':
+						if ($valor != null) {
+							$VALIDACION['DURACION'] = 1;
+						} else { $VALIDACION['DURACION'] = 0; }
+					 break;
+				}
+			}
+		}
+
+		if (count($VALIDACION) != 6) {
+			$DATOS_VACIOS = "Err-1";
+		}
+
+		foreach ($VALIDACION as $clave => $valor){
+			if ($valor  == 0) {
+				$errores++;
+			}
+		}
+
+		if($DATOS_VACIOS == null && $errores == 0) { return true; } elseif ($DATOS_VACIOS != null) { return $DATOS_VACIOS; } else { return json_encode($VALIDACION);}
+
+	}
+
+	private function validar_formulario_transfer_in($datos){
+
+		$VALIDACION = array();
+		$DATOS_VACIOS = null;
+		$CAPACIDAD_PASAJEROS_VECHICULO = null;
+		$errores = 0;
+
+		foreach (json_decode($datos, true) as $clave => $valor){
+			if ($valor != null || $valor != '') {
+				switch ($clave) {
+					case 'TIPO_TRANSFER':
+						if ($valor != '0') {
+							$VALIDACION['TIPO_TRANSFER'] = 1;
+						} else { $VALIDACION['TIPO_TRANSFER'] = 0; }
+					break;
+					case 'FECHA_SALIDA':
+						if ($valor != null) {
+							$VALIDACION['FECHA_SALIDA'] = 1;
+						} else { $VALIDACION['FECHA_SALIDA'] = 0; }
+					break;
+					case 'CANTIDAD_PASAJEROS':
+						if ($valor != null) {
+							$VALIDACION['CANTIDAD_PASAJEROS'] = 1;
+						} else { $VALIDACION['CANTIDAD_PASAJEROS'] = 0; }
+					 break;
+					case 'HORA':
+						if ($valor != null) {
+							$VALIDACION['HORA'] = 1;
+						} else { $VALIDACION['HORA'] = 0; }
+					 break;
+					case 'DESTINO':
+						if ($valor != null) {
+							$VALIDACION['DESTINO'] = 1;
+						} else { $VALIDACION['DESTINO'] = 0; }
+					 break;
+					case 'AEROPUERTO':
+						if ($valor != null) {
+							$VALIDACION['AEROPUERTO'] = 1;
+						} else { $VALIDACION['AEROPUERTO'] = 0; }
+					 break;
+					case 'EQUIPAJE':
+						if ($valor != null) {
+							$VALIDACION['EQUIPAJE'] = 1;
+						} else { $VALIDACION['EQUIPAJE'] = 0; }
+					 break;
+					case 'NRO_VUELO':
+						if ($valor != null) {
+							$VALIDACION['NRO_VUELO'] = 1;
+						} else { $VALIDACION['NRO_VUELO'] = 0; }
+					 break;
+				}
+			}
+		}
+		
+		if (count($VALIDACION) != 8) {
+			$DATOS_VACIOS = "Err-1";
+		}
+
+		foreach ($VALIDACION as $clave => $valor){
+			if ($valor  == 0) {
+				$errores++;
+			}
+		}
+
+		if($DATOS_VACIOS == null && $errores == 0) { return true; } elseif ($DATOS_VACIOS != null) { return $DATOS_VACIOS; } else { return json_encode($VALIDACION);}
+
+	}
+
+	private function validar_formulario_transfer_out($datos){
+
+		$VALIDACION = array();
+		$DATOS_VACIOS = null;
+		$CAPACIDAD_PASAJEROS_VECHICULO = null;
+		$errores = 0;
+
+		foreach (json_decode($datos, true) as $clave => $valor){
+			if ($valor != null || $valor != '') {
+				switch ($clave) {
+					case 'TIPO_TRANSFER':
+						if ($valor != '0') {
+							$VALIDACION['TIPO_TRANSFER'] = 1;
+						} else { $VALIDACION['TIPO_TRANSFER'] = 0; }
+					break;
+					case 'FECHA_REGRESO':
+						if ($valor != null) {
+							$VALIDACION['FECHA_REGRESO'] = 1;
+						} else { $VALIDACION['FECHA_REGRESO'] = 0; }
+					break;
+					case 'ORIGEN':
+						if ($valor != null) {
+							$VALIDACION['ORIGEN'] = 1;
+						} else { $VALIDACION['ORIGEN'] = 0; }
+					break;
+					case 'CANTIDAD_PASAJEROS':
+						if ($valor != null) {
+							$VALIDACION['CANTIDAD_PASAJEROS'] = 1;
+						} else { $VALIDACION['CANTIDAD_PASAJEROS'] = 0; }
+					 break;
+					case 'HORA':
+						if ($valor != null) {
+							$VALIDACION['HORA'] = 1;
+						} else { $VALIDACION['HORA'] = 0; }
+					 break;
+					case 'AEROPUERTO':
+						if ($valor != null) {
+							$VALIDACION['AEROPUERTO'] = 1;
+						} else { $VALIDACION['AEROPUERTO'] = 0; }
+					 break;
+					case 'DESTINO':
+						if ($valor != null) {
+							$VALIDACION['DESTINO'] = 1;
+						} else { $VALIDACION['DESTINO'] = 0; }
+					 break;
+					case 'EQUIPAJE':
+						if ($valor != null) {
+							$VALIDACION['EQUIPAJE'] = 1;
+						} else { $VALIDACION['EQUIPAJE'] = 0; }
+					 break;
+					case 'NRO_VUELO':
+						if ($valor != null) {
+							$VALIDACION['NRO_VUELO'] = 1;
+						} else { $VALIDACION['NRO_VUELO'] = 0; }
+					 break;
+				}
+			}
+		}
+
+		if (count($VALIDACION) != 8) {
+			$DATOS_VACIOS = "Err-1";
+		}
+
+		foreach ($VALIDACION as $clave => $valor){
+			if ($valor  == 0) {
+				$errores++;
+			}
+		}
+
+		if($DATOS_VACIOS == null && $errores == 0) { return true; } elseif ($DATOS_VACIOS != null) { return $DATOS_VACIOS; } else { return json_encode($VALIDACION);}
+
+	}
+
+	private function validar_formulario_fiestas_y_eventos_ida($datos){
+
+		$VALIDACION = array();
+		$DATOS_VACIOS = null;
+		$CAPACIDAD_PASAJEROS_VECHICULO = null;
+		$errores = 0;
+
+		foreach (json_decode($datos, true) as $clave => $valor){
+			if ($valor != null || $valor != '') {
+				switch ($clave) {
+					case 'TRAMOS_FIESTA':
+						if ($valor != '0') {
+							$VALIDACION['TRAMOS_FIESTA'] = 1;
+						} else { $VALIDACION['TRAMOS_FIESTA'] = 0; }
+					break;
+					case 'FECHA_SALIDA':
+						if ($valor != null) {
+							$VALIDACION['FECHA_SALIDA'] = 1;
+						} else { $VALIDACION['FECHA_SALIDA'] = 0; }
+					break;
+					case 'ORIGEN':
+						if ($valor != null) {
+							$VALIDACION['ORIGEN'] = 1;
+						} else { $VALIDACION['ORIGEN'] = 0; }
+					 break;
+					case 'CANTIDAD_PASAJEROS_IDA':
+						if ($valor != null) {
+							$VALIDACION['CANTIDAD_PASAJEROS_IDA'] = 1;
+						} else { $VALIDACION['CANTIDAD_PASAJEROS_IDA'] = 0; }
+					 break;
+					case 'HORA':
+						if ($valor != null) {
+							$VALIDACION['HORA'] = 1;
+						} else { $VALIDACION['HORA'] = 0; }
+					 break;
+					case 'DESTINO':
+						if ($valor != null) {
+							$VALIDACION['DESTINO'] = 1;
+						} else { $VALIDACION['DESTINO'] = 0; }
+					 break;
+				}
+			}
+		}
+
+		if (count($VALIDACION) != 6) {
+			$DATOS_VACIOS = "Err-1";
+		}
+
+		foreach ($VALIDACION as $clave => $valor){
+			if ($valor  == 0) {
+				$errores++;
+			}
+		}
+
+		if($DATOS_VACIOS == null && $errores == 0) { return true; } elseif ($DATOS_VACIOS != null) { return $DATOS_VACIOS; } else { return json_encode($VALIDACION);}
+
+	}
+
+	private function validar_formulario_fiestas_y_eventos_vuelta($datos){
+
+		$VALIDACION = array();
+		$DATOS_VACIOS = null;
+		$CAPACIDAD_PASAJEROS_VECHICULO = null;
+		$errores = 0;
+
+		foreach (json_decode($datos, true) as $clave => $valor){
+			if ($valor != null || $valor != '') {
+				switch ($clave) {
+					case 'TRAMOS_FIESTA':
+						if ($valor != '0') {
+							$VALIDACION['TRAMOS_FIESTA'] = 1;
+						} else { $VALIDACION['TRAMOS_FIESTA'] = 0; }
+					break;
+					case 'FECHA_REGRESO':
+						if ($valor != null) {
+							$VALIDACION['FECHA_REGRESO'] = 1;
+						} else { $VALIDACION['FECHA_REGRESO'] = 0; }
+					break;
+					case 'ORIGEN':
+						if ($valor != null) {
+							$VALIDACION['ORIGEN'] = 1;
+						} else { $VALIDACION['ORIGEN'] = 0; }
+					 break;
+					case 'CANTIDAD_PASAJEROS_VUELTA':
+						if ($valor != null) {
+							$VALIDACION['CANTIDAD_PASAJEROS_VUELTA'] = 1;
+						} else { $VALIDACION['CANTIDAD_PASAJEROS_VUELTA'] = 0; }
+					 break;
+					case 'HORA':
+						if ($valor != null) {
+							$VALIDACION['HORA'] = 1;
+						} else { $VALIDACION['HORA'] = 0; }
+					 break;
+					case 'DESTINO':
+						if ($valor != null) {
+							$VALIDACION['DESTINO'] = 1;
+						} else { $VALIDACION['DESTINO'] = 0; }
+					 break;
+				}
+			}
+		}
+
+		if (count($VALIDACION) != 6) {
+			$DATOS_VACIOS = "Err-1";
+		}
+
+		foreach ($VALIDACION as $clave => $valor){
+			if ($valor  == 0) {
+				$errores++;
+			}
+		}
+
+		if($DATOS_VACIOS == null && $errores == 0) { return true; } elseif ($DATOS_VACIOS != null) { return $DATOS_VACIOS; } else { return json_encode($VALIDACION);}
+
+	} 
+
+	private function validar_formulario_fiestas_y_eventos_ida_y_vuelta($datos){
+
+		$VALIDACION = array();
+		$DATOS_VACIOS = null;
+		$errores = 0;
+
+		foreach (json_decode($datos, true) as $clave => $valor){
+			if ($valor != null || $valor != '') {
+				switch ($clave) {
+					case 'TRAMOS_FIESTA':
+						if ($valor != '0') {
+							$VALIDACION['TRAMOS_FIESTA'] = 1;
+						} else { $VALIDACION['TRAMOS_FIESTA'] = 0; }
+					break;
+					case 'FECHA_SALIDA':
+						if ($valor != null) {
+							$VALIDACION['FECHA_SALIDA'] = 1;
+						} else { $VALIDACION['FECHA_SALIDA'] = 0; }
+					break;
+					case 'ORIGEN':
+						if ($valor != null) {
+							$VALIDACION['ORIGEN'] = 1;
+						} else { $VALIDACION['ORIGEN'] = 0; }
+					 break;
+					case 'CANTIDAD_PASAJEROS_IDA':
+						if ($valor != null) {
+							$VALIDACION['CANTIDAD_PASAJEROS_IDA'] = 1;
+						} else { $VALIDACION['CANTIDAD_PASAJEROS_IDA'] = 0; }
+					 break;
+					case 'HORA':
+						if ($valor != null) {
+							$VALIDACION['HORA'] = 1;
+						} else { $VALIDACION['HORA'] = 0; }
+					 break;
+					case 'DESTINO':
+						if ($valor != null) {
+							$VALIDACION['DESTINO'] = 1;
+						} else { $VALIDACION['DESTINO'] = 0; }
+					 break;
+					case 'TRAMOS_FIESTA':
+						if ($valor != null) {
+							$VALIDACION['TRAMOS_FIESTA'] = 1;
+						} else { $VALIDACION['TRAMOS_FIESTA'] = 0; }
+					 break;
+					case 'FECHA_REGRESO':
+						if ($valor != null) {
+							$VALIDACION['FECHA_REGRESO'] = 1;
+						} else { $VALIDACION['FECHA_REGRESO'] = 0; }
+					 break;
+					case 'ORIGEN_REGRESO':
+						if ($valor != null) {
+							$VALIDACION['ORIGEN_REGRESO'] = 1;
+						} else { $VALIDACION['ORIGEN_REGRESO'] = 0; }
+					 break;
+					case 'CANTIDAD_PASAJEROS_VUELTA':
+						if ($valor != null) {
+							$VALIDACION['CANTIDAD_PASAJEROS_VUELTA'] = 1;
+						} else { $VALIDACION['CANTIDAD_PASAJEROS_VUELTA'] = 0; }
+					 break;
+					case 'HORA_REGRESO':
+						if ($valor != null) {
+							$VALIDACION['HORA_REGRESO'] = 1;
+						} else { $VALIDACION['HORA_REGRESO'] = 0; }
+					 break;
+					case 'DESTINO_REGRESO':
+						if ($valor != null) {
+							$VALIDACION['DESTINO_REGRESO'] = 1;
+						} else { $VALIDACION['DESTINO_REGRESO'] = 0; }
+					 break;
+				}
+			}
+		}
+		if (count($VALIDACION) != 11) {
+			$DATOS_VACIOS = "Err-1";
+		}
+
+		foreach ($VALIDACION as $clave => $valor){
+			if ($valor  == 0) {
+				$errores++;
+			}
+		}
+
+		if($DATOS_VACIOS == null && $errores == 0) { return true; } elseif ($DATOS_VACIOS != null) { return $DATOS_VACIOS; } else { return json_encode($VALIDACION);}
+
+	}
+
 	private function validar_digito_ci($ci){
 
 		$lastDigit = substr($ci, -1);
@@ -599,6 +1079,4 @@ class validaciones
     }
 }
 	$Validar = new validaciones($_POST['tipo'],$_POST['datos']);
-
-
 ?>

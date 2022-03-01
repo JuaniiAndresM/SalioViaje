@@ -38,6 +38,7 @@ class procedimientosForm extends procedimientosBD
 	private function registrar_empresa($tipoUsuario,$empresa){
 
 		for ($x=0; $x < count($empresa); $x++) {
+			echo json_encode($empresa[$x]);
 			$this->register_empresa($x,$tipoUsuario,$this->idUsuario,$empresa[$x]);
 			for ($i=0; $i < count($empresa[$x]["VEHICULOS"]); $i++) { 
 				if ($tipoUsuario == "CHO") {
@@ -51,6 +52,12 @@ class procedimientosForm extends procedimientosBD
 				}
 				$this->register_vehiculo($rut,$rut_ec,$empresa[$x]["VEHICULOS"][$i]);
 			}
+		}
+	}
+
+	public function guardar_vehiculos($vehiculos,$rut){
+		for ($x=0; $x < count($vehiculos); $x++) {
+			$this->register_vehiculo($rut,0,$vehiculos[$x]);
 		}
 	}
 }
@@ -71,7 +78,7 @@ if ($_POST['tipo'] == 1) {
 		break;
 		case '3':
 		$empresa = json_decode($_POST["empresas"],true);
-		$procedimientosForm->register_chofer($empresa,$_POST['idUsuario']);
+		echo $procedimientosForm->register_chofer($empresa,$_POST['idUsuario']);
 		break;
 		case '4':
 		$empresa = json_decode($_POST["empresas"],true);
@@ -94,6 +101,11 @@ if ($_POST['tipo'] == 1) {
 		break;
 		case 'vehiculos':
 		echo json_encode($procedimientosForm->datos_vehiculos());
+		break;
+		case 'guardar-vehiculos':
+		$datos = json_decode($_POST["vehiculos"],true);
+		echo $procedimientosForm->guardar_vehiculos($datos,$_POST['rut']);
+		break;
 		case 'vehiculos-agenda':
 		session_start();
 		$vehiculos = array();

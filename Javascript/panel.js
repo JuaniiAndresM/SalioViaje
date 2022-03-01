@@ -230,10 +230,10 @@ function ver_usuario(id){
 /*-------------------------------------------------------------------------------------------*/
 //                                     Empresas                                              //
 /*-------------------------------------------------------------------------------------------*/
-let empresas
+let traer_empresas
 
 function traerEmpresas(seccion){
-    empresas = $.ajax({
+    traer_empresas = $.ajax({
                         type: 'POST',       
                         url: "/PHP/Backend.php",
                         data: {opcion:"emp"},
@@ -243,20 +243,20 @@ function traerEmpresas(seccion){
                             return response;
                         }
                     }).responseText;
-    empresas = JSON.parse(empresas)
+    traer_empresas = JSON.parse(traer_empresas)
     tablas_empresas(seccion);
 }
 
 function tablas_empresas(seccion){
     console.log(seccion)
-    for (var i = 0;i < empresas.length; i++) {
+    for (var i = 0;i < traer_empresas.length; i++) {
         switch(seccion){
             case "Dashboard":
-                    tabla_empresas_dashboard(empresas[i])
+                    tabla_empresas_dashboard(traer_empresas[i])
                 break;
 
             case "empresas":
-                    tabla_seccion_empresas(empresas[i])
+                    tabla_seccion_empresas(traer_empresas[i])
                 break;
         }
     }
@@ -309,10 +309,10 @@ function tabla_seccion_empresas(empresa){
 /*-------------------------------------------------------------------------------------------*/
 //                                     Vehiculos                                             //
 /*-------------------------------------------------------------------------------------------*/
-let vehiculos
+let traer_vehiculos
 
 function traerVehiculos(){
-    vehiculos = $.ajax({
+    traer_vehiculos = $.ajax({
                         type: 'POST',       
                         url: "/PHP/Backend.php",
                         data: {opcion:"vih"},
@@ -322,14 +322,14 @@ function traerVehiculos(){
                             return response;
                         }
                     }).responseText;
-    vehiculos = JSON.parse(vehiculos)
-     console.log(vehiculos)
+    traer_vehiculos = JSON.parse(traer_vehiculos)
+     console.log(traer_vehiculos)
     tablas_vehiculos();
 }
 
 function tablas_vehiculos(){
-    for (var i = 0;i < vehiculos.length; i++) {
-        tabla_seccion_vehiculos(vehiculos[i])
+    for (var i = 0;i < traer_vehiculos.length; i++) {
+        tabla_seccion_vehiculos(traer_vehiculos[i])
     }
 }
 
@@ -462,41 +462,6 @@ function crear_intervalo(tiempo){
     },tiempo)
 }
 
-function editarUsuario(id){
-    location.href = "/Profile/Editar/" + id;
-}
-
-
-function verEmpresa(rut){
-    location.href = "/Profile/Empresa/" + rut;
-}
-
-function editarEmpresa(rut){
-    location.href = "/Profile/Empresa/Editar" + rut;
-}
-
-function eliminarEmpresa(rut){
-    $.ajax({
-        type: "POST",
-        url: "/PHP/llamadosSol.php",
-        data: {tipe:3, RUT:rut},
-        success: function () {
-            location.reload();
-        }
-    });
-}
-
-function eliminar_usuario(id){
-    $.ajax({
-        type: "POST",
-        url: "/PHP/llamadosSol.php",
-        data: {tipe:4, ID:id},
-        success: function () {
-            location.reload();
-        }
-    });
-}
-
 /*-------------------------------------------------------------------------------------------*/
 //                                     Edicion                                             //
 /*-------------------------------------------------------------------------------------------*/
@@ -504,7 +469,7 @@ function eliminar_usuario(id){
 function guardarEdicionUsuario(id,ciAnterior){
     window.ciAnterior = ciAnterior;
     datos_Usuario = {
-        "CI": document.getElementById("CIEdicion").value,
+        "CI": ciAnterior,
         "CORREO": document.getElementById("CorreoEdicion").value,
         "NOMBRE": document.getElementById("NombreEdicion").value,
         "APELLIDO": document.getElementById("ApellidoEdicion").value,
@@ -534,7 +499,7 @@ function guardarEdicionUsuario(id,ciAnterior){
                     type: "POST",
                     url: "/PHP/llamadosSol.php",
                     //aca mandarias la info necesaria para el xml de llamada
-                    data: {tipe:0, ID:id, CI:datos_Usuario["CI"], NOMBRE:datos_Usuario["NOMBRE"], APELLIDO:datos_Usuario["APELLIDO"], CORREO:datos_Usuario["CORREO"], DEPARTAMENTO:datos_Usuario["DEPARTAMENTO"], BARRIO:datos_Usuario["BARRIO"], DIRECCION:datos_Usuario["DIRECCION"], TEL:datos_Usuario["TELEFONO"]},
+                    data: {tipe:0, ID:id, CI:ciAnterior, NOMBRE:datos_Usuario["NOMBRE"], APELLIDO:datos_Usuario["APELLIDO"], CORREO:datos_Usuario["CORREO"], DEPARTAMENTO:datos_Usuario["DEPARTAMENTO"], BARRIO:datos_Usuario["BARRIO"], DIRECCION:datos_Usuario["DIRECCION"], TEL:datos_Usuario["TELEFONO"]},
                     success: function (response) {
                         location.reload();
                     }
@@ -553,7 +518,7 @@ function guardarEdicionUsuario(id,ciAnterior){
     window.ciAnterior = ciAnterior;
  
     datos_Usuario = {
-       "CI": document.getElementById("CIEdicion").value,
+       "CI": ciAnterior,
        "CORREO": document.getElementById("CorreoEdicion").value,
        "NOMBRE": document.getElementById("NombreEdicion").value,
        "APELLIDO": document.getElementById("ApellidoEdicion").value,
@@ -594,7 +559,19 @@ function guardarEdicionUsuario(id,ciAnterior){
                          data: {tipe:1, ID:id, PINNUEVO:datos_Usuario["PIN"]},
                          success: function (response) {
                              if(pinAnterior != null){
-                                location.reload();
+                                $('.button-pin').attr('disabled', true);
+                                $('.button-pin').html('<span class="loader-register"><i class="fas fa-spinner"></i></span>');
+
+                                setTimeout(() => {
+                                    $('.button-pin').attr('disabled', false);
+                                    $('.button-pin').html('<i class="fas fa-save"></i> Cambiar PIN');
+
+                                    $('#mensaje-error-PIN').show();
+                                    $('#mensaje-error-PIN').css('color','rgb(97, 150, 62)');
+                                    $('#mensaje-error-PIN').text("PIN cambiado correctamente.");
+
+                                }, 2000);
+                                
                              }else{
                                 $('#mensaje-error-PIN').show();
                                 $('#mensaje-error-PIN').text("Debe completar todos los campos.");
@@ -618,7 +595,7 @@ function guardarEdicionUsuario(id,ciAnterior){
     window.ciAnterior = ciAnterior;
  
     datos_Usuario = {
-       "CI": document.getElementById("CIEdicion").value,
+       "CI": ciAnterior,
        "CORREO": document.getElementById("CorreoEdicion").value,
        "NOMBRE": document.getElementById("NombreEdicion").value,
        "APELLIDO": document.getElementById("ApellidoEdicion").value,
@@ -655,7 +632,7 @@ function guardarEdicionUsuario(id,ciAnterior){
  
  function guardarEdicionEmpresa(rut){
     datos_Empresa = {
-       "RUT": document.getElementById("RUTEdicion").value,
+       "RUT": rut,
        "NOMBRE_COMERCIAL": document.getElementById("NcEdicion").value,
        "RAZON_SOCIAL": document.getElementById("RsEdicion").value,
        "NUMERO_MTOP": document.getElementById("NmEdicion").value,
@@ -674,17 +651,18 @@ function guardarEdicionUsuario(id,ciAnterior){
             success: function(response) {
         }
         }).responseText;
-
-        console.log(validacion);
+        if(confirmar_rut(validacion) == false){
+            validacion ="VALIDO"
+        }
         if (validacion == "VALIDO") {
             $(".mensaje-error").hide();
             $.ajax({
             type: "POST",
             url: "/PHP/llamadosSol.php",
             //aca mandarias la info necesaria para el xml de llamada
-            data: {tipe:5, RUTANTERIOR:rut, RUT:datos_Empresa["RUT"], NOMBRE:datos_Empresa["NOMBRE_COMERCIAL"], RS:datos_Empresa["RAZON_SOCIAL"], CA:document.getElementById("CaEdicion").value, NM:datos_Empresa["NUMERO_MTOP"], CM:datos_Empresa["PASSWORD_MTOP"]},
+            data: {tipe:5, RUTANTERIOR:rut, RUT:rut, NOMBRE:datos_Empresa["NOMBRE_COMERCIAL"], RS:datos_Empresa["RAZON_SOCIAL"], CA:document.getElementById("CaEdicion").value, NM:datos_Empresa["NUMERO_MTOP"], CM:datos_Empresa["PASSWORD_MTOP"]},
             success: function (response) {
-                    editarEmpresa(datos_Empresa["RUT"]);
+                    editarEmpresa(rut);
             }
             });
         }
@@ -695,22 +673,22 @@ function guardarEdicionUsuario(id,ciAnterior){
  }
  
  function editarUsuario(id){
-    location.href = "/Profile/Editar/" + id;
+    location.href = "/SalioViaje/Profile/Editar/" + id;
  }
  
  
  function verEmpresa(rut){
-    location.href = "/Profile/Empresa/" + rut;
+    location.href = "/SalioViaje/Profile/Empresa/" + rut;
  }
  
  function editarEmpresa(rut){
-    location.href = "/Profile/Empresa/Editar/" + rut;
+    location.href = "/SalioViaje/Profile/Empresa/Editar/" + rut;
  }
  
  function eliminarEmpresa(rut){
     $.ajax({
         type: "POST",
-        url: "/PHP/llamadosSol.php",
+        url: "/SalioViaje/PHP/llamadosSol.php",
         data: {tipe:3, RUT:rut},
         success: function () {
             location.reload();
@@ -721,7 +699,7 @@ function guardarEdicionUsuario(id,ciAnterior){
  function eliminar_usuario(id){
     $.ajax({
         type: "POST",
-        url: "/PHP/llamadosSol.php",
+        url: "/SalioViaje/PHP/llamadosSol.php",
         data: {tipe:4, ID:id},
         success: function () {
             location.reload();
@@ -849,12 +827,39 @@ function confirmar_ci(validacion){
     if(validacion != "VALIDO"){
         if(validacion != "Err-1"){
             errores= JSON.parse(validacion);
-            if(errores["CI"] == 2 && window.ciAnterior == document.getElementById("CIEdicion").value){
+            if(errores["CI"] == 2){
                 for (const property in errores) {
                     if(errores[property] == 1 && property != "CI"){
                         error = false;
                     }else{
                         if(property != "CI"){
+                            error = true;
+                            return;
+                        }
+                    }
+                }
+            }else{
+                error =true;
+            }
+        }else{
+            error = true;
+        }
+    }else{
+        error = true;
+    }
+    return error;
+}
+
+function confirmar_rut(validacion){
+    if(validacion != "VALIDO"){
+        if(validacion != "Err-1"){
+            errores= JSON.parse(validacion);
+            if(errores["RUT"] == 2){
+                for (const property in errores) {
+                    if(errores[property] == 1 && property != "RUT"){
+                        error = false;
+                    }else{
+                        if(property != "RUT"){
                             error = true;
                             return;
                         }

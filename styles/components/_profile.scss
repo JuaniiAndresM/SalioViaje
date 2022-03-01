@@ -323,11 +323,26 @@
                     .button-pin, .button-agregar{
                         @include button();
                         margin: 10px auto;
+
+                        span{
+                          i{
+                            animation: loader-finalizar 1s infinite forwards linear;
+                            margin: 0;
+                          }
+                        }
                     }
-                    button[disabled],button:disabled{
-                      background: #999;
-                      color: $contraste_1;
+                    button:disabled,
+                    button[disabled]{
+                      background: #cccccc;
+                      color: #666666;
                     }
+                }
+
+                .mensaje-error,
+                #mensaje-error {
+                  color: #ff635a;
+                  margin-bottom: 20px;
+                  text-align: center;
                 }
 
                 .vehiculos-wrapper {

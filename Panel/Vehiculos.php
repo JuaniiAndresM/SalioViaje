@@ -12,11 +12,12 @@ require_once '../PHP/procedimientosBD.php';
       header('Location: https://www.salioviaje.com.uy/');
     }else{
       $info_usuario = new procedimientosBD();
-
-      $usuario = $info_usuario->info_usuario_profile($_SESSION['datos_usuario']['ID']);
-      $vehiculos = $info_usuario->traer_datos_vehiculo($usuario[0]["RUT"]);
-
-      $vehiculos;
+      if($_SESSION['tipo_usuario'] == "Administrador"){
+        $vehiculos = $info_usuario->datos_vehiculos();
+      }else{
+          $usuario = $info_usuario->info_usuario_profile($_SESSION['datos_usuario']['ID']);
+          $vehiculos = $info_usuario->traer_datos_vehiculo($usuario[0]["RUT"]);
+      }
     }
   }
 

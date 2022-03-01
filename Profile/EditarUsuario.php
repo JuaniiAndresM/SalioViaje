@@ -157,10 +157,6 @@
             <div class="informacion-wrapper">
 
               <div class="info">
-                <b><i class="far fa-address-card"></i> C.I</b>
-                <input type="number" placeholder="C.I" id="CIEdicion" value="<?php echo $usuario[0]['CI']?>">
-              </div>
-              <div class="info">
                 <b><i class="fas fa-signature"></i> Nombre</b>
                 <input type="text" placeholder="Nombre" id="NombreEdicion" value="<?php echo $usuario[0]['NOMBRE']?>">
               </div>

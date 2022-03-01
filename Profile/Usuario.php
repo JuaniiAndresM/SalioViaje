@@ -258,7 +258,7 @@
 
             <?php
 
-              if($tipo == 1){
+              if($tipo == 9){
                 if($_SESSION['tipo_usuario'] == "Administrador" || $nombre == $_SESSION['usuario']){
                   echo '<h3><i class="fas fa-history"></i> Historial de Viajes</h3>
                   <div class="search">
@@ -302,35 +302,53 @@
                 }
                 
               }else if($tipo == 2 || $tipo == 3){
+                $info = new procedimientosBD();
+                $empresas = $info->traer_empresas_usuario($usuario[0]['ID']);
                 if($nombre == $_SESSION['usuario']){
                   echo '<h3><i class="fas fa-building"></i> Tus Empresas</h3>';
                 }else{
                   echo '<h3><i class="fas fa-building"></i> Empresas</h3>';
                 }
 
-                echo'<div class="search">
-                            <i class="fas fa-search"></i>
-                            <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarusuarios()"/>
-                      </div>
-                      <div class="empresas">
-
-                        <div class="empresa">
-                          <div class="empresa-left">
-                            <div class="empresa-icon">
-                              <i class="fas fa-building"></i>
-                            </div>
-                            <div class="empresa-info">
-                              <h3>Nombre de la Empresa</h3>
-                              <p><i class="fas fa-bus"></i> 2 Vehiculos</p>
-                            </div>
-                          </div>
-                          <div class="empresa-button">
-                            <button class="button"><i class="far fa-eye"></i></button>
-                            <button class="button"><i class="fas fa-edit"></i></button>
-                            <button class="button"><i class="fas fa-trash-alt"></i></button>
-                          </div>
-                        </div>
-            
+                            if($empresas === null){
+                              echo '<div class="empresas"><div class="empresa">
+                                <h3>Este usuario no cuenta con empresas</h3>
+                                </div></div>
+                              ';
+                            }else{
+                                $size = sizeof($empresas);
+                                echo '<div class="search">
+                                        <i class="fas fa-search"></i>
+                                        <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarusuarios()"/>
+                                  </div>
+                                  <div class="empresas">';
+                                for($i = 0; $i< sizeof($empresas); $i++){
+                                  $vehiculos = $info->traer_datos_vehiculo($empresas[$i]["RUT"]);
+                                  if($vehiculos != null){
+                                    $size_vehiculos = sizeof($vehiculos);
+                                  }else{
+                                    $size_vehiculos = 0;
+                                  }
+                                  echo '
+                                      <div class="empresa">
+                                      <div class="empresa-left">
+                                        <div class="empresa-icon">
+                                          <i class="fas fa-building"></i>
+                                        </div>
+                                        <div class="empresa-info">
+                                        <h3>'.$empresas[$i]['NOMBRE_COMERCIAL'].'</h3>
+                                        <p><i class="fas fa-bus"></i> '.$size_vehiculos.' Vehiculos</p>
+                                        </div>
+                                      </div>
+                                        <div class="empresa-button">
+                                        <button id="'.$empresas[$i]["RUT"].'" onclick="verEmpresa('.$empresas[$i]['RUT'].')"><i class="far fa-eye"></i></button>
+                                        <button id="'.$empresas[$i]["RUT"].'" onclick="editarEmpresa('.$empresas[$i]['RUT'].')"><i class="fas fa-edit"></i></button>
+                                        <button id="'.$empresas[$i]["RUT"].'" onclick="eliminarEmpresa('.$empresas[$i]['RUT'].')"><i class="fas fa-trash-alt"></i></button>
+                                      </div>
+                                      </div>';
+                                }
+                            }
+                          echo'
                       </div>';
               }
 

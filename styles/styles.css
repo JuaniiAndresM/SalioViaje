@@ -4961,6 +4961,20 @@ footer .totum p a:hover {
   white-space: nowrap;
 }
 
+#panel-navbar ul li a .tool-tip[title-new]:hover .tool-tip[title-new]:after {
+  content: attr(title-new);
+  position: absolute;
+  border: #c0c0c0 1px dotted;
+  padding: 10px;
+  display: block;
+  z-index: 100;
+  background-color: #000000;
+  color: #ffffff;
+  max-width: 200px;
+  text-decoration: none;
+  text-align: center;
+}
+
 #panel-navbar ul li:hover,
 #panel-navbar ul li.hovered {
   background-color: white;
@@ -5986,6 +6000,99 @@ footer .totum p a:hover {
 
 .section-usuarios .usuarios-recientes .filters .search input:focus {
   outline: 1px solid rgba(43, 49, 121, 0.3);
+}
+
+.section-usuarios .usuarios-recientes .filters .filters2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.section-usuarios .usuarios-recientes .filters .filters2 .input {
+  position: relative;
+  width: 200px;
+  margin: 0 10px;
+}
+
+.section-usuarios .usuarios-recientes .filters .filters2 .input input, .section-usuarios .usuarios-recientes .filters .filters2 .input select {
+  width: 100%;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding-left: 25px;
+  color: #555;
+  font-size: 0.85em;
+}
+
+.section-usuarios .usuarios-recientes .filters .filters2 .input input::-webkit-input-placeholder, .section-usuarios .usuarios-recientes .filters .filters2 .input select::-webkit-input-placeholder {
+  color: #888;
+}
+
+.section-usuarios .usuarios-recientes .filters .filters2 .input input:-ms-input-placeholder, .section-usuarios .usuarios-recientes .filters .filters2 .input select:-ms-input-placeholder {
+  color: #888;
+}
+
+.section-usuarios .usuarios-recientes .filters .filters2 .input input::-ms-input-placeholder, .section-usuarios .usuarios-recientes .filters .filters2 .input select::-ms-input-placeholder {
+  color: #888;
+}
+
+.section-usuarios .usuarios-recientes .filters .filters2 .input input::placeholder, .section-usuarios .usuarios-recientes .filters .filters2 .input select::placeholder {
+  color: #888;
+}
+
+.section-usuarios .usuarios-recientes .filters .filters2 .input #icon {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  color: #555;
+}
+
+.section-usuarios .usuarios-recientes .filters .filters2 .reload-filters {
+  width: 40px;
+  height: 40px;
+  background: -webkit-gradient(linear, left top, right top, from(#3844bc), to(#2b3179));
+  background: linear-gradient(to right, #3844bc, #2b3179);
+  color: #ffffff;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 2em;
+  margin-top: 10px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.section-usuarios .usuarios-recientes .filters .filters2 .reload-filters i {
+  margin-right: 5px;
+}
+
+.section-usuarios .usuarios-recientes .filters .filters2 .reload-filters i {
+  font-size: 1.2em;
+  margin: 0;
+}
+
+.section-usuarios .usuarios-recientes .filters .filters2 .reload-filters:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .section-usuarios .usuarios-recientes .filters .checkboxs {
@@ -7671,18 +7778,25 @@ footer .totum p a:hover {
 
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input input,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input select,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input textarea,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .input input,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .input select,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .input textarea,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .input input,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .input select,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .input textarea,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .input input,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .input select,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .input textarea,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .input input,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .input select,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .input textarea,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .input input,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .input select,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .input textarea,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input input,
-.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input select {
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input select,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input textarea {
   width: 100%;
   height: 40px;
   background-color: transparent;
@@ -7692,74 +7806,113 @@ footer .totum p a:hover {
   padding-left: 25px;
   color: #555;
   font-size: 0.85em;
+  resize: vertical;
 }
 
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input input::-webkit-input-placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input textarea::-webkit-input-placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .input input::-webkit-input-placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .input textarea::-webkit-input-placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .input input::-webkit-input-placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .input textarea::-webkit-input-placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .input input::-webkit-input-placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .input textarea::-webkit-input-placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .input input::-webkit-input-placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .input textarea::-webkit-input-placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .input input::-webkit-input-placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .input textarea::-webkit-input-placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input input::-webkit-input-placeholder,
-.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input select::-webkit-input-placeholder {
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input select::-webkit-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input textarea::-webkit-input-placeholder {
   color: #888;
 }
 
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input input:-ms-input-placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input textarea:-ms-input-placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .input input:-ms-input-placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .input textarea:-ms-input-placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .input input:-ms-input-placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .input textarea:-ms-input-placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .input input:-ms-input-placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .input textarea:-ms-input-placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .input input:-ms-input-placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .input textarea:-ms-input-placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .input input:-ms-input-placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .input textarea:-ms-input-placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input input:-ms-input-placeholder,
-.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input select:-ms-input-placeholder {
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input select:-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input textarea:-ms-input-placeholder {
   color: #888;
 }
 
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input input::-ms-input-placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input textarea::-ms-input-placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .input input::-ms-input-placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .input textarea::-ms-input-placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .input input::-ms-input-placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .input textarea::-ms-input-placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .input input::-ms-input-placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .input textarea::-ms-input-placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .input input::-ms-input-placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .input textarea::-ms-input-placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .input input::-ms-input-placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .input textarea::-ms-input-placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input input::-ms-input-placeholder,
-.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input select::-ms-input-placeholder {
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input select::-ms-input-placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input textarea::-ms-input-placeholder {
   color: #888;
 }
 
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input input::placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input select::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input textarea::placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .input input::placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .input select::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .input textarea::placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .input input::placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .input select::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .input textarea::placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .input input::placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .input select::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .input textarea::placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .input input::placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .input select::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .input textarea::placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .input input::placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .input select::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .input textarea::placeholder,
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input input::placeholder,
-.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input select::placeholder {
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input select::placeholder,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input textarea::placeholder {
   color: #888;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input textarea,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .input textarea,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .input textarea,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .input textarea,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .input textarea,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .input textarea,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input textarea {
+  padding: 10px 0;
 }
 
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input #icon,
@@ -8210,6 +8363,17 @@ footer .totum p a:hover {
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .button-viajar:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .mensaje-error,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .mensaje-error,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .mensaje-error,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .mensaje-error,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .mensaje-error,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .mensaje-error,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .mensaje-error {
+  color: #ff635a;
+  margin-bottom: 20px;
 }
 
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .loader_step3,
@@ -10421,9 +10585,25 @@ footer .totum p a:hover {
   margin-right: 5px;
 }
 
-.profile-wrapper .profile-grid .viajes-wrapper .password-change .button-wrapper button[disabled], .profile-wrapper .profile-grid .viajes-wrapper .password-change .button-wrapper button:disabled, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .button-wrapper button[disabled], .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .button-wrapper button:disabled {
-  background: #999;
-  color: #333333;
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .button-wrapper .button-pin span i, .profile-wrapper .profile-grid .viajes-wrapper .password-change .button-wrapper .button-agregar span i, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .button-wrapper .button-pin span i, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .button-wrapper .button-agregar span i {
+  -webkit-animation: loader-finalizar 1s infinite forwards linear;
+          animation: loader-finalizar 1s infinite forwards linear;
+  margin: 0;
+}
+
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .button-wrapper button:disabled,
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .button-wrapper button[disabled], .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .button-wrapper button:disabled,
+.profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .button-wrapper button[disabled] {
+  background: #cccccc;
+  color: #666666;
+}
+
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .mensaje-error,
+.profile-wrapper .profile-grid .viajes-wrapper .password-change #mensaje-error, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .mensaje-error,
+.profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle #mensaje-error {
+  color: #ff635a;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .profile-wrapper .profile-grid .viajes-wrapper .password-change .vehiculos-wrapper, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .vehiculos-wrapper {
@@ -11977,6 +12157,660 @@ footer .totum p a:hover {
 .change_password .change_password-wrapper #change_password #mensaje-error {
   color: #ff635a;
   margin-bottom: 20px;
+}
+
+.crear_empresa-wrapper {
+  position: relative;
+  z-index: 10;
+  max-width: 600px;
+  width: 100%;
+  padding: 30px 0;
+  margin: 0 20px;
+  border-radius: 3em 0 3em 3em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.crear_empresa-wrapper h1 {
+  color: #333333;
+  font-size: 2em;
+}
+
+.crear_empresa-wrapper h1 span {
+  color: #3844bc;
+}
+
+.crear_empresa-wrapper .progress-bar {
+  position: relative;
+  width: 90%;
+  height: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.crear_empresa-wrapper .progress-bar .line {
+  position: relative;
+  width: 100%;
+  height: 5px;
+  border-radius: 2em;
+  background-color: #aaa;
+}
+
+.crear_empresa-wrapper .progress-bar .progress {
+  position: absolute;
+  left: 0;
+  width: 0%;
+  height: 5px;
+  border-radius: 2em;
+  background: -webkit-gradient(linear, left top, right top, from(#3844bc), to(#2b3179));
+  background: linear-gradient(to right, #3844bc, #2b3179);
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+}
+
+.crear_empresa-wrapper .progress-bar .circle1,
+.crear_empresa-wrapper .progress-bar .circle2 {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #aaa;
+  position: absolute;
+  left: 0;
+}
+
+.crear_empresa-wrapper .progress-bar .circle1 {
+  background-color: #3844bc;
+}
+
+.crear_empresa-wrapper .progress-bar .circle2 {
+  left: calc(100% - 10px);
+}
+
+.crear_empresa-wrapper #step_1,
+.crear_empresa-wrapper #step_2,
+.crear_empresa-wrapper #step_3 {
+  width: 100%;
+  text-align: center;
+}
+
+.crear_empresa-wrapper #step_1 .step_title,
+.crear_empresa-wrapper #step_2 .step_title,
+.crear_empresa-wrapper #step_3 .step_title {
+  color: #3844bc;
+  margin-top: 10px;
+  font-size: 1.2em;
+}
+
+.crear_empresa-wrapper #step_1 .inputs-wrapper,
+.crear_empresa-wrapper #step_1 .inputs-wrapper-register,
+.crear_empresa-wrapper #step_2 .inputs-wrapper,
+.crear_empresa-wrapper #step_2 .inputs-wrapper-register,
+.crear_empresa-wrapper #step_3 .inputs-wrapper,
+.crear_empresa-wrapper #step_3 .inputs-wrapper-register {
+  width: 100%;
+}
+
+.crear_empresa-wrapper #step_1 .inputs-wrapper .input,
+.crear_empresa-wrapper #step_1 .inputs-wrapper-register .input,
+.crear_empresa-wrapper #step_2 .inputs-wrapper .input,
+.crear_empresa-wrapper #step_2 .inputs-wrapper-register .input,
+.crear_empresa-wrapper #step_3 .inputs-wrapper .input,
+.crear_empresa-wrapper #step_3 .inputs-wrapper-register .input {
+  position: relative;
+  width: calc(100% - 60px);
+  margin: 30px auto;
+}
+
+.crear_empresa-wrapper #step_1 .inputs-wrapper .input input,
+.crear_empresa-wrapper #step_1 .inputs-wrapper .input select,
+.crear_empresa-wrapper #step_1 .inputs-wrapper-register .input input,
+.crear_empresa-wrapper #step_1 .inputs-wrapper-register .input select,
+.crear_empresa-wrapper #step_2 .inputs-wrapper .input input,
+.crear_empresa-wrapper #step_2 .inputs-wrapper .input select,
+.crear_empresa-wrapper #step_2 .inputs-wrapper-register .input input,
+.crear_empresa-wrapper #step_2 .inputs-wrapper-register .input select,
+.crear_empresa-wrapper #step_3 .inputs-wrapper .input input,
+.crear_empresa-wrapper #step_3 .inputs-wrapper .input select,
+.crear_empresa-wrapper #step_3 .inputs-wrapper-register .input input,
+.crear_empresa-wrapper #step_3 .inputs-wrapper-register .input select {
+  width: 100%;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #aaa;
+  outline: none;
+  padding-left: 25px;
+  color: #555;
+  font-size: 0.85em;
+}
+
+.crear_empresa-wrapper #step_1 .inputs-wrapper .input input::-webkit-input-placeholder,
+.crear_empresa-wrapper #step_1 .inputs-wrapper .input select::-webkit-input-placeholder,
+.crear_empresa-wrapper #step_1 .inputs-wrapper-register .input input::-webkit-input-placeholder,
+.crear_empresa-wrapper #step_1 .inputs-wrapper-register .input select::-webkit-input-placeholder,
+.crear_empresa-wrapper #step_2 .inputs-wrapper .input input::-webkit-input-placeholder,
+.crear_empresa-wrapper #step_2 .inputs-wrapper .input select::-webkit-input-placeholder,
+.crear_empresa-wrapper #step_2 .inputs-wrapper-register .input input::-webkit-input-placeholder,
+.crear_empresa-wrapper #step_2 .inputs-wrapper-register .input select::-webkit-input-placeholder,
+.crear_empresa-wrapper #step_3 .inputs-wrapper .input input::-webkit-input-placeholder,
+.crear_empresa-wrapper #step_3 .inputs-wrapper .input select::-webkit-input-placeholder,
+.crear_empresa-wrapper #step_3 .inputs-wrapper-register .input input::-webkit-input-placeholder,
+.crear_empresa-wrapper #step_3 .inputs-wrapper-register .input select::-webkit-input-placeholder {
+  color: #888;
+}
+
+.crear_empresa-wrapper #step_1 .inputs-wrapper .input input:-ms-input-placeholder,
+.crear_empresa-wrapper #step_1 .inputs-wrapper .input select:-ms-input-placeholder,
+.crear_empresa-wrapper #step_1 .inputs-wrapper-register .input input:-ms-input-placeholder,
+.crear_empresa-wrapper #step_1 .inputs-wrapper-register .input select:-ms-input-placeholder,
+.crear_empresa-wrapper #step_2 .inputs-wrapper .input input:-ms-input-placeholder,
+.crear_empresa-wrapper #step_2 .inputs-wrapper .input select:-ms-input-placeholder,
+.crear_empresa-wrapper #step_2 .inputs-wrapper-register .input input:-ms-input-placeholder,
+.crear_empresa-wrapper #step_2 .inputs-wrapper-register .input select:-ms-input-placeholder,
+.crear_empresa-wrapper #step_3 .inputs-wrapper .input input:-ms-input-placeholder,
+.crear_empresa-wrapper #step_3 .inputs-wrapper .input select:-ms-input-placeholder,
+.crear_empresa-wrapper #step_3 .inputs-wrapper-register .input input:-ms-input-placeholder,
+.crear_empresa-wrapper #step_3 .inputs-wrapper-register .input select:-ms-input-placeholder {
+  color: #888;
+}
+
+.crear_empresa-wrapper #step_1 .inputs-wrapper .input input::-ms-input-placeholder,
+.crear_empresa-wrapper #step_1 .inputs-wrapper .input select::-ms-input-placeholder,
+.crear_empresa-wrapper #step_1 .inputs-wrapper-register .input input::-ms-input-placeholder,
+.crear_empresa-wrapper #step_1 .inputs-wrapper-register .input select::-ms-input-placeholder,
+.crear_empresa-wrapper #step_2 .inputs-wrapper .input input::-ms-input-placeholder,
+.crear_empresa-wrapper #step_2 .inputs-wrapper .input select::-ms-input-placeholder,
+.crear_empresa-wrapper #step_2 .inputs-wrapper-register .input input::-ms-input-placeholder,
+.crear_empresa-wrapper #step_2 .inputs-wrapper-register .input select::-ms-input-placeholder,
+.crear_empresa-wrapper #step_3 .inputs-wrapper .input input::-ms-input-placeholder,
+.crear_empresa-wrapper #step_3 .inputs-wrapper .input select::-ms-input-placeholder,
+.crear_empresa-wrapper #step_3 .inputs-wrapper-register .input input::-ms-input-placeholder,
+.crear_empresa-wrapper #step_3 .inputs-wrapper-register .input select::-ms-input-placeholder {
+  color: #888;
+}
+
+.crear_empresa-wrapper #step_1 .inputs-wrapper .input input::placeholder,
+.crear_empresa-wrapper #step_1 .inputs-wrapper .input select::placeholder,
+.crear_empresa-wrapper #step_1 .inputs-wrapper-register .input input::placeholder,
+.crear_empresa-wrapper #step_1 .inputs-wrapper-register .input select::placeholder,
+.crear_empresa-wrapper #step_2 .inputs-wrapper .input input::placeholder,
+.crear_empresa-wrapper #step_2 .inputs-wrapper .input select::placeholder,
+.crear_empresa-wrapper #step_2 .inputs-wrapper-register .input input::placeholder,
+.crear_empresa-wrapper #step_2 .inputs-wrapper-register .input select::placeholder,
+.crear_empresa-wrapper #step_3 .inputs-wrapper .input input::placeholder,
+.crear_empresa-wrapper #step_3 .inputs-wrapper .input select::placeholder,
+.crear_empresa-wrapper #step_3 .inputs-wrapper-register .input input::placeholder,
+.crear_empresa-wrapper #step_3 .inputs-wrapper-register .input select::placeholder {
+  color: #888;
+}
+
+.crear_empresa-wrapper #step_1 .inputs-wrapper .input #icon,
+.crear_empresa-wrapper #step_1 .inputs-wrapper-register .input #icon,
+.crear_empresa-wrapper #step_2 .inputs-wrapper .input #icon,
+.crear_empresa-wrapper #step_2 .inputs-wrapper-register .input #icon,
+.crear_empresa-wrapper #step_3 .inputs-wrapper .input #icon,
+.crear_empresa-wrapper #step_3 .inputs-wrapper-register .input #icon {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  color: #555;
+}
+
+.crear_empresa-wrapper #step_1 .inputs-wrapper .input .password-eye,
+.crear_empresa-wrapper #step_1 .inputs-wrapper-register .input .password-eye,
+.crear_empresa-wrapper #step_2 .inputs-wrapper .input .password-eye,
+.crear_empresa-wrapper #step_2 .inputs-wrapper-register .input .password-eye,
+.crear_empresa-wrapper #step_3 .inputs-wrapper .input .password-eye,
+.crear_empresa-wrapper #step_3 .inputs-wrapper-register .input .password-eye {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 12px;
+  right: 0;
+  color: #555;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.crear_empresa-wrapper #step_1 .inputs-wrapper .input .password-eye:hover,
+.crear_empresa-wrapper #step_1 .inputs-wrapper-register .input .password-eye:hover,
+.crear_empresa-wrapper #step_2 .inputs-wrapper .input .password-eye:hover,
+.crear_empresa-wrapper #step_2 .inputs-wrapper-register .input .password-eye:hover,
+.crear_empresa-wrapper #step_3 .inputs-wrapper .input .password-eye:hover,
+.crear_empresa-wrapper #step_3 .inputs-wrapper-register .input .password-eye:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.crear_empresa-wrapper #step_1 .inputs-wrapper .input:nth-child(3) input,
+.crear_empresa-wrapper #step_1 .inputs-wrapper-register .input:nth-child(3) input,
+.crear_empresa-wrapper #step_2 .inputs-wrapper .input:nth-child(3) input,
+.crear_empresa-wrapper #step_2 .inputs-wrapper-register .input:nth-child(3) input,
+.crear_empresa-wrapper #step_3 .inputs-wrapper .input:nth-child(3) input,
+.crear_empresa-wrapper #step_3 .inputs-wrapper-register .input:nth-child(3) input {
+  padding-right: 30px;
+  margin-bottom: 0;
+}
+
+.crear_empresa-wrapper #step_1 .inputs-wrapper-register,
+.crear_empresa-wrapper #step_2 .inputs-wrapper-register,
+.crear_empresa-wrapper #step_3 .inputs-wrapper-register {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+.crear_empresa-wrapper #step_1 .button-login,
+.crear_empresa-wrapper #step_1 .button-register,
+.crear_empresa-wrapper #step_2 .button-login,
+.crear_empresa-wrapper #step_2 .button-register,
+.crear_empresa-wrapper #step_3 .button-login,
+.crear_empresa-wrapper #step_3 .button-register {
+  background: -webkit-gradient(linear, left top, right top, from(#3844bc), to(#2b3179));
+  background: linear-gradient(to right, #3844bc, #2b3179);
+  color: #ffffff;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 2em;
+  margin-top: 10px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+  margin-top: 0;
+}
+
+.crear_empresa-wrapper #step_1 .button-login i,
+.crear_empresa-wrapper #step_1 .button-register i,
+.crear_empresa-wrapper #step_2 .button-login i,
+.crear_empresa-wrapper #step_2 .button-register i,
+.crear_empresa-wrapper #step_3 .button-login i,
+.crear_empresa-wrapper #step_3 .button-register i {
+  margin-right: 5px;
+}
+
+.crear_empresa-wrapper #step_1 .button-register:disabled,
+.crear_empresa-wrapper #step_1 .button-register[disabled],
+.crear_empresa-wrapper #step_2 .button-register:disabled,
+.crear_empresa-wrapper #step_2 .button-register[disabled],
+.crear_empresa-wrapper #step_3 .button-register:disabled,
+.crear_empresa-wrapper #step_3 .button-register[disabled] {
+  background: #cccccc;
+  color: #666666;
+}
+
+.crear_empresa-wrapper #step_1 .button-register:disabled span i,
+.crear_empresa-wrapper #step_1 .button-register[disabled] span i,
+.crear_empresa-wrapper #step_2 .button-register:disabled span i,
+.crear_empresa-wrapper #step_2 .button-register[disabled] span i,
+.crear_empresa-wrapper #step_3 .button-register:disabled span i,
+.crear_empresa-wrapper #step_3 .button-register[disabled] span i {
+  -webkit-animation: loader-finalizar 1s infinite forwards linear;
+          animation: loader-finalizar 1s infinite forwards linear;
+  margin: 0;
+}
+
+.crear_empresa-wrapper #step_1 .login-bottom,
+.crear_empresa-wrapper #step_1 .register-bottom,
+.crear_empresa-wrapper #step_2 .login-bottom,
+.crear_empresa-wrapper #step_2 .register-bottom,
+.crear_empresa-wrapper #step_3 .login-bottom,
+.crear_empresa-wrapper #step_3 .register-bottom {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.crear_empresa-wrapper #step_1 .login-bottom p,
+.crear_empresa-wrapper #step_1 .register-bottom p,
+.crear_empresa-wrapper #step_2 .login-bottom p,
+.crear_empresa-wrapper #step_2 .register-bottom p,
+.crear_empresa-wrapper #step_3 .login-bottom p,
+.crear_empresa-wrapper #step_3 .register-bottom p {
+  max-width: 280px;
+  width: 100%;
+  margin: 10px auto;
+  color: #2b3179;
+  font-size: 0.8em;
+}
+
+.crear_empresa-wrapper #step_1 .login-bottom p a,
+.crear_empresa-wrapper #step_1 .register-bottom p a,
+.crear_empresa-wrapper #step_2 .login-bottom p a,
+.crear_empresa-wrapper #step_2 .register-bottom p a,
+.crear_empresa-wrapper #step_3 .login-bottom p a,
+.crear_empresa-wrapper #step_3 .register-bottom p a {
+  text-decoration: none;
+  color: #3844bc;
+}
+
+.crear_empresa-wrapper #step_1 .login-bottom p a:hover,
+.crear_empresa-wrapper #step_1 .register-bottom p a:hover,
+.crear_empresa-wrapper #step_2 .login-bottom p a:hover,
+.crear_empresa-wrapper #step_2 .register-bottom p a:hover,
+.crear_empresa-wrapper #step_3 .login-bottom p a:hover,
+.crear_empresa-wrapper #step_3 .register-bottom p a:hover {
+  color: #6d76db;
+}
+
+.crear_empresa-wrapper #step_1 .mensaje-error,
+.crear_empresa-wrapper #step_1 #mensaje-error,
+.crear_empresa-wrapper #step_2 .mensaje-error,
+.crear_empresa-wrapper #step_2 #mensaje-error,
+.crear_empresa-wrapper #step_3 .mensaje-error,
+.crear_empresa-wrapper #step_3 #mensaje-error {
+  color: #ff635a;
+  margin-bottom: 20px;
+}
+
+.crear_empresa-wrapper #step_1 .input {
+  position: relative;
+  width: calc(100% - 60px);
+  margin: 30px auto;
+}
+
+.crear_empresa-wrapper #step_1 .input select {
+  width: 100%;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #aaa;
+  outline: none;
+  padding-left: 25px;
+  color: #555;
+  font-size: 0.85em;
+}
+
+.crear_empresa-wrapper #step_1 .input select::-webkit-input-placeholder {
+  color: #888;
+}
+
+.crear_empresa-wrapper #step_1 .input select:-ms-input-placeholder {
+  color: #888;
+}
+
+.crear_empresa-wrapper #step_1 .input select::-ms-input-placeholder {
+  color: #888;
+}
+
+.crear_empresa-wrapper #step_1 .input select::placeholder {
+  color: #888;
+}
+
+.crear_empresa-wrapper #step_1 .input #icon {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  color: #555;
+}
+
+.crear_empresa-wrapper #step_1 .input .password-eye {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 12px;
+  right: 0;
+  color: #555;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.crear_empresa-wrapper #step_1 .input .password-eye:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.crear_empresa-wrapper #step_3 .button-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.crear_empresa-wrapper #step_3 .button-wrapper button {
+  max-width: 240px;
+  width: 100%;
+  background: -webkit-gradient(linear, left top, right top, from(#3844bc), to(#2b3179));
+  background: linear-gradient(to right, #3844bc, #2b3179);
+  color: #ffffff;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 2em;
+  margin-top: 10px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.crear_empresa-wrapper #step_3 .button-wrapper button i {
+  margin-right: 5px;
+}
+
+.crear_empresa-wrapper #step_3 .button-wrapper button span i {
+  -webkit-animation: loader-finalizar 1s infinite forwards linear;
+          animation: loader-finalizar 1s infinite forwards linear;
+  margin: 0;
+}
+
+.crear_empresa-wrapper #step_3 .button-wrapper button:disabled,
+.crear_empresa-wrapper #step_3 .button-wrapper button[disabled] {
+  background: #cccccc;
+  color: #666666;
+}
+
+.crear_empresa-wrapper .vehiculos-wrapper {
+  position: absolute;
+  display: none;
+  z-index: -1;
+  width: 300px;
+  height: 510px;
+  background-color: #ffffff;
+  border-radius: 0 2em 2em 2em;
+  text-align: center;
+  right: -320px;
+}
+
+.crear_empresa-wrapper .vehiculos-wrapper .vehiculos {
+  width: calc(100% - 20px);
+  height: 410px;
+  margin: 10px auto;
+  margin-bottom: 0;
+  overflow-y: auto;
+}
+
+.crear_empresa-wrapper .vehiculos-wrapper .vehiculos #no-vehicle {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.crear_empresa-wrapper .vehiculos-wrapper .vehiculos #no-vehicle p {
+  color: #3844bc;
+}
+
+.crear_empresa-wrapper .vehiculos-wrapper .vehiculos .vehiculo {
+  background-color: #3844bc;
+  border-radius: 0 2em 2em 2em;
+  padding: 10px;
+  margin: 10px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.crear_empresa-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #2b3179;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.crear_empresa-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-icon i {
+  color: #ffffff;
+  font-size: 2em;
+}
+
+.crear_empresa-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-info {
+  text-align: right;
+}
+
+.crear_empresa-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-info h3 {
+  color: #ffffff;
+  font-weight: 400;
+  margin-bottom: 5px;
+  font-size: 1em;
+}
+
+.crear_empresa-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-info p {
+  color: #ffffff;
+  font-weight: 400;
+}
+
+.crear_empresa-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-info p i {
+  margin-right: 10px;
+}
+
+.crear_empresa-wrapper .vehiculos-wrapper .vehiculos .vehiculo .edit-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.crear_empresa-wrapper .vehiculos-wrapper .vehiculos .vehiculo .edit-button button {
+  background: -webkit-gradient(linear, left top, right top, from(#3844bc), to(#2b3179));
+  background: linear-gradient(to right, #3844bc, #2b3179);
+  color: #ffffff;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 2em;
+  margin-top: 10px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  font-size: 0.6em;
+  background: #2b3179;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 2px;
+}
+
+.crear_empresa-wrapper .vehiculos-wrapper .vehiculos .vehiculo .edit-button button i {
+  margin-right: 5px;
+}
+
+.crear_empresa-wrapper .vehiculos-wrapper .vehiculos .vehiculo .edit-button button i {
+  margin: 0;
+}
+
+.crear_empresa-wrapper .vehiculos-wrapper .vehiculos .vehiculo .edit-button button:hover {
+  background: #ffffff;
+  color: #2b3179;
+}
+
+.crear_empresa-wrapper .vehiculos-wrapper .finalizar-button {
+  background: -webkit-gradient(linear, left top, right top, from(#3844bc), to(#2b3179));
+  background: linear-gradient(to right, #3844bc, #2b3179);
+  color: #ffffff;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 2em;
+  margin-top: 10px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.crear_empresa-wrapper .vehiculos-wrapper .finalizar-button i {
+  margin-right: 5px;
+}
+
+@media screen and (max-width: 1320px) {
+  .crear_empresa-wrapper .vehiculos-wrapper {
+    position: relative;
+    right: 0;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .crear_empresa-wrapper #step_1 .inputs-wrapper-register,
+  .crear_empresa-wrapper #step_2 .inputs-wrapper-register,
+  .crear_empresa-wrapper #step_3 .inputs-wrapper-register {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
 }
 
 * {

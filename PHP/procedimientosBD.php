@@ -7,8 +7,8 @@ class procedimientosBD
 	
     private function conexion(){
         //$conexion = mysqli_connect("localhost", "root", "root", "salioviaje");
-        $conexion = mysqli_connect("158.106.136.183", "salioviajeuy", "jvDT&EG@&QvT", "salioviajeuy_salioviajeuy");
-        //$conexion = mysqli_connect("localhost", "root", "root", "salioviajeuy_salioviajeuy");
+        //$conexion = mysqli_connect("158.106.136.183", "salioviajeuy", "jvDT&EG@&QvT", "salioviajeuy_salioviajeuy");
+        $conexion = mysqli_connect("localhost", "root", "root", "salioviajeuy_salioviajeuy");
 
         $conexion->set_charset("utf8");
         if (!$conexion) {
@@ -20,11 +20,12 @@ class procedimientosBD
     }
 
     public function register_usuario($tipo,$datos){ 
+        echo json_encode($datos);
         $PIN = password_hash($datos['PIN'], PASSWORD_BCRYPT);
     	$conn = $this->conexion();
         $query = "CALL register_usuario(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("sissssssissssss", $tipo, $datos["CI"], $datos["CORREO"], $datos["NOMBRE"], $datos["APELLIDO"], $datos["DIRECCION"], $datos["BARRIO"], $datos["DEPARTAMENTO"], $datos["TELEFONO"],$PIN,$datos['AGENCIA_CONTRATISTA'],$datos['RUT'],$datos['SUPERVISOR'], $datos['NOMBRE_HOTEL'],$datos['DIRECCION_HOTEL']);
+        $stmt->bind_param("sissssssissssss", $tipo, $datos["CI"], $datos["CORREO"], $datos["NOMBRE"], $datos["APELLIDO"], $datos["DIRECCION"], $datos["BARRIO"], $datos["DEPARTAMENTO"], $datos["TELEFONO"],$PIN,$datos['CHOFERES_SUB'],$datos['RUT'],$datos['SUPERVISOR'], $datos['NOMBRE_HOTEL'],$datos['DIRECCION_HOTEL']);
         if ($stmt->execute()) {
             $this->login($datos['CI'],$datos['PIN']);
             $stmt->store_result();
@@ -211,7 +212,7 @@ public function datos_vehiculos_por_rut($rut){
     $stmt = $conn->prepare($query);
     if ($stmt->execute()) {
         $stmt->store_result();
-        $stmt->bind_result($id,$matricula,$marca,$modelo,$combustible,$capacidad,$equipaje,$rut_em,$rut_e,$pet_friendly);
+        $stmt->bind_result($id,$matricula,$marca,$modelo,$combustible,$capacidad,$equipaje,$pet_friendly,$rut_em,$rut_e);
         while ($stmt->fetch()) {
          $result = array('ID' => $id,'MATRICULA' => $matricula, 'MARCA' => $marca, 'MODELO' => $modelo, 'COMBUSTIBLE' => $combustible, 'CAPACIDAD' => $capacidad, 'EQUIPAJE' => $equipaje, 'RUT_E' => $rut_e, 'PET_FRIENDLY' => $pet_friendly,'RUT_EM' => $rut_em);
          $vehiculo = $result;
@@ -660,5 +661,24 @@ public function confirmar_codigo_password($id, $codigo_u){
  }
 
 }
+
+public function traer_choferes($rut_em){
+    $choferes = array();
+    $conn = $this->conexion();
+    $query = "CALL traigo_choferes(?)";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $rut_em);
+    if ($stmt->execute()) {
+        $stmt->store_result();
+        $stmt->bind_result($id_usuario,$tipo_usuario,$ci,$mail,$nombre,$apellido,$direccion,$barrio,$departamento,$telefono,$agencia_contratista,$rut,$supervisor,$nombre_hotel,$direccion_hotel);
+        while ($stmt->fetch()) {
+         $result = array('ID' => $id_usuario,'TIPO_USUARIO' => $tipo_usuario, 'CI' => $ci, 'EMAIL' => $mail, 'NOMBRE' => $nombre, 'APELLIDO' => $apellido, 'DIRECCION' => $direccion, 'BARRIO' => $barrio, 'DEPARTAMENTO' => $departamento, 'TELEFONO' => $telefono, 'AGENCIA_CONTRATISTA' => $agencia_contratista, 'NOMBRE_HOTEL' => $nombre_hotel, 'DIRECCION_HOTEL' => $direccion_hotel, 'SUPERVISOR' => $supervisor, 'RUT' => $rut);
+         $choferes[] = $result;
+     }
+ }
+ $stmt->close();
+ return $choferes;
+}
+
 }
 ?>
