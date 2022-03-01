@@ -61,7 +61,7 @@ CREATE TABLE `cambio_password` (
   PRIMARY KEY (`ID`),
   KEY `UID_idx` (`Usuario_ID`),
   CONSTRAINT `UID` FOREIGN KEY (`Usuario_ID`) REFERENCES `usuarios` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -93,7 +93,7 @@ CREATE TABLE `empresas` (
   PRIMARY KEY (`ID`),
   KEY `IDUsuario_idx` (`Usuario_ID`),
   CONSTRAINT `IDUsu` FOREIGN KEY (`Usuario_ID`) REFERENCES `usuarios` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=235 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=247 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -164,6 +164,34 @@ LOCK TABLES `oportunidades` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `usuario-empresa`
+--
+
+DROP TABLE IF EXISTS `usuario-empresa`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8 */;
+CREATE TABLE `usuario-empresa` (
+  `ID` int NOT NULL AUTO_INCREMENT,
+  `ID_Usuario` int NOT NULL,
+  `ID_Empresa` int NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `Usuario_idx` (`ID_Usuario`),
+  KEY `Empresa_idx` (`ID_Empresa`),
+  CONSTRAINT `Empresa` FOREIGN KEY (`ID_Empresa`) REFERENCES `empresas` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `Usuario` FOREIGN KEY (`ID_Usuario`) REFERENCES `usuarios` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `usuario-empresa`
+--
+
+LOCK TABLES `usuario-empresa` WRITE;
+/*!40000 ALTER TABLE `usuario-empresa` DISABLE KEYS */;
+/*!40000 ALTER TABLE `usuario-empresa` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `usuarios`
 --
 
@@ -191,7 +219,7 @@ CREATE TABLE `usuarios` (
   `Direccion_Hotel` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `Usuario_UNIQUE` (`Usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=346 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=375 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -200,6 +228,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
+INSERT INTO `usuarios` VALUES (346,'ADM','54879239','thewolfmodzyt@gmail.com','Juan','Morena','Rondeau','El Pinar','Canelones','098234717',NULL,'$2y$10$8CW74p0BIOGNq/qRiEfMdugqAFmLPrrLwqKQkKbrsOruu6/yLzz1O',NULL,'salioviajeuy','$2a$10$rEIEIPW.emR2s0WZGo5UGu8lAlrwTNQ.tzA.6V3myOoBFVZS38vDa',NULL,NULL,NULL),(347,'ADM','11111111','info@salioviaje.com.uy','Daniel','Schlebinger','','','','091928761',NULL,'$2y$10$DQjHCZFhhVe8iF28/Gm0EuPq6bWp5kl4oWcr.fvKkhdUTzo/Rcefe',NULL,'salioviajeuy_daniel','$2a$10$rEIEIPW.emR2s0WZGo5UGu8lAlrwTNQ.tzA.6V3myOoBFVZS38vDa',NULL,NULL,NULL),(348,'ADM','22222222','info@salioviaje.com.uy','Gustavo','Gutiérrez','avda italia','cso','mvd','099401414',NULL,'$2y$10$DQjHCZFhhVe8iF28/Gm0EuPq6bWp5kl4oWcr.fvKkhdUTzo/Rcefe',NULL,'salioviajeuy_gustavo','$2a$10$rEIEIPW.emR2s0WZGo5UGu8lAlrwTNQ.tzA.6V3myOoBFVZS38vDa',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -222,7 +251,7 @@ CREATE TABLE `vehiculos` (
   `RUT_EM` varchar(12) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   `RUT_EC` varchar(12) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=171 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=185 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -253,7 +282,7 @@ CREATE TABLE `visitas` (
 
 LOCK TABLES `visitas` WRITE;
 /*!40000 ALTER TABLE `visitas` DISABLE KEYS */;
-INSERT INTO `visitas` VALUES (1071);
+INSERT INTO `visitas` VALUES (1744);
 /*!40000 ALTER TABLE `visitas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -415,9 +444,9 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `codigo_cambiar_password`(IN id_u INT, IN codigo_c varchar(8))
+CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `codigo_cambiar_password`(IN id_u INT, IN codigo varchar(8))
 BEGIN
-	INSERT INTO salioviajeuy_salioviajeuy.cambio_password (Usuario_ID,Codigo) values (id_u,codigo_c);
+	INSERT INTO salioviajeuy_salioviajeuy.cambio_password (Usuario_ID,Codigo) values (id_u,codigo);
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -671,7 +700,9 @@ DELIMITER ;;
 CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `register_usuario`(tipoUsuario varchar(3), ci int, email varchar(45), nombre varchar(45), apellido varchar(45),direccion varchar(45),barrio varchar(45), departamento varchar(45),telefono int, pin varchar(70),RUT_AGENCIA_CONTRATISTA varchar(12),rut varchar(12), supervisor varchar(2), nombre_hotel varchar(45), direccion_hotel varchar(100))
 BEGIN
 
-IF tipoUsuario != "HTL" THEN
+IF tipoUsuario = "CHO" THEN
+	INSERT INTO salioviajeuy_salioviajeuy.usuarios (Tipo_Usuario, CI, Email, Nombre, Apellido, Direccion, Barrio, Departamento, Telefono, PIN,Agencia_C) VALUES (tipoUsuario, ci, email, nombre, apellido, direccion, barrio, departamento, telefono, pin, RUT_AGENCIA_CONTRATISTA);
+ELSEIF tipoUsuario != "HTL" THEN
     INSERT INTO salioviajeuy_salioviajeuy.usuarios (Tipo_Usuario, CI, Email, Nombre, Apellido, Direccion, Barrio, Departamento, Telefono, PIN) VALUES (tipoUsuario, ci, email, nombre, apellido, direccion, barrio, departamento, telefono, pin);
 ELSE
 	INSERT INTO salioviajeuy_salioviajeuy.usuarios (Tipo_Usuario, CI, Email, Nombre, Apellido, Direccion, Barrio, Departamento, Telefono, Supervisor, Nombre_Hotel, Direccion_Hotel, PIN) VALUES (tipoUsuario, ci, email, nombre, apellido, direccion, barrio, departamento, telefono, supervisor, nombre_hotel, direccion_hotel, pin);
@@ -690,13 +721,15 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8 */ ;
 /*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET collation_connection  = utf8_spanish_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `register_vehiculo`(matricula varchar(45),marca varchar(45), modelo varchar(45),combustible varchar(45),capacidad_pasajeros int, capacidad_equipaje int, pet_friendly int, rut_empresa varchar(12), rut_ec varchar(45))
 BEGIN
-INSERT INTO `salioviajeuy_salioviajeuy`.`vehiculos` (`Matricula`, `Marca`, `Modelo`, `Combustible`, `Capacidad`, `Equipaje`, `PetFriendly`, `RUT_EM`, `RUT_EC`) VALUES (matricula, marca, modelo, combustible, capacidad_pasajeros, capacidad_equipaje, pet_friendly, rut_empresa, rut_ec);
+	IF (NOT EXISTS (select * from vehiculos where vehiculos.Matricula = matricula)) THEN
+		INSERT INTO `salioviajeuy_salioviajeuy`.`vehiculos` (`Matricula`, `Marca`, `Modelo`, `Combustible`, `Capacidad`, `Equipaje`, `PetFriendly`, `RUT_EM`, `RUT_EC`) VALUES (matricula, marca, modelo, combustible, capacidad_pasajeros, capacidad_equipaje, pet_friendly, rut_empresa, rut_ec);
+    END IF;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -753,7 +786,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `traigo_choferes`(IN rut_e VARCHAR(12))
 BEGIN
-SELECT ID FROM usuarios WHERE rut_e = RUT_EC;
+SELECT ID FROM usuarios WHERE rut_e = Agencia_C;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -890,4 +923,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-02-22 13:26:41
+-- Dump completed on 2022-03-01 13:37:16
