@@ -18,13 +18,13 @@ $email = $_POST['email'];
 
 $mail = new PHPMailer(true);
 
-$mail->SMTPDebug = 0; 
+$mail->SMTPDebug = 1; 
 $mail->IsSMTP();
 
 // $mail->Host = 'mail.salioviaje.com.uy';
 // $mail->SMTPAuth = true;
-// $mail->Username ='totumdevcontacto@gmail.com';
-// $mail->Password = 'SalioViaje_info';
+// $mail->Username ='sistema_sv_de_avisos@salioviaje.com.uy';
+// $mail->Password = 'SalioViaje_avisa_para_exito';
 // $mail->SMTPSecure = 'ssl';
 // $mail->Port = 465;
 
