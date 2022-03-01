@@ -56,7 +56,7 @@ function comprar_oportunidad_function(id){
        console.log("comprada y mando mensaje - ID oportunidad : "+id)
 
        let id_llamada = Math.floor(Math.random() * 10000000);
-       let mensaje = 'Tu oportunidad ha sido comprada!\n Aceptar:  http://localhost/SalioViaje/Solicitud/'+id+'A\n  Rechazar: http://localhost/SalioViaje/Solicitud/'+id+'R';
+       let mensaje = 'Tu oportunidad ha sido comprada!\n Aceptar:  https://www.salioviaje.com.uy/Solicitud/'+id+'A\n  Rechazar: https://www.salioviaje.com.uy/Solicitud/'+id+'R';
 
         $.ajax({
             type: "POST",
