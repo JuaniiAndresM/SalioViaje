@@ -18,22 +18,22 @@ $email = $_POST['email'];
 
 $mail = new PHPMailer(true);
 
-$mail->SMTPDebug = 1; 
+$mail->SMTPDebug = 0; 
 $mail->IsSMTP();
 
-// $mail->Host = 'mail.salioviaje.com.uy';
-// $mail->SMTPAuth = true;
-// $mail->Username ='sistema_sv_de_avisos@salioviaje.com.uy';
-// $mail->Password = 'SalioViaje_avisa_para_exito';
-// $mail->SMTPSecure = 'ssl';
-// $mail->Port = 465;
-
-$mail->Host = 'smtp.gmail.com';
+$mail->Host = 'mail.salioviaje.com.uy';
 $mail->SMTPAuth = true;
-$mail->Username ='totumdevcontacto@gmail.com';
-$mail->Password = 'manuni7817';
-$mail->SMTPSecure = 'tls';
-$mail->Port = 587;
+$mail->Username ='sistema_sv_de_avisos@salioviaje.com.uy';
+$mail->Password = 'SalioViaje_avisa_para_exito';
+$mail->SMTPSecure = 'ssl';
+$mail->Port = 465;
+
+// $mail->Host = 'smtp.gmail.com';
+// $mail->SMTPAuth = true;
+// $mail->Username ='totumdevcontacto@gmail.com';
+// $mail->Password = 'manuni7817';
+// $mail->SMTPSecure = 'tls';
+// $mail->Port = 587; //En caso de no funcionar cambiar a puerto 25.
 
 $mail->CharSet = 'UTF-8';
 $mail->From = 'totumdevcontacto@gmail.com'; //  Editar

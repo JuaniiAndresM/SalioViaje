@@ -23,19 +23,19 @@ session_start();
 $mail->SMTPDebug = 0; 
 $mail->IsSMTP();
 
-// $mail->Host = 'mail.salioviaje.com.uy';
+$mail->Host = 'mail.salioviaje.com.uy';
+$mail->SMTPAuth = true;
+$mail->Username ='sistema_sv_de_avisos@salioviaje.com.uy';
+$mail->Password = 'SalioViaje_avisa_para_exito';
+$mail->SMTPSecure = 'ssl';
+$mail->Port = 465;
+
+// $mail->Host = 'smtp.gmail.com';
 // $mail->SMTPAuth = true;
 // $mail->Username ='totumdevcontacto@gmail.com';
-// $mail->Password = 'SalioViaje_info';
-// $mail->SMTPSecure = 'ssl';
-// $mail->Port = 465;
-
-$mail->Host = 'smtp.gmail.com';
-$mail->SMTPAuth = true;
-$mail->Username ='totumdevcontacto@gmail.com';
-$mail->Password = 'manuni7817';
-$mail->SMTPSecure = 'tls';
-$mail->Port = 587;
+// $mail->Password = 'manuni7817';
+// $mail->SMTPSecure = 'tls';
+// $mail->Port = 587;
 
 $mail->CharSet = 'UTF-8';
 $mail->From = 'totumdevcontacto@gmail.com'; //  Editar
