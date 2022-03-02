@@ -373,6 +373,7 @@ function filtros(){
         if(!$("#anf").prop("checked")){ $(".ANF").hide() }else{ $(".ANF").show() }
         if(!$("#htl").prop("checked")){ $(".HTL").hide() }else{ $(".HTL").show() }
         if(!$("#agt").prop("checked")){ $(".AGT").hide() }else{ $(".AGT").show() }
+        if(!$("#ase").prop("checked")){ $(".ASE").hide() }else{ $(".ASE").show() }
         //if(!$("#").prop("checked")){ console.log("Oculto") }else{ console.log("Muestro") }
     });
 }
