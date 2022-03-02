@@ -6,15 +6,20 @@ session_start();
 switch ($_POST["tipe"]) {
     case 0:
         echo json_encode($llamarFunction->editar_usuario($_POST["ID"],$_POST["CI"],$_POST["NOMBRE"],$_POST["APELLIDO"],$_POST["CORREO"],$_POST["DEPARTAMENTO"],$_POST['BARRIO'],$_POST["DIRECCION"],$_POST["TEL"]));
-        $usuario = $_POST['NOMBRE']." ".$_POST['APELLIDO'];
         
-        $_SESSION['usuario'] = $usuario;
+
+        if($_SESSION['tipo_usuario'] != "Administrador"){
+            $usuario = $_POST['NOMBRE']." ".$_POST['APELLIDO'];
+            $_SESSION['usuario'] = $usuario;
         
-        $_SESSION['datos_usuario']['CI'] = $_POST['CI'];
-        $_SESSION['datos_usuario']['TELEFONO'] = $_POST['TELEFONO'];
-        $_SESSION['datos_usuario']['BARRIO'] = $_POST['BARRIO'];
-        $_SESSION['datos_usuario']['DEPARTAMENTO'] = $_POST['DEPARTAMENTO'];
-        $_SESSION['datos_usuario']['MAIL'] = $_POST['MAIL'];
+            $_SESSION['datos_usuario']['CI'] = $_POST['CI'];
+            $_SESSION['datos_usuario']['TELEFONO'] = $_POST['TELEFONO'];
+            $_SESSION['datos_usuario']['BARRIO'] = $_POST['BARRIO'];
+            $_SESSION['datos_usuario']['DEPARTAMENTO'] = $_POST['DEPARTAMENTO'];
+            $_SESSION['datos_usuario']['MAIL'] = $_POST['MAIL'];
+        }
+        
+        
     break;
     case 1:
         echo json_encode($llamarFunction->cambiar_password($_POST["ID"],$_POST["PINNUEVO"]));

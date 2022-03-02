@@ -7,6 +7,7 @@
   if(!isset($_SESSION['usuario'])){
     header('Location: /SalioViaje/Login');
   }else{
+
     $id = $_GET['ID'];
     
     $tipo = 0;
@@ -19,6 +20,14 @@
     if(empty($usuario)){
       header('Location: Failed/');
     }
+
+    if($_SESSION['tipo_usuario'] != "Administrador"){
+      if($_SESSION['datos_usuario']['CI'] != $usuario[0]['CI']){
+        header('Location: /SalioViaje/Dashboard');
+      }
+    }
+
+    
 
   }
 
