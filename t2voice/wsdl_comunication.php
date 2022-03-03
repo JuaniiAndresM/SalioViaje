@@ -63,15 +63,16 @@ class notifyMeActions {
 
                 //se fija si el usuario selecciono alguna de las opciones
                 if(strpos($estado, "ENTREGADA") !== false){
+                    session_start();
                     if(strpos($estado, "Opci\\u00f3n 1") !== false){
 
                         $bd = new procedimientosBD();
-                        $bd->cambio_estado_oportunidad("Aprobada",$id_oportunidad);
+                        $bd->cambio_estado_oportunidad("Aprobada",$id_oportunidad,$_SESSION['datos_usuario']['ID']);
 
                     }else if(strpos($estado, "Opci\\u00f3n 3") !== false){
 
                         $bd = new procedimientosBD();
-                        $bd->cambio_estado_oportunidad("Rechazada",$id_oportunidad);
+                        $bd->cambio_estado_oportunidad("Rechazada",$id_oportunidad,$_SESSION['datos_usuario']['ID']);
 
                     }
 

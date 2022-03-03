@@ -39,7 +39,7 @@ class procedimientosForm extends procedimientosBD
 
 		for ($x=0; $x < count($empresa); $x++) {
 			echo json_encode($empresa[$x]);
-			$this->register_empresa($x,$tipoUsuario,$this->idUsuario,$empresa[$x]);
+			echo $this->register_empresa($x,$tipoUsuario,$this->idUsuario,$empresa[$x]);
 			for ($i=0; $i < count($empresa[$x]["VEHICULOS"]); $i++) { 
 				if ($tipoUsuario == "CHO") {
 					//rut_ec = RUT de la empresa creada por el chofer.

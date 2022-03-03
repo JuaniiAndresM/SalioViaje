@@ -20,7 +20,6 @@ class procedimientosBD
     }
 
     public function register_usuario($tipo,$datos){ 
-        echo json_encode($datos);
         $PIN = password_hash($datos['PIN'], PASSWORD_BCRYPT);
     	$conn = $this->conexion();
         $query = "CALL register_usuario(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -419,11 +418,15 @@ public function info_usuario_profile($id){
  return json_encode($result);
 }
 
- public function cambio_estado_oportunidad($estado,$id){
+ public function cambio_estado_oportunidad($estado,$id,$id_comprador){
     $conn = $this->conexion();
-    $query = "call cambio_estado_oportunidad(?,?)";
+    $query = "call cambio_estado_oportunidad(?,?,?)";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("si", $estado, $id);
+    if (isset($id_comprador)) {
+        $stmt->bind_param("sii", $estado, $id, $id_comprador);
+    } else {
+        $stmt->bind_param("sii", $estado, $id, null);
+    }
     $stmt->execute();
     $stmt->close();
 }
