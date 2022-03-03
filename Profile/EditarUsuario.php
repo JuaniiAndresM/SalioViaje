@@ -67,7 +67,7 @@
 
     if($_SESSION['tipo_usuario'] != "Administrador"){
       if($_SESSION['datos_usuario']['CI'] != $usuario[0]['CI']){
-        header('Location: /SalioViaje/Dashboard');
+        header('Location: https://www.salioviaje.com.uy/Dashboard');
       }
     }
 

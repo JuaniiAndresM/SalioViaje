@@ -133,7 +133,7 @@ function traerUsuariosESPECIFICOS(seccion,rut){
          
     usuarios = $.ajax({
                     type: 'POST',       
-                    url: "/SalioViaje/PHP/llamadosSol.php",
+                    url: "/PHP/llamadosSol.php",
                     data: {tipe:9,rut:rut},
                     global: false,
                     async:false,
