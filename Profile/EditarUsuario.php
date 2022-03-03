@@ -7,6 +7,7 @@
   if(!isset($_SESSION['usuario'])){
     header('Location: https://www.salioviaje.com.uy/Login');
   }else{
+
     $id = $_GET['ID'];
     
     $tipo = 0;
@@ -16,9 +17,61 @@
 
     $usuario = $info_usuario->info_usuario_profile($id);
 
+    $tipo_usuario = $usuario[0]["TIPO_USUARIO"];
+
+    switch($tipo_usuario){
+      case "PAX":
+        $tipo_usuario = "Pasajero";
+        $tipo = 1;
+        break;
+
+      case "CHO":
+        $tipo_usuario = "Chofer";
+        $tipo = 2;
+        break;
+
+      case "TTA":
+        $tipo_usuario = "Transportista";
+        $tipo = 3;
+        break;
+
+      case "ASE":
+        $tipo_usuario = "Asesor";
+        $tipo = 4;
+        break;
+
+      case "ANF":
+        $tipo_usuario = "Anfitrión";
+        $tipo = 5;
+        break;
+
+      case "AGT":
+        $tipo_usuario = "Agente";
+        $tipo = 6;
+        break;
+
+      case "HTL":
+        $tipo_usuario = "Hotel";
+        $tipo = 7;
+        break;
+
+      case "ADM":
+        $tipo_usuario = "Administrador";
+        $tipo = 8;
+        break;
+    }
+
     if(empty($usuario)){
       header('Location: Failed/');
     }
+
+    if($_SESSION['tipo_usuario'] != "Administrador"){
+      if($_SESSION['datos_usuario']['CI'] != $usuario[0]['CI']){
+        header('Location: /SalioViaje/Dashboard');
+      }
+    }
+
+    
 
   }
 
@@ -144,7 +197,7 @@
             </div>
             <div class="user-desc">
               <h2><?php echo $usuario[0]['NOMBRE'] ." ". $usuario[0]['APELLIDO']; ?></h2>
-              <p><i class="fas fa-bus"></i> <?php echo $usuario[0]["TIPO_USUARIO"]; ?></p>
+              <p><i class="fas fa-bus"></i> <?php echo $tipo_usuario; ?></p>
               
             </div>
           </div>

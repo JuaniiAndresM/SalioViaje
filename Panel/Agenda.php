@@ -6,6 +6,8 @@ require_once '../PHP/procedimientosBD.php';
   if(!isset($_SESSION['usuario'])){
     header('Location: https://www.salioviaje.com.uy/Login');
 
+  }elseif ($_SESSION['usuario'][''] == "PAX") {
+    // code...
   }else{
     $info_usuario = new procedimientosBD();
 

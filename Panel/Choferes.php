@@ -84,16 +84,28 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="https://www.salioviaje.com.uy/Javascript/panel.js"></script>
-    <script src="https://www.salioviaje.com.uy/Javascript/settings.js"></script>
-    <script src="https://www.salioviaje.com.uy/Javascript/loader.js"></script>
-    <script type="text/javascript">
-            window.onload = function(){
-              let seccion = "usuarios"
-              traerUsuarios(seccion)
-              filtros()
-            }
-    </script>
+    <script src="/SalioViaje/Javascript/panel.js"></script>
+    <script src="/SalioViaje/Javascript/settings.js"></script>
+    <script src="/SalioViaje/Javascript/loader.js"></script>
+    <?php 
+    if($_SESSION['tipo_usuario'] == "Administrador"){
+      echo' <script type="text/javascript">
+          window.onload = function(){
+            let seccion = "usuarios"
+            traerUsuarios(seccion)
+            filtros()
+          }
+      </script>';
+    }else{
+      echo' <script type="text/javascript">
+          window.onload = function(){
+            let seccion = "usuariosESPECIFICOS"
+            traerUsuariosESPECIFICOS(seccion,'.$_SESSION['datos_usuario']['RUT_EMPRESAS'][0].')
+            filtros()
+          }
+      </script>';
+    }
+    ?>
   </head>
   <body>
     <div id="pre-loader">

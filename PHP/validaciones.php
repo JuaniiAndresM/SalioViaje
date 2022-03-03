@@ -12,7 +12,6 @@ class validaciones
 	private $PATTERN_PIN = "/[0-9]{4}/i";
 
 	private $PATTERN_RUT = "/^[\d]{12}$/i";
-	private $PATTERN_RAZON_SOCIAL = "/^[a-zA-Z_]+([a-zA-Z0-9\s\.]*)$/i";
 	private $PATTERN_NUMERO_MTOP = "/^[\d]{1,}$/i";
 	private $PATTERN_PASSWORD_MTOP = "/^([\w\d]){1,}$/i";
 
@@ -197,12 +196,14 @@ class validaciones
 					$VALIDACION['RUT'] = $RUT;
 					break;
 					case 'NOMBRE_COMERCIAL':
-					$NOMBRE_COMERCIAL = preg_match($this->PATTERN_NOMBRES, $valor);
-					$VALIDACION['NOMBRE_COMERCIAL'] = $NOMBRE_COMERCIAL;
+					if ($valor != null) {
+						$VALIDACION['NOMBRE_COMERCIAL'] = 1;
+					}else{ $VALIDACION['NOMBRE_COMERCIAL'] = 0; }
 					break;
 					case 'RAZON_SOCIAL':
-					$RAZON_SOCIAL = preg_match($this->PATTERN_RAZON_SOCIAL, $valor);
-					$VALIDACION['RAZON_SOCIAL'] = $RAZON_SOCIAL;
+					if ($valor != null) {
+						$VALIDACION['RAZON_SOCIAL'] = 1;
+					}else{ $VALIDACION['RAZON_SOCIAL'] = 0; }
 					break;
 					case 'CHOFERES_SUB':
 					$TIENE_CHOFERES_SUB = 1;
