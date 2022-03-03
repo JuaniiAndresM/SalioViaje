@@ -50,14 +50,14 @@ function finalizar(enviar_solicitud){
                 $.ajax({
                     type: "POST",
                     url: "/Mail/mail-SalioViaje.php",
-                    data: {TIPO: tipo, DATA: JSON.stringify(datos_traslado)},
+                    data: {TIPO: tipo, DATA: JSON.stringify(datos_traslado), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2)},
                     success: function(response){
                         console.log("se ejecuta")
                     },
                     complete: function (response) {
                         if(response == 1){
-                            step++;
-                            steps(step);
+                            // step++;
+                            // steps(step);
                         }else{
                             console.log(response);
                         }         
@@ -140,7 +140,7 @@ function finalizar(enviar_solicitud){
                             $.ajax({
                                 type: "POST",
                                 url: "/Mail/mail-SalioViaje.php",
-                                data: {TIPO: tipo, DATA: JSON.stringify(datos_transfer_in)},
+                                data: {TIPO: tipo, DATA: JSON.stringify(datos_transfer_in),PARADAS_VUELTA: JSON.stringify(array_paradas_2)},
                                 success: function(response){
 
                                 },

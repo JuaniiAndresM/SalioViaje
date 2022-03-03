@@ -862,7 +862,7 @@
   }
   .landing .landing-wrapper-grid .landing-left .landing-info .button-landing {
     margin-top: 0;
-    margin: 0 auto;
+    margin: 5px auto;
   }
   .landing .landing-wrapper-grid .landing-right .landing-img-wrapper {
     max-width: 400px;

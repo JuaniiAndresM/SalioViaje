@@ -38,7 +38,7 @@ $mail->Port = 465;
 // $mail->Port = 587;
 
 $mail->CharSet = 'UTF-8';
-$mail->From = 'totumdevcontacto@gmail.com'; //  Editar
+$mail->From = 'sistema_sv_de_avisos@salioviaje.com.uy'; //  Editar
 $mail->FromName = 'SalióViaje';  //  Editar
 $mail->addAddress($_POST['CORREO']);  //  Editar
 $mail->isHTML(true);
