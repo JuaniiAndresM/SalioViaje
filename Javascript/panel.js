@@ -127,6 +127,22 @@ function traerUsuarios(seccion){
     tablas_usuarios(seccion);
 }
 
+function traerUsuariosESPECIFICOS(seccion,rut){
+         
+    usuarios = $.ajax({
+                    type: 'POST',       
+                    url: "/SalioViaje/PHP/llamadosSol.php",
+                    data: {tipe:9,rut:rut},
+                    global: false,
+                    async:false,
+                    success: function(response) {
+                        return response;
+                    }
+                }).responseText;
+    usuarios = JSON.parse(usuarios)
+    tablas_usuarios(seccion);
+}
+
 function tablas_usuarios(seccion){
     console.log(seccion)
 
@@ -139,6 +155,9 @@ function tablas_usuarios(seccion){
             case "usuarios":
                     tabla_seccion_usuarios(usuarios[i])
                 break;
+            case "usuariosESPECIFICOS":
+                tabla_seccion_usuarios_especificos(usuarios[i]);
+            break;
         }
     }
 }
@@ -223,6 +242,48 @@ function tabla_seccion_usuarios(usuario){
 
 function ver_usuario(id){
     location.href = "/SalioViaje/Profile/" + id;
+}
+
+function tabla_seccion_usuarios_especificos(usuario){
+
+    var tabla = document.getElementById('tbody')
+    if (usuario[0]['TIPO_USUARIO'] != "ADM") {
+        var row = document.createElement("tr")
+        row.setAttribute('class',usuario[0]['TIPO_USUARIO'])
+    let contador = 0;
+
+    for (const property in usuario[0]) {
+        let td = document.createElement("td");
+        if (contador != 14) {
+            if (usuario[0][property] == null || usuario[0][property] == '' || usuario[0][property] == undefined ) {
+                td.innerHTML = "-"
+            }else if(property == "ID"){
+                ID_USUARIO = usuario[0][property]
+                td.innerHTML = usuario[0][property]
+            }else if( property != "RUT"){
+                td.innerHTML = usuario[0][property]
+            }
+
+            if(property == "NOMBRE_HOTEL" || property == "DIRECCION_HOTEL" || property == "SUPERVISOR"){
+                td.setAttribute('class', "HTL")
+            }
+            if(property == "AGENCIA_CONTRATISTA"){
+                td.setAttribute('class', "CHO")
+            }
+            row.appendChild(td);
+        }
+        contador++
+    }
+
+    let td = document.createElement("td");
+    td.innerHTML += '<div class="button-wrapper"><button id="'+ID_USUARIO+'" class="button"  onclick="ver_usuario('+ID_USUARIO+')"><i class="far fa-eye"></i></button><button id="'+ID_USUARIO+'" class="button" onclick="editarUsuario('+ID_USUARIO+')"><i class="fas fa-edit"></i></button><button id="'+ID_USUARIO+'" class="button" onclick="eliminar_usuario('+ID_USUARIO+')"><i class="fas fa-trash-alt"></i></button></div>'
+    row.appendChild(td);
+    //
+    //agrego la fila a la tabla
+    //
+    console.log(row)
+    if (row != " ") {tabla.appendChild(row);}
+}
 }
 
 /*-------------------------------------------------------------------------------------------*/

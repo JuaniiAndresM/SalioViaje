@@ -45,6 +45,18 @@ switch ($_POST["tipe"]) {
     case 8:
         echo $llamarFunction->confirmar_codigo_password($_POST['ID'], $_POST['CODIGO']);
     break;
+    case 9:
+        $id_choferes = $llamarFunction->traer_choferes($_POST['rut']);
+        $choferes = null;
+        if($id_choferes === null){
+                      
+        }else{
+          for($i = 0; $i< sizeof($id_choferes); $i++){
+            $choferes[$i] = $llamarFunction->info_usuario_profile($id_choferes[$i]['ID']);
+          }
+        }
+        echo json_encode($choferes);
+    break;
 }
 
 ?>
