@@ -55,9 +55,9 @@ function finalizar(enviar_solicitud){
                         console.log("se ejecuta")
                     },
                     complete: function (response) {
-                        if(response == 1){
-                            // step++;
-                            // steps(step);
+                        if(response.responseText == 1){
+                            step++;
+                            steps(step);
                         }else{
                             console.log(response);
                         }         
@@ -90,12 +90,12 @@ function finalizar(enviar_solicitud){
                 $.ajax({
                     type: "POST",
                     url: "/Mail/mail-SalioViaje.php",
-                    data: {TIPO: tipo, DATA: JSON.stringify(datos_tour)},
+                    data: {TIPO: tipo, DATA: JSON.stringify(datos_tour), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2)},
                     success: function(response){
 
                     },
                     complete: function (response) {
-                        if(response == 1){
+                        if(response.responseText == 1){
                             step++;
                             steps(step);
                         }else{
@@ -140,12 +140,12 @@ function finalizar(enviar_solicitud){
                             $.ajax({
                                 type: "POST",
                                 url: "/Mail/mail-SalioViaje.php",
-                                data: {TIPO: tipo, DATA: JSON.stringify(datos_transfer_in),PARADAS_VUELTA: JSON.stringify(array_paradas_2)},
+                                data: {TIPO: tipo, DATA: JSON.stringify(datos_transfer_in), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2)},
                                 success: function(response){
 
                                 },
                                 complete: function (response) {
-                                    if(response == 1){
+                                    if(response.responseText == 1){
                                         step++;
                                         steps(step);
                                     }else{
@@ -181,12 +181,12 @@ function finalizar(enviar_solicitud){
                             $.ajax({
                                 type: "POST",
                                 url: "/Mail/mail-SalioViaje.php",
-                                data: {TIPO: tipo, DATA: JSON.stringify(datos_transfer_out)},
+                                data: {TIPO: tipo, DATA: JSON.stringify(datos_transfer_out), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2)},
                                 success: function(response){
 
                                 },
                                 complete: function (response) {
-                                    if(response == 1){
+                                    if(response.responseText == 1){
                                         step++;
                                         steps(step);
                                     }else{
@@ -229,12 +229,12 @@ function finalizar(enviar_solicitud){
                                 $.ajax({
                                     type: "POST",
                                     url: "/Mail/mail-SalioViaje.php",
-                                    data: {TIPO: tipo, DATA: JSON.stringify(datos_fiestaseventos_ida)},
+                                    data: {TIPO: tipo, DATA: JSON.stringify(datos_fiestaseventos_ida), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2)},
                                     success: function(response){
 
                                     },
                                     complete: function (response) {
-                                        if(response == 1){
+                                        if(response.responseText == 1){
                                             step++;
                                             steps(step);
                                         }else{
@@ -268,7 +268,7 @@ function finalizar(enviar_solicitud){
                             $.ajax({
                             type: "POST",
                             url: "/Mail/mail-SalioViaje.php",
-                            data: {TIPO: tipo, DATA: JSON.stringify(datos_fiestaseventos_vuelta), PARADAS_VUELTA: JSON.stringify(array_paradas_2)},
+                            data: {TIPO: tipo, DATA: JSON.stringify(datos_fiestaseventos_vuelta), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2)},
                             success: function(response){
 
                             },
