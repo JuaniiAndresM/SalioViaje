@@ -93,7 +93,7 @@ CREATE TABLE `empresas` (
   PRIMARY KEY (`ID`),
   KEY `IDUsuario_idx` (`Usuario_ID`),
   CONSTRAINT `IDUsu` FOREIGN KEY (`Usuario_ID`) REFERENCES `usuarios` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=247 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=254 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -117,7 +117,7 @@ CREATE TABLE `faqs` (
   `Pregunta` varchar(150) NOT NULL,
   `Respuesta` longtext NOT NULL,
   PRIMARY KEY (`idPregunta`)
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -126,7 +126,7 @@ CREATE TABLE `faqs` (
 
 LOCK TABLES `faqs` WRITE;
 /*!40000 ALTER TABLE `faqs` DISABLE KEYS */;
-INSERT INTO `faqs` VALUES (41,'¿Qué es  Salió Viaje?','Es una Plataforma que optimiza el traslado ocasional de personas.\n\nGratis para el pasajero y un mínimo canon al transportista.'),(42,'¿Cómo pedir un viaje?','Puede llamarnos al 099 401 414 o al 095 411 004.\nEn pocos días podrá hacerlo con un práctico formulario.'),(43,'¿Si soy transportista, cómo puedo registrarme y aumentar mi trabajo?','Con gusto le informaremos por los telefonos 099 401 414 o 095 411 004 .');
+INSERT INTO `faqs` VALUES (41,'¿Qué es  Salió Viaje?','Es una Plataforma que optimiza el traslado ocasional de personas.\n\nGratis para el pasajero y un mínimo canon al transportista.'),(42,'¿Cómo pedir un viaje?','Puede llamarnos al 099 401 414 o al 095 411 004.\nEn pocos días podrá hacerlo con un práctico formulario.'),(43,'¿Si soy transportista, cómo puedo registrarme y aumentar mi trabajo?','Con gusto le informaremos por los telefonos 099 401 414 o 095 411 004 .'),(44,'¿Tengo un vehículo habilitado para Turismo por Mintur y quiero registrarme.                           ¿Qué usuario debo elegir?','Si  TRABAJAS para una Agencia de Traslados o Remises en EXCLUSIVIDAD, entoces tu Usuario es CHOFER. \n\n                Por el contrario, si eres independiente o trabajas esporádicamente para una Agencia de Remises o Tralados, entonces tu Usuario es TRANSPORTISTA.'),(50,'¿Tengo un Remise y trabajo en  EXCLUSIVA para una Agencia de REMISES. ¿Qué Usuario elijo?','Efectivamente, si trabajas en exclusividad para una agencia de Remises o Traslados,  también puedes registrarte y debes elegir USUARIO CHOFER, e indicar la agencia para quien trabajas.'),(52,'¿Tengo 2 empresas. Una con Turismo y otra con Remises. ¿Cómo me registro?','Durante el proceso de registro, te damos la opción de cargar varias empresas en un único usuario, cada una con sus vehículos.');
 /*!40000 ALTER TABLE `faqs` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -219,7 +219,7 @@ CREATE TABLE `usuarios` (
   `Direccion_Hotel` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `Usuario_UNIQUE` (`Usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=375 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=380 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -228,7 +228,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (346,'ADM','54879239','thewolfmodzyt@gmail.com','Juan','Morena','Rondeau','El Pinar','Canelones','098234717',NULL,'$2y$10$8CW74p0BIOGNq/qRiEfMdugqAFmLPrrLwqKQkKbrsOruu6/yLzz1O',NULL,'salioviajeuy','$2a$10$rEIEIPW.emR2s0WZGo5UGu8lAlrwTNQ.tzA.6V3myOoBFVZS38vDa',NULL,NULL,NULL),(347,'ADM','11111111','info@salioviaje.com.uy','Daniel','Schlebinger','','','','091928761',NULL,'$2y$10$DQjHCZFhhVe8iF28/Gm0EuPq6bWp5kl4oWcr.fvKkhdUTzo/Rcefe',NULL,'salioviajeuy_daniel','$2a$10$rEIEIPW.emR2s0WZGo5UGu8lAlrwTNQ.tzA.6V3myOoBFVZS38vDa',NULL,NULL,NULL),(348,'ADM','22222222','info@salioviaje.com.uy','Gustavo','Gutiérrez','avda italia','cso','mvd','099401414',NULL,'$2y$10$DQjHCZFhhVe8iF28/Gm0EuPq6bWp5kl4oWcr.fvKkhdUTzo/Rcefe',NULL,'salioviajeuy_gustavo','$2a$10$rEIEIPW.emR2s0WZGo5UGu8lAlrwTNQ.tzA.6V3myOoBFVZS38vDa',NULL,NULL,NULL);
+INSERT INTO `usuarios` VALUES (346,'ADM','54879239','thewolfmodzyt@gmail.com','Juan','Morena','Rondeau','El Pinar','Canelones','098234717',NULL,'$2y$10$veQtXVEcn96165vt3m7wB.BIIzw.va3jEaweyB.yxFHI0t0hocB3G',NULL,'salioviajeuy','$2a$10$rEIEIPW.emR2s0WZGo5UGu8lAlrwTNQ.tzA.6V3myOoBFVZS38vDa',NULL,NULL,NULL),(347,'ADM','11111111','info@salioviaje.com.uy','Daniel','Schlebinger','','','','091928761',NULL,'$2y$10$DQjHCZFhhVe8iF28/Gm0EuPq6bWp5kl4oWcr.fvKkhdUTzo/Rcefe',NULL,'salioviajeuy_daniel','$2a$10$rEIEIPW.emR2s0WZGo5UGu8lAlrwTNQ.tzA.6V3myOoBFVZS38vDa',NULL,NULL,NULL),(348,'ADM','22222222','info@salioviaje.com.uy','Gustavo','Gutiérrez','avda italia','cso','mvd','099401414',NULL,'$2y$10$DQjHCZFhhVe8iF28/Gm0EuPq6bWp5kl4oWcr.fvKkhdUTzo/Rcefe',NULL,'salioviajeuy_gustavo','$2a$10$rEIEIPW.emR2s0WZGo5UGu8lAlrwTNQ.tzA.6V3myOoBFVZS38vDa',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -251,7 +251,7 @@ CREATE TABLE `vehiculos` (
   `RUT_EM` varchar(12) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   `RUT_EC` varchar(12) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=185 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=188 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -282,7 +282,7 @@ CREATE TABLE `visitas` (
 
 LOCK TABLES `visitas` WRITE;
 /*!40000 ALTER TABLE `visitas` DISABLE KEYS */;
-INSERT INTO `visitas` VALUES (1744);
+INSERT INTO `visitas` VALUES (62);
 /*!40000 ALTER TABLE `visitas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -923,4 +923,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-01 13:37:16
+-- Dump completed on 2022-03-03 14:25:24

@@ -262,21 +262,21 @@ require_once '../PHP/procedimientosBD.php';
                         </a>
                         <div class="card">
                           <div class="number">
-                            <h2>4</h2>
+                            <h2>-</h2>
                             <i class="fas fa-busfas fa-bus"></i>
                           </div>
                           <p>Viajes</p>
                         </div>
                         <div class="card">
                           <div class="number">
-                            <h2></h2>
+                            <h2>-</h2>
                             <i class="fas fa-search-dollar"></i>
                           </div>
                           <p>Oportunidades</p>
                         </div>
                         <div class="card">
                           <div class="number">
-                            <h2></h2>
+                            <h2>-</h2>
                             <i class="fas fa-tags"></i>
                           </div>
                           <p>Ofertas</p>
