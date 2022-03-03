@@ -33,10 +33,10 @@ $mail->Port = 465;
 // $mail->Username ='totumdevcontacto@gmail.com';
 // $mail->Password = 'manuni7817';
 // $mail->SMTPSecure = 'tls';
-// $mail->Port = 587; //En caso de no funcionar cambiar a puerto 25.
+// $mail->Port = 587;
 
 $mail->CharSet = 'UTF-8';
-$mail->From = 'totumdevcontacto@gmail.com'; //  Editar
+$mail->From = 'sistema_sv_de_avisos@salioviaje.com.uy'; //  Editar
 $mail->FromName = 'SalióViaje';  //  Editar
 $mail->addAddress($email);  //  Editar
 $mail->isHTML(true);
