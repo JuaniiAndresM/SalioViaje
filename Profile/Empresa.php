@@ -32,7 +32,15 @@ require_once '../PHP/procedimientosBD.php';
 
     $usuario = $info_empresa->traer_datos_empresa($rut);
     $vehiculos = $info_empresa->traer_datos_vehiculo($rut);
-    $choferes = $info_empresa->traer_choferes($rut);
+    $id_choferes = $info_empresa->traer_choferes($rut);
+    $choferes = null; 
+    if($id_choferes === null){
+                   
+    }else{
+      for($i = 0; $i< sizeof($id_choferes); $i++){
+        $choferes[$i] = $info_empresa->info_usuario_profile($id_choferes[$i]['ID']);
+      }
+    }
 
     if(empty($usuario)){
       header('Location: Failed/');
@@ -242,7 +250,6 @@ require_once '../PHP/procedimientosBD.php';
                   if($choferes === null){
                     
                   }else{
-                    $size = sizeof($choferes);
                     for($i = 0; $i< sizeof($choferes); $i++){
                       echo '
                       <div class="empresa">
@@ -251,12 +258,12 @@ require_once '../PHP/procedimientosBD.php';
                               <i class="fas fa-user"></i>
                           </div>
                           <div class="empresa-info">
-                              <h3>'.$choferes[$i]['NOMBRE'].'</h3>
+                              <h3>'.$choferes[$i][0]['NOMBRE'].'</h3>
                           </div>
                         </div>
                         <div class="empresa-button">
-                          <button class="button" id="'.$choferes[$i]['ID'].'" onclick="ver_usuario('.$choferes[$i]['ID'].')"><i class="far fa-eye"></i></button>
-                          <button class="button" id="'.$choferes[$i]['ID'].'" onclick="eliminar_usuario('.$choferes[$i]['ID'].')"><i class="fas fa-trash-alt"></i></button>
+                          <button class="button" id="'.$choferes[$i][0]['ID'].'" onclick="ver_usuario('.$choferes[$i][0]['ID'].')"><i class="far fa-eye"></i></button>
+                          <button class="button" id="'.$choferes[$i][0]['ID'].'" onclick="eliminar_usuario('.$choferes[$i][0]['ID'].')"><i class="fas fa-trash-alt"></i></button>
                         </div>
                       </div>';
                     }
