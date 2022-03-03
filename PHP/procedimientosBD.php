@@ -664,5 +664,24 @@ public function confirmar_codigo_password($id, $codigo_u){
  }
 
 }
+
+public function traer_choferes($rut_em){
+    $choferes = array();
+    $conn = $this->conexion();
+    $query = "CALL traigo_choferes(?)";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $rut_em);
+    if ($stmt->execute()) {
+        $stmt->store_result();
+        $stmt->bind_result($id_usuario);
+        while ($stmt->fetch()) {
+         $result = array('ID' => $id_usuario);
+         $choferes[] = $result;
+     }
+ }
+ $stmt->close();
+ return $choferes;
+}
+
 }
 ?>

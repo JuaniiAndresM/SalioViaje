@@ -299,35 +299,42 @@
         justify-content: space-between;
         align-items: center;
 
-        .vehiculo-icon {
-          width: 60px;
-          height: 60px;
-          border-radius: 50%;
-          background-color: $main_2;
-
+        .vehiculo-left{
           display: flex;
           justify-content: center;
           align-items: center;
+          .vehiculo-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: $main_2;
+            margin-right: 10px;
 
-          i {
-            color: $contraste_2;
-            font-size: 2em;
-          }
-        }
-        .vehiculo-info {
-          text-align: right;
-          h3 {
-            color: $contraste_2;
-            font-weight: 400;
-            margin-bottom: 5px;
-            font-size: 1em;
-          }
-          p {
-            color: $contraste_2;
-            font-weight: 400;
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
             i {
-              margin-right: 10px;
+              color: $contraste_2;
+              font-size: 2em;
+            }
+          }
+          .vehiculo-info {
+            text-align: left;
+            h3 {
+              color: $contraste_2;
+              font-weight: 400;
+              margin: 0;
+              margin-bottom: 5px;
+              font-size: 1em;
+            }
+            p {
+              color: $contraste_2;
+              font-weight: 400;
+
+              i {
+                margin-right: 10px;
+              }
             }
           }
         }

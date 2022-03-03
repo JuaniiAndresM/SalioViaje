@@ -4390,13 +4390,9 @@ footer .totum p a:hover {
           align-items: center;
 }
 
-.login .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-icon,
-.register .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-icon,
-.success .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-icon {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background-color: #2b3179;
+.login .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-left,
+.register .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-left,
+.success .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-left {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4408,38 +4404,58 @@ footer .totum p a:hover {
           align-items: center;
 }
 
-.login .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-icon i,
-.register .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-icon i,
-.success .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-icon i {
+.login .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-left .vehiculo-icon,
+.register .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-left .vehiculo-icon,
+.success .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-left .vehiculo-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #2b3179;
+  margin-right: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.login .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-left .vehiculo-icon i,
+.register .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-left .vehiculo-icon i,
+.success .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-left .vehiculo-icon i {
   color: #ffffff;
   font-size: 2em;
 }
 
-.login .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-info,
-.register .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-info,
-.success .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-info {
-  text-align: right;
+.login .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-left .vehiculo-info,
+.register .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-left .vehiculo-info,
+.success .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-left .vehiculo-info {
+  text-align: left;
 }
 
-.login .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-info h3,
-.register .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-info h3,
-.success .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-info h3 {
+.login .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-left .vehiculo-info h3,
+.register .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-left .vehiculo-info h3,
+.success .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-left .vehiculo-info h3 {
   color: #ffffff;
   font-weight: 400;
+  margin: 0;
   margin-bottom: 5px;
   font-size: 1em;
 }
 
-.login .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-info p,
-.register .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-info p,
-.success .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-info p {
+.login .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-left .vehiculo-info p,
+.register .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-left .vehiculo-info p,
+.success .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-left .vehiculo-info p {
   color: #ffffff;
   font-weight: 400;
 }
 
-.login .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-info p i,
-.register .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-info p i,
-.success .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-info p i {
+.login .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-left .vehiculo-info p i,
+.register .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-left .vehiculo-info p i,
+.success .register-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-left .vehiculo-info p i {
   margin-right: 10px;
 }
 
@@ -5269,16 +5285,18 @@ footer .totum p a:hover {
   outline: 1px solid rgba(43, 49, 121, 0.3);
 }
 
-.panel .panel-tables .usuarios-recientes .usuarios-table,
-.panel .panel-tables .usuarios-propietarios .usuarios-table {
+.panel .panel-tables .usuarios-recientes .usuarios-table, .panel .panel-tables .usuarios-recientes .viajes-table,
+.panel .panel-tables .usuarios-propietarios .usuarios-table,
+.panel .panel-tables .usuarios-propietarios .viajes-table {
   border-collapse: collapse;
   width: 100%;
   font-size: 0.9em;
   margin-top: 10px;
 }
 
-.panel .panel-tables .usuarios-recientes .usuarios-table tr th,
-.panel .panel-tables .usuarios-propietarios .usuarios-table tr th {
+.panel .panel-tables .usuarios-recientes .usuarios-table tr th, .panel .panel-tables .usuarios-recientes .viajes-table tr th,
+.panel .panel-tables .usuarios-propietarios .usuarios-table tr th,
+.panel .panel-tables .usuarios-propietarios .viajes-table tr th {
   text-align: left;
   color: #2b3179;
   height: 30px;
@@ -5286,14 +5304,16 @@ footer .totum p a:hover {
   padding: 5px;
 }
 
-.panel .panel-tables .usuarios-recientes .usuarios-table tr td,
-.panel .panel-tables .usuarios-propietarios .usuarios-table tr td {
+.panel .panel-tables .usuarios-recientes .usuarios-table tr td, .panel .panel-tables .usuarios-recientes .viajes-table tr td,
+.panel .panel-tables .usuarios-propietarios .usuarios-table tr td,
+.panel .panel-tables .usuarios-propietarios .viajes-table tr td {
   padding: 5px;
   color: #2b3179;
 }
 
-.panel .panel-tables .usuarios-recientes .usuarios-table tr td .estado,
-.panel .panel-tables .usuarios-propietarios .usuarios-table tr td .estado {
+.panel .panel-tables .usuarios-recientes .usuarios-table tr td .estado, .panel .panel-tables .usuarios-recientes .viajes-table tr td .estado,
+.panel .panel-tables .usuarios-propietarios .usuarios-table tr td .estado,
+.panel .panel-tables .usuarios-propietarios .viajes-table tr td .estado {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5305,14 +5325,16 @@ footer .totum p a:hover {
           align-items: center;
 }
 
-.panel .panel-tables .usuarios-recientes .usuarios-table tr td .estado i,
-.panel .panel-tables .usuarios-propietarios .usuarios-table tr td .estado i {
+.panel .panel-tables .usuarios-recientes .usuarios-table tr td .estado i, .panel .panel-tables .usuarios-recientes .viajes-table tr td .estado i,
+.panel .panel-tables .usuarios-propietarios .usuarios-table tr td .estado i,
+.panel .panel-tables .usuarios-propietarios .viajes-table tr td .estado i {
   font-size: 8px;
   margin-right: 10px;
 }
 
-.panel .panel-tables .usuarios-recientes .usuarios-table tr td .button-wrapper,
-.panel .panel-tables .usuarios-propietarios .usuarios-table tr td .button-wrapper {
+.panel .panel-tables .usuarios-recientes .usuarios-table tr td .button-wrapper, .panel .panel-tables .usuarios-recientes .viajes-table tr td .button-wrapper,
+.panel .panel-tables .usuarios-propietarios .usuarios-table tr td .button-wrapper,
+.panel .panel-tables .usuarios-propietarios .viajes-table tr td .button-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5324,8 +5346,9 @@ footer .totum p a:hover {
           align-items: center;
 }
 
-.panel .panel-tables .usuarios-recientes .usuarios-table tr td .button-wrapper button,
-.panel .panel-tables .usuarios-propietarios .usuarios-table tr td .button-wrapper button {
+.panel .panel-tables .usuarios-recientes .usuarios-table tr td .button-wrapper button, .panel .panel-tables .usuarios-recientes .viajes-table tr td .button-wrapper button,
+.panel .panel-tables .usuarios-propietarios .usuarios-table tr td .button-wrapper button,
+.panel .panel-tables .usuarios-propietarios .viajes-table tr td .button-wrapper button {
   background-color: #3844bc;
   width: 40px;
   height: 40px;
@@ -5338,20 +5361,24 @@ footer .totum p a:hover {
   transition: 0.3s;
 }
 
-.panel .panel-tables .usuarios-recientes .usuarios-table tr td .button-wrapper button:hover,
-.panel .panel-tables .usuarios-propietarios .usuarios-table tr td .button-wrapper button:hover {
+.panel .panel-tables .usuarios-recientes .usuarios-table tr td .button-wrapper button:hover, .panel .panel-tables .usuarios-recientes .viajes-table tr td .button-wrapper button:hover,
+.panel .panel-tables .usuarios-propietarios .usuarios-table tr td .button-wrapper button:hover,
+.panel .panel-tables .usuarios-propietarios .viajes-table tr td .button-wrapper button:hover {
   background-color: #2b3179;
 }
 
-.panel .panel-tables .usuarios-recientes .usuarios-table tr td .button-wrapper button[disabled], .panel .panel-tables .usuarios-recientes .usuarios-table tr td .button-wrapper button:disabled,
+.panel .panel-tables .usuarios-recientes .usuarios-table tr td .button-wrapper button[disabled], .panel .panel-tables .usuarios-recientes .usuarios-table tr td .button-wrapper button:disabled, .panel .panel-tables .usuarios-recientes .viajes-table tr td .button-wrapper button[disabled], .panel .panel-tables .usuarios-recientes .viajes-table tr td .button-wrapper button:disabled,
 .panel .panel-tables .usuarios-propietarios .usuarios-table tr td .button-wrapper button[disabled],
-.panel .panel-tables .usuarios-propietarios .usuarios-table tr td .button-wrapper button:disabled {
+.panel .panel-tables .usuarios-propietarios .usuarios-table tr td .button-wrapper button:disabled,
+.panel .panel-tables .usuarios-propietarios .viajes-table tr td .button-wrapper button[disabled],
+.panel .panel-tables .usuarios-propietarios .viajes-table tr td .button-wrapper button:disabled {
   background-color: #999;
   color: #333333;
 }
 
-.panel .panel-tables .usuarios-recientes .usuarios-table tr:hover,
-.panel .panel-tables .usuarios-propietarios .usuarios-table tr:hover {
+.panel .panel-tables .usuarios-recientes .usuarios-table tr:hover, .panel .panel-tables .usuarios-recientes .viajes-table tr:hover,
+.panel .panel-tables .usuarios-propietarios .usuarios-table tr:hover,
+.panel .panel-tables .usuarios-propietarios .viajes-table tr:hover {
   background-color: #eee;
 }
 
@@ -12669,11 +12696,7 @@ footer .totum p a:hover {
           align-items: center;
 }
 
-.crear_empresa-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-icon {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background-color: #2b3179;
+.crear_empresa-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-left {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -12685,28 +12708,46 @@ footer .totum p a:hover {
           align-items: center;
 }
 
-.crear_empresa-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-icon i {
+.crear_empresa-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-left .vehiculo-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #2b3179;
+  margin-right: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.crear_empresa-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-left .vehiculo-icon i {
   color: #ffffff;
   font-size: 2em;
 }
 
-.crear_empresa-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-info {
-  text-align: right;
+.crear_empresa-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-left .vehiculo-info {
+  text-align: left;
 }
 
-.crear_empresa-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-info h3 {
+.crear_empresa-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-left .vehiculo-info h3 {
   color: #ffffff;
   font-weight: 400;
+  margin: 0;
   margin-bottom: 5px;
   font-size: 1em;
 }
 
-.crear_empresa-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-info p {
+.crear_empresa-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-left .vehiculo-info p {
   color: #ffffff;
   font-weight: 400;
 }
 
-.crear_empresa-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-info p i {
+.crear_empresa-wrapper .vehiculos-wrapper .vehiculos .vehiculo .vehiculo-left .vehiculo-info p i {
   margin-right: 10px;
 }
 

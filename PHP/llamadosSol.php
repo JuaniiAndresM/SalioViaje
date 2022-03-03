@@ -6,15 +6,20 @@ session_start();
 switch ($_POST["tipe"]) {
     case 0:
         echo json_encode($llamarFunction->editar_usuario($_POST["ID"],$_POST["CI"],$_POST["NOMBRE"],$_POST["APELLIDO"],$_POST["CORREO"],$_POST["DEPARTAMENTO"],$_POST['BARRIO'],$_POST["DIRECCION"],$_POST["TEL"]));
-        $usuario = $_POST['NOMBRE']." ".$_POST['APELLIDO'];
         
-        $_SESSION['usuario'] = $usuario;
+
+        if($_SESSION['tipo_usuario'] != "Administrador"){
+            $usuario = $_POST['NOMBRE']." ".$_POST['APELLIDO'];
+            $_SESSION['usuario'] = $usuario;
         
-        $_SESSION['datos_usuario']['CI'] = $_POST['CI'];
-        $_SESSION['datos_usuario']['TELEFONO'] = $_POST['TELEFONO'];
-        $_SESSION['datos_usuario']['BARRIO'] = $_POST['BARRIO'];
-        $_SESSION['datos_usuario']['DEPARTAMENTO'] = $_POST['DEPARTAMENTO'];
-        $_SESSION['datos_usuario']['MAIL'] = $_POST['MAIL'];
+            $_SESSION['datos_usuario']['CI'] = $_POST['CI'];
+            $_SESSION['datos_usuario']['TELEFONO'] = $_POST['TELEFONO'];
+            $_SESSION['datos_usuario']['BARRIO'] = $_POST['BARRIO'];
+            $_SESSION['datos_usuario']['DEPARTAMENTO'] = $_POST['DEPARTAMENTO'];
+            $_SESSION['datos_usuario']['MAIL'] = $_POST['MAIL'];
+        }
+        
+        
     break;
     case 1:
         echo json_encode($llamarFunction->cambiar_password($_POST["ID"],$_POST["PINNUEVO"]));
@@ -39,6 +44,18 @@ switch ($_POST["tipe"]) {
     break;
     case 8:
         echo $llamarFunction->confirmar_codigo_password($_POST['ID'], $_POST['CODIGO']);
+    break;
+    case 9:
+        $id_choferes = $llamarFunction->traer_choferes($_POST['rut']);
+        $choferes = null;
+        if($id_choferes === null){
+                      
+        }else{
+          for($i = 0; $i< sizeof($id_choferes); $i++){
+            $choferes[$i] = $llamarFunction->info_usuario_profile($id_choferes[$i]['ID']);
+          }
+        }
+        echo json_encode($choferes);
     break;
 }
 

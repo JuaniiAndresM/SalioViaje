@@ -32,6 +32,15 @@ require_once '../PHP/procedimientosBD.php';
 
     $usuario = $info_empresa->traer_datos_empresa($rut);
     $vehiculos = $info_empresa->traer_datos_vehiculo($rut);
+    $id_choferes = $info_empresa->traer_choferes($rut);
+    $choferes = null; 
+    if($id_choferes === null){
+                   
+    }else{
+      for($i = 0; $i< sizeof($id_choferes); $i++){
+        $choferes[$i] = $info_empresa->info_usuario_profile($id_choferes[$i]['ID']);
+      }
+    }
 
     if(empty($usuario)){
       header('Location: Failed/');
@@ -237,22 +246,29 @@ require_once '../PHP/procedimientosBD.php';
                   <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarusuarios()"/>
                 </div>
                 <div class="empresas">
-
-                    <div class="empresa">
+                <?php 
+                  if($choferes === null){
+                    
+                  }else{
+                    for($i = 0; $i< sizeof($choferes); $i++){
+                      echo '
+                      <div class="empresa">
                         <div class="empresa-left">
-                        <div class="empresa-icon">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="empresa-info">
-                            <h3>Nombre del Chofer</h3>
-                        </div>
+                          <div class="empresa-icon">
+                              <i class="fas fa-user"></i>
+                          </div>
+                          <div class="empresa-info">
+                              <h3>'.$choferes[$i][0]['NOMBRE'].'</h3>
+                          </div>
                         </div>
                         <div class="empresa-button">
-                        <button class="button"><i class="far fa-eye"></i></button>
-                        <button class="button"><i class="fas fa-trash-alt"></i></button>
+                          <button class="button" id="'.$choferes[$i][0]['ID'].'" onclick="ver_usuario('.$choferes[$i][0]['ID'].')"><i class="far fa-eye"></i></button>
+                          <button class="button" id="'.$choferes[$i][0]['ID'].'" onclick="eliminar_usuario('.$choferes[$i][0]['ID'].')"><i class="fas fa-trash-alt"></i></button>
                         </div>
-                    </div>
-            
+                      </div>';
+                    }
+                  }
+                ?>
                 </div>
           </div>
         </div>

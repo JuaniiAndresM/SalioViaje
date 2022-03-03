@@ -375,7 +375,7 @@ require_once '../PHP/procedimientosBD.php';
                             <i class="fas fa-search"></i>
                             <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarUsuarios(1)"/>
                           </div>
-                          <table class="usuarios-table" id="search-table">
+                          <table class="viajes-table" id="search-table">
                             <thead>
                               <tr>
                                 <th>ID <i class="fas fa-angle-down"></i></th>
