@@ -193,9 +193,9 @@ public function datos_vehiculos(){
     $stmt = $conn->prepare($query);
     if ($stmt->execute()) {
         $stmt->store_result();
-        $stmt->bind_result($id,$matricula,$marca,$modelo,$combustible,$capacidad,$equipaje,$rut_em,$rut_e,$pet_friendly);
+        $stmt->bind_result($id,$matricula,$marca,$modelo,$combustible,$capacidad,$equipaje,$pet_friendly,$rut_em,$rut_ec);
         while ($stmt->fetch()) {
-         $result = array('ID' => $id,'MATRICULA' => $matricula, 'MARCA' => $marca, 'MODELO' => $modelo, 'COMBUSTIBLE' => $combustible, 'CAPACIDAD' => $capacidad, 'EQUIPAJE' => $equipaje, 'RUT_E' => $rut_e, 'PET_FRIENDLY' => $pet_friendly,'RUT_EM' => $rut_em);
+            $result = array('ID' => $id,'MATRICULA' => $matricula, 'MARCA' => $marca,'MODELO' => $modelo,'COMBUSTIBLE' => $combustible,'CAPACIDAD' => $capacidad,'EQUIPAJE' => $equipaje,'PET_FRIENDLY' => $pet_friendly,'RUT_EM' => $rut_em,'RUT_EC' => $rut_ec);
          $vehiculos[] = $result;
      }
  }
