@@ -119,7 +119,7 @@ function precio_referencia(){
 
     var referencia;
 
-    if(pasajeros >= 4){
+    if(pasajeros >= 3){
         referencia = distancia * 34;
     }else if(pasajeros >= 6){
         referencia = distancia * 56;
