@@ -246,11 +246,11 @@
                   <i class="fas fa-tags" id="icon"></i>
                   <select name="" id="desc_oport1" placeholder="Descuento de la Oportunidad">
                     <option value="0" disabled selected hidden>Seleccione un Descuento</option>
-                    <option value="1">50%</option>
-                    <option value="2">60%</option>
-                    <option value="3">70%</option>
-                    <option value="4">80%</option>
-                    <option value="5">90%</option>
+                    <option value="50">50%</option>
+                    <option value="60">60%</option>
+                    <option value="70">70%</option>
+                    <option value="80">80%</option>
+                    <option value="90">90%</option>
                   </select>
                 </div>
 
@@ -305,11 +305,11 @@
                   <i class="fas fa-tags" id="icon"></i>
                   <select name="" id="desc_oport2" placeholder="Descuento de la Oportunidad">
                     <option value="0" disabled selected hidden>Seleccione un Descuento</option>
-                    <option value="1">50%</option>
-                    <option value="2">60%</option>
-                    <option value="3">70%</option>
-                    <option value="4">80%</option>
-                    <option value="5">90%</option>
+                    <option value="50">50%</option>
+                    <option value="60">60%</option>
+                    <option value="70">70%</option>
+                    <option value="80">80%</option>
+                    <option value="90">90%</option>
                   </select>
                 </div>
 
