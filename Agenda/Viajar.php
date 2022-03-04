@@ -450,7 +450,7 @@
                   
                   <div class="input">
                     <p><i class="fa fa-ticket"></i> N° de Vuelo / Barco</p> 
-                    <input type="number" id="nro_vuelo_barco_in"/>
+                    <input type="text" id="nro_vuelo_barco_in"/>
                   </div>
 
                 </div>
@@ -515,7 +515,7 @@
 
                   <div class="input">
                     <p><i class="fa fa-ticket"></i> N° de Vuelo / Barco</p> 
-                    <input type="number" id="nro_vuelo_barco_out"/>
+                    <input type="text" id="nro_vuelo_barco_out"/>
                   </div>
 
                 </div>
