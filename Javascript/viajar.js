@@ -65,7 +65,7 @@ function finalizar(enviar_solicitud){
                 });
                 }
             } else { console.log("No valido") }
-
+            vaciar_paradas()
             break;
 
         /* 
@@ -108,7 +108,7 @@ function finalizar(enviar_solicitud){
             }else{
                 console.log("No valido"); 
             }
-
+            vaciar_paradas()
             break;
 
         /* 
@@ -200,6 +200,7 @@ function finalizar(enviar_solicitud){
                     }
                     break;
             }
+            vaciar_paradas()
             break;
 
         /* 
@@ -305,11 +306,15 @@ function finalizar(enviar_solicitud){
                         "DESTINO_REGRESO": $('#destino_vuelta_fiestas_idavuelta').val(),
                         "OBSERVACIONES": $('#observaciones_fiesta_idavuelta').val()
                     };
+                    
+                    if (restarHoras(datos_fiestaseventos_idavuelta['HORA'],datos_fiestaseventos_idavuelta['HORA_REGRESO']) >= 6) {
+                        console.log("eso es una fiesta muy larga, estas seguro?")
+                    }
                         
                     if (validacion('FIESTA-IDA-VUELTA',datos_fiestaseventos_idavuelta)) {
-
-                        next();
-                        if (enviar_solicitud == 1) {
+                        if (verificar_fechas(datos_fiestaseventos_idavuelta['FECHA_SALIDA'],datos_fiestaseventos_idavuelta['FECHA_REGRESO'])) {
+                            next();
+                            if (enviar_solicitud == 1) {
                             $.ajax({
                                 type: "POST",
                                 url: "/SalioViaje/Mail/mail-SalioViaje.php",
@@ -326,16 +331,74 @@ function finalizar(enviar_solicitud){
                                     }
                                 }
                             });
-                        }
+                            }
+                        } else {}
+                        
+
                     }else{
                         console.log("No valido");
                     }
 
                     break;
             }
+            vaciar_paradas()
             break;
     }
   } 
+
+function verificar_fechas(fecha1,fecha2){
+    
+    var fecha_actual = new Date();
+    var dd =String(fecha_actual.getDate()).padStart(2,'0');
+    var mm =String(fecha_actual.getMonth()+1).padStart(2,'0');
+    var yyyy = fecha_actual.getFullYear();
+    fecha_actual = yyyy +'-'+ mm +'-'+ dd;
+    
+    if (fecha1 < fecha2 && fecha1 >= fecha_actual && fecha2 >= fecha_actual) {
+        console.log("tramo valido")
+    }else{ console.log("tramo invalido")}
+}
+
+function restarHoras(inicio,fin) {
+  
+  inicioMinutos = parseInt(inicio.substr(3,2));
+  inicioHoras = parseInt(inicio.substr(0,2));
+  
+  finMinutos = parseInt(fin.substr(3,2));
+  finHoras = parseInt(fin.substr(0,2));
+
+  transcurridoMinutos = finMinutos - inicioMinutos;
+  transcurridoHoras = finHoras - inicioHoras;
+  
+  if (transcurridoMinutos < 0) {
+    transcurridoHoras--;
+    transcurridoMinutos = 60 + transcurridoMinutos;
+  }
+  
+  horas = transcurridoHoras.toString();
+  minutos = transcurridoMinutos.toString();
+  
+  if (horas.length < 2) {
+    horas = "0"+horas;
+  }
+  
+  if (horas.length < 2) {
+    horas = "0"+horas;
+  }
+  
+  console.log(parseInt(horas));
+  return parseInt(horas);
+
+}
+
+function vaciar_paradas(){
+    array_paradas_1 = [];
+    array_paradas_2 = [];
+    count_paradas_1 = 0;
+    count_paradas_2 = 0;
+    $("#tags_paradas_1").html(" ");
+    $("#tags_paradas_2").html(" ");
+}
 
 function volver(){
     step--;
@@ -460,8 +523,9 @@ function paradas(tipo){
     switch(tipo){
         case 1:
             parada = $("#paradas_1").val();
+            console.log(array_paradas_1.indexOf(parada))
+            if(array_paradas_1.indexOf(parada) == -1){
             array_paradas_1[count_paradas_1] = parada;
-
             $.ajax({
                 type: "POST",
                 url: "/SalioViaje/PHP/Tablas/agregarParada.php",
@@ -472,13 +536,16 @@ function paradas(tipo){
                 }
             });
             count_paradas_1++;
+            } else {console.log("la parada ya existe")}
 
             break;
 
         case 2:
-            parada = $("#paradas_2").val();
-            array_paradas_2[count_paradas_2] = parada;
+            parada = $("#paradas_2").val();            
 
+            if(array_paradas_2.indexOf(parada) != -1){
+
+            array_paradas_2[count_paradas_2] = parada;
             $.ajax({
                 type: "POST",
                 url: "/SalioViaje/PHP/Tablas/agregarParada.php",
@@ -488,8 +555,8 @@ function paradas(tipo){
                     $("#paradas_2").val("");
                 }
             });
-            count_paradas_1++;
-
+            count_paradas_2++;
+            }
             break;
     }
 }
