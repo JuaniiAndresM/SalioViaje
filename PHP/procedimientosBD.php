@@ -565,9 +565,9 @@ public function traer_oportunidades_usuario($id){
     $stmt->bind_param("s", $id);
     if ($stmt->execute()) {
         $stmt->store_result();
-        $stmt->bind_result($id,$descuento,$vehiculo,$distancia,$cantidad_pasajeros,$fecha,$origen,$destino,$precio,$rutas,$estado,$id_transportista);
+        $stmt->bind_result($id,$descuento,$vehiculo,$distancia,$cantidad_pasajeros,$fecha,$origen,$destino,$precio,$rutas,$estado,$id_transportista,$id_comprador);
         while ($stmt->fetch()) {
-         $result = array('ID' => $id,'DESCUENTO' => $descuento,'VEHICULO' => $vehiculo, 'DISTANCIA' => $distancia,'CANTIDAD_PASAJERO' => $cantidad_pasajeros,'FECHA' => $fecha,'ORIGEN' => $origen,'DESTINO' => $destino,'PRECIO' => $precio,'RUTAS' => $rutas,'ESTADO' => $estado,'ID_TRANSPORTISTA' => $id_transportista);
+         $result = array('ID' => $id,'DESCUENTO' => $descuento,'VEHICULO' => $vehiculo, 'DISTANCIA' => $distancia,'CANTIDAD_PASAJERO' => $cantidad_pasajeros,'FECHA' => $fecha,'ORIGEN' => $origen,'DESTINO' => $destino,'PRECIO' => $precio,'RUTAS' => $rutas,'ESTADO' => $estado,'ID_TRANSPORTISTA' => $id_transportista,'ID_COMPRADOR' => $id_comprador);
          $agenda[$size] = $result;
          $return =  $agenda;
          $size ++;

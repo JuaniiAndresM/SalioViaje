@@ -166,6 +166,10 @@ require_once '../PHP/procedimientosBD.php';
                 <input type="checkbox" name="" id="anf" checked />
                 <p>ANF</p>
               </div>
+              <div class="checkbox">
+                <input type="checkbox" name="" id="htl" checked />
+                <p>HTL</p>
+              </div>
 
             </div>
           </div>
