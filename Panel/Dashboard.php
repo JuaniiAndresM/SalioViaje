@@ -454,19 +454,18 @@ require_once '../PHP/procedimientosBD.php';
         }elseif($tipo == 7 || $tipo == 8){ // Pasajero & Asesor
           echo '  <section class="panel" id="panel">
                     <div class="panel-cards">
+                      <a href="/SalioViaje/Viajar#Cotizacion" class="card" id="plus">
+                          <div class="number">
+                            <i class="fas fa-plus"></i>
+                          </div>
+                          <p>Solicitar Cotización</p>
+                      </a>
                       <div class="card">
                         <div class="number">
                           <h2>-</h2>
                           <i class="fas fa-bus"></i>
                         </div>
                         <p>Viajes Realizados</p>
-                      </div>
-                      <div class="card">
-                        <div class="number">
-                          <h2>-</h2>
-                          <i class="fas fa-map-marked-alt"></i>
-                        </div>
-                        <p>Viajes Comprados</p>
                       </div>
                       <div class="card">
                         <div class="number">
