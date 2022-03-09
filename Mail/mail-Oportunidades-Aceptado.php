@@ -24,22 +24,23 @@ session_start();
 $mail->SMTPDebug = 0; 
 $mail->IsSMTP();
 
-$mail->Host = 'mail.salioviaje.com.uy';
-$mail->SMTPAuth = true;
-$mail->Username ='sistema_sv_de_avisos@salioviaje.com.uy';
-$mail->Password = 'SalioViaje_avisa_para_exito';
-$mail->SMTPSecure = 'ssl';
-$mail->Port = 465;
-
-// $mail->Host = 'smtp.gmail.com';
+// $mail->Host = 'mail.salioviaje.com.uy';
 // $mail->SMTPAuth = true;
-// $mail->Username ='totumdevcontacto@gmail.com';
-// $mail->Password = 'manuni7817';
-// $mail->SMTPSecure = 'tls';
-// $mail->Port = 587;
+// $mail->Username ='sistema_sv_de_avisos@salioviaje.com.uy';
+// $mail->Password = 'SalioViaje_avisa_para_exito';
+// $mail->SMTPSecure = 'ssl';
+// $mail->Port = 465;
+
+$mail->Host = 'smtp.gmail.com';
+$mail->SMTPAuth = true;
+$mail->Username ='totumdevcontacto@gmail.com';
+$mail->Password = 'manuni7817';
+$mail->SMTPSecure = 'tls';
+$mail->Port = 587;
 
 $mail->CharSet = 'UTF-8';
-$mail->From = 'sistema_sv_de_avisos@salioviaje.com.uy'; //  Editar
+//$mail->From = 'sistema_sv_de_avisos@salioviaje.com.uy'; //  Editar
+$mail->From = 'totumdevcontacto@gmail.com'; //  Editar
 $mail->FromName = 'SalióViaje';  //  Editar
 $mail->addAddress($_SESSION['datos_usuario']['MAIL']);  //  Editar
 $mail->isHTML(true);
