@@ -15,8 +15,11 @@ for ($i=0; $i < count($datos); $i++) {
                       <i class="fas fa-building"></i>
                     </div>
                     <div class="propietario-info">
-                      <h3>'.$datos[$i]["NOMBRE_EMPRESA"].'</h3>
-                      <p><i class="fas fa-bus"></i>'.sizeof($vehiculos).' Vehiculos</p>
+                      <h3>'.$datos[$i]["NOMBRE_EMPRESA"].'</h3>';
+                      if(sizeof($vehiculos) != 0){
+                        $NUEVA_EMPRESA_DASHBOARD .= '<p><i class="fas fa-bus"></i>'.sizeof($vehiculos).' Vehiculos</p>';
+                      }
+                      $NUEVA_EMPRESA_DASHBOARD .= '
                     </div>
                   </div>
                   <div class="propietario-button">

@@ -1,5 +1,6 @@
 
 let NOMBRE_USUARIO;
+
 $(document).ready(function () {
     let list = document.querySelectorAll('#panel-navbar li');
 
