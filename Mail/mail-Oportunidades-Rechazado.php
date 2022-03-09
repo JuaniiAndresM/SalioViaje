@@ -19,11 +19,11 @@ $mail_tta = $_POST['mail_tta'];
 $mail = new PHPMailer(true);
 
 $mail->SMTPDebug = 0; 
-$mail->IsSMTP();
+// $mail->IsSMTP();
 
 // $mail->Host = 'mail.salioviaje.com.uy';
 // $mail->SMTPAuth = true;
-// $mail->Username ='sistema_sv_de_avisos@salioviaje.com.uy';
+// $mail->Username ='sv_info@salioviaje.com.uy';
 // $mail->Password = 'SalioViaje_avisa_para_exito';
 // $mail->SMTPSecure = 'ssl';
 // $mail->Port = 465;
@@ -36,7 +36,7 @@ $mail->SMTPSecure = 'tls';
 $mail->Port = 587;
 
 $mail->CharSet = 'UTF-8';
-//$mail->From = 'sistema_sv_de_avisos@salioviaje.com.uy'; //  Editar
+// $mail->From = 'sv_info@salioviaje.com.uy'; //  Editar
 $mail->From = 'totumdevcontacto@gmail.com'; //  Editar
 $mail->FromName = 'SalióViaje';  //  Editar
 $mail->addAddress('admin@salioviaje.com.uy');  //  Editar
