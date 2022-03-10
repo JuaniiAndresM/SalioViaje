@@ -21,6 +21,8 @@ require_once '../PHP/procedimientosBD.php';
     }
   }
 
+
+
 ?>
 
 <!DOCTYPE html>
@@ -162,7 +164,7 @@ require_once '../PHP/procedimientosBD.php';
                   <th>Capacidad <i class="fas fa-angle-down"></i></th>
                   <th>Equipaje <i class="fas fa-angle-down"></i></th>
                   <th>RUT EM <i class="fas fa-angle-down"></i></th>
-                  <th>RUT E <i class="fas fa-angle-down"></i></th>
+                  <th>RUT EC <i class="fas fa-angle-down"></i></th>
                   <th>Pet Friendly <i class="fas fa-angle-down"></i></th>
                   <th></th>
                 </tr>
@@ -173,6 +175,12 @@ require_once '../PHP/procedimientosBD.php';
                   }else{
                     $size = sizeof($vehiculos);
                     for($i = 0; $i< sizeof($vehiculos); $i++){
+                      if($vehiculos[$i]['PET_FRIENDLY'] == 1){
+                        $pet_friendly = "No"; 
+                      }else if($vehiculos[$i]['PET_FRIENDLY'] == 2){ 
+                        $pet_friendly = "Si"; 
+                      }
+
                       echo '<tbody id="tbody">
                           <td>'.$vehiculos[$i]['ID'].'</td>
                           <td>'.$vehiculos[$i]['MATRICULA'].'</td>
@@ -182,7 +190,8 @@ require_once '../PHP/procedimientosBD.php';
                           <td>'.$vehiculos[$i]['CAPACIDAD'].'</td>
                           <td>'.$vehiculos[$i]['EQUIPAJE'].'</td>
                           <td>'.$vehiculos[$i]['RUT_EM'].'</td>
-                          <td>'.$vehiculos[$i]['PET_FRIENDLY'].'</td>
+                          <td>'.$vehiculos[$i]['RUT_EC'].'</td>
+                          <td>'.$pet_friendly.'</td>
                       </tbody>';
                     }
                   }

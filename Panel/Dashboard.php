@@ -13,16 +13,36 @@ require_once '../PHP/procedimientosBD.php';
         $tipo = 1;
         break;
   
-      case "Transportista": case "Chofer":
+      case "Transportista": 
         $tipo = 2;
         break;
 
-      case "Agente": case "Agente": case "Anfitrión":
+      case "Chofer":
         $tipo = 3;
         break;
 
-      case "Pasajero": case "Asesor": 
+      case "Agente":  
         $tipo = 4;
+        break;
+
+      case "Anfitrión":
+        $tipo = 5;
+        break;
+
+      case "Agente":
+        $tipo = 6;
+        break;
+
+      case "Pasajero":  
+        $tipo = 7;
+        break;
+
+      case "Asesor":
+        $tipo = 8;
+        break;
+
+      case "Hotel":
+        $tipo = 9;
         break;
       
       default:
@@ -262,21 +282,21 @@ require_once '../PHP/procedimientosBD.php';
                         </a>
                         <div class="card">
                           <div class="number">
-                            <h2>4</h2>
+                            <h2>-</h2>
                             <i class="fas fa-busfas fa-bus"></i>
                           </div>
                           <p>Viajes</p>
                         </div>
                         <div class="card">
                           <div class="number">
-                            <h2></h2>
+                            <h2>-</h2>
                             <i class="fas fa-search-dollar"></i>
                           </div>
                           <p>Oportunidades</p>
                         </div>
                         <div class="card">
                           <div class="number">
-                            <h2></h2>
+                            <h2>-</h2>
                             <i class="fas fa-tags"></i>
                           </div>
                           <p>Ofertas</p>
@@ -330,22 +350,122 @@ require_once '../PHP/procedimientosBD.php';
                         </div>
                       </div>
                     </section>';
-        }elseif($tipo == 4){
+        }elseif($tipo == 5 || $tipo == 6){ // Agente & Anfitrión
           echo '  <section class="panel" id="panel">
                     <div class="panel-cards">
+                        <a href="/SalioViaje/Viajar#Cotizacion" class="card" id="plus">
+                          <div class="number">
+                            <i class="fas fa-plus"></i>
+                          </div>
+                          <p>Solicitar Cotización</p>
+                        </a>
+                        <div class="card">
+                          <div class="number">
+                            <h2>-</h2>
+                            <i class="fas fa-busfas fa-bus"></i>
+                          </div>
+                          <p>Viajes</p>
+                        </div>
+                        <div class="card">
+                          <div class="number">
+                            <h2>-</h2>
+                            <i class="fas fa-search-dollar"></i>
+                          </div>
+                          <p>Oportunidades</p>
+                        </div>
+                        <div class="card">
+                          <div class="number">
+                            <h2>-</h2>
+                            <i class="fas fa-tags"></i>
+                          </div>
+                          <p>Ofertas</p>
+                        </div>
+                      </div>
+                      <div class="panel-tables">
+                        <div></div>
+                        <div class="usuarios-propietarios">
+                          <div class="usuarios-info">
+                            <h2><i class="fas fa-building"></i> Tus Empresas</h2>
+                            <div class="button-wrapper">
+                              <a href="/SalioViaje/Crear_Empresa" class="add"><i class="fas fa-plus"></i></a>
+                              <a href="/SalioViaje/Empresas"><i class="fas fa-list-ul"></i></a>
+                            </div>
+                          </div>
+                          <div class="search">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarusuarios()"/>
+                          </div>
+                          <div class="propietarios">
+                
+                          </div>
+                        </div>
+                      </div>
+                    </section>';
+        }elseif($tipo == 9){ // Hotel
+          echo '  <section class="panel" id="panel">
+                    <div class="panel-cards">
+                        <a href="/SalioViaje/Viajar#Cotizacion" class="card" id="plus">
+                          <div class="number">
+                            <i class="fas fa-plus"></i>
+                          </div>
+                          <p>Solicitar Cotización</p>
+                        </a>
+                        <div class="card">
+                          <div class="number">
+                            <h2>-</h2>
+                            <i class="fas fa-busfas fa-bus"></i>
+                          </div>
+                          <p>Viajes</p>
+                        </div>
+                        <div class="card">
+                          <div class="number">
+                            <h2>-</h2>
+                            <i class="fas fa-search-dollar"></i>
+                          </div>
+                          <p>Oportunidades</p>
+                        </div>
+                        <div class="card">
+                          <div class="number">
+                            <h2>-</h2>
+                            <i class="fas fa-tags"></i>
+                          </div>
+                          <p>Ofertas</p>
+                        </div>
+                      </div>
+                      <div class="panel-tables">
+                        <div></div>
+                        <div class="usuarios-propietarios">
+                          <div class="usuarios-info">
+                            <h2><i class="fas fa-building"></i> Tus Hoteles</h2>
+                            <div class="button-wrapper">
+                              <a href="/SalioViaje/Empresas"><i class="fas fa-list-ul"></i></a>
+                            </div>
+                          </div>
+                          <div class="search">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarusuarios()"/>
+                          </div>
+                          <div class="propietarios">
+                
+                          </div>
+                        </div>
+                      </div>
+                    </section>';
+        }elseif($tipo == 7 || $tipo == 8){ // Pasajero & Asesor
+          echo '  <section class="panel" id="panel">
+                    <div class="panel-cards">
+                      <a href="/SalioViaje/Viajar#Cotizacion" class="card" id="plus">
+                          <div class="number">
+                            <i class="fas fa-plus"></i>
+                          </div>
+                          <p>Solicitar Cotización</p>
+                      </a>
                       <div class="card">
                         <div class="number">
                           <h2>-</h2>
                           <i class="fas fa-bus"></i>
                         </div>
                         <p>Viajes Realizados</p>
-                      </div>
-                      <div class="card">
-                        <div class="number">
-                          <h2>-</h2>
-                          <i class="fas fa-map-marked-alt"></i>
-                        </div>
-                        <p>Viajes Comprados</p>
                       </div>
                       <div class="card">
                         <div class="number">
