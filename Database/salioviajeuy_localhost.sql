@@ -94,7 +94,7 @@ CREATE TABLE `empresas` (
   PRIMARY KEY (`ID`),
   KEY `IDUsuario_idx` (`Usuario_ID`),
   CONSTRAINT `IDUsu` FOREIGN KEY (`Usuario_ID`) REFERENCES `usuarios` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=268 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=269 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -103,7 +103,7 @@ CREATE TABLE `empresas` (
 
 LOCK TABLES `empresas` WRITE;
 /*!40000 ALTER TABLE `empresas` DISABLE KEYS */;
-INSERT INTO `empresas` VALUES (229,'123456789010','Example Uno Chofer','S.A','12345678','12345678',338,'CHO',0),(230,'123456789011','Example Anfitrión Uno','S.A','12345678','12345678',339,'ANF',0),(231,'123456789013','Example Agente Uno','S.A','12345678','12345678',342,'AGT',0),(232,'123456789012','Example','S.A','12345678','12345678',344,'CHO',0),(234,'123456789000','Example','S.A','12345678','12345678',345,'CHO',0),(250,'345634563456','pruebinha','S.A','0','',367,'TTA',1),(266,'266','fghjfgh','fg','','',374,'TTA',1);
+INSERT INTO `empresas` VALUES (229,'123456789010','Example Uno Chofer','S.A','12345678','12345678',338,'CHO',0),(230,'123456789011','Example Anfitrión Uno','S.A','12345678','12345678',339,'ANF',0),(231,'123456789013','Example Agente Uno','S.A','12345678','12345678',342,'AGT',0),(232,'123456789012','Example','S.A','12345678','12345678',344,'CHO',0),(234,'123456789000','Example','S.A','12345678','12345678',345,'CHO',0),(250,'345634563456','pruebinha','S.A','0','',367,'TTA',1),(266,'266','fghjfgh','fg','','',374,'TTA',1),(268,'345634563456','dfgh','sd','0','',374,'TTA',1);
 /*!40000 ALTER TABLE `empresas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -259,7 +259,7 @@ CREATE TABLE `vehiculos` (
   KEY `id_empresa_idx` (`ID`),
   KEY `ID_EMPR_idx` (`ID_EMPRESA`),
   CONSTRAINT `ID_EMPRESA` FOREIGN KEY (`ID_EMPRESA`) REFERENCES `empresas` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=212 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=213 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -268,7 +268,7 @@ CREATE TABLE `vehiculos` (
 
 LOCK TABLES `vehiculos` WRITE;
 /*!40000 ALTER TABLE `vehiculos` DISABLE KEYS */;
-INSERT INTO `vehiculos` VALUES (171,'STU2345','prueba panel','prueba panel','Electico',12,12,1,'123412341234','0',0),(184,'SDF6234','prueba ed emp','prueba ed emp','Gasoil',12,23,1,'123456789012','0',0),(187,'SDF3456','sdfg','sdfg','Gasoil',34,23,1,'345634563456','0',0),(188,'STU4567','Hyundai','H1 2001','Nafta',0,0,2,'123456789012','0',0),(192,'fgh3463','fghj','fghj','sdfg',12,12,2,'123412341234','123412341234',250),(193,'fgh3633','fghj','fghj','sdfg',12,12,2,'123412341234','123412341234',250),(197,'FDG5234','SDFG','SDFG','Nafta',234,34,1,'123412341234','0',260),(198,'JGF6432','KHGJ','GHKJ','Gasoil',12,12,2,'123412341234','0',260),(208,'FGH4745','dgfhd','fgh','Nafta',34,23,1,'345634563456','0',266),(209,'FGH2622','fgd','hgf','Nafta',53,23,2,'345634563456','0',266);
+INSERT INTO `vehiculos` VALUES (171,'STU2345','prueba panel','prueba panel','Electico',12,12,1,'123412341234','0',0),(184,'SDF6234','prueba ed emp','prueba ed emp','Gasoil',12,23,1,'123456789012','0',0),(187,'SDF3456','sdfg','sdfg','Gasoil',34,23,1,'345634563456','0',0),(188,'STU4567','Hyundai','H1 2001','Nafta',0,0,2,'123456789012','0',0),(192,'fgh3463','fghj','fghj','sdfg',12,12,2,'123412341234','123412341234',250),(193,'fgh3633','fghj','fghj','sdfg',12,12,2,'123412341234','123412341234',250),(197,'FDG5234','SDFG','SDFG','Nafta',234,34,1,'123412341234','0',260),(198,'JGF6432','KHGJ','GHKJ','Gasoil',12,12,2,'123412341234','0',260),(208,'FGH4745','dgfhd','fgh','Nafta',34,23,1,'345634563456','0',266),(209,'FGH2622','fgd','hgf','Nafta',53,23,2,'345634563456','0',266),(212,'SDF4574','sfdg','fghj','Nafta',12,123,2,'345634563456','0',268);
 /*!40000 ALTER TABLE `vehiculos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -291,7 +291,7 @@ CREATE TABLE `visitas` (
 
 LOCK TABLES `visitas` WRITE;
 /*!40000 ALTER TABLE `visitas` DISABLE KEYS */;
-INSERT INTO `visitas` VALUES (47);
+INSERT INTO `visitas` VALUES (60);
 /*!40000 ALTER TABLE `visitas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -909,9 +909,9 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `traigo_vehiculos`(IN rut_e VARCHAR(12))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `traigo_vehiculos`(IN ID int)
 BEGIN
-SELECT * FROM vehiculos WHERE rut_e = RUT_EM;
+SELECT * FROM vehiculos WHERE ID = ID_EMPRESA;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -953,4 +953,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-09 21:34:28
+-- Dump completed on 2022-03-09 23:30:22
