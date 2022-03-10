@@ -45,6 +45,7 @@ function finalizar(enviar_solicitud){
             };
 
             if (validacion('Translado',datos_traslado)) {
+                if (verificar_fechas(datos_traslado['FECHA_SALIDA'],null,0)) {
                 next();
                 if (enviar_solicitud == 1) {
                 $.ajax({
@@ -64,6 +65,7 @@ function finalizar(enviar_solicitud){
                     }
                 });
                 }
+              }
             } else { console.log("No valido") }
             vaciar_paradas()
             break;
@@ -83,7 +85,7 @@ function finalizar(enviar_solicitud){
             };
 
             if (validacion('Tour',datos_tour)) {
-
+                if (verificar_fechas(datos_tour['FECHA_SALIDA'],null,0)) {
                 next();
                 
                 if (enviar_solicitud == 1) {
@@ -104,7 +106,7 @@ function finalizar(enviar_solicitud){
                     }
                 });
                 }
-
+              }
             }else{
                 console.log("No valido"); 
             }
@@ -134,7 +136,7 @@ function finalizar(enviar_solicitud){
                     };
                     
                     if (validacion('Transfer_in',datos_transfer_in)) {
-                        
+                        if (verificar_fechas(datos_transfer_in['FECHA_SALIDA'],null,0)) {
                         next();
                         if (enviar_solicitud == 1) {
                             $.ajax({
@@ -154,6 +156,7 @@ function finalizar(enviar_solicitud){
                                 }
                             });
                         }
+                      }
                     }else{
                         console.log("No valido");
                     }
@@ -175,7 +178,7 @@ function finalizar(enviar_solicitud){
                     };
 
                     if (validacion('Transfer_out',datos_transfer_out)) {
-
+                        if (verificar_fechas(datos_transfer_out['FECHA_REGRESO'],null,0)) {
                         next();
                         if (enviar_solicitud == 1) {
                             $.ajax({
@@ -194,6 +197,7 @@ function finalizar(enviar_solicitud){
                                     }         
                                 }
                             });
+                          }
                         }
                     }else{
                         console.log("No valido");
@@ -224,7 +228,7 @@ function finalizar(enviar_solicitud){
                     };
          
                     if (validacion('FIESTA-IDA',datos_fiestaseventos_ida)) {
-
+                        if (verificar_fechas(datos_fiestaseventos_ida['FECHA_SALIDA'],null,0)) {
                             next();
                             if (enviar_solicitud == 1) {
                                 $.ajax({
@@ -244,7 +248,7 @@ function finalizar(enviar_solicitud){
                                     }
                                 });
                             }
-
+                        }
                     }else{
                         console.log("No valido")
                     }
@@ -263,7 +267,7 @@ function finalizar(enviar_solicitud){
                     };
                                  
                     if (validacion('FIESTA-VUELTA',datos_fiestaseventos_vuelta)) {
-                                        
+                        if (verificar_fechas(datos_fiestaseventos_vuelta['FECHA_REGRESO'],null,0)) {
                         next();
                         if (enviar_solicitud == 1) {
                             $.ajax({
@@ -283,7 +287,7 @@ function finalizar(enviar_solicitud){
                             }
                             });
                         }
-
+                      }
                     }else{
                         console.log("No valido");
                     }
@@ -308,7 +312,7 @@ function finalizar(enviar_solicitud){
                     };
                         
                     if (validacion('FIESTA-IDA-VUELTA',datos_fiestaseventos_idavuelta)) {
-                        if (verificar_fechas(datos_fiestaseventos_idavuelta['FECHA_SALIDA'],datos_fiestaseventos_idavuelta['FECHA_REGRESO'])) {
+                        if (verificar_fechas(datos_fiestaseventos_idavuelta['FECHA_SALIDA'],datos_fiestaseventos_idavuelta['FECHA_REGRESO'],1)) {
                             next();
                             if (enviar_solicitud == 1) {
                             $.ajax({
@@ -342,7 +346,7 @@ function finalizar(enviar_solicitud){
     }
   } 
 
-function verificar_fechas(fecha1,fecha2){
+function verificar_fechas(fecha1,fecha2,evento){
     
     var fecha_actual = new Date();
     var dd =String(fecha_actual.getDate()).padStart(2,'0');
@@ -350,9 +354,16 @@ function verificar_fechas(fecha1,fecha2){
     var yyyy = fecha_actual.getFullYear();
     fecha_actual = yyyy +'-'+ mm +'-'+ dd;
     
-    if (fecha1 < fecha2 && fecha1 >= fecha_actual && fecha2 >= fecha_actual) {
-        console.log("tramo valido")
-    }else{ console.log("tramo invalido")}
+    if (evento == 1) {
+        if (fecha1 < fecha2 && fecha1 >= fecha_actual && fecha2 > fecha_actual) {
+            return true
+        }else{ return false }
+    } else {
+        if (fecha1 >= fecha_actual) {
+            return true
+        }else{ return false }
+    }
+
 }
 
 function restarHoras(inicio,fin) {
