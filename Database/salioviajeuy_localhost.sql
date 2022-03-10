@@ -94,7 +94,7 @@ CREATE TABLE `empresas` (
   PRIMARY KEY (`ID`),
   KEY `IDUsuario_idx` (`Usuario_ID`),
   CONSTRAINT `IDUsu` FOREIGN KEY (`Usuario_ID`) REFERENCES `usuarios` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=252 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=268 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -103,7 +103,7 @@ CREATE TABLE `empresas` (
 
 LOCK TABLES `empresas` WRITE;
 /*!40000 ALTER TABLE `empresas` DISABLE KEYS */;
-INSERT INTO `empresas` VALUES (228,'123456789012','Example Uno','S.A','12345678','12345678',337,'TTA',1),(229,'123456789010','Example Uno Chofer','S.A','12345678','12345678',338,'CHO',0),(230,'123456789011','Example Anfitrión Uno','S.A','12345678','12345678',339,'ANF',0),(231,'123456789013','Example Agente Uno','S.A','12345678','12345678',342,'AGT',0),(232,'123456789012','Example','S.A','12345678','12345678',344,'CHO',0),(234,'123456789000','Example','S.A','12345678','12345678',345,'CHO',0),(250,'345634563456','pruebinha','S.A','0','',367,'TTA',1),(251,'234523452345','dfgh','dfgh 345!\"\"#!','0','',369,'TTA',1);
+INSERT INTO `empresas` VALUES (229,'123456789010','Example Uno Chofer','S.A','12345678','12345678',338,'CHO',0),(230,'123456789011','Example Anfitrión Uno','S.A','12345678','12345678',339,'ANF',0),(231,'123456789013','Example Agente Uno','S.A','12345678','12345678',342,'AGT',0),(232,'123456789012','Example','S.A','12345678','12345678',344,'CHO',0),(234,'123456789000','Example','S.A','12345678','12345678',345,'CHO',0),(250,'345634563456','pruebinha','S.A','0','',367,'TTA',1),(266,'266','fghjfgh','fg','','',374,'TTA',1);
 /*!40000 ALTER TABLE `empresas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -163,7 +163,7 @@ CREATE TABLE `oportunidades` (
 
 LOCK TABLES `oportunidades` WRITE;
 /*!40000 ALTER TABLE `oportunidades` DISABLE KEYS */;
-INSERT INTO `oportunidades` VALUES (00007,60,'STU1111',120,12,'2022-02-17 20:20','Tacuarembó','Maldonado','4080',NULL,'Aprobada','337',361);
+INSERT INTO `oportunidades` VALUES (00007,60,'STU1111',120,12,'2022-02-17 20:20','Tacuarembó','Maldonado','4080',NULL,'En venta','337',361);
 /*!40000 ALTER TABLE `oportunidades` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -223,7 +223,7 @@ CREATE TABLE `usuarios` (
   `Direccion_Hotel` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `Usuario_UNIQUE` (`Usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=370 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=375 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -232,7 +232,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (336,'PAX','54879239','thewolfmodzyt@gmail.com','John','Doe 1','Rondeau','El Pinar','Canelones',098234717,NULL,'$2a$10$HAJbXU2cqKKJRvy8em.Z2u9FCxiC.SPY6cerzIC9Gk8Pid738ANYu',NULL,NULL,NULL,NULL,NULL,NULL),(337,'TTA','95275137','thewolfmodzyt@gmail.com','John','Doe 2','Rondeau','El Pinar','Canelones',091446483,NULL,'$2y$10$xJZ9RlgQSnxTN3UcQ57.LuGyYZPIeZkNjhXpqUj8sU5PoUBAuyVnm','123412341234',NULL,NULL,NULL,NULL,NULL),(338,'CHO','60730766','thewolfmodzyt@gmail.com','John','Doe 3','Rondeau','El Pinar','Canelones',098234717,NULL,'$2y$10$wTs9zzBESKMJVqWRSchv/.uDABxfqZxAUZaQTyxjPSbdoX3yG6sae','123456789010',NULL,NULL,NULL,NULL,NULL),(339,'ANF','37902938','thewolfmodzyt@gmail.com','John','Doe 4','Rondeau','El Pinar','Canelones',098234717,NULL,'$2y$10$YieZ/9YM1mliRSClaXgFB.nj9lgnZJwfxjWxvB4.Ibt2lqatqB8x.','123456789011',NULL,NULL,NULL,NULL,NULL),(340,'HTL','32549606','thewolfmodzyt@gmail.com','John','Doe 5','Rondeau','El Pinar','Canelones',098234717,NULL,'$2y$10$od.c1KWbuCbjG.16l22GlOslfrKU/6QK4K9.3eBxi40Y0gA9RSlK.',NULL,NULL,NULL,'NO','Conrad','Maldonado, P. del Este.'),(341,'ASE','66810354','thewolfmodzyt@gmail.com','John','Doe 6','Rondeau','El Pinar','Canelones',098234717,NULL,'$2y$10$dy8AfQdR2tixUOWKVwnE9.L7FRoat8Lnfigf4Jpa0RC7p1hr26Fre',NULL,NULL,NULL,NULL,NULL,NULL),(342,'AGT','80566971','thewolfmodzyt@gmail.com','John','Doe 7','Rondeau','El Pinar','Canelones',098234717,NULL,'$2y$10$Iws1sHUbu9AkLDkJX1AeSewLVvqcqvA8OH7uEYZtM1l/symZHCHja','123456789013',NULL,NULL,NULL,NULL,NULL),(343,'ADM','15247819','thewolfmodzyt@gmail.com','Admin','Example','Rondeau','El Pinar','Canelones',098234717,NULL,'$2y$10$zW8fdNgU9GdbL0R9Q3ltd.ykIB9PjlLTF7D/wYoKPuxEMWfMMaIRy',NULL,'admin','$2y$10$zW8fdNgU9GdbL0R9Q3ltd.ykIB9PjlLTF7D/wYoKPuxEMWfMMaIRy',NULL,NULL,NULL),(344,'CHO','67564510','thewolfmodzyt@gmail.com','Chofer','Morena','Rondeau','El Pinar','Canelones',098234717,NULL,'$2y$10$mOVbucBaO8e98aA9favJVu1aanzY66hpXZSBfZHjJ8EGgNxxAu3R.','123456789012',NULL,NULL,NULL,NULL,NULL),(345,'CHO','31061609','thewolfmodzyt@gmail.com','Juan','Morena','Rondeau','El Pinar','Canelones',098234717,NULL,'$2y$10$FMrQDQT4brMHOySrTE8pCeuYYABv3ihpfNJR.bxmwU1VjTV5sbXta','123456789000',NULL,NULL,NULL,NULL,NULL),(361,'PAX','53493317','gastonfirpo78@gmail.com','Gaston','Firpo','Ombu','Solymar','Canelones',091345345,NULL,'$2y$10$4g.oab6fPw8CdZY3DkhBVOnGqjSNoeds2oT9JxwsC.hrpQjKW12EO',NULL,NULL,NULL,NULL,NULL,NULL),(367,'TTA','92277148','gastonfirpo78@gmail.com','Gaston','Firpo','Ombu','Solymar','Canelones',091345345,NULL,'$2y$10$d7t0a0El5VNtGcIdrTDzYOTMRwwe1wK0W9lTDDRd79/gLwY3pPXu2','345634563456',NULL,NULL,NULL,NULL,NULL),(368,'ASE','45683823','gastonfirpo78@gmail.com','Gaston','Firpo','Ombu','Solymar','Canelones',091345345,NULL,'$2y$10$6Wf9SeQw77pnne97d7l6cuppTjpJDeNxGMK5nNGt9R98q8wrVc3Xa',NULL,NULL,NULL,NULL,NULL,NULL),(369,'TTA','28556304','gastonfirpo78@gmail.com','Gaston','Firpo','Ombu','Solymar','Canelones',091345345,NULL,'$2y$10$1NQKG0.8vYNhEFLxqWsE9urYMJ0T37fyLOtDnD0gUFqY/TBq3KwB.','234523452345',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `usuarios` VALUES (336,'PAX','54879239','thewolfmodzyt@gmail.com','John','Doe 1','Rondeau','El Pinar','Canelones',098234717,NULL,'$2a$10$HAJbXU2cqKKJRvy8em.Z2u9FCxiC.SPY6cerzIC9Gk8Pid738ANYu',NULL,NULL,NULL,NULL,NULL,NULL),(338,'CHO','60730766','thewolfmodzyt@gmail.com','John','Doe 3','Rondeau','El Pinar','Canelones',098234717,NULL,'$2y$10$wTs9zzBESKMJVqWRSchv/.uDABxfqZxAUZaQTyxjPSbdoX3yG6sae','123456789010',NULL,NULL,NULL,NULL,NULL),(339,'ANF','37902938','thewolfmodzyt@gmail.com','John','Doe 4','Rondeau','El Pinar','Canelones',098234717,NULL,'$2y$10$YieZ/9YM1mliRSClaXgFB.nj9lgnZJwfxjWxvB4.Ibt2lqatqB8x.','123456789011',NULL,NULL,NULL,NULL,NULL),(340,'HTL','32549606','thewolfmodzyt@gmail.com','John','Doe 5','Rondeau','El Pinar','Canelones',098234717,NULL,'$2y$10$od.c1KWbuCbjG.16l22GlOslfrKU/6QK4K9.3eBxi40Y0gA9RSlK.',NULL,NULL,NULL,'NO','Conrad','Maldonado, P. del Este.'),(341,'ASE','66810354','thewolfmodzyt@gmail.com','John','Doe 6','Rondeau','El Pinar','Canelones',098234717,NULL,'$2y$10$dy8AfQdR2tixUOWKVwnE9.L7FRoat8Lnfigf4Jpa0RC7p1hr26Fre',NULL,NULL,NULL,NULL,NULL,NULL),(342,'AGT','80566971','thewolfmodzyt@gmail.com','John','Doe 7','Rondeau','El Pinar','Canelones',098234717,NULL,'$2y$10$Iws1sHUbu9AkLDkJX1AeSewLVvqcqvA8OH7uEYZtM1l/symZHCHja','123456789013',NULL,NULL,NULL,NULL,NULL),(343,'ADM','15247819','thewolfmodzyt@gmail.com','Admin','Example','Rondeau','El Pinar','Canelones',098234717,NULL,'$2y$10$zW8fdNgU9GdbL0R9Q3ltd.ykIB9PjlLTF7D/wYoKPuxEMWfMMaIRy',NULL,'admin','$2y$10$zW8fdNgU9GdbL0R9Q3ltd.ykIB9PjlLTF7D/wYoKPuxEMWfMMaIRy',NULL,NULL,NULL),(344,'CHO','67564510','thewolfmodzyt@gmail.com','Chofer','Morena','Rondeau','El Pinar','Canelones',098234717,NULL,'$2y$10$mOVbucBaO8e98aA9favJVu1aanzY66hpXZSBfZHjJ8EGgNxxAu3R.','123456789012',NULL,NULL,NULL,NULL,NULL),(345,'CHO','31061609','thewolfmodzyt@gmail.com','Juan','Morena','Rondeau','El Pinar','Canelones',098234717,NULL,'$2y$10$FMrQDQT4brMHOySrTE8pCeuYYABv3ihpfNJR.bxmwU1VjTV5sbXta','123456789000',NULL,NULL,NULL,NULL,NULL),(361,'PAX','53493317','gastonfirpo78@gmail.com','Gaston','Firpo','Ombu','Solymar','Canelones',091345345,NULL,'$2y$10$4g.oab6fPw8CdZY3DkhBVOnGqjSNoeds2oT9JxwsC.hrpQjKW12EO',NULL,NULL,NULL,NULL,NULL,NULL),(367,'TTA','92277148','gastonfirpo78@gmail.com','Gaston','Firpo','Ombu','Solymar','Canelones',091345345,NULL,'$2y$10$d7t0a0El5VNtGcIdrTDzYOTMRwwe1wK0W9lTDDRd79/gLwY3pPXu2','345634563456',NULL,NULL,NULL,NULL,NULL),(368,'ASE','45683823','gastonfirpo78@gmail.com','Gaston','Firpo','Ombu','Solymar','Canelones',091345345,NULL,'$2y$10$6Wf9SeQw77pnne97d7l6cuppTjpJDeNxGMK5nNGt9R98q8wrVc3Xa',NULL,NULL,NULL,NULL,NULL,NULL),(369,'TTA','28556304','gastonfirpo78@gmail.com','Gaston','Firpo','Ombu','Solymar','Canelones',091345345,NULL,'$2y$10$1NQKG0.8vYNhEFLxqWsE9urYMJ0T37fyLOtDnD0gUFqY/TBq3KwB.','234523452345',NULL,NULL,NULL,NULL,NULL),(370,'TTA','64962551','gastonfirpo78@gmail.com','Gaston','Firpo','Ombu','Solymar','Canelones',091345345,NULL,'$2y$10$NTqv4ZIe5MnvizO.TFcBlOwI.//g7UxYe0tgxPU10JtfZUC6u8SIq','123412341234',NULL,NULL,NULL,NULL,NULL),(371,'TTA','12743042','gastonfirpo78@gmail.com','Gaston','Firpo','Ombu','Solymar','Canelones',091345345,NULL,'$2y$10$9skHRBI0GoJ/mRJoXqO55OIcU7.jPVpxxcqnVdLBCQ50wyLbcFiOO','123412341234',NULL,NULL,NULL,NULL,NULL),(372,'TTA','37354484','gastonfirpo78@gmail.com','Gaston','Firpo','Ombu','Solymar','Canelones',091345345,NULL,'$2y$10$H0DgQxnnwXbnWJCxN9wBKuZS/XkDYoOISXwb03O6M6G1sTbOR5.si','123412341234',NULL,NULL,NULL,NULL,NULL),(374,'TTA','61012840','gastonfirpo78@gmail.com','Gaston','Firpo','Ombu','Solymar','Canelones',091345345,NULL,'$2y$10$J5AZSOP48rcOp7W4y7pezOv6N/A3tYUMEFgJP8MX1iytPoyh8BApW','345634563456',NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -254,8 +254,12 @@ CREATE TABLE `vehiculos` (
   `PetFriendly` int NOT NULL,
   `RUT_EM` varchar(12) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   `RUT_EC` varchar(12) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=188 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_spanish_ci;
+  `ID_EMPRESA` int NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `id_empresa_idx` (`ID`),
+  KEY `ID_EMPR_idx` (`ID_EMPRESA`),
+  CONSTRAINT `ID_EMPRESA` FOREIGN KEY (`ID_EMPRESA`) REFERENCES `empresas` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=212 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -264,7 +268,7 @@ CREATE TABLE `vehiculos` (
 
 LOCK TABLES `vehiculos` WRITE;
 /*!40000 ALTER TABLE `vehiculos` DISABLE KEYS */;
-INSERT INTO `vehiculos` VALUES (166,'STU1111','Hyundai','H1 2001','Nafta',16,12,2,'123456789012','0'),(167,'STU2222','Hyundai','HB20','Nafta',3,12,2,'123456789012','123456789010'),(168,'STU6787','Hyundai','H1 2001','Nafta',12,12,2,'123456789012','123456789012'),(169,'STU5674','Hyundai','H1 2001','Nafta',12,12,2,'123456789012','123456789017'),(170,'STU8743','Hyundai','H1 2001','Nafta',12,12,2,'123456789012','123456789000'),(171,'STU2345','prueba panel','prueba panel','Electico',12,12,1,'123412341234','0'),(184,'SDF6234','prueba ed emp','prueba ed emp','Gasoil',12,23,1,'123456789012','0'),(187,'SDF3456','sdfg','sdfg','Gasoil',34,23,1,'345634563456','0');
+INSERT INTO `vehiculos` VALUES (171,'STU2345','prueba panel','prueba panel','Electico',12,12,1,'123412341234','0',0),(184,'SDF6234','prueba ed emp','prueba ed emp','Gasoil',12,23,1,'123456789012','0',0),(187,'SDF3456','sdfg','sdfg','Gasoil',34,23,1,'345634563456','0',0),(188,'STU4567','Hyundai','H1 2001','Nafta',0,0,2,'123456789012','0',0),(192,'fgh3463','fghj','fghj','sdfg',12,12,2,'123412341234','123412341234',250),(193,'fgh3633','fghj','fghj','sdfg',12,12,2,'123412341234','123412341234',250),(197,'FDG5234','SDFG','SDFG','Nafta',234,34,1,'123412341234','0',260),(198,'JGF6432','KHGJ','GHKJ','Gasoil',12,12,2,'123412341234','0',260),(208,'FGH4745','dgfhd','fgh','Nafta',34,23,1,'345634563456','0',266),(209,'FGH2622','fgd','hgf','Nafta',53,23,2,'345634563456','0',266);
 /*!40000 ALTER TABLE `vehiculos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -287,7 +291,7 @@ CREATE TABLE `visitas` (
 
 LOCK TABLES `visitas` WRITE;
 /*!40000 ALTER TABLE `visitas` DISABLE KEYS */;
-INSERT INTO `visitas` VALUES (31);
+INSERT INTO `visitas` VALUES (47);
 /*!40000 ALTER TABLE `visitas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -527,7 +531,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `editar_empresa`(IN rut_e INT, IN RUT_en varchar(12), IN nombre_e varchar(200), IN razon_social_e varchar(200), IN choferes_sub_e INT, IN num_mtop_e varchar(100), IN pass_mtop_e varchar(300))
 BEGIN
-	UPDATE salioviajeuy_salioviajeuy.empresas SET RUT = RUT_en, Nombre_C = nombre_e, Razon_S = razon_social_e, Choferes_sub = choferes_sub_e, Nro_MTOP = num_mtop_e, Pass_MTOP = pass_mtop_e WHERE RUT = rut_e;
+	UPDATE salioviajeuy_salioviajeuy.empresas SET RUT = RUT_en, Nombre_C = nombre_e, Razon_S = razon_social_e, Choferes_sub = choferes_sub_e, Nro_MTOP = num_mtop_e, Pass_MTOP = pass_mtop_e WHERE ID = rut_e;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -572,6 +576,25 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `editar_vehiculo` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `editar_vehiculo`(id_vehiculo int,matricula varchar(45),marca varchar(45), modelo varchar(45),combustible varchar(45),capacidad_pasajeros int, capacidad_equipaje int, pet_friendly int)
+BEGIN
+	UPDATE `salioviajeuy_salioviajeuy`.`vehiculos` SET `Matricula` = matricula,`Marca` = marca,`Modelo` = modelo, `Combustible` = combustible,`Capacidad` = capacidad_pasajeros,`Equipaje` = capacidad_equipaje,`PetFriendly` = pet_friendly WHERE (`ID` = id_vehiculo);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `eliminar_empresa` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -584,7 +607,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `eliminar_empresa`(IN RUT_EM VARCHAR(12))
 BEGIN
-DELETE FROM empresas WHERE RUT_EM = RUT;
+DELETE FROM empresas WHERE RUT_EM = ID;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -733,7 +756,9 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `register_vehiculo`(matricula varchar(45),marca varchar(45), modelo varchar(45),combustible varchar(45),capacidad_pasajeros int, capacidad_equipaje int, pet_friendly int, rut_empresa varchar(12), rut_ec varchar(45))
 BEGIN
 	IF (NOT EXISTS (select * from vehiculos where vehiculos.Matricula = matricula)) THEN
-		INSERT INTO `salioviajeuy_salioviajeuy`.`vehiculos` (`Matricula`, `Marca`, `Modelo`, `Combustible`, `Capacidad`, `Equipaje`, `PetFriendly`, `RUT_EM`, `RUT_EC`) VALUES (matricula, marca, modelo, combustible, capacidad_pasajeros, capacidad_equipaje, pet_friendly, rut_empresa, rut_ec);
+		/*(select LAST_INSERT_ID() from empresas)*/
+		INSERT INTO `salioviajeuy_salioviajeuy`.`vehiculos` (`Matricula`, `Marca`, `Modelo`, `Combustible`, `Capacidad`, `Equipaje`, `PetFriendly`, `RUT_EM`, `RUT_EC`,`ID_EMPRESA`) VALUES (matricula, marca, modelo, combustible, capacidad_pasajeros, capacidad_equipaje, pet_friendly, rut_empresa, rut_ec,(SELECT MAX(ID) FROM empresas));
+        select LAST_INSERT_ID();
     END IF;
 END ;;
 DELIMITER ;
@@ -808,9 +833,9 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `traigo_empresa`(IN rut_e VARCHAR(12))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `traigo_empresa`(IN ID_EMPRESA int)
 BEGIN
-SELECT * FROM empresas WHERE rut_e = RUT;
+SELECT * FROM empresas WHERE ID_EMPRESA = ID;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -928,4 +953,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-03 22:22:58
+-- Dump completed on 2022-03-09 21:34:28
