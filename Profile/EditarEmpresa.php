@@ -15,6 +15,7 @@ require_once '../PHP/procedimientosBD.php';
     $vehiculos = $info_empresa->traer_datos_vehiculo($rut);
   }
 
+
 ?>
 
 <!DOCTYPE html>
@@ -257,13 +258,17 @@ require_once '../PHP/procedimientosBD.php';
                 <div class="vehiculos-wrapper">
                     <div class="vehiculos">
                     <?php 
-                        if($vehiculos === null){
-                          
+
+                        if($vehiculos == null){
+                          echo "sdf";
                         }else{
                           $size = sizeof($vehiculos);
-                          for($i = 0; $i< sizeof($vehiculos); $i++){
+                          for($i = 0; $i< count($vehiculos); $i++){
                             ?>
-                                <script type="text/javascript">vehiculos_vista_previa(<?php  echo json_encode($vehiculos[$i]); ?>)</script>  
+                                <script type="text/javascript"> 
+                                vehiculos_vista_previa(<?php  echo json_encode($vehiculos[$i]); ?>)
+                                $('.vehiculos-wrapper').show();
+                              </script>  
                             <?php 
                           }
                       }
