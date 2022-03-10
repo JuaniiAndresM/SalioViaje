@@ -10,7 +10,6 @@
       header('Location: https://www.salioviaje.com.uy/');
     }
   }
-
 ?>
 
 <!DOCTYPE html>
@@ -100,7 +99,7 @@
       echo' <script type="text/javascript">
           window.onload = function(){
             let seccion = "usuariosESPECIFICOS"
-            traerUsuariosESPECIFICOS(seccion,'.$_SESSION['datos_usuario']['RUT_EMPRESAS'][0].')
+            traerUsuariosESPECIFICOS(seccion,'.$_SESSION['datos_usuario']['ID_EMPRESAS'][0].')
             filtros()
           }
       </script>';

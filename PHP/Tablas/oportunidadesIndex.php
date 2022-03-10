@@ -1,16 +1,21 @@
 <?php 
 require_once "../procedimientosBD.php";
 
+session_start();
+
 $datos = new procedimientosBD();
 
 $datos = json_decode($datos->traer_oportunidades(),true);
 $contenido_oportunidades = ' ';
 
-
 			for ($i=0; $i < count($datos); $i++) { 
 				$fecha = explode(' ', $datos[$i]['FECHA']);
         $PRECIO_CON_DESCUENTO_APLICADO =  round($datos[$i]['PRECIO'] - $datos[$i]['PRECIO'] * ($datos[$i]['DESCUENTO']/100));
 				if ($i==0 && $datos[$i]['ESTADO'] == 'En venta') {
+
+          if($_SESSION['datos_usuario']['TIPO_USUARIO'] != "CHO") {
+                  $boton = '<button class="comprar-button" type="submit" onclick="comprar_oportunidad('.$datos[$i]['ID'].')"><i class="fas fa-comments-dollar"></i> Comprar</button>';
+          }else{ $boton = " "; }
 
 					$contenido_oportunidades = '
 					<div class="oportunidad">
@@ -50,7 +55,7 @@ $contenido_oportunidades = ' ';
                 </div>
                 
                 <div class="button-wrapper">
-                  <button class="comprar-button" type="submit" onclick="comprar_oportunidad('.$datos[$i]['ID'].')"><i class="fas fa-comments-dollar"></i> Comprar</button>
+                  '.$boton.'
                   <button onclick="detalles_oportunidad('.$datos[$i]['ID'].')"><i class="fas fa-info"></i> Detalles</button>
                 </div>
 
@@ -95,8 +100,8 @@ $contenido_oportunidades = ' ';
                   </p>
                 </div>
                 
-                <div class="button-wrapper">
-                    <button class="comprar-button" type="submit" onclick="comprar_oportunidad('.$datos[$i]['ID'].')"><i class="fas fa-comments-dollar"></i> Comprar</button>               
+                <div class="button-wrapper">'.$boton.'
+                                  
                     <button onclick="detalles_oportunidad('.$datos[$i]['ID'].')"><i class="fas fa-info"></i> Detalles</button>
                 </div>
 

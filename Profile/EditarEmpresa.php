@@ -13,8 +13,8 @@ require_once '../PHP/procedimientosBD.php';
 
     $usuario = $info_empresa->traer_datos_empresa($rut);
     $vehiculos = $info_empresa->traer_datos_vehiculo($rut);
-
   }
+
 
 ?>
 
@@ -123,7 +123,7 @@ require_once '../PHP/procedimientosBD.php';
           <div class="icon"><img src="https://www.salioviaje.com.uy/media/svg/Logo-SalioViaje-White.svg" alt="Logo SalióViaje"></div>
           <div class="user">
           <h2><?php echo $_SESSION['usuario']; ?></h2> 
-          <p><i class="fas fa-user-tie"></i> <?php echo $_SESSION['tipo_usuario'] ?></p>
+          <p><i class="fas fa-user-tie"></i> <?php echo $_SESSION['tipo_usuario']; ?></p>
           </div>
           <button id="cerrar_session_dashboard"><i class="fas fa-sign-out-alt"></i></button>
         </div>
@@ -141,7 +141,7 @@ require_once '../PHP/procedimientosBD.php';
               <img src="https://www.salioviaje.com.uy/media/svg/Logo-SalioViaje.svg" alt="Logo SalióViaje">
             </div>
             <div class="user-desc">
-                <h2><?php echo $usuario['NOMBRE_COMERCIAL'];?></h2>
+                <h2><?php echo $usuario[0]['NOMBRE_COMERCIAL'];?></h2>
                 <p><i class="fas fa-building"></i> Empresa</p>
               
             </div>
@@ -156,17 +156,17 @@ require_once '../PHP/procedimientosBD.php';
 
               <div class="info">
                 <b><i class="fas fa-signature"></i> Nombre Comercial</b>
-                <input type="text" placeholder="Nombre Comercial" id="NcEdicion"value="<?php echo $usuario['NOMBRE_COMERCIAL'];?>">
+                <input type="text" placeholder="Nombre Comercial" id="NcEdicion"value="<?php echo $usuario[0]['NOMBRE_COMERCIAL'];?>">
               </div>
               <div class="info">
                 <b><i class="fas fa-building"></i> Razón Social</b>
-                <input type="text" placeholder="Razón Social" id="RsEdicion"value="<?php echo $usuario['RAZON_SOCIAL'];?>">
+                <input type="text" placeholder="Razón Social" id="RsEdicion"value="<?php echo $usuario[0]['RAZON_SOCIAL'];?>">
               </div>
               <div class="info">
                 <b><i class="fas fa-user-friends"></i> Choferes Asociados</b>
                 <select name="" id="CaEdicion">
                     <?php 
-                      if($usuario['CHOFERES_SUB'] == 1){
+                      if($usuario[0]['CHOFERES_SUB'] == 1){
                         echo '
                           <option value="1" selected>Si</option>
                           <option value="0">No</option>
@@ -183,17 +183,18 @@ require_once '../PHP/procedimientosBD.php';
               </div>
               <div class="info">
                 <b><i class="fas fa-user-lock"></i> N° MTOP</b>
-                <input type="text" placeholder="N° MTOP" id="NmEdicion"value="<?php echo $usuario['NRO_MTOP'];?>">
+                <input type="text" placeholder="N° MTOP" id="NmEdicion"value="<?php echo $usuario[0]['NRO_MTOP'];?>">
               </div>
               <div class="info">
                 <b><i class="fas fa-key"></i> Contraseña MTOP</b>
-                <input type="password"  id="password" placeholder="Contraseña MTOP" value="<?php echo $usuario['PASS_MTOP'];?>">
+                <input type="password"  id="password" placeholder="Contraseña MTOP" value="<?php echo $usuario[0]['PASS_MTOP'];?>">
                 
                 <button onclick="passwd(1)" class="password-eye"><i id="passeye" class="fas fa-eye-slash"></i></button>
               </div>
 
             </div>
             <p id="mensaje-error" class="mensaje-error"></p>
+            <input type="hidden" id="rut_empresa" value="<?php echo $usuario[0]['RUT'];?>" name="">
             <div class="button-wrapper">
                 <button class="button-guardar" onclick="editarEmpresa('<?php echo$_GET['RUT']?>')"><i class="fas fa-arrow-left"></i> Cancelar</button>
                 <button class="button-guardar" onclick="guardarEdicionEmpresa('<?php echo$_GET['RUT']?>')"><i class="fas fa-save"></i> Guardar Cambios</button>
@@ -251,18 +252,23 @@ require_once '../PHP/procedimientosBD.php';
 
                 <div class="button-wrapper">
                     <button class="button-agregar" onclick="add_vehicle()"><i class="fas fa-plus"></i> Agregar Vehiculo</button>
+                    <button class="button-register" id="guardar-cambios" onclick="editar_vehiculo()"><i class="fas fa-car-side"></i> Guardar Cambios</button>
                 </div>
 
                 <div class="vehiculos-wrapper">
                     <div class="vehiculos">
                     <?php 
-                        if($vehiculos === null){
-                          
+
+                        if($vehiculos == null){
+                          echo "sdf";
                         }else{
                           $size = sizeof($vehiculos);
-                          for($i = 0; $i< sizeof($vehiculos); $i++){
+                          for($i = 0; $i< count($vehiculos); $i++){
                             ?>
-                                <script type="text/javascript">vehiculos_vista_previa(<?php  echo json_encode($vehiculos[$i]); ?>)</script>  
+                                <script type="text/javascript"> 
+                                vehiculos_vista_previa(<?php  echo json_encode($vehiculos[$i]); ?>)
+                                $('.vehiculos-wrapper').show();
+                              </script>  
                             <?php 
                           }
                       }

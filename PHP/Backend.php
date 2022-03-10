@@ -116,10 +116,16 @@ class Backend extends procedimientosBD
 			$_SESSION['datos_usuario']['RUT_EMPRESAS'] = [];
 			for ($i=0; $i < count($datos_e); $i++) { 
 				if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == 'TTA' && $_SESSION['datos_usuario']['ID'] == $datos_e[$i]["ID_OWNER"]) {
-					$_SESSION['datos_usuario']['RUT_EMPRESAS'][] = $datos_e[$i]["RUT"];
+					$_SESSION['datos_usuario']['ID_EMPRESAS'][] = $datos_e[$i]["ID"];
 					$this->tabla_empresas($i,$datos_e);
 				}else if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == 'CHO' && $_SESSION['datos_usuario']['ID'] == $datos_e[$i]["ID_OWNER"]) {
-					$_SESSION['datos_usuario']['RUT_EMPRESAS'][] = $datos_e[$i]["RUT"];
+					$_SESSION['datos_usuario']['ID_EMPRESAS'][] = $datos_e[$i]["ID"];
+					$this->tabla_empresas($i,$datos_e);
+				}else if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == 'ANF' && $_SESSION['datos_usuario']['ID'] == $datos_e[$i]["ID_OWNER"]) {
+					$_SESSION['datos_usuario']['ID_EMPRESAS'][] = $datos_e[$i]["ID"];
+					$this->tabla_empresas($i,$datos_e);
+				}else if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == 'AGT' && $_SESSION['datos_usuario']['ID'] == $datos_e[$i]["ID_OWNER"]) {
+					$_SESSION['datos_usuario']['ID_EMPRESAS'][] = $datos_e[$i]["ID"];
 					$this->tabla_empresas($i,$datos_e);
 				}else if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == 'ADM') {
 					$this->tabla_empresas($i,$datos_e);
@@ -146,14 +152,17 @@ class Backend extends procedimientosBD
                       			<i class="fas fa-building"></i>
                     			</div>
                     				<div class="propietario-info">
-                      				<h3>'.$datos_e[$i]["NOMBRE_EMPRESA"].'</h3>
-                      				<p><i class="fas fa-bus"></i> '.$size.' Vehiculos</p>
+                      				<h3>'.$datos_e[$i]["NOMBRE_EMPRESA"].'</h3>';
+									  if($size != 0){
+										$this->EMPRESAS_DASHBOARD .= '<p><i class="fas fa-bus"></i> '.$size.' Vehiculos</p>';
+									  }
+                      				$this->EMPRESAS_DASHBOARD .= '
                     			</div>
                   			</div>
                   			<div class="propietario-button">
-							  	<button id="'.$datos_e[$i]["RUT"].'" onclick="verEmpresa('.$datos_e[$i]['RUT'].')"><i class="far fa-eye"></i></button>
-								<button id="'.$datos_e[$i]["RUT"].'" onclick="editarEmpresa('.$datos_e[$i]['RUT'].')"><i class="fas fa-edit"></i></button>
-								<button id="'.$datos_e[$i]["RUT"].'" onclick="eliminarEmpresa('.$datos_e[$i]['RUT'].')"><i class="fas fa-trash-alt"></i></button>
+							  	<button id="'.$datos_e[$i]["ID"].'" onclick="verEmpresa('.$datos_e[$i]["ID"].')"><i class="far fa-eye"></i></button>
+								<button id="'.$datos_e[$i]["ID"].'" onclick="editarEmpresa('.$datos_e[$i]["ID"].')"><i class="fas fa-edit"></i></button>
+								<button id="'.$datos_e[$i]["ID"].'" onclick="eliminarEmpresa('.$datos_e[$i]["ID"].')"><i class="fas fa-trash-alt"></i></button>
                   			</div>
                 		</div>
 					';
@@ -166,14 +175,17 @@ class Backend extends procedimientosBD
                       			<i class="fas fa-building"></i>
                     			</div>
                     				<div class="propietario-info">
-                      				<h3>'.$datos_e[$i]["NOMBRE_EMPRESA"].'</h3>
-                      				<p><i class="fas fa-bus"></i> '.$size.' Vehiculos</p>
+                      				<h3>'.$datos_e[$i]["NOMBRE_EMPRESA"].'</h3>';
+									  if($size != 0){
+										$this->EMPRESAS_DASHBOARD .= '<p><i class="fas fa-bus"></i> '.$size.' Vehiculos</p>';
+									  }
+                      				$this->EMPRESAS_DASHBOARD .= '
                     			</div>
                   			</div>
                   			<div class="propietario-button">
-							  <button id="'.$datos_e[$i]["RUT"].'" onclick="verEmpresa('.$datos_e[$i]['RUT'].')"><i class="far fa-eye"></i></button>
-							  <button id="'.$datos_e[$i]["RUT"].'" onclick="editarEmpresa('.$datos_e[$i]['RUT'].')"><i class="fas fa-edit"></i></button>
-							  <button id="'.$datos_e[$i]["RUT"].'" onclick="eliminarEmpresa('.$datos_e[$i]['RUT'].')"><i class="fas fa-trash-alt"></i></button>
+							  	<button id="'.$datos_e[$i]["ID"].'" onclick="verEmpresa('.$datos_e[$i]["ID"].')"><i class="far fa-eye"></i></button>
+								<button id="'.$datos_e[$i]["ID"].'" onclick="editarEmpresa('.$datos_e[$i]["ID"].')"><i class="fas fa-edit"></i></button>
+								<button id="'.$datos_e[$i]["ID"].'" onclick="eliminarEmpresa('.$datos_e[$i]["ID"].')"><i class="fas fa-trash-alt"></i></button>
                   			</div>
                 		</div>
 					';

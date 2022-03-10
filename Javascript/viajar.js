@@ -45,11 +45,12 @@ function finalizar(enviar_solicitud){
             };
 
             if (validacion('Translado',datos_traslado)) {
+                if (verificar_fechas(datos_traslado['FECHA_SALIDA'],null,0)) {
                 next();
                 if (enviar_solicitud == 1) {
                 $.ajax({
                     type: "POST",
-                    url: "/Mail/mail-SalioViaje.php",
+                    url: "/SalioViaje/Mail/mail-SalioViaje.php",
                     data: {TIPO: tipo, DATA: JSON.stringify(datos_traslado), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2)},
                     success: function(response){
                         console.log("se ejecuta")
@@ -64,8 +65,12 @@ function finalizar(enviar_solicitud){
                     }
                 });
                 }
+              }else{
+                  $(".mensaje-error").show();
+                  $(".mensaje-error").text("No puedes poner una fecha anterior a la actual.");
+              }
             } else { console.log("No valido") }
-
+            vaciar_paradas()
             break;
 
         /* 
@@ -83,13 +88,13 @@ function finalizar(enviar_solicitud){
             };
 
             if (validacion('Tour',datos_tour)) {
-
+                if (verificar_fechas(datos_tour['FECHA_SALIDA'],null,0)) {
                 next();
                 
                 if (enviar_solicitud == 1) {
                 $.ajax({
                     type: "POST",
-                    url: "/Mail/mail-SalioViaje.php",
+                    url: "/SalioViaje/Mail/mail-SalioViaje.php",
                     data: {TIPO: tipo, DATA: JSON.stringify(datos_tour), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2)},
                     success: function(response){
 
@@ -104,11 +109,14 @@ function finalizar(enviar_solicitud){
                     }
                 });
                 }
-
+              }else{
+                $(".mensaje-error").show();
+                $(".mensaje-error").text("No puedes poner una fecha anterior a la actual.");
+                }
             }else{
                 console.log("No valido"); 
             }
-
+            vaciar_paradas()
             break;
 
         /* 
@@ -134,12 +142,12 @@ function finalizar(enviar_solicitud){
                     };
                     
                     if (validacion('Transfer_in',datos_transfer_in)) {
-                        
+                        if (verificar_fechas(datos_transfer_in['FECHA_SALIDA'],null,0)) {
                         next();
                         if (enviar_solicitud == 1) {
                             $.ajax({
                                 type: "POST",
-                                url: "/Mail/mail-SalioViaje.php",
+                                url: "/SalioViaje/Mail/mail-SalioViaje.php",
                                 data: {TIPO: tipo, DATA: JSON.stringify(datos_transfer_in), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2)},
                                 success: function(response){
 
@@ -154,6 +162,10 @@ function finalizar(enviar_solicitud){
                                 }
                             });
                         }
+                      }else{
+                        $(".mensaje-error").show();
+                        $(".mensaje-error").text("No puedes poner una fecha anterior a la actual.");
+                    }
                     }else{
                         console.log("No valido");
                     }
@@ -175,12 +187,12 @@ function finalizar(enviar_solicitud){
                     };
 
                     if (validacion('Transfer_out',datos_transfer_out)) {
-
+                        if (verificar_fechas(datos_transfer_out['FECHA_REGRESO'],null,0)) {
                         next();
                         if (enviar_solicitud == 1) {
                             $.ajax({
                                 type: "POST",
-                                url: "/Mail/mail-SalioViaje.php",
+                                url: "/SalioViaje/Mail/mail-SalioViaje.php",
                                 data: {TIPO: tipo, DATA: JSON.stringify(datos_transfer_out), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2)},
                                 success: function(response){
 
@@ -194,12 +206,17 @@ function finalizar(enviar_solicitud){
                                     }         
                                 }
                             });
+                          }
+                        }else{
+                            $(".mensaje-error").show();
+                            $(".mensaje-error").text("No puedes poner una fecha anterior a la actual.");
                         }
                     }else{
                         console.log("No valido");
                     }
                     break;
             }
+            vaciar_paradas()
             break;
 
         /* 
@@ -223,12 +240,12 @@ function finalizar(enviar_solicitud){
                     };
          
                     if (validacion('FIESTA-IDA',datos_fiestaseventos_ida)) {
-
+                        if (verificar_fechas(datos_fiestaseventos_ida['FECHA_SALIDA'],null,0)) {
                             next();
                             if (enviar_solicitud == 1) {
                                 $.ajax({
                                     type: "POST",
-                                    url: "/Mail/mail-SalioViaje.php",
+                                    url: "/SalioViaje/Mail/mail-SalioViaje.php",
                                     data: {TIPO: tipo, DATA: JSON.stringify(datos_fiestaseventos_ida), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2)},
                                     success: function(response){
 
@@ -243,7 +260,10 @@ function finalizar(enviar_solicitud){
                                     }
                                 });
                             }
-
+                        }else{
+                            $(".mensaje-error").show();
+                            $(".mensaje-error").text("No puedes poner una fecha anterior a la actual.");
+                        }
                     }else{
                         console.log("No valido")
                     }
@@ -262,12 +282,12 @@ function finalizar(enviar_solicitud){
                     };
                                  
                     if (validacion('FIESTA-VUELTA',datos_fiestaseventos_vuelta)) {
-                                        
+                        if (verificar_fechas(datos_fiestaseventos_vuelta['FECHA_REGRESO'],null,0)) {
                         next();
                         if (enviar_solicitud == 1) {
                             $.ajax({
                             type: "POST",
-                            url: "/Mail/mail-SalioViaje.php",
+                            url: "/SalioViaje/Mail/mail-SalioViaje.php",
                             data: {TIPO: tipo, DATA: JSON.stringify(datos_fiestaseventos_vuelta), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2)},
                             success: function(response){
 
@@ -282,7 +302,10 @@ function finalizar(enviar_solicitud){
                             }
                             });
                         }
-
+                      }else{
+                        $(".mensaje-error").show();
+                        $(".mensaje-error").text("No puedes poner una fecha anterior a la actual.");
+                    }
                     }else{
                         console.log("No valido");
                     }
@@ -307,9 +330,9 @@ function finalizar(enviar_solicitud){
                     };
                         
                     if (validacion('FIESTA-IDA-VUELTA',datos_fiestaseventos_idavuelta)) {
-
-                        next();
-                        if (enviar_solicitud == 1) {
+                        if (verificar_fechas(datos_fiestaseventos_idavuelta['FECHA_SALIDA'],datos_fiestaseventos_idavuelta['FECHA_REGRESO'],1)) {
+                            next();
+                            if (enviar_solicitud == 1) {
                             $.ajax({
                                 type: "POST",
                                 url: "/Mail/mail-SalioViaje.php",
@@ -326,16 +349,95 @@ function finalizar(enviar_solicitud){
                                     }
                                 }
                             });
+                            }
+                        }else{
+                            $(".mensaje-error").show();
+                            $(".mensaje-error").text("No puedes poner una fecha anterior a la actual.");
                         }
+                        
+
                     }else{
                         console.log("No valido");
                     }
 
                     break;
             }
+            vaciar_paradas()
             break;
     }
   } 
+
+function verificar_fechas(fecha1,fecha2,evento){
+    
+    var fecha_actual = new Date();
+    var dd =String(fecha_actual.getDate()).padStart(2,'0');
+    var mm =String(fecha_actual.getMonth()+1).padStart(2,'0');
+    var yyyy = fecha_actual.getFullYear();
+    fecha_actual = yyyy +'-'+ mm +'-'+ dd;
+    
+    if (evento == 1) {
+        if (fecha1 < fecha2 && fecha1 >= fecha_actual && fecha2 > fecha_actual) {
+            return true
+        }else{ return false }
+    } else {
+        if (fecha1 >= fecha_actual) {
+            return true
+        }else{ return false }
+    }
+
+}
+
+function restarHoras(inicio,fin) {
+  
+  inicioMinutos = parseInt(inicio.substr(3,2));
+  inicioHoras = parseInt(inicio.substr(0,2));
+  
+  finMinutos = parseInt(fin.substr(3,2));
+  finHoras = parseInt(fin.substr(0,2));
+
+  transcurridoMinutos = finMinutos - inicioMinutos;
+  transcurridoHoras = finHoras - inicioHoras;
+  
+  if (transcurridoMinutos < 0) {
+    transcurridoHoras--;
+    transcurridoMinutos = 60 + transcurridoMinutos;
+  }
+  
+  horas = transcurridoHoras.toString();
+  minutos = transcurridoMinutos.toString();
+  
+  if (horas.length < 2) {
+    horas = "0"+horas;
+  }
+  
+  if (horas.length < 2) {
+    horas = "0"+horas;
+  }
+  
+  console.log(parseInt(horas));
+  return parseInt(horas);
+  
+
+}
+
+function verificar_largo_fiesta(){
+    if (restarHoras($('#hora_ida_fiestas_idavuelta').val(), $('#hora_vuelta_fiestas_idavuelta').val()) <= -6) {
+        $('.mensaje-error').html("El evento por el que estas consultando tiene una duracion superior a las 6h quieres continuar?");
+        $('.mensaje-error').css('color','rgb(255, 211, 91)');
+        $('.mensaje-error').show();
+    }else{
+        $('.mensaje-error').hide();
+    }
+}
+
+function vaciar_paradas(){
+    array_paradas_1 = [];
+    array_paradas_2 = [];
+    count_paradas_1 = 0;
+    count_paradas_2 = 0;
+    $("#tags_paradas_1").html(" ");
+    $("#tags_paradas_2").html(" ");
+}
 
 function volver(){
     step--;
@@ -352,6 +454,8 @@ function steps(step){
     $(".step_4").hide();
 
     $("#paradas_vuelta").hide();
+
+    $(".mensaje-error").css('color','#ff635a');
 
     switch(step){
         case 1:
@@ -460,8 +564,9 @@ function paradas(tipo){
     switch(tipo){
         case 1:
             parada = $("#paradas_1").val();
+            console.log(array_paradas_1.indexOf(parada))
+            if(array_paradas_1.indexOf(parada) == -1){
             array_paradas_1[count_paradas_1] = parada;
-
             $.ajax({
                 type: "POST",
                 url: "/PHP/Tablas/agregarParada.php",
@@ -472,13 +577,16 @@ function paradas(tipo){
                 }
             });
             count_paradas_1++;
+            } else {console.log("la parada ya existe")}
 
             break;
 
         case 2:
-            parada = $("#paradas_2").val();
-            array_paradas_2[count_paradas_2] = parada;
+            parada = $("#paradas_2").val();            
 
+            if(array_paradas_2.indexOf(parada) != -1){
+
+            array_paradas_2[count_paradas_2] = parada;
             $.ajax({
                 type: "POST",
                 url: "/PHP/Tablas/agregarParada.php",
@@ -488,8 +596,8 @@ function paradas(tipo){
                     $("#paradas_2").val("");
                 }
             });
-            count_paradas_1++;
-
+            count_paradas_2++;
+            }
             break;
     }
 }

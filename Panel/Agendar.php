@@ -246,11 +246,11 @@
                   <i class="fas fa-tags" id="icon"></i>
                   <select name="" id="desc_oport1" placeholder="Descuento de la Oportunidad">
                     <option value="0" disabled selected hidden>Seleccione un Descuento</option>
-                    <option value="1">50%</option>
-                    <option value="2">60%</option>
-                    <option value="3">70%</option>
-                    <option value="4">80%</option>
-                    <option value="5">90%</option>
+                    <option value="50">50%</option>
+                    <option value="60">60%</option>
+                    <option value="70">70%</option>
+                    <option value="80">80%</option>
+                    <option value="90">90%</option>
                   </select>
                 </div>
 
@@ -305,11 +305,11 @@
                   <i class="fas fa-tags" id="icon"></i>
                   <select name="" id="desc_oport2" placeholder="Descuento de la Oportunidad">
                     <option value="0" disabled selected hidden>Seleccione un Descuento</option>
-                    <option value="1">50%</option>
-                    <option value="2">60%</option>
-                    <option value="3">70%</option>
-                    <option value="4">80%</option>
-                    <option value="5">90%</option>
+                    <option value="50">50%</option>
+                    <option value="60">60%</option>
+                    <option value="70">70%</option>
+                    <option value="80">80%</option>
+                    <option value="90">90%</option>
                   </select>
                 </div>
 
@@ -320,7 +320,7 @@
 
                 <div class="input" id="origen">
                   <i class="fas fa-map-marker-alt" id="icon"></i>
-                  <input list="Origen" id="origen_2" placeholder="Origen">
+                  <input list="Origen" id="origen_2" placeholder="Origen" onchange="select_origen_destino(3)">
                   <datalist id="Origen">
                     <option value="Canelones">
                     <option value="Montevideo">
@@ -332,7 +332,7 @@
 
                 <div class="input" id="destino">
                   <i class="fas fa-route" id="icon"></i>
-                  <input list="Destino" id="destino_2" placeholder="Destino">
+                  <input list="Destino" id="destino_2" placeholder="Destino" onchange="select_origen_destino(4)">
                   <datalist id="Destino">
                     <option value="Canelones">
                     <option value="Montevideo">

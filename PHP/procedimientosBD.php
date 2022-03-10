@@ -56,6 +56,15 @@ public function register_vehiculo($rut,$rut_ec,$datos){
    $stmt->close();
 }
 
+public function editar_vehiculo($id_vehiculo,$datos){ 
+   $conn = $this->conexion();
+   $query = "call salioviajeuy_salioviajeuy.editar_vehiculo(?,?,?,?,?,?,?,?);";
+   $stmt = $conn->prepare($query);
+   $stmt->bind_param("issssiii", $id_vehiculo, $datos["MATRICULA"], $datos["MARCA"], $datos["MODELO"], $datos["COMBUSTIBLE"], $datos["CAPACIDAD_PASAJEROS"], $datos["CAPACIDAD_EQUIPAJE"], $datos["PET_FRIENDLY"]);
+   $stmt->execute();
+   $stmt->close();
+}
+
 public function empresas(){
     $empresas = array();
     $conn = $this->conexion();
@@ -193,9 +202,9 @@ public function datos_vehiculos(){
     $stmt = $conn->prepare($query);
     if ($stmt->execute()) {
         $stmt->store_result();
-        $stmt->bind_result($id,$matricula,$marca,$modelo,$combustible,$capacidad,$equipaje,$pet_friendly,$rut_em,$rut_ec);
+        $stmt->bind_result($id,$matricula,$marca,$modelo,$combustible,$capacidad,$equipaje,$pet_friendly,$rut_em,$rut_ec,);
         while ($stmt->fetch()) {
-            $result = array('ID' => $id,'MATRICULA' => $matricula, 'MARCA' => $marca,'MODELO' => $modelo,'COMBUSTIBLE' => $combustible,'CAPACIDAD' => $capacidad,'EQUIPAJE' => $equipaje,'PET_FRIENDLY' => $pet_friendly,'RUT_EM' => $rut_em,'RUT_EC' => $rut_ec);
+         $result = array('ID' => $id,'MATRICULA' => $matricula, 'MARCA' => $marca, 'MODELO' => $modelo, 'COMBUSTIBLE' => $combustible, 'CAPACIDAD' => $capacidad, 'EQUIPAJE' => $equipaje, 'PET_FRIENDLY' => $pet_friendly, 'RUT_EM' => $rut_em,'RUT_EC' => $rut_ec);
          $vehiculos[] = $result;
      }
  }
@@ -203,18 +212,36 @@ public function datos_vehiculos(){
  return $vehiculos;
 }
 
-public function datos_vehiculos_por_rut($rut){
-
-    $vehiculo =  array();
+public function traer_id_empresa_por_id_usuario($id){
+    $id_empresas = array();
     $conn = $this->conexion();
-    $query = "SELECT * FROM salioviajeuy_salioviajeuy.vehiculos WHERE RUT_EM = $rut";
+    $query = "SELECT id FROM empresas WHERE Usuario_ID = $id";
     $stmt = $conn->prepare($query);
     if ($stmt->execute()) {
         $stmt->store_result();
-        $stmt->bind_result($id,$matricula,$marca,$modelo,$combustible,$capacidad,$equipaje,$pet_friendly,$rut_em,$rut_e);
+        $stmt->bind_result($id);
         while ($stmt->fetch()) {
-         $result = array('ID' => $id,'MATRICULA' => $matricula, 'MARCA' => $marca, 'MODELO' => $modelo, 'COMBUSTIBLE' => $combustible, 'CAPACIDAD' => $capacidad, 'EQUIPAJE' => $equipaje, 'RUT_E' => $rut_e, 'PET_FRIENDLY' => $pet_friendly,'RUT_EM' => $rut_em);
-         $vehiculo = $result;
+         $result = array('ID' => $id);
+         $id_empresas[] = $result;
+     }
+ }
+ $stmt->close();
+ return $id_empresas;
+}
+
+
+public function datos_vehiculos_por_id($id){
+
+    $vehiculo =  array();
+    $conn = $this->conexion();
+    $query = "SELECT * FROM salioviajeuy_salioviajeuy.vehiculos WHERE ID_EMPRESA = $id";
+    $stmt = $conn->prepare($query);
+    if ($stmt->execute()) {
+        $stmt->store_result();
+        $stmt->bind_result($id,$matricula,$marca,$modelo,$combustible,$capacidad,$equipaje,$pet_friendly,$rut_em,$rut_e,$id_empresa);
+        while ($stmt->fetch()) {
+         $result = array('ID' => $id,'MATRICULA' => $matricula, 'MARCA' => $marca, 'MODELO' => $modelo, 'COMBUSTIBLE' => $combustible, 'CAPACIDAD' => $capacidad, 'EQUIPAJE' => $equipaje, 'RUT_E' => $rut_e, 'PET_FRIENDLY' => $pet_friendly,'RUT_EM' => $rut_em,'ID_EMPRESA' => $id_empresa);
+         $vehiculo[] = $result;
      }
  }
  $stmt->close();
@@ -432,6 +459,7 @@ public function info_usuario_profile($id){
 }
 
 public function traer_datos_empresa($RUT){
+    $empresa = array();
     $conn = $this->conexion();
     $query = "CALL traigo_empresa(?)";
     $stmt = $conn->prepare($query);
@@ -440,12 +468,12 @@ public function traer_datos_empresa($RUT){
         $stmt->store_result();
         $stmt->bind_result($id,$rut,$nombre_c,$razon_social,$nro_mtop,$pass_mtop,$id_usuario,$tipo_usuario,$choferes_sub);
         while ($stmt->fetch()) {
-         $result = array('ID' => $id,'RUT' => $rut, 'NOMBRE_COMERCIAL' => $nombre_c,'RAZON_SOCIAL' => $razon_social,'NRO_MTOP' => $nro_mtop,'PASS_MTOP' => $pass_mtop,'ID_USUARIO' => $id_usuario,'CHOFERES_SUB' => $choferes_sub);
+         $result = array('ID' => $id,'RUT' => $rut, 'NOMBRE_COMERCIAL' => $nombre_c,'RAZON_SOCIAL' => $razon_social,'NRO_MTOP' => $nro_mtop,'PASS_MTOP' => $pass_mtop,'ID_USUARIO' => $id_usuario,'TIPO_USUARIO' => $tipo_usuario,'CHOFERES_SUB' => $choferes_sub);
          $empresa[] = $result;
      }
  }
  $stmt->close();
- return $result;
+ return $empresa;
 }
 
 public function traer_empresas_usuario($ID){
@@ -469,18 +497,18 @@ public function traer_empresas_usuario($ID){
  return $return;
 }
 
-public function traer_datos_vehiculo($rut){
+public function traer_datos_vehiculo($id){
     $return = null;
     $size = 0;
     $conn = $this->conexion();
     $query = "CALL traigo_vehiculos(?)";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("s", $rut);
+    $stmt->bind_param("i", $id);
     if ($stmt->execute()) {
         $stmt->store_result();
-        $stmt->bind_result($id,$matricula,$marca,$modelo,$combustible,$capacidad,$equipaje,$pet_friendly,$rut_em,$rut_ec);
+        $stmt->bind_result($id,$matricula,$marca,$modelo,$combustible,$capacidad,$equipaje,$pet_friendly,$rut_em,$rut_ec,$id_empresa);
         while ($stmt->fetch()) {
-         $result = array('ID' => $id,'MATRICULA' => $matricula, 'MARCA' => $marca,'MODELO' => $modelo,'COMBUSTIBLE' => $combustible,'CAPACIDAD' => $capacidad,'EQUIPAJE' => $equipaje,'PET_FRIENDLY' => $pet_friendly,'RUT_EM' => $rut_em,'RUT_EC' => $rut_ec);
+         $result = array('ID' => $id,'MATRICULA' => $matricula, 'MARCA' => $marca,'MODELO' => $modelo,'COMBUSTIBLE' => $combustible,'CAPACIDAD' => $capacidad,'EQUIPAJE' => $equipaje,'PET_FRIENDLY' => $pet_friendly,'RUT_EM' => $rut_em,'RUT_EC' => $rut_ec,'ID_EMPRESA' => $id_empresa);
          $vehiculo[$size] = $result;
          $return =  $vehiculo;
          $size ++;
@@ -565,9 +593,9 @@ public function traer_oportunidades_usuario($id){
     $stmt->bind_param("s", $id);
     if ($stmt->execute()) {
         $stmt->store_result();
-        $stmt->bind_result($id,$descuento,$vehiculo,$distancia,$cantidad_pasajeros,$fecha,$origen,$destino,$precio,$rutas,$estado,$id_transportista);
+        $stmt->bind_result($id,$descuento,$vehiculo,$distancia,$cantidad_pasajeros,$fecha,$origen,$destino,$precio,$rutas,$estado,$id_transportista,$id_comprador);
         while ($stmt->fetch()) {
-         $result = array('ID' => $id,'DESCUENTO' => $descuento,'VEHICULO' => $vehiculo, 'DISTANCIA' => $distancia,'CANTIDAD_PASAJERO' => $cantidad_pasajeros,'FECHA' => $fecha,'ORIGEN' => $origen,'DESTINO' => $destino,'PRECIO' => $precio,'RUTAS' => $rutas,'ESTADO' => $estado,'ID_TRANSPORTISTA' => $id_transportista);
+         $result = array('ID' => $id,'DESCUENTO' => $descuento,'VEHICULO' => $vehiculo, 'DISTANCIA' => $distancia,'CANTIDAD_PASAJERO' => $cantidad_pasajeros,'FECHA' => $fecha,'ORIGEN' => $origen,'DESTINO' => $destino,'PRECIO' => $precio,'RUTAS' => $rutas,'ESTADO' => $estado,'ID_TRANSPORTISTA' => $id_transportista,'ID_COMPRADOR' => $id_comprador);
          $agenda[$size] = $result;
          $return =  $agenda;
          $size ++;

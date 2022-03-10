@@ -92,10 +92,13 @@ require_once '../PHP/procedimientosBD.php';
       crossorigin="anonymous"
     ></script>
 
-    <script src="https://www.salioviaje.com.uy/Javascript/panel.js"></script>
-    <script src="https://www.salioviaje.com.uy/Javascript/settings.js"></script>
-    <script src="https://www.salioviaje.com.uy/Javascript/loader.js"></script>
-        <script type="text/javascript">
+    <script src="/SalioViaje/Javascript/panel.js"></script>
+    <script src="/SalioViaje/Javascript/settings.js"></script>
+    <script src="/SalioViaje/Javascript/loader.js"></script>
+    <script type="text/javascript">
+            window.onload = function(){
+              filtros()
+            }
     </script>
   </head>
   <body>
@@ -166,6 +169,10 @@ require_once '../PHP/procedimientosBD.php';
                 <input type="checkbox" name="" id="anf" checked />
                 <p>ANF</p>
               </div>
+              <div class="checkbox">
+                <input type="checkbox" name="" id="htl" checked />
+                <p>HTL</p>
+              </div>
 
             </div>
           </div>
@@ -191,24 +198,28 @@ require_once '../PHP/procedimientosBD.php';
                       $size = sizeof($empresas);
                       for($i = 0; $i< sizeof($empresas); $i++){
                         echo '<tbody id="tbody">
-                            <td>'.$empresas[$i]['ID'].'</td>
-                            <td>'.$empresas[$i]['RUT'].'</td>
-                            <td>'.$empresas[$i]['NOMBRE_EMPRESA'].'</td>
-                            <td>'.$empresas[$i]['RAZON_SOCIAL'].'</td>
-                            <td>'.$empresas[$i]['ID_OWNER'].'</td>
-                            <td>'.$empresas[$i]['TIPO_USUARIO'].'</td>
+                            <tr class="'.$empresas[$i]['TIPO_USUARIO'].'">
+                              <td>'.$empresas[$i]['ID'].'</td>
+                              <td>'.$empresas[$i]['RUT'].'</td>
+                              <td>'.$empresas[$i]['NOMBRE_EMPRESA'].'</td>
+                              <td>'.$empresas[$i]['RAZON_SOCIAL'].'</td>
+                              <td>'.$empresas[$i]['ID_OWNER'].'</td>
+                              <td>'.$empresas[$i]['TIPO_USUARIO'].'</td>
+                            </tr>
                         </tbody>';
                       }
                     }else{
                       $size = sizeof($empresas);
                       for($i = 0; $i< sizeof($empresas); $i++){
                         echo '<tbody id="tbody">
-                            <td>'.$empresas[$i]['ID'].'</td>
-                            <td>'.$empresas[$i]['RUT'].'</td>
-                            <td>'.$empresas[$i]['NOMBRE_COMERCIAL'].'</td>
-                            <td>'.$empresas[$i]['RAZON_SOCIAL'].'</td>
-                            <td>'.$empresas[$i]['ID_USUARIO'].'</td>
-                            <td>'.$empresas[$i]['TIPO_USUARIO'].'</td>
+                            <tr class="'.$empresas[$i]['TIPO_USUARIO'].'">
+                              <td>'.$empresas[$i]['ID'].'</td>
+                              <td>'.$empresas[$i]['RUT'].'</td>
+                              <td>'.$empresas[$i]['NOMBRE_COMERCIAL'].'</td>
+                              <td>'.$empresas[$i]['RAZON_SOCIAL'].'</td>
+                              <td>'.$empresas[$i]['ID_USUARIO'].'</td>
+                              <td>'.$empresas[$i]['TIPO_USUARIO'].'</td>
+                            </tr>
                         </tbody>';
                       }
                     }

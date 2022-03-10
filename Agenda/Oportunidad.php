@@ -5,12 +5,15 @@
   if(!isset($_SESSION['usuario'])){
       header('Location: https://www.salioviaje.com.uy/Login');
   }else{
+    /*
     if($_SESSION['tipo_usuario'] == "Chofer"){
       header('Location: https://www.salioviaje.com.uy/');
     }
+    */
   }
 
   require_once "../PHP/procedimientosBD.php";
+
 
   $datos = new procedimientosBD();
   $array_oportuidad = $datos->traer_oportunidades_por_id($_GET['ID']);
@@ -132,7 +135,11 @@
               </div>
             </div>
             <div class="oportunidad-buttons">
-                <button class="comprar-button" id="comprar_oportunidad" onclick="comprar_oportunidad_function(<?php echo $array_oportuidad[0]['ID']; ?>)"><i class="fas fa-comments-dollar"></i> Comprar</button>
+              <?php 
+                if ($_SESSION['datos_usuario']['TIPO_USUARIO'] != "CHO") {
+                  echo '<button class="comprar-button" id="comprar_oportunidad" onclick="comprar_oportunidad_function('.$array_oportuidad[0]['ID'].'"><i class="fas fa-comments-dollar"></i> Comprar</button>'; 
+                }
+               ?>
             </div>
           </div>
           <div class="oportunidad-content">

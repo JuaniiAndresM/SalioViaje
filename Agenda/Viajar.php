@@ -450,7 +450,7 @@
                   
                   <div class="input">
                     <p><i class="fa fa-ticket"></i> N° de Vuelo / Barco</p> 
-                    <input type="number" id="nro_vuelo_barco_in"/>
+                    <input type="text" id="nro_vuelo_barco_in"/>
                   </div>
 
                 </div>
@@ -515,7 +515,7 @@
 
                   <div class="input">
                     <p><i class="fa fa-ticket"></i> N° de Vuelo / Barco</p> 
-                    <input type="number" id="nro_vuelo_barco_out"/>
+                    <input type="text" id="nro_vuelo_barco_out"/>
                   </div>
 
                 </div>
@@ -671,7 +671,7 @@
 
                   <div class="input">
                     <p><i class="far fa-calendar-alt"></i> Hora</p>
-                    <input type="time" id="hora_ida_fiestas_idavuelta"/>
+                    <input type="time" id="hora_ida_fiestas_idavuelta" onchange="verificar_largo_fiesta()"/>
                   </div>
     
                   <div class="input">
@@ -707,7 +707,7 @@
 
                   <div class="input">
                     <p><i class="far fa-calendar-alt"></i> Hora</p>
-                    <input type="time" id="hora_vuelta_fiestas_idavuelta"/>
+                    <input type="time" id="hora_vuelta_fiestas_idavuelta" onchange="verificar_largo_fiesta()"/>
                   </div>
     
                   <div class="input">
