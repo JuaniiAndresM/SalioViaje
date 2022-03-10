@@ -89,6 +89,9 @@
     <script src="/SalioViaje/Javascript/form.js"></script>
     <script src="/SalioViaje/Javascript/crearEmpresaDashboard.js"></script>
     <script src="/SalioViaje/Javascript/loader.js"></script>
+    <script type="text/javascript">
+        Empresas();
+    </script>
   </head>
   <body>
     <div id="pre-loader">

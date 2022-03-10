@@ -5,7 +5,7 @@ require_once "../procedimientosBD.php";
 $datos_bd = new procedimientosBD();
 
 $datos = $datos_bd->datos_empresas();
-$vehiculos =  $datos_bd->traer_datos_vehiculo($datos[$i]["RUT"]);
+$vehiculos =  $datos_bd->traer_datos_vehiculo($datos[$i]["ID"]);
 
 for ($i=0; $i < count($datos); $i++) { 
  $NUEVA_EMPRESA_DASHBOARD = '
@@ -20,9 +20,9 @@ for ($i=0; $i < count($datos); $i++) {
                     </div>
                   </div>
                   <div class="propietario-button">
-                      <button id="'.$datos[$i]["RUT"].'" onclick="verEmpresa('.$datos[$i]['RUT'].')"><i class="far fa-eye"></i></button>
-                      <button id="'.$datos[$i]["RUT"].'" onclick="editarEmpresa('.$datos[$i]['RUT'].')"><i class="fas fa-edit"></i></button>
-                      <button id="'.$datos[$i]["RUT"].'" onclick="eliminarEmpresa('.$datos[$i]['RUT'].')"><i class="fas fa-trash-alt"></i></button>
+                      <button id="'.$datos[$i]["ID"].'" onclick="verEmpresa('.$datos[$i]['ID'].')"><i class="far fa-eye"></i></button>
+                      <button id="'.$datos[$i]["ID"].'" onclick="editarEmpresa('.$datos[$i]['ID'].')"><i class="fas fa-edit"></i></button>
+                      <button id="'.$datos[$i]["ID"].'" onclick="eliminarEmpresa('.$datos[$i]['ID'].')"><i class="fas fa-trash-alt"></i></button>
                   </div>
                 </div>
 

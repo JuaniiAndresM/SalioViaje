@@ -60,6 +60,14 @@ class procedimientosForm extends procedimientosBD
 			$this->register_vehiculo($rut,0,$vehiculos[$x]);
 		}
 	}
+
+	public function editar_vehiculos($id_vehiculo,$datos){
+		$this->editar_vehiculo($id_vehiculo,$datos);
+	}
+
+	public function traer_id_empresas($id){
+		return $this->traer_id_empresa_por_id_usuario($id);
+	}
 }
 
 $procedimientosForm = new procedimientosForm();
@@ -106,13 +114,16 @@ if ($_POST['tipo'] == 1) {
 		$datos = json_decode($_POST["vehiculos"],true);
 		echo $procedimientosForm->guardar_vehiculos($datos,$_POST['rut']);
 		break;
-		case 'vehiculos-agenda':
+		case 'editar-vehiculos':
+		$datos = json_decode($_POST["datos"],true);
+		echo $procedimientosForm->editar_vehiculos($_POST['id_vehiculo'],$datos);
+		break;
+		case 'id-empresas':
 		session_start();
-		$vehiculos = array();
-		for ($i=0; $i < count($_SESSION['datos_usuario']['RUT_EMPRESAS']); $i++) { 
-			$vehiculos[] = $procedimientosForm->datos_vehiculos_por_rut($_SESSION['datos_usuario']['RUT_EMPRESAS'][$i]);
-		}
-		echo json_encode($vehiculos);
+		echo json_encode($procedimientosForm->traer_id_empresas($_SESSION['datos_usuario']['ID']));
+		break;
+		case 'vehiculos-agenda':
+		echo json_encode($procedimientosForm->datos_vehiculos_por_id($_POST['id_empresa']));
 		break;
 		case 'login':
 		echo $procedimientosForm->login($_POST['usuario'],$_POST['pin']);

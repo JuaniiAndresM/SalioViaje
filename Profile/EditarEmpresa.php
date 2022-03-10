@@ -123,7 +123,7 @@ require_once '../PHP/procedimientosBD.php';
           <div class="icon"><img src="/SalioViaje/media/svg/Logo-SalioViaje-White.svg" alt="Logo SalióViaje"></div>
           <div class="user">
           <h2><?php echo $_SESSION['usuario']; ?></h2> 
-          <p><i class="fas fa-user-tie"></i> <?php echo $_SESSION['tipo_usuario'] ?></p>
+          <p><i class="fas fa-user-tie"></i> <?php echo $_SESSION['tipo_usuario']; ?></p>
           </div>
           <button id="cerrar_session_dashboard"><i class="fas fa-sign-out-alt"></i></button>
         </div>
@@ -194,6 +194,7 @@ require_once '../PHP/procedimientosBD.php';
 
             </div>
             <p id="mensaje-error" class="mensaje-error"></p>
+            <input type="hidden" id="rut_empresa" value="<?php echo $usuario['RUT'];?>" name="">
             <div class="button-wrapper">
                 <button class="button-guardar" onclick="editarEmpresa('<?php echo$_GET['RUT']?>')"><i class="fas fa-arrow-left"></i> Cancelar</button>
                 <button class="button-guardar" onclick="guardarEdicionEmpresa('<?php echo$_GET['RUT']?>')"><i class="fas fa-save"></i> Guardar Cambios</button>
@@ -251,6 +252,7 @@ require_once '../PHP/procedimientosBD.php';
 
                 <div class="button-wrapper">
                     <button class="button-agregar" onclick="add_vehicle()"><i class="fas fa-plus"></i> Agregar Vehiculo</button>
+                    <button class="button-register" id="guardar-cambios" onclick="editar_vehiculo()"><i class="fas fa-car-side"></i> Guardar Cambios</button>
                 </div>
 
                 <div class="vehiculos-wrapper">

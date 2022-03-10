@@ -17,7 +17,6 @@ class validaciones
 
 	private $PATTERN_MATRICULA = "/^(\w){3}([0-9]){4}$/i";
 	private $PATTERN_MARCA = "/[^0-9\.\,\"\?\!\;\:\#\$\%\&\(\)\*\+\-\/\<\>\=\@\[\]\\\^\_\{\}\|\~]+/";
-	private $PATTERN_MODELO = "/[^0-9\.\,\"\?\!\;\:\#\$\%\&\(\)\*\+\-\/\<\>\=\@\[\]\\\^\_\{\}\|\~]+/";
 	private $PATTERN_COMBUSTIBLE = "/^([A-Z][a-z]+([ ]?[a-z]?['-]?[A-Z][a-z]+)*)$/i";
 	private $PATTERN_CAPACIDAD_PASAJEROS = "/^[1-9][0-9]{0,2}$/i";
 	private $PATTERN_CAPACIDAD_EQUIPAJE = "/[0-9]{0,3}/i";
@@ -312,8 +311,9 @@ class validaciones
 					$VALIDACION['MARCA'] = $MARCA;
 					break;
 					case 'MODELO':
-					$MODELO = preg_match($this->PATTERN_MODELO, $valor);
-					$VALIDACION['MODELO'] = $MODELO;
+					if ($valor != null) {
+						$VALIDACION['MODELO'] = 1;
+					}else { $VALIDACION['MODELO'] = 0; }
 					break;
 					case 'COMBUSTIBLE':
 					if ($valor == "0") {

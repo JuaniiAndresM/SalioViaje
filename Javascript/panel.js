@@ -171,23 +171,21 @@ function tabla_usuarios_dashboard(){
             success: function(response){
                 let numero_usuarios
                 if(response != 0){
-                  numero_usuarios = $("#tbody-usuarios tr").length
                   $("#tbody-usuarios").html(response)
+                  numero_usuarios = $("#tbody-usuarios tr").length
                 }else{
                   numero_usuarios = 0
                   $("#tbody-usuarios").html("")
                 }
             },
             complete: function() {
-                let usuarios_total = $(".usuarios-table > tbody").children().length;
+                $('.ADM').remove();
+                let usuarios_total = $("#tbody-usuarios > tr").length;
                 if (usuarios_total == 1) {
                     $("#cantidad-usuarios").html('<h2>0</h2><i class="fas fa-user-friends"></i>')
                 }else{
-                    usuarios_total = usuarios_total-2;
                     $("#cantidad-usuarios").html('<h2>'+usuarios_total+'</h2><i class="fas fa-user-friends"></i>')
                 }
-
-                $('.ADM').hide();
             }
         })
 }
@@ -692,12 +690,12 @@ function guardarEdicionUsuario(id,ciAnterior){
  
  function guardarEdicionEmpresa(rut){
     datos_Empresa = {
-       "RUT": rut,
+       "RUT": document.getElementById("rut_empresa").value,
        "NOMBRE_COMERCIAL": document.getElementById("NcEdicion").value,
        "RAZON_SOCIAL": document.getElementById("RsEdicion").value,
        "NUMERO_MTOP": document.getElementById("NmEdicion").value,
        "PASSWORD_MTOP": document.getElementById("password").value,
-       "CHOFERES_SUB": 0,
+       "CHOFERES_SUB": document.getElementById("CaEdicion").value,
        "VEHICULOS": {}
     };
         validacion = $.ajax({

@@ -351,10 +351,13 @@ function passwd(tipo){
 
 }
   let MATRICULA_VEHICULO_MODIFICADO;
+  let ID_VEHICULO_EDITADO;
   function formulario_editar_vehiculo(matricula){
+    var Location = location.toString();
     MATRICULA_VEHICULO_MODIFICADO = matricula;
     for (var i = 0; i < vehiculos.length; i++) {
       if(vehiculos[i]['MATRICULA'] == matricula){
+        ID_VEHICULO_EDITADO = vehiculos[i]['ID']
         $(".eliminar_vehiculo").attr('disabled','disabled');
         $('#matricula').val(vehiculos[i]['MATRICULA'])
         $('#marca').val(vehiculos[i]['MARCA'])
@@ -364,7 +367,12 @@ function passwd(tipo){
         $('#capacidad_equipaje').val(vehiculos[i]['CAPACIDAD_EQUIPAJE'])
         $('#pet_friendly').val(vehiculos[i]['PET_FRIENDLY'])
         $('#add-vehicle2').hide();
-        $('#guardar-cambios').show();
+        if (Location.includes('Profile/Empresa/Editar')) {
+          $('.button-agregar').hide();
+          $('#guardar-cambios').show();
+        } else {
+          $('#guardar-cambios').show();
+        }
       }
     }
   }
@@ -578,7 +586,19 @@ function add_vehicle(){
     "PET_FRIENDLY": document.getElementById('pet_friendly').value
  };
 
- if (validacion("VEHICULO",datos_Vehiculo)) {        
+ let MATRICULAS_IGUALES = 0;
+
+ for (var i = 0; i < vehiculos.length; i++) {
+   if(vehiculos[i]['MATRICULA'] == datos_Vehiculo['MATRICULA']){
+    MATRICULAS_IGUALES = 1;
+   }
+ }
+
+ if (validacion("VEHICULO",datos_Vehiculo)) {      
+    if (MATRICULAS_IGUALES == 1) {
+      $('.mensaje-error').text("No pueden haber dos vehiculos con la misma matricula.");
+      $('.mensaje-error').show()
+    }else{
     vehiculos.push(datos_Vehiculo)
     $.ajax({
       type: "POST",
@@ -590,6 +610,7 @@ function add_vehicle(){
         reset_vehicle_inputs();
      },
   });
+  }     
  }else{ console.log("No valido...") }
 
  }
@@ -723,6 +744,19 @@ function editar_vehiculo(){
             reset_vehicle_inputs();
           },
       });
+
+        var Location = location.toString();
+        if (Location.includes('Profile/Empresa/Editar')) {
+            $.ajax({
+            type: "POST",
+            url: "/SalioViaje/PHP/procedimientosForm.php",
+            data: {tipo:"editar-vehiculos",id_vehiculo:ID_VEHICULO_EDITADO,datos:JSON.stringify(vehiculos[i]) },
+            success: function (response) {
+                $('.button-agregar').show();
+              },
+            });
+        }
+
     }
   }
 }

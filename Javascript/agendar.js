@@ -1,4 +1,6 @@
+let id_empresas_array
 $(document).ready(function () {
+    id_empresas_array = id_empresas()
     select_vehiculos()
     $('.empty-list').show()
     $('.vehicle').hide()
@@ -147,9 +149,14 @@ function calcular_hora(){
     
     fecha_1 =  $("#fecha_1").val();
 
+    //2022-03-09T02:34
+
     let km = document.getElementById('distancia-input').value
     let tiempo = $("#fecha_1").val().substring(11,16);
     let tiempo_2;
+    let dd = fecha_1.substring(8,10)
+    let mm = fecha_1.substring(5,7)
+    let yyyy = fecha_1.substring(0,4)
     let horas = tiempo.substring(0,2)
     let minutos = tiempo.substring(3,5)
     
@@ -159,10 +166,13 @@ function calcular_hora(){
             minutos = 0
         }else if(horas == 24){
             horas = 0
+            dd++
             minutos++
         }else{
             minutos++
         }
+
+        if (dd == 30) { dd = "01"}
     }
 
     horas++
@@ -177,7 +187,9 @@ function calcular_hora(){
         tiempo_2 = horas+':'+minutos       
     }
 
-    fecha_2 = $("#fecha_1").val().substring(0,11)+tiempo_2
+    fecha_2 = yyyy+"-"+mm+"-"+dd+"T"
+
+    fecha_2 = fecha_2+tiempo_2
 
     $("#fecha_2").val(fecha_2)
 }
@@ -189,6 +201,9 @@ function calcular_hora_invertido(){
     let km = document.getElementById('distancia-input').value
     let tiempo = $("#fecha_2").val().substring(11,16);
     let tiempo_2;
+    let dd = fecha_1.substring(8,10)
+    let mm = fecha_1.substring(5,7)
+    let yyyy = fecha_1.substring(0,4)
     let horas = tiempo.substring(0,2)
     let minutos = tiempo.substring(3,5)
     
@@ -198,6 +213,7 @@ function calcular_hora_invertido(){
             minutos = 60
         }else if(horas == 0){
             horas = 24
+            dd--
             --minutos
         }else{
             --minutos
@@ -216,7 +232,11 @@ function calcular_hora_invertido(){
         tiempo_2 = horas+':'+minutos       
     }
 
-    fecha_2 = $("#fecha_2").val().substring(0,11)+tiempo_2
+    if (dd < 10) {dd = "0"+dd}
+
+    fecha_2 = yyyy+"-"+mm+"-"+dd+"T"
+
+    fecha_2 = fecha_2+tiempo_2
 
     $("#fecha_1").val(fecha_2)
 }
@@ -232,6 +252,15 @@ function select_origen_destino(type){
         case 2:
             destino = $("#destino_1").val();
             $("#origen_2").val(destino);
+            break;
+        case 3:
+            origen = $("#origen_2").val();
+            $("#destino_1").val(origen);
+            break;
+
+        case 4:
+            destino = $("#destino_2").val();
+            $("#origen_1").val(destino);
             break;
     }   
 }
@@ -268,28 +297,54 @@ let vehiculo_seleccionado
 let datos_etapa_1
 
 
+function id_empresas(){
+let id_empresas_array = $.ajax({
+       type: 'POST',       
+       url: "/SalioViaje/PHP/procedimientosForm.php",
+       data: {tipo: "id-empresas"},
+       global: false,
+       async:false,
+       success: function(response) {
+         return response;
+      }
+   }).responseText;
+return JSON.parse(id_empresas_array);
+}
+
 //agrego vehiculos al select
 function select_vehiculos(){
-$.ajax({
-    type: "POST",
-    url: "/SalioViaje/PHP/procedimientosForm.php",
-    data: {tipo: "vehiculos-agenda"},
-    success: function (response) {
-        console.log(response)
-      vehiculos_select = JSON.parse(response);
-      var selectVehiculos = document.getElementById('vehiculos-select');
-      $("#vehiculos-select").empty().append($("<option></option>").attr({"value": 0,"selected": true, 'disabled': true, 'hidden': true}).text('Seleccione un vehiculo'));
-      console.log(vehiculos_select)
-      for (var i = 0; i < vehiculos_select.length; i++){
+console.log(id_empresas_array)
+    //tipo: "vehiculos-agenda",id_empresa:id_empresas_array[i]['ID']
+    var selectVehiculos = document.getElementById('vehiculos-select');
+    $("#vehiculos-select").empty().append($("<option></option>").attr({"value": 0,"selected": true, 'disabled': true, 'hidden': true}).text('Seleccione un vehiculo'));
+    
+    for (var i = 0; i < id_empresas_array.length; i++) {
+let vehiculos_select_array = $.ajax({
+       type: 'POST',       
+       url: "/SalioViaje/PHP/procedimientosForm.php",
+       data: {tipo: "vehiculos-agenda",id_empresa:id_empresas_array[i]['ID']},
+       global: false,
+       async:false,
+       success: function(response) {
+         return response;
+      }
+   }).responseText;
+    
+        if (vehiculos_select == undefined) {
+            vehiculos_select = JSON.parse(vehiculos_select_array);
+        } else {
+            vehiculos_select = vehiculos_select.concat(JSON.parse(vehiculos_select_array));   
+        }
+    }
+    console.log(vehiculos_select)
+    for (var i = 0; i < vehiculos_select.length; i++){
         if (vehiculos_select[i]["MATRICULA"] != undefined) {
             var opt = document.createElement('option');
             opt.value = vehiculos_select[i]["MATRICULA"];
             opt.text = vehiculos_select[i]["MARCA"]+" "+vehiculos_select[i]["MODELO"]+" ("+vehiculos_select[i]["MATRICULA"]+")";
             selectVehiculos.appendChild(opt);
         }
-      }
-   }
-});
+    }
 }
 
 function actualizar_vista_previa(vehiculo){

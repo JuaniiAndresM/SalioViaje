@@ -306,10 +306,6 @@ function finalizar(enviar_solicitud){
                         "DESTINO_REGRESO": $('#destino_vuelta_fiestas_idavuelta').val(),
                         "OBSERVACIONES": $('#observaciones_fiesta_idavuelta').val()
                     };
-                    
-                    if (restarHoras(datos_fiestaseventos_idavuelta['HORA'],datos_fiestaseventos_idavuelta['HORA_REGRESO']) >= 6) {
-                        console.log("eso es una fiesta muy larga, estas seguro?")
-                    }
                         
                     if (validacion('FIESTA-IDA-VUELTA',datos_fiestaseventos_idavuelta)) {
                         if (verificar_fechas(datos_fiestaseventos_idavuelta['FECHA_SALIDA'],datos_fiestaseventos_idavuelta['FECHA_REGRESO'])) {
@@ -388,7 +384,17 @@ function restarHoras(inicio,fin) {
   
   console.log(parseInt(horas));
   return parseInt(horas);
+  
 
+}
+
+function verificar_largo_fiesta(){
+    if (restarHoras($('#hora_ida_fiestas_idavuelta').val(), $('#hora_vuelta_fiestas_idavuelta').val()) >= 6) {
+        $('.mensaje-error').html("El evento por el que estas consultando tiene una duracion superior a las 6h quieres continuar?");
+        $('.mensaje-error').show();
+    }else{
+        $('.mensaje-error').hide();
+    }
 }
 
 function vaciar_paradas(){

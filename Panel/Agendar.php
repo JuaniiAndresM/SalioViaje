@@ -320,7 +320,7 @@
 
                 <div class="input" id="origen">
                   <i class="fas fa-map-marker-alt" id="icon"></i>
-                  <input list="Origen" id="origen_2" placeholder="Origen">
+                  <input list="Origen" id="origen_2" placeholder="Origen" onchange="select_origen_destino(3)">
                   <datalist id="Origen">
                     <option value="Canelones">
                     <option value="Montevideo">
@@ -332,7 +332,7 @@
 
                 <div class="input" id="destino">
                   <i class="fas fa-route" id="icon"></i>
-                  <input list="Destino" id="destino_2" placeholder="Destino">
+                  <input list="Destino" id="destino_2" placeholder="Destino" onchange="select_origen_destino(4)">
                   <datalist id="Destino">
                     <option value="Canelones">
                     <option value="Montevideo">
