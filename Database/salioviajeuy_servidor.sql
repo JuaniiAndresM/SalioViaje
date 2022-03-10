@@ -93,7 +93,7 @@ CREATE TABLE `empresas` (
   PRIMARY KEY (`ID`),
   KEY `IDUsuario_idx` (`Usuario_ID`),
   CONSTRAINT `IDUsu` FOREIGN KEY (`Usuario_ID`) REFERENCES `usuarios` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=254 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=277 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -150,6 +150,7 @@ CREATE TABLE `oportunidades` (
   `Rutas` varchar(45) DEFAULT NULL,
   `Estado` varchar(45) NOT NULL DEFAULT 'En venta',
   `idTransportista` varchar(45) NOT NULL,
+  `idComprador` int DEFAULT NULL,
   PRIMARY KEY (`idOportunidad`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -208,7 +209,7 @@ CREATE TABLE `usuarios` (
   `Direccion` varchar(45) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
   `Barrio` varchar(45) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
   `Departamento` varchar(45) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
-  `Telefono` varchar(9) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
+  `Telefono` int(9) unsigned zerofill DEFAULT NULL,
   `Agencia_C` varchar(12) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
   `PIN` varchar(70) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   `RUT` varchar(45) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
@@ -219,7 +220,7 @@ CREATE TABLE `usuarios` (
   `Direccion_Hotel` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `Usuario_UNIQUE` (`Usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=380 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=403 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -228,7 +229,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (346,'ADM','54879239','thewolfmodzyt@gmail.com','Juan','Morena','Rondeau','El Pinar','Canelones','098234717',NULL,'$2y$10$veQtXVEcn96165vt3m7wB.BIIzw.va3jEaweyB.yxFHI0t0hocB3G',NULL,'salioviajeuy','$2a$10$rEIEIPW.emR2s0WZGo5UGu8lAlrwTNQ.tzA.6V3myOoBFVZS38vDa',NULL,NULL,NULL),(347,'ADM','11111111','info@salioviaje.com.uy','Daniel','Schlebinger','','','','091928761',NULL,'$2y$10$DQjHCZFhhVe8iF28/Gm0EuPq6bWp5kl4oWcr.fvKkhdUTzo/Rcefe',NULL,'salioviajeuy_daniel','$2a$10$rEIEIPW.emR2s0WZGo5UGu8lAlrwTNQ.tzA.6V3myOoBFVZS38vDa',NULL,NULL,NULL),(348,'ADM','22222222','info@salioviaje.com.uy','Gustavo','Gutiérrez','avda italia','cso','mvd','099401414',NULL,'$2y$10$DQjHCZFhhVe8iF28/Gm0EuPq6bWp5kl4oWcr.fvKkhdUTzo/Rcefe',NULL,'salioviajeuy_gustavo','$2a$10$rEIEIPW.emR2s0WZGo5UGu8lAlrwTNQ.tzA.6V3myOoBFVZS38vDa',NULL,NULL,NULL);
+INSERT INTO `usuarios` VALUES (346,'ADM','54879239','thewolfmodzyt@gmail.com','Juan','Morena','Rondeau','El Pinar','Canelones',098234717,NULL,'$2y$10$veQtXVEcn96165vt3m7wB.BIIzw.va3jEaweyB.yxFHI0t0hocB3G',NULL,'salioviajeuy','$2a$10$rEIEIPW.emR2s0WZGo5UGu8lAlrwTNQ.tzA.6V3myOoBFVZS38vDa',NULL,NULL,NULL),(347,'ADM','11111111','info@salioviaje.com.uy','Daniel','Schlebinger','','','',091928761,NULL,'$2y$10$DQjHCZFhhVe8iF28/Gm0EuPq6bWp5kl4oWcr.fvKkhdUTzo/Rcefe',NULL,'salioviajeuy_daniel','$2a$10$rEIEIPW.emR2s0WZGo5UGu8lAlrwTNQ.tzA.6V3myOoBFVZS38vDa',NULL,NULL,NULL),(348,'ADM','22222222','info@salioviaje.com.uy','Gustavo','Gutiérrez','avda italia','cso','mvd',099401414,NULL,'$2y$10$DQjHCZFhhVe8iF28/Gm0EuPq6bWp5kl4oWcr.fvKkhdUTzo/Rcefe',NULL,'salioviajeuy_gustavo','$2a$10$rEIEIPW.emR2s0WZGo5UGu8lAlrwTNQ.tzA.6V3myOoBFVZS38vDa',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -250,8 +251,12 @@ CREATE TABLE `vehiculos` (
   `PetFriendly` int NOT NULL,
   `RUT_EM` varchar(12) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   `RUT_EC` varchar(12) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=188 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+  `ID_EMPRESA` int NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `id_empresa_idx` (`ID`),
+  KEY `ID_EMPR_idx` (`ID_EMPRESA`),
+  CONSTRAINT `ID_EMPRESA` FOREIGN KEY (`ID_EMPRESA`) REFERENCES `empresas` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=213 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -282,7 +287,7 @@ CREATE TABLE `visitas` (
 
 LOCK TABLES `visitas` WRITE;
 /*!40000 ALTER TABLE `visitas` DISABLE KEYS */;
-INSERT INTO `visitas` VALUES (62);
+INSERT INTO `visitas` VALUES (551);
 /*!40000 ALTER TABLE `visitas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -425,9 +430,9 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `cambio_estado_oportunidad`(est varchar(45), id int)
+CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `cambio_estado_oportunidad`(est varchar(45), id int, ID_COMPRADOR int)
 BEGIN
- UPDATE `salioviajeuy_salioviajeuy`.`oportunidades` SET `Estado` = est WHERE (`idOportunidad` = id);
+ UPDATE `salioviajeuy_salioviajeuy`.`oportunidades` SET `Estado` = est,`idComprador` = ID_COMPRADOR WHERE (`idOportunidad` = id);
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -522,7 +527,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `editar_empresa`(IN rut_e INT, IN RUT_en varchar(12), IN nombre_e varchar(200), IN razon_social_e varchar(200), IN choferes_sub_e INT, IN num_mtop_e varchar(100), IN pass_mtop_e varchar(300))
 BEGIN
-	UPDATE salioviajeuy_salioviajeuy.empresas SET RUT = RUT_en, Nombre_C = nombre_e, Razon_S = razon_social_e, Choferes_sub = choferes_sub_e, Nro_MTOP = num_mtop_e, Pass_MTOP = pass_mtop_e WHERE RUT = rut_e;
+	UPDATE salioviajeuy_salioviajeuy.empresas SET RUT = RUT_en, Nombre_C = nombre_e, Razon_S = razon_social_e, Choferes_sub = choferes_sub_e, Nro_MTOP = num_mtop_e, Pass_MTOP = pass_mtop_e WHERE ID = rut_e;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -567,6 +572,25 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `editar_vehiculo` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_spanish_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `editar_vehiculo`(id_vehiculo int,matricula varchar(45),marca varchar(45), modelo varchar(45),combustible varchar(45),capacidad_pasajeros int, capacidad_equipaje int, pet_friendly int)
+BEGIN
+	UPDATE `salioviajeuy_salioviajeuy`.`vehiculos` SET `Matricula` = matricula,`Marca` = marca,`Modelo` = modelo, `Combustible` = combustible,`Capacidad` = capacidad_pasajeros,`Equipaje` = capacidad_equipaje,`PetFriendly` = pet_friendly WHERE (`ID` = id_vehiculo);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `eliminar_empresa` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -579,7 +603,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `eliminar_empresa`(IN RUT_EM VARCHAR(12))
 BEGIN
-DELETE FROM empresas WHERE RUT_EM = RUT;
+DELETE FROM empresas WHERE RUT_EM = ID;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -728,7 +752,9 @@ DELIMITER ;;
 CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `register_vehiculo`(matricula varchar(45),marca varchar(45), modelo varchar(45),combustible varchar(45),capacidad_pasajeros int, capacidad_equipaje int, pet_friendly int, rut_empresa varchar(12), rut_ec varchar(45))
 BEGIN
 	IF (NOT EXISTS (select * from vehiculos where vehiculos.Matricula = matricula)) THEN
-		INSERT INTO `salioviajeuy_salioviajeuy`.`vehiculos` (`Matricula`, `Marca`, `Modelo`, `Combustible`, `Capacidad`, `Equipaje`, `PetFriendly`, `RUT_EM`, `RUT_EC`) VALUES (matricula, marca, modelo, combustible, capacidad_pasajeros, capacidad_equipaje, pet_friendly, rut_empresa, rut_ec);
+		/*(select LAST_INSERT_ID() from empresas)*/
+		INSERT INTO `salioviajeuy_salioviajeuy`.`vehiculos` (`Matricula`, `Marca`, `Modelo`, `Combustible`, `Capacidad`, `Equipaje`, `PetFriendly`, `RUT_EM`, `RUT_EC`,`ID_EMPRESA`) VALUES (matricula, marca, modelo, combustible, capacidad_pasajeros, capacidad_equipaje, pet_friendly, rut_empresa, rut_ec,(SELECT MAX(ID) FROM empresas));
+        select LAST_INSERT_ID();
     END IF;
 END ;;
 DELIMITER ;
@@ -786,7 +812,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `traigo_choferes`(IN rut_e VARCHAR(12))
 BEGIN
-SELECT ID FROM usuarios WHERE rut_e = Agencia_C;
+SELECT ID FROM usuarios WHERE rut_e = RUT_EC;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -803,9 +829,9 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `traigo_empresa`(IN rut_e VARCHAR(12))
+CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `traigo_empresa`(IN ID_EMPRESA int)
 BEGIN
-SELECT * FROM empresas WHERE rut_e = RUT;
+SELECT * FROM empresas WHERE ID_EMPRESA = ID;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -879,9 +905,9 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `traigo_vehiculos`(IN rut_e VARCHAR(12))
+CREATE DEFINER=`salioviajeuy`@`localhost` PROCEDURE `traigo_vehiculos`(IN ID int)
 BEGIN
-SELECT * FROM vehiculos WHERE rut_e = RUT_EM;
+SELECT * FROM vehiculos WHERE ID = ID_EMPRESA;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -923,4 +949,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-03 14:25:24
+-- Dump completed on 2022-03-10  0:16:26

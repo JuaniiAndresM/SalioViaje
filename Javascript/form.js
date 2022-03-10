@@ -749,7 +749,7 @@ function editar_vehiculo(){
         if (Location.includes('Profile/Empresa/Editar')) {
             $.ajax({
             type: "POST",
-            url: "/SalioViaje/PHP/procedimientosForm.php",
+            url: "/PHP/procedimientosForm.php",
             data: {tipo:"editar-vehiculos",id_vehiculo:ID_VEHICULO_EDITADO,datos:JSON.stringify(vehiculos[i]) },
             success: function (response) {
                 $('.button-agregar').show();

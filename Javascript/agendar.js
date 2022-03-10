@@ -300,7 +300,7 @@ let datos_etapa_1
 function id_empresas(){
 let id_empresas_array = $.ajax({
        type: 'POST',       
-       url: "/SalioViaje/PHP/procedimientosForm.php",
+       url: "/PHP/procedimientosForm.php",
        data: {tipo: "id-empresas"},
        global: false,
        async:false,
@@ -321,7 +321,7 @@ console.log(id_empresas_array)
     for (var i = 0; i < id_empresas_array.length; i++) {
 let vehiculos_select_array = $.ajax({
        type: 'POST',       
-       url: "/SalioViaje/PHP/procedimientosForm.php",
+       url: "/PHP/procedimientosForm.php",
        data: {tipo: "vehiculos-agenda",id_empresa:id_empresas_array[i]['ID']},
        global: false,
        async:false,

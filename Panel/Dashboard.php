@@ -353,7 +353,7 @@ require_once '../PHP/procedimientosBD.php';
         }elseif($tipo == 5 || $tipo == 6){ // Agente & Anfitrión
           echo '  <section class="panel" id="panel">
                     <div class="panel-cards">
-                        <a href="/SalioViaje/Viajar#Cotizacion" class="card" id="plus">
+                        <a href="https://www.salioviaje.com.uy/Viajar#Cotizacion" class="card" id="plus">
                           <div class="number">
                             <i class="fas fa-plus"></i>
                           </div>
@@ -387,8 +387,8 @@ require_once '../PHP/procedimientosBD.php';
                           <div class="usuarios-info">
                             <h2><i class="fas fa-building"></i> Tus Empresas</h2>
                             <div class="button-wrapper">
-                              <a href="/SalioViaje/Crear_Empresa" class="add"><i class="fas fa-plus"></i></a>
-                              <a href="/SalioViaje/Empresas"><i class="fas fa-list-ul"></i></a>
+                              <a href="https://www.salioviaje.com.uy/Crear_Empresa" class="add"><i class="fas fa-plus"></i></a>
+                              <a href="https://www.salioviaje.com.uy/Empresas"><i class="fas fa-list-ul"></i></a>
                             </div>
                           </div>
                           <div class="search">
@@ -404,7 +404,7 @@ require_once '../PHP/procedimientosBD.php';
         }elseif($tipo == 9){ // Hotel
           echo '  <section class="panel" id="panel">
                     <div class="panel-cards">
-                        <a href="/SalioViaje/Viajar#Cotizacion" class="card" id="plus">
+                        <a href="https://www.salioviaje.com.uy/Viajar#Cotizacion" class="card" id="plus">
                           <div class="number">
                             <i class="fas fa-plus"></i>
                           </div>
@@ -438,7 +438,7 @@ require_once '../PHP/procedimientosBD.php';
                           <div class="usuarios-info">
                             <h2><i class="fas fa-building"></i> Tus Hoteles</h2>
                             <div class="button-wrapper">
-                              <a href="/SalioViaje/Empresas"><i class="fas fa-list-ul"></i></a>
+                              <a href="https://www.salioviaje.com.uy/Empresas"><i class="fas fa-list-ul"></i></a>
                             </div>
                           </div>
                           <div class="search">
@@ -454,7 +454,7 @@ require_once '../PHP/procedimientosBD.php';
         }elseif($tipo == 7 || $tipo == 8){ // Pasajero & Asesor
           echo '  <section class="panel" id="panel">
                     <div class="panel-cards">
-                      <a href="/SalioViaje/Viajar#Cotizacion" class="card" id="plus">
+                      <a href="https://www.salioviaje.com.uy/Viajar#Cotizacion" class="card" id="plus">
                           <div class="number">
                             <i class="fas fa-plus"></i>
                           </div>

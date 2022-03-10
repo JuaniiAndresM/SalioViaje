@@ -60,7 +60,7 @@ function comprar_oportunidad_function(id){
 
         $.ajax({
             type: "POST",
-            url: "/SalioViaje/PHP/comprar_oportunidad.php",
+            url: "/PHP/comprar_oportunidad.php",
             data: {opcion:1, ID:id },
             success: function (response) {
                 console.log(response)
@@ -69,7 +69,7 @@ function comprar_oportunidad_function(id){
                 send.enviarSMS(response['TELEFONO'],"2022-02-04T15:00:00+03:00",mensaje,id_llamada);
             },
             complete: function(response){
-                window.open('/SalioViaje/Espera/' + id, '_blank');
+                window.open('/Espera/' + id, '_blank');
             }
         });
 }
@@ -77,7 +77,7 @@ function comprar_oportunidad_function(id){
 function mail_TTA(id){
         $.ajax({
             type: "POST",
-            url: "/SalioViaje/PHP/comprar_oportunidad.php",
+            url: "/PHP/comprar_oportunidad.php",
             data: { ID:id },
             success: function (response) {
                 response = JSON.parse(response)
@@ -93,7 +93,7 @@ function notificar_administradores(){
 function cambiar_estado_oportunidad(estado,id){
         $.ajax({
             type: "POST",
-            url: "/SalioViaje/PHP/comprar_oportunidad.php",
+            url: "/PHP/comprar_oportunidad.php",
             data: {opcion:2,ESTADO:estado,ID:id },
             success: function (response) {
                 console.log(response)
@@ -104,7 +104,7 @@ function cambiar_estado_oportunidad(estado,id){
 function oportunidad_aprobada(id){
             let mail_tta = $.ajax({
                         type: 'POST',       
-                        url: "/SalioViaje/PHP/comprar_oportunidad.php",
+                        url: "/PHP/comprar_oportunidad.php",
                         data: { opcion:1,ID:id },
                         global: false,
                         async:false,
@@ -115,7 +115,7 @@ function oportunidad_aprobada(id){
 
             $.ajax({
                 type: "POST",
-                url: "/SalioViaje/Mail/mail-Oportunidades-Aceptado.php",
+                url: "/Mail/mail-Oportunidades-Aceptado.php",
                 data: { mail_tta:JSON.parse(mail_tta)['MAIL'], id_viaje: id},
                 success: function (response) {
                     cambiar_estado_oportunidad('Aprobada',id)
@@ -126,7 +126,7 @@ function oportunidad_aprobada(id){
 function oportunidad_rechazada(id){
             let mail_tta = $.ajax({
                         type: 'POST',     
-                        url: "/SalioViaje/PHP/comprar_oportunidad.php",
+                        url: "/PHP/comprar_oportunidad.php",
                         data: { ID:id },
                         global: false,
                         async:false,
@@ -137,7 +137,7 @@ function oportunidad_rechazada(id){
 
         $.ajax({
             type: "POST",
-            url: "/SalioViaje/Mail/mail-Oportunidades-Rechazado.php",
+            url: "/Mail/mail-Oportunidades-Rechazado.php",
             data: { mail_tta:JSON.parse(mail_tta)['MAIL'] },
             success: function (response) {
                 console.log(response)

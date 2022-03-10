@@ -4,7 +4,7 @@ require_once '../PHP/procedimientosBD.php';
   session_start(); 
 
   if(!isset($_SESSION['usuario'])){
-    header('Location: /SalioViaje/Login');
+    header('Location: https://www.salioviaje.com.uy/Login');
   }elseif ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "PAX") {
     // code...
   }else{
