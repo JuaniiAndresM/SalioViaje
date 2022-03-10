@@ -459,20 +459,21 @@ public function info_usuario_profile($id){
 }
 
 public function traer_datos_empresa($RUT){
+    $empresa = array();
     $conn = $this->conexion();
     $query = "CALL traigo_empresa(?)";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("i", $RUT);
+    $stmt->bind_param("s", $RUT);
     if ($stmt->execute()) {
         $stmt->store_result();
         $stmt->bind_result($id,$rut,$nombre_c,$razon_social,$nro_mtop,$pass_mtop,$id_usuario,$tipo_usuario,$choferes_sub);
         while ($stmt->fetch()) {
-         $result = array('ID' => $id,'RUT' => $rut, 'NOMBRE_COMERCIAL' => $nombre_c,'RAZON_SOCIAL' => $razon_social,'NRO_MTOP' => $nro_mtop,'PASS_MTOP' => $pass_mtop,'ID_USUARIO' => $id_usuario,'CHOFERES_SUB' => $choferes_sub);
+         $result = array('ID' => $id,'RUT' => $rut, 'NOMBRE_COMERCIAL' => $nombre_c,'RAZON_SOCIAL' => $razon_social,'NRO_MTOP' => $nro_mtop,'PASS_MTOP' => $pass_mtop,'ID_USUARIO' => $id_usuario,'TIPO_USUARIO' => $tipo_usuario,'CHOFERES_SUB' => $choferes_sub);
          $empresa[] = $result;
      }
  }
  $stmt->close();
- return $result;
+ return $empresa;
 }
 
 public function traer_empresas_usuario($ID){

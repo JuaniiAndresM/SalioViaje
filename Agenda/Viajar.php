@@ -656,7 +656,7 @@
 
                   <div class="input">
                     <p><i class="far fa-calendar-alt"></i> Fecha de Salida</p>                  
-                    <input type="date" id="fecha_salida_fiestas_idavuelta" onchange="verificar_largo_fiesta()"/>
+                    <input type="date" id="fecha_salida_fiestas_idavuelta"/>
                   </div>
     
                   <div class="input">
@@ -671,7 +671,7 @@
 
                   <div class="input">
                     <p><i class="far fa-calendar-alt"></i> Hora</p>
-                    <input type="time" id="hora_ida_fiestas_idavuelta"/>
+                    <input type="time" id="hora_ida_fiestas_idavuelta" onchange="verificar_largo_fiesta()"/>
                   </div>
     
                   <div class="input">

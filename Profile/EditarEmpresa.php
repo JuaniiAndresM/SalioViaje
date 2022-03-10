@@ -13,7 +13,6 @@ require_once '../PHP/procedimientosBD.php';
 
     $usuario = $info_empresa->traer_datos_empresa($rut);
     $vehiculos = $info_empresa->traer_datos_vehiculo($rut);
-
   }
 
 ?>
@@ -141,7 +140,7 @@ require_once '../PHP/procedimientosBD.php';
               <img src="/SalioViaje/media/svg/Logo-SalioViaje.svg" alt="Logo SalióViaje">
             </div>
             <div class="user-desc">
-                <h2><?php echo $usuario['NOMBRE_COMERCIAL'];?></h2>
+                <h2><?php echo $usuario[0]['NOMBRE_COMERCIAL'];?></h2>
                 <p><i class="fas fa-building"></i> Empresa</p>
               
             </div>
@@ -156,17 +155,17 @@ require_once '../PHP/procedimientosBD.php';
 
               <div class="info">
                 <b><i class="fas fa-signature"></i> Nombre Comercial</b>
-                <input type="text" placeholder="Nombre Comercial" id="NcEdicion"value="<?php echo $usuario['NOMBRE_COMERCIAL'];?>">
+                <input type="text" placeholder="Nombre Comercial" id="NcEdicion"value="<?php echo $usuario[0]['NOMBRE_COMERCIAL'];?>">
               </div>
               <div class="info">
                 <b><i class="fas fa-building"></i> Razón Social</b>
-                <input type="text" placeholder="Razón Social" id="RsEdicion"value="<?php echo $usuario['RAZON_SOCIAL'];?>">
+                <input type="text" placeholder="Razón Social" id="RsEdicion"value="<?php echo $usuario[0]['RAZON_SOCIAL'];?>">
               </div>
               <div class="info">
                 <b><i class="fas fa-user-friends"></i> Choferes Asociados</b>
                 <select name="" id="CaEdicion">
                     <?php 
-                      if($usuario['CHOFERES_SUB'] == 1){
+                      if($usuario[0]['CHOFERES_SUB'] == 1){
                         echo '
                           <option value="1" selected>Si</option>
                           <option value="0">No</option>
@@ -183,18 +182,18 @@ require_once '../PHP/procedimientosBD.php';
               </div>
               <div class="info">
                 <b><i class="fas fa-user-lock"></i> N° MTOP</b>
-                <input type="text" placeholder="N° MTOP" id="NmEdicion"value="<?php echo $usuario['NRO_MTOP'];?>">
+                <input type="text" placeholder="N° MTOP" id="NmEdicion"value="<?php echo $usuario[0]['NRO_MTOP'];?>">
               </div>
               <div class="info">
                 <b><i class="fas fa-key"></i> Contraseña MTOP</b>
-                <input type="password"  id="password" placeholder="Contraseña MTOP" value="<?php echo $usuario['PASS_MTOP'];?>">
+                <input type="password"  id="password" placeholder="Contraseña MTOP" value="<?php echo $usuario[0]['PASS_MTOP'];?>">
                 
                 <button onclick="passwd(1)" class="password-eye"><i id="passeye" class="fas fa-eye-slash"></i></button>
               </div>
 
             </div>
             <p id="mensaje-error" class="mensaje-error"></p>
-            <input type="hidden" id="rut_empresa" value="<?php echo $usuario['RUT'];?>" name="">
+            <input type="hidden" id="rut_empresa" value="<?php echo $usuario[0]['RUT'];?>" name="">
             <div class="button-wrapper">
                 <button class="button-guardar" onclick="editarEmpresa('<?php echo$_GET['RUT']?>')"><i class="fas fa-arrow-left"></i> Cancelar</button>
                 <button class="button-guardar" onclick="guardarEdicionEmpresa('<?php echo$_GET['RUT']?>')"><i class="fas fa-save"></i> Guardar Cambios</button>

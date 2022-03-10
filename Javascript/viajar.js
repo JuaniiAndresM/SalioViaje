@@ -65,6 +65,9 @@ function finalizar(enviar_solicitud){
                     }
                 });
                 }
+              }else{
+                  $(".mensaje-error").show();
+                  $(".mensaje-error").text("No puedes poner una fecha anterior a la actual.");
               }
             } else { console.log("No valido") }
             vaciar_paradas()
@@ -106,7 +109,10 @@ function finalizar(enviar_solicitud){
                     }
                 });
                 }
-              }
+              }else{
+                $(".mensaje-error").show();
+                $(".mensaje-error").text("No puedes poner una fecha anterior a la actual.");
+                }
             }else{
                 console.log("No valido"); 
             }
@@ -156,7 +162,10 @@ function finalizar(enviar_solicitud){
                                 }
                             });
                         }
-                      }
+                      }else{
+                        $(".mensaje-error").show();
+                        $(".mensaje-error").text("No puedes poner una fecha anterior a la actual.");
+                    }
                     }else{
                         console.log("No valido");
                     }
@@ -198,6 +207,9 @@ function finalizar(enviar_solicitud){
                                 }
                             });
                           }
+                        }else{
+                            $(".mensaje-error").show();
+                            $(".mensaje-error").text("No puedes poner una fecha anterior a la actual.");
                         }
                     }else{
                         console.log("No valido");
@@ -248,6 +260,9 @@ function finalizar(enviar_solicitud){
                                     }
                                 });
                             }
+                        }else{
+                            $(".mensaje-error").show();
+                            $(".mensaje-error").text("No puedes poner una fecha anterior a la actual.");
                         }
                     }else{
                         console.log("No valido")
@@ -287,7 +302,10 @@ function finalizar(enviar_solicitud){
                             }
                             });
                         }
-                      }
+                      }else{
+                        $(".mensaje-error").show();
+                        $(".mensaje-error").text("No puedes poner una fecha anterior a la actual.");
+                    }
                     }else{
                         console.log("No valido");
                     }
@@ -332,7 +350,10 @@ function finalizar(enviar_solicitud){
                                 }
                             });
                             }
-                        } else {}
+                        }else{
+                            $(".mensaje-error").show();
+                            $(".mensaje-error").text("No puedes poner una fecha anterior a la actual.");
+                        }
                         
 
                     }else{
@@ -400,8 +421,9 @@ function restarHoras(inicio,fin) {
 }
 
 function verificar_largo_fiesta(){
-    if (restarHoras($('#hora_ida_fiestas_idavuelta').val(), $('#hora_vuelta_fiestas_idavuelta').val()) >= 6) {
+    if (restarHoras($('#hora_ida_fiestas_idavuelta').val(), $('#hora_vuelta_fiestas_idavuelta').val()) <= -6) {
         $('.mensaje-error').html("El evento por el que estas consultando tiene una duracion superior a las 6h quieres continuar?");
+        $('.mensaje-error').css('color','rgb(255, 211, 91)');
         $('.mensaje-error').show();
     }else{
         $('.mensaje-error').hide();
@@ -432,6 +454,8 @@ function steps(step){
     $(".step_4").hide();
 
     $("#paradas_vuelta").hide();
+
+    $(".mensaje-error").css('color','#ff635a');
 
     switch(step){
         case 1:
