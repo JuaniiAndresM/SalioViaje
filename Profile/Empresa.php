@@ -169,7 +169,7 @@ require_once '../PHP/procedimientosBD.php';
               <img src="https://www.salioviaje.com.uy/media/svg/Logo-SalioViaje.svg" alt="Logo SalióViaje">
             </div>
             <div class="user-desc">
-              <h2><?php echo $usuario['NOMBRE_COMERCIAL'];?></h2>
+              <h2><?php echo $usuario[0]['NOMBRE_COMERCIAL'];?></h2>
               <p><i class="fas fa-building"></i> Empresa</p>
               
             </div>
@@ -177,7 +177,7 @@ require_once '../PHP/procedimientosBD.php';
           <div class="user-right">
             <div class="button-wrapper">
             <?php 
-                echo '<button class="button" onclick="editarEmpresa('.$usuario['RUT'].')"><i class="fas fa-edit"></i></button>';
+                echo '<button class="button" onclick="editarEmpresa('.$usuario[0]['ID'].')"><i class="fas fa-edit"></i></button>';
             ?>
             </div>
           </div>
