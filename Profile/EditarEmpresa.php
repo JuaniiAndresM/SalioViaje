@@ -254,14 +254,18 @@ require_once '../PHP/procedimientosBD.php';
                     <button class="button-agregar" onclick="add_vehicle()"><i class="fas fa-plus"></i> Agregar Vehiculo</button>
                     <button class="button-register" id="guardar-cambios" onclick="editar_vehiculo()"><i class="fas fa-car-side"></i> Guardar Cambios</button>
                 </div>
-
-                <div class="vehiculos-wrapper">
+                <?php
+                if($vehiculos != null){
+                  echo '<div class="vehiculos-wrapper" style="display: block;">';
+                }else{
+                  echo '<div class="vehiculos-wrapper">';
+                }
+                ?>
+                
                     <div class="vehiculos">
-                    <?php 
+                    <?php
 
-                        if($vehiculos == null){
-                          echo "sdf";
-                        }else{
+                        if($vehiculos != null){
                           $size = sizeof($vehiculos);
                           for($i = 0; $i< count($vehiculos); $i++){
                             ?>
@@ -271,7 +275,7 @@ require_once '../PHP/procedimientosBD.php';
                               </script>  
                             <?php 
                           }
-                      }
+                        }
                     ?>
                     </div>
                     <button class="save-button" id="finalizar_empresa_2" onclick="guardar_cambios_vehiculos_panel(<?php echo$_GET['RUT']?>)"><i class="fas fa-save"></i> Guardar Cambios</button>

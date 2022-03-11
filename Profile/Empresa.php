@@ -177,7 +177,7 @@ require_once '../PHP/procedimientosBD.php';
           <div class="user-right">
             <div class="button-wrapper">
             <?php 
-                echo '<button class="button" onclick="editarEmpresa('.$usuario['RUT'].')"><i class="fas fa-edit"></i></button>';
+                echo '<button class="button" onclick="editarEmpresa('.$usuario['ID'].')"><i class="fas fa-edit"></i></button>';
             ?>
             </div>
           </div>
