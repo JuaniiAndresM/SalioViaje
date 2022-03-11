@@ -16,7 +16,9 @@ require_once '../PHP/procedimientosBD.php';
         $vehiculos = $info_usuario->datos_vehiculos();
       }else{
           $usuario = $info_usuario->info_usuario_profile($_SESSION['datos_usuario']['ID']);
-          $vehiculos = $info_usuario->traer_datos_vehiculo($usuario[0]["RUT"]);
+          $empresas = $info_usuario->traer_empresas_usuario($usuario[0]["ID"]);
+
+          $size_e = sizeof($empresas);
       }
     }
   }
@@ -169,32 +171,65 @@ require_once '../PHP/procedimientosBD.php';
                   <th></th>
                 </tr>
               </thead>
-              <?php 
-                  if($vehiculos === null){
-                    
-                  }else{
-                    $size = sizeof($vehiculos);
-                    for($i = 0; $i< sizeof($vehiculos); $i++){
-                      if($vehiculos[$i]['PET_FRIENDLY'] == 1){
-                        $pet_friendly = "No"; 
-                      }else if($vehiculos[$i]['PET_FRIENDLY'] == 2){ 
-                        $pet_friendly = "Si"; 
-                      }
+              <?php
+              if($_SESSION['tipo_usuario'] != "Administrador"){
+                for($a = 0; $a < $size_e; $a++){
+                  $vehiculos = $info_usuario->traer_datos_vehiculo($empresas[$a]["ID"]);
+                  $size = sizeof($vehiculos);
 
-                      echo '<tbody id="tbody">
-                          <td>'.$vehiculos[$i]['ID'].'</td>
-                          <td>'.$vehiculos[$i]['MATRICULA'].'</td>
-                          <td>'.$vehiculos[$i]['MARCA'].'</td>
-                          <td>'.$vehiculos[$i]['MODELO'].'</td>
-                          <td>'.$vehiculos[$i]['COMBUSTIBLE'].'</td>
-                          <td>'.$vehiculos[$i]['CAPACIDAD'].'</td>
-                          <td>'.$vehiculos[$i]['EQUIPAJE'].'</td>
-                          <td>'.$vehiculos[$i]['RUT_EM'].'</td>
-                          <td>'.$vehiculos[$i]['RUT_EC'].'</td>
-                          <td>'.$pet_friendly.'</td>
-                      </tbody>';
+                  if($size != 0){
+
+                    if($vehiculos[0]['PET_FRIENDLY'] == 1){
+                      $pet_friendly = "No"; 
+                    }else if($vehiculos[0]['PET_FRIENDLY'] == 2){ 
+                      $pet_friendly = "Si"; 
                     }
+
+                    echo '<tbody id="tbody">
+                      <td>'.$vehiculos[0]['ID'].'</td>
+                      <td>'.$vehiculos[0]['MATRICULA'].'</td>
+                      <td>'.$vehiculos[0]['MARCA'].'</td>
+                      <td>'.$vehiculos[0]['MODELO'].'</td>
+                      <td>'.$vehiculos[0]['COMBUSTIBLE'].'</td>
+                      <td>'.$vehiculos[0]['CAPACIDAD'].'</td>
+                      <td>'.$vehiculos[0]['EQUIPAJE'].'</td>
+                      <td>'.$vehiculos[0]['RUT_EM'].'</td>
+                      <td>'.$vehiculos[0]['RUT_EC'].'</td>
+                      <td>'.$pet_friendly.'</td>
+                    </tbody>';
+
                   }
+
+                  
+                }
+              }else{
+                if($vehiculos === null){
+                    
+                }else{
+                  $size = sizeof($vehiculos);
+                  for($i = 0; $i< sizeof($vehiculos); $i++){
+                    if($vehiculos[$i]['PET_FRIENDLY'] == 1){
+                      $pet_friendly = "No"; 
+                    }else if($vehiculos[$i]['PET_FRIENDLY'] == 2){ 
+                      $pet_friendly = "Si"; 
+                    }
+
+                    echo '<tbody id="tbody">
+                        <td>'.$vehiculos[$i]['ID'].'</td>
+                        <td>'.$vehiculos[$i]['MATRICULA'].'</td>
+                        <td>'.$vehiculos[$i]['MARCA'].'</td>
+                        <td>'.$vehiculos[$i]['MODELO'].'</td>
+                        <td>'.$vehiculos[$i]['COMBUSTIBLE'].'</td>
+                        <td>'.$vehiculos[$i]['CAPACIDAD'].'</td>
+                        <td>'.$vehiculos[$i]['EQUIPAJE'].'</td>
+                        <td>'.$vehiculos[$i]['RUT_EM'].'</td>
+                        <td>'.$vehiculos[$i]['RUT_EC'].'</td>
+                        <td>'.$pet_friendly.'</td>
+                    </tbody>';
+                  }
+                }
+              }
+                  
               ?>
             </table>
           </div>

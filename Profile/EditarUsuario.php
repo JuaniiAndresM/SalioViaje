@@ -235,7 +235,7 @@
               </div>
               <div class="info">
                 <b><i class="fas fa-phone"></i> Teléfono</b>
-                <input type="number" placeholder="Teléfono" id="TelEdicion" value="<?php echo $usuario[0]['TELEFONO']?>">
+                <input type="number" placeholder="Teléfono" id="TelEdicion" value="<?php echo "0" . $usuario[0]['TELEFONO']?>">
               </div>
 
             </div>

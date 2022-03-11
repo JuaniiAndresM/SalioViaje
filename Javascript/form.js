@@ -370,6 +370,8 @@ function passwd(tipo){
         if (Location.includes('Profile/Empresa/Editar')) {
           $('.button-agregar').hide();
           $('#guardar-cambios').show();
+          $('#capacidad_pasajeros').val(vehiculos[i]['CAPACIDAD'])
+          $('#capacidad_equipaje').val(vehiculos[i]['EQUIPAJE'])
         } else {
           $('#guardar-cambios').show();
         }
@@ -747,6 +749,12 @@ function editar_vehiculo(){
 
         var Location = location.toString();
         if (Location.includes('Profile/Empresa/Editar')) {
+         vehiculos[i]['CAPACIDAD'] = document.getElementById('capacidad_pasajeros').value;
+         vehiculos[i]['EQUIPAJE'] = document.getElementById('capacidad_equipaje').value;
+
+           console.log(document.getElementById('capacidad_pasajeros').value);
+           console.log(vehiculos[i]['CAPACIDAD']);
+            
             $.ajax({
             type: "POST",
             url: "/PHP/procedimientosForm.php",
@@ -755,6 +763,20 @@ function editar_vehiculo(){
                 $('.button-agregar').show();
               },
             });
+
+            $.ajax({
+               type: "POST",
+               url: "/PHP/Tablas/agregarVehiculo.php",
+               data: {datos:JSON.stringify(vehiculos[i]) },
+                 success: function (response) {
+                   $('#'+matricula).remove();
+                   $('.vehiculos').append(response);
+                   $('#add-vehicle2').show();
+                   $('#guardar-cambios').hide();
+                   $(".eliminar_vehiculo").removeAttr('disabled','disabled');
+                   reset_vehicle_inputs();
+                 },
+             });
         }
 
     }

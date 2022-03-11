@@ -503,7 +503,7 @@ public function traer_datos_vehiculo($id){
     $conn = $this->conexion();
     $query = "CALL traigo_vehiculos(?)";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("i", $id);
+    $stmt->bind_param("s", $id);
     if ($stmt->execute()) {
         $stmt->store_result();
         $stmt->bind_result($id,$matricula,$marca,$modelo,$combustible,$capacidad,$equipaje,$pet_friendly,$rut_em,$rut_ec,$id_empresa);
