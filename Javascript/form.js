@@ -370,6 +370,8 @@ function passwd(tipo){
         if (Location.includes('Profile/Empresa/Editar')) {
           $('.button-agregar').hide();
           $('#guardar-cambios').show();
+          $('#capacidad_pasajeros').val(vehiculos[i]['CAPACIDAD'])
+          $('#capacidad_equipaje').val(vehiculos[i]['EQUIPAJE'])
         } else {
           $('#guardar-cambios').show();
         }
