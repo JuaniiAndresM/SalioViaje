@@ -174,21 +174,30 @@
                         <option value="2">No</option>
                         </select>
                     </div>
-                    <div class="input">
-                        <i class="fas fa-user-lock" id="icon"></i>
-                        <input type="number" id="numero_mtop" placeholder="N° MTOP" />
-                    </div>
-                    <div class="input">
-                        <i class="fas fa-key" id="icon"></i>
-                        <input
-                        id="password_mtop"
-                        type="password"
-                        name="PassMTOP"
-                        placeholder="Contraseña MTOP"
+
+                    <?php 
+
+                      if($_SESSION['tipo_usuario'] != "Anfitrión" && $_SESSION['tipo_usuario'] != "Agente" ){
+                        echo '<div class="input">
+                                <i class="fas fa-user-lock" id="icon"></i>
+                                <input type="number" id="numero_mtop" placeholder="N° MTOP" />
+                              </div>
+                              <div class="input">
+                                <i class="fas fa-key" id="icon"></i>
+                                <input
+                                id="password_mtop"
+                                type="password"
+                                name="PassMTOP"
+                                placeholder="Contraseña MTOP"
+                                
+                                />
+                                <button onclick="passwd(4)" class="password-eye"><i id="passeye3" class="fas fa-eye-slash"></i></button>
+                              </div>';
+                      }else{
                         
-                        />
-                        <button onclick="passwd(4)" class="password-eye"><i id="passeye3" class="fas fa-eye-slash"></i></button>
-                    </div>
+                      }
+
+                    ?>
                     </div>
                 </div>
 
