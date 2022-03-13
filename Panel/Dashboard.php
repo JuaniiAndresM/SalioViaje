@@ -29,20 +29,16 @@ require_once '../PHP/procedimientosBD.php';
         $tipo = 5;
         break;
 
-      case "Agente":
+      case "Pasajero":  
         $tipo = 6;
         break;
 
-      case "Pasajero":  
+      case "Asesor":
         $tipo = 7;
         break;
 
-      case "Asesor":
-        $tipo = 8;
-        break;
-
       case "Hotel":
-        $tipo = 9;
+        $tipo = 8;
         break;
       
       default:
@@ -350,7 +346,7 @@ require_once '../PHP/procedimientosBD.php';
                         </div>
                       </div>
                     </section>';
-        }elseif($tipo == 5 || $tipo == 6){ // Agente & Anfitrión
+        }elseif($tipo == 4 || $tipo == 5){ // Agente & Anfitrión
           echo '  <section class="panel" id="panel">
                     <div class="panel-cards">
                         <a href="https://www.salioviaje.com.uy/Viajar#Cotizacion" class="card" id="plus">
@@ -401,7 +397,7 @@ require_once '../PHP/procedimientosBD.php';
                         </div>
                       </div>
                     </section>';
-        }elseif($tipo == 9){ // Hotel
+        }elseif($tipo == 8){ // Hotel
           echo '  <section class="panel" id="panel">
                     <div class="panel-cards">
                         <a href="https://www.salioviaje.com.uy/Viajar#Cotizacion" class="card" id="plus">
@@ -451,7 +447,7 @@ require_once '../PHP/procedimientosBD.php';
                         </div>
                       </div>
                     </section>';
-        }elseif($tipo == 7 || $tipo == 8){ // Pasajero & Asesor
+        }elseif($tipo == 6 || $tipo == 7){ // Pasajero & Asesor
           echo '  <section class="panel" id="panel">
                     <div class="panel-cards">
                       <a href="https://www.salioviaje.com.uy/Viajar#Cotizacion" class="card" id="plus">
