@@ -4,6 +4,9 @@
  */
 class validaciones 
 {
+
+	//Parametros para validar que los datos que se se ingresaron en los campos de los formularios sean correctos
+	//---------------------------------------------------------------------------------------------------------- 
 	private $PATTERN_NOMBRES = "/[^0-9\.\,\"\?\!\;\:\#\$\%\&\(\)\*\+\-\/\<\>\=\@\[\]\\\^\_\{\}\|\~]+/";
 	private $PATTERN_CI = "/^[0-9]{7,8}$/i";
 	private $PATTERN_MAIL = "/.+@[a-z]{4,5}.+\.[?=com]\w.+/i";
@@ -20,7 +23,12 @@ class validaciones
 	private $PATTERN_COMBUSTIBLE = "/^([A-Z][a-z]+([ ]?[a-z]?['-]?[A-Z][a-z]+)*)$/i";
 	private $PATTERN_CAPACIDAD_PASAJEROS = "/^[1-9][0-9]{0,2}$/i";
 	private $PATTERN_CAPACIDAD_EQUIPAJE = "/[0-9]{0,3}/i";
+	//----------------------------------------------------------------------------------------------------------
+	/*
+	Metodo constructor de la clase validacion:
 	
+	-Recive los datos y el tipo de formulario que hay que validar e indica la funcion correspondiente para validar.
+	*/
 	function __construct($tipo,$datos){
 		switch ($tipo) {
 			case 'USUARIO':
@@ -89,6 +97,9 @@ class validaciones
 		}
 	}
 
+	/*
+	valido formulario de usuarios.
+	*/
 	private function validar_formulario_usuario($datos){
 
 		$VALIDACION = array();
@@ -178,6 +189,9 @@ class validaciones
 
 	}
 
+	/*
+	Validacion para formularios de creacion de empresas
+	*/
 	private function validar_formulario_empresa($datos){
 
 
