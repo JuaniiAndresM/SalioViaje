@@ -1,6 +1,6 @@
 function guardar_cambios_vehiculos_panel(rut){
 	console.log(vehiculos)
-	console.log("ID: " + rut)
+	console.log(" rut:"+rut)
 	$.ajax({
         type: "POST",
         url: "/PHP/procedimientosForm.php",

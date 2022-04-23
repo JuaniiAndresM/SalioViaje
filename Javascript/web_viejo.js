@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('#header').load('/web/foreman/header.php');
+    $('#header').load('/web/header.php');
     $('#footer').load('/web/footer.html');
     agregar_visita();
     traer_oportunidades();
@@ -10,9 +10,9 @@ $(document).ready(function () {
 
 function cerrarsesion(){
     $.ajax({ 
-        url: "https://www.salioviaje.com.uy/PHP/cerrarSession.php",
+        url: "/PHP/cerrarSession.php",
         success: function(response){
-            $('#header').load('/web/foreman/header.php');
+            $('#header').load('/web/header.php');
         }
     });
 }
@@ -36,7 +36,7 @@ function suscripcion(){
     
     $.ajax({
         type: "POST",
-        url: "https://www.salioviaje.com.uy/Mail/mail-Bienvenida.php",
+        url: "/Mail/mail-Bienvenida.php",
         data: {email: mail},
         success: function (response) {
             console.log(response);
@@ -67,7 +67,7 @@ function traer_oportunidades(){
         type: "POST",
         url: "/PHP/Tablas/oportunidadesIndex.php",
         success: function (response) {
-            console.log(response)
+            console.log(response);
             if (response == ' ' || response == '0') {$('.list-empty').css('display', 'flex')} else {
                 $('.list-empty').hide();                
                 $('.oportunidades-list').html(response);

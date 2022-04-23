@@ -174,7 +174,7 @@ require_once '../PHP/procedimientosBD.php';
             </div>
           </div>
           <div class="table-overflow">
-            <table class="usuarios-table" id="search-table-usuarios">
+            <table class="usuarios-table" id="search-usuarios-table">
               <thead>
                 <tr>
                   <th id="ID">ID <i class="fas fa-angle-down"></i></th>

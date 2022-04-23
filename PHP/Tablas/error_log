@@ -1,0 +1,7 @@
+[22-Apr-2022 09:56:13 America/Chicago] PHP Warning:  mysqli_connect(): (HY000/2002): Connection timed out in /home/salioviajeuy/public_html/PHP/procedimientosBD.php on line 10
+[22-Apr-2022 09:56:13 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function set_charset() on bool in /home/salioviajeuy/public_html/PHP/procedimientosBD.php:13
+Stack trace:
+#0 /home/salioviajeuy/public_html/PHP/procedimientosBD.php(363): procedimientosBD->conexion()
+#1 /home/salioviajeuy/public_html/PHP/Tablas/oportunidadesIndex.php(8): procedimientosBD->traer_oportunidades()
+#2 {main}
+  thrown in /home/salioviajeuy/public_html/PHP/procedimientosBD.php on line 13

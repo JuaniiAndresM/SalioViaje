@@ -5,6 +5,27 @@ $(document).ready(function () {
 
     $('.mensaje-error').hide();
 
+    $("#fiestas").on('click', function () {
+        window.location.href = "https://www.salioviaje.com.uy/Viajar/#Cotizacion"
+        sessionStorage.setItem("origen", 1)
+        sessionStorage.setItem("opcion", "1")
+    });
+    $("#aeropuerto").on('click', function () {
+        window.location.href = "https://www.salioviaje.com.uy/Viajar/#Cotizacion"
+        sessionStorage.setItem("origen", 1)
+        sessionStorage.setItem("opcion", "2")
+    });
+    $("#paseo").on('click', function () {
+        window.location.href = "https://www.salioviaje.com.uy/Viajar/#Cotizacion"
+        sessionStorage.setItem("origen", 1)
+        sessionStorage.setItem("opcion", "3")
+    });
+    $("#picada").on('click', function () {
+        window.location.href = "https://www.salioviaje.com.uy/Viajar/#Cotizacion"
+        sessionStorage.setItem("origen", 1)
+        sessionStorage.setItem("opcion", "4")
+    });
+
 });
 
 var step = 1;
@@ -23,14 +44,14 @@ var count_paradas_2 = 0;
 let array_paradas_1 = new Array();
 var count_paradas_1 = 0;
 
-function next(){
+function next() {
     step++;
     steps(step);
 }
 
-function finalizar(enviar_solicitud){
+function finalizar(enviar_solicitud) {
     tipo = $('#select_users').val();
-        switch(tipo){
+    switch (tipo) {
         /* 
         Traslado        
         */
@@ -44,31 +65,31 @@ function finalizar(enviar_solicitud){
                 "OBSERVACIONES": $('#observaciones_traslado').val()
             };
 
-            if (validacion('Translado',datos_traslado)) {
-                if (verificar_fechas(datos_traslado['FECHA_SALIDA'],null,0)) {
-                next();
-                if (enviar_solicitud == 1) {
-                $.ajax({
-                    type: "POST",
-                    url: "/Mail/mail-SalioViaje.php",
-                    data: {TIPO: tipo, DATA: JSON.stringify(datos_traslado), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2)},
-                    success: function(response){
-                        console.log("se ejecuta")
-                    },
-                    complete: function (response) {
-                        if(response.responseText == 1){
-                            step++;
-                            steps(step);
-                        }else{
-                            console.log(response);
-                        }         
+            if (validacion('Translado', datos_traslado)) {
+                if (verificar_fechas(datos_traslado['FECHA_SALIDA'], null, 0)) {
+                    next();
+                    if (enviar_solicitud == 1) {
+                        $.ajax({
+                            type: "POST",
+                            url: "/Mail/mail-SalioViaje.php",
+                            data: { TIPO: tipo, DATA: JSON.stringify(datos_traslado), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
+                            success: function (response) {
+                                console.log("se ejecuta")
+                            },
+                            complete: function (response) {
+                                if (response.responseText == 1) {
+                                    step++;
+                                    steps(step);
+                                } else {
+                                    console.log(response);
+                                }
+                            }
+                        });
                     }
-                });
+                } else {
+                    $(".mensaje-error").show();
+                    $(".mensaje-error").text("No puedes poner una fecha anterior a la actual.");
                 }
-              }else{
-                  $(".mensaje-error").show();
-                  $(".mensaje-error").text("No puedes poner una fecha anterior a la actual.");
-              }
             } else { console.log("No valido") }
             vaciar_paradas()
             break;
@@ -87,34 +108,34 @@ function finalizar(enviar_solicitud){
                 "OBSERVACIONES": $('#observaciones_tour').val()
             };
 
-            if (validacion('Tour',datos_tour)) {
-                if (verificar_fechas(datos_tour['FECHA_SALIDA'],null,0)) {
-                next();
-                
-                if (enviar_solicitud == 1) {
-                $.ajax({
-                    type: "POST",
-                    url: "/Mail/mail-SalioViaje.php",
-                    data: {TIPO: tipo, DATA: JSON.stringify(datos_tour), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2)},
-                    success: function(response){
+            if (validacion('Tour', datos_tour)) {
+                if (verificar_fechas(datos_tour['FECHA_SALIDA'], null, 0)) {
+                    next();
 
-                    },
-                    complete: function (response) {
-                        if(response.responseText == 1){
-                            step++;
-                            steps(step);
-                        }else{
-                            console.log(response);
-                        }         
+                    if (enviar_solicitud == 1) {
+                        $.ajax({
+                            type: "POST",
+                            url: "/Mail/mail-SalioViaje.php",
+                            data: { TIPO: tipo, DATA: JSON.stringify(datos_tour), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
+                            success: function (response) {
+
+                            },
+                            complete: function (response) {
+                                if (response.responseText == 1) {
+                                    step++;
+                                    steps(step);
+                                } else {
+                                    console.log(response);
+                                }
+                            }
+                        });
                     }
-                });
+                } else {
+                    $(".mensaje-error").show();
+                    $(".mensaje-error").text("No puedes poner una fecha anterior a la actual.");
                 }
-              }else{
-                $(".mensaje-error").show();
-                $(".mensaje-error").text("No puedes poner una fecha anterior a la actual.");
-                }
-            }else{
-                console.log("No valido"); 
+            } else {
+                console.log("No valido");
             }
             vaciar_paradas()
             break;
@@ -126,7 +147,7 @@ function finalizar(enviar_solicitud){
             var tipo_transfer = $('#select_transfer').val();
             var transfer;
 
-            switch(tipo_transfer){
+            switch (tipo_transfer) {
                 case "1":
                     transfer = "In";
                     datos_transfer_in = {
@@ -140,38 +161,38 @@ function finalizar(enviar_solicitud){
                         "OBSERVACIONES": $('#observaciones_transfer_in').val(),
                         "NRO_VUELO": $('#nro_vuelo_barco_in').val()
                     };
-                    
-                    if (validacion('Transfer_in',datos_transfer_in)) {
-                        if (verificar_fechas(datos_transfer_in['FECHA_SALIDA'],null,0)) {
-                        next();
-                        if (enviar_solicitud == 1) {
-                            $.ajax({
-                                type: "POST",
-                                url: "/Mail/mail-SalioViaje.php",
-                                data: {TIPO: tipo, DATA: JSON.stringify(datos_transfer_in), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2)},
-                                success: function(response){
 
-                                },
-                                complete: function (response) {
-                                    if(response.responseText == 1){
-                                        step++;
-                                        steps(step);
-                                    }else{
-                                        console.log(response);
-                                    }       
-                                }
-                            });
+                    if (validacion('Transfer_in', datos_transfer_in)) {
+                        if (verificar_fechas(datos_transfer_in['FECHA_SALIDA'], null, 0)) {
+                            next();
+                            if (enviar_solicitud == 1) {
+                                $.ajax({
+                                    type: "POST",
+                                    url: "/Mail/mail-SalioViaje.php",
+                                    data: { TIPO: tipo, DATA: JSON.stringify(datos_transfer_in), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
+                                    success: function (response) {
+
+                                    },
+                                    complete: function (response) {
+                                        if (response.responseText == 1) {
+                                            step++;
+                                            steps(step);
+                                        } else {
+                                            console.log(response);
+                                        }
+                                    }
+                                });
+                            }
+                        } else {
+                            $(".mensaje-error").show();
+                            $(".mensaje-error").text("No puedes poner una fecha anterior a la actual.");
                         }
-                      }else{
-                        $(".mensaje-error").show();
-                        $(".mensaje-error").text("No puedes poner una fecha anterior a la actual.");
-                    }
-                    }else{
+                    } else {
                         console.log("No valido");
                     }
 
                     break;
-                    
+
                 case "2":
                     transfer = "Out";
                     datos_transfer_out = {
@@ -186,32 +207,32 @@ function finalizar(enviar_solicitud){
                         "NRO_VUELO": $('#nro_vuelo_barco_out').val()
                     };
 
-                    if (validacion('Transfer_out',datos_transfer_out)) {
-                        if (verificar_fechas(datos_transfer_out['FECHA_REGRESO'],null,0)) {
-                        next();
-                        if (enviar_solicitud == 1) {
-                            $.ajax({
-                                type: "POST",
-                                url: "/Mail/mail-SalioViaje.php",
-                                data: {TIPO: tipo, DATA: JSON.stringify(datos_transfer_out), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2)},
-                                success: function(response){
+                    if (validacion('Transfer_out', datos_transfer_out)) {
+                        if (verificar_fechas(datos_transfer_out['FECHA_REGRESO'], null, 0)) {
+                            next();
+                            if (enviar_solicitud == 1) {
+                                $.ajax({
+                                    type: "POST",
+                                    url: "/Mail/mail-SalioViaje.php",
+                                    data: { TIPO: tipo, DATA: JSON.stringify(datos_transfer_out), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
+                                    success: function (response) {
 
-                                },
-                                complete: function (response) {
-                                    if(response.responseText == 1){
-                                        step++;
-                                        steps(step);
-                                    }else{
-                                        console.log(response);
-                                    }         
-                                }
-                            });
-                          }
-                        }else{
+                                    },
+                                    complete: function (response) {
+                                        if (response.responseText == 1) {
+                                            step++;
+                                            steps(step);
+                                        } else {
+                                            console.log(response);
+                                        }
+                                    }
+                                });
+                            }
+                        } else {
                             $(".mensaje-error").show();
                             $(".mensaje-error").text("No puedes poner una fecha anterior a la actual.");
                         }
-                    }else{
+                    } else {
                         console.log("No valido");
                     }
                     break;
@@ -226,7 +247,7 @@ function finalizar(enviar_solicitud){
             var tramos = $('#select_fiesta').val();
             var fiestas;
 
-            switch(tramos){
+            switch (tramos) {
                 case "1":
                     fiestas = "Solo Ida";
                     datos_fiestaseventos_ida = {
@@ -238,33 +259,33 @@ function finalizar(enviar_solicitud){
                         "DESTINO": $('#destino_fiesta_ida').val(),
                         "OBSERVACIONES": $('#observaciones_fiesta_ida').val()
                     };
-         
-                    if (validacion('FIESTA-IDA',datos_fiestaseventos_ida)) {
-                        if (verificar_fechas(datos_fiestaseventos_ida['FECHA_SALIDA'],null,0)) {
+
+                    if (validacion('FIESTA-IDA', datos_fiestaseventos_ida)) {
+                        if (verificar_fechas(datos_fiestaseventos_ida['FECHA_SALIDA'], null, 0)) {
                             next();
                             if (enviar_solicitud == 1) {
                                 $.ajax({
                                     type: "POST",
                                     url: "/Mail/mail-SalioViaje.php",
-                                    data: {TIPO: tipo, DATA: JSON.stringify(datos_fiestaseventos_ida), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2)},
-                                    success: function(response){
+                                    data: { TIPO: tipo, DATA: JSON.stringify(datos_fiestaseventos_ida), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
+                                    success: function (response) {
 
                                     },
                                     complete: function (response) {
-                                        if(response.responseText == 1){
+                                        if (response.responseText == 1) {
                                             step++;
                                             steps(step);
-                                        }else{
+                                        } else {
                                             console.log(response);
-                                        }         
+                                        }
                                     }
                                 });
                             }
-                        }else{
+                        } else {
                             $(".mensaje-error").show();
                             $(".mensaje-error").text("No puedes poner una fecha anterior a la actual.");
                         }
-                    }else{
+                    } else {
                         console.log("No valido")
                     }
 
@@ -280,33 +301,33 @@ function finalizar(enviar_solicitud){
                         "DESTINO": $('#destino_fiesta_vuelta').val(),
                         "OBSERVACIONES": $('#observaciones_fiesta_vuelta').val()
                     };
-                                 
-                    if (validacion('FIESTA-VUELTA',datos_fiestaseventos_vuelta)) {
-                        if (verificar_fechas(datos_fiestaseventos_vuelta['FECHA_REGRESO'],null,0)) {
-                        next();
-                        if (enviar_solicitud == 1) {
-                            $.ajax({
-                            type: "POST",
-                            url: "/Mail/mail-SalioViaje.php",
-                            data: {TIPO: tipo, DATA: JSON.stringify(datos_fiestaseventos_vuelta), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2)},
-                            success: function(response){
 
-                            },
-                            complete: function (response) {
-                                if(response.responseText == 1){
-                                    step++;
-                                    steps(step);
-                                }else{
-                                    console.log(response.responseText);
-                                }       
+                    if (validacion('FIESTA-VUELTA', datos_fiestaseventos_vuelta)) {
+                        if (verificar_fechas(datos_fiestaseventos_vuelta['FECHA_REGRESO'], null, 0)) {
+                            next();
+                            if (enviar_solicitud == 1) {
+                                $.ajax({
+                                    type: "POST",
+                                    url: "/Mail/mail-SalioViaje.php",
+                                    data: { TIPO: tipo, DATA: JSON.stringify(datos_fiestaseventos_vuelta), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
+                                    success: function (response) {
+
+                                    },
+                                    complete: function (response) {
+                                        if (response.responseText == 1) {
+                                            step++;
+                                            steps(step);
+                                        } else {
+                                            console.log(response.responseText);
+                                        }
+                                    }
+                                });
                             }
-                            });
+                        } else {
+                            $(".mensaje-error").show();
+                            $(".mensaje-error").text("No puedes poner una fecha anterior a la actual.");
                         }
-                      }else{
-                        $(".mensaje-error").show();
-                        $(".mensaje-error").text("No puedes poner una fecha anterior a la actual.");
-                    }
-                    }else{
+                    } else {
                         console.log("No valido");
                     }
 
@@ -328,35 +349,35 @@ function finalizar(enviar_solicitud){
                         "DESTINO_REGRESO": $('#destino_vuelta_fiestas_idavuelta').val(),
                         "OBSERVACIONES": $('#observaciones_fiesta_idavuelta').val()
                     };
-                        
-                    if (validacion('FIESTA-IDA-VUELTA',datos_fiestaseventos_idavuelta)) {
-                        if (verificar_fechas(datos_fiestaseventos_idavuelta['FECHA_SALIDA'],datos_fiestaseventos_idavuelta['FECHA_REGRESO'],1)) {
+
+                    if (validacion('FIESTA-IDA-VUELTA', datos_fiestaseventos_idavuelta)) {
+                        if (verificar_fechas(datos_fiestaseventos_idavuelta['FECHA_SALIDA'], datos_fiestaseventos_idavuelta['FECHA_REGRESO'], 1)) {
                             next();
                             if (enviar_solicitud == 1) {
-                            $.ajax({
-                                type: "POST",
-                                url: "/Mail/mail-SalioViaje.php",
-                                data: {TIPO: tipo, DATA: JSON.stringify(datos_fiestaseventos_idavuelta), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2)},
-                                success: function(response){
+                                $.ajax({
+                                    type: "POST",
+                                    url: "/Mail/mail-SalioViaje.php",
+                                    data: { TIPO: tipo, DATA: JSON.stringify(datos_fiestaseventos_idavuelta), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
+                                    success: function (response) {
 
-                                },
-                                complete: function (response) {
-                                    if(response.responseText == 1){
-                                        step++;
-                                        steps(step);
-                                    }else{
-                                        console.log(response.responseText);
+                                    },
+                                    complete: function (response) {
+                                        if (response.responseText == 1) {
+                                            step++;
+                                            steps(step);
+                                        } else {
+                                            console.log(response.responseText);
+                                        }
                                     }
-                                }
-                            });
+                                });
                             }
-                        }else{
+                        } else {
                             $(".mensaje-error").show();
                             $(".mensaje-error").text("No puedes poner una fecha anterior a la actual.");
                         }
-                        
 
-                    }else{
+
+                    } else {
                         console.log("No valido");
                     }
 
@@ -365,72 +386,72 @@ function finalizar(enviar_solicitud){
             vaciar_paradas()
             break;
     }
-  } 
+}
 
-function verificar_fechas(fecha1,fecha2,evento){
-    
+function verificar_fechas(fecha1, fecha2, evento) {
+
     var fecha_actual = new Date();
-    var dd =String(fecha_actual.getDate()).padStart(2,'0');
-    var mm =String(fecha_actual.getMonth()+1).padStart(2,'0');
+    var dd = String(fecha_actual.getDate()).padStart(2, '0');
+    var mm = String(fecha_actual.getMonth() + 1).padStart(2, '0');
     var yyyy = fecha_actual.getFullYear();
-    fecha_actual = yyyy +'-'+ mm +'-'+ dd;
-    
+    fecha_actual = yyyy + '-' + mm + '-' + dd;
+
     if (evento == 1) {
         if (fecha1 < fecha2 && fecha1 >= fecha_actual && fecha2 > fecha_actual) {
             return true
-        }else{ return false }
+        } else { return false }
     } else {
         if (fecha1 >= fecha_actual) {
             return true
-        }else{ return false }
+        } else { return false }
     }
 
 }
 
-function restarHoras(inicio,fin) {
-  
-  inicioMinutos = parseInt(inicio.substr(3,2));
-  inicioHoras = parseInt(inicio.substr(0,2));
-  
-  finMinutos = parseInt(fin.substr(3,2));
-  finHoras = parseInt(fin.substr(0,2));
+function restarHoras(inicio, fin) {
 
-  transcurridoMinutos = finMinutos - inicioMinutos;
-  transcurridoHoras = finHoras - inicioHoras;
-  
-  if (transcurridoMinutos < 0) {
-    transcurridoHoras--;
-    transcurridoMinutos = 60 + transcurridoMinutos;
-  }
-  
-  horas = transcurridoHoras.toString();
-  minutos = transcurridoMinutos.toString();
-  
-  if (horas.length < 2) {
-    horas = "0"+horas;
-  }
-  
-  if (horas.length < 2) {
-    horas = "0"+horas;
-  }
-  
-  console.log(parseInt(horas));
-  return parseInt(horas);
-  
+    inicioMinutos = parseInt(inicio.substr(3, 2));
+    inicioHoras = parseInt(inicio.substr(0, 2));
+
+    finMinutos = parseInt(fin.substr(3, 2));
+    finHoras = parseInt(fin.substr(0, 2));
+
+    transcurridoMinutos = finMinutos - inicioMinutos;
+    transcurridoHoras = finHoras - inicioHoras;
+
+    if (transcurridoMinutos < 0) {
+        transcurridoHoras--;
+        transcurridoMinutos = 60 + transcurridoMinutos;
+    }
+
+    horas = transcurridoHoras.toString();
+    minutos = transcurridoMinutos.toString();
+
+    if (horas.length < 2) {
+        horas = "0" + horas;
+    }
+
+    if (horas.length < 2) {
+        horas = "0" + horas;
+    }
+
+    console.log(parseInt(horas));
+    return parseInt(horas);
+
 
 }
 
-function verificar_largo_fiesta(){
+function verificar_largo_fiesta() {
     if (restarHoras($('#hora_ida_fiestas_idavuelta').val(), $('#hora_vuelta_fiestas_idavuelta').val()) <= -6) {
         $('.mensaje-error').html("El evento por el que estas consultando tiene una duracion superior a las 6h quieres continuar?");
-        $('.mensaje-error').css('color','rgb(255, 211, 91)');
+        $('.mensaje-error').css('color', 'rgb(255, 211, 91)');
         $('.mensaje-error').show();
-    }else{
+    } else {
         $('.mensaje-error').hide();
     }
 }
 
-function vaciar_paradas(){
+function vaciar_paradas() {
     array_paradas_1 = [];
     array_paradas_2 = [];
     count_paradas_1 = 0;
@@ -439,12 +460,12 @@ function vaciar_paradas(){
     $("#tags_paradas_2").html(" ");
 }
 
-function volver(){
+function volver() {
     step--;
     steps(step);
 }
 
-function steps(step){
+function steps(step) {
     $(".step_1").hide();
     $(".step_2_traslado").hide();
     $(".step_2_tour").hide();
@@ -455,9 +476,9 @@ function steps(step){
 
     $("#paradas_vuelta").hide();
 
-    $(".mensaje-error").css('color','#ff635a');
+    $(".mensaje-error").css('color', '#ff635a');
 
-    switch(step){
+    switch (step) {
         case 1:
             $(".step_1").show();
 
@@ -469,9 +490,13 @@ function steps(step){
             break;
 
         case 2:
+            if (sessionStorage.getItem("opcion") != null) {
+                viaje = sessionStorage.getItem("opcion")
+            } else {
+                viaje = $("#select_users").val();
+            }
 
-            viaje = $("#select_users").val();
-            switch(viaje){
+            switch (viaje) {
                 case "1":
                     $(".step_2_traslado").show();
                     break;
@@ -488,10 +513,10 @@ function steps(step){
                     $(".step_2_fiestas").show();
                     break;
             }
-            
+
 
             $('.progress').css('width', '50%');
-            
+
             $('.circle1').css('background-color', '#2b3179');
             $('.circle2').css('background-color', '#2b3179');
             $('.circle3').css('background-color', '#aaa');
@@ -501,28 +526,28 @@ function steps(step){
 
             $('.loader_step3').hide();
 
-            if($("#select_users").val() == "4"){
-                if($('#select_fiesta').val() == 3){
+            if ($("#select_users").val() == "4") {
+                if ($('#select_fiesta').val() == 3) {
                     $("#paradas_vuelta").show();
                     $("#paradas_ida").show();
-                }else if($('#select_fiesta').val() == 2){
+                } else if ($('#select_fiesta').val() == 2) {
                     $("#paradas_vuelta").show();
                     $("#paradas_ida").hide();
-                }else{
+                } else {
                     $("#paradas_vuelta").hide();
                     $("#paradas_ida").show();
                 }
-            }else{
+            } else {
                 $("#paradas_vuelta").hide();
                 $("#paradas_ida").show();
             }
 
-            
+
 
             $(".step_3").show();
 
             $('.progress').css('width', '100%');
-            
+
             $('.circle1').css('background-color', '#2b3179');
             $('.circle2').css('background-color', '#2b3179');
             $('.circle3').css('background-color', '#2b3179');
@@ -535,97 +560,106 @@ function steps(step){
     }
 }
 
-function nueva_cotizacion(){
+function nueva_cotizacion() {
     step = 1;
     steps(step);
 }
 
-function select_usuario(){
-    viaje = $("#select_users").val();
+function select_usuario() {
+    if (sessionStorage.getItem("opcion") != null) {
+        console.log(sessionStorage.getItem("opcion"))
+        viaje = sessionStorage.getItem("opcion")
+        sessionStorage.removeItem("opcion")
+    } else {
+        console.log(sessionStorage.getItem("opcion"))
+        viaje = $("#select_users").val();
+    }
 
-    if(viaje !== null){
+    console.log(viaje)
+
+    if (viaje != null) {
         step++;
         steps(step);
     }
 }
 
-function desplegar(button, session){
-
-    if(session == 1){
+function desplegar(button, session) {
+    console.log(button)
+    if (session == 1) {
         location.href = "/Login";
-    }else{
+    } else {
         button.classList.toggle("active");
         button.nextElementSibling.classList.toggle("show");
-    }    
+    }
 }
 
-function paradas(tipo){
+function paradas(tipo) {
 
-    switch(tipo){
+    switch (tipo) {
         case 1:
             parada = $("#paradas_1").val();
             console.log(array_paradas_1.indexOf(parada))
-            if(array_paradas_1.indexOf(parada) == -1){
-            array_paradas_1[count_paradas_1] = parada;
-            $.ajax({
-                type: "POST",
-                url: "/PHP/Tablas/agregarParada.php",
-                data: {NRO_PARADA: count_paradas_1, NOMBRE_PARADA: parada, TIPO: 1},
-                success: function (response) {
-                    $("#tags_paradas_1").append(response);
-                    $("#paradas_1").val("");
-                }
-            });
-            count_paradas_1++;
-            } else {console.log("la parada ya existe")}
+            if (array_paradas_1.indexOf(parada) == -1) {
+                array_paradas_1[count_paradas_1] = parada;
+                $.ajax({
+                    type: "POST",
+                    url: "/PHP/Tablas/agregarParada.php",
+                    data: { NRO_PARADA: count_paradas_1, NOMBRE_PARADA: parada, TIPO: 1 },
+                    success: function (response) {
+                        $("#tags_paradas_1").append(response);
+                        $("#paradas_1").val("");
+                    }
+                });
+                count_paradas_1++;
+            } else { console.log("la parada ya existe") }
 
             break;
 
         case 2:
-            parada = $("#paradas_2").val();            
+            parada = $("#paradas_2").val();
 
-            if(array_paradas_2.indexOf(parada) != -1){
+            if (array_paradas_2.indexOf(parada) != -1) {
 
-            array_paradas_2[count_paradas_2] = parada;
-            $.ajax({
-                type: "POST",
-                url: "/PHP/Tablas/agregarParada.php",
-                data: {NRO_PARADA: count_paradas_2, NOMBRE_PARADA: parada, TIPO: 2},
-                success: function (response) {
-                    $("#tags_paradas_2").append(response);
-                    $("#paradas_2").val("");
-                }
-            });
-            count_paradas_2++;
+                array_paradas_2[count_paradas_2] = parada;
+                $.ajax({
+                    type: "POST",
+                    url: "/PHP/Tablas/agregarParada.php",
+                    data: { NRO_PARADA: count_paradas_2, NOMBRE_PARADA: parada, TIPO: 2 },
+                    success: function (response) {
+                        $("#tags_paradas_2").append(response);
+                        $("#paradas_2").val("");
+                    }
+                });
+                count_paradas_2++;
             }
             break;
     }
 }
 
-function borrar_parada(parada, tipo){
-    switch(tipo){
+function borrar_parada(parada, tipo) {
+    switch (tipo) {
         case 1:
             delete array_paradas_1[parada];
-            $('#R'+parada).remove();
+            $('#R' + parada).remove();
             console.log(array_paradas_1);
             break;
 
         case 2:
             delete array_paradas_2[parada];
-            $('#R'+parada).remove();
+            $('#R' + parada).remove();
             console.log(array_paradas_2);
             break;
-    }    
+    }
 }
 
-function select_fiesta(){
+function select_fiesta() {
     tipo = $('#select_fiesta').val();
 
     $('#fiesta_ida').hide();
     $('#fiesta_vuelta').hide();
     $('#fiesta_idavuelta').hide();
 
-    switch(tipo){
+    switch (tipo) {
         case "1":
             $('#fiesta_ida').show();
             break;
@@ -644,13 +678,13 @@ function select_fiesta(){
     }
 }
 
-function select_transfer(){
+function select_transfer() {
     tipo = $('#select_transfer').val();
 
     $('#transfer_in').hide();
     $('#transfer_out').hide();
 
-    switch(tipo){
+    switch (tipo) {
         case "1":
             $('#transfer_in').show();
             break;
@@ -665,158 +699,158 @@ function select_transfer(){
     }
 }
 
-function validacion(TIPO,DATOS){
-  console.log(DATOS)
-  let validacion;
-  let VALIDO = false;
+function validacion(TIPO, DATOS) {
+    console.log(DATOS)
+    let validacion;
+    let VALIDO = false;
 
-  //Fiestas_ida
+    //Fiestas_ida
 
-  reset_errores()
+    reset_errores()
 
-  switch(TIPO){
-    case "Translado":
-    validacion = $.ajax({
-       type: 'POST',       
-       url: "/PHP/Validaciones.php",
-       data: {tipo:"Translado",datos:JSON.stringify(DATOS)},
-       global: false,
-       async:false,
-       success: function(response) {
-         return response;
-      }
-   }).responseText;
-    console.log(validacion)
-    if (validacion == "VALIDO") {VALIDO = true}
-     else if(validacion == "Err-1"){
-       $('.mensaje-error').show();
-       $('.mensaje-error').text("Debe completar todos los campos.");
-    } else {marcar_errores(validacion)}
-    break;
+    switch (TIPO) {
+        case "Translado":
+            validacion = $.ajax({
+                type: 'POST',
+                url: "/PHP/Validaciones.php",
+                data: { tipo: "Translado", datos: JSON.stringify(DATOS) },
+                global: false,
+                async: false,
+                success: function (response) {
+                    return response;
+                }
+            }).responseText;
+            console.log(validacion)
+            if (validacion == "VALIDO") { VALIDO = true }
+            else if (validacion == "Err-1") {
+                $('.mensaje-error').show();
+                $('.mensaje-error').text("Debe completar todos los campos.");
+            } else { marcar_errores(validacion) }
+            break;
 
-    case "Tour":
-    validacion = $.ajax({
-       type: 'POST',       
-       url: "/PHP/Validaciones.php",
-       data: {tipo:"Tour",datos:JSON.stringify(DATOS)},
-       global: false,
-       async:false,
-       success: function(response) {
-         return response;
-      }
-   }).responseText;
-    console.log(validacion)
-    if (validacion == "VALIDO") {VALIDO = true}
-     else if(validacion == "Err-1"){
-       $('.mensaje-error').show();
-       $('.mensaje-error').text("Debe completar todos los campos.");
-    } else {marcar_errores(validacion)}
-    break;
+        case "Tour":
+            validacion = $.ajax({
+                type: 'POST',
+                url: "/PHP/Validaciones.php",
+                data: { tipo: "Tour", datos: JSON.stringify(DATOS) },
+                global: false,
+                async: false,
+                success: function (response) {
+                    return response;
+                }
+            }).responseText;
+            console.log(validacion)
+            if (validacion == "VALIDO") { VALIDO = true }
+            else if (validacion == "Err-1") {
+                $('.mensaje-error').show();
+                $('.mensaje-error').text("Debe completar todos los campos.");
+            } else { marcar_errores(validacion) }
+            break;
 
-    case "Transfer_in":
-    validacion = $.ajax({
-       type: 'POST',       
-       url: "/PHP/Validaciones.php",
-       data: {tipo:"Transfer-in",datos:JSON.stringify(DATOS)},
-       global: false,
-       async:false,
-       success: function(response) {
-         return response;
-      }
-   }).responseText;
-    console.log(validacion)
-    if (validacion == "VALIDO") {VALIDO = true}
-     else if(validacion == "Err-1"){
-       $('.mensaje-error').show();
-       $('.mensaje-error').text("Debe completar todos los campos.");
-    } else {marcar_errores(validacion)}
-    break;
+        case "Transfer_in":
+            validacion = $.ajax({
+                type: 'POST',
+                url: "/PHP/Validaciones.php",
+                data: { tipo: "Transfer-in", datos: JSON.stringify(DATOS) },
+                global: false,
+                async: false,
+                success: function (response) {
+                    return response;
+                }
+            }).responseText;
+            console.log(validacion)
+            if (validacion == "VALIDO") { VALIDO = true }
+            else if (validacion == "Err-1") {
+                $('.mensaje-error').show();
+                $('.mensaje-error').text("Debe completar todos los campos.");
+            } else { marcar_errores(validacion) }
+            break;
 
-    case "Transfer_out":
-    validacion = $.ajax({
-       type: 'POST',       
-       url: "/PHP/Validaciones.php",
-       data: {tipo:"Transfer-out",datos:JSON.stringify(DATOS)},
-       global: false,
-       async:false,
-       success: function(response) {
-         return response;
-      }
-   }).responseText;
-    console.log(validacion)
-    if (validacion == "VALIDO") {VALIDO = true}
-     else if(validacion == "Err-1"){
-       $('.mensaje-error').show();
-       $('.mensaje-error').text("Debe completar todos los campos.");
-    } else {marcar_errores(validacion)}
-    break;
+        case "Transfer_out":
+            validacion = $.ajax({
+                type: 'POST',
+                url: "/PHP/Validaciones.php",
+                data: { tipo: "Transfer-out", datos: JSON.stringify(DATOS) },
+                global: false,
+                async: false,
+                success: function (response) {
+                    return response;
+                }
+            }).responseText;
+            console.log(validacion)
+            if (validacion == "VALIDO") { VALIDO = true }
+            else if (validacion == "Err-1") {
+                $('.mensaje-error').show();
+                $('.mensaje-error').text("Debe completar todos los campos.");
+            } else { marcar_errores(validacion) }
+            break;
 
-    case "FIESTA-IDA":
-    validacion = $.ajax({
-       type: 'POST',       
-       url: "/PHP/Validaciones.php",
-       data: {tipo:"Fiestas_ida",datos:JSON.stringify(DATOS)},
-       global: false,
-       async:false,
-       success: function(response) {
-         return response;
-      }
-   }).responseText;
-    console.log(validacion)
-    if (validacion == "VALIDO") {VALIDO = true}
-     else if(validacion == "Err-1"){
-       $('.mensaje-error').show();
-       $('.mensaje-error').text("Debe completar todos los campos.");
-    } else {marcar_errores(validacion)}
-    break;
+        case "FIESTA-IDA":
+            validacion = $.ajax({
+                type: 'POST',
+                url: "/PHP/Validaciones.php",
+                data: { tipo: "Fiestas_ida", datos: JSON.stringify(DATOS) },
+                global: false,
+                async: false,
+                success: function (response) {
+                    return response;
+                }
+            }).responseText;
+            console.log(validacion)
+            if (validacion == "VALIDO") { VALIDO = true }
+            else if (validacion == "Err-1") {
+                $('.mensaje-error').show();
+                $('.mensaje-error').text("Debe completar todos los campos.");
+            } else { marcar_errores(validacion) }
+            break;
 
-    case "FIESTA-VUELTA":
-    validacion = $.ajax({
-       type: 'POST',       
-       url: "/PHP/Validaciones.php",
-       data: {tipo:"Fiestas_vuelta",datos:JSON.stringify(DATOS)},
-       global: false,
-       async:false,
-       success: function(response) {
-         return response;
-      }
-   }).responseText;
-    console.log(validacion)
-    if (validacion == "VALIDO") {VALIDO = true}
-     else if(validacion == "Err-1"){
-       $('.mensaje-error').show();
-       $('.mensaje-error').text("Debe completar todos los campos.");
-    } else {marcar_errores(validacion)}
-    break;
+        case "FIESTA-VUELTA":
+            validacion = $.ajax({
+                type: 'POST',
+                url: "/PHP/Validaciones.php",
+                data: { tipo: "Fiestas_vuelta", datos: JSON.stringify(DATOS) },
+                global: false,
+                async: false,
+                success: function (response) {
+                    return response;
+                }
+            }).responseText;
+            console.log(validacion)
+            if (validacion == "VALIDO") { VALIDO = true }
+            else if (validacion == "Err-1") {
+                $('.mensaje-error').show();
+                $('.mensaje-error').text("Debe completar todos los campos.");
+            } else { marcar_errores(validacion) }
+            break;
 
-    case "FIESTA-IDA-VUELTA":
-    validacion = $.ajax({
-       type: 'POST',       
-       url: "/PHP/Validaciones.php",
-       data: {tipo:"Fiestas_ida_vuelta",datos:JSON.stringify(DATOS)},
-       global: false,
-       async:false,
-       success: function(response) {
-         return response;
-      }
-   }).responseText;
-    console.log(validacion)
-    if (validacion == "VALIDO") {VALIDO = true}
-     else if(validacion == "Err-1"){
-       $('.mensaje-error').show();
-       $('.mensaje-error').text("Debe completar todos los campos.");
-    } else {marcar_errores(validacion)}
-    break;
- }
+        case "FIESTA-IDA-VUELTA":
+            validacion = $.ajax({
+                type: 'POST',
+                url: "/PHP/Validaciones.php",
+                data: { tipo: "Fiestas_ida_vuelta", datos: JSON.stringify(DATOS) },
+                global: false,
+                async: false,
+                success: function (response) {
+                    return response;
+                }
+            }).responseText;
+            console.log(validacion)
+            if (validacion == "VALIDO") { VALIDO = true }
+            else if (validacion == "Err-1") {
+                $('.mensaje-error').show();
+                $('.mensaje-error').text("Debe completar todos los campos.");
+            } else { marcar_errores(validacion) }
+            break;
+    }
 
- return VALIDO
+    return VALIDO
 }
 
-function reset_errores(){
+function reset_errores() {
 
-  $('.mensaje-error').hide();
+    $('.mensaje-error').hide();
 
-  $('#pasajeros-input').css('border-bottom', '1px solid #aaaaaa')
-  $('#tipo-select_1').css('border-bottom', '1px solid #aaaaaa')
-  $('#tipo-select_2').css('border-bottom', '1px solid #aaaaaa')
+    $('#pasajeros-input').css('border-bottom', '1px solid #aaaaaa')
+    $('#tipo-select_1').css('border-bottom', '1px solid #aaaaaa')
+    $('#tipo-select_2').css('border-bottom', '1px solid #aaaaaa')
 }

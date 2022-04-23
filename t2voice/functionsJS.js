@@ -1,6 +1,5 @@
 let send = new llamadas_PHP();
 $(document).ready(function () {
-
     //
     //cuando apreta el boton manda la info
     $("#send_call").on('click', function() {

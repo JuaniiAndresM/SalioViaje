@@ -5,6 +5,7 @@
         "styles.scss",
         "components/_index.scss",
         "components/_header.scss",
+        "components/_header_2.scss",
         "components/_footer.scss",
         "components/_form.scss",
         "components/_panel.scss",

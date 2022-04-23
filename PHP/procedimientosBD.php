@@ -7,7 +7,7 @@ class procedimientosBD
 	
     private function conexion(){
         //$conexion = mysqli_connect("localhost", "root", "root", "salioviaje");
-        $conexion = mysqli_connect("158.106.136.183", "salioviajeuy", "jvDT&EG@&QvT", "salioviajeuy_salioviajeuy");
+        $conexion = mysqli_connect("158.106.136.183", "salioviajeuy", "SV_debe_salir_ya_2022", "salioviajeuy_salioviajeuy");
         // $conexion = mysqli_connect("localhost", "root", "root", "salioviajeuy_salioviajeuy");
 
         $conexion->set_charset("utf8");

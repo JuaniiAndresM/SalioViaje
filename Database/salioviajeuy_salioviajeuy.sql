@@ -15,8 +15,39 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+
 --
 -- Table structure for table `empresas`
+
+DROP TABLE IF EXISTS `agenda`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `agenda` (
+  `idViaje` int(5) unsigned zerofill NOT NULL AUTO_INCREMENT,
+  `Vehiculo` varchar(45) NOT NULL,
+  `Distancia` int NOT NULL,
+  `CantidadPasajeros` int NOT NULL,
+  `Fecha` varchar(45) NOT NULL,
+  `Origen` varchar(45) NOT NULL,
+  `Destino` varchar(45) NOT NULL,
+  `Precio` varchar(45) NOT NULL,
+  `Rutas` varchar(45) DEFAULT NULL,
+  `Estado` varchar(45) NOT NULL DEFAULT 'Indefinido',
+  `idTransportista` int NOT NULL,
+  PRIMARY KEY (`idViaje`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `agenda`
+--
+
+LOCK TABLES `agenda` WRITE;
+/*!40000 ALTER TABLE `agenda` DISABLE KEYS */;
+/*!40000 ALTER TABLE `agenda` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
 --
 
 DROP TABLE IF EXISTS `empresas`;

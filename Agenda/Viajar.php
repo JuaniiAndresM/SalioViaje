@@ -1,5 +1,5 @@
-<?php 
-  session_start();
+<?php
+session_start();
 ?>
 
 
@@ -116,14 +116,14 @@
                 onkeyup="buscarOportunidades()"
               />
             </div>
-  
+
             <div class="button-filtrar">
               <button onclick="filtros(1)"><i class="fas fa-sort-amount-down"></i> Filtrar</button>
             </div>
           </div>
-  
+
           <div id="filters">
-  
+
             <div class="input" id="destino">
               <i class="fas fa-route" id="icon"></i>
               <input list="Destino" id="destino_2" placeholder="Destino">
@@ -133,9 +133,9 @@
                 <option value="Tacuarembó">
                 <option value="Maldonado">
                 <option value="Rivera">
-              </datalist> 
+              </datalist>
             </div>
-  
+
             <div class="input" id="destino">
               <i class="fas fa-route" id="icon"></i>
               <input list="Destino" id="destino_2" placeholder="Destino">
@@ -145,14 +145,14 @@
                 <option value="Tacuarembó">
                 <option value="Maldonado">
                 <option value="Rivera">
-              </datalist> 
+              </datalist>
             </div>
-  
+
             <div class="input" id="origen">
               <i class="far fa-calendar-alt" id="icon"></i>
               <input type="date" id="fecha_2" placeholder="Fecha y Hora" />
             </div>
-  
+
           </div>
 
           <div class="list-empty">
@@ -180,14 +180,14 @@
                 onkeyup="buscarOportunidades()"
               />
             </div>
-  
+
             <div class="button-filtrar">
               <button onclick="filtros(2)"><i class="fas fa-sort-amount-down"></i> Filtrar</button>
             </div>
           </div>
-  
+
           <div id="filters2">
-  
+
             <div class="input" id="destino">
               <i class="fas fa-route" id="icon"></i>
               <input list="Destino" id="destino_2" placeholder="Destino">
@@ -197,9 +197,9 @@
                 <option value="Tacuarembó">
                 <option value="Maldonado">
                 <option value="Rivera">
-              </datalist> 
+              </datalist>
             </div>
-  
+
             <div class="input" id="destino">
               <i class="fas fa-route" id="icon"></i>
               <input list="Destino" id="destino_2" placeholder="Destino">
@@ -209,14 +209,14 @@
                 <option value="Tacuarembó">
                 <option value="Maldonado">
                 <option value="Rivera">
-              </datalist> 
+              </datalist>
             </div>
-  
+
             <div class="input" id="origen">
               <i class="far fa-calendar-alt" id="icon"></i>
               <input type="date" id="fecha_2" placeholder="Fecha y Hora" />
             </div>
-  
+
           </div>
 
           <div class="list-empty2">
@@ -233,10 +233,9 @@
         <p class="description">
           Es gratis y sin compromiso. ¡No te lo pierdas!
         </p>
-        <button class="button-agendar" onclick="desplegar(this, <?php if(!isset($_SESSION['usuario'])){ echo 1; }else{ echo 2; } ?>)">
+        <button id="agendar" class="button-agendar" onclick="desplegar(this, <?php if (!isset($_SESSION['usuario'])) {echo 1;} else {echo 2;}?>)">
           <i class="fas fa-clipboard-list"></i> Formulario
         </button>
-
         <div class="salioviaje-desplegable">
           <div class="formulario-viaje">
 
@@ -253,14 +252,14 @@
             <div class="progress-bar">
               <span class="line"></span>
               <span class="progress"></span>
-    
+
               <span class="circle1"></span>
               <span class="circle2"></span>
               <span class="circle3"></span>
             </div>
 
             <div class="step_1">
-              
+
               <div class="input">
                 <i class="fas fa-suitcase-rolling" id="icon"></i>
                 <select name="" id="select_users" onchange="select_usuario()">
@@ -277,17 +276,17 @@
             </div>
 
             <div class="step_2_traslado">
-                                          
+
               <h3 class="title"><i class="fas fa-bus"></i> Traslado</h3>
 
               <div class="formulario-grid">
                 <div class="column">
 
                   <div class="input">
-                    <p><i class="far fa-calendar-alt"></i> Fecha de Salida</p>                    
+                    <p><i class="far fa-calendar-alt"></i> Fecha de Salida</p>
                     <input type="date" id="fecha_salida"/>
                   </div>
-    
+
                   <div class="input">
                     <p><i class="fas fa-map-marker-alt"></i> Origen</p>
                     <input list="Destino" id="origen_traslado">
@@ -301,22 +300,39 @@
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p>  
+                    <p><i class="fas fa-solid fa-house-building"></i> Barrio</p>
+                    <input list="Destino" id="Barrios_traslado">
+                    <datalist id="Barrio_traslado">
+                      <option value="Canelones">
+                      <option value="Montevideo">
+                    </datalist>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p>
                     <input type="number" id="cant_pasajeros"/>
                   </div>
 
+                  <div class="input">
+                    <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas</p>
+                  <select name="mascota">
+                   <option>Con mascota</option>
+                   <option>Sin mascota</option>
+                  </select>
+                  </div>
+
                 </div>
-    
+
                 <div class="column">
 
                   <div class="input">
                     <p><i class="far fa-calendar-alt"></i> Hora</p>
                     <input type="time" id="hora"/>
                   </div>
-    
+
                   <div class="input">
                     <p><i class="fas fa-route"></i> Destino</p>
-                    
+
                     <input list="Destino" id="destino_traslado">
                     <datalist id="Destino">
                       <option value="Canelones">
@@ -326,13 +342,21 @@
                       <option value="Rivera">
                     </datalist>
 
+                    <div class="input">
+                    <p><i class="fas fa-solid fa-house-building"></i> Barrio</p>
+                    <input list="Destino" id="destino_barrios">
+                    <datalist id="Destino">
+                      <option value="Canelones">
+                      <option value="Montevideo">
+                    </datalist>
+                  </div>
+
                   </div>
 
                   <div class="input">
                     <p><i class="fas fa-comment-dots"></i> Observaciones</p>
                     <textarea class="Observaciones" id="observaciones_traslado"></textarea>
                   </div>
-
                 </div>
 
               </div>
@@ -345,17 +369,17 @@
             </div>
 
             <div class="step_2_tour">
-                            
+
               <h3 class="title"><i class="fas fa-city"></i> Tour o Servicio por Horas.</h3>
 
               <div class="formulario-grid">
                 <div class="column">
 
                   <div class="input">
-                    <p><i class="far fa-calendar-alt"></i> Fecha de Salida</p>                    
+                    <p><i class="far fa-calendar-alt"></i> Fecha de Salida</p>
                     <input type="date" id="fecha_salida_tour"/>
                   </div>
-    
+
                   <div class="input">
                     <p><i class="fas fa-map-marker-alt"></i> Origen</p>
                     <input list="Destino" id="origen_tour">
@@ -369,7 +393,17 @@
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p>  
+                    <p><i class="fas fa-solid fa-house-building"></i> Barrio</p>
+                    <input list="Destino" id="tour_barrios">
+                    <datalist id="Destino">
+                      <option value="Canelones">
+                      <option value="Montevideo">
+                    </datalist>
+                  </div>
+
+
+                  <div class="input">
+                    <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p>
                     <input type="number" id="cant_pasajeros_tour"/>
                   </div>
 
@@ -379,17 +413,17 @@
                   </div>
 
                 </div>
-    
+
                 <div class="column">
 
                   <div class="input">
                     <p><i class="far fa-calendar-alt"></i> Hora</p>
                     <input type="time" id="hora_tour"/>
                   </div>
-    
+
                   <div class="input">
                     <p><i class="fas fa-city"></i> Ciudad</p>
-                    
+
                     <input list="Destino" id="destino_tour">
                     <datalist id="Destino">
                       <option value="Canelones">
@@ -397,14 +431,22 @@
                       <option value="Tacuarembó">
                       <option value="Maldonado">
                       <option value="Rivera">
-                    </datalist> 
+                    </datalist>
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-clock"></i> Duración (Horas)</p>  
+                    <p><i class="fas fa-clock"></i> Duración (Horas)</p>
                     <input type="number" id="duracion_tour"/>
                   </div>
-                  
+
+                  <div class="input">
+                    <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas</p>
+                  <select name="mascota">
+                   <option>Con mascota</option>
+                   <option>Sin mascota</option>
+                  </select>
+                  </div>
+
                 </div>
 
               </div>
@@ -417,51 +459,60 @@
             </div>
 
             <div class="step_2_transfer">
-              
+
               <h3 class="title"><i class="fas fa-plane-departure"></i> Transfer</h3>
 
               <div class="input">
                 <i class="fas fa-plane" id="icon"></i>
                 <select name="" id="select_transfer" onchange="select_transfer()">
-                  <option value="0" selected disabled hidden >Seleccione Transfer</option>
+                  <option value="0" selected disabled hidden >Transfer In</option>
                   <option value="1">Transfer In</option>
                   <option value="2">Transfer Out</option>
                 </select>
               </div>
 
-              
+
               <div class="formulario-grid" id="transfer_in">
                 <div class="column">
 
                   <div class="input">
-                    <p><i class="far fa-calendar-alt"></i> Fecha de Regreso</p>                    
+                    <p><i class="far fa-calendar-alt"></i> Fecha de Regreso</p>
                     <input type="date" id="fecha_regreso_transfer_in"/>
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-plane-arrival"></i> Origen (Puerto o Aeropuerto)</p> 
+                    <p><i class="fas fa-plane-arrival"></i> Origen (Puerto o Aeropuerto)</p>
                     <input type="text" id="aeropuerto_transfer_in">
-                  </div>         
+                  </div>
+
 
                   <div class="input">
-                    <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p> 
+                    <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p>
                     <input type="number" id="cant_pasajeros_transfer_in"/>
                   </div>
-                  
+
                   <div class="input">
-                    <p><i class="fa fa-ticket"></i> N° de Vuelo / Barco</p> 
+                    <p><i class="fa fa-ticket"></i> N° de Vuelo / Barco</p>
                     <input type="text" id="nro_vuelo_barco_in"/>
                   </div>
 
+                  <div class="input">
+                    <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas</p>
+                  <select name="mascota">
+                   <option>Con mascota</option>
+                   <option>Sin mascota</option>
+                  </select>
+                  </div>
+
                 </div>
-    
+
                 <div class="column">
 
                   <div class="input">
                     <p><i class="far fa-calendar-alt"></i> Hora</p>
                     <input type="time" id="hora_transfer_in"/>
                   </div>
-    
+
                   <div class="input">
                     <p><i class="fas fa-map-marker-alt"></i> Destino</p>
                     <input list="Destino" id="destino_transfer_in">
@@ -475,7 +526,16 @@
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-suitcase-rolling"></i> Equipaje (Cant. Maletas)</p> 
+                    <p><i class="fas fa-solid fa-house-building"></i> Barrio</p>
+                    <input list="Destino" id="traslados_barrios">
+                    <datalist id="Destino">
+                      <option value="Canelones">
+                      <option value="Montevideo">
+                    </datalist>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-suitcase-rolling"></i> Equipaje (Cant. Maletas)</p>
                     <input type="number" id="equipaje_transfer_in"/>
                   </div>
 
@@ -483,7 +543,7 @@
                     <p><i class="fas fa-comment-dots"></i> Observaciones</p>
                     <textarea class="Observaciones" id="observaciones_transfer_in"></textarea>
                   </div>
-                  
+
                 </div>
 
               </div>
@@ -492,10 +552,10 @@
                 <div class="column">
 
                   <div class="input">
-                    <p><i class="far fa-calendar-alt"></i> Fecha de Regreso</p>                    
+                    <p><i class="far fa-calendar-alt"></i> Fecha de Regreso</p>
                     <input type="date" id="fecha_salida_transfer_out"/>
                   </div>
-    
+
                   <div class="input">
                     <p><i class="fas fa-map-marker-alt"></i> Origen</p>
                     <input list="Destino" id="origen_transfer_out">
@@ -509,31 +569,40 @@
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p> 
+                    <p><i class="fas fa-solid fa-house-building"></i> Barrio</p>
+                    <input list="Destino" id="traslados_barrios">
+                    <datalist id="Destino">
+                      <option value="Canelones">
+                      <option value="Montevideo">
+                    </datalist>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p>
                     <input type="number" id="cant_pasajeros_transfer_out"/>
                   </div>
 
                   <div class="input">
-                    <p><i class="fa fa-ticket"></i> N° de Vuelo / Barco</p> 
+                    <p><i class="fa fa-ticket"></i> N° de Vuelo / Barco</p>
                     <input type="text" id="nro_vuelo_barco_out"/>
                   </div>
 
                 </div>
-    
+
                 <div class="column">
 
                   <div class="input">
                     <p><i class="far fa-calendar-alt"></i> Hora</p>
                     <input type="time" id="hora_transfer_out"/>
                   </div>
-    
+
                   <div class="input">
-                    <p><i class="fas fa-plane-departure"></i> Destino (Puerto o Aeropuerto)</p> 
+                    <p><i class="fas fa-plane-departure"></i> Destino (Puerto o Aeropuerto)</p>
                     <input type="text" id="aeropuerto_transfer_out">
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-suitcase-rolling"></i> Equipaje (Cant. Maletas)</p> 
+                    <p><i class="fas fa-suitcase-rolling"></i> Equipaje (Cant. Maletas)</p>
                     <input type="number" id="equipaje_transfer_out"/>
                   </div>
 
@@ -541,7 +610,7 @@
                     <p><i class="fas fa-comment-dots"></i> Observaciones</p>
                     <textarea class="Observaciones" id="observaciones_transfer_out"></textarea>
                   </div>
-                  
+
                 </div>
 
               </div>
@@ -560,7 +629,7 @@
               <div class="input">
                 <i class="fas fa-exchange-alt" id="icon"></i>
                 <select name="" id="select_fiesta" onchange="select_fiesta()">
-                  <option value="0" selected disabled hidden >Seleccione Tramo/s</option>
+                  <option value="0" selected disabled hidden >Solo Ida</option>
                   <option value="1">Solo Ida</option>
                   <option value="2">Solo Vuelta</option>
                   <option value="3">Ida y Vuelta</option>
@@ -571,39 +640,65 @@
                 <div class="column">
 
                   <div class="input">
-                    <p><i class="far fa-calendar-alt"></i> Fecha de Salida</p>                  
+                    <p><i class="far fa-calendar-alt"></i> Fecha de Salida</p>
                     <input type="date" id="fecha_salida_fiestas_ida"/>
                   </div>
-    
+
                   <div class="input">
                     <p><i class="fas fa-map-marker-alt"></i> Origen</p>
                     <input type="text" id="origen_fiestas_ida">
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p> 
+                    <p><i class="fas fa-solid fa-house-building"></i> Barrio</p>
+                    <input list="Destino" id="fiestasida_origen_barrios">
+                    <datalist id="Destino">
+                      <option value="Canelones">
+                      <option value="Montevideo">
+                    </datalist>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p>
                     <input type="number" id="cant_pasajeros_fiesta_ida"/>
                   </div>
 
+                  <div class="input">
+                    <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas</p>
+                  <select name="mascota">
+                   <option>Con mascota</option>
+                   <option>Sin mascota</option>
+                  </select>
+                  </div>
+
                 </div>
-    
+
                 <div class="column">
 
                   <div class="input">
                     <p><i class="far fa-calendar-alt"></i> Hora</p>
                     <input type="time" id="hora_fiesta_ida"/>
                   </div>
-    
+
                   <div class="input">
-                    <p><i class="fas fa-route"></i> Destino o Punto de Interés</p> 
+                    <p><i class="fas fa-route"></i> Destino o Punto de Interés</p>
                     <input type="text" id="destino_fiesta_ida">
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-solid fa-house-building"></i> Barrio</p>
+                    <input list="Destino" id="fiestasida_origen_barrios">
+                    <datalist id="Destino">
+                      <option value="Canelones">
+                      <option value="Montevideo">
+                    </datalist>
                   </div>
 
                   <div class="input">
                     <p><i class="fas fa-comment-dots"></i> Observaciones</p>
                     <textarea class="Observaciones" id="observaciones_fiesta_ida"></textarea>
                   </div>
-                  
+
                 </div>
 
               </div>
@@ -612,39 +707,66 @@
                 <div class="column">
 
                   <div class="input">
-                    <p><i class="far fa-calendar-alt"></i> Fecha de Regreso</p>                  
+                    <p><i class="far fa-calendar-alt"></i> Fecha de Regreso</p>
                     <input type="date" id="fecha_regreso_fiestas_vuelta"/>
                   </div>
-    
+
                   <div class="input">
                     <p><i class="fas fa-map-marker-alt"></i> Origen o Punto de Interés</p>
                     <input type="text" id="origen_fiestas_vuelta">
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p> 
+                    <p><i class="fas fa-solid fa-house-building"></i> Barrio</p>
+                    <input list="Destino" id="fiestasvuelta_origen_barrios">
+                    <datalist id="Destino">
+                      <option value="Canelones">
+                      <option value="Montevideo">
+                    </datalist>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p>
                     <input type="number" id="cant_pasajeros_fiesta_vuelta"/>
                   </div>
 
+                  <div class="input">
+                    <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas</p>
+                  <select name="mascota">
+                   <option>Con mascota</option>
+                   <option>Sin mascota</option>
+                  </select>
+                  </div>
+
                 </div>
-    
+
                 <div class="column">
 
                   <div class="input">
                     <p><i class="far fa-calendar-alt"></i> Hora</p>
                     <input type="time" id="hora_fiesta_vuelta"/>
                   </div>
-    
+
                   <div class="input">
-                    <p><i class="fas fa-route"></i> Destino</p> 
+                    <p><i class="fas fa-route"></i> Destino</p>
                     <input type="text" id="destino_fiesta_vuelta">
                   </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-solid fa-house-building"></i> Barrio</p>
+                    <input list="Destino" id="fiestasvuelta_destino_barrios">
+                    <datalist id="Destino">
+                      <option value="Canelones">
+                      <option value="Montevideo">
+                    </datalist>
+                  </div>
+
 
                   <div class="input">
                     <p><i class="fas fa-comment-dots"></i> Observaciones</p>
                     <textarea class="Observaciones" id="observaciones_fiesta_vuelta"></textarea>
                   </div>
-                  
+
                 </div>
 
               </div>
@@ -655,17 +777,26 @@
                   <h3><i class="fas fa-arrow-circle-up"></i> Ida</h3>
 
                   <div class="input">
-                    <p><i class="far fa-calendar-alt"></i> Fecha de Salida</p>                  
+                    <p><i class="far fa-calendar-alt"></i> Fecha de Salida</p>
                     <input type="date" id="fecha_salida_fiestas_idavuelta"/>
                   </div>
-    
+
                   <div class="input">
                     <p><i class="fas fa-map-marker-alt"></i> Origen</p>
                     <input type="text" id="origen_ida_fiestas_idavuelta">
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p> 
+                    <p><i class="fas fa-solid fa-house-building"></i> Barrio</p>
+                    <input list="Destino" id="fiestasidavuelta_origen_barrios">
+                    <datalist id="Destino">
+                      <option value="Canelones">
+                      <option value="Montevideo">
+                    </datalist>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p>
                     <input type="number" id="cant_pasajeros_ida_fiestas_idavuelta"/>
                   </div>
 
@@ -673,10 +804,19 @@
                     <p><i class="far fa-calendar-alt"></i> Hora</p>
                     <input type="time" id="hora_ida_fiestas_idavuelta" onchange="verificar_largo_fiesta()"/>
                   </div>
-    
+
                   <div class="input">
-                    <p><i class="fas fa-route"></i> Destino o Punto de Interés</p> 
+                    <p><i class="fas fa-route"></i> Destino o Punto de Interés</p>
                     <input type="text" id="destino_ida_fiestas_idavuelta">
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-solid fa-house-building"></i> Barrio</p>
+                    <input list="Destino" id="fiestas_ida_destino_barrios">
+                    <datalist id="Destino">
+                      <option value="Canelones">
+                      <option value="Montevideo">
+                    </datalist>
                   </div>
 
                   <div class="input">
@@ -685,23 +825,32 @@
                   </div>
 
                 </div>
-    
+
                 <div class="column">
 
                   <h3><i class="fas fa-arrow-circle-down"></i> Vuelta</h3>
 
                   <div class="input">
-                    <p><i class="far fa-calendar-alt"></i> Fecha de Regreso</p>                
+                    <p><i class="far fa-calendar-alt"></i> Fecha de Regreso</p>
                     <input type="date" id="fecha_regreso_fiestas_idavuelta"/>
                   </div>
-    
+
                   <div class="input">
                     <p><i class="fas fa-map-marker-alt"></i> Origen o Punto de Interés</p>
                     <input type="text" id="origen_vuelta_fiestas_idavuelta">
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p> 
+                    <p><i class="fas fa-solid fa-house-building"></i> Barrio</p>
+                    <input list="Destino" id="fiestas_ida_destino_barrios">
+                    <datalist id="Destino">
+                      <option value="Canelones">
+                      <option value="Montevideo">
+                    </datalist>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p>
                     <input type="number" id="cant_pasajeros_vuelta_fiestas_idavuelta"/>
                   </div>
 
@@ -709,12 +858,29 @@
                     <p><i class="far fa-calendar-alt"></i> Hora</p>
                     <input type="time" id="hora_vuelta_fiestas_idavuelta" onchange="verificar_largo_fiesta()"/>
                   </div>
-    
+
                   <div class="input">
-                    <p><i class="fas fa-route"></i> Destino</p> 
+                    <p><i class="fas fa-route"></i> Destino</p>
                     <input type="text" id="destino_vuelta_fiestas_idavuelta">
                   </div>
-                  
+
+                  <div class="input">
+                    <p><i class="fas fa-solid fa-house-building"></i> Barrio</p>
+                    <input list="Destino" id="fiestas_ida_destino_barrios">
+                    <datalist id="Destino">
+                      <option value="Canelones">
+                      <option value="Montevideo">
+                    </datalist>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas</p>
+                  <select name="mascota">
+                   <option>Con mascota</option>
+                   <option>Sin mascota</option>
+                  </select>
+                  </div>
+
                 </div>
 
               </div>
@@ -777,7 +943,13 @@
         </div>
       </section>
     </div>
-
+    <script>
+          if (sessionStorage.getItem("origen") == 1) {
+            sessionStorage.removeItem("origen")
+            desplegar(document.getElementById("agendar"), <?php if (!isset($_SESSION['usuario'])) {echo 1;} else {echo 2;}?>)
+            select_usuario()
+          }
+        </script>
     <div id="footer"></div>
   </body>
 </html>
