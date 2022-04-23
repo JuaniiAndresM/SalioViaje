@@ -60,7 +60,7 @@
       href="https://www.salioviaje.com.uy/media/svg/Favicon-SalioViaje.svg"
       type="image/x-icon"
     />
-    <link rel="stylesheet" href="https://www.salioviaje.com.uy/styles/styles.css" />
+    <link rel="stylesheet" href="https://www.salioviaje.com.uy/SalioViaje/styles/styles.css" />
 
     <!-- Scripts -->
     <script
@@ -90,161 +90,73 @@
       <img src="https://www.salioviaje.com.uy/media/images/whatsapp.png" alt="">
     </a>
 
-    <section class="servicios-section" id="Servicios">
-      <h2>Nuestros <span>Servicios</span></h2>
-      <hr id="hr" />
-      <div class="servicios-wrapper">
-        <div class="card">
-          <div class="card-top">
-            <div class="card-icon">
-              <i class="fas fa-glass-cheers"></i>
-            </div>
-            <div class="card-info">
-              <h3>Salió Fiesta</h3>
-              <hr />
-              <p class="info_1">
-                Solucionamos tus traslados a fiestas, reuniones y eventos.
-              </p>
-            </div>
-          </div>
-          <div class="card-bottom">
-            <p class="info_2">
-              Te damos varias opciones de precio, vehículo y reputación, para
-              que puedas elegir.
-            </p>
-            <p class="info_3">
-              Envíanos un SMS o llamá al <br>
-              <a href="tel:+59891833337"
-                >091 833 337</a
-              >.
-            </p>
+    <section class="Cotizaciones-section" id="Cotizaciones">
+      <h2>
+        Cotizaciones
+      </h2>
+      <hr />
+      <p class="description">
+        (Descripción de la sección).
+      </p>
 
-            <div class="button-whatsapp">
-              <a
-                class="whatsapp"
-                target="_BLANK"
-                href="https://wa.link/apvlg4"
-              >
-                <img src="https://www.salioviaje.com.uy/media/images/whatsapp.png" alt="" />
-              </a>
-            </div>
+      <div class="Cotizaciones-wrapper">
+
+        <div class="filter-wrapper">
+          <div class="search">
+            <i class="fas fa-search"></i>
+            <input
+              type="text"
+              placeholder="Buscar"
+              id="searchbar"
+              onkeyup="buscarOportunidades()"
+            />
+          </div>
+
+          <div class="button-filtrar">
+            <button onclick="filtros(1)"><i class="fas fa-sort-amount-down"></i> Filtrar</button>
           </div>
         </div>
 
-        <div class="card">
-          <div class="card-top">
-            <div class="card-icon">
-              <i class="fas fa-plane-departure"></i>
-            </div>
-            <div class="card-info">
-              <h3>Salió Aeropuerto</h3>
-              <hr />
-              <p class="info_1">
-                Tenemos un programa especial de tranfers a aeropuertos y
-                puertos. Un servicio profesional y serio.
-              </p>
-            </div>
-          </div>
-          <div class="card-bottom">
-            <p class="info_2">
-              Te damos varias opciones de precio, vehículo y reputación, para
-              que puedas elegir.
-            </p>
-            <p class="info_3">
-              Envíanos un SMS o llamá al <br>
-              <a href="tel:+59891833337"
-                >091 833 337</a
-              >.
-            </p>
+        <div id="filters">
 
-            <div class="button-whatsapp">
-              <a
-                class="whatsapp"
-                target="_BLANK"
-                href="https://wa.link/1ukfah"
-              >
-                <img src="https://www.salioviaje.com.uy/media/images/whatsapp.png" alt="" />
-              </a>
-            </div>
+          <div class="input" id="destino">
+            <i class="fas fa-route" id="icon"></i>
+            <input list="Destino" id="destino_2" placeholder="Destino">
+            <datalist id="Destino">
+              <option value="Canelones">
+              <option value="Montevideo">
+              <option value="Tacuarembó">
+              <option value="Maldonado">
+              <option value="Rivera">
+            </datalist> 
           </div>
+
+          <div class="input" id="destino">
+            <i class="fas fa-route" id="icon"></i>
+            <input list="Destino" id="destino_2" placeholder="Destino">
+            <datalist id="Destino">
+              <option value="Canelones">
+              <option value="Montevideo">
+              <option value="Tacuarembó">
+              <option value="Maldonado">
+              <option value="Rivera">
+            </datalist> 
+          </div>
+
+          <div class="input" id="origen">
+            <i class="far fa-calendar-alt" id="icon"></i>
+            <input type="date" id="fecha_2" placeholder="Fecha y Hora" />
+          </div>
+
+        </div>
+        
+
+        <div class="list-empty">
+          <p>Lo sentimos, de momento no hay cotizaciones disponibles.</p>
         </div>
 
-        <div class="card">
-          <div class="card-top">
-            <div class="card-icon">
-              <i class="fas fa-tree"></i>
-            </div>
-            <div class="card-info">
-              <h3>Salió Paseo</h3>
-              <hr />
-              <p class="info_1">
-                Salió Viaje te lleva a todos los puntos de interés turístico en
-                Uruguay, y también a ese lugar al que estás planeando ir.
-              </p>
-            </div>
-          </div>
+        <div class="Cotizaciones-list">
 
-          <div class="card-bottom">
-            <p class="info_2">
-              Te damos varias opciones de precio, vehículo y reputación, para
-              que puedas elegir.
-            </p>
-            <p class="info_3">
-              Envíanos un SMS o llamá al <br>
-              <a href="tel:+59891833337"
-                >091 833 337</a
-              >.
-            </p>
-
-            <div class="button-whatsapp">
-              <a
-                class="whatsapp"
-                target="_BLANK"
-                href="https://wa.link/bnvzov"
-              >
-                <img src="https://www.salioviaje.com.uy/media/images/whatsapp.png" alt="" />
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-top">
-            <div class="card-icon">
-              <i class="fas fa-cheese"></i>
-            </div>
-            <div class="card-info">
-              <h3>Salió Picada</h3>
-              <hr />
-              <p class="info_1">
-                Te llevamos seguro a degustar vinos, quesos y diversas
-                especialidades gastronómicas.
-              </p>
-            </div>
-          </div>
-
-          <div class="card-bottom">
-            <p class="info_2">
-              Te damos varias opciones de precio, vehículo y reputación, para
-              que puedas elegir.
-            </p>
-            <p class="info_3">
-              Envíanos un SMS o llamá al <br>
-              <a href="tel:+59891833337"
-                >091 833 337</a
-              >.
-            </p>
-
-            <div class="button-whatsapp">
-              <a
-                class="whatsapp"
-                target="_BLANK"
-                href="https://wa.link/73p3yd"
-              >
-                <img src="https://www.salioviaje.com.uy/media/images/whatsapp.png" alt="" />
-              </a>
-            </div>
-          </div>
         </div>
       </div>
     </section>

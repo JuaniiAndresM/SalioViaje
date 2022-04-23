@@ -1,156 +1,273 @@
-.servicios-section {
-    max-width: 1500px;
+.Cotizaciones-section {
+  margin: 20px auto;
+  margin-bottom: 20px;
+
+  padding: 0 20px;
+
+  max-width: 1300px;
+  width: 100%;
+
+  text-align: center;
+
+  h2 {
+    color: $main_1;
+    font-size: 2.6em;
+  }
+  hr {
+    width: 100px;
+    border: 1px solid $main_1;
+    margin: 10px auto;
+  }
+
+  .Cotizaciones-wrapper {
+    max-width: 1300px;
     width: 100%;
-  
-    margin: 90px auto;
-    margin-bottom: 20px;
-  
-    padding: 10px 10px;
-    h2 {
-      color: $contraste_1;
-      font-size: 2.3em;
-      text-align: center;
-      margin-bottom: 20px;
-  
-      span {
-        color: $main_1;
-      }
-    }
-  
-    #hr{
-      margin: 10px auto;
-      margin-bottom: 40px;
-    }
-    hr {
-      width: 100px;
-      border: 1px solid $main_1;
-      margin: 10px 0;
-    }
-  
-    .servicios-wrapper {
-      width: 100%;
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      flex-wrap: wrap;
-  
-      margin: 20px 0;
-  
-      .card {
-        max-width: 300px;
+    padding: 20px;
+    margin-top: 30px;
+
+    border-radius: 3em 0 3em 3em;
+
+    background-color: $contraste_2;
+    box-shadow: 10px 0 20px 0 rgba($color: #000000, $alpha: 0.3);
+  }
+
+  .filter-wrapper {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .search {
+      position: relative;
+
+      width: 200px;
+      height: 40px;
+
+      input {
         width: 100%;
-        min-height: 420px;
-  
-        background: linear-gradient(45deg, $main_1, $main_2);
-        box-shadow: 10px 0px 20px 0 rgba($color: #000000, $alpha: 0.3);
-        border-radius: 3em 3em 0 3em;
-  
-        margin: 10px;
-        padding: 20px 20px;
-  
+        height: 40px;
+        padding-left: 25px;
+        background-color: transparent;
+        border: none;
+        color: #666;
+      }
+      input::placeholder {
+        color: #aaa;
+      }
+      input:focus {
+        outline: 1px solid #aaa;
+        border-radius: 10px;
+      }
+
+      i {
+        position: absolute;
+        top: 12px;
+        left: 5px;
+
+        color: #aaa;
+      }
+    }
+
+    .button-filtrar{
+      button{
+        background-color: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        color: #888;
+        width: 100px;
+        transition: .3s;
+      }
+      button:hover{
+        color: #555;
+      }
+    }
+  }
+
+  #filters {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .input {
+      position: relative;
+      width: 180px;
+      margin: 10px;
+
+      input,
+      select {
+        width: 100%;
+        height: 40px;
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid #aaa;
+        outline: none;
+        padding-left: 25px;
+        color: #555;
+        font-size: 0.85em;
+      }
+      input::placeholder,
+      select::placeholder {
+        color: #888;
+      }
+
+      #icon {
+        position: absolute;
+        top: 10px;
+        left: 0;
+        color: #555;
+      }
+    }
+  }
+
+  .list-empty {
+    width: 100%;
+    height: 400px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -25px;
+    p {
+      color: $main_1;
+      margin: auto;
+    }
+  }
+
+  .Cotizaciones-list {
+    width: 100%;
+    height: 400px;
+    display: none;
+    margin-top: 10px;
+    max-height: 350px;
+    overflow: hidden;
+    overflow-y: auto;
+
+    .oportunidad {
+      width: calc(100% - 20px);
+      border-radius: 3em 0 3em 3em;
+      background-color: $main_1;
+
+      margin: 15px auto;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .oportunidad-left {
         display: flex;
-        justify-content: space-between;
-        flex-direction: column;
-  
-        transition: 0.3s;
-  
-        .card-top {
-          .card-icon {
-            i {
-              color: $contraste_2;
-              font-size: 3em;
-              margin-bottom: 10px;
-            }
+        justify-content: flex-start;
+        align-items: center;
+
+        .discount {
+          height: 80px;
+          padding: 10px;
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 10px;
+
+          background-color: $contraste_2;
+
+          border-radius: 2em;
+
+          h3 {
+            color: $main_1;
+            font-size: 2em;
           }
-          .card-info {
-            h3 {
-              color: $contraste_2;
-              font-size: 1.6em;
+
+          .precio{
+            margin: 0 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            p{
+              font-size: .9em;
+              margin: 0;
             }
-            hr {
-              border: 1px solid $contraste_2;
+            .precio_total{
+              color: #ff5353;
+              text-decoration-line: line-through;
             }
-            .info_1 {
-              color: $contraste_2;
-              margin: 20px 0;
-              font-size: 1em;
+            .precio_desc{
+              color: #329e3b;
             }
           }
         }
-  
-        .card-bottom {
-          .info_2,
-          .info_3 {
+        .travel {
+          text-align: left;
+          margin: 0 10px;
+
+          p {
+            margin: 5px 10px;
             color: $contraste_2;
-            font-size: 0.8em;
-            margin: 10px 0;
-  
-            a {
-              color: $contraste_2;
-              text-decoration: none;
-              font-size: 1.2em;
-            }
-          }
-  
-          .button-whatsapp {
-            width: 100%;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-  
-            .whatsapp {
-              width: 50px;
-              height: 50px;
-              border-radius: 50%;
-              background: rgb(80, 196, 80);
-  
-              padding: 10px;
-  
-              display: flex;
-              justify-content: center;
-              align-items: center;
-  
-              img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-              }
+            i {
+              font-size: 1.1em;
             }
           }
         }
       }
-      .card:hover {
-        background: $contraste_2;
-        transform: scale(1.01);
-  
-        .card-top {
-          .card-icon {
+
+      .oportunidad-right {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        .travel {
+          text-align: center;
+          margin: 0 10px;
+
+          p {
+            margin: 5px 10px;
+            width: 150px;
+            color: $contraste_2;
+
             i {
-              color: $main_1;
+              font-size: 1.1em;
             }
           }
-          .card-info {
-            h3 {
-              color: $main_1;
-            }
-            hr {
-              border: 1px solid $main_1;
-            }
-            .info_1 {
-              color: $main_2;
-            }
+          .calificacion {
+            color: #ffaa00;
           }
         }
-        .card-bottom {
-          .info_2,
-          .info_3 {
+
+        .button-wrapper {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          margin-right: 20px;
+
+          button {
+            width: 150px;
+            height: 35px;
+
+            border: none;
+            outline: none;
             color: $main_1;
-  
-            a {
-              color: #444;
-            }
+            margin: 5px 10px;
+            background-color: $contraste_2;
+
+            border-radius: 10px;
+
+            transition: 0.3s;
+            cursor: pointer;
+          }
+          button:hover {
+            transform: scale(1.05);
+          }
+          .comprar-button {
+            background-color: #70ff7c;
+            color: $contraste_1;
           }
         }
       }
     }
   }
+}
