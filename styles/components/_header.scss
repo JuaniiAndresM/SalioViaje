@@ -15,17 +15,21 @@ header {
     margin: 0 auto;
     padding: 10px 10px;
 
-   display: flex-start;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
     .header-logo {
       width: 70px;
       height: 70px;
     }
 
     .header-right {
-   display: flex-start;
+   display: flex;
 
       .header-links {
-        display: flex-start;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
       
         .links {
           margin-right: 1em;
