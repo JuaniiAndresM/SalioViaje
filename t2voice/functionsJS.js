@@ -4,7 +4,8 @@ $(document).ready(function () {
     //cuando apreta el boton manda la info
     $("#send_call").on('click', function() {
 
-        send.realizarLlamada("tpc_notificacion_opciones","2022-02-07T15:00:00+03:00","76","098208189","Sol","Prueba 1 SalióViaje.Presione 1 para aceptar, 3 para rechazar");
+        id = Math.floor(Math.random() * 200);
+        //send.realizarLlamada("tpc_notificacion_opciones","2022-02-07T15:00:00+03:00",id,"091446483","Sol","Prueba 1 SalióViaje.Presione 1 para aceptar, 3 para rechazar");
 
     });
     $("#watch_call").on('click', function() {
@@ -13,8 +14,8 @@ $(document).ready(function () {
 
     });
     $("#send_SMS").on('click', function() {
-
-        send.enviarSMS("092614110","2022-02-04T15:00:00+03:00","Estoy probando","777");
+        id = Math.floor(Math.random() * 200);
+        send.enviarSMS("091446483","2022-02-04T15:00:00+03:00","Estoy probando",id);
         
     });
     $("#response_SMS").on('click', function() {
@@ -54,7 +55,7 @@ function comprar_oportunidad_function(id){
 
        console.log("comprada y mando mensaje - ID oportunidad : "+id)
 
-       let id_llamada = Math.floor(Math.random() * 10000000);
+       let id_llamada = Math.floor(Math.random() * 1000);
        let mensaje = 'Tu oportunidad ha sido comprada!\n Aceptar:  https://www.salioviaje.com.uy/Solicitud/'+id+'A\n  Rechazar: https://www.salioviaje.com.uy/Solicitud/'+id+'R';
 
         $.ajax({
@@ -67,7 +68,7 @@ function comprar_oportunidad_function(id){
                 send.realizarLlamada("tpc_notificacion_opciones","2022-02-07T15:00:00+03:00",id_llamada,response['TELEFONO'],response['NOMBRE'],"Su oportunidad numero "+id+" fue comprada. Presione 1 para aceptar, 3 para rechazar",id);
                 send.enviarSMS(response['TELEFONO'],"2022-02-04T15:00:00+03:00",mensaje,id_llamada);
             },
-            complete: function(response){
+            complete: function(){
                 window.open('/Espera/' + id, '_blank');
             }
         });

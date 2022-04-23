@@ -14,7 +14,7 @@
             <div class="header-links">
                 <div class="links">
                     <a href="https://www.salioviaje.com.uy/">Home</a>
-                    <a href="https://www.salioviaje.com.uy/Servicios">Servicios</a>
+                    <a href="https://www.salioviaje.com.uy/Servicios">Cotizaciones</a>
                     <a href="https://www.salioviaje.com.uy/Nosotros">Sobre Nosotros</a>
                     <a href="https://www.salioviaje.com.uy/Viajar">Oportunidades</a>
                     <a href="https://www.salioviaje.com.uy/FAQ">FAQ</a>
@@ -69,7 +69,7 @@
                     }
 
                     echo '  <a href="https://www.salioviaje.com.uy/"><i class="fas fa-home"></i> Home</a>
-                            <a href="https://www.salioviaje.com.uy/Servicios"><i class="fas fa-list-ul"></i> Servicios</a>
+                            <a href="https://www.salioviaje.com.uy/Servicios"><i class="fas fa-list-ul"></i> Cotizaciones</a>
                             <a href="https://www.salioviaje.com.uy/Nosotros"><i class="fas fa-info"></i> Sobre Nosotros</a>
                             <a href="https://www.salioviaje.com.uy/Viajar"><i class="fas fa-book"></i> Oportunidades</a>
                             <a href="https://www.salioviaje.com.uy/FAQ"><i class="fas fa-question"></i> FAQ</a>';

@@ -53,6 +53,7 @@ function suscripcion(){
 
 function comprar_oportunidad(id){
     window.open('/Espera/' + id, '_blank');
+    comprar_oportunidad_function(id)
 }
 
 function detalles_oportunidad(id){

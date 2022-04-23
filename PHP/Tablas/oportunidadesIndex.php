@@ -6,12 +6,12 @@ session_start();
 $datos = new procedimientosBD();
 
 $datos = json_decode($datos->traer_oportunidades(),true);
+
 $contenido_oportunidades = ' ';
 
 			for ($i=0; $i < count($datos); $i++) { 
 				$fecha = explode(' ', $datos[$i]['FECHA']);
         $PRECIO_CON_DESCUENTO_APLICADO =  round($datos[$i]['PRECIO'] - $datos[$i]['PRECIO'] * ($datos[$i]['DESCUENTO']/100));
-        echo json_encode($datos[$i]);
 				if ($i==0 && $datos[$i]['ESTADO'] == 'En venta') {
 
           if($_SESSION['datos_usuario']['TIPO_USUARIO'] != "CHO") {

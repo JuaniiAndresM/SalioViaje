@@ -504,7 +504,6 @@ function finalizar(){
     if (datos_etapa_2_tramo_2['TIPO'] == 1) {tipos_tramo['TIPO_TRAMO_2'] = 1} else if (datos_etapa_2_tramo_2['TIPO'] == 2) { tipos_tramo['TIPO_TRAMO_2'] = 2 }
 
     for (const property in tipos_tramo) {
-
         switch(property){
                 case "TIPO_TRAMO_1":
                 console.log(tipos_tramo['TIPO_TRAMO_1'])
@@ -571,12 +570,14 @@ function finalizar(){
                                     console.log(response)
                                 },
                             });
-                            break;
                         break;
+                    break;
             }
         }
     }
-    window.location = "https://www.salioviaje.com.uy/Panel/Success_Agenda";
+    setTimeout(function() {
+        window.location = "https://www.salioviaje.com.uy/Panel/Success_Agenda";
+     }, 1000);
 }
 
 /*-------------------------------------------------------------------------------------------*/

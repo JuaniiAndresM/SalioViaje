@@ -137,7 +137,7 @@
             <div class="oportunidad-buttons">
               <?php 
                 if ($_SESSION['datos_usuario']['TIPO_USUARIO'] != "CHO") {
-                  echo '<button class="comprar-button" id="comprar_oportunidad" onclick="comprar_oportunidad_function('.$array_oportuidad[0]['ID'].'"><i class="fas fa-comments-dollar"></i> Comprar</button>'; 
+                  echo '<button class="comprar-button" id="comprar_oportunidad" onclick="comprar_oportunidad_function('.$array_oportuidad[0]['ID'].')"><i class="fas fa-comments-dollar"></i> Comprar</button>'; 
                 }
                ?>
             </div>
