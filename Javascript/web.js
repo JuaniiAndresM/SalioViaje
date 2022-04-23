@@ -78,6 +78,24 @@ function traer_oportunidades(){
     });
 }
 
+function traer_cotizacion(){
+    $('.list-empty-cotizacion').show();
+    $('.Cotizaciones-list').hide();
+    //  $.ajax({
+    //     type: "POST",
+    //     url: "/PHP/Tablas/oportunidadesIndex.php",
+    //     success: function (response) {
+    //         console.log(response)
+    //         if (response == ' ' || response == '0') {$('.list-empty').css('display', 'flex')} else {
+    //             $('.list-empty-cotizacion').hide();                
+    //             $('.Cotizaciones-list').html(response);
+    //             $('.Cotizaciones-list').show();
+    //         } 
+             
+    //     }
+    // });
+}
+
 
 function filtros(number){
 

@@ -999,7 +999,7 @@ header .header-wrapper .header-right .header-links .links {
 }
 
 header .header-wrapper .header-right .header-links .links a {
-  margin-left: 1.0em;
+  margin-left: 2.0em;
   text-decoration: none;
   color: #3844bc;
   font-size: 1.1em;
@@ -7020,6 +7020,7 @@ footer .totum p a:hover {
 
 .Cotizaciones-section {
   margin: 20px auto;
+  margin-top: 100px;
   margin-bottom: 20px;
   padding: 0 20px;
   max-width: 1300px;
@@ -7181,7 +7182,7 @@ footer .totum p a:hover {
   color: #555;
 }
 
-.Cotizaciones-section .list-empty {
+.Cotizaciones-section .list-empty-cotizacion {
   width: 100%;
   height: 400px;
   display: -webkit-box;
@@ -7196,7 +7197,7 @@ footer .totum p a:hover {
   margin-top: -25px;
 }
 
-.Cotizaciones-section .list-empty p {
+.Cotizaciones-section .list-empty-cotizacion p {
   color: #3844bc;
   margin: auto;
 }
