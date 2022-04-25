@@ -1,5 +1,8 @@
 $(document).ready(function () {
-    steps(1);
+    if (sessionStorage.getItem("opcion") == null) {
+        steps(1);
+    }
+    
     select_fiesta();
     select_transfer();
 
@@ -466,6 +469,10 @@ function volver() {
 }
 
 function steps(step) {
+
+    console.log("llega")
+    console.log(step)
+
     $(".step_1").hide();
     $(".step_2_traslado").hide();
     $(".step_2_tour").hide();
@@ -473,7 +480,6 @@ function steps(step) {
     $(".step_2_fiestas").hide();
     $(".step_3").hide();
     $(".step_4").hide();
-
     $("#paradas_vuelta").hide();
 
     $(".mensaje-error").css('color', '#ff635a');
@@ -490,27 +496,28 @@ function steps(step) {
             break;
 
         case 2:
-            if (sessionStorage.getItem("opcion") != null) {
-                viaje = sessionStorage.getItem("opcion")
-            } else {
-                viaje = $("#select_users").val();
-            }
+            console.log("case 2")
+            viaje = $("#select_users").val();
 
             switch (viaje) {
                 case "1":
+                    console.log("case 2.1")
                     $(".step_2_traslado").show();
                     break;
 
                 case "2":
                     $(".step_2_tour").show();
+                    console.log("case 2.2")
                     break;
 
                 case "3":
                     $(".step_2_transfer").show();
+                    console.log("case 2.3")
                     break;
 
                 case "4":
                     $(".step_2_fiestas").show();
+                    console.log("case 2.4")
                     break;
             }
 
@@ -565,26 +572,33 @@ function nueva_cotizacion() {
     steps(step);
 }
 
-function select_usuario() {
+function select_usuario(arg) {
+
+    console.log(sessionStorage.getItem("opcion"))
     if (sessionStorage.getItem("opcion") != null) {
         console.log(sessionStorage.getItem("opcion"))
-        viaje = sessionStorage.getItem("opcion")
+        var tipo = $("#select_users").val(sessionStorage.getItem("opcion"));
         sessionStorage.removeItem("opcion")
-    } else {
-        console.log(sessionStorage.getItem("opcion"))
-        viaje = $("#select_users").val();
+        select_usuario(tipo)
     }
 
+    if (arg == null) {
+        viaje = $("#select_users").val();
+        step++
+    }else{
+        viaje = arg
+    }
+    
     console.log(viaje)
 
     if (viaje != null) {
-        step++;
         steps(step);
     }
+
 }
 
 function desplegar(button, session) {
-    console.log(button)
+
     if (session == 1) {
         location.href = "/Login";
     } else {
