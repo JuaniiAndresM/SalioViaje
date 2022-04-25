@@ -13,6 +13,7 @@ function cerrarsesion(){
         url: "https://www.salioviaje.com.uy/PHP/cerrarSession.php",
         success: function(response){
             $('#header').load('/web/foreman/header.php');
+            location.reload()
         }
     });
 }

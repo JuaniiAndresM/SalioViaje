@@ -1,17 +1,17 @@
 <?php 
-
+  
   session_start(); 
-
+  /*
   if(!isset($_SESSION['usuario'])){
       header('Location: https://www.salioviaje.com.uy/Login');
   }else{
-    /*
+    
     if($_SESSION['tipo_usuario'] == "Chofer"){
       header('Location: https://www.salioviaje.com.uy/');
     }
-    */
+    
   }
-
+  */
   require_once "../PHP/procedimientosBD.php";
 
 
@@ -137,7 +137,9 @@
             <div class="oportunidad-buttons">
               <?php 
                 if ($_SESSION['datos_usuario']['TIPO_USUARIO'] != "CHO") {
-                  echo '<button class="comprar-button" id="comprar_oportunidad" onclick="comprar_oportunidad_function('.$array_oportuidad[0]['ID'].')"><i class="fas fa-comments-dollar"></i> Comprar</button>'; 
+                  if (isset($_SESSION["usuario"])) {
+                    echo '<button class="comprar-button" id="comprar_oportunidad" onclick="comprar_oportunidad_function('.$array_oportuidad[0]['ID'].')"><i class="fas fa-comments-dollar"></i> Comprar</button>'; 
+                  }else{echo 'Debes loguearte para comprar esta oportunidad';}
                 }
                ?>
             </div>
