@@ -33,6 +33,7 @@ $(document).ready(function () {
 
 var step = 1;
 
+let viaje
 let datos_traslado;
 let datos_tour;
 let datos_transfer_in;
@@ -470,9 +471,6 @@ function volver() {
 
 function steps(step) {
 
-    console.log("llega")
-    console.log(step)
-
     $(".step_1").hide();
     $(".step_2_traslado").hide();
     $(".step_2_tour").hide();
@@ -497,8 +495,8 @@ function steps(step) {
 
         case 2:
             console.log("case 2")
-            viaje = $("#select_users").val();
-
+            //viaje = $("#select_users").val();
+            console.log(viaje)
             switch (viaje) {
                 case "1":
                     console.log("case 2.1")
@@ -574,25 +572,21 @@ function nueva_cotizacion() {
 
 function select_usuario(arg) {
 
-    console.log(sessionStorage.getItem("opcion"))
     if (sessionStorage.getItem("opcion") != null) {
         console.log(sessionStorage.getItem("opcion"))
-        var tipo = $("#select_users").val(sessionStorage.getItem("opcion"));
+        setTimeout(function() { 
+            $("#select_users").val(sessionStorage.getItem("opcion"));
+            viaje = $("#select_users").val()
+            next()
+        }, 500);
         sessionStorage.removeItem("opcion")
-        select_usuario(tipo)
     }
 
     if (arg == null) {
         viaje = $("#select_users").val();
-        step++
-    }else{
-        viaje = arg
-    }
-    
-    console.log(viaje)
-
-    if (viaje != null) {
-        steps(step);
+        if (viaje != null) {
+            next()
+        }
     }
 
 }

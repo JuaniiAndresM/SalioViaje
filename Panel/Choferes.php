@@ -138,7 +138,11 @@
     </header>
 
     <nav class="nav-hidden active" id="panel-navbar"></nav>
-
+    <script>
+      window.onload = function e() {
+        traerChoferes(<?php echo $_SESSION['datos_usuario']["ID"]; ?>)
+      }
+    </script>
     <section class="panel" id="panel">
       <div class="section-usuarios">
         <div class="usuarios-recientes">
@@ -170,14 +174,12 @@
                   <th>Barrio <i class="fas fa-angle-down"></i></th>
                   <th>Departamento <i class="fas fa-angle-down"></i></th>
                   <th>Teléfono <i class="fas fa-angle-down"></i></th>
-                  <th class="CHO">Agencia <i class="fas fa-angle-down"></i></th>
-                  <th class="HTL">Nombre Hotel <i class="fas fa-angle-down"></i></th>
-                  <th class="HTL">Dirección Hotel <i class="fas fa-angle-down"></i></th>
-                  <th class="HTL">Supervisor <i class="fas fa-angle-down"></i></th>
+                  <th>Agencia <i class="fas fa-angle-down"></i></th>
+                  <th>RUT <i class="fas fa-angle-down"></i></th>
                   <th></th>
                 </tr>
               </thead>
-              <tbody id="tbody"></tbody>
+              <tbody id="tbody-choferes"></tbody>
             </table>
           </div>
         </div>

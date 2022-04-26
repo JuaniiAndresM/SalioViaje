@@ -62,6 +62,7 @@ class Backend extends procedimientosBD
 		*/
 			return json_encode($this->visitas);
 		}
+
 		public function actualizar_tablas_dashboard_usuarios(){
 
 			$contenido_tbody = 0;
@@ -193,7 +194,8 @@ class Backend extends procedimientosBD
 				}
 			}
 
-		public function agregar_div_faq(){
+		
+			public function agregar_div_faq(){
 
 			$faq = null;
 			$contador = 0;
@@ -277,10 +279,9 @@ class Backend extends procedimientosBD
 			
 			return $faq;
 		}
-	}
+}
 
 	$Backend = new Backend($_POST['opcion']);
-
 	//mostrarPreguntasSeccionFAQ
 
 	if ($_POST['opcion'] == "usr") {
@@ -309,9 +310,10 @@ class Backend extends procedimientosBD
 		echo $Backend->agendar_viaje($_POST['datos']);
 	} else if($_POST['opcion'] == "agregarOportunidad") {
 		echo $Backend->agregar_oportunidad($_POST['datos']);
+	} else if($_POST['opcion'] == "cho") {
+		echo $Backend->traer_choferes_por_tta_id($_POST['datos']);
 	} else {
 		echo $Backend->getVehiculos();
 	}
-
 
 ?>

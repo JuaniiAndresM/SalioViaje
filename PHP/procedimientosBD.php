@@ -711,5 +711,22 @@ public function traer_choferes($rut_em){
  return $choferes;
 }
 
+public function traer_choferes_por_tta_id($id){
+    $choferes = array();
+    $conn = $this->conexion();
+    $query = "SELECT ID,Tipo_Usuario,CI,Email,Nombre,Apellido,Direccion,Barrio,Departamento,Telefono,Agencia_C,RUT FROM `usuarios` WHERE Agencia_C IN (SELECT RUT FROM empresas WHERE Usuario_ID = $id)";
+    $stmt = $conn->prepare($query);
+    if ($stmt->execute()) {
+        $stmt->store_result();
+        $stmt->bind_result($id_usuario,$tipo_usuario,$ci,$mail,$nombre,$apellido,$direccion,$barrio,$departamento,$telefono,$agencia_contratista,$rut);
+        while ($stmt->fetch()) {
+         $result = array('ID' => $id_usuario,'TIPO_USUARIO' => $tipo_usuario, 'CI' => $ci, 'EMAIL' => $mail, 'NOMBRE' => $nombre, 'APELLIDO' => $apellido, 'DIRECCION' => $direccion, 'BARRIO' => $barrio, 'DEPARTAMENTO' => $departamento, 'TELEFONO' => $telefono, 'AGENCIA_CONTRATISTA' => $agencia_contratista, 'RUT' => $rut);
+         $choferes[] = $result;
+     }
+ }
+ $stmt->close();
+ return json_encode($choferes);
+}
+
 }
 ?>
