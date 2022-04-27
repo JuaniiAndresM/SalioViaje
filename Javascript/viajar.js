@@ -1,8 +1,7 @@
 $(document).ready(function () {
-    if (sessionStorage.getItem("opcion") == null) {
-        steps(1);
-    }
     
+        steps(1);
+
     select_fiesta();
     select_transfer();
 
@@ -495,7 +494,13 @@ function steps(step) {
 
         case 2:
             console.log("case 2")
-            //viaje = $("#select_users").val();
+            if (sessionStorage.getItem("opcion") != null) {
+                viaje = sessionStorage.getItem("opcion")
+                sessionStorage.removeItem("opcion")
+            } else {
+                viaje = $("#select_users").val();
+            }
+            //
             console.log(viaje)
             switch (viaje) {
                 case "1":
@@ -574,12 +579,11 @@ function select_usuario(arg) {
 
     if (sessionStorage.getItem("opcion") != null) {
         console.log(sessionStorage.getItem("opcion"))
-        setTimeout(function() { 
+        setTimeout(function () {
             $("#select_users").val(sessionStorage.getItem("opcion"));
             viaje = $("#select_users").val()
             next()
         }, 500);
-        sessionStorage.removeItem("opcion")
     }
 
     if (arg == null) {

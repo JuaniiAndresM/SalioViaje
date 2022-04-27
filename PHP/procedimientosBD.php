@@ -375,6 +375,24 @@ public function borrar_pregunta_FAQ($ID){
  return json_encode($oportunidades);
 }
 
+public function traer_oportunidades_por_id_usuario($id){
+    // ORIGEN DESTINO FECHA HORA PASAJEROS MARCA Y MODELO DEL VEHICULO nombre de transportista
+    $oportunidades = array();
+    $conn = $this->conexion();
+    $query = "SELECT idOportunidad,Origen,Destino,Fecha,Estado FROM oportunidades where idComprador = $id";
+    $stmt = $conn->prepare($query);
+    if ($stmt->execute()) {
+        $stmt->store_result();
+        $stmt->bind_result($idOportunidad,$origen,$destino,$fecha,$estado);
+        while ($stmt->fetch()) {
+         $result = array('ID' => $idOportunidad, 'ORIGEN' => $origen,'DESTINO' => $destino, 'FECHA' => $fecha, 'ESTADO' => $estado);
+         $oportunidades[] = $result;
+     }
+ }
+ $stmt->close();
+ return json_encode($oportunidades);
+}
+
  public function traer_oportunidades_por_id($id){
     $return = null;
     $size = 0;

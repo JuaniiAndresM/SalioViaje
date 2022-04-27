@@ -3,14 +3,6 @@ require_once "../procedimientosBD.php";
 
 session_start();
 
-if (isset($_SESSION['usuario']) || $_SESSION['datos_usuario']['TIPO_USUARIO'] != "CHO") {
-  $boton = '<button class="comprar-button" type="submit" onclick="comprar_oportunidad(' . $datos[$i]['ID'] . ')"><i class="fas fa-comments-dollar"></i> Comprar</button>';
-} else if (!isset($_SESSION['usuario'])) {
-  $boton = 'Debes loguearte para comprar.';
-} else { 
-  $boton = ' ';
-}
-
 $datos = new procedimientosBD();
 
 $datos = json_decode($datos->traer_oportunidades(), true);
@@ -18,6 +10,13 @@ $datos = json_decode($datos->traer_oportunidades(), true);
 $contenido_oportunidades = ' ';
 
 for ($i = 0; $i < count($datos); $i++) {
+    if (isset($_SESSION['usuario']) || $_SESSION['datos_usuario']['TIPO_USUARIO'] != "CHO") {
+        $boton = '<button class="comprar-button" type="submit" onclick="comprar_oportunidad('.$datos[$i]['ID'].')"><i class="fas fa-comments-dollar"></i> Comprar</button>';
+    } else if (!isset($_SESSION['usuario'])) {
+        $boton = 'Debes loguearte para comprar.';
+    } else {
+        $boton = ' ';
+    }
     $fecha = explode(' ', $datos[$i]['FECHA']);
     $PRECIO_CON_DESCUENTO_APLICADO = round($datos[$i]['PRECIO'] - $datos[$i]['PRECIO'] * ($datos[$i]['DESCUENTO'] / 100));
     if ($i == 0 && $datos[$i]['ESTADO'] == 'En venta') {
