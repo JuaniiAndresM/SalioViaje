@@ -14,7 +14,7 @@
             <div class="header-links">
                 <div class="links">
                     <a href="https://www.salioviaje.com.uy/">Home</a>
-                    <a href="https://www.salioviaje.com.uy/Servicios">Servicios</a>
+                    <a href="https://www.salioviaje.com.uy/Central">Central</a>
                     <a href="https://www.salioviaje.com.uy/Nosotros">Nosotros</a>
 
 

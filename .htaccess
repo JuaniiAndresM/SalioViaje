@@ -39,7 +39,7 @@ RewriteRule ^Oportunidad/([a-zA-Z0-9_\.]+)$ /Agenda/Oportunidad.php?ID=$1
 RewriteRule ^Solicitud/([a-zA-Z0-9_\.]+)$ /Agenda/Oportunidad_Solicitud.php?ID=$1
 RewriteRule ^Espera/([a-zA-Z0-9_\.]+)$ /Agenda/Espera.php?ID=$1
 
-RewriteRule ^Servicios /About/Servicios.html
+RewriteRule ^Central /About/Servicios.html
 RewriteRule ^Nosotros /About/Nosotros.html
 RewriteRule ^FAQ /About/FAQ.html
 

@@ -31,7 +31,7 @@ require_once '../PHP/procedimientosBD.php';
     $info_empresa = new procedimientosBD();
 
     $usuario = $info_empresa->traer_datos_empresa($rut);
-    $vehiculos = $info_empresa->traer_datos_vehiculo($rut);
+    $vehiculos = json_decode($info_empresa->traer_datos_vehiculo($_SESSION['datos_usuario']['ID']),true);
     $id_choferes = $info_empresa->traer_choferes($rut);
     $choferes = null; 
     if($id_choferes === null){
@@ -214,6 +214,7 @@ require_once '../PHP/procedimientosBD.php';
                                     </tr>
                                 </thead>
                 <?php 
+                
                   if($vehiculos === null){
                     
                   }else{

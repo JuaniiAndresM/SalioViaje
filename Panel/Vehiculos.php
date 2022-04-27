@@ -1,29 +1,27 @@
-<?php 
+<?php
 
 require_once '../PHP/procedimientosBD.php';
 
-  session_start(); 
+session_start();
 
-  if(!isset($_SESSION['usuario'])){
+if (!isset($_SESSION['usuario'])) {
     header('Location: https://www.salioviaje.com.uy/Login');
 
-  }else{
-    if($_SESSION['tipo_usuario'] != "Administrador" && $_SESSION['tipo_usuario'] != "Transportista" && $_SESSION['tipo_usuario'] != "Chofer"){
-      header('Location: https://www.salioviaje.com.uy/');
-    }else{
-      $info_usuario = new procedimientosBD();
-      if($_SESSION['tipo_usuario'] == "Administrador"){
-        $vehiculos = $info_usuario->datos_vehiculos();
-      }else{
-          $usuario = $info_usuario->info_usuario_profile($_SESSION['datos_usuario']['ID']);
-          $empresas = $info_usuario->traer_empresas_usuario($usuario[0]["ID"]);
+} else {
+    if ($_SESSION['tipo_usuario'] != "Administrador" && $_SESSION['tipo_usuario'] != "Transportista" && $_SESSION['tipo_usuario'] != "Chofer") {
+        header('Location: https://www.salioviaje.com.uy/');
+    } else {
+        $info_usuario = new procedimientosBD();
+        if ($_SESSION['tipo_usuario'] == "Administrador") {
+            $vehiculos = $info_usuario->datos_vehiculos();
+        } else {
+            $usuario = $info_usuario->info_usuario_profile($_SESSION['datos_usuario']['ID']);
+            $empresas = $info_usuario->traer_empresas_usuario($usuario[0]["ID"]);
 
-          $size_e = sizeof($empresas);
-      }
+            $size_e = sizeof($empresas);
+        }
     }
-  }
-
-
+}
 
 ?>
 
@@ -127,7 +125,7 @@ require_once '../PHP/procedimientosBD.php';
         <div class="header-user">
           <div class="icon"><img src="https://www.salioviaje.com.uy/media/svg/Logo-SalioViaje-White.svg" alt="Logo SalióViaje"></div>
           <div class="user">
-          <h2><?php echo $_SESSION['usuario']; ?></h2> 
+          <h2><?php echo $_SESSION['usuario']; ?></h2>
                 <p><i class="fas fa-user-tie"></i> <?php echo $_SESSION['tipo_usuario'] ?></p>
           </div>
           <button id="cerrar_session_dashboard"><i class="fas fa-sign-out-alt"></i></button>
@@ -172,65 +170,64 @@ require_once '../PHP/procedimientosBD.php';
                 </tr>
               </thead>
               <?php
-              if($_SESSION['tipo_usuario'] != "Administrador"){
-                for($a = 0; $a < $size_e; $a++){
-                  $vehiculos = $info_usuario->traer_datos_vehiculo($empresas[$a]["ID"]);
-                  $size = sizeof($vehiculos);
+if ($_SESSION['tipo_usuario'] != "Administrador") {
+    $vehiculos = json_decode($info_usuario->traer_datos_vehiculo($_SESSION['datos_usuario']['ID']), true);
 
-                  if($size != 0){
+    $size = sizeof($vehiculos);
 
-                    if($vehiculos[0]['PET_FRIENDLY'] == 1){
-                      $pet_friendly = "No"; 
-                    }else if($vehiculos[0]['PET_FRIENDLY'] == 2){ 
-                      $pet_friendly = "Si"; 
-                    }
+    for ($a = 0; $a < $size; $a++) {
+        if ($size != 0) {
 
-                    echo '<tbody id="tbody">
-                      <td>'.$vehiculos[0]['ID'].'</td>
-                      <td>'.$vehiculos[0]['MATRICULA'].'</td>
-                      <td>'.$vehiculos[0]['MARCA'].'</td>
-                      <td>'.$vehiculos[0]['MODELO'].'</td>
-                      <td>'.$vehiculos[0]['COMBUSTIBLE'].'</td>
-                      <td>'.$vehiculos[0]['CAPACIDAD'].'</td>
-                      <td>'.$vehiculos[0]['EQUIPAJE'].'</td>
-                      <td>'.$vehiculos[0]['RUT_EM'].'</td>
-                      <td>'.$vehiculos[0]['RUT_EC'].'</td>
-                      <td>'.$pet_friendly.'</td>
+            if ($vehiculos[$a]['PET_FRIENDLY'] == 1) {
+                $pet_friendly = "No";
+            } else if ($vehiculos[$a]['PET_FRIENDLY'] == 2) {
+                $pet_friendly = "Si";
+            }
+
+            echo '<tbody id="tbody">
+                      <td>' . $vehiculos[$a]['ID'] . '</td>
+                      <td>' . $vehiculos[$a]['MATRICULA'] . '</td>
+                      <td>' . $vehiculos[$a]['MARCA'] . '</td>
+                      <td>' . $vehiculos[$a]['MODELO'] . '</td>
+                      <td>' . $vehiculos[$a]['COMBUSTIBLE'] . '</td>
+                      <td>' . $vehiculos[$a]['CAPACIDAD'] . '</td>
+                      <td>' . $vehiculos[$a]['EQUIPAJE'] . '</td>
+                      <td>' . $vehiculos[$a]['RUT_EM'] . '</td>
+                      <td>' . $vehiculos[$a]['RUT_EC'] . '</td>
+                      <td>' . $pet_friendly . '</td>
                     </tbody>';
 
-                  }
+        }
+    }
+} else {
+    if ($vehiculos === null) {
 
-                  
-                }
-              }else{
-                if($vehiculos === null){
-                    
-                }else{
-                  $size = sizeof($vehiculos);
-                  for($i = 0; $i< sizeof($vehiculos); $i++){
-                    if($vehiculos[$i]['PET_FRIENDLY'] == 1){
-                      $pet_friendly = "No"; 
-                    }else if($vehiculos[$i]['PET_FRIENDLY'] == 2){ 
-                      $pet_friendly = "Si"; 
-                    }
+    } else {
+        $size = sizeof($vehiculos);
+        for ($i = 0; $i < sizeof($vehiculos); $i++) {
+            if ($vehiculos[$i]['PET_FRIENDLY'] == 1) {
+                $pet_friendly = "No";
+            } else if ($vehiculos[$i]['PET_FRIENDLY'] == 2) {
+                $pet_friendly = "Si";
+            }
 
-                    echo '<tbody id="tbody">
-                        <td>'.$vehiculos[$i]['ID'].'</td>
-                        <td>'.$vehiculos[$i]['MATRICULA'].'</td>
-                        <td>'.$vehiculos[$i]['MARCA'].'</td>
-                        <td>'.$vehiculos[$i]['MODELO'].'</td>
-                        <td>'.$vehiculos[$i]['COMBUSTIBLE'].'</td>
-                        <td>'.$vehiculos[$i]['CAPACIDAD'].'</td>
-                        <td>'.$vehiculos[$i]['EQUIPAJE'].'</td>
-                        <td>'.$vehiculos[$i]['RUT_EM'].'</td>
-                        <td>'.$vehiculos[$i]['RUT_EC'].'</td>
-                        <td>'.$pet_friendly.'</td>
+            echo '<tbody id="tbody">
+                        <td>' . $vehiculos[$i]['ID'] . '</td>
+                        <td>' . $vehiculos[$i]['MATRICULA'] . '</td>
+                        <td>' . $vehiculos[$i]['MARCA'] . '</td>
+                        <td>' . $vehiculos[$i]['MODELO'] . '</td>
+                        <td>' . $vehiculos[$i]['COMBUSTIBLE'] . '</td>
+                        <td>' . $vehiculos[$i]['CAPACIDAD'] . '</td>
+                        <td>' . $vehiculos[$i]['EQUIPAJE'] . '</td>
+                        <td>' . $vehiculos[$i]['RUT_EM'] . '</td>
+                        <td>' . $vehiculos[$i]['RUT_EC'] . '</td>
+                        <td>' . $pet_friendly . '</td>
                     </tbody>';
-                  }
-                }
-              }
-                  
-              ?>
+        }
+    }
+}
+
+?>
             </table>
           </div>
         </div>

@@ -323,7 +323,7 @@
                                   </div>
                                   <div class="empresas">';
                                 for($i = 0; $i< sizeof($empresas); $i++){
-                                  $vehiculos = $info->traer_datos_vehiculo($empresas[$i]["RUT"]);
+                                  $vehiculos = json_decode($info->traer_datos_vehiculo($_SESSION['datos_usuario']['ID']),true);
                                   if($vehiculos != null){
                                     $size_vehiculos = sizeof($vehiculos);
                                   }else{

@@ -1,20 +1,19 @@
-<?php 
+<?php
 
 require_once '../PHP/procedimientosBD.php';
-  session_start(); 
+session_start();
 
-  if(!isset($_SESSION['usuario'])){
+if (!isset($_SESSION['usuario'])) {
     header('Location: https://www.salioviaje.com.uy/Login');
-  }else{
+} else {
 
     $rut = $_GET['RUT'];
 
     $info_empresa = new procedimientosBD();
 
     $usuario = $info_empresa->traer_datos_empresa($rut);
-    $vehiculos = $info_empresa->traer_datos_vehiculo($rut);
-  }
-
+    $vehiculos = json_decode($info_empresa->traer_datos_vehiculo_por_empresa($rut),true);;
+}
 
 ?>
 
@@ -122,7 +121,7 @@ require_once '../PHP/procedimientosBD.php';
         <div class="header-user">
           <div class="icon"><img src="https://www.salioviaje.com.uy/media/svg/Logo-SalioViaje-White.svg" alt="Logo SalióViaje"></div>
           <div class="user">
-          <h2><?php echo $_SESSION['usuario']; ?></h2> 
+          <h2><?php echo $_SESSION['usuario']; ?></h2>
           <p><i class="fas fa-user-tie"></i> <?php echo $_SESSION['tipo_usuario']; ?></p>
           </div>
           <button id="cerrar_session_dashboard"><i class="fas fa-sign-out-alt"></i></button>
@@ -141,9 +140,9 @@ require_once '../PHP/procedimientosBD.php';
               <img src="https://www.salioviaje.com.uy/media/svg/Logo-SalioViaje.svg" alt="Logo SalióViaje">
             </div>
             <div class="user-desc">
-                <h2><?php echo $usuario[0]['NOMBRE_COMERCIAL'];?></h2>
+                <h2><?php echo $usuario[0]['NOMBRE_COMERCIAL']; ?></h2>
                 <p><i class="fas fa-building"></i> Empresa</p>
-              
+
             </div>
           </div>
         </div>
@@ -156,48 +155,48 @@ require_once '../PHP/procedimientosBD.php';
 
               <div class="info">
                 <b><i class="fas fa-signature"></i> Nombre Comercial</b>
-                <input type="text" placeholder="Nombre Comercial" id="NcEdicion"value="<?php echo $usuario[0]['NOMBRE_COMERCIAL'];?>">
+                <input type="text" placeholder="Nombre Comercial" id="NcEdicion"value="<?php echo $usuario[0]['NOMBRE_COMERCIAL']; ?>">
               </div>
               <div class="info">
                 <b><i class="fas fa-building"></i> Razón Social</b>
-                <input type="text" placeholder="Razón Social" id="RsEdicion"value="<?php echo $usuario[0]['RAZON_SOCIAL'];?>">
+                <input type="text" placeholder="Razón Social" id="RsEdicion"value="<?php echo $usuario[0]['RAZON_SOCIAL']; ?>">
               </div>
               <div class="info">
                 <b><i class="fas fa-user-friends"></i> Choferes Asociados</b>
                 <select name="" id="CaEdicion">
-                    <?php 
-                      if($usuario[0]['CHOFERES_SUB'] == 1){
-                        echo '
+                    <?php
+if ($usuario[0]['CHOFERES_SUB'] == 1) {
+    echo '
                           <option value="1" selected>Si</option>
                           <option value="0">No</option>
                         ';
-                      }else{
-                        echo '
+} else {
+    echo '
                           <option value="0" selected>No</option>
                           <option value="1">Si</option>
                         ';
-                        }
-                    ?>
-            
+}
+?>
+
                 </select>
               </div>
               <div class="info">
                 <b><i class="fas fa-user-lock"></i> N° MTOP</b>
-                <input type="text" placeholder="N° MTOP" id="NmEdicion"value="<?php echo $usuario[0]['NRO_MTOP'];?>">
+                <input type="text" placeholder="N° MTOP" id="NmEdicion"value="<?php echo $usuario[0]['NRO_MTOP']; ?>">
               </div>
               <div class="info">
                 <b><i class="fas fa-key"></i> Contraseña MTOP</b>
-                <input type="password"  id="password" placeholder="Contraseña MTOP" value="<?php echo $usuario[0]['PASS_MTOP'];?>">
-                
+                <input type="password"  id="password" placeholder="Contraseña MTOP" value="<?php echo $usuario[0]['PASS_MTOP']; ?>">
+
                 <button onclick="passwd(1)" class="password-eye"><i id="passeye" class="fas fa-eye-slash"></i></button>
               </div>
 
             </div>
             <p id="mensaje-error" class="mensaje-error"></p>
-            <input type="hidden" id="rut_empresa" value="<?php echo $usuario[0]['RUT'];?>" name="">
+            <input type="hidden" id="rut_empresa" value="<?php echo $usuario[0]['RUT']; ?>" name="">
             <div class="button-wrapper">
-                <button class="button-guardar" onclick="editarEmpresa('<?php echo$_GET['RUT']?>')"><i class="fas fa-arrow-left"></i> Cancelar</button>
-                <button class="button-guardar" onclick="guardarEdicionEmpresa('<?php echo$_GET['RUT']?>')"><i class="fas fa-save"></i> Guardar Cambios</button>
+                <button class="button-guardar" onclick="editarEmpresa('<?php echo $_GET['RUT'] ?>')"><i class="fas fa-arrow-left"></i> Cancelar</button>
+                <button class="button-guardar" onclick="guardarEdicionEmpresa('<?php echo $_GET['RUT'] ?>')"><i class="fas fa-save"></i> Guardar Cambios</button>
             </div>
           </div>
 
@@ -257,24 +256,23 @@ require_once '../PHP/procedimientosBD.php';
 
                 <div class="vehiculos-wrapper">
                     <div class="vehiculos">
-                    <?php 
-
-                        if($vehiculos == null){
-                          echo "sdf";
-                        }else{
-                          $size = sizeof($vehiculos);
-                          for($i = 0; $i< count($vehiculos); $i++){
-                            ?>
-                                <script type="text/javascript"> 
-                                vehiculos_vista_previa(<?php  echo json_encode($vehiculos[$i]); ?>)
+                    <?php
+if ($vehiculos == null) {
+    echo "sdf";
+} else {
+    $size = sizeof($vehiculos);
+    for ($i = 0; $i < $size; $i++) {
+        ?>
+                                <script type="text/javascript">
+                                vehiculos_vista_previa(<?php echo json_encode($vehiculos[$i]); ?>)
                                 $('.vehiculos-wrapper').show();
-                              </script>  
-                            <?php 
-                          }
-                      }
-                    ?>
+                              </script>
+                            <?php
+}
+}
+?>
                     </div>
-                    <button class="save-button" id="finalizar_empresa_2" onclick="guardar_cambios_vehiculos_panel(<?php echo$_GET['RUT']?>)"><i class="fas fa-save"></i> Guardar Cambios</button>
+                    <button class="save-button" id="finalizar_empresa_2" onclick="guardar_cambios_vehiculos_panel(<?php echo $_GET['RUT'] ?>)"><i class="fas fa-save"></i> Guardar Cambios</button>
 
                 </div>
             </div>
@@ -282,7 +280,7 @@ require_once '../PHP/procedimientosBD.php';
         </div>
         <div class="profile_grid2"></div>
 
-        
+
       </div>
     </section>
   </body>

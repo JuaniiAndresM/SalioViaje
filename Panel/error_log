@@ -3,3 +3,214 @@
 [01-Apr-2022 17:16:56 America/Chicago] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 178
 [01-Apr-2022 17:17:16 America/Chicago] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 178
 [01-Apr-2022 17:17:24 America/Chicago] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 178
+[24-Apr-2022 17:07:50 America/Chicago] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 178
+[25-Apr-2022 23:34:36 America/Chicago] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 178
+[25-Apr-2022 23:34:40 America/Chicago] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 178
+[26-Apr-2022 05:12:27 America/Chicago] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 178
+[26-Apr-2022 14:02:35 America/Chicago] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 178
+[26-Apr-2022 14:03:25 America/Chicago] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 178
+[26-Apr-2022 15:07:38 America/Chicago] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 178
+[26-Apr-2022 15:07:38 America/Chicago] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 178
+[26-Apr-2022 15:14:10 America/Chicago] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 178
+[26-Apr-2022 15:14:10 America/Chicago] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 178
+[26-Apr-2022 15:14:13 America/Chicago] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 178
+[26-Apr-2022 15:14:13 America/Chicago] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 178
+[26-Apr-2022 15:14:19 America/Chicago] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 178
+[26-Apr-2022 15:14:19 America/Chicago] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 178
+[26-Apr-2022 15:14:43 America/Chicago] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
+[26-Apr-2022 15:14:43 America/Chicago] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
+[26-Apr-2022 15:15:08 America/Chicago] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
+[26-Apr-2022 15:15:08 America/Chicago] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
+[26-Apr-2022 15:15:08 America/Chicago] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
+[26-Apr-2022 15:15:23 America/Chicago] PHP Warning:  json_decode() expects parameter 1 to be string, array given in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
+[26-Apr-2022 15:15:23 America/Chicago] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
+[26-Apr-2022 15:15:23 America/Chicago] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
+[26-Apr-2022 15:15:23 America/Chicago] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
+[26-Apr-2022 15:15:49 America/Chicago] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
+[26-Apr-2022 15:15:49 America/Chicago] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
+[26-Apr-2022 15:15:49 America/Chicago] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
+[26-Apr-2022 15:17:35 America/Chicago] PHP Warning:  json_decode() expects parameter 1 to be string, array given in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
+[26-Apr-2022 15:17:35 America/Chicago] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
+[26-Apr-2022 15:17:35 America/Chicago] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
+[26-Apr-2022 15:17:35 America/Chicago] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
+[26-Apr-2022 15:17:51 America/Chicago] PHP Warning:  json_decode() expects parameter 1 to be string, array given in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
+[26-Apr-2022 15:17:51 America/Chicago] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
+[26-Apr-2022 15:17:51 America/Chicago] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
+[26-Apr-2022 15:17:51 America/Chicago] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
+[26-Apr-2022 15:18:52 America/Chicago] PHP Warning:  json_decode() expects parameter 1 to be string, array given in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
+[26-Apr-2022 15:18:52 America/Chicago] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
+[26-Apr-2022 15:18:52 America/Chicago] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
+[26-Apr-2022 15:18:52 America/Chicago] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
+[26-Apr-2022 15:19:33 America/Chicago] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 178
+[26-Apr-2022 15:19:33 America/Chicago] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 178
+[26-Apr-2022 15:20:22 America/Chicago] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 178
+[26-Apr-2022 15:20:22 America/Chicago] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
+[26-Apr-2022 15:20:22 America/Chicago] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 178
+[26-Apr-2022 15:20:22 America/Chicago] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
+[26-Apr-2022 15:20:58 America/Chicago] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
+[26-Apr-2022 15:20:58 America/Chicago] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
+[26-Apr-2022 15:23:07 America/Chicago] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
+[26-Apr-2022 15:23:07 America/Chicago] PHP Warning:  Illegal string offset 'PET_FRIENDLY' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 183
+[26-Apr-2022 15:23:07 America/Chicago] PHP Warning:  Illegal string offset 'PET_FRIENDLY' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 185
+[26-Apr-2022 15:23:07 America/Chicago] PHP Warning:  Illegal string offset 'ID' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 190
+[26-Apr-2022 15:23:07 America/Chicago] PHP Warning:  Illegal string offset 'MATRICULA' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 191
+[26-Apr-2022 15:23:07 America/Chicago] PHP Warning:  Illegal string offset 'MARCA' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 192
+[26-Apr-2022 15:23:07 America/Chicago] PHP Warning:  Illegal string offset 'MODELO' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 193
+[26-Apr-2022 15:23:07 America/Chicago] PHP Warning:  Illegal string offset 'COMBUSTIBLE' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 194
+[26-Apr-2022 15:23:07 America/Chicago] PHP Warning:  Illegal string offset 'CAPACIDAD' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 195
+[26-Apr-2022 15:23:07 America/Chicago] PHP Warning:  Illegal string offset 'EQUIPAJE' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 196
+[26-Apr-2022 15:23:07 America/Chicago] PHP Warning:  Illegal string offset 'RUT_EM' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 197
+[26-Apr-2022 15:23:07 America/Chicago] PHP Warning:  Illegal string offset 'RUT_EC' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 198
+[26-Apr-2022 15:23:07 America/Chicago] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
+[26-Apr-2022 15:23:07 America/Chicago] PHP Warning:  Illegal string offset 'PET_FRIENDLY' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 183
+[26-Apr-2022 15:23:07 America/Chicago] PHP Warning:  Illegal string offset 'PET_FRIENDLY' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 185
+[26-Apr-2022 15:23:07 America/Chicago] PHP Warning:  Illegal string offset 'ID' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 190
+[26-Apr-2022 15:23:07 America/Chicago] PHP Warning:  Illegal string offset 'MATRICULA' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 191
+[26-Apr-2022 15:23:07 America/Chicago] PHP Warning:  Illegal string offset 'MARCA' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 192
+[26-Apr-2022 15:23:07 America/Chicago] PHP Warning:  Illegal string offset 'MODELO' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 193
+[26-Apr-2022 15:23:07 America/Chicago] PHP Warning:  Illegal string offset 'COMBUSTIBLE' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 194
+[26-Apr-2022 15:23:07 America/Chicago] PHP Warning:  Illegal string offset 'CAPACIDAD' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 195
+[26-Apr-2022 15:23:07 America/Chicago] PHP Warning:  Illegal string offset 'EQUIPAJE' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 196
+[26-Apr-2022 15:23:07 America/Chicago] PHP Warning:  Illegal string offset 'RUT_EM' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 197
+[26-Apr-2022 15:23:07 America/Chicago] PHP Warning:  Illegal string offset 'RUT_EC' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 198
+[26-Apr-2022 15:23:07 America/Chicago] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
+[26-Apr-2022 15:23:07 America/Chicago] PHP Warning:  Illegal string offset 'PET_FRIENDLY' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 183
+[26-Apr-2022 15:23:07 America/Chicago] PHP Warning:  Illegal string offset 'PET_FRIENDLY' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 185
+[26-Apr-2022 15:23:07 America/Chicago] PHP Warning:  Illegal string offset 'ID' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 190
+[26-Apr-2022 15:23:07 America/Chicago] PHP Warning:  Illegal string offset 'MATRICULA' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 191
+[26-Apr-2022 15:23:07 America/Chicago] PHP Warning:  Illegal string offset 'MARCA' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 192
+[26-Apr-2022 15:23:07 America/Chicago] PHP Warning:  Illegal string offset 'MODELO' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 193
+[26-Apr-2022 15:23:07 America/Chicago] PHP Warning:  Illegal string offset 'COMBUSTIBLE' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 194
+[26-Apr-2022 15:23:07 America/Chicago] PHP Warning:  Illegal string offset 'CAPACIDAD' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 195
+[26-Apr-2022 15:23:07 America/Chicago] PHP Warning:  Illegal string offset 'EQUIPAJE' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 196
+[26-Apr-2022 15:23:07 America/Chicago] PHP Warning:  Illegal string offset 'RUT_EM' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 197
+[26-Apr-2022 15:23:07 America/Chicago] PHP Warning:  Illegal string offset 'RUT_EC' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 198
+[26-Apr-2022 15:23:40 America/Chicago] PHP Warning:  Illegal string offset 'PET_FRIENDLY' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 183
+[26-Apr-2022 15:23:40 America/Chicago] PHP Warning:  Illegal string offset 'PET_FRIENDLY' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 185
+[26-Apr-2022 15:23:40 America/Chicago] PHP Warning:  Illegal string offset 'ID' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 190
+[26-Apr-2022 15:23:40 America/Chicago] PHP Warning:  Illegal string offset 'MATRICULA' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 191
+[26-Apr-2022 15:23:40 America/Chicago] PHP Warning:  Illegal string offset 'MARCA' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 192
+[26-Apr-2022 15:23:40 America/Chicago] PHP Warning:  Illegal string offset 'MODELO' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 193
+[26-Apr-2022 15:23:40 America/Chicago] PHP Warning:  Illegal string offset 'COMBUSTIBLE' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 194
+[26-Apr-2022 15:23:40 America/Chicago] PHP Warning:  Illegal string offset 'CAPACIDAD' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 195
+[26-Apr-2022 15:23:40 America/Chicago] PHP Warning:  Illegal string offset 'EQUIPAJE' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 196
+[26-Apr-2022 15:23:40 America/Chicago] PHP Warning:  Illegal string offset 'RUT_EM' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 197
+[26-Apr-2022 15:23:40 America/Chicago] PHP Warning:  Illegal string offset 'RUT_EC' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 198
+[26-Apr-2022 15:23:40 America/Chicago] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
+[26-Apr-2022 15:23:40 America/Chicago] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
+[26-Apr-2022 15:24:03 America/Chicago] PHP Warning:  Illegal string offset 'PET_FRIENDLY' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 183
+[26-Apr-2022 15:24:03 America/Chicago] PHP Warning:  Illegal string offset 'PET_FRIENDLY' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 185
+[26-Apr-2022 15:24:03 America/Chicago] PHP Warning:  Illegal string offset 'ID' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 190
+[26-Apr-2022 15:24:03 America/Chicago] PHP Warning:  Illegal string offset 'MATRICULA' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 191
+[26-Apr-2022 15:24:03 America/Chicago] PHP Warning:  Illegal string offset 'MARCA' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 192
+[26-Apr-2022 15:24:03 America/Chicago] PHP Warning:  Illegal string offset 'MODELO' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 193
+[26-Apr-2022 15:24:03 America/Chicago] PHP Warning:  Illegal string offset 'COMBUSTIBLE' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 194
+[26-Apr-2022 15:24:03 America/Chicago] PHP Warning:  Illegal string offset 'CAPACIDAD' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 195
+[26-Apr-2022 15:24:03 America/Chicago] PHP Warning:  Illegal string offset 'EQUIPAJE' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 196
+[26-Apr-2022 15:24:03 America/Chicago] PHP Warning:  Illegal string offset 'RUT_EM' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 197
+[26-Apr-2022 15:24:03 America/Chicago] PHP Warning:  Illegal string offset 'RUT_EC' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 198
+[26-Apr-2022 15:24:03 America/Chicago] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
+[26-Apr-2022 15:24:03 America/Chicago] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
+[26-Apr-2022 15:24:09 America/Chicago] PHP Warning:  Illegal string offset 'PET_FRIENDLY' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 183
+[26-Apr-2022 15:24:09 America/Chicago] PHP Warning:  Illegal string offset 'PET_FRIENDLY' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 185
+[26-Apr-2022 15:24:09 America/Chicago] PHP Warning:  Illegal string offset 'ID' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 190
+[26-Apr-2022 15:24:09 America/Chicago] PHP Warning:  Illegal string offset 'MATRICULA' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 191
+[26-Apr-2022 15:24:09 America/Chicago] PHP Warning:  Illegal string offset 'MARCA' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 192
+[26-Apr-2022 15:24:09 America/Chicago] PHP Warning:  Illegal string offset 'MODELO' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 193
+[26-Apr-2022 15:24:09 America/Chicago] PHP Warning:  Illegal string offset 'COMBUSTIBLE' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 194
+[26-Apr-2022 15:24:09 America/Chicago] PHP Warning:  Illegal string offset 'CAPACIDAD' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 195
+[26-Apr-2022 15:24:09 America/Chicago] PHP Warning:  Illegal string offset 'EQUIPAJE' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 196
+[26-Apr-2022 15:24:09 America/Chicago] PHP Warning:  Illegal string offset 'RUT_EM' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 197
+[26-Apr-2022 15:24:09 America/Chicago] PHP Warning:  Illegal string offset 'RUT_EC' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 198
+[26-Apr-2022 15:24:09 America/Chicago] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
+[26-Apr-2022 15:24:09 America/Chicago] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
+[26-Apr-2022 15:24:11 America/Chicago] PHP Warning:  Illegal string offset 'PET_FRIENDLY' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 183
+[26-Apr-2022 15:24:11 America/Chicago] PHP Warning:  Illegal string offset 'PET_FRIENDLY' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 185
+[26-Apr-2022 15:24:11 America/Chicago] PHP Warning:  Illegal string offset 'ID' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 190
+[26-Apr-2022 15:24:11 America/Chicago] PHP Warning:  Illegal string offset 'MATRICULA' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 191
+[26-Apr-2022 15:24:11 America/Chicago] PHP Warning:  Illegal string offset 'MARCA' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 192
+[26-Apr-2022 15:24:11 America/Chicago] PHP Warning:  Illegal string offset 'MODELO' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 193
+[26-Apr-2022 15:24:11 America/Chicago] PHP Warning:  Illegal string offset 'COMBUSTIBLE' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 194
+[26-Apr-2022 15:24:11 America/Chicago] PHP Warning:  Illegal string offset 'CAPACIDAD' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 195
+[26-Apr-2022 15:24:11 America/Chicago] PHP Warning:  Illegal string offset 'EQUIPAJE' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 196
+[26-Apr-2022 15:24:11 America/Chicago] PHP Warning:  Illegal string offset 'RUT_EM' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 197
+[26-Apr-2022 15:24:11 America/Chicago] PHP Warning:  Illegal string offset 'RUT_EC' in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 198
+[26-Apr-2022 15:24:11 America/Chicago] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
+[26-Apr-2022 15:24:11 America/Chicago] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
+[26-Apr-2022 15:24:48 America/Chicago] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/salioviajeuy/public_html/Panel/Vehiculos.php:183
+Stack trace:
+#0 {main}
+  thrown in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 183
+[26-Apr-2022 15:25:28 America/Chicago] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/salioviajeuy/public_html/Panel/Vehiculos.php:183
+Stack trace:
+#0 {main}
+  thrown in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 183
+[26-Apr-2022 15:25:57 America/Chicago] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/salioviajeuy/public_html/Panel/Vehiculos.php:184
+Stack trace:
+#0 {main}
+  thrown in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 184
+[26-Apr-2022 15:26:16 America/Chicago] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/salioviajeuy/public_html/Panel/Vehiculos.php:184
+Stack trace:
+#0 {main}
+  thrown in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 184
+[26-Apr-2022 15:27:04 America/Chicago] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/salioviajeuy/public_html/Panel/Vehiculos.php:184
+Stack trace:
+#0 {main}
+  thrown in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 184
+[26-Apr-2022 15:27:09 America/Chicago] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/salioviajeuy/public_html/Panel/Vehiculos.php:185
+Stack trace:
+#0 {main}
+  thrown in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 185
+[26-Apr-2022 15:27:34 America/Chicago] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/salioviajeuy/public_html/Panel/Vehiculos.php:184
+Stack trace:
+#0 {main}
+  thrown in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 184
+[26-Apr-2022 15:27:51 America/Chicago] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/salioviajeuy/public_html/Panel/Vehiculos.php:181
+Stack trace:
+#0 {main}
+  thrown in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 181
+[26-Apr-2022 15:27:54 America/Chicago] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/salioviajeuy/public_html/Panel/Vehiculos.php:181
+Stack trace:
+#0 {main}
+  thrown in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 181
+[26-Apr-2022 15:28:11 America/Chicago] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/salioviajeuy/public_html/Panel/Vehiculos.php:184
+Stack trace:
+#0 {main}
+  thrown in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 184
+[26-Apr-2022 15:28:37 America/Chicago] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/salioviajeuy/public_html/Panel/Vehiculos.php:181
+Stack trace:
+#0 {main}
+  thrown in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 181
+[26-Apr-2022 15:28:40 America/Chicago] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/salioviajeuy/public_html/Panel/Vehiculos.php:181
+Stack trace:
+#0 {main}
+  thrown in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 181
+[26-Apr-2022 15:28:41 America/Chicago] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/salioviajeuy/public_html/Panel/Vehiculos.php:181
+Stack trace:
+#0 {main}
+  thrown in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 181
+[26-Apr-2022 15:29:00 America/Chicago] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/salioviajeuy/public_html/Panel/Vehiculos.php:181
+Stack trace:
+#0 {main}
+  thrown in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 181
+[26-Apr-2022 15:29:02 America/Chicago] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/salioviajeuy/public_html/Panel/Vehiculos.php:181
+Stack trace:
+#0 {main}
+  thrown in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 181
+[26-Apr-2022 15:29:43 America/Chicago] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/salioviajeuy/public_html/Panel/Vehiculos.php:181
+Stack trace:
+#0 {main}
+  thrown in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 181
+[26-Apr-2022 15:29:46 America/Chicago] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/salioviajeuy/public_html/Panel/Vehiculos.php:181
+Stack trace:
+#0 {main}
+  thrown in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 181
+[26-Apr-2022 15:30:11 America/Chicago] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/salioviajeuy/public_html/Panel/Vehiculos.php:181
+Stack trace:
+#0 {main}
+  thrown in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 181
+[26-Apr-2022 15:30:18 America/Chicago] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
+[26-Apr-2022 15:30:18 America/Chicago] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
+[26-Apr-2022 15:34:56 America/Chicago] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
+[26-Apr-2022 15:34:56 America/Chicago] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
+[26-Apr-2022 15:34:56 America/Chicago] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179

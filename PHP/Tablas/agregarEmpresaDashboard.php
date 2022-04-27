@@ -5,10 +5,11 @@ require_once "../procedimientosBD.php";
 $datos_bd = new procedimientosBD();
 
 $datos = $datos_bd->datos_empresas();
-$vehiculos =  $datos_bd->traer_datos_vehiculo($datos[$i]["ID"]);
+
 
 for ($i=0; $i < count($datos); $i++) { 
- $NUEVA_EMPRESA_DASHBOARD = '
+  $vehiculos =  $datos_bd->traer_datos_vehiculo_por_empresa(311);
+  $NUEVA_EMPRESA_DASHBOARD = '
                 <div class="propietario">
                   <div class="propietario-left">
                     <div class="propietario-icon">
@@ -32,6 +33,6 @@ for ($i=0; $i < count($datos); $i++) {
 ';
 }
 
-  
+echo $vehiculos;
 echo $NUEVA_EMPRESA_DASHBOARD;
 ?>
