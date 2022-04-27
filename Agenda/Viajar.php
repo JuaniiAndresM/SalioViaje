@@ -288,23 +288,36 @@ session_start();
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-map-marker-alt"></i> Origen</p>
-                    <input list="Destino" id="origen_traslado">
-                    <datalist id="Destino">
-                      <option value="Canelones">
-                      <option value="Montevideo">
-                      <option value="Tacuarembó">
-                      <option value="Maldonado">
-                      <option value="Rivera">
+                    <p><i class="fa-solid fa-map"></i> Origen</p>
+                    <input type="text" id="destino_traslado_origen"/>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
+                    <input type="text" id="direccion_traslado_origen"/>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fa fa-map-location-dot"></i> Barrio</p>
+                    <input list="Barrio" id="barrio_traslado_origen">
+                    <datalist id="Barrio">
+                      <option value="Barrio 1">
+                      <option value="Barrio 2">
+                      <option value="Barrio 3">
+                      <option value="Barrio 4">
+                      <option value="Barrio 5">
                     </datalist>
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-solid fa-house-building"></i> Barrio</p>
-                    <input list="Destino" id="Barrios_traslado">
-                    <datalist id="Barrio_traslado">
-                      <option value="Canelones">
-                      <option value="Montevideo">
+                    <p><i class="fa-solid fa-globe"></i> Localidad</p>
+                    <input list="Localidad" id="localidad_traslado_origen">
+                    <datalist id="Localidad">
+                      <option value="Localidad 1">
+                      <option value="Localidad 2">
+                      <option value="Localidad 3">
+                      <option value="Localidad 4">
+                      <option value="Localidad 5">
                     </datalist>
                   </div>
 
@@ -314,11 +327,8 @@ session_start();
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas</p>
-                  <select name="mascota">
-                   <option>Con mascota</option>
-                   <option>Sin mascota</option>
-                  </select>
+                    <p><i class="fas fa-comment-dots"></i> Observaciones</p>
+                    <textarea class="Observaciones" id="observaciones_traslado"></textarea>
                   </div>
 
                 </div>
@@ -332,31 +342,46 @@ session_start();
 
                   <div class="input">
                     <p><i class="fas fa-route"></i> Destino</p>
-
-                    <input list="Destino" id="destino_traslado">
-                    <datalist id="Destino">
-                      <option value="Canelones">
-                      <option value="Montevideo">
-                      <option value="Tacuarembó">
-                      <option value="Maldonado">
-                      <option value="Rivera">
-                    </datalist>
-
-                    <div class="input">
-                    <p><i class="fas fa-solid fa-house-building"></i> Barrio</p>
-                    <input list="Destino" id="destino_barrios">
-                    <datalist id="Destino">
-                      <option value="Canelones">
-                      <option value="Montevideo">
-                    </datalist>
-                  </div>
-
+                    <input type="text" id="destino_traslado_destino"/>
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-comment-dots"></i> Observaciones</p>
-                    <textarea class="Observaciones" id="observaciones_traslado"></textarea>
+                    <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
+                    <input type="text" id="direccion_traslado_destino"/>
                   </div>
+
+                  <div class="input">
+                    <p><i class="fa fa-map-location-dot"></i> Barrio</p>
+                    <input list="Barrio" id="barrio_traslado_destino">
+                    <datalist id="Barrio">
+                      <option value="Barrio 1">
+                      <option value="Barrio 2">
+                      <option value="Barrio 3">
+                      <option value="Barrio 4">
+                      <option value="Barrio 5">
+                    </datalist>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fa-solid fa-globe"></i> Localidad</p>
+                    <input list="Localidad" id="localidad_traslado_destino">
+                    <datalist id="Localidad">
+                      <option value="Localidad 1">
+                      <option value="Localidad 2">
+                      <option value="Localidad 3">
+                      <option value="Localidad 4">
+                      <option value="Localidad 5">
+                    </datalist>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas</p>
+                  <select name="mascota">
+                   <option>Con mascota</option>
+                   <option>Sin mascota</option>
+                  </select>
+                  </div>
+
                 </div>
 
               </div>
@@ -381,23 +406,36 @@ session_start();
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-map-marker-alt"></i> Origen</p>
-                    <input list="Destino" id="origen_tour">
-                    <datalist id="Destino">
-                      <option value="Canelones">
-                      <option value="Montevideo">
-                      <option value="Tacuarembó">
-                      <option value="Maldonado">
-                      <option value="Rivera">
+                    <p><i class="fa-solid fa-map"></i> Origen</p>
+                    <input type="text" id="origen_salida_tour"/>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
+                    <input type="text" id="direccion_salida_tour"/>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fa fa-map-location-dot"></i> Barrio</p>
+                    <input list="Barrio" id="barrio_barrios">
+                    <datalist id="Barrio">
+                      <option value="Barrio 1">
+                      <option value="Barrio 2">
+                      <option value="Barrio 3">
+                      <option value="Barrio 4">
+                      <option value="Barrio 5">
                     </datalist>
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-solid fa-house-building"></i> Barrio</p>
-                    <input list="Destino" id="tour_barrios">
-                    <datalist id="Destino">
-                      <option value="Canelones">
-                      <option value="Montevideo">
+                    <p><i class="fa-solid fa-globe"></i> Localidad</p>
+                    <input list="Localidad" id="localidad_tour">
+                    <datalist id="Localidad">
+                      <option value="Localidad 1">
+                      <option value="Localidad 2">
+                      <option value="Localidad 3">
+                      <option value="Localidad 4">
+                      <option value="Localidad 5">
                     </datalist>
                   </div>
 
@@ -405,11 +443,6 @@ session_start();
                   <div class="input">
                     <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p>
                     <input type="number" id="cant_pasajeros_tour"/>
-                  </div>
-
-                  <div class="input">
-                    <p><i class="fas fa-comment-dots"></i> Observaciones</p>
-                    <textarea class="Observaciones" id="observaciones_tour"></textarea>
                   </div>
 
                 </div>
@@ -445,6 +478,11 @@ session_start();
                    <option>Con mascota</option>
                    <option>Sin mascota</option>
                   </select>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-comment-dots"></i> Observaciones</p>
+                    <textarea class="Observaciones" id="observaciones_tour"></textarea>
                   </div>
 
                 </div>
@@ -504,6 +542,11 @@ session_start();
                   </select>
                   </div>
 
+                  <div class="input">
+                    <p><i class="fas fa-suitcase-rolling"></i> Equipaje (Cant. Maletas)</p>
+                    <input type="number" id="equipaje_transfer_in"/>
+                  </div>
+
                 </div>
 
                 <div class="column">
@@ -514,29 +557,37 @@ session_start();
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-map-marker-alt"></i> Destino</p>
-                    <input list="Destino" id="destino_transfer_in">
-                    <datalist id="Destino">
-                      <option value="Canelones">
-                      <option value="Montevideo">
-                      <option value="Tacuarembó">
-                      <option value="Maldonado">
-                      <option value="Rivera">
+                    <p><i class="fa-solid fa-map"></i> Destino</p>
+                    <input type="text" id="destino_transfer_in"/>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
+                    <input type="text" id="direccion_transfer_in"/>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fa fa-map-location-dot"></i> Barrio</p>
+                    <input list="Barrio" id="barrio_transfer_in">
+                    <datalist id="Barrio">
+                      <option value="Barrio 1">
+                      <option value="Barrio 2">
+                      <option value="Barrio 3">
+                      <option value="Barrio 4">
+                      <option value="Barrio 5">
                     </datalist>
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-solid fa-house-building"></i> Barrio</p>
-                    <input list="Destino" id="traslados_barrios">
-                    <datalist id="Destino">
-                      <option value="Canelones">
-                      <option value="Montevideo">
+                    <p><i class="fa-solid fa-globe"></i> Localidad</p>
+                    <input list="Localidad" id="localidad_transfer_in">
+                    <datalist id="Localidad">
+                      <option value="Localidad 1">
+                      <option value="Localidad 2">
+                      <option value="Localidad 3">
+                      <option value="Localidad 4">
+                      <option value="Localidad 5">
                     </datalist>
-                  </div>
-
-                  <div class="input">
-                    <p><i class="fas fa-suitcase-rolling"></i> Equipaje (Cant. Maletas)</p>
-                    <input type="number" id="equipaje_transfer_in"/>
                   </div>
 
                   <div class="input">
@@ -557,34 +608,42 @@ session_start();
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-map-marker-alt"></i> Origen</p>
-                    <input list="Destino" id="origen_transfer_out">
-                    <datalist id="Destino">
-                      <option value="Canelones">
-                      <option value="Montevideo">
-                      <option value="Tacuarembó">
-                      <option value="Maldonado">
-                      <option value="Rivera">
+                    <p><i class="fa-solid fa-map"></i> Origen</p>
+                    <input type="text" id="origen_transfer_out"/>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
+                    <input type="text" id="direccion_transfer_out"/>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fa fa-map-location-dot"></i> Barrio</p>
+                    <input list="Barrio" id="barrio_transfer_out">
+                    <datalist id="Barrio">
+                      <option value="Barrio 1">
+                      <option value="Barrio 2">
+                      <option value="Barrio 3">
+                      <option value="Barrio 4">
+                      <option value="Barrio 5">
                     </datalist>
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-solid fa-house-building"></i> Barrio</p>
-                    <input list="Destino" id="traslados_barrios">
-                    <datalist id="Destino">
-                      <option value="Canelones">
-                      <option value="Montevideo">
+                    <p><i class="fa-solid fa-globe"></i> Localidad</p>
+                    <input list="Localidad" id="localidad_transfer_out">
+                    <datalist id="Localidad">
+                      <option value="Localidad 1">
+                      <option value="Localidad 2">
+                      <option value="Localidad 3">
+                      <option value="Localidad 4">
+                      <option value="Localidad 5">
                     </datalist>
                   </div>
 
                   <div class="input">
                     <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p>
                     <input type="number" id="cant_pasajeros_transfer_out"/>
-                  </div>
-
-                  <div class="input">
-                    <p><i class="fa fa-ticket"></i> N° de Vuelo / Barco</p>
-                    <input type="text" id="nro_vuelo_barco_out"/>
                   </div>
 
                 </div>
@@ -604,6 +663,19 @@ session_start();
                   <div class="input">
                     <p><i class="fas fa-suitcase-rolling"></i> Equipaje (Cant. Maletas)</p>
                     <input type="number" id="equipaje_transfer_out"/>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fa fa-ticket"></i> N° de Vuelo / Barco</p>
+                    <input type="text" id="nro_vuelo_barco_out"/>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas</p>
+                  <select name="mascota">
+                   <option>Con mascota</option>
+                   <option>Sin mascota</option>
+                  </select>
                   </div>
 
                   <div class="input">
@@ -645,30 +717,42 @@ session_start();
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-map-marker-alt"></i> Origen</p>
-                    <input type="text" id="origen_fiestas_ida">
+                    <p><i class="fa-solid fa-map"></i> Origen</p>
+                    <input type="text" id="destino_fiestas_ida"/>
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-solid fa-house-building"></i> Barrio</p>
-                    <input list="Destino" id="fiestasida_origen_barrios">
-                    <datalist id="Destino">
-                      <option value="Canelones">
-                      <option value="Montevideo">
+                    <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
+                    <input type="text" id="direccion_fiestas_ida"/>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fa fa-map-location-dot"></i> Barrio</p>
+                    <input list="Barrio" id="barrio_fiestas_ida">
+                    <datalist id="Barrio">
+                      <option value="Barrio 1">
+                      <option value="Barrio 2">
+                      <option value="Barrio 3">
+                      <option value="Barrio 4">
+                      <option value="Barrio 5">
+                    </datalist>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fa-solid fa-globe"></i> Localidad</p>
+                    <input list="Localidad" id="localidad_fiestas_ida">
+                    <datalist id="Localidad">
+                      <option value="Localidad 1">
+                      <option value="Localidad 2">
+                      <option value="Localidad 3">
+                      <option value="Localidad 4">
+                      <option value="Localidad 5">
                     </datalist>
                   </div>
 
                   <div class="input">
                     <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p>
                     <input type="number" id="cant_pasajeros_fiesta_ida"/>
-                  </div>
-
-                  <div class="input">
-                    <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas</p>
-                  <select name="mascota">
-                   <option>Con mascota</option>
-                   <option>Sin mascota</option>
-                  </select>
                   </div>
 
                 </div>
@@ -697,6 +781,14 @@ session_start();
                   <div class="input">
                     <p><i class="fas fa-comment-dots"></i> Observaciones</p>
                     <textarea class="Observaciones" id="observaciones_fiesta_ida"></textarea>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas</p>
+                  <select name="mascota">
+                   <option>Con mascota</option>
+                   <option>Sin mascota</option>
+                  </select>
                   </div>
 
                 </div>
@@ -738,6 +830,11 @@ session_start();
                   </select>
                   </div>
 
+                  <div class="input">
+                    <p><i class="fas fa-comment-dots"></i> Observaciones</p>
+                    <textarea class="Observaciones" id="observaciones_fiesta_vuelta"></textarea>
+                  </div>
+
                 </div>
 
                 <div class="column">
@@ -748,23 +845,37 @@ session_start();
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-route"></i> Destino</p>
-                    <input type="text" id="destino_fiesta_vuelta">
+                    <p><i class="fa-solid fa-map"></i> Origen</p>
+                    <input type="text" id="destino_fiesta_vuelta"/>
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-solid fa-house-building"></i> Barrio</p>
-                    <input list="Destino" id="fiestasvuelta_destino_barrios">
-                    <datalist id="Destino">
-                      <option value="Canelones">
-                      <option value="Montevideo">
+                    <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
+                    <input type="text" id="direccion_fiesta_vuelta"/>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fa fa-map-location-dot"></i> Barrio</p>
+                    <input list="Barrio" id="barrio_fiesta_vuelta">
+                    <datalist id="Barrio">
+                      <option value="Barrio 1">
+                      <option value="Barrio 2">
+                      <option value="Barrio 3">
+                      <option value="Barrio 4">
+                      <option value="Barrio 5">
                     </datalist>
                   </div>
 
-
                   <div class="input">
-                    <p><i class="fas fa-comment-dots"></i> Observaciones</p>
-                    <textarea class="Observaciones" id="observaciones_fiesta_vuelta"></textarea>
+                    <p><i class="fa-solid fa-globe"></i> Localidad</p>
+                    <input list="Localidad" id="localidad_fiesta_vuelta">
+                    <datalist id="Localidad">
+                      <option value="Localidad 1">
+                      <option value="Localidad 2">
+                      <option value="Localidad 3">
+                      <option value="Localidad 4">
+                      <option value="Localidad 5">
+                    </datalist>
                   </div>
 
                 </div>
@@ -782,16 +893,36 @@ session_start();
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-map-marker-alt"></i> Origen</p>
-                    <input type="text" id="origen_ida_fiestas_idavuelta">
+                    <p><i class="fa-solid fa-map"></i> Origen</p>
+                    <input type="text" id="destino_fiestas_idavuelta"/>
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-solid fa-house-building"></i> Barrio</p>
-                    <input list="Destino" id="fiestasidavuelta_origen_barrios">
-                    <datalist id="Destino">
-                      <option value="Canelones">
-                      <option value="Montevideo">
+                    <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
+                    <input type="text" id="direccion_ida_fiestas_idavuelta"/>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fa fa-map-location-dot"></i> Barrio</p>
+                    <input list="Barrio" id="barrio_ida_fiestas_idavuelta">
+                    <datalist id="Barrio">
+                      <option value="Barrio 1">
+                      <option value="Barrio 2">
+                      <option value="Barrio 3">
+                      <option value="Barrio 4">
+                      <option value="Barrio 5">
+                    </datalist>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fa-solid fa-globe"></i> Localidad</p>
+                    <input list="Localidad" id="localidad_ida_fiestas_idavuelta">
+                    <datalist id="Localidad">
+                      <option value="Localidad 1">
+                      <option value="Localidad 2">
+                      <option value="Localidad 3">
+                      <option value="Localidad 4">
+                      <option value="Localidad 5">
                     </datalist>
                   </div>
 
@@ -811,15 +942,6 @@ session_start();
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-solid fa-house-building"></i> Barrio</p>
-                    <input list="Destino" id="fiestas_ida_destino_barrios">
-                    <datalist id="Destino">
-                      <option value="Canelones">
-                      <option value="Montevideo">
-                    </datalist>
-                  </div>
-
-                  <div class="input">
                     <p><i class="fas fa-comment-dots"></i> Observaciones</p>
                     <textarea  id="observaciones_fiesta_idavuelta"></textarea>
                   </div>
@@ -836,16 +958,36 @@ session_start();
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-map-marker-alt"></i> Origen o Punto de Interés</p>
-                    <input type="text" id="origen_vuelta_fiestas_idavuelta">
+                    <p><i class="fa-solid fa-map"></i> Destino</p>
+                    <input type="text" id="destino_fiestas_idavuelta"/>
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-solid fa-house-building"></i> Barrio</p>
-                    <input list="Destino" id="fiestas_ida_destino_barrios">
-                    <datalist id="Destino">
-                      <option value="Canelones">
-                      <option value="Montevideo">
+                    <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
+                    <input type="text" id="direccion_vuelta_fiestas_idavuelta"/>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fa fa-map-location-dot"></i> Barrio</p>
+                    <input list="Barrio" id="barrio_vuelta_fiestas_idavuelta">
+                    <datalist id="Barrio">
+                      <option value="Barrio 1">
+                      <option value="Barrio 2">
+                      <option value="Barrio 3">
+                      <option value="Barrio 4">
+                      <option value="Barrio 5">
+                    </datalist>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fa-solid fa-globe"></i> Localidad</p>
+                    <input list="Localidad" id="localidad_vuelta_fiestas_idavuelta">
+                    <datalist id="Localidad">
+                      <option value="Localidad 1">
+                      <option value="Localidad 2">
+                      <option value="Localidad 3">
+                      <option value="Localidad 4">
+                      <option value="Localidad 5">
                     </datalist>
                   </div>
 
@@ -860,17 +1002,8 @@ session_start();
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-route"></i> Destino</p>
+                    <p><i class="fas fa-route"></i> Origen o Punto de Interés</p>
                     <input type="text" id="destino_vuelta_fiestas_idavuelta">
-                  </div>
-
-                  <div class="input">
-                    <p><i class="fas fa-solid fa-house-building"></i> Barrio</p>
-                    <input list="Destino" id="fiestas_ida_destino_barrios">
-                    <datalist id="Destino">
-                      <option value="Canelones">
-                      <option value="Montevideo">
-                    </datalist>
                   </div>
 
                   <div class="input">
