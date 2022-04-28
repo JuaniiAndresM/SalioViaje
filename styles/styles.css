@@ -171,7 +171,7 @@
 .servicios .servicios-wrapper .card {
   max-width: 300px;
   width: 100%;
-  min-height: 430px;
+  min-height: 450px;
   background: linear-gradient(45deg, #3844bc, #2b3179);
   -webkit-box-shadow: 10px 0px 20px 0 rgba(0, 0, 0, 0.3);
           box-shadow: 10px 0px 20px 0 rgba(0, 0, 0, 0.3);
@@ -212,6 +212,21 @@
   color: #ffffff;
   margin: 20px 0;
   font-size: 1em;
+}
+
+.servicios .servicios-wrapper .card .click-here {
+  height: 20px;
+  cursor: pointer;
+  text-align: center;
+  display: none;
+}
+
+.servicios .servicios-wrapper .card .click-here p {
+  color: #3844bc;
+}
+
+.servicios .servicios-wrapper .card .click-here p i {
+  margin-right: 10px;
 }
 
 .servicios .servicios-wrapper .card .card-bottom .info_2,
@@ -285,6 +300,10 @@
 
 .servicios .servicios-wrapper .card:hover .card-top .card-info .info_1 {
   color: #2b3179;
+}
+
+.servicios .servicios-wrapper .card:hover .click-here {
+  display: block;
 }
 
 .servicios .servicios-wrapper .card:hover .card-bottom .info_2,
