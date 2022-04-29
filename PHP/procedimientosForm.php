@@ -57,15 +57,21 @@ class procedimientosForm extends procedimientosBD
                     $rut = $empresa[$x]["RUT"];
                     $rut_ec = "0";
                 }
-                $this->register_vehiculo($rut, $rut_ec, $empresa[$x]["VEHICULOS"][$i]);
+                $this->register_vehiculo($rut, $rut_ec, $empresa[$x]["VEHICULOS"][$i],0);
             }
         }
     }
 
-    public function guardar_vehiculos($vehiculos, $rut)
+    public function guardar_vehiculos($vehiculos, $rut,$id_emp,$rut_agencia_contratista)
     {
+        echo json_encode($vehiculos);
+        echo $rut;
         for ($x = 0; $x < count($vehiculos); $x++) {
-            $this->register_vehiculo($rut, 0, $vehiculos[$x]);
+            if ($rut_agencia_contratista != null) {
+                $this->register_vehiculo($rut, $rut_agencia_contratista, $vehiculos[$x],$id_emp,$rut_agencia_contratista);
+            } else {
+                $this->register_vehiculo($rut, 0, $vehiculos[$x],$id_emp,$rut_agencia_contratista);
+            }
         }
     }
 
@@ -123,7 +129,7 @@ if ($_POST['tipo'] == 1) {
             break;
         case 'guardar-vehiculos':
             $datos = json_decode($_POST["vehiculos"], true);
-            echo $procedimientosForm->guardar_vehiculos($datos, $_POST['rut']);
+            echo $procedimientosForm->guardar_vehiculos($datos, $_POST['rut'],$_POST['id_empresa'],$_POST['rut_empresa_contratista']);
             break;
         case 'editar-vehiculos':
             $datos = json_decode($_POST["datos"], true);

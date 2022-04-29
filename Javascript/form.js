@@ -597,6 +597,7 @@ function add_vehicle() {
    }
 
    if (validacion("VEHICULO", datos_Vehiculo)) {
+      $(".vehiculos-wrapper").show()
       if (MATRICULAS_IGUALES == 1) {
          $('.mensaje-error').text("No pueden haber dos vehiculos con la misma matricula.");
          $('.mensaje-error').show()
