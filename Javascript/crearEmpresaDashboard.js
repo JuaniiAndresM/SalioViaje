@@ -124,7 +124,7 @@ function finalizar_empresa_total(id) {
         },
     });
     setTimeout(() => {
-        //location.href = "/Panel/Success_Empresa"
+        location.href = "/Panel/Success_Empresa"
     }, 2000);
 }
 
@@ -163,6 +163,9 @@ function crear_empresa_dash(tipo) {
         vehiculos = [];
         reset_vehicles();
         next()
+        if (tipo == "AGT" || tipo == "ANF") {
+            next()
+        }
     } else { console.log("No valido...") }
 
 }

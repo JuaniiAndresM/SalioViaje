@@ -198,7 +198,7 @@
                 <button class="button-register" id="add-vehicle" onclick="valido_Empresa_sin_crearla('<?php echo $_SESSION['datos_usuario']['TIPO_USUARIO'] ?>')">
                     <i class="fas fa-car-side"></i> Agregar Vehículo
                 </button>
-                <button class="button-register" id="finalizar_empresa" onclick="next()">
+                <button class="button-register" id="finalizar_empresa" onclick="crear_empresa_dash('<?php echo $_SESSION['datos_usuario']['TIPO_USUARIO'] ?>')">
                     <i class="fas fa-building"></i> Crear Empresa
                 </button>
             </div>
