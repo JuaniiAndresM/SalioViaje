@@ -17,8 +17,9 @@ if (!isset($_SESSION['usuario'])) {
         } else {
             $usuario = $info_usuario->info_usuario_profile($_SESSION['datos_usuario']['ID']);
             $empresas = $info_usuario->traer_empresas_usuario($usuario[0]["ID"]);
-
-            $size_e = sizeof($empresas);
+            if($empresas != null){
+              $size_e = sizeof($empresas);
+            }
         }
     }
 }
@@ -171,9 +172,12 @@ if (!isset($_SESSION['usuario'])) {
               </thead>
               <?php
 if ($_SESSION['tipo_usuario'] != "Administrador") {
-    $vehiculos = json_decode($info_usuario->traer_datos_vehiculo($_SESSION['datos_usuario']['ID']), true);
 
-    $size = sizeof($vehiculos);
+    $vehiculos = json_decode($info_usuario->traer_datos_vehiculo($_SESSION['datos_usuario']['ID']), true);
+    if($vehiculos != null){
+      $size = sizeof($vehiculos);
+    }
+    
 
     for ($a = 0; $a < $size; $a++) {
         if ($size != 0) {

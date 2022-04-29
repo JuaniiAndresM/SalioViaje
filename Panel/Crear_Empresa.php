@@ -195,10 +195,10 @@
                 <p id="mensaje-error" class="mensaje-error"></p>
                 
             
-                <button class="button-register" id="add-vehicle" onclick="valido_Empresa_sin_crearla()">
+                <button class="button-register" id="add-vehicle" onclick="valido_Empresa_sin_crearla('<?php echo $_SESSION['datos_usuario']['TIPO_USUARIO'] ?>')">
                     <i class="fas fa-car-side"></i> Agregar Vehículo
                 </button>
-                <button class="button-register" id="finalizar_empresa" onclick="crear_empresa(1)">
+                <button class="button-register" id="finalizar_empresa" onclick="next()">
                     <i class="fas fa-building"></i> Crear Empresa
                 </button>
             </div>
@@ -274,7 +274,7 @@
             <div class="vehiculos">
                 <div id="no-vehicle"><p>No hay vehiculos agregados.</p></div>
             </div>
-            <button class="finalizar-button" id="finalizar_empresa_2" onclick="finalizar_empresa()"><i class="fas fa-building"></i> Finalizar Empresa</button>
+            <button class="finalizar-button" id="finalizar_empresa_2" onclick="crear_empresa_dash('<?php echo $_SESSION['datos_usuario']['TIPO_USUARIO'] ?>')"><i class="fas fa-building"></i> Finalizar Empresa</button>
 
             </div>
 

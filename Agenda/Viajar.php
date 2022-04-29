@@ -504,8 +504,8 @@ session_start();
                 <i class="fas fa-plane" id="icon"></i>
                 <select name="" id="select_transfer" onchange="select_transfer()">
                   <option value="0" selected disabled hidden >Transfer In</option>
-                  <option value="1">Transfer In</option>
-                  <option value="2">Transfer Out</option>
+                  <option value="1">Transfer de Arribos</option>
+                  <option value="2">Transfer de Partidas</option>
                 </select>
               </div>
 
@@ -514,7 +514,7 @@ session_start();
                 <div class="column">
 
                   <div class="input">
-                    <p><i class="far fa-calendar-alt"></i> Fecha de Regreso</p>
+                    <p><i class="far fa-calendar-alt"></i> Fecha de Arribo</p>
                     <input type="date" id="fecha_regreso_transfer_in"/>
                   </div>
 
@@ -552,7 +552,7 @@ session_start();
                 <div class="column">
 
                   <div class="input">
-                    <p><i class="far fa-calendar-alt"></i> Hora</p>
+                    <p><i class="far fa-calendar-alt"></i> Hora de pasar a buscar</p>
                     <input type="time" id="hora_transfer_in"/>
                   </div>
 
@@ -603,7 +603,7 @@ session_start();
                 <div class="column">
 
                   <div class="input">
-                    <p><i class="far fa-calendar-alt"></i> Fecha de Regreso</p>
+                    <p><i class="far fa-calendar-alt"></i> Fecha de Partida</p>
                     <input type="date" id="fecha_salida_transfer_out"/>
                   </div>
 

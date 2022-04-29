@@ -72,7 +72,7 @@
                     }
 
                     echo '  <a href="https://www.salioviaje.com.uy/"><i class="fas fa-home"></i> Home</a>
-                            <a href="https://www.salioviaje.com.uy/Servicios"><i class="fas fa-list-ul"></i> Servicios</a>
+                            <a href="https://www.salioviaje.com.uy/Central"><i class="fas fa-list-ul"></i> Central</a>
                             <a href="https://www.salioviaje.com.uy/Nosotros"><i class="fas fa-info"></i> Sobre Nosotros</a>
                             <a href="https://www.salioviaje.com.uy/Viajar"><i class="fas fa-book"></i> Oportunidades</a>
                             <a href="https://www.salioviaje.com.uy/00_Experiencias.html"><i class="fas fa-star"></i>     Experiencias</a>                          
