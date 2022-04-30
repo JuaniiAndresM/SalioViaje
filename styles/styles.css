@@ -5661,6 +5661,18 @@ footer .totum p a:hover {
   margin-right: 10px;
 }
 
+.panel .panel-tables .usuarios-recientes .usuarios-table tr td select, .panel .panel-tables .usuarios-recientes .viajes-table tr td select,
+.panel .panel-tables .usuarios-propietarios .usuarios-table tr td select,
+.panel .panel-tables .usuarios-propietarios .viajes-table tr td select {
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #aaa;
+  outline: none;
+  color: #2b3179;
+  font-size: 0.85em;
+}
+
 .panel .panel-tables .usuarios-recientes .usuarios-table tr td .button-wrapper, .panel .panel-tables .usuarios-recientes .viajes-table tr td .button-wrapper,
 .panel .panel-tables .usuarios-propietarios .usuarios-table tr td .button-wrapper,
 .panel .panel-tables .usuarios-propietarios .viajes-table tr td .button-wrapper {
@@ -6272,6 +6284,36 @@ footer .totum p a:hover {
   padding: 20px;
 }
 
+.section-usuarios .usuarios-recientes .button-wrapper {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.section-usuarios .usuarios-recientes .button-wrapper .save-button {
+  background: -webkit-gradient(linear, left top, right top, from(#3844bc), to(#2b3179));
+  background: linear-gradient(to right, #3844bc, #2b3179);
+  color: #ffffff;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 2em;
+  margin-top: 10px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.section-usuarios .usuarios-recientes .button-wrapper .save-button i {
+  margin-right: 5px;
+}
+
 .section-usuarios .usuarios-recientes .usuarios-info {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6547,6 +6589,16 @@ footer .totum p a:hover {
   margin-right: 10px;
 }
 
+.section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td select {
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #aaa;
+  outline: none;
+  color: #2b3179;
+  font-size: 0.85em;
+}
+
 .section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td .button-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6726,6 +6778,16 @@ footer .totum p a:hover {
     -webkit-box-pack: end !important;
         -ms-flex-pack: end !important;
             justify-content: flex-end !important;
+  }
+  .panel-tables .usuarios-recientes .usuarios-table th select,
+  .panel-tables .usuarios-recientes .usuarios-table td select {
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #aaa;
+    outline: none;
+    color: #2b3179;
+    font-size: 0.85em;
   }
 }
 

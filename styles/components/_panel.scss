@@ -527,6 +527,16 @@ $main_3: #6d76db;
               }
             }
 
+            select {
+              height: 40px;
+              background-color: transparent;
+              border: none;
+              border-bottom: 1px solid #aaa;
+              outline: none;
+              color: $main_2;
+              font-size: 0.85em;
+            }
+
             .button-wrapper{
               display: flex;
               justify-content: center;
@@ -963,6 +973,17 @@ $main_3: #6d76db;
     border-radius: 10px;
     padding: 20px;
 
+    .button-wrapper{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .save-button{
+        @include button();
+      }
+    }
+
     .usuarios-info {
       display: flex;
       justify-content: space-between;
@@ -1157,6 +1178,17 @@ $main_3: #6d76db;
                 margin-right: 10px;
               }
             }
+
+            select {
+              height: 40px;
+              background-color: transparent;
+              border: none;
+              border-bottom: 1px solid #aaa;
+              outline: none;
+              color: $main_2;
+              font-size: 0.85em;
+            }
+
             .button-wrapper{
               display: flex;
               justify-content: center;
@@ -1334,6 +1366,16 @@ $main_3: #6d76db;
 
           .estado {
             justify-content: flex-end !important;
+          }
+
+          select {
+            height: 40px;
+            background-color: transparent;
+            border: none;
+            border-bottom: 1px solid #aaa;
+            outline: none;
+            color: $main_2;
+            font-size: 0.85em;
           }
         }
       }

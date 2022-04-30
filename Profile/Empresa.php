@@ -1,6 +1,6 @@
 <?php 
 require_once '../PHP/procedimientosBD.php';
-  session_start(); 
+  session_start();
 
 
   if(!isset($_SESSION['usuario'])){
@@ -184,99 +184,122 @@ require_once '../PHP/procedimientosBD.php';
         </div>
 
         <div class="profile-grid">
-            <div class="user-informacion">
+          <?php 
+            if($usuario[0]['TIPO_USUARIO'] != "ANF" && $usuario[0]['TIPO_USUARIO'] != "AGT"){
+              echo '<div class="user-informacion">
 
-                <h3><i class="fas fa-bus"></i> Vehiculos de la Empresa</h3>
+              <h3><i class="fas fa-bus"></i> Vehiculos de la Empresa</h3>
 
-                <div class="search">
-                <i class="fas fa-search"></i>
-                <input
-                    type="text"
-                    placeholder="Buscar"
-                    id="searchbar"
-                    onkeyup="buscarUsuarios()"
-                />
-                </div>
-                <div class="table-overflow">
-                            <table class="vehiculos-table" id="search-table">
-                                <thead>
-                                    <tr>
-                                    <th>ID <i class="fas fa-angle-down"></i></th>
-                                    <th>Matrícula <i class="fas fa-angle-down"></i></th>
-                                    <th>Marca <i class="fas fa-angle-down"></i></th>
-                                    <th>Modelo <i class="fas fa-angle-down"></i></th>
-                                    <th>Combustible <i class="fas fa-angle-down"></i></th>
-                                    <th>Capacidad <i class="fas fa-angle-down"></i></th>
-                                    <th>Equipaje <i class="fas fa-angle-down"></i></th>
-                                    <th>RUT E <i class="fas fa-angle-down"></i></th>
-                                    <th>Pet Friendly <i class="fas fa-angle-down"></i></th>
-                                    <th></th>
-                                    </tr>
-                                </thead>
-                <?php 
-                
-                  if($vehiculos === null){
-                    
-                  }else{
-                    $size = sizeof($vehiculos);
-                    for($i = 0; $i< sizeof($vehiculos); $i++){
-                      echo '
-                                <tbody id="tbody">
-                                    <td>'.$vehiculos[$i]['ID'].'</td>
-                                    <td>'.$vehiculos[$i]['MATRICULA'].'</td>
-                                    <td>'.$vehiculos[$i]['MARCA'].'</td>
-                                    <td>'.$vehiculos[$i]['MODELO'].'</td>
-                                    <td>'.$vehiculos[$i]['COMBUSTIBLE'].'</td>
-                                    <td>'.$vehiculos[$i]['CAPACIDAD'].'</td>
-                                    <td>'.$vehiculos[$i]['EQUIPAJE'].'</td>
-                                    <td>'.$vehiculos[$i]['RUT_EM'].'</td>
-                                    <td>'.$vehiculos[$i]['PET_FRIENDLY'].'</td>
-                                </tbody>';
-                    }
+              <div class="search">
+              <i class="fas fa-search"></i>
+              <input
+                  type="text"
+                  placeholder="Buscar"
+                  id="searchbar"
+                  onkeyup="buscarUsuarios()"
+              />
+              </div>
+              <div class="table-overflow">
+                          <table class="vehiculos-table" id="search-table">
+                              <thead>
+                                  <tr>
+                                  <th>ID <i class="fas fa-angle-down"></i></th>
+                                  <th>Matrícula <i class="fas fa-angle-down"></i></th>
+                                  <th>Marca <i class="fas fa-angle-down"></i></th>
+                                  <th>Modelo <i class="fas fa-angle-down"></i></th>
+                                  <th>Combustible <i class="fas fa-angle-down"></i></th>
+                                  <th>Capacidad <i class="fas fa-angle-down"></i></th>
+                                  <th>Equipaje <i class="fas fa-angle-down"></i></th>
+                                  <th>RUT E <i class="fas fa-angle-down"></i></th>
+                                  <th>Pet Friendly <i class="fas fa-angle-down"></i></th>
+                                  <th></th>
+                                  </tr>
+                              </thead>';
+              
+                if($vehiculos === null){
+                  
+                }else{
+                  $size = sizeof($vehiculos);
+                  for($i = 0; $i< sizeof($vehiculos); $i++){
+                    echo '
+                              <tbody id="tbody">
+                                  <td>'.$vehiculos[$i]['ID'].'</td>
+                                  <td>'.$vehiculos[$i]['MATRICULA'].'</td>
+                                  <td>'.$vehiculos[$i]['MARCA'].'</td>
+                                  <td>'.$vehiculos[$i]['MODELO'].'</td>
+                                  <td>'.$vehiculos[$i]['COMBUSTIBLE'].'</td>
+                                  <td>'.$vehiculos[$i]['CAPACIDAD'].'</td>
+                                  <td>'.$vehiculos[$i]['EQUIPAJE'].'</td>
+                                  <td>'.$vehiculos[$i]['RUT_EM'].'</td>
+                                  <td>'.$vehiculos[$i]['PET_FRIENDLY'].'</td>
+                              </tbody>';
                   }
-                ?>
-                </table>
-                </div>
-            </div>
+                }
 
-          <div class="viajes-wrapper">
+                                echo '
+                              </table>
+                              </div>
+                          </div>';
+
+                echo '<div class="viajes-wrapper">
                 <h3><i class="fas fa-user-friends"></i> Choferes Asociados</h3>
 
                 <div class="search">
                   <i class="fas fa-search"></i>
                   <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarusuarios()"/>
                 </div>
-                <div class="empresas">
-                <?php 
-                  if($choferes === null){
-                    
-                  }else{
-                    for($i = 0; $i< sizeof($choferes); $i++){
-                      echo '
-                      <div class="empresa">
-                        <div class="empresa-left">
-                          <div class="empresa-icon">
-                              <i class="fas fa-user"></i>
+                <div class="empresas">';
+                    if($choferes === null){
+                      
+                    }else{
+                      for($i = 0; $i< sizeof($choferes); $i++){
+                        echo '
+                        <div class="empresa">
+                          <div class="empresa-left">
+                            <div class="empresa-icon">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="empresa-info">
+                                <h3>'.$choferes[$i][0]['NOMBRE'].'</h3>
+                            </div>
                           </div>
-                          <div class="empresa-info">
-                              <h3>'.$choferes[$i][0]['NOMBRE'].'</h3>
+                          <div class="empresa-button">
+                            <button class="button" id="'.$choferes[$i][0]['ID'].'" onclick="ver_usuario('.$choferes[$i][0]['ID'].')"><i class="far fa-eye"></i></button>
+                            <button class="button" id="'.$choferes[$i][0]['ID'].'" onclick="eliminar_usuario('.$choferes[$i][0]['ID'].')"><i class="fas fa-trash-alt"></i></button>
                           </div>
-                        </div>
-                        <div class="empresa-button">
-                          <button class="button" id="'.$choferes[$i][0]['ID'].'" onclick="ver_usuario('.$choferes[$i][0]['ID'].')"><i class="far fa-eye"></i></button>
-                          <button class="button" id="'.$choferes[$i][0]['ID'].'" onclick="eliminar_usuario('.$choferes[$i][0]['ID'].')"><i class="fas fa-trash-alt"></i></button>
-                        </div>
-                      </div>';
+                        </div>';
+                      }
                     }
-                  }
-                ?>
+                    echo '
                 </div>
-          </div>
+              </div>';
+            }else{
+              echo '<div class="user-informacion">
+              
+                <h3><i class="fas fa-address-card"></i> Información de la Empresa</h3>
+
+                  <div class="informacion-wrapper">
+  
+                <div class="info">
+                  <b><i class="fas fa-signature"></i> Nombre Comercial</b>
+                  <p>'.$usuario[0]['NOMBRE_COMERCIAL'].'</p>
+                </div>
+                <div class="info">
+                  <b><i class="fas fa-building"></i> Razón Social</b>
+                  <p>'.$usuario[0]['RAZON_SOCIAL'].'</p>
+                </div>
+  
+              </div>
+              </div>';
+            }
+
+          ?>
+
         </div>
         <div class="profile_grid2"></div>
 
         
       </div>
-    </section>
+    </section>';
   </body>
 </html>

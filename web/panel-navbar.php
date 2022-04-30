@@ -151,7 +151,7 @@
     
     if($tipo == 1){
       echo '<li>
-              <a class href="https://www.salioviaje.com.uy/FAQ_Edit">
+              <a class href="https://www.salioviaje.com.uy/Editar_Cotizacion">
                 <span class="icon"><i class="fas fa-chart-line"></i></span>
                 <span class="title">Editar Cotizaciones</span>
               </a>
