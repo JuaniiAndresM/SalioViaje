@@ -138,46 +138,41 @@
             <div class="cotizacion-info">
 
               <div class="info">
-                <b><i class="far fa-address-card"></i> N° Viaje</b>
-                <p>#<?php echo $array_oportuidad[0]['ID']; ?></p>
+                <b><i class="far fa-address-card"></i> ID</b>
+                <p>#1</p>
               </div>
 
               <div class="info">
                 <b><i class="fas fa-map-marker-alt"></i> Origen</b>
-                <p><?php echo $array_oportuidad[0]['ORIGEN']; ?></p>
+                <p>Canelones, Ciudad de la Costa.</p>
               </div>
 
               <div class="info">
                 <b><i class="fas fa-route"></i> Destino</b>
-                <p><?php echo $array_oportuidad[0]['DESTINO']; ?></p>
+                <p>Maldonado, Punta del Este.</p>
               </div>
 
               <div class="info">
                 <b><i class="far fa-calendar-alt"></i> Fecha</b>
-                <p><?php echo $fecha[0]; ?></p>
+                <p>24/05/22</p>
               </div>
 
               <div class="info">
                 <b><i class="far fa-clock"></i> Hora</b>
-                <p><?php echo $fecha[1]; ?></p>
+                <p>18:03</p>
               </div>
 
               <div class="info">
-                <b><i class="fas fa-user-friends"></i> Capacidad</b>
-                <p><?php echo $array_oportuidad[0]['CAPACIDAD_VEHICULO']; ?></p>
+                <b><i class="fas fa-user-friends"></i> Pasajeros</b>
+                <p>20</p>
+              </div>
+
+              <div class="info">
+                <b><i class="fas fa-dog"></i> Mascotas</b>
+                <p>Si</p>
               </div>
 
             </div>
-            <div class="price_wrapper">
-              <div class="discount">
-                <h3><?php echo $array_oportuidad[0]['DESCUENTO']; ?>% <i class="fas fa-tags"></i></h3>
-              </div>
-              <div class="price">
-                <p class="desc">$ <?php echo number_format($array_oportuidad[0]['PRECIO']); ?></p>
-                <p>$ <?php echo number_format($PRECIO_CON_DESCUENTO_APLICADO); ?></p>
-              </div>
-            </div>
-
           </div>
         </div>
     </section>
