@@ -936,10 +936,30 @@ class validaciones
 							$VALIDACION['FECHA_SALIDA'] = 1;
 						} else { $VALIDACION['FECHA_SALIDA'] = 0; }
 					break;
-					case 'ORIGEN':
+					case 'DIRECCION_ORIGEN':
 						if ($valor != null) {
-							$VALIDACION['ORIGEN'] = 1;
-						} else { $VALIDACION['ORIGEN'] = 0; }
+							$VALIDACION['DIRECCION_ORIGEN'] = 1;
+						} else { $VALIDACION['DIRECCION_ORIGEN'] = 0; }
+					 break;
+					 case 'BARRIO_ORIGEN':
+						if ($valor != null) {
+							$VALIDACION['BARRIO_ORIGEN'] = 1;
+						} else { $VALIDACION['BARRIO_ORIGEN'] = 0; }
+					 break;
+					 case 'LOCALIDAD_ORIGEN':
+						if ($valor != null) {
+							$VALIDACION['LOCALIDAD_ORIGEN'] = 1;
+						} else { $VALIDACION['LOCALIDAD_ORIGEN'] = 0; }
+					 break;
+					 case 'PUNTO_DESTINO':
+						if ($valor != null) {
+							$VALIDACION['PUNTO_DESTINO'] = 1;
+						} else { $VALIDACION['PUNTO_DESTINO'] = 0; }
+					 break;
+					 case 'BARRIO_DESTINO':
+						if ($valor != null) {
+							$VALIDACION['BARRIO_DESTINO'] = 1;
+						} else { $VALIDACION['BARRIO_DESTINO'] = 0; }
 					 break;
 					case 'CANTIDAD_PASAJEROS_IDA':
 						if ($valor != null) {
@@ -951,16 +971,11 @@ class validaciones
 							$VALIDACION['HORA'] = 1;
 						} else { $VALIDACION['HORA'] = 0; }
 					 break;
-					case 'DESTINO':
-						if ($valor != null) {
-							$VALIDACION['DESTINO'] = 1;
-						} else { $VALIDACION['DESTINO'] = 0; }
-					 break;
 				}
 			}
 		}
 
-		if (count($VALIDACION) != 6) {
+		if (count($VALIDACION) != 9) {
 			$DATOS_VACIOS = "Err-1";
 		}
 
@@ -994,10 +1009,30 @@ class validaciones
 							$VALIDACION['FECHA_REGRESO'] = 1;
 						} else { $VALIDACION['FECHA_REGRESO'] = 0; }
 					break;
-					case 'ORIGEN':
+					case 'DIRECCION_DESTINO':
 						if ($valor != null) {
-							$VALIDACION['ORIGEN'] = 1;
-						} else { $VALIDACION['ORIGEN'] = 0; }
+							$VALIDACION['DIRECCION_DESTINO'] = 1;
+						} else { $VALIDACION['DIRECCION_DESTINO'] = 0; }
+					 break;
+					 case 'BARRIO_DESTINO':
+						if ($valor != null) {
+							$VALIDACION['BARRIO_DESTINO'] = 1;
+						} else { $VALIDACION['BARRIO_DESTINO'] = 0; }
+					 break;
+					 case 'LOCALIDAD_DESTINO':
+						if ($valor != null) {
+							$VALIDACION['LOCALIDAD_DESTINO'] = 1;
+						} else { $VALIDACION['LOCALIDAD_DESTINO'] = 0; }
+					 break;
+					 case 'PUNTO_ORIGEN':
+						if ($valor != null) {
+							$VALIDACION['PUNTO_ORIGEN'] = 1;
+						} else { $VALIDACION['PUNTO_ORIGEN'] = 0; }
+					 break;
+					 case 'BARRIO_ORIGEN':
+						if ($valor != null) {
+							$VALIDACION['BARRIO_ORIGEN'] = 1;
+						} else { $VALIDACION['BARRIO_ORIGEN'] = 0; }
 					 break;
 					case 'CANTIDAD_PASAJEROS_VUELTA':
 						if ($valor != null) {
@@ -1009,18 +1044,14 @@ class validaciones
 							$VALIDACION['HORA'] = 1;
 						} else { $VALIDACION['HORA'] = 0; }
 					 break;
-					case 'DESTINO':
-						if ($valor != null) {
-							$VALIDACION['DESTINO'] = 1;
-						} else { $VALIDACION['DESTINO'] = 0; }
-					 break;
 				}
 			}
 		}
 
-		if (count($VALIDACION) != 6) {
+		if (count($VALIDACION) != 9) {
 			$DATOS_VACIOS = "Err-1";
 		}
+
 
 		foreach ($VALIDACION as $clave => $valor){
 			if ($valor  == 0) {
@@ -1051,60 +1082,76 @@ class validaciones
 							$VALIDACION['FECHA_SALIDA'] = 1;
 						} else { $VALIDACION['FECHA_SALIDA'] = 0; }
 					break;
-					case 'ORIGEN':
+					case 'DIRECCION_ORIGEN':
 						if ($valor != null) {
-							$VALIDACION['ORIGEN'] = 1;
-						} else { $VALIDACION['ORIGEN'] = 0; }
+							$VALIDACION['DIRECCION_ORIGEN'] = 1;
+						} else { $VALIDACION['DIRECCION_ORIGEN'] = 0; }
+					 break;
+					 case 'BARRIO_ORIGEN':
+						if ($valor != null) {
+							$VALIDACION['BARRIO_ORIGEN'] = 1;
+						} else { $VALIDACION['BARRIO_ORIGEN'] = 0; }
+					 break;
+					 case 'LOCALIDAD_ORIGEN':
+						if ($valor != null) {
+							$VALIDACION['LOCALIDAD_ORIGEN'] = 1;
+						} else { $VALIDACION['LOCALIDAD_ORIGEN'] = 0; }
+					 break;
+					 case 'PUNTO_DESTINO':
+						if ($valor != null) {
+							$VALIDACION['PUNTO_DESTINO'] = 1;
+						} else { $VALIDACION['PUNTO_DESTINO'] = 0; }
+					 break;
+					 case 'HORA_SALIDA':
+						if ($valor != null) {
+							$VALIDACION['HORA_SALIDA'] = 1;
+						} else { $VALIDACION['HORA_SALIDA'] = 0; }
 					 break;
 					case 'CANTIDAD_PASAJEROS_IDA':
 						if ($valor != null) {
 							$VALIDACION['CANTIDAD_PASAJEROS_IDA'] = 1;
 						} else { $VALIDACION['CANTIDAD_PASAJEROS_IDA'] = 0; }
 					 break;
-					case 'HORA':
-						if ($valor != null) {
-							$VALIDACION['HORA'] = 1;
-						} else { $VALIDACION['HORA'] = 0; }
-					 break;
-					case 'DESTINO':
-						if ($valor != null) {
-							$VALIDACION['DESTINO'] = 1;
-						} else { $VALIDACION['DESTINO'] = 0; }
-					 break;
-					case 'TRAMOS_FIESTA':
-						if ($valor != null) {
-							$VALIDACION['TRAMOS_FIESTA'] = 1;
-						} else { $VALIDACION['TRAMOS_FIESTA'] = 0; }
-					 break;
-					case 'FECHA_REGRESO':
+					 case 'FECHA_REGRESO':
 						if ($valor != null) {
 							$VALIDACION['FECHA_REGRESO'] = 1;
 						} else { $VALIDACION['FECHA_REGRESO'] = 0; }
-					 break;
-					case 'ORIGEN_REGRESO':
+					break;
+					case 'DIRECCION_DESTINO':
 						if ($valor != null) {
-							$VALIDACION['ORIGEN_REGRESO'] = 1;
-						} else { $VALIDACION['ORIGEN_REGRESO'] = 0; }
+							$VALIDACION['DIRECCION_DESTINO'] = 1;
+						} else { $VALIDACION['DIRECCION_DESTINO'] = 0; }
+					 break;
+					 case 'BARRIO_DESTINO':
+						if ($valor != null) {
+							$VALIDACION['BARRIO_DESTINO'] = 1;
+						} else { $VALIDACION['BARRIO_DESTINO'] = 0; }
+					 break;
+					 case 'LOCALIDAD_DESTINO':
+						if ($valor != null) {
+							$VALIDACION['LOCALIDAD_DESTINO'] = 1;
+						} else { $VALIDACION['LOCALIDAD_DESTINO'] = 0; }
+					 break;
+					 case 'PUNTO_ORIGEN':
+						if ($valor != null) {
+							$VALIDACION['PUNTO_ORIGEN'] = 1;
+						} else { $VALIDACION['PUNTO_ORIGEN'] = 0; }
+					 break;
+					 case 'HORA_REGRESO':
+						if ($valor != null) {
+							$VALIDACION['HORA_REGRESO'] = 1;
+						} else { $VALIDACION['HORA_REGRESO'] = 0; }
 					 break;
 					case 'CANTIDAD_PASAJEROS_VUELTA':
 						if ($valor != null) {
 							$VALIDACION['CANTIDAD_PASAJEROS_VUELTA'] = 1;
 						} else { $VALIDACION['CANTIDAD_PASAJEROS_VUELTA'] = 0; }
 					 break;
-					case 'HORA_REGRESO':
-						if ($valor != null) {
-							$VALIDACION['HORA_REGRESO'] = 1;
-						} else { $VALIDACION['HORA_REGRESO'] = 0; }
-					 break;
-					case 'DESTINO_REGRESO':
-						if ($valor != null) {
-							$VALIDACION['DESTINO_REGRESO'] = 1;
-						} else { $VALIDACION['DESTINO_REGRESO'] = 0; }
-					 break;
 				}
 			}
 		}
-		if (count($VALIDACION) != 11) {
+
+		if (count($VALIDACION) != 15) {
 			$DATOS_VACIOS = "Err-1";
 		}
 

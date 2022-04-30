@@ -93,7 +93,7 @@ function finalizar(enviar_solicitud) {
                                 }
                             }
                         });
-                       guardar_cotizacion(datos_traslado,array_paradas_1,null,"traslados")
+                       guardar_cotizacion(datos_traslado,array_paradas_1,0,"traslados")
                     }
                 } else {
                     $(".mensaje-error").show();
@@ -140,7 +140,7 @@ function finalizar(enviar_solicitud) {
                                 }
                             }
                         });
-                        guardar_cotizacion(datos_tour,array_paradas_1,null,"tour")
+                        guardar_cotizacion(datos_tour,array_paradas_1,0,"tour")
                     }
                 } else {
                     $(".mensaje-error").show();
@@ -197,7 +197,7 @@ function finalizar(enviar_solicitud) {
                                         }
                                     }
                                 });
-                                guardar_cotizacion(datos_transfer_in,array_paradas_1,null,"transferIn")
+                                guardar_cotizacion(datos_transfer_in,array_paradas_1,0,"transferIn")
                             }
                         } else {
                             $(".mensaje-error").show();
@@ -246,7 +246,7 @@ function finalizar(enviar_solicitud) {
                                         }
                                     }
                                 });
-                                guardar_cotizacion(datos_transfer_out,array_paradas_1,null,"transferOut")
+                                guardar_cotizacion(datos_transfer_out,array_paradas_1,0,"transferOut")
                             }
                         } else {
                             $(".mensaje-error").show();
@@ -266,17 +266,22 @@ function finalizar(enviar_solicitud) {
         case "4":
             var tramos = $('#select_fiesta').val();
             var fiestas;
-
+            console.log(array_paradas_1)
+            console.log(array_paradas_2)
             switch (tramos) {
                 case "1":
                     fiestas = "Solo Ida";
                     datos_fiestaseventos_ida = {
                         "TRAMOS_FIESTA": fiestas,
                         "FECHA_SALIDA": $('#fecha_salida_fiestas_ida').val(),
-                        "ORIGEN": $('#origen_fiestas_ida').val(),
+                        "DIRECCION_ORIGEN": $('#direccion_fiestas_ida').val(),
+                        "BARRIO_ORIGEN": $('#barrio_fiestas_ida').val(),
+                        "LOCALIDAD_ORIGEN": $('#localidad_fiestas_ida').val(),
+                        "PUNTO_DESTINO": $('#destino_fiesta_ida').val(),
+                        "BARRIO_DESTINO": $('#fiestasida_origen_barrios').val(),
                         "CANTIDAD_PASAJEROS_IDA": $('#cant_pasajeros_fiesta_ida').val(),
                         "HORA": $('#hora_fiesta_ida').val(),
-                        "DESTINO": $('#destino_fiesta_ida').val(),
+                        "MASCOTAS": $('#mascotas_fiestas_ida').val(),
                         "OBSERVACIONES": $('#observaciones_fiesta_ida').val()
                     };
 
@@ -300,6 +305,8 @@ function finalizar(enviar_solicitud) {
                                         }
                                     }
                                 });
+                               console.log(datos_fiestaseventos_ida)
+                               guardar_cotizacion(datos_fiestaseventos_ida,array_paradas_1,0,"fiestasIda")
                             }
                         } else {
                             $(".mensaje-error").show();
@@ -315,10 +322,14 @@ function finalizar(enviar_solicitud) {
                     datos_fiestaseventos_vuelta = {
                         "TRAMOS_FIESTA": fiestas,
                         "FECHA_REGRESO": $('#fecha_regreso_fiestas_vuelta').val(),
-                        "ORIGEN": $('#origen_fiestas_vuelta').val(),
+                        "DIRECCION_DESTINO": $('#direccion_fiesta_vuelta').val(),
+                        "BARRIO_DESTINO": $('#barrio_fiesta_vuelta').val(),
+                        "LOCALIDAD_DESTINO": $('#localidad_fiesta_vuelta').val(),
+                        "PUNTO_ORIGEN": $('#origen_fiestas_vuelta').val(),
+                        "BARRIO_ORIGEN": $('#fiestasvuelta_origen_barrios').val(),
                         "CANTIDAD_PASAJEROS_VUELTA": $('#cant_pasajeros_fiesta_vuelta').val(),
                         "HORA": $('#hora_fiesta_vuelta').val(),
-                        "DESTINO": $('#destino_fiesta_vuelta').val(),
+                        "MASCOTAS": $('#mascotas_fiestas_vuelta').val(),
                         "OBSERVACIONES": $('#observaciones_fiesta_vuelta').val()
                     };
 
@@ -342,6 +353,9 @@ function finalizar(enviar_solicitud) {
                                         }
                                     }
                                 });
+                                console.log(datos_fiestaseventos_ida)
+                                console.log(array_paradas_2)
+                                guardar_cotizacion(datos_fiestaseventos_vuelta,0,array_paradas_2,"fiestasVuelta")
                             }
                         } else {
                             $(".mensaje-error").show();
@@ -356,17 +370,24 @@ function finalizar(enviar_solicitud) {
                     fiestas = "Ida y Vuelta";
                     datos_fiestaseventos_idavuelta = {
                         "TRAMOS_FIESTA": fiestas,
+
                         "FECHA_SALIDA": $('#fecha_salida_fiestas_idavuelta').val(),
-                        "ORIGEN": $('#origen_ida_fiestas_idavuelta').val(),
+                        "DIRECCION_ORIGEN": $('#direccion_ida_fiestas_idavuelta').val(),
+                        "BARRIO_ORIGEN": $('#barrio_ida_fiestas_idavuelta').val(),
+                        "LOCALIDAD_ORIGEN": $('#localidad_ida_fiestas_idavuelta').val(),
+                        "PUNTO_DESTINO": $('#destino_ida_fiestas_idavuelta').val(),
+                        "HORA_SALIDA": $('#hora_ida_fiestas_idavuelta').val(),
                         "CANTIDAD_PASAJEROS_IDA": $('#cant_pasajeros_ida_fiestas_idavuelta').val(),
-                        "HORA": $('#hora_ida_fiestas_idavuelta').val(),
-                        "DESTINO": $('#destino_ida_fiestas_idavuelta').val(),
 
                         "FECHA_REGRESO": $('#fecha_regreso_fiestas_idavuelta').val(),
-                        "ORIGEN_REGRESO": $('#origen_vuelta_fiestas_idavuelta').val(),
-                        "CANTIDAD_PASAJEROS_VUELTA": $('#cant_pasajeros_vuelta_fiestas_idavuelta').val(),
+                        "DIRECCION_DESTINO": $('#direccion_vuelta_fiestas_idavuelta').val(),
+                        "BARRIO_DESTINO": $('#barrio_vuelta_fiestas_idavuelta').val(),
+                        "LOCALIDAD_DESTINO": $('#localidad_vuelta_fiestas_idavuelta').val(),
+                        "PUNTO_ORIGEN": $('#destino_vuelta_fiestas_idavuelta').val(),
                         "HORA_REGRESO": $('#hora_vuelta_fiestas_idavuelta').val(),
-                        "DESTINO_REGRESO": $('#destino_vuelta_fiestas_idavuelta').val(),
+                        "CANTIDAD_PASAJEROS_VUELTA": $('#cant_pasajeros_vuelta_fiestas_idavuelta').val(),
+                    
+                        "MASCOTAS": $('#mascotas_fiestas_idavuelta').val(),
                         "OBSERVACIONES": $('#observaciones_fiesta_idavuelta').val()
                     };
 
@@ -390,17 +411,15 @@ function finalizar(enviar_solicitud) {
                                         }
                                     }
                                 });
+                                guardar_cotizacion(datos_fiestaseventos_idavuelta,array_paradas_1,array_paradas_2,"fiestasIdaVuelta")
                             }
                         } else {
                             $(".mensaje-error").show();
                             $(".mensaje-error").text("No puedes poner una fecha anterior a la actual.");
                         }
-
-
                     } else {
                         console.log("No valido");
                     }
-
                     break;
             }
             vaciar_paradas()
@@ -652,9 +671,8 @@ function paradas(tipo) {
 
         case 2:
             parada = $("#paradas_2").val();
-
-            if (array_paradas_2.indexOf(parada) != -1) {
-
+            console.log(array_paradas_2.indexOf(parada))
+            if (array_paradas_2.indexOf(parada) == -1) {
                 array_paradas_2[count_paradas_2] = parada;
                 $.ajax({
                     type: "POST",
