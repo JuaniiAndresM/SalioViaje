@@ -77,7 +77,6 @@ function finalizar(enviar_solicitud) {
                 if (verificar_fechas(datos_traslado['FECHA_SALIDA'], null, 0)) {
                     next();
                     if (enviar_solicitud == 1) {
-                        /*
                         $.ajax({
                             type: "POST",
                             url: "/Mail/mail-SalioViaje.php",
@@ -94,10 +93,7 @@ function finalizar(enviar_solicitud) {
                                 }
                             }
                         });
-                        */
-                       console.log(datos_traslado)
-                       console.log(array_paradas_1)
-                       guardar_cotizacion(datos_traslado,array_paradas_1,null)
+                       guardar_cotizacion(datos_traslado,array_paradas_1,null,"traslados")
                     }
                 } else {
                     $(".mensaje-error").show();
@@ -113,18 +109,20 @@ function finalizar(enviar_solicitud) {
         case "2":
             datos_tour = {
                 "FECHA_SALIDA": $('#fecha_salida_tour').val(),
-                "ORIGEN": $('#origen_tour').val(),
+                "DIRECCION_SALIDA_TOUR": $('#direccion_salida_tour').val(),
+                "BARRIO_TOUR": $('#barrio_barrios').val(),
+                "LOCALIDAD_TOUR": $('#localidad_tour').val(),
                 "CANTIDAD_PASAJEROS": $('#cant_pasajeros_tour').val(),
                 "HORA": $('#hora_tour').val(),
                 "CIUDAD": $('#destino_tour').val(),
                 "DURACION": $('#duracion_tour').val(),
+                "MASCOTA": $('#mascota_tour').val(),
                 "OBSERVACIONES": $('#observaciones_tour').val()
             };
 
             if (validacion('Tour', datos_tour)) {
                 if (verificar_fechas(datos_tour['FECHA_SALIDA'], null, 0)) {
                     next();
-
                     if (enviar_solicitud == 1) {
                         $.ajax({
                             type: "POST",
@@ -142,6 +140,7 @@ function finalizar(enviar_solicitud) {
                                 }
                             }
                         });
+                        guardar_cotizacion(datos_tour,array_paradas_1,null,"tour")
                     }
                 } else {
                     $(".mensaje-error").show();
@@ -162,21 +161,24 @@ function finalizar(enviar_solicitud) {
 
             switch (tipo_transfer) {
                 case "1":
-                    transfer = "In";
+                    transfer = "Transfer In";
                     datos_transfer_in = {
                         "TIPO_TRANSFER": transfer,
-                        "FECHA_SALIDA": $('#fecha_regreso_transfer_in').val(),
+                        "FECHA_ARRIBO": $('#fecha_regreso_transfer_in').val(),
                         "CANTIDAD_PASAJEROS": $('#cant_pasajeros_transfer_in').val(),
                         "HORA": $('#hora_transfer_in').val(),
-                        "DESTINO": $('#destino_transfer_in').val(),
-                        "AEROPUERTO": $('#aeropuerto_transfer_in').val(),
+                        "DIRECCION_DESTINO": $('#direccion_transfer_in').val(),
+                        "BARRIO_DESTINO": $('#barrio_transfer_in').val(),
+                        "LOCALIDAD_DESTINO": $('#localidad_transfer_in').val(),
+                        "PUNTO_ORIGEN": $('#aeropuerto_transfer_in').val(),
                         "EQUIPAJE": $('#equipaje_transfer_in').val(),
+                        "MASCOTAS": $('#mascotas_transfer_in').val(),
                         "OBSERVACIONES": $('#observaciones_transfer_in').val(),
-                        "NRO_VUELO": $('#nro_vuelo_barco_in').val()
+                        "NRO_VUELO_BARCO": $('#nro_vuelo_barco_in').val()
                     };
 
                     if (validacion('Transfer_in', datos_transfer_in)) {
-                        if (verificar_fechas(datos_transfer_in['FECHA_SALIDA'], null, 0)) {
+                        if (verificar_fechas(datos_transfer_in['FECHA_ARRIBO'], null, 0)) {
                             next();
                             if (enviar_solicitud == 1) {
                                 $.ajax({
@@ -195,6 +197,7 @@ function finalizar(enviar_solicitud) {
                                         }
                                     }
                                 });
+                                guardar_cotizacion(datos_transfer_in,array_paradas_1,null,"transferIn")
                             }
                         } else {
                             $(".mensaje-error").show();
@@ -207,21 +210,24 @@ function finalizar(enviar_solicitud) {
                     break;
 
                 case "2":
-                    transfer = "Out";
+                    transfer = "Transfer Out";
                     datos_transfer_out = {
                         "TIPO_TRANSFER": transfer,
-                        "FECHA_REGRESO": $('#fecha_salida_transfer_out').val(),
+                        "FECHA_PARTIDA": $('#fecha_salida_transfer_out').val(),
                         "CANTIDAD_PASAJEROS": $('#cant_pasajeros_transfer_out').val(),
                         "HORA": $('#hora_transfer_out').val(),
-                        "AEROPUERTO": $('#aeropuerto_transfer_out').val(),
-                        "ORIGEN": $('#origen_transfer_out').val(),
+                        "DIRECCION_ORIGEN": $('#direccion_transfer_out').val(),
+                        "BARRIO_ORIGEN": $('#barrio_transfer_out').val(),
+                        "LOCALIDAD_ORIGEN": $('#localidad_transfer_out').val(),
+                        "PUNTO_DESTINO": $('#aeropuerto_transfer_out').val(),
                         "EQUIPAJE": $('#equipaje_transfer_out').val(),
+                        "MASCOTAS": $('#mascotas_transfer_out').val(),
                         "OBSERVACIONES": $('#observaciones_transfer_out').val(),
-                        "NRO_VUELO": $('#nro_vuelo_barco_out').val()
+                        "NRO_VUELO_BARCO": $('#nro_vuelo_barco_out').val()
                     };
 
                     if (validacion('Transfer_out', datos_transfer_out)) {
-                        if (verificar_fechas(datos_transfer_out['FECHA_REGRESO'], null, 0)) {
+                        if (verificar_fechas(datos_transfer_out['FECHA_PARTIDA'], null, 0)) {
                             next();
                             if (enviar_solicitud == 1) {
                                 $.ajax({
@@ -240,6 +246,7 @@ function finalizar(enviar_solicitud) {
                                         }
                                     }
                                 });
+                                guardar_cotizacion(datos_transfer_out,array_paradas_1,null,"transferOut")
                             }
                         } else {
                             $(".mensaje-error").show();
@@ -401,11 +408,11 @@ function finalizar(enviar_solicitud) {
     }
 }
 
-function guardar_cotizacion(datos_cotizacion,paradas_ida,paradas_vuelta) {
+function guardar_cotizacion(datos_cotizacion,paradas_ida,paradas_vuelta,tipo) {
     $.ajax({
         type: "POST",
         url: "/PHP/procedimientosForm.php",
-        data: { tipo: "agregar_cotizacion", datos: JSON.stringify(datos_cotizacion), PARADAS_IDA: JSON.stringify(paradas_ida), PARADAS_VUELTA: JSON.stringify(paradas_vuelta) },
+        data: { tipo: "agregar_cotizacion", datos: JSON.stringify(datos_cotizacion), PARADAS_IDA: JSON.stringify(paradas_ida), PARADAS_VUELTA: JSON.stringify(paradas_vuelta),tipo_cotizacion:tipo },
         success: function (response) {
             console.log(response)
         }

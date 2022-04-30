@@ -605,7 +605,7 @@ class validaciones
 		$DATOS_VACIOS = null;
 		$CAPACIDAD_PASAJEROS_VECHICULO = null;
 		$errores = 0;
-		
+
 		foreach (json_decode($datos, true) as $clave => $valor){
 			if ($valor != null || $valor != '') {
 				switch ($clave) {
@@ -697,10 +697,20 @@ class validaciones
 							$VALIDACION['FECHA_SALIDA'] = 1;
 						} else { $VALIDACION['FECHA_SALIDA'] = 0; }
 					break;
-					case 'ORIGEN':
+					case 'DIRECCION_SALIDA_TOUR':
 						if ($valor != null) {
-							$VALIDACION['ORIGEN'] = 1;
-						} else { $VALIDACION['ORIGEN'] = 0; }
+							$VALIDACION['DIRECCION_SALIDA_TOUR'] = 1;
+						} else { $VALIDACION['DIRECCION_SALIDA_TOUR'] = 0; }
+					break;
+					case 'BARRIO_TOUR':
+						if ($valor != null) {
+							$VALIDACION['BARRIO_TOUR'] = 1;
+						} else { $VALIDACION['BARRIO_TOUR'] = 0; }
+					break;
+					case 'LOCALIDAD_TOUR':
+						if ($valor != null) {
+							$VALIDACION['LOCALIDAD_TOUR'] = 1;
+						} else { $VALIDACION['LOCALIDAD_TOUR'] = 0; }
 					break;
 					case 'CANTIDAD_PASAJEROS':
 						if ($valor != null) {
@@ -722,11 +732,21 @@ class validaciones
 							$VALIDACION['DURACION'] = 1;
 						} else { $VALIDACION['DURACION'] = 0; }
 					 break;
+					 case 'MASCOTA':
+						if ($valor != null) {
+							$VALIDACION['MASCOTA'] = 1;
+						} else { $VALIDACION['MASCOTA'] = 0; }
+					 break;
+					 case 'OBSERVACIONES':
+						if ($valor != null) {
+							$VALIDACION['OBSERVACIONES'] = 1;
+						} else { $VALIDACION['OBSERVACIONES'] = 0; }
+					break;
 				}
 			}
 		}
 
-		if (count($VALIDACION) != 6) {
+		if (count($VALIDACION) != 10) {
 			$DATOS_VACIOS = "Err-1";
 		}
 
@@ -751,11 +771,11 @@ class validaciones
 			if ($valor != null || $valor != '') {
 				switch ($clave) {
 					case 'TIPO_TRANSFER':
-						if ($valor != '0') {
+						if ($valor != null) {
 							$VALIDACION['TIPO_TRANSFER'] = 1;
 						} else { $VALIDACION['TIPO_TRANSFER'] = 0; }
 					break;
-					case 'FECHA_SALIDA':
+					case 'FECHA_ARRIBO':
 						if ($valor != null) {
 							$VALIDACION['FECHA_SALIDA'] = 1;
 						} else { $VALIDACION['FECHA_SALIDA'] = 0; }
@@ -770,31 +790,41 @@ class validaciones
 							$VALIDACION['HORA'] = 1;
 						} else { $VALIDACION['HORA'] = 0; }
 					 break;
-					case 'DESTINO':
+					case 'DIRECCION_DESTINO':
 						if ($valor != null) {
-							$VALIDACION['DESTINO'] = 1;
-						} else { $VALIDACION['DESTINO'] = 0; }
+							$VALIDACION['DIRECCION_DESTINO'] = 1;
+						} else { $VALIDACION['DIRECCION_DESTINO'] = 0; }
 					 break;
-					case 'AEROPUERTO':
+					 case 'BARRIO_DESTINO':
 						if ($valor != null) {
-							$VALIDACION['AEROPUERTO'] = 1;
-						} else { $VALIDACION['AEROPUERTO'] = 0; }
+							$VALIDACION['BARRIO_DESTINO'] = 1;
+						} else { $VALIDACION['BARRIO_DESTINO'] = 0; }
+					 break;
+					 case 'LOCALIDAD_DESTINO':
+						if ($valor != null) {
+							$VALIDACION['LOCALIDAD_DESTINO'] = 1;
+						} else { $VALIDACION['LOCALIDAD_DESTINO'] = 0; }
+					 break;
+					case 'PUNTO_ORIGEN':
+						if ($valor != null) {
+							$VALIDACION['PUNTO_ORIGEN'] = 1;
+						} else { $VALIDACION['PUNTO_ORIGEN'] = 0; }
 					 break;
 					case 'EQUIPAJE':
 						if ($valor != null) {
 							$VALIDACION['EQUIPAJE'] = 1;
 						} else { $VALIDACION['EQUIPAJE'] = 0; }
 					 break;
-					case 'NRO_VUELO':
+					case 'NRO_VUELO_BARCO':
 						if ($valor != null) {
-							$VALIDACION['NRO_VUELO'] = 1;
-						} else { $VALIDACION['NRO_VUELO'] = 0; }
+							$VALIDACION['NRO_VUELO_BARCO'] = 1;
+						} else { $VALIDACION['NRO_VUELO_BARCO'] = 0; }
 					 break;
 				}
 			}
 		}
 		
-		if (count($VALIDACION) != 8) {
+		if (count($VALIDACION) != 10) {
 			$DATOS_VACIOS = "Err-1";
 		}
 
@@ -819,19 +849,14 @@ class validaciones
 			if ($valor != null || $valor != '') {
 				switch ($clave) {
 					case 'TIPO_TRANSFER':
-						if ($valor != '0') {
+						if ($valor != null) {
 							$VALIDACION['TIPO_TRANSFER'] = 1;
 						} else { $VALIDACION['TIPO_TRANSFER'] = 0; }
 					break;
-					case 'FECHA_REGRESO':
+					case 'FECHA_PARTIDA':
 						if ($valor != null) {
-							$VALIDACION['FECHA_REGRESO'] = 1;
-						} else { $VALIDACION['FECHA_REGRESO'] = 0; }
-					break;
-					case 'ORIGEN':
-						if ($valor != null) {
-							$VALIDACION['ORIGEN'] = 1;
-						} else { $VALIDACION['ORIGEN'] = 0; }
+							$VALIDACION['FECHA_PARTIDA'] = 1;
+						} else { $VALIDACION['FECHA_PARTIDA'] = 0; }
 					break;
 					case 'CANTIDAD_PASAJEROS':
 						if ($valor != null) {
@@ -843,31 +868,41 @@ class validaciones
 							$VALIDACION['HORA'] = 1;
 						} else { $VALIDACION['HORA'] = 0; }
 					 break;
-					case 'AEROPUERTO':
+					case 'DIRECCION_ORIGEN':
 						if ($valor != null) {
-							$VALIDACION['AEROPUERTO'] = 1;
-						} else { $VALIDACION['AEROPUERTO'] = 0; }
+							$VALIDACION['DIRECCION_ORIGEN'] = 1;
+						} else { $VALIDACION['DIRECCION_ORIGEN'] = 0; }
 					 break;
-					case 'DESTINO':
+					 case 'BARRIO_ORIGEN':
 						if ($valor != null) {
-							$VALIDACION['DESTINO'] = 1;
-						} else { $VALIDACION['DESTINO'] = 0; }
+							$VALIDACION['BARRIO_ORIGEN'] = 1;
+						} else { $VALIDACION['BARRIO_ORIGEN'] = 0; }
+					 break;
+					 case 'LOCALIDAD_ORIGEN':
+						if ($valor != null) {
+							$VALIDACION['LOCALIDAD_ORIGEN'] = 1;
+						} else { $VALIDACION['LOCALIDAD_ORIGEN'] = 0; }
+					 break;
+					case 'PUNTO_DESTINO':
+						if ($valor != null) {
+							$VALIDACION['PUNTO_DESTINO'] = 1;
+						} else { $VALIDACION['PUNTO_DESTINO'] = 0; }
 					 break;
 					case 'EQUIPAJE':
 						if ($valor != null) {
 							$VALIDACION['EQUIPAJE'] = 1;
 						} else { $VALIDACION['EQUIPAJE'] = 0; }
 					 break;
-					case 'NRO_VUELO':
+					case 'NRO_VUELO_BARCO':
 						if ($valor != null) {
-							$VALIDACION['NRO_VUELO'] = 1;
-						} else { $VALIDACION['NRO_VUELO'] = 0; }
+							$VALIDACION['NRO_VUELO_BARCO'] = 1;
+						} else { $VALIDACION['NRO_VUELO_BARCO'] = 0; }
 					 break;
 				}
 			}
 		}
-
-		if (count($VALIDACION) != 8) {
+		
+		if (count($VALIDACION) != 10) {
 			$DATOS_VACIOS = "Err-1";
 		}
 

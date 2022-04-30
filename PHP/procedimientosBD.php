@@ -813,13 +813,30 @@ class procedimientosBD
         return json_encode($choferes);
     }
 
-    public function agregar_cotizacion($datos)
+    public function agregar_cotizacion($datos, $tipo)
     {
-        $datos = json_decode($datos,true);
+
+        $datos = json_decode($datos, true);
         $conn = $this->conexion();
-        $query = "CALL agregar_cotizacion(?,?,?,?,?,?,?,?,?,?,?)";
+        $query = "CALL agregar_cotizacion(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("ssssssiisss", $datos["DIRECCION_ORIGEN"], $datos["BARRIO_ORIGEN"], $datos["LOCALIDAD_ORIGEN"], $datos["DIRECCION_DESTINO"], $datos["BARRIO_DESTINO"], $datos["LOCALIDAD_DESTINO"], $datos["MASCOTAS"], $datos["CANTIDAD_PASAJEROS"], $datos["HORA"], $datos["OBSERVACIONES"], $datos['FECHA_SALIDA']);
+        switch ($tipo) {
+            case "traslados":
+                $stmt->bind_param("ssssssiisssiiis", $datos["DIRECCION_ORIGEN"], $datos["BARRIO_ORIGEN"], $datos["LOCALIDAD_ORIGEN"], $datos["DIRECCION_DESTINO"], $datos["BARRIO_DESTINO"], $datos["LOCALIDAD_DESTINO"], $datos["MASCOTAS"], $datos["CANTIDAD_PASAJEROS"], $datos["HORA"], $datos["OBSERVACIONES"], $datos['FECHA_SALIDA'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL']);
+                break;
+            case 'tour':
+                $stmt->bind_param("ssssssiisssiiis", $datos["DIRECCION_SALIDA_TOUR"], $datos["BARRIO_TOUR"], $datos["LOCALIDAD_TOUR"], $datos["CIUDAD"], $datos["BARRIO_DESTINO"], $datos["LOCALIDAD_DESTINO"], $datos["MASCOTA"], $datos["CANTIDAD_PASAJEROS"], $datos["HORA"], $datos["OBSERVACIONES"], $datos['FECHA_SALIDA'], $datos['DURACION'], $datos['NULL'], $datos['NULL'], $datos['NULL']);
+                break;
+            case 'transferIn':
+                $stmt->bind_param("ssssssiisssiiis", $datos["DIRECCION_ORIGEN"], $datos["BARRIO_ORIGEN"], $datos["PUNTO_ORIGEN"], $datos["DIRECCION_DESTINO"], $datos["BARRIO_DESTINO"], $datos["LOCALIDAD_DESTINO"], $datos["MASCOTAS"], $datos["CANTIDAD_PASAJEROS"], $datos["HORA"], $datos["OBSERVACIONES"], $datos['FECHA_ARRIBO'], $datos['NULL'], $datos['NRO_VUELO_BARCO'], $datos['EQUIPAJE'], $datos['TIPO_TRANSFER']);
+                break;
+            case 'transferOut':
+                $stmt->bind_param("ssssssiisssiiis", $datos["DIRECCION_ORIGEN"], $datos["BARRIO_ORIGEN"], $datos["LOCALIDAD_ORIGEN"], $datos["DIRECCION_DESTINO"], $datos["BARRIO_DESTINO"], $datos["PUNTO_DESTINO"], $datos["MASCOTAS"], $datos["CANTIDAD_PASAJEROS"], $datos["HORA"], $datos["OBSERVACIONES"], $datos['FECHA_PARTIDA'], $datos['NULL'], $datos['NRO_VUELO_BARCO'], $datos['EQUIPAJE'], $datos['TIPO_TRANSFER']);
+                break;
+            case 'fiestas':
+                $stmt->bind_param("ssssssiisssiiis", $datos["DIRECCION_ORIGEN"], $datos["BARRIO_ORIGEN"], $datos["LOCALIDAD_ORIGEN"], $datos["DIRECCION_DESTINO"], $datos["BARRIO_DESTINO"], $datos["LOCALIDAD_DESTINO"], $datos["MASCOTAS"], $datos["CANTIDAD_PASAJEROS"], $datos["HORA"], $datos["OBSERVACIONES"], $datos['FECHA_SALIDA']);
+                break;
+        }
         if ($stmt->execute()) {
             $stmt->store_result();
             $stmt->bind_result($id_cotizacion);
@@ -828,10 +845,10 @@ class procedimientosBD
             }
         }
         $stmt->close();
-        return $result;
+        return $datos;
     }
 
-    public function agregar_paradas($contenido,$tramo,$id_cotizacion)
+    public function agregar_paradas($contenido, $tramo, $id_cotizacion)
     {
         $conn = $this->conexion();
         $query = "CALL agregar_parada(?,?,?)";
