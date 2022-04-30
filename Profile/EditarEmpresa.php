@@ -165,10 +165,11 @@ if (!isset($_SESSION['usuario'])) {
                 <b><i class="fas fa-building"></i> Razón Social</b>
                 <input type="text" placeholder="Razón Social" id="RsEdicion"value="<?php echo $usuario[0]['RAZON_SOCIAL']; ?>">
               </div>
-              <div class="info">
+
+              <?php if($usuario[0]['TIPO_USUARIO'] != "ANF" && $usuario[0]['TIPO_USUARIO'] != "AGT"){
+                echo '<div class="info">
                 <b><i class="fas fa-user-friends"></i> Choferes Asociados</b>
-                <select name="" id="CaEdicion">
-                    <?php
+                <select name="" id="CaEdicion">';
                         if ($usuario[0]['CHOFERES_SUB'] == 1) {
                           echo '
                             <option value="1" selected>Si</option>
@@ -180,19 +181,21 @@ if (!isset($_SESSION['usuario'])) {
                             <option value="1">Si</option>
                           ';
                         }
-                    ?>
+                        echo '
                 </select>
               </div>
               <div class="info">
                 <b><i class="fas fa-user-lock"></i> N° MTOP</b>
-                <input type="text" placeholder="N° MTOP" id="NmEdicion"value="<?php echo $usuario[0]['NRO_MTOP']; ?>">
+                <input type="text" placeholder="N° MTOP" id="NmEdicion"value="'. $usuario[0]['NRO_MTOP'].'">
               </div>
               <div class="info">
                 <b><i class="fas fa-key"></i> Contraseña MTOP</b>
-                <input type="password"  id="password" placeholder="Contraseña MTOP" value="<?php echo $usuario[0]['PASS_MTOP']; ?>">
+                <input type="password"  id="password" placeholder="Contraseña MTOP" value="'. $usuario[0]['PASS_MTOP'].'">
 
                 <button onclick="passwd(1)" class="password-eye"><i id="passeye" class="fas fa-eye-slash"></i></button>
-              </div>
+              </div>';
+              }
+              ?>
 
             </div>
             <p id="mensaje-error" class="mensaje-error"></p>
@@ -203,7 +206,8 @@ if (!isset($_SESSION['usuario'])) {
             </div>
           </div>
 
-          <div class="viajes-wrapper">
+          <?php if($usuario[0]['TIPO_USUARIO'] != "ANF" && $usuario[0]['TIPO_USUARIO'] != "AGT"){
+            echo '<div class="viajes-wrapper">
             <h3><i class="fas fa-bus"></i> Agregar Vehiculos</h3>
 
             <div class="agregar-vehicle">
@@ -258,28 +262,28 @@ if (!isset($_SESSION['usuario'])) {
                 </div>
 
                 <div class="vehiculos-wrapper">
-                    <div class="vehiculos">
-                    <?php
+                    <div class="vehiculos">';
                       if ($vehiculos == null) {
-                        echo "sdf";
+                        
                       } else {
                         $size = sizeof($vehiculos);
                         for ($i = 0; $i < $size; $i++) {
-                    ?>
-                              <script type="text/javascript">
-                                vehiculos_vista_previa(<?php echo json_encode($vehiculos[$i]); ?>)
-                                $('.vehiculos-wrapper').show();
-                              </script>
-                            <?php
+                              echo '<script type="text/javascript">
+                                vehiculos_vista_previa('.json_encode($vehiculos[$i]).')
+                                $(".vehiculos-wrapper").show();
+                              </script>';
                         }
                       }
-                    ?>
+                      echo '
                     </div>
-                    <button class="save-button" id="finalizar_empresa_2" onclick="guardar_cambios_vehiculos_panel(<?php echo $usuario[0]['RUT']; ?>,<?php echo $usuario[0]['ID']; ?>,<?php echo $datos_usuario[0]['AGENCIA_CONTRATISTA']; ?>)"><i class="fas fa-save"></i> Guardar Cambios</button>
+                    <button class="save-button" id="finalizar_empresa_2" onclick="guardar_cambios_vehiculos_panel('.$usuario[0]['RUT'].','.$usuario[0]['ID'].','.$datos_usuario[0]['AGENCIA_CONTRATISTA'].')"><i class="fas fa-save"></i> Guardar Cambios</button>
 
                 </div>
             </div>
-          </div>
+          </div>';
+          }
+
+          ?>
         </div>
         <div class="profile_grid2"></div>
 
