@@ -625,7 +625,7 @@
 
 .oportunidades .oportunidades-list {
   width: 100%;
-  height: 400px;
+  max-height: 400px;
   display: none;
   margin-top: 10px;
   max-height: 350px;
@@ -7083,6 +7083,10 @@ footer .totum p a:hover {
 .sobre-nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info .button-nosotros:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
+}
+
+.dep-inf {
+  margin-top: 110px;
 }
 
 .titulo-experiencias {
