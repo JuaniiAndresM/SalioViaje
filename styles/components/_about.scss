@@ -1,6 +1,6 @@
 .sobre-nosotros {
     margin-bottom: 30px;
-    margin-top: 110px;
+    margin-top: 40px;
     .nosotros-wrapper-grid {
       display: grid;
       grid-template-columns: 40% 1fr;
@@ -78,12 +78,54 @@
           .button-nosotros {
             @include button();
             border-radius: 0 2em 2em 2em;
+            text-decoration: none;
           }
           .button-nosotros:hover {
             @include button-hover();
           }
         }
       }
+    }
+  }
+
+  .titulo-experiencias{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 100px;
+
+    text-align: center;
+    h2 {
+      color: $main_1;
+      font-size: 2.3em;
+    }
+    hr {
+      width: 100px;
+      border: 1px solid $main_1;
+      margin: 10px 0;
+    }
+    p {
+      color: #666;
+      font-size: 1.2em;
+      max-width: 630px;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+
+  .experiencias-button-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 20px;
+
+    button{
+      @include button();
+      margin: 0 20px;
     }
   }
 

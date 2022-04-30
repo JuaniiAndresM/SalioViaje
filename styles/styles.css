@@ -6957,7 +6957,7 @@ footer .totum p a:hover {
 
 .sobre-nosotros {
   margin-bottom: 30px;
-  margin-top: 110px;
+  margin-top: 40px;
 }
 
 .sobre-nosotros .nosotros-wrapper-grid {
@@ -7073,6 +7073,7 @@ footer .totum p a:hover {
   transition: 0.5s;
   cursor: pointer;
   border-radius: 0 2em 2em 2em;
+  text-decoration: none;
 }
 
 .sobre-nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info .button-nosotros i {
@@ -7082,6 +7083,76 @@ footer .totum p a:hover {
 .sobre-nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info .button-nosotros:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
+}
+
+.titulo-experiencias {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 100px;
+  text-align: center;
+}
+
+.titulo-experiencias h2 {
+  color: #3844bc;
+  font-size: 2.3em;
+}
+
+.titulo-experiencias hr {
+  width: 100px;
+  border: 1px solid #3844bc;
+  margin: 10px 0;
+}
+
+.titulo-experiencias p {
+  color: #666;
+  font-size: 1.2em;
+  max-width: 630px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.experiencias-button-wrapper {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 20px;
+}
+
+.experiencias-button-wrapper button {
+  background: -webkit-gradient(linear, left top, right top, from(#3844bc), to(#2b3179));
+  background: linear-gradient(to right, #3844bc, #2b3179);
+  color: #ffffff;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 2em;
+  margin-top: 10px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+  margin: 0 20px;
+}
+
+.experiencias-button-wrapper button i {
+  margin-right: 5px;
 }
 
 @media screen and (max-width: 950px) {
