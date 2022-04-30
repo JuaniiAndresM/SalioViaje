@@ -147,7 +147,6 @@ function traerUsuariosESPECIFICOS(seccion, rut) {
 }
 
 function tablas_usuarios(seccion) {
-    /*
     for (var i = 0;i < usuarios.length; i++) {
         switch(seccion){
             case "Dashboard":
@@ -162,7 +161,6 @@ function tablas_usuarios(seccion) {
             break;
         }
     }
-    */
 }
 
 function tabla_usuarios_dashboard() {

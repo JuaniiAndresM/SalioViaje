@@ -813,4 +813,33 @@ class procedimientosBD
         return json_encode($choferes);
     }
 
+    public function agregar_cotizacion($datos)
+    {
+        $datos = json_decode($datos,true);
+        $conn = $this->conexion();
+        $query = "CALL agregar_cotizacion(?,?,?,?,?,?,?,?,?,?,?)";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("ssssssiisss", $datos["DIRECCION_ORIGEN"], $datos["BARRIO_ORIGEN"], $datos["LOCALIDAD_ORIGEN"], $datos["DIRECCION_DESTINO"], $datos["BARRIO_DESTINO"], $datos["LOCALIDAD_DESTINO"], $datos["MASCOTAS"], $datos["CANTIDAD_PASAJEROS"], $datos["HORA"], $datos["OBSERVACIONES"], $datos['FECHA_SALIDA']);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($id_cotizacion);
+            while ($stmt->fetch()) {
+                $result = array('ID' => $id_cotizacion);
+            }
+        }
+        $stmt->close();
+        return $result;
+    }
+
+    public function agregar_paradas($contenido,$tramo,$id_cotizacion)
+    {
+        $conn = $this->conexion();
+        $query = "CALL agregar_parada(?,?,?)";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("ssi", $contenido, $tramo, $id_cotizacion);
+        $stmt->execute();
+        $stmt->close();
+        return "insertado";
+    }
+
 }

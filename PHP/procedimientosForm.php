@@ -57,20 +57,20 @@ class procedimientosForm extends procedimientosBD
                     $rut = $empresa[$x]["RUT"];
                     $rut_ec = "0";
                 }
-                $this->register_vehiculo($rut, $rut_ec, $empresa[$x]["VEHICULOS"][$i],0);
+                $this->register_vehiculo($rut, $rut_ec, $empresa[$x]["VEHICULOS"][$i], 0);
             }
         }
     }
 
-    public function guardar_vehiculos($vehiculos, $rut,$id_emp,$rut_agencia_contratista)
+    public function guardar_vehiculos($vehiculos, $rut, $id_emp, $rut_agencia_contratista)
     {
         echo json_encode($vehiculos);
         echo $rut;
         for ($x = 0; $x < count($vehiculos); $x++) {
             if ($rut_agencia_contratista != null) {
-                $this->register_vehiculo($rut, $rut_agencia_contratista, $vehiculos[$x],$id_emp,$rut_agencia_contratista);
+                $this->register_vehiculo($rut, $rut_agencia_contratista, $vehiculos[$x], $id_emp, $rut_agencia_contratista);
             } else {
-                $this->register_vehiculo($rut, 0, $vehiculos[$x],$id_emp,$rut_agencia_contratista);
+                $this->register_vehiculo($rut, 0, $vehiculos[$x], $id_emp, $rut_agencia_contratista);
             }
         }
     }
@@ -129,7 +129,7 @@ if ($_POST['tipo'] == 1) {
             break;
         case 'guardar-vehiculos':
             $datos = json_decode($_POST["vehiculos"], true);
-            echo $procedimientosForm->guardar_vehiculos($datos, $_POST['rut'],$_POST['id_empresa'],$_POST['rut_empresa_contratista']);
+            echo $procedimientosForm->guardar_vehiculos($datos, $_POST['rut'], $_POST['id_empresa'], $_POST['rut_empresa_contratista']);
             break;
         case 'editar-vehiculos':
             $datos = json_decode($_POST["datos"], true);
@@ -147,6 +147,26 @@ if ($_POST['tipo'] == 1) {
             break;
         case 'visita':
             echo $procedimientosForm->agrego_visita();
+            break;
+        case 'agregar_cotizacion':
+
+            $id_cotizacion = $procedimientosForm->agregar_cotizacion($_POST['datos'])['ID'];
+            echo $id_cotizacion['ID'];
+            $paradas_ida = json_decode($_POST['PARADAS_IDA'],true);
+            $paradas_vuelta = json_decode($_POST['PARADAS_VUELTA'],true);
+    
+                if ($_POST['PARADAS_VUELTA'] != "null") {
+                    echo "con vuelta";
+                    for ($i=0; $i < count($paradas_vuelta) ; $i++) { 
+                        $procedimientosForm->agregar_paradas($paradas_vuelta[$i],"vuelta",$id_cotizacion);
+                    }
+                } else {
+                    echo "sin vuelta";
+                    for ($i=0; $i < count($paradas_ida); $i++) { 
+                       echo $paradas_ida[$i]." "."ida"." ".$id_cotizacion."\n";
+                       $procedimientosForm->agregar_paradas($paradas_ida[$i],"ida",$id_cotizacion);
+                    }
+                }
             break;
     }
 

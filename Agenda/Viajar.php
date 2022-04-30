@@ -383,9 +383,9 @@ session_start();
 
                   <div class="input">
                     <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas</p>
-                  <select name="mascota">
-                   <option>Con mascota</option>
-                   <option>Sin mascota</option>
+                  <select name="mascota" id="mascotas_traslado">
+                   <option vlaue="1">Con mascota</option>
+                   <option value="2">Sin mascota</option>
                   </select>
                   </div>
 

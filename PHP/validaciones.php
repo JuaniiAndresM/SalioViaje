@@ -605,7 +605,7 @@ class validaciones
 		$DATOS_VACIOS = null;
 		$CAPACIDAD_PASAJEROS_VECHICULO = null;
 		$errores = 0;
-
+		
 		foreach (json_decode($datos, true) as $clave => $valor){
 			if ($valor != null || $valor != '') {
 				switch ($clave) {
@@ -614,31 +614,61 @@ class validaciones
 							$VALIDACION['FECHA_SALIDA'] = 1;
 						} else { $VALIDACION['FECHA_SALIDA'] = 0; }
 					break;
-					case 'ORIGEN':
+					case 'DIRECCION_ORIGEN':
 						if ($valor != null) {
-							$VALIDACION['ORIGEN'] = 1;
-						} else { $VALIDACION['ORIGEN'] = 0; }
+							$VALIDACION['DIRECCION_ORIGEN'] = 1;
+						} else { $VALIDACION['DIRECCION_ORIGEN'] = 0; }
+					break;
+					case 'BARRIO_ORIGEN':
+						if ($valor != null) {
+							$VALIDACION['BARRIO_ORIGEN'] = 1;
+						} else { $VALIDACION['BARRIO_ORIGEN'] = 0; }
+					break;
+					case 'LOCALIDAD_ORIGEN':
+						if ($valor != null) {
+							$VALIDACION['LOCALIDAD_ORIGEN'] = 1;
+						} else { $VALIDACION['LOCALIDAD_ORIGEN'] = 0; }
+					break;
+					case 'DIRECCION_DESTINO':
+						if ($valor != null) {
+							$VALIDACION['DIRECCION_DESTINO'] = 1;
+						} else { $VALIDACION['DIRECCION_DESTINO'] = 0; }
+					break;
+					case 'BARRIO_DESTINO':
+						if ($valor != null) {
+							$VALIDACION['BARRIO_DESTINO'] = 1;
+						} else { $VALIDACION['BARRIO_DESTINO'] = 0; }
+					break;
+					case 'LOCALIDAD_DESTINO':
+						if ($valor != null) {
+							$VALIDACION['LOCALIDAD_DESTINO'] = 1;
+						} else { $VALIDACION['LOCALIDAD_DESTINO'] = 0; }
 					break;
 					case 'CANTIDAD_PASAJEROS':
 						if ($valor != null) {
 							$VALIDACION['CANTIDAD_PASAJEROS'] = 1;
 						} else { $VALIDACION['CANTIDAD_PASAJEROS'] = 0; }
 					 break;
+					 case 'MASCOTAS':
+						if ($valor != null) {
+							$VALIDACION['MASCOTAS'] = 1;
+						} else { $VALIDACION['MASCOTAS'] = 0; }
+					break;
 					case 'HORA':
 						if ($valor != null) {
 							$VALIDACION['HORA'] = 1;
 						} else { $VALIDACION['HORA'] = 0; }
 					 break;
-					case 'DESTINO':
+					case 'OBSERVACIONES':
 						if ($valor != null) {
-							$VALIDACION['DESTINO'] = 1;
-						} else { $VALIDACION['DESTINO'] = 0; }
+							$VALIDACION['OBSERVACIONES'] = 1;
+						} else { $VALIDACION['OBSERVACIONES'] = 0; }
 					 break;
 				}
 			}
 		}
 
-		if (count($VALIDACION) != 5) {
+		if (count($VALIDACION) != 11) {
 			$DATOS_VACIOS = "Err-1";
 		}
 
