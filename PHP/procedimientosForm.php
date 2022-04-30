@@ -149,14 +149,12 @@ if ($_POST['tipo'] == 1) {
             echo $procedimientosForm->agrego_visita();
             break;
         case 'agregar_cotizacion':
-
-            $id_cotizacion = $procedimientosForm->agregar_cotizacion($_POST['datos'])['ID'];
-            echo $id_cotizacion['ID'];
+            $id_cotizacion = $procedimientosForm->agregar_cotizacion($_POST['datos'],$_POST['tipo_cotizacion'])/*['ID']*/;
+            echo json_encode($id_cotizacion);
             $paradas_ida = json_decode($_POST['PARADAS_IDA'],true);
             $paradas_vuelta = json_decode($_POST['PARADAS_VUELTA'],true);
     
                 if ($_POST['PARADAS_VUELTA'] != "null") {
-                    echo "con vuelta";
                     for ($i=0; $i < count($paradas_vuelta) ; $i++) { 
                         $procedimientosForm->agregar_paradas($paradas_vuelta[$i],"vuelta",$id_cotizacion);
                     }
