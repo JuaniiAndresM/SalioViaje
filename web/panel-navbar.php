@@ -131,14 +131,14 @@
                 <span class="title">Editar FAQs</span>
               </a>
             </li>';
-    }else{
-      echo '<li>
-              <a class href="https://www.salioviaje.com.uy/FAQ">
-                <span class="icon"><i class="fas fa-question"></i></span>
-                <span class="title">FAQs</span>
-              </a>
-            </li>';
     }
+
+    echo '<li>
+        <a class href="https://www.salioviaje.com.uy/FAQ">
+          <span class="icon"><i class="fas fa-question"></i></span>
+          <span class="title">FAQs</span>
+        </a>
+      </li>';
 
     
 
@@ -148,17 +148,19 @@
               <span class="title">Mi Perfil</span>
             </a>
           </li>';
+    
+    if($tipo == 1){
+      echo '<li>
+              <a class href="https://www.salioviaje.com.uy/FAQ_Edit">
+                <span class="icon"><i class="fas fa-chart-line"></i></span>
+                <span class="title">Editar Cotizaciones</span>
+              </a>
+            </li>';
+    }
 
     
 
     ?>
-    
-    <li>
-      <a href="https://www.salioviaje.com.uy/Settings">
-        <span class="icon"><i class="fas fa-cog"></i></span>
-        <span class="title">Configuración</span>
-      </a>
-    </li>
 
     <!--  
 
