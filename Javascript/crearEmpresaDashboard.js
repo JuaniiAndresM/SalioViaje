@@ -3,27 +3,23 @@ $(document).ready(function () {
     tipo_usuario = $("#tipo_usuario").val();
 
     console.log(tipo_usuario)
-    steps(1,tipo_usuario);    
-
-    $("#finalizar_empresa").on('click', function() {
-        crear_empresa()
-    });
+    steps(1, tipo_usuario);
 });
 
 
 step = 1;
 
-function next(){
+function next() {
     step++;
     steps(step);
 }
 
-function volver(){
+function volver() {
     step--;
     steps(step);
 }
 
-function steps(step, tipo_usuario){
+function steps(step, tipo_usuario) {
     $("#step_1").hide();
     $("#step_2").hide();
     $("#step_3").hide();
@@ -37,13 +33,13 @@ function steps(step, tipo_usuario){
 
     $(".vehiculos-wrapper").hide();
 
-    switch(step){
+    switch (step) {
         case 1:
             $("#step_1").show();
 
-            if(tipo_usuario == "Anfitrión" || tipo_usuario == "Agente"){
+            if (tipo_usuario == "Anfitrión" || tipo_usuario == "Agente") {
                 $(".progress-bar").hide();
-            }else{
+            } else {
                 $(".progress-bar").show();
 
                 $('.circle1').css('background-color', '#2b3179');
@@ -51,16 +47,16 @@ function steps(step, tipo_usuario){
                 $('.progress').css('width', '0%');
             }
 
-            if(tipo_usuario == "Chofer"){
+            if (tipo_usuario == "Chofer") {
                 $("#contratista").show();
-            }else if(tipo_usuario == "Transportista"){
+            } else if (tipo_usuario == "Transportista") {
                 $("#choferes_sub").show();
             }
 
-            if(tipo_usuario == "Anfitrión" || tipo_usuario == "Agente"){
+            if (tipo_usuario == "Anfitrión" || tipo_usuario == "Agente") {
                 $("#add-vehicle").hide();
                 $("#finalizar_empresa").show();
-            }else{
+            } else {
                 $("#add-vehicle").show();
                 $("#finalizar_empresa").hide();
             }
@@ -71,9 +67,9 @@ function steps(step, tipo_usuario){
             $("#step_2").show();
             $(".vehiculos-wrapper").show();
 
-            if(tipo_usuario == "Anfitrión" || tipo_usuario == "Agente"){
+            if (tipo_usuario == "Anfitrión" || tipo_usuario == "Agente") {
                 $(".progress-bar").hide();
-            }else{
+            } else {
                 $(".progress-bar").show();
 
                 $('.circle1').css('background-color', '#2b3179');
@@ -91,71 +87,107 @@ function steps(step, tipo_usuario){
     }
 }
 
-function finalizar_empresa(){
+function finalizar_empresa() {
     step++;
     steps(step);
 }
 
-function new_company(){
+function new_company() {
     step = 1;
     steps(step);
 }
 
-function finalizar_empresa_total(id){
+function finalizar_empresa_total(id) {
+    let tipo_u
     $("#add_company_button").hide();
     $("#finalizar-registro-TTA").prop('disabled', true);
     $('#finalizar-registro-TTA').html('<span class="loader-register"><i class="fas fa-spinner"></i></span>');
-    console.log(id)
-        switch(tipo_usuario){
-             case "Transportista":
-                     $.ajax({
-                        type: "POST",
-                        url: "/PHP/procedimientosForm.php",
-                        data: { tipo:"2",idUsuario: id,empresas:JSON.stringify(empresas) },
-                        success: function (response) {
-                          console.log(response)
-                         },
-                      });
-            break;
-        }
+
+    if (tipo_usuario == "Transportista") {
+        tipo_u = "2"
+    } else if (tipo_usuario == "Chofer") {
+        tipo_u = "3"
+    } else if (tipo_usuario == "Agente") {
+        tipo_u = "7"
+    } else if (tipo_usuario == "Anfitrión") {
+        tipo_u = "4"
+    }
+
+    console.log(empresas)
+
+    $.ajax({
+        type: "POST",
+        url: "/PHP/procedimientosForm.php",
+        data: { tipo: tipo_u, idUsuario: id, empresas: JSON.stringify(empresas) },
+        success: function (response) {
+            console.log(response)
+        },
+    });
     setTimeout(() => {
         location.href = "/Panel/Success_Empresa"
     }, 2000);
 }
 
-function crear_empresa(){
-    let datos_Empresa = {
-       "RUT": document.getElementById('rutt').value,
-       "NOMBRE_COMERCIAL": document.getElementById('nombre_comercial').value,
-       "RAZON_SOCIAL": document.getElementById('razon_social').value,
-       "NUMERO_MTOP": document.getElementById('numero_mtop').value,
-       "PASSWORD_MTOP": document.getElementById('password_mtop').value,
-       "CHOFERES_SUB": document.getElementById('choferes_sub_select').value,
-       "VEHICULOS": vehiculos
-    };
+function crear_empresa_dash(tipo) {
+    let input;
+    if (tipo == "CHO") {
+        input = "empresas"
+    } else { input = "choferes_sub_select" }
+
+    if (tipo == "CHO" || tipo_usuario == "Transportista") {
+        datos_Empresa = {
+            "RUT": document.getElementById('rutt').value,
+            "NOMBRE_COMERCIAL": document.getElementById('nombre_comercial').value,
+            "RAZON_SOCIAL": document.getElementById('razon_social').value,
+            "NUMERO_MTOP": document.getElementById('numero_mtop').value,
+            "PASSWORD_MTOP": document.getElementById('password_mtop').value,
+            "CHOFERES_SUB": document.getElementById(input).value,
+            "VEHICULOS": vehiculos
+        };
+    } else {
+        datos_Empresa = {
+            "RUT": document.getElementById('rutt').value,
+            "NOMBRE_COMERCIAL": document.getElementById('nombre_comercial').value,
+            "RAZON_SOCIAL": document.getElementById('razon_social').value,
+            "NUMERO_MTOP": document.getElementById('numero_mtop').value,
+            "PASSWORD_MTOP": document.getElementById('password_mtop').value,
+            "VEHICULOS": vehiculos
+        };
+    }
+
     console.log(datos_Empresa)
-if (validacion("EMPRESA",datos_Empresa)) {     
- empresas.push(datos_Empresa)
- datos_Empresa = {};
- vehiculos = [];
- reset_vehicles();
-}else{ console.log("No valido...") }
+    
+    if (validacion("EMPRESA", datos_Empresa)) {
+        empresas.push(datos_Empresa)
+        datos_Empresa = {};
+        vehiculos = [];
+        reset_vehicles();
+        next()
+        if (tipo == "AGT" || tipo == "ANF") {
+            next()
+        }
+    } else { console.log("No valido...") }
 
 }
 
-function valido_Empresa_sin_crearla(){
-
-      datos_Empresa = {
-       "RUT": document.getElementById('rutt').value,
-       "NOMBRE_COMERCIAL": document.getElementById('nombre_comercial').value,
-       "CHOFERES_SUB": document.getElementById('choferes_sub_select').value,
-       "RAZON_SOCIAL": document.getElementById('razon_social').value,
-       "NUMERO_MTOP": document.getElementById('numero_mtop').value,
-       "PASSWORD_MTOP": document.getElementById('password_mtop').value,
+function valido_Empresa_sin_crearla(tipo) {
+    console.log(tipo)
+    if (tipo == "CHO") {
+        input = "empresas"
+    } else {
+        input = "choferes_sub_select"
+    }
+    datos_Empresa = {
+        "RUT": document.getElementById('rutt').value,
+        "NOMBRE_COMERCIAL": document.getElementById('nombre_comercial').value,
+        "CHOFERES_SUB": document.getElementById(input).value,
+        "RAZON_SOCIAL": document.getElementById('razon_social').value,
+        "NUMERO_MTOP": document.getElementById('numero_mtop').value,
+        "PASSWORD_MTOP": document.getElementById('password_mtop').value,
     };
 
-   if (validacion("EMPRESA",datos_Empresa)) {     
-      console.log("...")
-      next();
-   }else{ console.log("No valido...") }
+    if (validacion("EMPRESA", datos_Empresa)) {
+        console.log("...")
+        next();
+    } else { console.log("No valido...") }
 }

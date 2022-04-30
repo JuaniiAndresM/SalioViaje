@@ -7,12 +7,16 @@ if (!isset($_SESSION['usuario'])) {
     header('Location: https://www.salioviaje.com.uy/Login');
 } else {
 
-    $rut = $_GET['RUT'];
+    $id = $_GET['RUT'];
 
     $info_empresa = new procedimientosBD();
 
-    $usuario = $info_empresa->traer_datos_empresa($rut);
-    $vehiculos = json_decode($info_empresa->traer_datos_vehiculo_por_empresa($rut),true);;
+    $usuario = $info_empresa->traer_datos_empresa($id);
+
+    $datos_usuario = $info_empresa->info_usuario_profile($usuario[0]['ID_USUARIO']);
+
+    $vehiculos = json_decode($info_empresa->traer_datos_vehiculo_por_empresa($usuario[0]["RUT"],$id), true);
+
 }
 
 ?>
@@ -165,19 +169,18 @@ if (!isset($_SESSION['usuario'])) {
                 <b><i class="fas fa-user-friends"></i> Choferes Asociados</b>
                 <select name="" id="CaEdicion">
                     <?php
-if ($usuario[0]['CHOFERES_SUB'] == 1) {
-    echo '
-                          <option value="1" selected>Si</option>
-                          <option value="0">No</option>
-                        ';
-} else {
-    echo '
-                          <option value="0" selected>No</option>
-                          <option value="1">Si</option>
-                        ';
-}
-?>
-
+                        if ($usuario[0]['CHOFERES_SUB'] == 1) {
+                          echo '
+                            <option value="1" selected>Si</option>
+                            <option value="0">No</option>
+                          ';
+                        } else {
+                          echo '
+                            <option value="0" selected>No</option>
+                            <option value="1">Si</option>
+                          ';
+                        }
+                    ?>
                 </select>
               </div>
               <div class="info">
@@ -257,22 +260,22 @@ if ($usuario[0]['CHOFERES_SUB'] == 1) {
                 <div class="vehiculos-wrapper">
                     <div class="vehiculos">
                     <?php
-if ($vehiculos == null) {
-    echo "sdf";
-} else {
-    $size = sizeof($vehiculos);
-    for ($i = 0; $i < $size; $i++) {
-        ?>
-                                <script type="text/javascript">
+                      if ($vehiculos == null) {
+                        echo "sdf";
+                      } else {
+                        $size = sizeof($vehiculos);
+                        for ($i = 0; $i < $size; $i++) {
+                    ?>
+                              <script type="text/javascript">
                                 vehiculos_vista_previa(<?php echo json_encode($vehiculos[$i]); ?>)
                                 $('.vehiculos-wrapper').show();
                               </script>
                             <?php
-}
-}
-?>
+                        }
+                      }
+                    ?>
                     </div>
-                    <button class="save-button" id="finalizar_empresa_2" onclick="guardar_cambios_vehiculos_panel(<?php echo $_GET['RUT'] ?>)"><i class="fas fa-save"></i> Guardar Cambios</button>
+                    <button class="save-button" id="finalizar_empresa_2" onclick="guardar_cambios_vehiculos_panel(<?php echo $usuario[0]['RUT']; ?>,<?php echo $usuario[0]['ID']; ?>,<?php echo $datos_usuario[0]['AGENCIA_CONTRATISTA']; ?>)"><i class="fas fa-save"></i> Guardar Cambios</button>
 
                 </div>
             </div>

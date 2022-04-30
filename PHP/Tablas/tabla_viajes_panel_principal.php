@@ -8,8 +8,6 @@ $datos = new procedimientosBD();
 
 $oportunidades = json_decode($datos->traer_oportunidades_por_id_usuario($_SESSION['datos_usuario']['ID']), true);
 
-echo sizeof($oportunidades);
-
 $datos2 = new procedimientosBD();
 
 $datos2 = json_decode($datos2->traer_viajes(), true);
@@ -29,8 +27,6 @@ for ($i = 0; $i < count($oportunidades); $i++) {
                       <td>' . $oportunidades[$i]['ESTADO'] . '</td>
                       <td>
                           <div class="button-wrapper">
-                              <button class="button" onclick="editar_oportunidad(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-pen"></i></button>
-                              <button class="button" onclick="eliminar_oportunidad(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-trash-alt"></i></button>
                           </div>
                         </td>
                   </tr>
@@ -45,8 +41,6 @@ for ($i = 0; $i < count($oportunidades); $i++) {
                       <td>' . $oportunidades[$i]['ESTADO'] . '</td>
                       <td>
                           <div class="button-wrapper">
-                              <button class="button" onclick="editar_oportunidad(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-pen"></i></button>
-                              <button class="button" onclick="eliminar_oportunidad(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-trash-alt"></i></button>
                           </div>
                         </td>
                   </tr>
