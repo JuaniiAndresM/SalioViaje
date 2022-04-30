@@ -865,4 +865,32 @@ class procedimientosBD
         return "insertado";
     }
 
+    public function traer_viajes_cotizando_panel_admin()
+    {
+        $choferes = array();
+        $conn = $this->conexion();
+        $query = "SELECT ID,DIRECCION_ORIGEN,BARRIO_ORIGEN,LOCALIDAD_ORIGEN,DIRECCION_DESTINO,BARRIO_DESTINO,LOCALIDAD_DESTINO,FECHA_SALIDA,ESTADO FROM `cotizaciones` ";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($id_cotizacion, $direccion_origen, $barrio_origen, $localidad_origen, $direccion_destino, $barrio_destino, $localidad_destino, $fecha_salida, $estado);
+            while ($stmt->fetch()) {
+                $result = array('ID' => $id_cotizacion, 'DIRECCION_ORIGEN' => $direccion_origen, 'BARRIO_ORIGEN' => $barrio_origen, 'LOCALIDAD_ORIGEN' => $localidad_origen, 'DIRECCION_DESTINO' => $direccion_destino, 'BARRIO_DESTINO' => $barrio_destino, 'LOCALIDAD_DESTINO' => $localidad_destino, 'FECHA_SALIDA' => $fecha_salida, 'ESTADO' => $estado);
+                $cotizaciones[] = $result;
+            }
+        }
+        $stmt->close();
+        return json_encode($cotizaciones);
+    }
+
+    public function cambiar_estado_cotizacion($id,$estado)
+    {
+        $conn = $this->conexion();
+        $query = "CALL cambiar_estado_cotizacion(?,?)";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("is", $id, $estado);
+        $stmt->execute();
+        $stmt->close();
+    }
+
 }

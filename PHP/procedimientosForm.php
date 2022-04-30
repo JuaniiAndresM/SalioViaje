@@ -174,6 +174,9 @@ if ($_POST['tipo'] == 1) {
                      }
                 }
             break;
+            case 'cambio_estado_cotizacion':
+                $procedimientosForm->cambiar_estado_cotizacion($_POST['idCotizacion'],$_POST['estado']);
+                break;
     }
 
 }

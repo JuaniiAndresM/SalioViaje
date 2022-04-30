@@ -10,6 +10,10 @@ require_once '../PHP/procedimientosBD.php';
       }
   }
 
+  $cotizaciones = new procedimientosBD();
+
+  $cotizaciones = json_decode($cotizaciones->traer_viajes_cotizando_panel_admin(),true);
+
 ?>
 
 <!DOCTYPE html>
@@ -86,6 +90,7 @@ require_once '../PHP/procedimientosBD.php';
     <script src="https://www.salioviaje.com.uy/Javascript/panel.js"></script>
     <script src="https://www.salioviaje.com.uy/Javascript/settings.js"></script>
     <script src="https://www.salioviaje.com.uy/Javascript/loader.js"></script>
+    <script src="https://www.salioviaje.com.uy/Javascript/cotizaciones.js"></script>
     <script type="text/javascript">
             window.onload = function(){
               filtros()
@@ -179,35 +184,61 @@ require_once '../PHP/procedimientosBD.php';
                 </tr>
               </thead>
               <tbody id="tbody">
-
-                  <tr>
-                      <td>1</td>
-                      <td>Canelones, Ciudad de la Costa.</td>
-                      <td>Maldonado, Punta del Este.</td>
-                      <td>25/04/2022</td>
-                      <td>
-                          <select class="select-estado">
+                  <?php
+                    for ($i=0; $i < count($cotizaciones); $i++) {
+                      ?>
+                      <tr>
+                        <td><?php echo $cotizaciones[$i]['ID'] ?></td>
+                        <td><?php 
+                          
+                          if ($cotizaciones[$i]['DIRECCION_ORIGEN'] != null && $cotizaciones[$i]['BARRIO_ORIGEN'] != null && $cotizaciones[$i]['LOCALIDAD_ORIGEN'] != null) {
+                            echo $cotizaciones[$i]['DIRECCION_ORIGEN'].", ".$cotizaciones[$i]['BARRIO_ORIGEN'].", ".$cotizaciones[$i]['LOCALIDAD_ORIGEN']."."; 
+                          } elseif ($cotizaciones[$i]['DIRECCION_ORIGEN'] == null && $cotizaciones[$i]['BARRIO_ORIGEN'] == null && $cotizaciones[$i]['LOCALIDAD_ORIGEN'] != null){
+                            echo $cotizaciones[$i]['LOCALIDAD_ORIGEN']."."; 
+                          } else {
+                            echo $cotizaciones[$i]['BARRIO_ORIGEN'].", ".$cotizaciones[$i]['LOCALIDAD_ORIGEN'].".";
+                          }
+                        
+                        ?></td>
+                        <td><?php 
+                          
+                          if ($cotizaciones[$i]['DIRECCION_DESTINO'] != null && $cotizaciones[$i]['BARRIO_DESTINO'] != null && $cotizaciones[$i]['LOCALIDAD_DESTINO'] != null) {
+                            echo $cotizaciones[$i]['DIRECCION_DESTINO'].", ".$cotizaciones[$i]['BARRIO_DESTINO'].", ".$cotizaciones[$i]['LOCALIDAD_DESTINO']."."; 
+                          } elseif ($cotizaciones[$i]['DIRECCION_DESTINO'] == null && $cotizaciones[$i]['BARRIO_DESTINO'] == null && $cotizaciones[$i]['LOCALIDAD_DESTINO'] != null){
+                            echo $cotizaciones[$i]['LOCALIDAD_DESTINO']."."; 
+                          } elseif ($cotizaciones[$i]['DIRECCION_DESTINO'] != null && $cotizaciones[$i]['BARRIO_DESTINO'] == null && $cotizaciones[$i]['LOCALIDAD_DESTINO'] == null){
+                            echo $cotizaciones[$i]['DIRECCION_DESTINO']."."; 
+                          } else {
+                            echo $cotizaciones[$i]['BARRIO_DESTINO'].", ".$cotizaciones[$i]['LOCALIDAD_DESTINO'].".";
+                          }
+                        
+                        ?></td>
+                        <td><?php echo $cotizaciones[$i]['FECHA_SALIDA'] ?></td>
+                        <td>
+                          <?php
+                          if ($cotizaciones[$i]['ESTADO'] == "cotizando") {
+                            ?>
+                            <select class="select-estado" id="estado-cotizacion" onchange="cambiar_estado_cotizacion_panel_admin(<?php echo $cotizaciones[$i]['ID'] ?>)">
                               <option value="0" disabled>Seleccione un Estado</option> 
-                              <option value="1">Cotizando</option>
-                              <option value="2">Cotizado</option>
-                          </select>
-                      </td>
-                  </tr>
-                  
-                  <tr>
-                      <td>1</td>
-                      <td>Canelones, Ciudad de la Costa.</td>
-                      <td>Maldonado, Punta del Este.</td>
-                      <td>25/04/2022</td>
-                      <td>
-                          <select class="select-estado">
+                              <option value="cotizando" selected>Cotizando</option>
+                              <option value="cotizado">Cotizado</option>
+                            </select>
+                            <?php
+                          }else {
+                            ?>
+                            <select class="select-estado" id="estado-cotizacion" onchange="cambiar_estado_cotizacion_panel_admin(<?php echo $cotizaciones[$i]['ID'] ?>)">
                               <option value="0" disabled>Seleccione un Estado</option> 
-                              <option value="1">Cotizando</option>
-                              <option value="2">Cotizado</option>
-                          </select>
-                      </td>
-                  </tr>
-
+                              <option value="cotizando">Cotizando</option>
+                              <option value="cotizado" selected>Cotizado</option>
+                            </select>
+                            <?php
+                          }
+                          ?>
+                        </td>
+                      </tr>
+                      <?php
+                    }
+                  ?>
               </tbody>
             </table>
           </div>

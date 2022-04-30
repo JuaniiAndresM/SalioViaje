@@ -861,7 +861,7 @@ session_start();
 
                   <div class="sub-section">
 
-                    <h3><i class="fas fa-map"></i> Origen</h3>
+                    <h3><i class="fas fa-map"></i> Destino</h3>
                     <hr>
 
                     <div class="input">
