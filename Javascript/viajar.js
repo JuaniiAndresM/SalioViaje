@@ -61,10 +61,15 @@ function finalizar(enviar_solicitud) {
         case "1":
             datos_traslado = {
                 "FECHA_SALIDA": $('#fecha_salida').val(),
-                "ORIGEN": $('#origen_traslado').val(),
+                "DIRECCION_ORIGEN": $('#direccion_traslado_origen').val(),
+                "BARRIO_ORIGEN": $('#barrio_traslado_origen').val(),
+                "LOCALIDAD_ORIGEN": $('#localidad_traslado_origen').val(),
+                "DIRECCION_DESTINO": $('#direccion_traslado_destino').val(),
+                "BARRIO_DESTINO": $('#barrio_traslado_destino').val(),
+                "LOCALIDAD_DESTINO": $('#localidad_traslado_destino').val(),
+                "MASCOTAS": $('#mascotas_traslado').val(),
                 "CANTIDAD_PASAJEROS": $('#cant_pasajeros').val(),
                 "HORA": $('#hora').val(),
-                "DESTINO": $('#destino_traslado').val(),
                 "OBSERVACIONES": $('#observaciones_traslado').val()
             };
 
@@ -72,11 +77,12 @@ function finalizar(enviar_solicitud) {
                 if (verificar_fechas(datos_traslado['FECHA_SALIDA'], null, 0)) {
                     next();
                     if (enviar_solicitud == 1) {
+                        /*
                         $.ajax({
                             type: "POST",
                             url: "/Mail/mail-SalioViaje.php",
                             data: { TIPO: tipo, DATA: JSON.stringify(datos_traslado), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
-                            success: function (response) {
+                            success: function () {
                                 console.log("se ejecuta")
                             },
                             complete: function (response) {
@@ -88,6 +94,10 @@ function finalizar(enviar_solicitud) {
                                 }
                             }
                         });
+                        */
+                       console.log(datos_traslado)
+                       console.log(array_paradas_1)
+                       guardar_cotizacion(datos_traslado,array_paradas_1,null)
                     }
                 } else {
                     $(".mensaje-error").show();
@@ -391,6 +401,17 @@ function finalizar(enviar_solicitud) {
     }
 }
 
+function guardar_cotizacion(datos_cotizacion,paradas_ida,paradas_vuelta) {
+    $.ajax({
+        type: "POST",
+        url: "/PHP/procedimientosForm.php",
+        data: { tipo: "agregar_cotizacion", datos: JSON.stringify(datos_cotizacion), PARADAS_IDA: JSON.stringify(paradas_ida), PARADAS_VUELTA: JSON.stringify(paradas_vuelta) },
+        success: function (response) {
+            console.log(response)
+        }
+    });
+}
+
 function verificar_fechas(fecha1, fecha2, evento) {
 
     var fecha_actual = new Date();
@@ -493,7 +514,6 @@ function steps(step) {
             break;
 
         case 2:
-            console.log("case 2")
             if (sessionStorage.getItem("opcion") != null) {
                 viaje = sessionStorage.getItem("opcion")
                 sessionStorage.removeItem("opcion")
@@ -504,23 +524,19 @@ function steps(step) {
             console.log(viaje)
             switch (viaje) {
                 case "1":
-                    console.log("case 2.1")
                     $(".step_2_traslado").show();
                     break;
 
                 case "2":
                     $(".step_2_tour").show();
-                    console.log("case 2.2")
                     break;
 
                 case "3":
                     $(".step_2_transfer").show();
-                    console.log("case 2.3")
                     break;
 
                 case "4":
                     $(".step_2_fiestas").show();
-                    console.log("case 2.4")
                     break;
             }
 
