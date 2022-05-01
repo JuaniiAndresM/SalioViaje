@@ -259,24 +259,28 @@ class validaciones
 		foreach (json_decode($datos) as $clave => $valor){
 			if ($valor != null || $valor != '' && $clave != 'VEHICULOS') {
 				switch ($clave) {
-					case 'NOMBRE_HOTEL':
-					$NOMBRE_HOTEL = preg_match($this->PATTERN_NOMBRES, $valor);
-					$VALIDACION['NOMBRE_HOTEL'] = $NOMBRE_HOTEL;
+					case 'RUT':
+						$RUT = preg_match($this->PATTERN_RUT, $valor);
+						$VALIDACION['RUT'] = $RUT;
+					break;
+					case 'NOMBRE_COMERCIAL':
+						$NOMBRE_HOTEL = preg_match($this->PATTERN_NOMBRES, $valor);
+						$VALIDACION['NOMBRE_COMERCIAL'] = $NOMBRE_HOTEL;
 					break;
 					case 'DIRECCION_HOTEL':
-					$DIRECCION_HOTEL = preg_match($this->PATTERN_DIRECCION, $valor);
-					$VALIDACION['DIRECCION_HOTEL'] = $DIRECCION_HOTEL;
+						$DIRECCION_HOTEL = preg_match($this->PATTERN_DIRECCION, $valor);
+						$VALIDACION['DIRECCION_HOTEL'] = $DIRECCION_HOTEL;
 					break;
-					case 'SUPERVISOR':
-					if ($valor == "0") {
-						$VALIDACION['SUPERVISOR'] = 0;
-					}else { $VALIDACION['SUPERVISOR'] = 1; }
+					case 'RAZON_SOCIAL':
+						if ($valor == "0") {
+							$VALIDACION['RAZON_SOCIAL'] = 0;
+						}else { $VALIDACION['RAZON_SOCIAL'] = 1; }
 					break;
 				}
 			}
 		}
 		
-		if(count($VALIDACION) != 3){
+		if(count($VALIDACION) != 4){
 			$DATOS_VACIOS = "Err-1";
 		}
 

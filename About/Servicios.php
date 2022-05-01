@@ -210,7 +210,7 @@ for ($i = 0; $i < count($cotizaciones); $i++) {
 <div class="Cotizaciones-right">
 
   <div class="button-wrapper">
-      <button class="comprar-button" type="submit"><i class="fas fa-chart-line"></i> Cotizar</button>
+      <button class="comprar-button" type="submit" onclick='location.href="https://docs.google.com/forms/d/e/1FAIpQLSeQtd-s1ngnM-F-HbLYHhIOSW1_L0GiUZKoVoiXdnWWV5nsBg/viewform"'><i class="fas fa-chart-line"></i> Cotizar</button>
       <button onclick="location.href = '/Cotizacion/' + <?php echo $cotizaciones[$i]['ID']; ?>;"><i class="fas fa-info"></i> Detalles</button>
   </div>
 

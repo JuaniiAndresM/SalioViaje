@@ -519,31 +519,28 @@ function register_form(opcion) {
          break;
       case "5":
          let datos_Hotel = {
-            "NOMBRE_HOTEL": document.getElementById('nombre-hotel').value,
-            "DIRECCION_HOTEL": document.getElementById('direccion-hotel').value,
-            "SUPERVISOR": document.getElementById('es_supervisor').value
+            "RUT": document.getElementById('rut-hotel').value,
+            "NOMBRE_COMERCIAL": document.getElementById('nombre-hotel').value,
+            "RAZON_SOCIAL": document.getElementById('razon-hotel').value,
+            "DIRECCION_HOTEL": document.getElementById('direccion-hotel').value
          }
 
          if (validacion("USUARIO", datos_Usuario)) {
             if (validacion("HOTEL", datos_Hotel)) {
-
-               datos_Usuario['NOMBRE_HOTEL'] = datos_Hotel['NOMBRE_HOTEL']
-               datos_Usuario['DIRECCION_HOTEL'] = datos_Hotel['DIRECCION_HOTEL']
-               datos_Usuario['SUPERVISOR'] = datos_Hotel['SUPERVISOR']
-
+               console.log(ID_USUARIO)
                registrar_usuario("HTL");
                btn_finalizar_carga()
                setTimeout(function () {
                   $.ajax({
                      type: "POST",
                      url: "/PHP/procedimientosForm.php",
-                     data: { tipo: '5', datos: JSON.stringify(datos_Usuario) },
+                     data: { tipo: '5',idUsuario: ID_USUARIO,datos:JSON.stringify(datos_Hotel)},
                      success: function (response) {
-                        window.location = "https://www.salioviaje.com.uy/Success";
+                        console.log(response)
+                        //window.location = "https://www.salioviaje.com.uy/Success";
                      },
                   });
                }, 1000);
-
             } else { next() }
          } else { console.log("No valido...") }
          break;
