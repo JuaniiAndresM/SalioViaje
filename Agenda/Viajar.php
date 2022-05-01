@@ -991,11 +991,6 @@ session_start();
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-route"></i> Destino o Punto de Interés</p>
-                    <input type="text" id="destino_ida_fiestas_idavuelta">
-                  </div>
-
-                  <div class="input">
                     <p><i class="fas fa-comment-dots"></i> Observaciones</p>
                     <textarea  id="observaciones_fiesta_idavuelta"></textarea>
                   </div>
@@ -1091,11 +1086,6 @@ session_start();
                   <div class="input">
                     <p><i class="far fa-calendar-alt"></i> Hora</p>
                     <input type="time" id="hora_vuelta_fiestas_idavuelta" onchange="verificar_largo_fiesta()"/>
-                  </div>
-
-                  <div class="input">
-                    <p><i class="fas fa-route"></i> Origen o Punto de Interés</p>
-                    <input type="text" id="destino_vuelta_fiestas_idavuelta">
                   </div>
 
                   <div class="input">
