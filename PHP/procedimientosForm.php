@@ -36,29 +36,39 @@ class procedimientosForm extends procedimientosBD
         $this->registrar_empresa("AGT", $empresa);
     }
 
-    public function register_hotel($datos)
+    public function register_hotel($datos, $idUsuario)
     {
-        //$this->registrar_usuarios("HTL", $datos);
+        $this->idUsuario = $idUsuario;
+        $this->registrar_empresa("HTL", $datos);
     }
 
     private function registrar_empresa($tipoUsuario, $empresa)
     {
+        echo json_encode($empresa);
+        $x = 0;
+        if ($tipoUsuario != "HTL") {
+            for ($x = 0; $x < count($empresa); $x++) {
+                echo json_encode("EMPRESA: " . $empresa[$x]);
+                echo $this->register_empresa($x, $tipoUsuario, $this->idUsuario, $empresa[$x]);
 
-        for ($x = 0; $x < count($empresa); $x++) {
-            echo json_encode($empresa[$x]);
-            echo $this->register_empresa($x, $tipoUsuario, $this->idUsuario, $empresa[$x]);
-            for ($i = 0; $i < count($empresa[$x]["VEHICULOS"]); $i++) {
-                if ($tipoUsuario == "CHO") {
-                    //rut_ec = RUT de la empresa creada por el chofer.
-                    //rut = RUT de la agencia contratista del chofer.
-                    $rut_ec = $empresa[$x]["RUT"];
-                    $rut = $empresa[$x]["CHOFERES_SUB"];
-                } else {
-                    $rut = $empresa[$x]["RUT"];
-                    $rut_ec = "0";
+                for ($i = 0; $i < count($empresa[$x]["VEHICULOS"]); $i++) {
+                    if ($tipoUsuario == "CHO") {
+                        //rut_ec = RUT de la empresa creada por el chofer.
+                        //rut = RUT de la agencia contratista del chofer.
+                        $rut_ec = $empresa[$x]["RUT"];
+                        $rut = $empresa[$x]["CHOFERES_SUB"];
+                    } else {
+                        $rut = $empresa[$x]["RUT"];
+                        $rut_ec = "0";
+                    }
+                    $this->register_vehiculo($rut, $rut_ec, $empresa[$x]["VEHICULOS"][$i], 0);
                 }
-                $this->register_vehiculo($rut, $rut_ec, $empresa[$x]["VEHICULOS"][$i], 0);
+
             }
+        }else {
+            $empresa["NUMERO_MTOP"] = 0;
+            $empresa["PASSWORD_MTOP"] = 0;
+            echo $this->register_empresa($x, $tipoUsuario, $this->idUsuario, $empresa);
         }
     }
 
@@ -111,7 +121,7 @@ if ($_POST['tipo'] == 1) {
             break;
         case '5':
             $datos = json_decode($_POST["datos"], true);
-            $procedimientosForm->register_hotel($datos);
+            $procedimientosForm->register_hotel($datos, $_POST['idUsuario']);
             break;
         case '6':
             $datos = json_decode($_POST["datos"], true);
@@ -149,34 +159,34 @@ if ($_POST['tipo'] == 1) {
             echo $procedimientosForm->agrego_visita();
             break;
         case 'agregar_cotizacion':
-            $id_cotizacion = $procedimientosForm->agregar_cotizacion($_POST['datos'],$_POST['tipo_cotizacion'])['ID'];
-            $paradas_ida = json_decode($_POST['PARADAS_IDA'],true);
-            $paradas_vuelta = json_decode($_POST['PARADAS_VUELTA'],true);
-                if ($_POST['PARADAS_VUELTA'] != "0" && $_POST['PARADAS_IDA'] == "0") {
-                    echo "con vuelta\n";
-                    for ($i=0; $i < count($paradas_vuelta); $i++) { 
-                        echo $paradas_vuelta[$i]." "."vuelta"." ".$id_cotizacion."\n";
-                        $procedimientosForm->agregar_paradas($paradas_vuelta[$i],"vuelta",$id_cotizacion);
-                     }
-                } elseif ($_POST['PARADAS_VUELTA'] == "0" && $_POST['PARADAS_IDA'] != "0"){
-                    echo "sin vuelta\n";
-                    for ($i=0; $i < count($paradas_ida); $i++) { 
-                       echo $paradas_ida[$i]." "."ida"." ".$id_cotizacion."\n";
-                       $procedimientosForm->agregar_paradas($paradas_ida[$i],"ida",$id_cotizacion);
-                    }
-                }else{
-                    echo "con ida y vuelta\n";
-                    for ($i=0; $i < count($paradas_ida); $i++) { 
-                        echo $paradas_ida[$i]." "."ida"." ".$id_cotizacion."\n";
-                        $procedimientosForm->agregar_paradas($paradas_ida[$i],"ida",$id_cotizacion);
-                        echo $paradas_vuelta[$i]." "."vuelta"." ".$id_cotizacion."\n";
-                        $procedimientosForm->agregar_paradas($paradas_vuelta[$i],"vuelta",$id_cotizacion);
-                     }
+            $id_cotizacion = $procedimientosForm->agregar_cotizacion($_POST['datos'], $_POST['tipo_cotizacion'])['ID'];
+            $paradas_ida = json_decode($_POST['PARADAS_IDA'], true);
+            $paradas_vuelta = json_decode($_POST['PARADAS_VUELTA'], true);
+            if ($_POST['PARADAS_VUELTA'] != "0" && $_POST['PARADAS_IDA'] == "0") {
+                echo "con vuelta\n";
+                for ($i = 0; $i < count($paradas_vuelta); $i++) {
+                    echo $paradas_vuelta[$i] . " " . "vuelta" . " " . $id_cotizacion . "\n";
+                    $procedimientosForm->agregar_paradas($paradas_vuelta[$i], "vuelta", $id_cotizacion);
                 }
+            } elseif ($_POST['PARADAS_VUELTA'] == "0" && $_POST['PARADAS_IDA'] != "0") {
+                echo "sin vuelta\n";
+                for ($i = 0; $i < count($paradas_ida); $i++) {
+                    echo $paradas_ida[$i] . " " . "ida" . " " . $id_cotizacion . "\n";
+                    $procedimientosForm->agregar_paradas($paradas_ida[$i], "ida", $id_cotizacion);
+                }
+            } else {
+                echo "con ida y vuelta\n";
+                for ($i = 0; $i < count($paradas_ida); $i++) {
+                    echo $paradas_ida[$i] . " " . "ida" . " " . $id_cotizacion . "\n";
+                    $procedimientosForm->agregar_paradas($paradas_ida[$i], "ida", $id_cotizacion);
+                    echo $paradas_vuelta[$i] . " " . "vuelta" . " " . $id_cotizacion . "\n";
+                    $procedimientosForm->agregar_paradas($paradas_vuelta[$i], "vuelta", $id_cotizacion);
+                }
+            }
             break;
-            case 'cambio_estado_cotizacion':
-                $procedimientosForm->cambiar_estado_cotizacion($_POST['idCotizacion'],$_POST['estado']);
-                break;
+        case 'cambio_estado_cotizacion':
+            $procedimientosForm->cambiar_estado_cotizacion($_POST['idCotizacion'], $_POST['estado']);
+            break;
     }
 
 }
