@@ -212,6 +212,8 @@ function steps(step) {
 
                $('.progress-bar').show();
                $('.progress-bar2').hide();
+
+               $('.mensaje-error').hide();
                break;
 
             default:
@@ -240,6 +242,8 @@ function steps(step) {
 
                $('.progress-bar').show();
                $('.progress-bar2').hide();
+               
+               $('.mensaje-error').hide();
                break;
             
             default:
