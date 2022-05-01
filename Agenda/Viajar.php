@@ -915,12 +915,12 @@ session_start();
 
                     <div class="input">
                       <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
-                      <input type="text" id="direccion_ida_fiestas_idavuelta"/>
+                      <input type="text" id="direccion_ida_origen_fiestas_idavuelta"/>
                     </div>
 
                     <div class="input">
                       <p><i class="fa fa-map-location-dot"></i> Barrio</p>
-                      <input list="Barrio" id="barrio_ida_fiestas_idavuelta">
+                      <input list="Barrio" id="barrio_ida_origen_fiestas_idavuelta">
                       <datalist id="Barrio">
                         <option value="Barrio 1">
                         <option value="Barrio 2">
@@ -932,7 +932,7 @@ session_start();
 
                     <div class="input">
                       <p><i class="fa-solid fa-globe"></i> Localidad</p>
-                      <input list="Localidad" id="localidad_ida_fiestas_idavuelta">
+                      <input list="Localidad" id="localidad_ida_origen_fiestas_idavuelta">
                       <datalist id="Localidad">
                         <option value="Localidad 1">
                         <option value="Localidad 2">
@@ -942,6 +942,42 @@ session_start();
                       </datalist>
                     </div>
 
+                  </div>
+
+                  <div class="sub-section">
+
+                    <h3><i class="fas fa-route"></i> Destino</h3>
+                    <hr>
+
+                    <div class="input">
+                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
+                      <input type="text" id="direccion_ida_destino_fiestas_idavuelta"/>
+                    </div>
+
+                    <div class="input">
+                      <p><i class="fa fa-map-location-dot"></i> Barrio</p>
+                      <input list="Barrio" id="barrio_ida_destino_fiestas_idavuelta">
+                      <datalist id="Barrio">
+                        <option value="Barrio 1">
+                        <option value="Barrio 2">
+                        <option value="Barrio 3">
+                        <option value="Barrio 4">
+                        <option value="Barrio 5">
+                      </datalist>
+                    </div>
+
+                    <div class="input">
+                      <p><i class="fa-solid fa-globe"></i> Localidad</p>
+                      <input list="Localidad" id="localidad_ida_destino_fiestas_idavuelta">
+                      <datalist id="Localidad">
+                        <option value="Localidad 1">
+                        <option value="Localidad 2">
+                        <option value="Localidad 3">
+                        <option value="Localidad 4">
+                        <option value="Localidad 5">
+                      </datalist>
+                    </div>
+                    
                   </div>
 
                   <div class="input">
@@ -977,17 +1013,17 @@ session_start();
 
                   <div class="sub-section">
 
-                    <h3><i class="fas fa-route"></i> Destino</h3>
+                    <h3><i class="fas fa-map"></i> Origen</h3>
                     <hr>
 
                     <div class="input">
                       <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
-                      <input type="text" id="direccion_vuelta_fiestas_idavuelta"/>
+                      <input type="text" id="direccion_vuelta_origen_fiestas_idavuelta"/>
                     </div>
 
                     <div class="input">
                       <p><i class="fa fa-map-location-dot"></i> Barrio</p>
-                      <input list="Barrio" id="barrio_vuelta_fiestas_idavuelta">
+                      <input list="Barrio" id="barrio_vuelta_origen_fiestas_idavuelta">
                       <datalist id="Barrio">
                         <option value="Barrio 1">
                         <option value="Barrio 2">
@@ -999,7 +1035,43 @@ session_start();
 
                     <div class="input">
                       <p><i class="fa-solid fa-globe"></i> Localidad</p>
-                      <input list="Localidad" id="localidad_vuelta_fiestas_idavuelta">
+                      <input list="Localidad" id="localidad_vuelta_origen_fiestas_idavuelta">
+                      <datalist id="Localidad">
+                        <option value="Localidad 1">
+                        <option value="Localidad 2">
+                        <option value="Localidad 3">
+                        <option value="Localidad 4">
+                        <option value="Localidad 5">
+                      </datalist>
+                    </div>
+
+                  </div>
+
+                  <div class="sub-section">
+
+                    <h3><i class="fas fa-route"></i> Destino</h3>
+                    <hr>
+
+                    <div class="input">
+                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
+                      <input type="text" id="direccion_vuelta_destino_fiestas_idavuelta"/>
+                    </div>
+
+                    <div class="input">
+                      <p><i class="fa fa-map-location-dot"></i> Barrio</p>
+                      <input list="Barrio" id="barrio_vuelta_destino_fiestas_idavuelta">
+                      <datalist id="Barrio">
+                        <option value="Barrio 1">
+                        <option value="Barrio 2">
+                        <option value="Barrio 3">
+                        <option value="Barrio 4">
+                        <option value="Barrio 5">
+                      </datalist>
+                    </div>
+
+                    <div class="input">
+                      <p><i class="fa-solid fa-globe"></i> Localidad</p>
+                      <input list="Localidad" id="localidad_vuelta_destino_fiestas_idavuelta">
                       <datalist id="Localidad">
                         <option value="Localidad 1">
                         <option value="Localidad 2">
