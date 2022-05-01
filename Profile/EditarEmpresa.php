@@ -121,7 +121,7 @@ if (!isset($_SESSION['usuario'])) {
           <button onclick="navbar()"><i class="fas fa-bars"></i></button>
         </div>
         <div class="header-title">
-          <h2>Editar Empresa</h2>
+          <h2>Editar <?php if($usuario[0]['TIPO_USUARIO'] == "HTL"){ echo "Hotel";}else{ echo "Empresa"; } ?></h2>
         </div>
       </div>
       <div class="header-right">
@@ -148,7 +148,7 @@ if (!isset($_SESSION['usuario'])) {
             </div>
             <div class="user-desc">
                 <h2><?php echo $usuario[0]['NOMBRE_COMERCIAL']; ?></h2>
-                <p><i class="fas fa-building"></i> Empresa</p>
+                <p><i class="fas fa-building"></i> <?php if($usuario[0]['TIPO_USUARIO'] == "HTL"){ echo "Hotel";}else{ echo "Empresa"; } ?></p>
 
             </div>
           </div>
@@ -156,48 +156,75 @@ if (!isset($_SESSION['usuario'])) {
 
         <div class="profile-grid">
           <div class="user-informacion">
-            <h3><i class="fas fa-address-card"></i> Información de la Empresa</h3>
+            <h3><i class="fas fa-address-card"></i> <?php if($usuario[0]['TIPO_USUARIO'] == "HTL"){ echo "Información del Hotel";}else{ echo "Información de la Empresa"; } ?></h3>
 
             <div class="informacion-wrapper">
 
-              <div class="info">
-                <b><i class="fas fa-signature"></i> Nombre Comercial</b>
-                <input type="text" placeholder="Nombre Comercial" id="NcEdicion"value="<?php echo $usuario[0]['NOMBRE_COMERCIAL']; ?>">
-              </div>
-              <div class="info">
-                <b><i class="fas fa-building"></i> Razón Social</b>
-                <input type="text" placeholder="Razón Social" id="RsEdicion"value="<?php echo $usuario[0]['RAZON_SOCIAL']; ?>">
-              </div>
+            <?php
 
-              <?php if($usuario[0]['TIPO_USUARIO'] != "ANF" && $usuario[0]['TIPO_USUARIO'] != "AGT"){
+              if($usuario[0]['TIPO_USUARIO'] == "HTL"){
                 echo '<div class="info">
-                <b><i class="fas fa-user-friends"></i> Choferes Asociados</b>
-                <select name="" id="CaEdicion">';
-                        if ($usuario[0]['CHOFERES_SUB'] == 1) {
-                          echo '
-                            <option value="1" selected>Si</option>
-                            <option value="0">No</option>
-                          ';
-                        } else {
-                          echo '
-                            <option value="0" selected>No</option>
-                            <option value="1">Si</option>
-                          ';
-                        }
-                        echo '
-                </select>
-              </div>
-              <div class="info">
-                <b><i class="fas fa-user-lock"></i> N° MTOP</b>
-                <input type="text" placeholder="N° MTOP" id="NmEdicion"value="'. $usuario[0]['NRO_MTOP'].'">
-              </div>
-              <div class="info">
-                <b><i class="fas fa-key"></i> Contraseña MTOP</b>
-                <input type="password"  id="password" placeholder="Contraseña MTOP" value="'. $usuario[0]['PASS_MTOP'].'">
+                        <b><i class="fas fa-signature"></i> Nombre del Hotel</b>
+                        <input type="text" placeholder="Nombre del Hotel" id="NcEdicion" value="'.$usuario[0]['NOMBRE_COMERCIAL'].'">
+                      </div>
+                      <div class="info">
+                        <b><i class="fas fa-signature"></i> Razón Social</b>
+                        <input type="text" placeholder="Razón Social" id="RsEdicion" value="'.$usuario[0]['RAZON_SOCIAL'].'">
+                      </div>
+                      <div class="info">
+                        <b><i class="fas fa-road"></i> Direccion del Hotel</b>
+                        <input type="text" placeholder="Direccion del Hotel" id="DirEdicion" value="'.$usuario[0]['DIRECCION_HOTEL'].'">
+                      </div>';
+              }else{
+                  echo '<div class="info">
+                  <b><i class="fas fa-signature"></i> Nombre Comercial</b>
+                  <input type="text" placeholder="Nombre Comercial" id="NcEdicion"value="'.$usuario[0]['NOMBRE_COMERCIAL'].'">
+                </div>
+                <div class="info">
+                  <b><i class="fas fa-building"></i> Razón Social</b>
+                  <input type="text" placeholder="Razón Social" id="RsEdicion"value="'.$usuario[0]['RAZON_SOCIAL'].'">
+                </div>';
 
-                <button onclick="passwd(1)" class="password-eye"><i id="passeye" class="fas fa-eye-slash"></i></button>
-              </div>';
+                if($usuario[0]['TIPO_USUARIO'] != "ANF" && $usuario[0]['TIPO_USUARIO'] != "AGT"){
+
+                  if($usuario[0]['TIPO_USUARIO'] != "CHO"){
+                    echo '<div class="info">
+                    <b><i class="fas fa-user-friends"></i> Choferes Asociados</b>
+                    <select name="" id="CaEdicion">';
+                            if ($usuario[0]['CHOFERES_SUB'] == 1) {
+                              echo '
+                                <option value="1" selected>Si</option>
+                                <option value="0">No</option>
+                              ';
+                            } else {
+                              echo '
+                                <option value="0" selected>No</option>
+                                <option value="1">Si</option>
+                              ';
+                            }
+                            echo '
+                    </select>
+                    </div>';
+                  }
+                  
+                  echo '
+                
+                <div class="info">
+                  <b><i class="fas fa-user-lock"></i> N° MTOP</b>
+                  <input type="text" placeholder="N° MTOP" id="NmEdicion"value="'. $usuario[0]['NRO_MTOP'].'">
+                </div>
+                <div class="info">
+                  <b><i class="fas fa-key"></i> Contraseña MTOP</b>
+                  <input type="password"  id="password" placeholder="Contraseña MTOP" value="'. $usuario[0]['PASS_MTOP'].'">
+  
+                  <button onclick="passwd(1)" class="password-eye"><i id="passeye" class="fas fa-eye-slash"></i></button>
+                </div>';
+                }
               }
+
+              
+
+               
               ?>
 
             </div>
@@ -209,7 +236,7 @@ if (!isset($_SESSION['usuario'])) {
             </div>
           </div>
 
-          <?php if($usuario[0]['TIPO_USUARIO'] != "ANF" && $usuario[0]['TIPO_USUARIO'] != "AGT"){
+          <?php if($usuario[0]['TIPO_USUARIO'] != "ANF" && $usuario[0]['TIPO_USUARIO'] != "AGT" && $usuario[0]['TIPO_USUARIO'] != "HTL"){
             echo '<div class="viajes-wrapper">
             <h3><i class="fas fa-bus"></i> Agregar Vehiculos</h3>
 

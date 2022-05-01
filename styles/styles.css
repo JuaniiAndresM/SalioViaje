@@ -10251,6 +10251,7 @@ footer .totum p a:hover {
   border: 1px solid #3844bc;
   border-radius: 10px;
   padding: 20px;
+  margin: 10px 0;
 }
 
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .formulario-grid .sub-section h3, .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .paradas-wrapper .sub-section h3,
