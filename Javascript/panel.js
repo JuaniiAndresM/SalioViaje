@@ -326,6 +326,7 @@ function tabla_empresas_dashboard() {
         data: { opcion: "tab_dashboard_empresas" },
         url: "https://www.salioviaje.com.uy/PHP/Backend.php",
         success: function (response) {
+            console.log(response);
             if (response != 0) {
                 $(".propietarios").html(response)
             } else {

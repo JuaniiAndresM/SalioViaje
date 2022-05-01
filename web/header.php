@@ -1,4 +1,6 @@
 <?php
+$ttl = (60 * 60 * 24); # 1 día
+session_set_cookie_params($ttl);
     session_start();
 ?>
 

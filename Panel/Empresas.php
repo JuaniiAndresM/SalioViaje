@@ -1,5 +1,7 @@
 <?php 
 require_once '../PHP/procedimientosBD.php';
+$ttl = (60 * 60 * 24); # 1 día
+session_set_cookie_params($ttl);
   session_start(); 
 
   if(!isset($_SESSION['usuario'])){
@@ -15,6 +17,7 @@ require_once '../PHP/procedimientosBD.php';
         $empresas;
       }else{
         $empresas = $info_usuario->traer_empresas_usuario($_SESSION['datos_usuario']["ID"]);
+        $empresas_choferes = json_decode($info_usuario->traer_empresas_choferes_por_tta_id($_SESSION['datos_usuario']["ID"]),true);
       }
     }
   }
@@ -208,7 +211,33 @@ require_once '../PHP/procedimientosBD.php';
                             </tr>
                         </tbody>';
                       }
-                    }else{
+                    }else if ($_SESSION['tipo_usuario'] == "Transportista") {
+                      $size = sizeof($empresas);
+                      for($i = 0; $i< sizeof($empresas); $i++){
+                        echo '<tbody id="tbody">
+                            <tr class="'.$empresas[$i]['TIPO_USUARIO'].'">
+                              <td>'.$empresas[$i]['ID'].'</td>
+                              <td>'.$empresas[$i]['RUT'].'</td>
+                              <td>'.$empresas[$i]['NOMBRE_COMERCIAL'].'</td>
+                              <td>'.$empresas[$i]['RAZON_SOCIAL'].'</td>
+                              <td>'.$empresas[$i]['ID_USUARIO'].'</td>
+                              <td>'.$empresas[$i]['TIPO_USUARIO'].'</td>
+                            </tr>
+                        </tbody>';
+                      }
+                      for($i = 0; $i< sizeof($empresas_choferes); $i++){
+                        echo '<tbody id="tbody">
+                            <tr class="'.$empresas_choferes[$i]['TIPO_USUARIO'].'">
+                              <td>'.$empresas_choferes[$i]['ID'].'</td>
+                              <td>'.$empresas_choferes[$i]['RUT'].'</td>
+                              <td>'.$empresas_choferes[$i]['NOMBRE_COMERCIAL'].'</td>
+                              <td>'.$empresas_choferes[$i]['RAZON_SOCIAL'].'</td>
+                              <td>'.$empresas_choferes[$i]['ID_USUARIO'].'</td>
+                              <td>'.$empresas_choferes[$i]['TIPO_USUARIO'].'</td>
+                            </tr>
+                        </tbody>';
+                      }
+                    } else {
                       $size = sizeof($empresas);
                       for($i = 0; $i< sizeof($empresas); $i++){
                         echo '<tbody id="tbody">

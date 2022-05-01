@@ -82,9 +82,9 @@ class procedimientosBD
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($nombre_empresa, $razon_social, $rut, $acepta_cho);
+            $stmt->bind_result($nombre_empresa, $razon_social, $rut, $acepta_cho,$tipo_usuario);
             while ($stmt->fetch()) {
-                $result = array('NOMBRE_COMERCIAL' => $nombre_empresa, 'RAZON_SOCIAL' => $razon_social, 'RUT' => $rut, 'CHOFERES_SUB' => $acepta_cho);
+                $result = array('NOMBRE_COMERCIAL' => $nombre_empresa, 'RAZON_SOCIAL' => $razon_social, 'RUT' => $rut, 'CHOFERES_SUB' => $acepta_cho, 'TIPO_USUARIO' => $tipo_usuario);
                 $empresas[] = $result;
             }
         }
@@ -517,9 +517,9 @@ class procedimientosBD
         $stmt->bind_param("s", $RUT);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($id, $rut, $nombre_c, $razon_social, $nro_mtop, $pass_mtop, $id_usuario, $tipo_usuario, $choferes_sub);
+            $stmt->bind_result($id, $rut, $nombre_c, $razon_social, $nro_mtop, $pass_mtop, $id_usuario, $tipo_usuario, $choferes_sub, $direccion_hotel);
             while ($stmt->fetch()) {
-                $result = array('ID' => $id, 'RUT' => $rut, 'NOMBRE_COMERCIAL' => $nombre_c, 'RAZON_SOCIAL' => $razon_social, 'NRO_MTOP' => $nro_mtop, 'PASS_MTOP' => $pass_mtop, 'ID_USUARIO' => $id_usuario, 'TIPO_USUARIO' => $tipo_usuario, 'CHOFERES_SUB' => $choferes_sub);
+                $result = array('ID' => $id, 'RUT' => $rut, 'NOMBRE_COMERCIAL' => $nombre_c, 'RAZON_SOCIAL' => $razon_social, 'NRO_MTOP' => $nro_mtop, 'PASS_MTOP' => $pass_mtop, 'ID_USUARIO' => $id_usuario, 'TIPO_USUARIO' => $tipo_usuario, 'CHOFERES_SUB' => $choferes_sub, 'DIRECCION_HOTEL' => $direccion_hotel);
                 $empresa[] = $result;
             }
         }
@@ -537,9 +537,9 @@ class procedimientosBD
         $stmt->bind_param("i", $ID);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($id, $rut, $nombre_c, $razon_social, $nro_mtop, $pass_mtop, $usuario_id, $id_usuario, $choferes_sub);
+            $stmt->bind_result($id, $rut, $nombre_c, $razon_social, $nro_mtop, $pass_mtop, $usuario_id, $id_usuario, $choferes_sub, $direccion_hotel);
             while ($stmt->fetch()) {
-                $result = array('ID' => $id, 'RUT' => $rut, 'NOMBRE_COMERCIAL' => $nombre_c, 'RAZON_SOCIAL' => $razon_social, 'NRO_MTOP' => $nro_mtop, 'PASS_MTOP' => $pass_mtop, 'ID_USUARIO' => $usuario_id, 'TIPO_USUARIO' => $id_usuario, 'CHOFERES_SUB' => $choferes_sub);
+                $result = array('ID' => $id, 'RUT' => $rut, 'NOMBRE_COMERCIAL' => $nombre_c, 'RAZON_SOCIAL' => $razon_social, 'NRO_MTOP' => $nro_mtop, 'PASS_MTOP' => $pass_mtop, 'ID_USUARIO' => $usuario_id, 'TIPO_USUARIO' => $id_usuario, 'CHOFERES_SUB' => $choferes_sub, 'DIRECCION_HOTEL' => $direccion_hotel);
                 $empresa[$size] = $result;
                 $return = $empresa;
                 $size++;
@@ -812,6 +812,44 @@ class procedimientosBD
         }
         $stmt->close();
         return json_encode($choferes);
+    }
+
+    public function traer_empresas_choferes_por_tta_id($id)
+    {
+        $empresas_choferes = array();
+        $conn = $this->conexion();
+        $query = "SELECT * FROM `empresas` WHERE Usuario_ID IN (SELECT ID FROM usuarios WHERE Agencia_C IN (SELECT RUT FROM empresas where Usuario_ID = $id));";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($id, $rut, $nombre_c, $razon_social, $nro_mtop, $pass_mtop, $id_usuario, $tipo_usuario, $choferes_sub, $direccion_hotel);
+            while ($stmt->fetch()) {
+                $result = array('ID' => $id, 'RUT' => $rut, 'NOMBRE_COMERCIAL' => $nombre_c, 'RAZON_SOCIAL' => $razon_social, 'NRO_MTOP' => $nro_mtop, 'PASS_MTOP' => $pass_mtop, 'ID_USUARIO' => $id_usuario, 'TIPO_USUARIO' => $tipo_usuario, 'CHOFERES_SUB' => $choferes_sub, 'DIRECCION_HOTEL' => $direccion_hotel);
+                $empresas_choferes[] = $result;
+            }
+        }
+        $stmt->close();
+        return json_encode($empresas_choferes);
+    }
+
+    //SELECT * from vehiculos where RUT_EM IN(SELECT RUT FROM `empresas` WHERE Usuario_ID IN (SELECT ID FROM usuarios WHERE Agencia_C IN (SELECT RUT FROM empresas where Usuario_ID = 435))) 
+
+    public function traer_vehiculos_empresas_choferes_por_tta_id($id)
+    {
+        $vehiculos_choferes = array();
+        $conn = $this->conexion();
+        $query = "SELECT * from vehiculos where RUT_EM IN(SELECT RUT FROM `empresas` WHERE Usuario_ID IN (SELECT ID FROM usuarios WHERE Agencia_C IN (SELECT RUT FROM empresas where Usuario_ID = $id)));";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($id, $matricula, $marca, $modelo, $combustible, $capacidad, $equipaje, $pet_friendly, $rut_em, $rut_ec, $id_empresa);
+            while ($stmt->fetch()) {
+                $result = array('ID' => $id, 'MATRICULA' => $matricula, 'MARCA' => $marca, 'MODELO' => $modelo, 'COMBUSTIBLE' => $combustible, 'CAPACIDAD' => $capacidad, 'EQUIPAJE' => $equipaje, 'PET_FRIENDLY' => $pet_friendly, 'RUT_EM' => $rut_em, 'RUT_EC' => $rut_ec, 'ID_EMPRESA' => $id_empresa);
+                $vehiculos_choferes[] = $result;
+            }
+        }
+        $stmt->close();
+        return json_encode($vehiculos_choferes);
     }
 
     public function agregar_cotizacion($datos, $tipo)
