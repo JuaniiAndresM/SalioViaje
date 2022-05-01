@@ -242,9 +242,6 @@ require_once '../PHP/procedimientosBD.php';
               </tbody>
             </table>
           </div>
-          <div class="button-wrapper">
-              <button class="save-button"><i class="fas fa-save"></i> Guardar Cambios</button>
-          </div>
         </div>
       </div>
     </section>
