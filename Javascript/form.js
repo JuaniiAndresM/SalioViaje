@@ -91,6 +91,8 @@ function steps(step) {
    $('#step_4').hide();
    $('#step_5').hide();
    $('#step_hotel').hide();
+   $('#step_hotel_no').hide();
+   $('#step_hotel_si').hide();
 
    $('.vehiculos-wrapper').hide();
 
@@ -133,7 +135,7 @@ function steps(step) {
                $('.progress-bar').hide();
                $('.progress-bar2').hide();
                break;
-            case "2": case "3":
+            case "2": case "3": case "5":
                $('#pax-register').hide();
                $('#step-next').show();
 
@@ -141,7 +143,7 @@ function steps(step) {
                $('.progress-bar2').hide();
                break;
 
-            case "4": case "5": case "7":
+            case "4": case "7":
                $('#pax-register').hide();
                $('#step-next').show();
 
@@ -208,8 +210,10 @@ function steps(step) {
             case "5":
                $('#step_hotel').show();
 
-               $('.progress-bar').hide();
-               $('.progress-bar2').show();
+               $('.progress-bar').show();
+               $('.progress-bar2').hide();
+
+               $('.mensaje-error').hide();
                break;
 
             default:
@@ -218,6 +222,7 @@ function steps(step) {
          break;
 
       case 4:
+         
          $('.progress').css('width', '100%');
 
          $('.circle1').css('background-color', '#2b3179');
@@ -227,8 +232,25 @@ function steps(step) {
          $('.progress-bar').show();
          $('.progress-bar2').hide();
 
-         $('#step_4').show();
-         $('.vehiculos-wrapper').show();
+         switch (user) {
+            case "5":
+               if($('#existe-hotel').val() == 1){
+                  $('#step_hotel_si').show();
+               }else{
+                  $('#step_hotel_no').show();
+               }               
+
+               $('.progress-bar').show();
+               $('.progress-bar2').hide();
+               
+               $('.mensaje-error').hide();
+               break;
+            
+            default:
+               $('#step_4').show();
+               $('.vehiculos-wrapper').show();
+               break;
+         }         
          break;
 
       case 5:

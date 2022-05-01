@@ -106,7 +106,9 @@
     #step_3,
     #step_4,
     #step_5,
-    #step_hotel {
+    #step_hotel,
+    #step_hotel_si,
+    #step_hotel_no {
       width: 100%;
       text-align: center;
 
@@ -117,7 +119,8 @@
       }
 
       .inputs-wrapper,
-      .inputs-wrapper-register {
+      .inputs-wrapper-register,
+      .inputs-wrapper-register-hotel {
         width: 100%;
         .input {
           position: relative;
@@ -171,6 +174,11 @@
       .inputs-wrapper-register {
         display: grid;
         grid-template-columns: 1fr 1fr;
+      }
+      .inputs-wrapper-register-hotel {
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto;
       }
       .button-login,
       .button-register {
@@ -493,7 +501,9 @@
       #step_3,
       #step_4,
       #step_5,
-      #step_hotel{
+      #step_hotel,
+      #step_hotel_no,
+      #step_hotel_si{
         .inputs-wrapper-register {
           grid-template-columns: 1fr;
         }
