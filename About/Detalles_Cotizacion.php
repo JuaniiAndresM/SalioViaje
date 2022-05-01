@@ -14,8 +14,10 @@
   */
   require_once "../PHP/procedimientosBD.php";
 
+  $cotizaciones = new procedimientosBD();
 
-  $datos = new procedimientosBD();
+  $cotizaciones = json_decode($cotizaciones->traer_viajes_cotizando_por_id($_GET['ID']), true);
+
 ?>
 
 <!DOCTYPE html>
@@ -139,45 +141,41 @@
 
               <div class="info">
                 <b><i class="far fa-address-card"></i> N° Viaje</b>
-                <p>#<?php echo $array_oportuidad[0]['ID']; ?></p>
+                <p>#<?php echo $cotizaciones[0]['ID']; ?></p>
               </div>
 
               <div class="info">
                 <b><i class="fas fa-map-marker-alt"></i> Origen</b>
-                <p><?php echo $array_oportuidad[0]['ORIGEN']; ?></p>
+                <p><?php echo $cotizaciones[0]['LOCALIDAD_ORIGEN']; ?>, <?php echo $cotizaciones[0]['BARRIO_ORIGEN']; ?>.</p>
               </div>
 
               <div class="info">
                 <b><i class="fas fa-route"></i> Destino</b>
-                <p><?php echo $array_oportuidad[0]['DESTINO']; ?></p>
+                <p><?php
+                      if ($cotizaciones[0]['LOCALIDAD_DESTINO'] != null) {
+                        echo $cotizaciones[0]['LOCALIDAD_DESTINO'].", ".$cotizaciones[0]['BARRIO_DESTINO'];
+                      }else {
+                        echo $cotizaciones[0]['BARRIO_DESTINO'];
+                      }
+                    ?>.</p>
               </div>
 
               <div class="info">
                 <b><i class="far fa-calendar-alt"></i> Fecha</b>
-                <p><?php echo $fecha[0]; ?></p>
+                <p><?php echo $cotizaciones[0]['FECHA_SALIDA']; ?></p>
               </div>
 
               <div class="info">
                 <b><i class="far fa-clock"></i> Hora</b>
-                <p><?php echo $fecha[1]; ?></p>
+                <p><?php echo $cotizaciones[0]['HORA']; ?></p>
               </div>
 
               <div class="info">
-                <b><i class="fas fa-user-friends"></i> Capacidad</b>
-                <p><?php echo $array_oportuidad[0]['CAPACIDAD_VEHICULO']; ?></p>
+                <b><i class="fas fa-user-friends"></i> Cantidad de pasajeros</b>
+                <p><?php echo $cotizaciones[0]['CANTIDAD_PASAJEROS']; ?></p>
               </div>
 
             </div>
-            <div class="price_wrapper">
-              <div class="discount">
-                <h3><?php echo $array_oportuidad[0]['DESCUENTO']; ?>% <i class="fas fa-tags"></i></h3>
-              </div>
-              <div class="price">
-                <p class="desc">$ <?php echo number_format($array_oportuidad[0]['PRECIO']); ?></p>
-                <p>$ <?php echo number_format($PRECIO_CON_DESCUENTO_APLICADO); ?></p>
-              </div>
-            </div>
-
           </div>
         </div>
     </section>
