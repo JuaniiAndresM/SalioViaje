@@ -183,23 +183,29 @@ if (!isset($_SESSION['usuario'])) {
                 </div>';
 
                 if($usuario[0]['TIPO_USUARIO'] != "ANF" && $usuario[0]['TIPO_USUARIO'] != "AGT"){
-                  echo '<div class="info">
-                  <b><i class="fas fa-user-friends"></i> Choferes Asociados</b>
-                  <select name="" id="CaEdicion">';
-                          if ($usuario[0]['CHOFERES_SUB'] == 1) {
+
+                  if($usuario[0]['TIPO_USUARIO'] != "CHO"){
+                    echo '<div class="info">
+                    <b><i class="fas fa-user-friends"></i> Choferes Asociados</b>
+                    <select name="" id="CaEdicion">';
+                            if ($usuario[0]['CHOFERES_SUB'] == 1) {
+                              echo '
+                                <option value="1" selected>Si</option>
+                                <option value="0">No</option>
+                              ';
+                            } else {
+                              echo '
+                                <option value="0" selected>No</option>
+                                <option value="1">Si</option>
+                              ';
+                            }
                             echo '
-                              <option value="1" selected>Si</option>
-                              <option value="0">No</option>
-                            ';
-                          } else {
-                            echo '
-                              <option value="0" selected>No</option>
-                              <option value="1">Si</option>
-                            ';
-                          }
-                          echo '
-                  </select>
-                </div>
+                    </select>
+                    </div>';
+                  }
+                  
+                  echo '
+                
                 <div class="info">
                   <b><i class="fas fa-user-lock"></i> N° MTOP</b>
                   <input type="text" placeholder="N° MTOP" id="NmEdicion"value="'. $usuario[0]['NRO_MTOP'].'">

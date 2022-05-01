@@ -241,38 +241,42 @@ require_once '../PHP/procedimientosBD.php';
                               </div>
                           </div>';
 
-                echo '<div class="viajes-wrapper">
-                <h3><i class="fas fa-user-friends"></i> Choferes Asociados</h3>
-
-                <div class="search">
-                  <i class="fas fa-search"></i>
-                  <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarusuarios()"/>
-                </div>
-                <div class="empresas">';
-                    if($choferes === null){
-                      
-                    }else{
-                      for($i = 0; $i< sizeof($choferes); $i++){
-                        echo '
-                        <div class="empresa">
-                          <div class="empresa-left">
-                            <div class="empresa-icon">
-                                <i class="fas fa-user"></i>
+                if($usuario[0]['TIPO_USUARIO'] != "CHO"){
+                  echo '<div class="viajes-wrapper">
+                  <h3><i class="fas fa-user-friends"></i> Choferes Asociados</h3>
+  
+                  <div class="search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarusuarios()"/>
+                  </div>
+                  <div class="empresas">';
+                      if($choferes === null){
+                        
+                      }else{
+                        for($i = 0; $i< sizeof($choferes); $i++){
+                          echo '
+                          <div class="empresa">
+                            <div class="empresa-left">
+                              <div class="empresa-icon">
+                                  <i class="fas fa-user"></i>
+                              </div>
+                              <div class="empresa-info">
+                                  <h3>'.$choferes[$i][0]['NOMBRE'].'</h3>
+                              </div>
                             </div>
-                            <div class="empresa-info">
-                                <h3>'.$choferes[$i][0]['NOMBRE'].'</h3>
+                            <div class="empresa-button">
+                              <button class="button" id="'.$choferes[$i][0]['ID'].'" onclick="ver_usuario('.$choferes[$i][0]['ID'].')"><i class="far fa-eye"></i></button>
+                              <button class="button" id="'.$choferes[$i][0]['ID'].'" onclick="eliminar_usuario('.$choferes[$i][0]['ID'].')"><i class="fas fa-trash-alt"></i></button>
                             </div>
-                          </div>
-                          <div class="empresa-button">
-                            <button class="button" id="'.$choferes[$i][0]['ID'].'" onclick="ver_usuario('.$choferes[$i][0]['ID'].')"><i class="far fa-eye"></i></button>
-                            <button class="button" id="'.$choferes[$i][0]['ID'].'" onclick="eliminar_usuario('.$choferes[$i][0]['ID'].')"><i class="fas fa-trash-alt"></i></button>
-                          </div>
-                        </div>';
+                          </div>';
+                        }
                       }
-                    }
-                    echo '
-                </div>
-              </div>';
+                      echo '
+                  </div>
+                </div>';
+                }
+
+                
             }else{
 
               if($usuario[0]['TIPO_USUARIO'] == "HTL"){
