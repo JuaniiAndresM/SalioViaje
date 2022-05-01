@@ -143,7 +143,7 @@ require_once '../PHP/procedimientosBD.php';
           <button onclick="navbar()"><i class="fas fa-bars"></i></button>
         </div>
         <div class="header-title">
-          <h2>Empresa</h2>
+          <h2><?php if($usuario[0]['TIPO_USUARIO'] == "HTL"){ echo "Hotel";}else{ echo "Empresa"; } ?></h2>
         </div>
       </div>
       <div class="header-right">
@@ -170,7 +170,7 @@ require_once '../PHP/procedimientosBD.php';
             </div>
             <div class="user-desc">
               <h2><?php echo $usuario[0]['NOMBRE_COMERCIAL'];?></h2>
-              <p><i class="fas fa-building"></i> Empresa</p>
+              <p><i class="fas fa-building"></i> <?php if($usuario[0]['TIPO_USUARIO'] == "HTL"){ echo "Hotel";}else{ echo "Empresa"; } ?></p>
               
             </div>
           </div>
@@ -185,7 +185,7 @@ require_once '../PHP/procedimientosBD.php';
 
         <div class="profile-grid">
           <?php 
-            if($usuario[0]['TIPO_USUARIO'] != "ANF" && $usuario[0]['TIPO_USUARIO'] != "AGT"){
+            if($usuario[0]['TIPO_USUARIO'] != "ANF" && $usuario[0]['TIPO_USUARIO'] != "AGT" && $usuario[0]['TIPO_USUARIO'] != "HTL"){
               echo '<div class="user-informacion">
 
               <h3><i class="fas fa-bus"></i> Vehiculos de la Empresa</h3>
@@ -274,7 +274,38 @@ require_once '../PHP/procedimientosBD.php';
                 </div>
               </div>';
             }else{
-              echo '<div class="user-informacion">
+
+              if($usuario[0]['TIPO_USUARIO'] == "HTL"){
+                echo '<div class="user-informacion">
+              
+                <h3><i class="fas fa-address-card"></i> Información del Hotel</h3>
+
+                  <div class="informacion-wrapper">
+  
+                <div class="info">
+                  <b><i class="fas fa-id-card"></i> RUT</b>
+                  <p>'.$usuario[0]['RUT'].'</p>
+                </div>
+
+                <div class="info">
+                  <b><i class="fas fa-signature"></i> Nombre del Hotel</b>
+                  <p>'.$usuario[0]['NOMBRE_COMERCIAL'].'</p>
+                </div>
+
+                <div class="info">
+                  <b><i class="fas fa-building"></i> Razón Social</b>
+                  <p>'.$usuario[0]['RAZON_SOCIAL'].'</p>
+                </div>
+
+                <div class="info">
+                  <b><i class="fas fa-road"></i> Direccion del Hotel</b>
+                  <p>'.$usuario[0]['DIRECCION_HOTEL'].'</p>
+                </div>
+  
+              </div>
+              </div>';
+              }else{
+                echo '<div class="user-informacion">
               
                 <h3><i class="fas fa-address-card"></i> Información de la Empresa</h3>
 
@@ -291,6 +322,8 @@ require_once '../PHP/procedimientosBD.php';
   
               </div>
               </div>';
+              }
+              
             }
 
           ?>
