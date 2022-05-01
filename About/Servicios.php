@@ -1,3 +1,10 @@
+<?php
+require_once '../PHP/procedimientosBD.php';
+
+$cotizaciones = new procedimientosBD();
+
+$cotizaciones = json_decode($cotizaciones->traer_viajes_cotizando_panel_admin(), true);
+?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -128,7 +135,7 @@
               <option value="Tacuarembó">
               <option value="Maldonado">
               <option value="Rivera">
-            </datalist> 
+            </datalist>
           </div>
 
           <div class="input" id="destino">
@@ -140,7 +147,7 @@
               <option value="Tacuarembó">
               <option value="Maldonado">
               <option value="Rivera">
-            </datalist> 
+            </datalist>
           </div>
 
           <div class="input" id="origen">
@@ -149,48 +156,69 @@
           </div>
 
         </div>
-        
+
 
         <div class="list-empty-cotizacion">
           <p>Lo sentimos, de momento no hay cotizaciones disponibles.</p>
         </div>
 
         <div class="Cotizaciones-list">
+          <?php
+for ($i = 0; $i < count($cotizaciones); $i++) {
+    //print_r(json_encode($cotizaciones[$i])."\n");
+    ?>
+                        <div class="Cotizaciones">
 
-          <div class="Cotizaciones">
+<div class="Cotizaciones-left">
+  <div class="discount">
+    <h3><?php echo $cotizaciones[$i]['ID']; ?></h3>
+  </div>
 
-            <div class="Cotizaciones-left">
-              <div class="discount">
-                <h3>1</h3>
-              </div>
+  <div class="travel">
+    <p><i class="fas fa-van-shuttle"></i><?php echo $cotizaciones[$i]['TIPO']; ?>.</p>
+    <p><i class="fas fa-map-marker-alt"></i>Origen: <?php echo $cotizaciones[$i]['LOCALIDAD_ORIGEN']; ?>, <?php echo $cotizaciones[$i]['BARRIO_ORIGEN']; ?>.</p>
+    <p><i class="fas fa-route"></i>Destino: <?php
+     if ($cotizaciones[$i]['LOCALIDAD_DESTINO'] != null) {
+      echo $cotizaciones[$i]['LOCALIDAD_DESTINO'].", ".$cotizaciones[$i]['BARRIO_DESTINO'];
+     }else {
+      echo $cotizaciones[$i]['BARRIO_DESTINO'];
+     }
+     
+     ?>.</p>
+  </div>
 
-              <div class="travel">
-                <p><i class="fas fa-map-marker-alt"></i>Origen: Canelones, Ciuda de la Costa.</p>
-                <p><i class="fas fa-route"></i>Destino: Maldonado, Punta del Este.</p>
-              </div>
+  <div class="travel">
+    <p><i class="far fa-calendar-alt"></i><?php echo $cotizaciones[$i]['FECHA_SALIDA']; ?></p>
+    <p><i class="far fa-clock"></i><?php echo $cotizaciones[$i]['HORA']; ?></p>
+  </div>
 
-              <div class="travel">
-                <p><i class="far fa-calendar-alt"></i>24/05/22</p>
-                <p><i class="far fa-clock"></i>18:06</p>
-              </div>
+  <div class="travel">
+    <p><i class="fas fa-user-friends"></i><?php echo $cotizaciones[$i]['CANTIDAD_PASAJEROS']; ?></p>
+    <p><i class="fas fa-dog"></i><?php 
+    if ($cotizaciones[$i]['MASCOTAS'] == 2) {
+      echo "sin mascotas"; 
+    } else {
+      echo "con mascotas"; 
+    }
+    
+   
+    ?></p>
+  </div>
 
-              <div class="travel">
-                <p><i class="fas fa-user-friends"></i>10</p>
-                <p><i class="fas fa-dog"></i>Si</p>
-              </div>
+</div>
 
-            </div>
+<div class="Cotizaciones-right">
 
-            <div class="Cotizaciones-right">
+  <div class="button-wrapper">
+      <button class="comprar-button" type="submit"><i class="fas fa-chart-line"></i> Cotizar</button>
+      <button onclick="location.href = '/Cotizacion/' + <?php echo $cotizaciones[$i]['ID']; ?>;"><i class="fas fa-info"></i> Detalles</button>
+  </div>
 
-              <div class="button-wrapper">
-                  <button class="comprar-button" type="submit"><i class="fas fa-chart-line"></i> Cotizar</button>
-                  <button><i class="fas fa-info"></i> Detalles</button>
-              </div>
-
-            </div>
-          </div>
-
+</div>
+</div>
+              <?php
+}
+?>
         </div>
       </div>
     </section>

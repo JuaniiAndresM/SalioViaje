@@ -14,8 +14,10 @@
   */
   require_once "../PHP/procedimientosBD.php";
 
+  $cotizaciones = new procedimientosBD();
 
-  $datos = new procedimientosBD();
+  $cotizaciones = json_decode($cotizaciones->traer_viajes_cotizando_por_id($_GET['ID']), true);
+
 ?>
 
 <!DOCTYPE html>
@@ -138,38 +140,39 @@
             <div class="cotizacion-info">
 
               <div class="info">
-                <b><i class="far fa-address-card"></i> ID</b>
-                <p>#1</p>
+                <b><i class="far fa-address-card"></i> N° Viaje</b>
+                <p>#<?php echo $cotizaciones[0]['ID']; ?></p>
               </div>
 
               <div class="info">
                 <b><i class="fas fa-map-marker-alt"></i> Origen</b>
-                <p>Canelones, Ciudad de la Costa.</p>
+                <p><?php echo $cotizaciones[0]['LOCALIDAD_ORIGEN']; ?>, <?php echo $cotizaciones[0]['BARRIO_ORIGEN']; ?>.</p>
               </div>
 
               <div class="info">
                 <b><i class="fas fa-route"></i> Destino</b>
-                <p>Maldonado, Punta del Este.</p>
+                <p><?php
+                      if ($cotizaciones[0]['LOCALIDAD_DESTINO'] != null) {
+                        echo $cotizaciones[0]['LOCALIDAD_DESTINO'].", ".$cotizaciones[0]['BARRIO_DESTINO'];
+                      }else {
+                        echo $cotizaciones[0]['BARRIO_DESTINO'];
+                      }
+                    ?>.</p>
               </div>
 
               <div class="info">
                 <b><i class="far fa-calendar-alt"></i> Fecha</b>
-                <p>24/05/22</p>
+                <p><?php echo $cotizaciones[0]['FECHA_SALIDA']; ?></p>
               </div>
 
               <div class="info">
                 <b><i class="far fa-clock"></i> Hora</b>
-                <p>18:03</p>
+                <p><?php echo $cotizaciones[0]['HORA']; ?></p>
               </div>
 
               <div class="info">
-                <b><i class="fas fa-user-friends"></i> Pasajeros</b>
-                <p>20</p>
-              </div>
-
-              <div class="info">
-                <b><i class="fas fa-dog"></i> Mascotas</b>
-                <p>Si</p>
+                <b><i class="fas fa-user-friends"></i> Cantidad de pasajeros</b>
+                <p><?php echo $cotizaciones[0]['CANTIDAD_PASAJEROS']; ?></p>
               </div>
 
             </div>
