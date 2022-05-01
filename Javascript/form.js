@@ -135,7 +135,7 @@ function steps(step) {
                $('.progress-bar').hide();
                $('.progress-bar2').hide();
                break;
-            case "2": case "3":
+            case "2": case "3": case "5":
                $('#pax-register').hide();
                $('#step-next').show();
 
@@ -143,7 +143,7 @@ function steps(step) {
                $('.progress-bar2').hide();
                break;
 
-            case "4": case "5": case "7":
+            case "4": case "7":
                $('#pax-register').hide();
                $('#step-next').show();
 
@@ -210,8 +210,8 @@ function steps(step) {
             case "5":
                $('#step_hotel').show();
 
-               $('.progress-bar').hide();
-               $('.progress-bar2').show();
+               $('.progress-bar').show();
+               $('.progress-bar2').hide();
                break;
 
             default:
@@ -238,8 +238,8 @@ function steps(step) {
                   $('#step_hotel_no').show();
                }               
 
-               $('.progress-bar').hide();
-               $('.progress-bar2').show();
+               $('.progress-bar').show();
+               $('.progress-bar2').hide();
                break;
             
             default:
