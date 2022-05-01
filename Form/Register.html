@@ -228,6 +228,31 @@
         </div>
 
         <div id="step_hotel">
+          <h2 class="step_title"><i class="fas fa-h-square"></i> ¿El Hotel ya Existe?</h2>
+          <div class="inputs-wrapper-register-hotel">
+
+            <div class="input" id="existehotel">
+              <i class="fas fa-hotel" id="icon"></i>
+              <select id="existe-hotel">
+                <option value="0" disabled selected hidden>Seleccion una opción</option>
+                <option value="1">Si</option>
+                <option value="2">No</option>
+              </select>
+            </div>
+
+          </div>
+
+          <p id="mensaje-error" class="mensaje-error"></p>
+          
+          <button class="button-register" id="company_volver_hotel" onclick="volver()">
+            <i class="fas fa-arrow-circle-left"></i> Volver
+          </button>
+          <button class="button-register" onclick="next()" id="finalizar_hotel">
+            <i class="fas fa-arrow-circle-right"></i> Siguiente
+          </button>
+        </div>
+
+        <div id="step_hotel_no">
           <h2 class="step_title"><i class="fas fa-h-square"></i> Crear Hotel</h2>
           <div class="inputs-wrapper-register">
             <div class="column">
@@ -256,11 +281,38 @@
             </div>
           </div>
 
+          <p id="mensaje-error" class="mensaje-error"></p>
+
           <button class="button-register" id="company_volver_hotel" onclick="volver()">
             <i class="fas fa-arrow-circle-left"></i> Volver
           </button>
           <button class="button-register" onclick="register_form($('#select_users').val())" id="finalizar_hotel">
             <i class="fas fa-building"></i> Crear Hotel
+          </button>
+        </div>
+        
+        <div id="step_hotel_si">
+          <h2 class="step_title"><i class="fas fa-h-square"></i> Elige un Hotel Existente</h2>
+          <div class="inputs-wrapper-register-hotel">
+
+            <div class="input" id="listhotel">
+              <i class="fas fa-hotel" id="icon"></i>
+              <select id="list-hotel">
+                <option value="0" disabled selected hidden>Seleccion un Hotel</option>
+                <option value="1">Hotel 1</option>
+                <option value="2">Hotel 2</option>
+              </select>
+            </div>
+
+          </div>
+
+          <p id="mensaje-error" class="mensaje-error"></p>
+
+          <button class="button-register" id="company_volver_hotel" onclick="volver()">
+            <i class="fas fa-arrow-circle-left"></i> Volver
+          </button>
+          <button class="button-register" onclick="next()" id="finalizar_hotel">
+            <i class="fas fa-check"></i> Finalizar
           </button>
         </div>
 
