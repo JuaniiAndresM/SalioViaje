@@ -372,18 +372,30 @@ function finalizar(enviar_solicitud) {
                         "TRAMOS_FIESTA": fiestas,
 
                         "FECHA_SALIDA": $('#fecha_salida_fiestas_idavuelta').val(),
-                        "DIRECCION_ORIGEN": $('#direccion_ida_fiestas_idavuelta').val(),
-                        "BARRIO_ORIGEN": $('#barrio_ida_fiestas_idavuelta').val(),
-                        "LOCALIDAD_ORIGEN": $('#localidad_ida_fiestas_idavuelta').val(),
-                        "PUNTO_DESTINO": $('#destino_ida_fiestas_idavuelta').val(),
+                        
+                        "DIRECCION_ORIGEN": $('#direccion_ida_origen_fiestas_idavuelta').val(),
+                        "BARRIO_ORIGEN": $('#barrio_ida_origen_fiestas_idavuelta').val(),
+                        "LOCALIDAD_ORIGEN": $('#localidad_ida_origen_fiestas_idavuelta').val(),
+                        
+                        "DIRECCION_DESTINO": $('#direccion_ida_destino_fiestas_idavuelta').val(),
+                        "BARRIO_DESTINO": $('#barrio_ida_destino_fiestas_idavuelta').val(),
+                        "LOCALIDAD_DESTINO": $('#localidad_ida_destino_fiestas_idavuelta').val(),
+                        
                         "HORA_SALIDA": $('#hora_ida_fiestas_idavuelta').val(),
                         "CANTIDAD_PASAJEROS_IDA": $('#cant_pasajeros_ida_fiestas_idavuelta').val(),
 
+
+
                         "FECHA_REGRESO": $('#fecha_regreso_fiestas_idavuelta').val(),
-                        "DIRECCION_DESTINO": $('#direccion_vuelta_fiestas_idavuelta').val(),
-                        "BARRIO_DESTINO": $('#barrio_vuelta_fiestas_idavuelta').val(),
-                        "LOCALIDAD_DESTINO": $('#localidad_vuelta_fiestas_idavuelta').val(),
-                        "PUNTO_ORIGEN": $('#destino_vuelta_fiestas_idavuelta').val(),
+                        
+                        "DIRECCION_ORIGEN_VUELTA": $('#direccion_vuelta_origen_fiestas_idavuelta').val(),
+                        "BARRIO_ORIGEN_VUELTA": $('#barrio_vuelta_origen_fiestas_idavuelta').val(),
+                        "LOCALIDAD_ORIGEN_VUELTA": $('#localidad_vuelta_origen_fiestas_idavuelta').val(),
+                        
+                        "DIRECCION_DESTINO_VUELTA": $('#direccion_vuelta_destino_fiestas_idavuelta').val(),
+                        "BARRIO_DESTINO_VUELTA": $('#barrio_vuelta_destino_fiestas_idavuelta').val(),
+                        "LOCALIDAD_DESTINO_VUELTA": $('#localidad_vuelta_destino_fiestas_idavuelta').val(),
+                        
                         "HORA_REGRESO": $('#hora_vuelta_fiestas_idavuelta').val(),
                         "CANTIDAD_PASAJEROS_VUELTA": $('#cant_pasajeros_vuelta_fiestas_idavuelta').val(),
                     
