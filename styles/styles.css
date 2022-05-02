@@ -241,7 +241,7 @@
   margin-right: 10px;
 }
 
-.servicios .servicios-wrapper .card .click-here {
+.servicios .servicios-wrapper .card .click-here:hover {
   background-color: #6d76db;
 }
 
