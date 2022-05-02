@@ -994,7 +994,6 @@ class procedimientosBD
 
     public function traer_viajes_cotizando_por_id($id)
     {
-        $choferes = array();
         $conn = $this->conexion();
         $query = "SELECT * FROM `cotizaciones` WHERE ID = $id";
         $stmt = $conn->prepare($query);
@@ -1022,6 +1021,23 @@ class procedimientosBD
         $stmt->bind_param("is", $id, $estado);
         $stmt->execute();
         $stmt->close();
+    }
+
+    public function traer_paradas_viajes_cotizando_por_id($id)
+    {
+        $conn = $this->conexion();
+        $query = "SELECT ID,CONTENIDO,TRAMO FROM `paradas` WHERE ID_COTIZACION = $id";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($id_parada,$contenido,$tramo);
+            while ($stmt->fetch()) {
+                $result = array('ID' => $id_parada, 'CONTENIDO' => $contenido, 'TRAMO' => $tramo);
+                $paradas[] = $result;
+            }
+        }
+        $stmt->close();
+        return json_encode($paradas);
     }
 
 }
