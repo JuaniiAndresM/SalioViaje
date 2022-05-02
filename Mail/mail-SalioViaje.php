@@ -84,7 +84,7 @@ $mail->CharSet = 'UTF-8';
 // $mail->From = 'sistema_sv_de_avisos@salioviaje.com.uy';             //  Editar
 $mail->From = 'promouruguay010@gmail.com';             //  Editar
 $mail->FromName = 'SalióViaje';                    //  Editar
-$mail->addAddress('thewolfmodzyt@gmail.com');       //  Editar
+$mail->addAddress('admin@salioviaje.com.uy');       //  Editar
 $mail->isHTML(true);
 $mail->Subject = "Invitación a cotizar un " . $TIPO_VIAJE . " #" . $id_cotizacion;   //  Editar
 
