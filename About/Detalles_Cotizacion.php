@@ -15,9 +15,20 @@
   require_once "../PHP/procedimientosBD.php";
 
   $cotizaciones = new procedimientosBD();
-
   $cotizaciones = json_decode($cotizaciones->traer_viajes_cotizando_por_id($_GET['ID']), true);
 
+  if(isset($cotizaciones[0]['FECHA_SALIDA'])){
+    $fecha_salida = date("d-m-Y", strtotime($cotizaciones[0]['FECHA_SALIDA']));  
+  }
+  if(isset($cotizaciones[0]['FECHA_ARRIBO'])){
+    $fecha_arribo = date("d-m-Y", strtotime($cotizaciones[0]['FECHA_ARRIBO']));  
+  }
+  if(isset($cotizaciones[0]['FECHA_REGRESO'])){
+    $fecha_regreso = date("d-m-Y", strtotime($cotizaciones[0]['FECHA_REGRESO']));  
+  }
+  if(isset($cotizaciones[0]['FECHA_PARTIDA'])){
+    $fecha_partida = date("d-m-Y", strtotime($cotizaciones[0]['FECHA_PARTIDA']));  
+  }
 ?>
 
 <!DOCTYPE html>
@@ -129,7 +140,7 @@
                 if (isset($_SESSION["usuario"])) {
                     if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "TTA" || $_SESSION['datos_usuario']['TIPO_USUARIO'] == "ADM") {
                         echo "<button class='cotizar-button' onclick='location.href= \"https://docs.google.com/forms/d/e/1FAIpQLSeQtd-s1ngnM-F-HbLYHhIOSW1_L0GiUZKoVoiXdnWWV5nsBg/viewform\"'><i class='fas fa-chart-line'></i> Cotizar</button>";                     
-                    } 
+                    }
                 }
 
                ?>
@@ -138,43 +149,142 @@
           <div class="cotizacion-content">
 
             <div class="cotizacion-info">
+              
+              <h1>Información del Servicio a Cotizar:</h1>
+              <?php
+              echo json_encode($cotizaciones);
+              echo '<p><b style="color: #444; margin-right: 5px;">N° Cotización: </b>'.$cotizaciones[0]['ID'].'</p>
+                    <p><b style="color: #444; margin-right: 5px;">Tipo de Viaje: </b>'.$cotizaciones[0]['TIPO'].'</p>';
+              
+                if($TIPO_VIAJE == "Transfer de Arribo"){
+                    echo '
+                    <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Fecha del Arribo: </b>'.$fecha_arribo.'</p>
+                    <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Hora del Arribo: </b>'.$cotizaciones[0]["HORA"].'</p>
+                    <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Número del Vuelo / Barco: </b>'.$datos_array["NRO_VUELO_BARCO"].'</p>
+                    <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Cantidad de Pasajeros: </b>'.$datos_array["CANTIDAD_PASAJEROS"].'</p>
+                    <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Cantidad de Equipaje: </b>'.$datos_array["EQUIPAJE"].'</p>';
+                }else if($TIPO_VIAJE == "Transfer de Partida"){
+                    echo '
+                    <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Fecha del Partida: </b>'.$fecha_partida.'</p>
+                    <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Hora para pasar a buscar: </b>'.$cotizaciones[0]["HORA"].'</p>
+                    <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Número del Vuelo / Barco: </b>'.$datos_array["NRO_VUELO_BARCO"].'</p>
+                    <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Cantidad de Pasajeros: </b>'.$datos_array["CANTIDAD_PASAJEROS"].'</p>
+                    <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Cantidad de Equipaje: </b>'.$datos_array["EQUIPAJE"].'</p>';
+                }else if($TIPO_VIAJE == "Fiesta o Evento - Ida"){
+                    echo '
+                    <h4 style="font-size: 16px; margin-top: 40px;">Datos de la Ida:</h4>
+                    <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Fecha de ida: </b>'.$fecha_salida.'</p>
+                    <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Hora: </b>'.$cotizaciones[0]["HORA"].'</p>
+                    <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Origen: </b>'.$datos_array["LOCALIDAD_ORIGEN"].', '.$datos_array["BARRIO_ORIGEN"].'</p>
+                    <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Destino o Punto de Interés: </b>'.$datos_array["BARRIO_DESTINO"].', '.$datos_array["PUNTO_DESTINO"].'</p>
+                    <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Cantidad de Pasajeros: </b>'.$datos_array["CANTIDAD_PASAJEROS"].'</p>';
+                }else if($TIPO_VIAJE == "Fiesta o Evento - Vuelta"){
+                    echo '
+                    <h4 style="font-size: 16px; margin-top: 40px;">Datos de la Vuelta:</h4>
+                    <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Fecha de vuelta: </b>'.$fecha_regreso.'</p>
+                    <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Hora: </b>'.$cotizaciones[0]["HORA"].'</p>
+                    <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Origen o Punto de Interés: </b>'.$datos_array["BARRIO_ORIGEN"].', '.$datos_array["PUNTO_ORIGEN"].'</p>
+                    <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Destino: </b>'.$datos_array["LOCALIDAD_DESTINO"].', '.$datos_array["BARRIO_DESTINO"].', '.$datos_array["DIRECCION_DESTINO"].'</p>
+                    <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Cantidad de Pasajeros: </b>'.$datos_array["CANTIDAD_PASAJEROS"].'</p>';
+                }else if($TIPO_VIAJE == "Fiesta o Evento - Ida y Vuelta"){
+                    echo '
+                    <h4 style="font-size: 16px; margin-top: 40px;">Datos de la Ida:</h4>
+                    <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Fecha de ida: </b>'.$fecha_salida.'</p>
+                    <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Hora: </b>'.$datos_array["HORA_SALIDA"].'</p>
+                    <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Origen: </b>'.$datos_array["LOCALIDAD_ORIGEN"].', '.$datos_array["BARRIO_ORIGEN"].'</p>
+                    <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Destino o Punto de Interés: </b>'.$datos_array["BARRIO_DESTINO"].', '.$datos_array["PUNTO_DESTINO"].'</p>
+                    <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Cantidad de Pasajeros: </b>'.$datos_array["CANTIDAD_PASAJEROS"].'</p>';
 
-              <div class="info">
-                <b><i class="far fa-address-card"></i> N° Viaje</b>
-                <p>#<?php echo $cotizaciones[0]['ID']; ?></p>
-              </div>
+                    echo '
+                    <h4 style="font-size: 16px; margin-top: 40px;">Datos de la Vuelta:</h4>
+                    <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Fecha de vuelta: </b>'.$fecha_regreso.'</p>
+                    <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Hora: </b>'.$datos_array["HORA_REGRESO"].'</p>
+                    <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Origen o Punto de Interés: </b>'.$datos_array["BARRIO_ORIGEN"].', '.$datos_array["PUNTO_ORIGEN"].'</p>
+                    <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Destino: </b>'.$datos_array["LOCALIDAD_DESTINO"].', '.$datos_array["BARRIO_DESTINO"].', '.$datos_array["DIRECCION_DESTINO"].'</p>
+                    <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Cantidad de Pasajeros: </b>'.$datos_array["CANTIDAD_PASAJEROS"].'</p>';
+                }else{
+                    echo '
+                    <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Fecha de Salida: </b>'.$fecha_salida.'</p>
+                    <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Hora: </b>'.$cotizaciones[0]["HORA"].'</p>
+                    <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Cantidad de Pasajeros: </b>'.$cotizaciones[0]["CANTIDAD_PASAJEROS"].'</p>';
+                }
 
-              <div class="info">
-                <b><i class="fas fa-map-marker-alt"></i> Origen</b>
-                <p><?php echo $cotizaciones[0]['LOCALIDAD_ORIGEN']; ?>, <?php echo $cotizaciones[0]['BARRIO_ORIGEN']; ?>.</p>
-              </div>
+                if($TIPO_VIAJE == "Transfer de Arribo"){
+                    echo '
+                    <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Aeropuerto / Puerto: </b>'.$datos_array['PUNTO_ORIGEN'].'</p>
+                    <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Destino: </b>'.$datos_array["LOCALIDAD_DESTINO"].', '.$datos_array["BARRIO_DESTINO"].'</p>';
+                }
+                if($TIPO_VIAJE == "Transfer de Partida"){
+                    echo '
+                    <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Origen: </b>'.$datos_array['LOCALIDAD_ORIGEN'].','.$datos_array['BARRIO_ORIGEN'].'</p>
+                    <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Aeropuerto / Puerto: </b>'.$datos_array["PUNTO_DESTINO"].', '.$datos_array["BARRIO_DESTINO"].'</p>';
+                }
+                
+                if($TIPO_VIAJE == "Traslado"){
+                    echo '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Origen: </b>'.$datos_array["LOCALIDAD_ORIGEN"].', '.$datos_array["BARRIO_ORIGEN"].'</p>';
+                }else if($TIPO_VIAJE == "Tour o Servicio por Hora"){
+                    echo '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Origen: </b>'.$datos_array["LOCALIDAD_TOUR"].', '.$datos_array["BARRIO_TOUR"].'</p>';
+                }
+                
+                if($TIPO_VIAJE == "Tour o Servicio por Hora"){
+                    echo '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Ciudad del Servicio: </b>'.$datos_array["CIUDAD"].'</p>';
+                    echo '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Duración del Servicio en horas: </b>'.$datos_array["HORA"].'</p>';
+                }
 
-              <div class="info">
-                <b><i class="fas fa-route"></i> Destino</b>
-                <p><?php
-                      if ($cotizaciones[0]['LOCALIDAD_DESTINO'] != null) {
-                        echo $cotizaciones[0]['LOCALIDAD_DESTINO'].", ".$cotizaciones[0]['BARRIO_DESTINO'];
-                      }else {
-                        echo $cotizaciones[0]['BARRIO_DESTINO'];
-                      }
-                    ?>.</p>
-              </div>
+                if($TIPO_VIAJE == "Traslado"){
+                    echo '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Destino o Punto de Interés: </b>'.$datos_array["LOCALIDAD_DESTINO"].', '.$datos_array["BARRIO_DESTINO"].', '.$datos_array["DIRECCION_DESTINO"].'</p>';
+                }
+                
 
-              <div class="info">
-                <b><i class="far fa-calendar-alt"></i> Fecha</b>
-                <p><?php echo $cotizaciones[0]['FECHA_SALIDA']; ?></p>
-              </div>
+                if(isset($paradas_ida_array) || isset($paradas_vuelta_array)){    
 
-              <div class="info">
-                <b><i class="far fa-clock"></i> Hora</b>
-                <p><?php echo $cotizaciones[0]['HORA']; ?></p>
-              </div>
+                    if(isset($paradas_ida_array)){
+                        if(count($paradas_ida_array,true) > 0){
+                            echo '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Paradas (Ida): </b>';
+                        
+                            for($a = 0; $a < count($paradas_ida_array); $a++){
+                                if($paradas_ida_array[$a] != ""){
+                                    if($a == (count($paradas_ida_array) - 1)){
+                                        $mail->Body .= $paradas_ida_array[$a] . '.';
+                                    }else{
+                                        $mail->Body .= $paradas_ida_array[$a] . ', ';
+                                    }
+                                }
+                            }
+                            echo '</p>';
+                        }
+                    }
 
-              <div class="info">
-                <b><i class="fas fa-user-friends"></i> Cantidad de pasajeros</b>
-                <p><?php echo $cotizaciones[0]['CANTIDAD_PASAJEROS']; ?></p>
-              </div>
+                    if(isset($paradas_vuelta_array)){
+                        if(count($paradas_vuelta_array,true) > 0){
+                            echo '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Paradas (Vuelta): </b>';
+                        
+                            for($a = 0; $a < count($paradas_vuelta_array); $a++){
+                                if($paradas_vuelta_array[$a] != ""){
+                                    if($a == (count($paradas_vuelta_array) - 1)){
+                                        $mail->Body .= $paradas_vuelta_array[$a] . '.';
+                                    }else{
+                                        $mail->Body .= $paradas_vuelta_array[$a] . ', ';
+                                    }
+                                }
+                            }
+                            echo '</p>';
+                        }
+                    }
+                }
 
+                if(isset($datos_array['OBSERVACIONES'])){
+                    if($datos_array['OBSERVACIONES'] != ""){
+                        echo '<h4 style="font-size: 16px; margin-top: 40px;">Observaciones:</h4>
+                        <p style="font-size: 14px; color: #444;">'.$datos_array['OBSERVACIONES'].'</p>';
+                    }
+                }
+                if(isset($datos_array['MASCOTAS'])){
+                    if($datos_array['MASCOTAS'] == "Con mascota"){
+                        echo '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Mascotas Admitidas</b>';
+                    }
+                }
+              ?>
             </div>
           </div>
         </div>

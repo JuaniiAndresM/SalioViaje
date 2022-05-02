@@ -15344,67 +15344,25 @@ footer .totum p a:hover {
 .cotizacion-detalles-wrapper .cotizacion .cotizacion-content .cotizacion-info {
   width: 100%;
   margin: 20px auto;
-}
-
-.cotizacion-detalles-wrapper .cotizacion .cotizacion-content .cotizacion-info .info {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border-bottom: 1px solid #aaa;
-  height: 40px;
-  margin-top: 20px;
-}
-
-.cotizacion-detalles-wrapper .cotizacion .cotizacion-content .cotizacion-info .info b {
-  font-size: 1.1em;
   color: #3844bc;
 }
 
-.cotizacion-detalles-wrapper .cotizacion .cotizacion-content .cotizacion-info .info b i {
+.cotizacion-detalles-wrapper .cotizacion .cotizacion-content .cotizacion-info h1 {
+  margin-bottom: 20px;
+}
+
+.cotizacion-detalles-wrapper .cotizacion .cotizacion-content .cotizacion-info h2 {
+  margin: 0 10px;
+  color: #3844bc;
+}
+
+.cotizacion-detalles-wrapper .cotizacion .cotizacion-content .cotizacion-info p {
+  font-size: 14px;
+}
+
+.cotizacion-detalles-wrapper .cotizacion .cotizacion-content .cotizacion-info p b {
+  color: #444;
   margin-right: 5px;
-}
-
-.cotizacion-detalles-wrapper .cotizacion .cotizacion-content .cotizacion-info .info p {
-  color: #555;
-}
-
-.cotizacion-detalles-wrapper .cotizacion .cotizacion-content .price_wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.cotizacion-detalles-wrapper .cotizacion .cotizacion-content .price_wrapper .discount h3 {
-  color: #3844bc;
-  font-size: 2.2em;
-  margin-right: 10px;
-}
-
-.cotizacion-detalles-wrapper .cotizacion .cotizacion-content .price_wrapper .price {
-  margin: 20px 0;
-}
-
-.cotizacion-detalles-wrapper .cotizacion .cotizacion-content .price_wrapper .price .desc {
-  color: #ff5353;
-  -webkit-text-decoration-line: line-through;
-          text-decoration-line: line-through;
-}
-
-.cotizacion-detalles-wrapper .cotizacion .cotizacion-content .price_wrapper .price p {
-  color: #329e3b;
-  font-size: 1.2em;
 }
 
 @media screen and (max-width: 618px) {

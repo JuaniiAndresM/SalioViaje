@@ -127,14 +127,14 @@ $cotizaciones = json_decode($cotizaciones->traer_viajes_cotizando_panel_admin(),
         <div id="filters">
 
           <div class="input" id="destino">
-            <i class="fas fa-route" id="icon"></i>
-            <input list="Destino" id="destino_2" placeholder="Destino">
-            <datalist id="Destino">
-              <option value="Canelones">
-              <option value="Montevideo">
-              <option value="Tacuarembó">
-              <option value="Maldonado">
-              <option value="Rivera">
+            <i class="fas fa-location-dot" id="icon"></i>
+            <input list="Origen" id="origen_2" placeholder="Origen" />
+            <datalist id="Origen">
+              <option value="Canelones"></option>
+              <option value="Montevideo"></option>
+              <option value="Tacuarembó"></option>
+              <option value="Maldonado"></option>
+              <option value="Rivera"></option>
             </datalist>
           </div>
 
