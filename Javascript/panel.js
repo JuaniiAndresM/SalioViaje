@@ -207,7 +207,7 @@ function tabla_seccion_usuarios(usuario) {
 
         for (const property in usuario) {
             let td = document.createElement("td");
-            if (contador != 14) {
+            if (contador != 12) {
                 if (usuario[property] == null || usuario[property] == '' || usuario[property] == undefined) {
                     td.innerHTML = "-"
                 } else if (property == "ID") {
@@ -253,7 +253,7 @@ function tabla_seccion_usuarios_especificos(usuario) {
 
         for (const property in usuario[0]) {
             let td = document.createElement("td");
-            if (contador != 14) {
+            if (contador != 12) {
                 if (usuario[0][property] == null || usuario[0][property] == '' || usuario[0][property] == undefined) {
                     td.innerHTML = "-"
                 } else if (property == "ID") {

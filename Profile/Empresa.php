@@ -179,6 +179,7 @@ session_set_cookie_params($ttl);
         </div>
 
         <div class="profile-grid">
+
           <?php 
             if($usuario[0]['TIPO_USUARIO'] != "ANF" && $usuario[0]['TIPO_USUARIO'] != "AGT" && $usuario[0]['TIPO_USUARIO'] != "HTL"){
               echo '<div class="user-informacion">
