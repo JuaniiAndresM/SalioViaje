@@ -342,9 +342,9 @@
                                         </div>
                                       </div>
                                         <div class="empresa-button">
-                                        <button id="'.$empresas[$i]["RUT"].'" onclick="verEmpresa('.$empresas[$i]['RUT'].')"><i class="far fa-eye"></i></button>
-                                        <button id="'.$empresas[$i]["RUT"].'" onclick="editarEmpresa('.$empresas[$i]['RUT'].')"><i class="fas fa-edit"></i></button>
-                                        <button id="'.$empresas[$i]["RUT"].'" onclick="eliminarEmpresa('.$empresas[$i]['RUT'].')"><i class="fas fa-trash-alt"></i></button>
+                                        <button id="'.$empresas[$i]["RUT"].'" onclick="verEmpresa('.$empresas[$i]['ID'].')"><i class="far fa-eye"></i></button>
+                                        <button id="'.$empresas[$i]["RUT"].'" onclick="editarEmpresa('.$empresas[$i]['ID'].')"><i class="fas fa-edit"></i></button>
+                                        <button id="'.$empresas[$i]["RUT"].'" onclick="eliminarEmpresa('.$empresas[$i]['ID'].')"><i class="fas fa-trash-alt"></i></button>
                                       </div>
                                       </div>';
                                 }

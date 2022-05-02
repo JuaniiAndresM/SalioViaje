@@ -215,7 +215,7 @@ session_set_cookie_params($ttl);
                         <div class="usuarios-info">
                           <h2><i class="fas fa-user-friends"></i> Usuarios Registrados</h2>
                           <div class="button-wrapper">
-                            <a href="Usuarios.html"><i class="fas fa-list-ul"></i></a>
+                            <a href="Usuarios"><i class="fas fa-list-ul"></i></a>
                           </div>
                         </div>
                         <div class="search">
@@ -255,7 +255,7 @@ session_set_cookie_params($ttl);
                         <div class="usuarios-info">
                           <h2><i class="fas fa-building"></i> Empresas Registradas</h2>
                           <div class="button-wrapper">
-                            <a href="Empresas.html"><i class="fas fa-list-ul"></i></a>
+                            <a href="Empresas"><i class="fas fa-list-ul"></i></a>
                           </div>
                         </div>
                         <div class="search">
@@ -306,7 +306,7 @@ session_set_cookie_params($ttl);
                             <h2><i class="fas fa-bus"></i> Mis Viajes</h2>
                             <div class="button-wrapper">
                               <a href="Agendar" class="add"><i class="fas fa-plus"></i></a>
-                              <a href="Viajes.html"><i class="fas fa-list-ul"></i></a>
+                              <a href="Viajes"><i class="fas fa-list-ul"></i></a>
                             </div>
                           </div>
                           <div class="search">
@@ -487,7 +487,7 @@ session_set_cookie_params($ttl);
                             <h2><i class="fas fa-bus"></i> Mis Viajes</h2>
                             <div class="button-wrapper">
                               <a href="Agendar" class="add"><i class="fas fa-plus"></i></a>
-                              <a href="Viajes.html"><i class="fas fa-list-ul"></i></a>
+                              <a href="Viajes"><i class="fas fa-list-ul"></i></a>
                             </div>
                           </div>
                           <div class="search">
