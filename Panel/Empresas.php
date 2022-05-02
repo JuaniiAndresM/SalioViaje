@@ -12,13 +12,15 @@ session_set_cookie_params($ttl);
       header('Location: https://www.salioviaje.com.uy/');
     }else{
       $info_usuario = new procedimientosBD();
+      
       if($_SESSION['tipo_usuario'] == "Administrador"){
         $empresas = $info_usuario->datos_empresas();
-        $empresas;
+        //$empresas;
       }else{
         $empresas = $info_usuario->traer_empresas_usuario($_SESSION['datos_usuario']["ID"]);
         $empresas_choferes = json_decode($info_usuario->traer_empresas_choferes_por_tta_id($_SESSION['datos_usuario']["ID"]),true);
       }
+    
     }
   }
 

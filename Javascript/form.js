@@ -541,10 +541,7 @@ function register_form(opcion) {
                      },
                   });
                }, 1000);
-            } else { 
-               registrar_usuario("HTL");
-               next() 
-            }
+            } else { next() }
          } else { console.log("No valido...") }
          break;
       case "6":

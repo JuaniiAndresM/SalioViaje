@@ -145,13 +145,13 @@ class procedimientosBD
     {
         $usuarios = array();
         $conn = $this->conexion();
-        $query = "SELECT ID,Tipo_Usuario,CI,Email,Nombre,Apellido,Direccion,Barrio,Departamento,Telefono,Agencia_C,RUT,Supervisor,Nombre_Hotel,Direccion_Hotel FROM salioviajeuy_salioviajeuy.usuarios";
+        $query = "SELECT ID,Tipo_Usuario,CI,Email,Nombre,Apellido,Direccion,Barrio,Departamento,Telefono,Agencia_C,RUT,Supervisor FROM salioviajeuy_salioviajeuy.usuarios";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($id_usuario, $tipo_usuario, $ci, $mail, $nombre, $apellido, $direccion, $barrio, $departamento, $telefono, $agencia_contratista, $rut, $supervisor, $nombre_hotel, $direccion_hotel);
+            $stmt->bind_result($id_usuario, $tipo_usuario, $ci, $mail, $nombre, $apellido, $direccion, $barrio, $departamento, $telefono, $agencia_contratista, $rut, $supervisor);
             while ($stmt->fetch()) {
-                $result = array('ID' => $id_usuario, 'TIPO_USUARIO' => $tipo_usuario, 'CI' => $ci, 'EMAIL' => $mail, 'NOMBRE' => $nombre, 'APELLIDO' => $apellido, 'DIRECCION' => $direccion, 'BARRIO' => $barrio, 'DEPARTAMENTO' => $departamento, 'TELEFONO' => $telefono, 'AGENCIA_CONTRATISTA' => $agencia_contratista, 'NOMBRE_HOTEL' => $nombre_hotel, 'DIRECCION_HOTEL' => $direccion_hotel, 'SUPERVISOR' => $supervisor, 'RUT' => $rut);
+                $result = array('ID' => $id_usuario, 'TIPO_USUARIO' => $tipo_usuario, 'CI' => $ci, 'EMAIL' => $mail, 'NOMBRE' => $nombre, 'APELLIDO' => $apellido, 'DIRECCION' => $direccion, 'BARRIO' => $barrio, 'DEPARTAMENTO' => $departamento, 'TELEFONO' => $telefono, 'AGENCIA_CONTRATISTA' => $agencia_contratista, 'SUPERVISOR' => $supervisor, 'RUT' => $rut);
                 $usuarios[] = $result;
             }
         }
@@ -173,6 +173,7 @@ class procedimientosBD
                 $empresas[] = $result;
             }
         }
+        echo $stmt->error;
         $stmt->close();
         return $empresas;
     }
