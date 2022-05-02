@@ -299,10 +299,14 @@
             flex-direction: column;
 
             .travel {
+              display: block;
               text-align: center;
               p {
                 margin: 10px 5px;
               }
+            }
+            .travel:nth-child(3){
+              display: block;
             }
           }
           .Cotizaciones-right {

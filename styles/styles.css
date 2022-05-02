@@ -9112,10 +9112,14 @@ footer .totum p a:hover {
             flex-direction: column;
   }
   .Cotizaciones-section .Cotizaciones-wrapper .Cotizaciones-list .Cotizaciones .Cotizaciones-left .travel {
+    display: block;
     text-align: center;
   }
   .Cotizaciones-section .Cotizaciones-wrapper .Cotizaciones-list .Cotizaciones .Cotizaciones-left .travel p {
     margin: 10px 5px;
+  }
+  .Cotizaciones-section .Cotizaciones-wrapper .Cotizaciones-list .Cotizaciones .Cotizaciones-left .travel:nth-child(3) {
+    display: block;
   }
   .Cotizaciones-section .Cotizaciones-wrapper .Cotizaciones-list .Cotizaciones .Cotizaciones-right {
     width: 100%;
