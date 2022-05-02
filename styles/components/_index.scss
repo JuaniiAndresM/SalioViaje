@@ -152,7 +152,7 @@ $contraste_2: #ffffff;
     .card {
       max-width: 300px;
       width: 100%;
-      min-height: 450px;
+      min-height: 470px;
 
       background: linear-gradient(45deg, $main_1, $main_2);
       box-shadow: 10px 0px 20px 0 rgba($color: #000000, $alpha: 0.3);
@@ -193,18 +193,30 @@ $contraste_2: #ffffff;
       }
 
       .click-here{
-        height: 20px;
+        width: 150px;
+        height: 40px;
+        border-radius: 1em 0 1em 1em;
+        margin: 0 auto;
+        background-color: $main_1;
+
         cursor: pointer;
         text-align: center;
         display: none;
+        justify-content: center;
+        align-items: center;
+
+        transition: .3s;
 
         p{
-          color: $main_1;
+          color: $contraste_2;
 
           i{
             margin-right: 10px;
           }
         }
+      }
+      .click-here:hover{
+        background-color: $main_3;
       }
 
       .card-bottom {
@@ -218,6 +230,11 @@ $contraste_2: #ffffff;
             color: $contraste_2;
             text-decoration: none;
             font-size: 1.2em;
+            transition: .2s;
+          }
+          .tel:hover{
+            color: $main_3;
+            font-size: 1.3em;
           }
         }
 
@@ -271,7 +288,7 @@ $contraste_2: #ffffff;
         }
       }
       .click-here{
-        display: block;
+        display: flex;
       }
       .card-bottom {
         .info_2,

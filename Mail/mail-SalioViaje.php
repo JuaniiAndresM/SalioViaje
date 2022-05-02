@@ -23,7 +23,6 @@ $DATOS = $_POST['DATA'];
 $datos_array = json_decode(stripslashes($DATOS),true);
 
 $id_cotizacion = "1";
-$nombre_transportista = "John Doe";
 
 
 if(isset($_POST['PARADAS_IDA'])){
@@ -101,7 +100,7 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                                 <td style="text-align: center;">
                                     <div style="background-color: #dfdfdf; width: 500px; margin: 20px auto; text-align: left; font-family: Montserrat; font-size: 13px; border-left: 3px solid #3844bc; padding: 5px 10px; box-sizing: border-box; color: #3844bc;">
                                         <p>'.$diassemana[$num_dia - 1].' '.$dia.' de '.$meses[$num_mes - 1].' de '.$year.'</p>
-                                        <b>Estimado: '.$nombre_transportista.'.</b>
+                                        <b>Estimado Transportista,</b>
                                         <p>SalióViaje te invita a cotizar el servicio: #'.$id_cotizacion.'</p>
                                     </div>
                                     

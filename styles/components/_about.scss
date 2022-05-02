@@ -1,4 +1,4 @@
-.sobre-nosotros {
+.sobre-nosotros, .sobre-nosotros-experiencias {
     margin-bottom: 30px;
     margin-top: 40px;
     .nosotros-wrapper-grid {
@@ -86,89 +86,112 @@
         }
       }
     }
-  }
-  .dep-inf{
-    margin-top: 110px;
-  }
+}
 
-  .titulo-experiencias{
+.sobre-nosotros-experiencias{
+  .nosotros-wrapper-grid{
+    grid-template-columns: 30% 1fr;
+
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 100px;
+    max-width: 1400px;
 
-    text-align: center;
-    h2 {
-      color: $main_1;
-      font-size: 2.3em;
+    .nosotros-left{
+      .nosotros-img-wrapper{
+        width: 350px;
+        height: 300px;
+      }
     }
-    hr {
-      width: 100px;
-      border: 1px solid $main_1;
-      margin: 10px 0;
-    }
-    p {
-      color: #666;
-      font-size: 1.2em;
-      max-width: 630px;
-      width: 100%;
-      margin-bottom: 20px;
+    .nosotros-right{
+      .nosotros-info{
+        .info{
+          margin-bottom: 30px;
+        }
+      }
     }
   }
+}
 
-  .experiencias-button-wrapper{
+.dep-inf{
+  margin-top: 110px;
+}
+.titulo-experiencias{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 100px;
+
+  text-align: center;
+  h2 {
+    color: $main_1;
+    font-size: 2.3em;
+  }
+  hr {
+    width: 100px;
+    border: 1px solid $main_1;
+    margin: 10px 0;
+  }
+  p {
+    color: #666;
+    font-size: 1.2em;
+    max-width: 630px;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
     margin-bottom: 20px;
-
-    button{
-      @include button();
-      margin: 0 20px;
-    }
   }
+}
 
-  @media screen and(max-width: 950px) {
-    .sobre-nosotros {
-        .nosotros-wrapper-grid {
-          grid-template-columns: 1fr;
-    
-          .nosotros-left {
-            .nosotros-img-wrapper {
-              max-width: 400px;
-              width: calc(100% - 20px);
-              height: 300px;
-            }
-          }
-    
-          .nosotros-right {
+.experiencias-button-wrapper{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-bottom: 20px;
+
+  button{
+    @include button();
+    margin: 0 10px;
+  }
+}
+
+@media screen and(max-width: 950px) {
+  .sobre-nosotros, .sobre-nosotros-experiencias {
+      .nosotros-wrapper-grid {
+        grid-template-columns: 1fr;
+  
+        .nosotros-left {
+          .nosotros-img-wrapper {
+            max-width: 400px;
             width: calc(100% - 20px);
-            margin: 0 auto;
-    
-            .nosotros-info {
-              width: 100%;
-              margin-top: 20px;
-              text-align: center;
-    
-              h1 {
-                font-size: 3.4em;
-              }
-              hr{
-                margin: 10px auto;
-              }
-              p {
-                font-size: 1em;
-                margin: 10px auto;
-              }
-              .button-nosotros {
-                margin-top: 0;
-              }
+            height: 300px;
+          }
+        }
+  
+        .nosotros-right {
+          width: calc(100% - 20px);
+          margin: 0 auto;
+  
+          .nosotros-info {
+            width: 100%;
+            margin-top: 20px;
+            text-align: center;
+  
+            h1 {
+              font-size: 3.4em;
+            }
+            hr{
+              margin: 10px auto;
+            }
+            p {
+              font-size: 1em;
+              margin: 10px auto;
+            }
+            .button-nosotros {
+              margin-top: 0;
             }
           }
         }
       }
-  }
+    }
+}
