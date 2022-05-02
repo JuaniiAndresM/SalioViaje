@@ -128,7 +128,7 @@
                 
                 if (isset($_SESSION["usuario"])) {
                     if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "TTA" || $_SESSION['datos_usuario']['TIPO_USUARIO'] == "ADM") {
-                        echo '<button class="cotizar-button"><i class="fas fa-chart-line"></i> Cotizar</button>';                     
+                        echo "<button class='cotizar-button' onclick='location.href= \"https://docs.google.com/forms/d/e/1FAIpQLSeQtd-s1ngnM-F-HbLYHhIOSW1_L0GiUZKoVoiXdnWWV5nsBg/viewform\"'><i class='fas fa-chart-line'></i> Cotizar</button>";                     
                     } 
                 }
 
