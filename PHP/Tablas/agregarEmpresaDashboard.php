@@ -8,7 +8,8 @@ $datos = $datos_bd->datos_empresas();
 
 
 for ($i=0; $i < count($datos); $i++) { 
-  $vehiculos =  $datos_bd->traer_datos_vehiculo_por_empresa(311);
+  $vehiculos =  json_decode($datos_bd->traer_datos_vehiculo_por_empresa($datos[$i]["RUT"],$datos[$i]["ID"]),true);
+  echo json_encode($vehiculos);
   $NUEVA_EMPRESA_DASHBOARD = '
                 <div class="propietario">
                   <div class="propietario-left">
@@ -17,8 +18,8 @@ for ($i=0; $i < count($datos); $i++) {
                     </div>
                     <div class="propietario-info">
                       <h3>'.$datos[$i]["NOMBRE_EMPRESA"].'</h3>';
-                      if(sizeof($vehiculos) != 0){
-                        $NUEVA_EMPRESA_DASHBOARD .= '<p><i class="fas fa-bus"></i>'.sizeof($vehiculos).' Vehiculos</p>';
+                      if(count($vehiculos) != 0){
+                        $NUEVA_EMPRESA_DASHBOARD .= '<p><i class="fas fa-bus"></i>'.count($vehiculos).' Vehiculos</p>';
                       }
                       $NUEVA_EMPRESA_DASHBOARD .= '
                     </div>
@@ -32,7 +33,5 @@ for ($i=0; $i < count($datos); $i++) {
 
 ';
 }
-
-echo $vehiculos;
 echo $NUEVA_EMPRESA_DASHBOARD;
 ?>

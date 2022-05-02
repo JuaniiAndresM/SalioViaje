@@ -526,7 +526,7 @@ function register_form(opcion) {
          }
 
          if (validacion("USUARIO", datos_Usuario)) {
-            if (validacion("HOTEL", datos_Hotel)) {
+            if (validacion("HOTEL", datos_Hotel) && $("#existe-hotel").val() != "1") {
                console.log(ID_USUARIO)
                registrar_usuario("HTL");
                btn_finalizar_carga()
@@ -537,11 +537,14 @@ function register_form(opcion) {
                      data: { tipo: '5',idUsuario: ID_USUARIO,datos:JSON.stringify(datos_Hotel)},
                      success: function (response) {
                         console.log(response)
-                        //window.location = "https://www.salioviaje.com.uy/Success";
+                        window.location = "https://www.salioviaje.com.uy/Success";
                      },
                   });
                }, 1000);
-            } else { next() }
+            } else { 
+               registrar_usuario("HTL");
+               next() 
+            }
          } else { console.log("No valido...") }
          break;
       case "6":
@@ -700,6 +703,28 @@ function Empresas() {
    });
 }
 
+function Hoteles_select() {
+   $.ajax({
+      type: "POST",
+      url: "/PHP/procedimientosForm.php",
+      data: { tipo: "empresas" },
+      success: function (response) {
+         let hoteles = JSON.parse(response);
+         console.log(hoteles)
+         var selectHoteles = document.getElementById('list-hotel');
+         $("#list-hotel").empty().append($("<option></option>").attr({ "value": 0, "selected": true, 'disabled': true, 'hidden': true }).text('Seleccione un hotel'));
+         for (var i = 0; i < hoteles.length; i++) {
+            if (hoteles[i]["TIPO_USUARIO"] == "HTL") {
+               var opt = document.createElement('option');
+               opt.value = hoteles[i]["RUT"];
+               opt.text = hoteles[i]["NOMBRE_COMERCIAL"] + " " + hoteles[i]["RAZON_SOCIAL"];
+               selectHoteles.appendChild(opt);
+            }
+         }
+      }
+   });
+}
+
 function valido_Empresa_sin_crearla(choferes_sub) {
    console.log(choferes_sub)
    if (choferes_sub == "choferes_sub_select" || choferes_sub == "empresas") {
@@ -830,13 +855,16 @@ function login(ADMIN) {
             console.log(response)
             if (response != '') {
                $(".mensaje-error").hide();
-               history.back()
+               history.go(-1)
             } else {
                $(".mensaje-error").show();
                $(".mensaje-error").text("Usuario o Contraseña Incorrectos.");
                console.log("Usuario o contraseña incorrectos...");
             }
          },
+         complete: function () {
+            location.reload()
+         }
       });
    } else { $(".mensaje-error").text("Usuario o Contraseña Incorrectos."); }
 

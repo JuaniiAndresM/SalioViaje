@@ -1,4 +1,6 @@
 <?php
+$ttl = (60 * 60 * 24); # 1 día
+session_set_cookie_params($ttl);
 session_start();
 ?>
 
@@ -384,8 +386,8 @@ session_start();
                   <div class="input">
                     <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas</p>
                   <select name="mascota" id="mascotas_traslado">
-                   <option vlaue="1">Con mascota</option>
-                   <option value="2">Sin mascota</option>
+                  <option vlaue="1">Con mascota</option>
+                   <option value="2" selected>Sin mascota</option>
                   </select>
                   </div>
 
@@ -485,7 +487,7 @@ session_start();
                     <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas</p>
                   <select name="mascota" id="mascota_tour">
                   <option vlaue="1">Con mascota</option>
-                   <option value="2">Sin mascota</option>
+                   <option value="2" selected>Sin mascota</option>
                   </select>
                   </div>
 
@@ -546,8 +548,8 @@ session_start();
                   <div class="input">
                     <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas</p>
                   <select name="mascota" id="mascotas_transfer_in">
-                   <option value="1">Con mascota</option>
-                   <option value="2">Sin mascota</option>
+                  <option vlaue="1">Con mascota</option>
+                   <option value="2" selected>Sin mascota</option>
                   </select>
                   </div>
 
@@ -664,7 +666,7 @@ session_start();
                 <div class="column">
 
                   <div class="input">
-                    <p><i class="far fa-calendar-alt"></i> Hora</p>
+                    <p><i class="far fa-calendar-alt"></i> Hora que pasan a buscar</p>
                     <input type="time" id="hora_transfer_out"/>
                   </div>
 
@@ -686,8 +688,8 @@ session_start();
                   <div class="input">
                     <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas</p>
                     <select name="mascota" id="mascotas_transfer_out">
-                   <option value="1">Con mascota</option>
-                   <option value="2">Sin mascota</option>
+                    <option vlaue="1">Con mascota</option>
+                   <option value="2" selected>Sin mascota</option>
                   </select>
                   </div>
 
@@ -801,8 +803,8 @@ session_start();
                   <div class="input">
                     <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas</p>
                     <select name="mascota" id="mascotas_fiestas_ida">
-                   <option value="1">Con mascota</option>
-                   <option value="2">Sin mascota</option>
+                    <option vlaue="1">Con mascota</option>
+                   <option value="2" selected>Sin mascota</option>
                   </select>
                   </div>
 
@@ -840,8 +842,8 @@ session_start();
                   <div class="input">
                     <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas</p>
                     <select name="mascota" id="mascotas_fiestas_vuelta">
-                   <option value="1">Con mascota</option>
-                   <option value="2">Sin mascota</option>
+                    <option vlaue="1">Con mascota</option>
+                   <option value="2" selected>Sin mascota</option>
                   </select>
                   </div>
 
@@ -1091,8 +1093,8 @@ session_start();
                   <div class="input">
                     <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas</p>
                     <select name="mascota" id="mascotas_fiestas_idavuelta">
-                   <option value="1">Con mascota</option>
-                   <option value="2">Sin mascota</option>
+                    <option vlaue="1">Con mascota</option>
+                   <option value="2" selected>Sin mascota</option>
                   </select>
                   </div>
 
