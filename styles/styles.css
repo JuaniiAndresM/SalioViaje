@@ -15351,13 +15351,18 @@ footer .totum p a:hover {
   margin-bottom: 20px;
 }
 
-.cotizacion-detalles-wrapper .cotizacion .cotizacion-content .cotizacion-info h2 {
-  margin: 0 10px;
+.cotizacion-detalles-wrapper .cotizacion .cotizacion-content .cotizacion-info h2, .cotizacion-detalles-wrapper .cotizacion .cotizacion-content .cotizacion-info h3 {
+  margin: 20px 0;
   color: #3844bc;
 }
 
+.cotizacion-detalles-wrapper .cotizacion .cotizacion-content .cotizacion-info h3 {
+  margin-bottom: 10px;
+}
+
 .cotizacion-detalles-wrapper .cotizacion .cotizacion-content .cotizacion-info p {
-  font-size: 14px;
+  font-size: 17px;
+  color: #666;
 }
 
 .cotizacion-detalles-wrapper .cotizacion .cotizacion-content .cotizacion-info p b {

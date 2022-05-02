@@ -80,12 +80,17 @@
                     margin-bottom: 20px;
                 }
 
-                h2{
-                    margin: 0 10px;
+                h2, h3{
+                    margin: 20px 0;
                     color: $main_1;
                 }
+                h3{
+                    margin-bottom: 10px;
+                }
+
                 p{
-                    font-size: 14px;
+                    font-size: 17px;
+                    color: #666;
                     b{
                         color: #444;
                         margin-right: 5px;
