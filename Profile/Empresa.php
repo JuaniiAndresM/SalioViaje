@@ -33,7 +33,7 @@ session_set_cookie_params($ttl);
     $info_empresa = new procedimientosBD();
 
     $usuario = $info_empresa->traer_datos_empresa($rut);
-    $vehiculos = json_decode($info_empresa->traer_datos_vehiculo($_SESSION['datos_usuario']['ID']),true);
+    $vehiculos = json_decode($info_empresa->traer_datos_vehiculo($usuario[0]['ID_USUARIO']),true);
     $id_choferes = $info_empresa->traer_choferes($rut);
     $choferes = null; 
     if($id_choferes === null){
@@ -186,6 +186,7 @@ session_set_cookie_params($ttl);
         </div>
 
         <div class="profile-grid">
+
           <?php 
             if($usuario[0]['TIPO_USUARIO'] != "ANF" && $usuario[0]['TIPO_USUARIO'] != "AGT" && $usuario[0]['TIPO_USUARIO'] != "HTL"){
               echo '<div class="user-informacion">
