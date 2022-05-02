@@ -124,6 +124,10 @@ function finalizar(enviar_solicitud) {
                 if (verificar_fechas(datos_tour['FECHA_SALIDA'], null, 0)) {
                     next();
                     if (enviar_solicitud == 1) {
+                        var id_cotizacion = guardar_cotizacion(datos_tour,array_paradas_1,0,"tour");
+
+                        console.log(id_cotizacion);
+
                         $.ajax({
                             type: "POST",
                             url: "/Mail/mail-SalioViaje.php",
@@ -140,7 +144,7 @@ function finalizar(enviar_solicitud) {
                                 }
                             }
                         });
-                        guardar_cotizacion(datos_tour,array_paradas_1,0,"tour")
+                        
                     }
                 } else {
                     $(".mensaje-error").show();

@@ -184,7 +184,7 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                                             
                                             if($TIPO_VIAJE == "Tour o Servicio por Hora"){
                                                 $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Ciudad del Servicio: </b>'.$datos_array["CIUDAD"].'</p>';
-                                                $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Duración del Servicio en horas: </b>'.$datos_array["HORA"].'</p>';
+                                                $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Duración del Servicio en horas: </b>'.$datos_array["DURACION"].'</p>';
                                             }
 
                                             if($TIPO_VIAJE == "Traslado"){
