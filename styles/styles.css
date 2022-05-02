@@ -9536,7 +9536,8 @@ footer .totum p a:hover {
 .viajar-wrapper .salioviaje .ofertas-wrapper .list-empty,
 .viajar-wrapper .salioviaje .ofertas-wrapper .list-empty2 {
   width: 100%;
-  height: 500px;
+  min-height: 200px;
+  max-height: 500px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -9572,7 +9573,7 @@ footer .totum p a:hover {
 .viajar-wrapper .salioviaje .oportunidades-wrapper .oportunidades-list,
 .viajar-wrapper .salioviaje .ofertas-wrapper .oportunidades-list {
   width: 100%;
-  height: 500px;
+  max-height: 500px;
   display: none;
   margin-top: 10px;
   overflow: hidden;
