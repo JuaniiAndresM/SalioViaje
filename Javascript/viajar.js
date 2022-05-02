@@ -32,6 +32,7 @@ $(document).ready(function () {
 
 var step = 1;
 
+let id_cotizacion;
 let viaje
 let datos_traslado;
 let datos_tour;
@@ -75,9 +76,8 @@ function finalizar(enviar_solicitud) {
 
             if (validacion('Translado', datos_traslado)) {
                 if (verificar_fechas(datos_traslado['FECHA_SALIDA'], null, 0)) {
-                    next();
                     if (enviar_solicitud == 1) {
-                        var id_cotizacion = guardar_cotizacion(datos_traslado,array_paradas_1,0,"traslados");
+                        guardar_cotizacion(datos_traslado,array_paradas_1,0,"traslados");
 
                         setTimeout(() => {
                             $.ajax({
@@ -127,9 +127,8 @@ function finalizar(enviar_solicitud) {
 
             if (validacion('Tour', datos_tour)) {
                 if (verificar_fechas(datos_tour['FECHA_SALIDA'], null, 0)) {
-                    next();
                     if (enviar_solicitud == 1) {
-                        var id_cotizacion = guardar_cotizacion(datos_tour,array_paradas_1,0,"tour");
+                        guardar_cotizacion(datos_tour,array_paradas_1,0,"tour");
 
                         setTimeout(() => {
                             $.ajax({
@@ -189,9 +188,8 @@ function finalizar(enviar_solicitud) {
 
                     if (validacion('Transfer_in', datos_transfer_in)) {
                         if (verificar_fechas(datos_transfer_in['FECHA_ARRIBO'], null, 0)) {
-                            next();
                             if (enviar_solicitud == 1) {
-                                var id_cotizacion = guardar_cotizacion(datos_transfer_in,array_paradas_1,0,"transferIn");
+                                guardar_cotizacion(datos_transfer_in,array_paradas_1,0,"transferIn");
 
                                 setTimeout(() => {
                                     $.ajax({
@@ -243,9 +241,8 @@ function finalizar(enviar_solicitud) {
 
                     if (validacion('Transfer_out', datos_transfer_out)) {
                         if (verificar_fechas(datos_transfer_out['FECHA_PARTIDA'], null, 0)) {
-                            next();
                             if (enviar_solicitud == 1) {
-                                var id_cotizacion = guardar_cotizacion(datos_transfer_out,array_paradas_1,0,"transferOut");
+                                guardar_cotizacion(datos_transfer_out,array_paradas_1,0,"transferOut");
 
                                 setTimeout(() => {
                                     $.ajax({
@@ -307,9 +304,8 @@ function finalizar(enviar_solicitud) {
 
                     if (validacion('FIESTA-IDA', datos_fiestaseventos_ida)) {
                         if (verificar_fechas(datos_fiestaseventos_ida['FECHA_SALIDA'], null, 0)) {
-                            next();
                             if (enviar_solicitud == 1) {
-                                var id_cotizacion = guardar_cotizacion(datos_fiestaseventos_ida,array_paradas_1,0,"fiestasIda");
+                                guardar_cotizacion(datos_fiestaseventos_ida,array_paradas_1,0,"fiestasIda");
 
                                 setTimeout(() => {
                                     $.ajax({
@@ -360,9 +356,8 @@ function finalizar(enviar_solicitud) {
 
                     if (validacion('FIESTA-VUELTA', datos_fiestaseventos_vuelta)) {
                         if (verificar_fechas(datos_fiestaseventos_vuelta['FECHA_REGRESO'], null, 0)) {
-                            next();
                             if (enviar_solicitud == 1) {
-                                var id_cotizacion = guardar_cotizacion(datos_fiestaseventos_vuelta,0,array_paradas_2,"fiestasVuelta");
+                                guardar_cotizacion(datos_fiestaseventos_vuelta,0,array_paradas_2,"fiestasVuelta");
                                 
                                 setTimeout(() => {
                                     $.ajax({
@@ -435,9 +430,8 @@ function finalizar(enviar_solicitud) {
 
                     if (validacion('FIESTA-IDA-VUELTA', datos_fiestaseventos_idavuelta)) {
                         if (verificar_fechas(datos_fiestaseventos_idavuelta['FECHA_SALIDA'], datos_fiestaseventos_idavuelta['FECHA_REGRESO'], 1)) {
-                            next();
                             if (enviar_solicitud == 1) {
-                                var id_cotizacion = guardar_cotizacion(datos_fiestaseventos_idavuelta,array_paradas_1,array_paradas_2,"fiestasIdaVuelta");
+                                guardar_cotizacion(datos_fiestaseventos_idavuelta,array_paradas_1,array_paradas_2,"fiestasIdaVuelta");
 
                                 setTimeout(() => {
                                     $.ajax({
@@ -480,7 +474,7 @@ function guardar_cotizacion(datos_cotizacion,paradas_ida,paradas_vuelta,tipo) {
         url: "/PHP/procedimientosForm.php",
         data: { tipo: "agregar_cotizacion", datos: JSON.stringify(datos_cotizacion), PARADAS_IDA: JSON.stringify(paradas_ida), PARADAS_VUELTA: JSON.stringify(paradas_vuelta),tipo_cotizacion:tipo },
         success: function (response) {
-            console.log(response)
+            id_cotizacion = response;
         }
     });
 }

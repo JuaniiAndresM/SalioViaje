@@ -22,7 +22,7 @@ $DATOS = $_POST['DATA'];
 
 $datos_array = json_decode(stripslashes($DATOS),true);
 
-$id_cotizacion = $_POST["COTIZACION"];
+$id_cotizacion = $_POST['COTIZACION'];
 
 
 if(isset($_POST['PARADAS_IDA'])){
@@ -85,7 +85,7 @@ $mail->From = 'promouruguay010@gmail.com';             //  Editar
 $mail->FromName = 'SalióViaje';                    //  Editar
 $mail->addAddress('admin@salioviaje.com.uy');       //  Editar
 $mail->isHTML(true);
-$mail->Subject = "Invitación a cotizar un " . $TIPO_VIAJE . " #" . $id_cotizacion . $_POST["COTIZACION"];   //  Editar
+$mail->Subject = "Invitación a cotizar un " . $TIPO_VIAJE . " #" . $id_cotizacion;   //  Editar
 
 $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white;">
                         <table style="width: 100%; background: linear-gradient(120deg, #3844bc, #2b3179); border: none;" cellspacing="0" cellpadding="0">
