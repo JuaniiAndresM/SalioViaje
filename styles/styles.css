@@ -171,7 +171,7 @@
 .servicios .servicios-wrapper .card {
   max-width: 300px;
   width: 100%;
-  min-height: 450px;
+  min-height: 470px;
   background: linear-gradient(45deg, #3844bc, #2b3179);
   -webkit-box-shadow: 10px 0px 20px 0 rgba(0, 0, 0, 0.3);
           box-shadow: 10px 0px 20px 0 rgba(0, 0, 0, 0.3);
@@ -215,14 +215,24 @@
 }
 
 .servicios .servicios-wrapper .card .click-here {
-  height: 20px;
+  width: 150px;
+  height: 40px;
+  border-radius: 1em 0 1em 1em;
+  margin: 0 auto;
+  background-color: #3844bc;
   cursor: pointer;
   text-align: center;
   display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .servicios .servicios-wrapper .card .click-here p {
-  color: #3844bc;
+  color: #ffffff;
 }
 
 .servicios .servicios-wrapper .card .click-here p i {
@@ -303,7 +313,9 @@
 }
 
 .servicios .servicios-wrapper .card:hover .click-here {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .servicios .servicios-wrapper .card:hover .card-bottom .info_2,
@@ -8516,12 +8528,12 @@ footer .totum p a:hover {
   }
 }
 
-.sobre-nosotros {
+.sobre-nosotros, .sobre-nosotros-experiencias {
   margin-bottom: 30px;
   margin-top: 40px;
 }
 
-.sobre-nosotros .nosotros-wrapper-grid {
+.sobre-nosotros .nosotros-wrapper-grid, .sobre-nosotros-experiencias .nosotros-wrapper-grid {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 40% 1fr;
@@ -8532,7 +8544,7 @@ footer .totum p a:hover {
   padding: 0 20px;
 }
 
-.sobre-nosotros .nosotros-wrapper-grid .nosotros-left {
+.sobre-nosotros .nosotros-wrapper-grid .nosotros-left, .sobre-nosotros-experiencias .nosotros-wrapper-grid .nosotros-left {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8544,7 +8556,7 @@ footer .totum p a:hover {
           align-items: center;
 }
 
-.sobre-nosotros .nosotros-wrapper-grid .nosotros-left .nosotros-img-wrapper, .sobre-nosotros .nosotros-wrapper-grid .nosotros-left .nosotros-img-wrapper-inf {
+.sobre-nosotros .nosotros-wrapper-grid .nosotros-left .nosotros-img-wrapper, .sobre-nosotros .nosotros-wrapper-grid .nosotros-left .nosotros-img-wrapper-inf, .sobre-nosotros-experiencias .nosotros-wrapper-grid .nosotros-left .nosotros-img-wrapper, .sobre-nosotros-experiencias .nosotros-wrapper-grid .nosotros-left .nosotros-img-wrapper-inf {
   width: 500px;
   height: 450px;
   border-radius: 6em 6em 0 6em;
@@ -8561,24 +8573,24 @@ footer .totum p a:hover {
   background-color: #2b3179;
 }
 
-.sobre-nosotros .nosotros-wrapper-grid .nosotros-left .nosotros-img-wrapper img, .sobre-nosotros .nosotros-wrapper-grid .nosotros-left .nosotros-img-wrapper-inf img {
+.sobre-nosotros .nosotros-wrapper-grid .nosotros-left .nosotros-img-wrapper img, .sobre-nosotros .nosotros-wrapper-grid .nosotros-left .nosotros-img-wrapper-inf img, .sobre-nosotros-experiencias .nosotros-wrapper-grid .nosotros-left .nosotros-img-wrapper img, .sobre-nosotros-experiencias .nosotros-wrapper-grid .nosotros-left .nosotros-img-wrapper-inf img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-.sobre-nosotros .nosotros-wrapper-grid .nosotros-left .nosotros-img-wrapper #dep-inf-img, .sobre-nosotros .nosotros-wrapper-grid .nosotros-left .nosotros-img-wrapper-inf #dep-inf-img {
+.sobre-nosotros .nosotros-wrapper-grid .nosotros-left .nosotros-img-wrapper #dep-inf-img, .sobre-nosotros .nosotros-wrapper-grid .nosotros-left .nosotros-img-wrapper-inf #dep-inf-img, .sobre-nosotros-experiencias .nosotros-wrapper-grid .nosotros-left .nosotros-img-wrapper #dep-inf-img, .sobre-nosotros-experiencias .nosotros-wrapper-grid .nosotros-left .nosotros-img-wrapper-inf #dep-inf-img {
   padding: 40px;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-.sobre-nosotros .nosotros-wrapper-grid .nosotros-left .nosotros-img-wrapper-inf {
+.sobre-nosotros .nosotros-wrapper-grid .nosotros-left .nosotros-img-wrapper-inf, .sobre-nosotros-experiencias .nosotros-wrapper-grid .nosotros-left .nosotros-img-wrapper-inf {
   width: auto;
 }
 
-.sobre-nosotros .nosotros-wrapper-grid .nosotros-right {
+.sobre-nosotros .nosotros-wrapper-grid .nosotros-right, .sobre-nosotros-experiencias .nosotros-wrapper-grid .nosotros-right {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8595,26 +8607,26 @@ footer .totum p a:hover {
   text-align: left;
 }
 
-.sobre-nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info {
+.sobre-nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info, .sobre-nosotros-experiencias .nosotros-wrapper-grid .nosotros-right .nosotros-info {
   text-align: left;
 }
 
-.sobre-nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info h2 {
+.sobre-nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info h2, .sobre-nosotros-experiencias .nosotros-wrapper-grid .nosotros-right .nosotros-info h2 {
   color: #333333;
   font-size: 2.3em;
 }
 
-.sobre-nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info h2 span {
+.sobre-nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info h2 span, .sobre-nosotros-experiencias .nosotros-wrapper-grid .nosotros-right .nosotros-info h2 span {
   color: #3844bc;
 }
 
-.sobre-nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info hr {
+.sobre-nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info hr, .sobre-nosotros-experiencias .nosotros-wrapper-grid .nosotros-right .nosotros-info hr {
   width: 100px;
   border: 1px solid #3844bc;
   margin: 10px 0;
 }
 
-.sobre-nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info p {
+.sobre-nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info p, .sobre-nosotros-experiencias .nosotros-wrapper-grid .nosotros-right .nosotros-info p {
   color: #666;
   font-size: 1.2em;
   max-width: 630px;
@@ -8622,7 +8634,7 @@ footer .totum p a:hover {
   margin-bottom: 20px;
 }
 
-.sobre-nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info .button-nosotros {
+.sobre-nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info .button-nosotros, .sobre-nosotros-experiencias .nosotros-wrapper-grid .nosotros-right .nosotros-info .button-nosotros {
   background: -webkit-gradient(linear, left top, right top, from(#3844bc), to(#2b3179));
   background: linear-gradient(to right, #3844bc, #2b3179);
   color: #ffffff;
@@ -8637,13 +8649,29 @@ footer .totum p a:hover {
   text-decoration: none;
 }
 
-.sobre-nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info .button-nosotros i {
+.sobre-nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info .button-nosotros i, .sobre-nosotros-experiencias .nosotros-wrapper-grid .nosotros-right .nosotros-info .button-nosotros i {
   margin-right: 5px;
 }
 
-.sobre-nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info .button-nosotros:hover {
+.sobre-nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info .button-nosotros:hover, .sobre-nosotros-experiencias .nosotros-wrapper-grid .nosotros-right .nosotros-info .button-nosotros:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
+}
+
+.sobre-nosotros-experiencias .nosotros-wrapper-grid {
+  -ms-grid-columns: 30% 1fr;
+      grid-template-columns: 30% 1fr;
+  width: 100%;
+  max-width: 1400px;
+}
+
+.sobre-nosotros-experiencias .nosotros-wrapper-grid .nosotros-left .nosotros-img-wrapper {
+  width: 350px;
+  height: 300px;
+}
+
+.sobre-nosotros-experiencias .nosotros-wrapper-grid .nosotros-right .nosotros-info .info {
+  margin-bottom: 30px;
 }
 
 .dep-inf {
@@ -8713,7 +8741,7 @@ footer .totum p a:hover {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   cursor: pointer;
-  margin: 0 20px;
+  margin: 0 10px;
 }
 
 .experiencias-button-wrapper button i {
@@ -8721,35 +8749,35 @@ footer .totum p a:hover {
 }
 
 @media screen and (max-width: 950px) {
-  .sobre-nosotros .nosotros-wrapper-grid {
+  .sobre-nosotros .nosotros-wrapper-grid, .sobre-nosotros-experiencias .nosotros-wrapper-grid {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
   }
-  .sobre-nosotros .nosotros-wrapper-grid .nosotros-left .nosotros-img-wrapper {
+  .sobre-nosotros .nosotros-wrapper-grid .nosotros-left .nosotros-img-wrapper, .sobre-nosotros-experiencias .nosotros-wrapper-grid .nosotros-left .nosotros-img-wrapper {
     max-width: 400px;
     width: calc(100% - 20px);
     height: 300px;
   }
-  .sobre-nosotros .nosotros-wrapper-grid .nosotros-right {
+  .sobre-nosotros .nosotros-wrapper-grid .nosotros-right, .sobre-nosotros-experiencias .nosotros-wrapper-grid .nosotros-right {
     width: calc(100% - 20px);
     margin: 0 auto;
   }
-  .sobre-nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info {
+  .sobre-nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info, .sobre-nosotros-experiencias .nosotros-wrapper-grid .nosotros-right .nosotros-info {
     width: 100%;
     margin-top: 20px;
     text-align: center;
   }
-  .sobre-nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info h1 {
+  .sobre-nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info h1, .sobre-nosotros-experiencias .nosotros-wrapper-grid .nosotros-right .nosotros-info h1 {
     font-size: 3.4em;
   }
-  .sobre-nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info hr {
+  .sobre-nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info hr, .sobre-nosotros-experiencias .nosotros-wrapper-grid .nosotros-right .nosotros-info hr {
     margin: 10px auto;
   }
-  .sobre-nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info p {
+  .sobre-nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info p, .sobre-nosotros-experiencias .nosotros-wrapper-grid .nosotros-right .nosotros-info p {
     font-size: 1em;
     margin: 10px auto;
   }
-  .sobre-nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info .button-nosotros {
+  .sobre-nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info .button-nosotros, .sobre-nosotros-experiencias .nosotros-wrapper-grid .nosotros-right .nosotros-info .button-nosotros {
     margin-top: 0;
   }
 }
