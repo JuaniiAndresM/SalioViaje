@@ -217,7 +217,7 @@ function tabla_seccion_usuarios(usuario) {
                     td.innerHTML = usuario[property]
                 }
 
-                if (property == "NOMBRE_HOTEL" || property == "DIRECCION_HOTEL" || property == "SUPERVISOR") {
+                if (property == "SUPERVISOR") {
                     td.setAttribute('class', "HTL");
                 }
                 else if (property == "AGENCIA_CONTRATISTA") {
@@ -263,7 +263,7 @@ function tabla_seccion_usuarios_especificos(usuario) {
                     td.innerHTML = usuario[0][property]
                 }
 
-                if (property == "NOMBRE_HOTEL" || property == "DIRECCION_HOTEL" || property == "SUPERVISOR") {
+                if (property == "SUPERVISOR") {
                     td.setAttribute('class', "HTL")
                 }
                 if (property == "AGENCIA_CONTRATISTA") {
