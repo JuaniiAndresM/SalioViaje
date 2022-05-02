@@ -149,10 +149,7 @@
           <div class="cotizacion-content">
 
             <div class="cotizacion-info">
-              
-              <h1>Información del Servicio a Cotizar:</h1>
               <?php
-              echo json_encode($cotizaciones);
               echo '<p><b style="color: #444; margin-right: 5px;">N° Cotización: </b>'.$cotizaciones[0]['ID'].'</p>
                     <p><b style="color: #444; margin-right: 5px;">Tipo de Viaje: </b>'.$cotizaciones[0]['TIPO'].'</p>';
               
