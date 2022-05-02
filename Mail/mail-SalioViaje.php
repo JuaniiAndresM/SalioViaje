@@ -22,7 +22,7 @@ $DATOS = $_POST['DATA'];
 
 $datos_array = json_decode(stripslashes($DATOS),true);
 
-$id_cotizacion = "1";
+$id_cotizacion = $_POST['ID'];
 
 
 if(isset($_POST['PARADAS_IDA'])){
