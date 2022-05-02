@@ -76,7 +76,8 @@ for ($i = 0; $i < count($datos); $i++) {
                 <div class="discount">
                   <h3>' . $datos[$i]['DESCUENTO'] . '%</h3>
                   <div class="precio">
-                  ' . $datos[$i]['PRECIO'] . '
+                    <p class="precio_total">$' . number_format($datos[$i]['PRECIO']) . '</p>
+                    <p class="precio_desc">$' . number_format($PRECIO_CON_DESCUENTO_APLICADO) . '</p>
                   </div>
                 </div>
                 <div class="travel">
