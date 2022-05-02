@@ -142,7 +142,7 @@ class Backend extends procedimientosBD
 		private function tabla_empresas($i,$datos_e){
 			require_once '../PHP/procedimientosBD.php';
 			$info_empresa = new procedimientosBD();
-    		$vehiculos = json_decode($info_empresa->traer_datos_vehiculo($_SESSION['datos_usuario']['ID']),true);
+    		$vehiculos = json_decode($info_empresa->traer_datos_vehiculo_por_empresa($datos_e[$i]["RUT"],$datos_e[$i]["ID"]),true);
 
 			if($vehiculos != null){
 				$size = sizeof($vehiculos);
