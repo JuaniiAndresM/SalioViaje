@@ -5,7 +5,7 @@ require_once "../procedimientosBD.php";
 $datos_bd = new procedimientosBD();
 
 $datos = $datos_bd->datos_empresas();
-
+echo "hola";
 
 for ($i=0; $i < count($datos); $i++) { 
   $vehiculos =  json_decode($datos_bd->traer_datos_vehiculo_por_empresa($datos[$i]["RUT"],$datos[$i]["ID"]),true);
@@ -33,5 +33,6 @@ for ($i=0; $i < count($datos); $i++) {
 
 ';
 }
+
 echo $NUEVA_EMPRESA_DASHBOARD;
 ?>

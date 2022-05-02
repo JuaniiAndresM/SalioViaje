@@ -395,6 +395,10 @@ class procedimientosBD
             $stmt->bind_result($idOportunidad, $descuento, $origen, $destino, $fecha, $nombre, $apellido, $marca, $modelo, $capacidad_vehiculo, $estado, $matricula, $distancia, $precio);
             while ($stmt->fetch()) {
                 $result = array('ID' => $idOportunidad, 'DESCUENTO' => $descuento, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'FECHA' => $fecha, 'NOMBRE' => $nombre, 'APELLIDO' => $apellido, 'MARCA' => $marca, 'MODELO' => $modelo, 'CAPACIDAD_VEHICULO' => $capacidad_vehiculo, 'ESTADO' => $estado, 'MATRICULA' => $matricula, 'DISTANCIA' => $distancia, 'PRECIO' => $precio);
+                $fecha = $result["FECHA"];
+                $timestamp = strtotime($fecha); 
+                $newDate = date("d-m-Y", $timestamp);  
+                $result["FECHA"] = $newDate;
                 $oportunidades[] = $result;
             }
         }
@@ -407,13 +411,40 @@ class procedimientosBD
         // ORIGEN DESTINO FECHA HORA PASAJEROS MARCA Y MODELO DEL VEHICULO nombre de transportista
         $oportunidades = array();
         $conn = $this->conexion();
-        $query = "SELECT idOportunidad,Origen,Destino,Fecha,Estado FROM oportunidades where idComprador = $id";
+        $query = "SELECT idOportunidad,Origen,Destino,Fecha,Estado,Modalidad FROM oportunidades where idComprador = $id";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($idOportunidad, $origen, $destino, $fecha, $estado);
+            $stmt->bind_result($idOportunidad, $origen, $destino, $fecha, $estado, $modalidad);
             while ($stmt->fetch()) {
-                $result = array('ID' => $idOportunidad, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'FECHA' => $fecha, 'ESTADO' => $estado);
+                $result = array('ID' => $idOportunidad, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'FECHA' => $fecha, 'ESTADO' => $estado, 'MODALIDAD' => $modalidad);
+                $fecha = $result["FECHA"];
+                $timestamp = strtotime($fecha); 
+                $newDate = date("d-m-Y", $timestamp);  
+                $result["FECHA"] = $newDate;
+                $oportunidades[] = $result;
+            }
+        }
+        $stmt->close();
+        return json_encode($oportunidades);
+    }
+
+    public function traer_oportunidades_por_id_tta($id)
+    {
+        // ORIGEN DESTINO FECHA HORA PASAJEROS MARCA Y MODELO DEL VEHICULO nombre de transportista
+        $oportunidades = array();
+        $conn = $this->conexion();
+        $query = "SELECT idOportunidad,Origen,Destino,Fecha,Estado,Modalidad FROM oportunidades where idTransportista = $id";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($idOportunidad, $origen, $destino, $fecha, $estado,$modalidad);
+            while ($stmt->fetch()) {
+                $result = array('ID' => $idOportunidad, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'FECHA' => $fecha, 'ESTADO' => $estado, 'MODALIDAD' => $modalidad);
+                $fecha = $result["FECHA"];
+                $timestamp = strtotime($fecha); 
+                $newDate = date("d-m-Y", $timestamp);  
+                $result["FECHA"] = $newDate;
                 $oportunidades[] = $result;
             }
         }
@@ -433,6 +464,10 @@ class procedimientosBD
             $stmt->bind_result($idOportunidad, $descuento, $origen, $destino, $fecha, $nombre, $apellido, $marca, $modelo, $capacidad_vehiculo, $estado, $matricula, $distancia, $precio, $idTransportista, $tipo_usuario);
             while ($stmt->fetch()) {
                 $result = array('ID' => $idOportunidad, 'DESCUENTO' => $descuento, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'FECHA' => $fecha, 'NOMBRE' => $nombre, 'APELLIDO' => $apellido, 'MARCA' => $marca, 'MODELO' => $modelo, 'CAPACIDAD_VEHICULO' => $capacidad_vehiculo, 'ESTADO' => $estado, 'MATRICULA' => $matricula, 'DISTANCIA' => $distancia, 'PRECIO' => $precio, 'ID_TRANSPORTISTA' => $idTransportista, 'TIPO_USUARIO' => $tipo_usuario);
+                $fecha = $result["FECHA"];
+                $timestamp = strtotime($fecha); 
+                $newDate = date("d-m-Y", $timestamp);  
+                $result["FECHA"] = $newDate;
                 $oportunidades[$size] = $result;
                 $return = $oportunidades;
                 $size++;
@@ -453,6 +488,10 @@ class procedimientosBD
             $stmt->bind_result($id, $origen, $destino, $fecha, $nombre, $apellido, $marca, $modelo, $cantidad_pasajeros, $estado, $matricula, $distancia, $precio);
             while ($stmt->fetch()) {
                 $result = array('ID' => $id, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'FECHA' => $fecha, 'NOMBRE' => $nombre, 'APELLIDO' => $apellido, 'MARCA' => $marca, 'MODELO' => $modelo, 'CANTIDAD_PASAJEROS' => $cantidad_pasajeros, 'ESTADO' => $estado, 'MATRICULA' => $matricula, 'DISTANCIA' => $distancia, 'PRECIO' => $precio);
+                $fecha = $result["FECHA"];
+                $timestamp = strtotime($fecha); 
+                $newDate = date("d-m-Y", $timestamp);  
+                $result["FECHA"] = $newDate;
                 $viajes[] = $result;
             }
         }
@@ -583,7 +622,7 @@ class procedimientosBD
             while ($stmt->fetch()) {
                 $result = array('ID' => $id, 'MATRICULA' => $matricula, 'MARCA' => $marca, 'MODELO' => $modelo, 'COMBUSTIBLE' => $combustible, 'CAPACIDAD' => $capacidad, 'EQUIPAJE' => $equipaje, 'PET_FRIENDLY' => $pet_friendly, 'RUT_EM' => $rut_em, 'RUT_EC' => $rut_ec, 'ID_EMPRESA' => $id_empresa);
                 $vehiculo[$size] = $result;
-                $return = $vehiculo;
+                $return[] = $vehiculo;
                 $size++;
             }
         }
@@ -650,9 +689,13 @@ class procedimientosBD
         $stmt->bind_param("s", $id);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($id, $vehiculo, $distancia, $cantidad_pasajeros, $fecha, $origen, $destino, $precio, $rutas, $estado, $id_transportista);
+            $stmt->bind_result($id, $vehiculo, $distancia, $cantidad_pasajeros, $fecha, $origen, $destino, $precio, $rutas, $estado, $modalidad, $id_transportista);
             while ($stmt->fetch()) {
-                $result = array('ID' => $id, 'VEHICULO' => $vehiculo, 'DISTANCIA' => $distancia, 'CANTIDAD_PASAJERO' => $cantidad_pasajeros, 'FECHA' => $fecha, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'PRECIO' => $precio, 'RUTAS' => $rutas, 'ESTADO' => $estado, 'ID_TRANSPORTISTA' => $id_transportista);
+                $result = array('ID' => $id, 'VEHICULO' => $vehiculo, 'DISTANCIA' => $distancia, 'CANTIDAD_PASAJERO' => $cantidad_pasajeros, 'FECHA' => $fecha, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'PRECIO' => $precio, 'RUTAS' => $rutas, 'ESTADO' => $estado, 'MODALIDAD' => $modalidad, 'ID_TRANSPORTISTA' => $id_transportista);
+                $fecha = substr($result["FECHA"],0,10);
+                $timestamp = strtotime($fecha); 
+                $newDate = date("d-m-Y", $timestamp);  
+                $result["FECHA"] = $newDate;
                 $agenda[$size] = $result;
                 $return = $agenda;
                 $size++;
@@ -672,9 +715,13 @@ class procedimientosBD
         $stmt->bind_param("s", $id);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($id, $descuento, $vehiculo, $distancia, $cantidad_pasajeros, $fecha, $origen, $destino, $precio, $rutas, $estado, $id_transportista, $id_comprador);
+            $stmt->bind_result($id, $descuento, $vehiculo, $distancia, $cantidad_pasajeros, $fecha, $origen, $destino, $precio, $rutas, $estado, $id_transportista, $id_comprador,$modalidad);
             while ($stmt->fetch()) {
-                $result = array('ID' => $id, 'DESCUENTO' => $descuento, 'VEHICULO' => $vehiculo, 'DISTANCIA' => $distancia, 'CANTIDAD_PASAJERO' => $cantidad_pasajeros, 'FECHA' => $fecha, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'PRECIO' => $precio, 'RUTAS' => $rutas, 'ESTADO' => $estado, 'ID_TRANSPORTISTA' => $id_transportista, 'ID_COMPRADOR' => $id_comprador);
+                $result = array('ID' => $id, 'DESCUENTO' => $descuento, 'VEHICULO' => $vehiculo, 'DISTANCIA' => $distancia, 'CANTIDAD_PASAJERO' => $cantidad_pasajeros, 'FECHA' => $fecha, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'PRECIO' => $precio, 'RUTAS' => $rutas, 'ESTADO' => $estado, 'ID_TRANSPORTISTA' => $id_transportista, 'ID_COMPRADOR' => $id_comprador, 'MODALIDAD' => $modalidad);
+                $fecha = $result["FECHA"];
+                $timestamp = strtotime($fecha); 
+                $newDate = date("d-m-Y", $timestamp);  
+                $result["FECHA"] = $newDate;
                 $agenda[$size] = $result;
                 $return = $agenda;
                 $size++;
@@ -917,6 +964,10 @@ class procedimientosBD
             $stmt->bind_result($id_cotizacion, $direccion_origen, $barrio_origen, $localidad_origen, $direccion_destino, $barrio_destino, $localidad_destino, $fecha_salida, $estado,$hora,$cantidad_pasajeros,$mascotas,$tipo);
             while ($stmt->fetch()) {
                 $result = array('ID' => $id_cotizacion, 'DIRECCION_ORIGEN' => $direccion_origen, 'BARRIO_ORIGEN' => $barrio_origen, 'LOCALIDAD_ORIGEN' => $localidad_origen, 'DIRECCION_DESTINO' => $direccion_destino, 'BARRIO_DESTINO' => $barrio_destino, 'LOCALIDAD_DESTINO' => $localidad_destino, 'FECHA_SALIDA' => $fecha_salida, 'ESTADO' => $estado, 'HORA' => $hora, 'CANTIDAD_PASAJEROS' => $cantidad_pasajeros, 'MASCOTAS' => $mascotas,'TIPO' => $tipo);
+                $fecha = $result["FECHA_SALIDA"];
+                $timestamp = strtotime($fecha); 
+                $newDate = date("d-m-Y", $timestamp);  
+                $result["FECHA_SALIDA"] = $newDate;
                 $cotizaciones[] = $result;
             }
         }
@@ -935,6 +986,10 @@ class procedimientosBD
             $stmt->bind_result($id_cotizacion, $direccion_origen, $barrio_origen, $localidad_origen, $direccion_destino, $barrio_destino, $localidad_destino, $fecha_salida, $estado,$hora,$cantidad_pasajeros,$mascotas,$tipo);
             while ($stmt->fetch()) {
                 $result = array('ID' => $id_cotizacion, 'DIRECCION_ORIGEN' => $direccion_origen, 'BARRIO_ORIGEN' => $barrio_origen, 'LOCALIDAD_ORIGEN' => $localidad_origen, 'DIRECCION_DESTINO' => $direccion_destino, 'BARRIO_DESTINO' => $barrio_destino, 'LOCALIDAD_DESTINO' => $localidad_destino, 'FECHA_SALIDA' => $fecha_salida, 'ESTADO' => $estado, 'HORA' => $hora, 'CANTIDAD_PASAJEROS' => $cantidad_pasajeros, 'MASCOTAS' => $mascotas,'TIPO' => $tipo);
+                $fecha = $result["FECHA_SALIDA"];
+                $timestamp = strtotime($fecha); 
+                $newDate = date("d-m-Y", $timestamp);  
+                $result["FECHA_SALIDA"] = $newDate;
                 $cotizaciones[] = $result;
             }
         }
