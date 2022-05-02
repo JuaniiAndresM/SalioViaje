@@ -112,8 +112,8 @@ class Backend extends procedimientosBD
 
 		public function actualizar_tablas_dashboard_empresas(){
 
-			$datos_e = $this->datos_empresas();
 			session_start();
+			$datos_e = $this->datos_empresas();
 			$_SESSION['datos_usuario']['RUT_EMPRESAS'] = [];
 			for ($i=0; $i < count($datos_e); $i++) { 
 				if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == 'TTA' && $_SESSION['datos_usuario']['ID'] == $datos_e[$i]["ID_OWNER"]) {
@@ -142,6 +142,7 @@ class Backend extends procedimientosBD
 		private function tabla_empresas($i,$datos_e){
 			require_once '../PHP/procedimientosBD.php';
 			$info_empresa = new procedimientosBD();
+
     		$vehiculos = json_decode($info_empresa->traer_datos_vehiculo_por_empresa($datos_e[$i]["RUT"],$datos_e[$i]["ID"]),true);
 
 			if($vehiculos != null){
@@ -149,6 +150,7 @@ class Backend extends procedimientosBD
 			}else{
 				$size = 0;
 			}
+
 				if ($i==0) {
 		 			$this->EMPRESAS_DASHBOARD = '
                 		<div class="propietario">

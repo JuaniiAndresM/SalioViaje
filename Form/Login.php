@@ -109,7 +109,7 @@
                 <div class="inputs-wrapper">
                     <div class="input">
                         <i class="fas fa-user" id="icon"></i>
-                        <input type="number" id="usuario" name="usuario" maxlength="12" placeholder="C.I o RUT">
+                        <input type="number" id="usuario" name="usuario" maxlength="12" placeholder="C.I">
                     </div>
                     <div class="input">
                         <i class="fas fa-key" id="icon"></i>

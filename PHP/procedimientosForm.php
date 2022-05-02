@@ -65,7 +65,7 @@ class procedimientosForm extends procedimientosBD
                 }
 
             }
-        }else {
+        } else {
             $empresa["NUMERO_MTOP"] = 0;
             $empresa["PASSWORD_MTOP"] = 0;
             echo $this->register_empresa($x, $tipoUsuario, $this->idUsuario, $empresa);
@@ -184,6 +184,7 @@ if ($_POST['tipo'] == 1) {
                 }
             }
             break;
+
         case 'cambio_estado_cotizacion':
             $procedimientosForm->cambiar_estado_cotizacion($_POST['idCotizacion'], $_POST['estado']);
             break;
