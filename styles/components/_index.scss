@@ -205,6 +205,8 @@ $contraste_2: #ffffff;
         justify-content: center;
         align-items: center;
 
+        transition: .3s;
+
         p{
           color: $contraste_2;
 
@@ -212,6 +214,9 @@ $contraste_2: #ffffff;
             margin-right: 10px;
           }
         }
+      }
+      .click-here{
+        background-color: $main_3;
       }
 
       .card-bottom {
@@ -225,6 +230,11 @@ $contraste_2: #ffffff;
             color: $contraste_2;
             text-decoration: none;
             font-size: 1.2em;
+            transition: .2s;
+          }
+          .tel:hover{
+            color: $main_3;
+            font-size: 1.3em;
           }
         }
 

@@ -229,6 +229,8 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-transition: .3s;
+  transition: .3s;
 }
 
 .servicios .servicios-wrapper .card .click-here p {
@@ -237,6 +239,10 @@
 
 .servicios .servicios-wrapper .card .click-here p i {
   margin-right: 10px;
+}
+
+.servicios .servicios-wrapper .card .click-here {
+  background-color: #6d76db;
 }
 
 .servicios .servicios-wrapper .card .card-bottom .info_2,
@@ -251,6 +257,14 @@
   color: #ffffff;
   text-decoration: none;
   font-size: 1.2em;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.servicios .servicios-wrapper .card .card-bottom .info_2 .tel:hover,
+.servicios .servicios-wrapper .card .card-bottom .info_3 .tel:hover {
+  color: #6d76db;
+  font-size: 1.3em;
 }
 
 .servicios .servicios-wrapper .card .card-bottom .button-whatsapp {
