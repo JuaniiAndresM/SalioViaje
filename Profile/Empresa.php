@@ -28,21 +28,14 @@ session_set_cookie_params($ttl);
       }
     }
 
-    $rut = $_GET['RUT'];
+    $id = $_GET['RUT'];
 
     $info_empresa = new procedimientosBD();
 
-    $usuario = $info_empresa->traer_datos_empresa($rut);
-    $vehiculos = json_decode($info_empresa->traer_datos_vehiculo($usuario[0]['ID_USUARIO']),true);
-    $id_choferes = $info_empresa->traer_choferes($rut);
-    $choferes = null; 
-    if($id_choferes === null){
-                   
-    }else{
-      for($i = 0; $i< sizeof($id_choferes); $i++){
-        $choferes[$i] = $info_empresa->info_usuario_profile($id_choferes[$i]['ID']);
-      }
-    }
+    $usuario = $info_empresa->traer_datos_empresa($id);
+    $vehiculos = json_decode($info_empresa->traer_datos_vehiculo_por_empresa($usuario[0]['RUT'],$usuario[0]['ID']),true);
+    $choferes = $info_empresa->info_choferes_profile_empresa($id);
+    //$choferes = null; 
 
     if(empty($usuario)){
       header('Location: Failed/');
@@ -264,12 +257,12 @@ session_set_cookie_params($ttl);
                                   <i class="fas fa-user"></i>
                               </div>
                               <div class="empresa-info">
-                                  <h3>'.$choferes[$i][0]['NOMBRE'].'</h3>
+                                  <h3>'.$choferes[$i]['NOMBRE']." ".$choferes[$i]['APELLIDO'].'</h3>
                               </div>
                             </div>
                             <div class="empresa-button">
-                              <button class="button" id="'.$choferes[$i][0]['ID'].'" onclick="ver_usuario('.$choferes[$i][0]['ID'].')"><i class="far fa-eye"></i></button>
-                              <button class="button" id="'.$choferes[$i][0]['ID'].'" onclick="eliminar_usuario('.$choferes[$i][0]['ID'].')"><i class="fas fa-trash-alt"></i></button>
+                              <button class="button" id="'.$choferes[$i]['ID'].'" onclick="ver_usuario('.$choferes[$i]['ID'].')"><i class="far fa-eye"></i></button>
+                              <button class="button" id="'.$choferes[$i]['ID'].'" onclick="eliminar_usuario('.$choferes[$i]['ID'].')"><i class="fas fa-trash-alt"></i></button>
                             </div>
                           </div>';
                         }

@@ -518,6 +518,24 @@ class procedimientosBD
         return $usuarios;
     }
 
+    public function info_choferes_profile_empresa($id)
+    {
+        $usuarios = array();
+        $conn = $this->conexion();
+        $query = "SELECT ID,Tipo_Usuario,CI,Email,Nombre,Apellido,Direccion,Barrio,Departamento,Telefono,Agencia_C,RUT,Supervisor FROM salioviajeuy_salioviajeuy.usuarios where Agencia_C IN (SELECT RUT FROM empresas where ID = $id)";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($id_usuario, $tipo_usuario, $ci, $mail, $nombre, $apellido, $direccion, $barrio, $departamento, $telefono, $agencia_contratista, $rut, $supervisor);
+            while ($stmt->fetch()) {
+                $result = array('ID' => $id_usuario, 'TIPO_USUARIO' => $tipo_usuario, 'CI' => $ci, 'EMAIL' => $mail, 'NOMBRE' => $nombre, 'APELLIDO' => $apellido, 'DIRECCION' => $direccion, 'BARRIO' => $barrio, 'DEPARTAMENTO' => $departamento, 'TELEFONO' => $telefono, 'AGENCIA_CONTRATISTA' => $agencia_contratista, 'SUPERVISOR' => $supervisor, 'RUT' => $rut);
+                $usuarios[] = $result;
+            }
+        }
+        $stmt->close();
+        return $usuarios;
+    }
+
     public function traer_datos_transportista($id)
     {
         $conn = $this->conexion();
@@ -622,9 +640,7 @@ class procedimientosBD
             $stmt->bind_result($id, $matricula, $marca, $modelo, $combustible, $capacidad, $equipaje, $pet_friendly, $rut_em, $rut_ec, $id_empresa);
             while ($stmt->fetch()) {
                 $result = array('ID' => $id, 'MATRICULA' => $matricula, 'MARCA' => $marca, 'MODELO' => $modelo, 'COMBUSTIBLE' => $combustible, 'CAPACIDAD' => $capacidad, 'EQUIPAJE' => $equipaje, 'PET_FRIENDLY' => $pet_friendly, 'RUT_EM' => $rut_em, 'RUT_EC' => $rut_ec, 'ID_EMPRESA' => $id_empresa);
-                $vehiculo[$size] = $result;
-                $return[] = $vehiculo;
-                $size++;
+                $return[] = $result;
             }
         }
         $stmt->close();
