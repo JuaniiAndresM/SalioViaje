@@ -75,18 +75,18 @@ $mail->SMTPDebug = 0;
 
 $mail->Host = 'smtp.gmail.com';
 $mail->SMTPAuth = true;
-$mail->Username ='totumdevcontacto@gmail.com';
-$mail->Password = 'manuni7817';
+$mail->Username ='promouruguay010@gmail.com';
+$mail->Password = 'El trabajo es la respuesta';
 $mail->SMTPSecure = 'tls';
 $mail->Port = 587;
 
 $mail->CharSet = 'UTF-8';
 // $mail->From = 'sistema_sv_de_avisos@salioviaje.com.uy';             //  Editar
-$mail->From = 'totumdevcontacto@gmail.com';             //  Editar
+$mail->From = 'promouruguay010@gmail.com';             //  Editar
 $mail->FromName = 'SalióViaje';                    //  Editar
 $mail->addAddress('thewolfmodzyt@gmail.com');       //  Editar
 $mail->isHTML(true);
-$mail->Subject = "Invitación a cotizar un " + $TIPO_VIAJE + " #" + $id_cotizacion;   //  Editar
+$mail->Subject = "Invitación a cotizar un " . $TIPO_VIAJE . " #" . $id_cotizacion;   //  Editar
 
 $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white;">
                         <table style="width: 100%; background: linear-gradient(120deg, #3844bc, #2b3179); border: none;" cellspacing="0" cellpadding="0">
@@ -177,8 +177,10 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                                                 <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Aeropuerto / Puerto: </b>'.$datos_array["PUNTO_DESTINO"].', '.$datos_array["BARRIO_DESTINO"].'</p>';
                                             }
                                             
-                                            if($TIPO_VIAJE == "Traslado" || $TIPO_VIAJE == "Tour o Servicio por Hora"){
+                                            if($TIPO_VIAJE == "Traslado"){
                                                 $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Origen: </b>'.$datos_array["LOCALIDAD_ORIGEN"].', '.$datos_array["BARRIO_ORIGEN"].'</p>';
+                                            }else if($TIPO_VIAJE == "Tour o Servicio por Hora"){
+                                                $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Origen: </b>'.$datos_array["LOCALIDAD_TOUR"].', '.$datos_array["BARRIO_TOUR"].'</p>';
                                             }
                                             
                                             if($TIPO_VIAJE == "Tour o Servicio por Hora"){
@@ -186,7 +188,7 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                                                 $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Duración del Servicio en horas: </b>'.$datos_array["HORA"].'</p>';
                                             }
 
-                                            if($TIPO_VIAJE == "Traslado" || $TIPO_VIAJE == "Tour o Servicio por Hora"){
+                                            if($TIPO_VIAJE == "Traslado"){
                                                 $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Destino o Punto de Interés: </b>'.$datos_array["LOCALIDAD_DESTINO"].', '.$datos_array["BARRIO_DESTINO"].', '.$datos_array["DIRECCION_DESTINO"].'</p>';
                                             }
                                             
@@ -234,8 +236,8 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                                                     <p style="font-size: 14px; color: #444;">'.$datos_array['OBSERVACIONES'].'</p>';
                                                 }
                                             }
-                                            if(isset($datos_array['MASCOTA'])){
-                                                if($datos_array['MASCOTA'] == "1"){
+                                            if(isset($datos_array['MASCOTAS'])){
+                                                if($datos_array['MASCOTAS'] == "Con mascota"){
                                                     $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Mascotas Admitidas</b>';
                                                 }
                                             }
@@ -247,23 +249,13 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                             <tr>
                                 <td>
                                     <div style="margin: 20px 0; margin-bottom: 30px; text-align: center;">
-                                        <a href="https://www.salioviaje.com.uy" target="_blank" style="padding: 15px 20px; background-color: #4db979; color: #ffffff; text-decoration: none; font-family: Montserrat; font-size: 15px; border-radius: 10px; margin: 0 50px;">
+                                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeQtd-s1ngnM-F-HbLYHhIOSW1_L0GiUZKoVoiXdnWWV5nsBg/viewform" target="_blank" style="padding: 15px 20px; background-color: #4db979; color: #ffffff; text-decoration: none; font-family: Montserrat; font-size: 15px; border-radius: 10px; margin: 0 50px;">
                                             Cotizar
                                         </a>
 
                                         <a href="https://www.salioviaje.com.uy" target="_blank" style="padding: 15px 20px; background-color: #ff635a; color: #ffffff; text-decoration: none; font-family: Montserrat; font-size: 15px; border-radius: 10px; margin: 0 50px;">
                                             No Cotizar
                                         </a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="mail-content" style="width: 500px; margin: 20px auto; background: #fff; font-family: Montserrat; color: #3844bc;">
-                                        <h1 style="font-size: 20px;">Información del Pasajero</h1>
-                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Nombre: </b>'.$_SESSION['usuario'].'</p>
-                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Teléfono: </b><a href="tel:'.$_SESSION['datos_usuario']['TELEFONO'].'" style="text-decoration: none; color: #3844bc;">'.$_SESSION['datos_usuario']['TELEFONO'].'</a></p>
-                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Correo Electrónico: </b>'.$_SESSION['datos_usuario']['MAIL'].'</p>
                                     </div>
                                 </td>
                             </tr>
@@ -279,10 +271,10 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                                 <td>
                                     <div class="mail-content" style="width: 500px; margin: 20px auto; background: #fff; font-family: Montserrat; color: #3844bc;">
                                         <h1 style="font-size: 20px;">Información del Solicitante:</h1>
-                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Nombre del Solicitante: </b>Nombre</p>
-                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Teléfono: </b><a href="tel:099222333">099222333</b></p>
-                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Mail: </b>example@gmail.com</p>
-                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Domicilio: </b>Direccion, Barrio, Localidad.</p>
+                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Nombre del Solicitante: </b>'.$_SESSION['usuario'].'</p>
+                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Teléfono: </b><a href="tel:'.$_SESSION['datos_usuario']['TELEFONO'].'">'.$_SESSION['datos_usuario']['TELEFONO'].'</b></p>
+                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Mail: </b>'.$_SESSION['datos_usuario']['MAIL'].'</p>
+                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Domicilio: </b>'.$_SESSION['datos_usuario']['DEPARTAMENTO'].', '.$_SESSION['datos_usuario']['BARRIO'].'.</p>
                                     </div>
                                 </td>
                             </tr>
