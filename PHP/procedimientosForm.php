@@ -163,26 +163,20 @@ if ($_POST['tipo'] == 1) {
             $paradas_ida = json_decode($_POST['PARADAS_IDA'], true);
             $paradas_vuelta = json_decode($_POST['PARADAS_VUELTA'], true);
             if ($_POST['PARADAS_VUELTA'] != "0" && $_POST['PARADAS_IDA'] == "0") {
-                echo "con vuelta\n";
                 for ($i = 0; $i < count($paradas_vuelta); $i++) {
-                    echo $paradas_vuelta[$i] . " " . "vuelta" . " " . $id_cotizacion . "\n";
                     $procedimientosForm->agregar_paradas($paradas_vuelta[$i], "vuelta", $id_cotizacion);
                 }
             } elseif ($_POST['PARADAS_VUELTA'] == "0" && $_POST['PARADAS_IDA'] != "0") {
-                echo "sin vuelta\n";
                 for ($i = 0; $i < count($paradas_ida); $i++) {
-                    echo $paradas_ida[$i] . " " . "ida" . " " . $id_cotizacion . "\n";
                     $procedimientosForm->agregar_paradas($paradas_ida[$i], "ida", $id_cotizacion);
                 }
             } else {
-                echo "con ida y vuelta\n";
                 for ($i = 0; $i < count($paradas_ida); $i++) {
-                    echo $paradas_ida[$i] . " " . "ida" . " " . $id_cotizacion . "\n";
                     $procedimientosForm->agregar_paradas($paradas_ida[$i], "ida", $id_cotizacion);
-                    echo $paradas_vuelta[$i] . " " . "vuelta" . " " . $id_cotizacion . "\n";
                     $procedimientosForm->agregar_paradas($paradas_vuelta[$i], "vuelta", $id_cotizacion);
                 }
             }
+            echo $id_cotizacion;
             break;
 
         case 'cambio_estado_cotizacion':
