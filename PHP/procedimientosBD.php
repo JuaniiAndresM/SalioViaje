@@ -921,31 +921,31 @@ class procedimientosBD
 
         $datos = json_decode($datos, true);
         $conn = $this->conexion();
-        $query = "CALL agregar_cotizacion(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        $query = "CALL agregar_cotizacion(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         $stmt = $conn->prepare($query);
         switch ($tipo) {
             case "traslados":
                 $datos["TIPO"] = "Traslados";
-                $stmt->bind_param("ssssssiisssiiisssiss", $datos["DIRECCION_ORIGEN"], $datos["BARRIO_ORIGEN"], $datos["LOCALIDAD_ORIGEN"], $datos["DIRECCION_DESTINO"], $datos["BARRIO_DESTINO"], $datos["LOCALIDAD_DESTINO"], $datos["MASCOTAS"], $datos["CANTIDAD_PASAJEROS"], $datos["HORA"], $datos["OBSERVACIONES"], $datos['FECHA_SALIDA'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos["TIPO"], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL']);
+                $stmt->bind_param("ssssssssssssiisssiiisssiss", $datos["DIRECCION_ORIGEN"], $datos["BARRIO_ORIGEN"], $datos["LOCALIDAD_ORIGEN"], $datos["DIRECCION_DESTINO"], $datos["BARRIO_DESTINO"], $datos["LOCALIDAD_DESTINO"],$datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["MASCOTAS"], $datos["CANTIDAD_PASAJEROS"], $datos["HORA"], $datos["OBSERVACIONES"], $datos['FECHA_SALIDA'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos["TIPO"], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL']);
                 break;
             case 'tour':
                 $datos["TIPO"] = "Tour";
-                $stmt->bind_param("ssssssiisssiiisssiss", $datos["DIRECCION_SALIDA_TOUR"], $datos["BARRIO_TOUR"], $datos["LOCALIDAD_TOUR"], $datos["NULL"], $datos["CIUDAD"], $datos["LOCALIDAD_DESTINO"], $datos["MASCOTA"], $datos["CANTIDAD_PASAJEROS"], $datos["HORA"], $datos["OBSERVACIONES"], $datos['FECHA_SALIDA'], $datos['DURACION'], $datos['NULL'], $datos['NULL'], $datos["TIPO"], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL']);
+                $stmt->bind_param("ssssssssssssiisssiiisssiss", $datos["DIRECCION_SALIDA_TOUR"], $datos["BARRIO_TOUR"], $datos["LOCALIDAD_TOUR"], $datos["NULL"], $datos["CIUDAD"], $datos["LOCALIDAD_DESTINO"],$datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["MASCOTA"], $datos["CANTIDAD_PASAJEROS"], $datos["HORA"], $datos["OBSERVACIONES"], $datos['FECHA_SALIDA'], $datos['DURACION'], $datos['NULL'], $datos['NULL'], $datos["TIPO"], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL']);
                 break;
             case 'transferIn':
-                $stmt->bind_param("ssssssiisssiiisssiss", $datos["DIRECCION_ORIGEN"], $datos["BARRIO_ORIGEN"], $datos["PUNTO_ORIGEN"], $datos["DIRECCION_DESTINO"], $datos["BARRIO_DESTINO"], $datos["LOCALIDAD_DESTINO"], $datos["MASCOTAS"], $datos["CANTIDAD_PASAJEROS"], $datos["HORA"], $datos["OBSERVACIONES"], $datos['FECHA_ARRIBO'], $datos['NULL'], $datos['NRO_VUELO_BARCO'], $datos['EQUIPAJE'], $datos['TIPO_TRANSFER'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL']);
+                $stmt->bind_param("ssssssssssssiisssiiisssiss", $datos["DIRECCION_ORIGEN"], $datos["BARRIO_ORIGEN"], $datos["PUNTO_ORIGEN"], $datos["DIRECCION_DESTINO"], $datos["BARRIO_DESTINO"], $datos["LOCALIDAD_DESTINO"],$datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["MASCOTAS"], $datos["CANTIDAD_PASAJEROS"], $datos["HORA"], $datos["OBSERVACIONES"], $datos['FECHA_ARRIBO'], $datos['NULL'], $datos['NRO_VUELO_BARCO'], $datos['EQUIPAJE'], $datos['TIPO_TRANSFER'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL']);
                 break;
             case 'transferOut':
-                $stmt->bind_param("ssssssiisssiiisssiss", $datos["DIRECCION_ORIGEN"], $datos["BARRIO_ORIGEN"], $datos["LOCALIDAD_ORIGEN"], $datos["DIRECCION_DESTINO"], $datos["BARRIO_DESTINO"], $datos["PUNTO_DESTINO"], $datos["MASCOTAS"], $datos["CANTIDAD_PASAJEROS"], $datos["HORA"], $datos["OBSERVACIONES"], $datos['FECHA_PARTIDA'], $datos['NULL'], $datos['NRO_VUELO_BARCO'], $datos['EQUIPAJE'], $datos['TIPO_TRANSFER'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL']);
+                $stmt->bind_param("ssssssssssssiisssiiisssiss", $datos["DIRECCION_ORIGEN"], $datos["BARRIO_ORIGEN"], $datos["LOCALIDAD_ORIGEN"], $datos["DIRECCION_DESTINO"], $datos["BARRIO_DESTINO"], $datos["PUNTO_DESTINO"],$datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["MASCOTAS"], $datos["CANTIDAD_PASAJEROS"], $datos["HORA"], $datos["OBSERVACIONES"], $datos['FECHA_PARTIDA'], $datos['NULL'], $datos['NRO_VUELO_BARCO'], $datos['EQUIPAJE'], $datos['TIPO_TRANSFER'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL']);
                 break;
             case 'fiestasIda':
-                $stmt->bind_param("ssssssiisssiiisssiss", $datos["DIRECCION_ORIGEN"], $datos["BARRIO_ORIGEN"], $datos["LOCALIDAD_ORIGEN"], $datos["DIRECCION_DESTINO"], $datos["BARRIO_DESTINO"], $datos["PUNTO_DESTINO"], $datos["MASCOTAS"], $datos["CANTIDAD_PASAJEROS_IDA"], $datos["HORA"], $datos["OBSERVACIONES"], $datos['FECHA_SALIDA'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['TRAMOS_FIESTA'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL']);
+                $stmt->bind_param("ssssssssssssiisssiiisssiss", $datos["DIRECCION_ORIGEN"], $datos["BARRIO_ORIGEN"], $datos["LOCALIDAD_ORIGEN"], $datos["DIRECCION_DESTINO"], $datos["BARRIO_DESTINO"], $datos["PUNTO_DESTINO"],$datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["MASCOTAS"], $datos["CANTIDAD_PASAJEROS_IDA"], $datos["HORA"], $datos["OBSERVACIONES"], $datos['FECHA_SALIDA'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['TRAMOS_FIESTA'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL']);
                 break;
             case 'fiestasVuelta':
-                $stmt->bind_param("ssssssiisssiiisssiss", $datos["DIRECCION_ORIGEN"], $datos["BARRIO_ORIGEN"], $datos["PUNTO_ORIGEN"], $datos["DIRECCION_DESTINO"], $datos["BARRIO_DESTINO"], $datos["LOCALIDAD_DESTINO"], $datos["MASCOTAS"], $datos["CANTIDAD_PASAJEROS_VUELTA"], $datos["HORA"], $datos["OBSERVACIONES"], $datos['FECHA_REGRESO'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['TRAMOS_FIESTA'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL']);
+                $stmt->bind_param("ssssssssssssiisssiiisssiss", $datos["DIRECCION_ORIGEN"], $datos["BARRIO_ORIGEN"], $datos["PUNTO_ORIGEN"], $datos["DIRECCION_DESTINO"], $datos["BARRIO_DESTINO"], $datos["LOCALIDAD_DESTINO"],$datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["MASCOTAS"], $datos["CANTIDAD_PASAJEROS_VUELTA"], $datos["HORA"], $datos["OBSERVACIONES"], $datos['FECHA_REGRESO'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['TRAMOS_FIESTA'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL']);
                 break;
             case 'fiestasIdaVuelta':
-                $stmt->bind_param("ssssssiisssiiisssiss", $datos["DIRECCION_ORIGEN"], $datos["BARRIO_ORIGEN"], $datos["LOCALIDAD_ORIGEN"], $datos["DIRECCION_DESTINO"], $datos["BARRIO_DESTINO"], $datos["LOCALIDAD_DESTINO"], $datos["MASCOTAS"], $datos["CANTIDAD_PASAJEROS_IDA"], $datos["HORA_SALIDA"], $datos["OBSERVACIONES"], $datos['FECHA_SALIDA'],$datos['NULL'],$datos['NULL'],$datos['NULL'],$datos['TRAMOS_FIESTA'],$datos['PUNTO_DESTINO'],$datos['PUNTO_SALIDA'],$datos['CANTIDAD_PASAJEROS_VUELTA'],$datos['HORA_REGRESO'],$datos['FECHA_REGRESO']);
+                $stmt->bind_param("ssssssssssssiisssiiisssiss", $datos["DIRECCION_ORIGEN"], $datos["BARRIO_ORIGEN"], $datos["LOCALIDAD_ORIGEN"], $datos["DIRECCION_DESTINO"], $datos["BARRIO_DESTINO"], $datos["LOCALIDAD_DESTINO"],$datos["DIRECCION_ORIGEN_VUELTA"], $datos["BARRIO_ORIGEN_VUELTA"], $datos["LOCALIDAD_ORIGEN_VUELTA"], $datos["DIRECCION_DESTINO_VUELTA"], $datos["BARRIO_DESTINO_VUELTA"], $datos["LOCALIDAD_DESTINO_VUELTA"], $datos["MASCOTAS"], $datos["CANTIDAD_PASAJEROS_IDA"], $datos["HORA_SALIDA"], $datos["OBSERVACIONES"], $datos['FECHA_SALIDA'],$datos['NULL'],$datos['NULL'],$datos['NULL'],$datos['TRAMOS_FIESTA'],$datos['PUNTO_DESTINO'],$datos['PUNTO_SALIDA'],$datos['CANTIDAD_PASAJEROS_VUELTA'],$datos['HORA_REGRESO'],$datos['FECHA_REGRESO']);
                 break;
         }
         if ($stmt->execute()) {
@@ -996,13 +996,13 @@ class procedimientosBD
     {
         $choferes = array();
         $conn = $this->conexion();
-        $query = "SELECT ID,DIRECCION_ORIGEN,BARRIO_ORIGEN,LOCALIDAD_ORIGEN,DIRECCION_DESTINO,BARRIO_DESTINO,LOCALIDAD_DESTINO,FECHA_SALIDA,ESTADO,HORA,CANTIDAD_PASAJEROS,MASCOTAS,TIPO FROM `cotizaciones` WHERE ID = $id";
+        $query = "SELECT * FROM `cotizaciones` WHERE ID = $id";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($id_cotizacion, $direccion_origen, $barrio_origen, $localidad_origen, $direccion_destino, $barrio_destino, $localidad_destino, $fecha_salida, $estado,$hora,$cantidad_pasajeros,$mascotas,$tipo);
+            $stmt->bind_result($id_cotizacion,$tipo,$dir_origen, $bar_origen, $loc_origen, $dir_destino, $bar_destino, $loc_destino,$dir_origen_vuelta, $bar_origen_vuelta, $loc_origen_vuelta, $dir_destino_vuelta, $bar_destino_vuelta, $loc_destino_vuelta, $dest_salida_eventos, $ori_salida_eventos, $mascotas, $cantidad_pasajeros,$cant_pasajeros_regreso, $len, $hora, $hr_regreso,$nro_b_v,$nro_equi, $obs, $fechaSalida,$fechaRegreso,$estado);
             while ($stmt->fetch()) {
-                $result = array('ID' => $id_cotizacion, 'DIRECCION_ORIGEN' => $direccion_origen, 'BARRIO_ORIGEN' => $barrio_origen, 'LOCALIDAD_ORIGEN' => $localidad_origen, 'DIRECCION_DESTINO' => $direccion_destino, 'BARRIO_DESTINO' => $barrio_destino, 'LOCALIDAD_DESTINO' => $localidad_destino, 'FECHA_SALIDA' => $fecha_salida, 'ESTADO' => $estado, 'HORA' => $hora, 'CANTIDAD_PASAJEROS' => $cantidad_pasajeros, 'MASCOTAS' => $mascotas,'TIPO' => $tipo);
+                $result = array('ID' => $id_cotizacion, 'DIRECCION_ORIGEN' => $dir_origen, 'BARRIO_ORIGEN' => $bar_origen, 'LOCALIDAD_ORIGEN' => $loc_origen, 'DIRECCION_DESTINO' => $dir_destino, 'BARRIO_DESTINO' => $bar_destino, 'LOCALIDAD_DESTINO' => $loc_destino, 'FECHA_SALIDA' => $fechaSalida, 'ESTADO' => $estado, 'HORA' => $hora, 'CANTIDAD_PASAJEROS' => $cantidad_pasajeros, 'MASCOTAS' => $mascotas,'TIPO' => $tipo);
                 $fecha = $result["FECHA_SALIDA"];
                 $timestamp = strtotime($fecha); 
                 $newDate = date("d-m-Y", $timestamp);  

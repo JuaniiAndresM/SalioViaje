@@ -35,7 +35,6 @@ session_set_cookie_params($ttl);
     $usuario = $info_empresa->traer_datos_empresa($id);
     $vehiculos = json_decode($info_empresa->traer_datos_vehiculo_por_empresa($usuario[0]['RUT'],$usuario[0]['ID']),true);
     $choferes = $info_empresa->info_choferes_profile_empresa($id);
-    //$choferes = null; 
 
     if(empty($usuario)){
       header('Location: Failed/');
