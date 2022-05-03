@@ -59,7 +59,7 @@ function finalizar(enviar_solicitud) {
         /* 
         Traslado        
         */
-        case "1":
+        case "1": default:
             datos_traslado = {
                 "FECHA_SALIDA": $('#fecha_salida').val(),
                 "DIRECCION_ORIGEN": $('#direccion_traslado_origen').val(),
