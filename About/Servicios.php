@@ -164,9 +164,10 @@ $cotizaciones = json_decode($cotizaciones->traer_viajes_cotizando_panel_admin(),
 
         <div class="Cotizaciones-list">
           <?php
-for ($i = 0; $i < count($cotizaciones); $i++) {
-    //print_r(json_encode($cotizaciones[$i])."\n");
-    ?>
+if ($cotizaciones != null) {
+    for ($i = 0; $i < count($cotizaciones); $i++) {
+        //print_r(json_encode($cotizaciones[$i])."\n");
+        ?>
                         <div class="Cotizaciones">
 
 <div class="Cotizaciones-left">
@@ -178,13 +179,13 @@ for ($i = 0; $i < count($cotizaciones); $i++) {
     <p><i class="fas fa-van-shuttle"></i><?php echo $cotizaciones[$i]['TIPO']; ?>.</p>
     <p><i class="fas fa-map-marker-alt"></i>Origen: <?php echo $cotizaciones[$i]['LOCALIDAD_ORIGEN']; ?>, <?php echo $cotizaciones[$i]['BARRIO_ORIGEN']; ?>.</p>
     <p><i class="fas fa-route"></i>Destino: <?php
-     if ($cotizaciones[$i]['LOCALIDAD_DESTINO'] != null) {
-      echo $cotizaciones[$i]['LOCALIDAD_DESTINO'].", ".$cotizaciones[$i]['BARRIO_DESTINO'];
-     }else {
-      echo $cotizaciones[$i]['BARRIO_DESTINO'];
-     }
-     
-     ?>.</p>
+if ($cotizaciones[$i]['LOCALIDAD_DESTINO'] != null) {
+            echo $cotizaciones[$i]['LOCALIDAD_DESTINO'] . ", " . $cotizaciones[$i]['BARRIO_DESTINO'];
+        } else {
+            echo $cotizaciones[$i]['BARRIO_DESTINO'];
+        }
+
+        ?>.</p>
   </div>
 
   <div class="travel">
@@ -194,15 +195,14 @@ for ($i = 0; $i < count($cotizaciones); $i++) {
 
   <div class="travel">
     <p><i class="fas fa-user-friends"></i><?php echo $cotizaciones[$i]['CANTIDAD_PASAJEROS']; ?></p>
-    <p><i class="fas fa-dog"></i><?php 
-    if ($cotizaciones[$i]['MASCOTAS'] == 2) {
-      echo "sin mascotas"; 
-    } else {
-      echo "con mascotas"; 
-    }
-    
-   
-    ?></p>
+    <p><i class="fas fa-dog"></i><?php
+if ($cotizaciones[$i]['MASCOTAS'] == 2) {
+            echo "sin mascotas";
+        } else {
+            echo "con mascotas";
+        }
+
+        ?></p>
   </div>
 
 </div>
@@ -217,6 +217,14 @@ for ($i = 0; $i < count($cotizaciones); $i++) {
 </div>
 </div>
               <?php
+}
+}else {
+  ?>
+  <script>
+$(".list-empty-cotizacion").css('display', 'flex');
+$(".Cotizaciones-list").hide();
+</script>
+  <?php
 }
 ?>
         </div>

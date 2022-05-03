@@ -571,7 +571,7 @@ function steps(step) {
     $(".step_2_transfer").hide();
     $(".step_2_fiestas").hide();
     $(".step_3").hide();
-    $(".step_4").hide();
+    $(".step_5").hide();
     $("#paradas_vuelta").hide();
 
     $(".mensaje-error").css('color', '#ff635a');

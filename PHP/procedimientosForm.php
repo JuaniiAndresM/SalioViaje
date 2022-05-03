@@ -55,8 +55,8 @@ class procedimientosForm extends procedimientosBD
                     if ($tipoUsuario == "CHO") {
                         //rut_ec = RUT de la empresa creada por el chofer.
                         //rut = RUT de la agencia contratista del chofer.
-                        $rut_ec = $empresa[$x]["RUT"];
-                        $rut = $empresa[$x]["CHOFERES_SUB"];
+                        $rut_ec = $empresa[$x]["CHOFERES_SUB"];
+                        $rut = $empresa[$x]["RUT"];
                     } else {
                         $rut = $empresa[$x]["RUT"];
                         $rut_ec = "0";
@@ -159,7 +159,9 @@ if ($_POST['tipo'] == 1) {
             echo $procedimientosForm->agrego_visita();
             break;
         case 'agregar_cotizacion':
-            $id_cotizacion = $procedimientosForm->agregar_cotizacion($_POST['datos'], $_POST['tipo_cotizacion'])['ID'];
+            session_start();
+            $id_solicitante = $_SESSION['datos_usuario']['ID'];
+            $id_cotizacion = $procedimientosForm->agregar_cotizacion($_POST['datos'], $_POST['tipo_cotizacion'],$id_solicitante)['ID'];
             $paradas_ida = json_decode($_POST['PARADAS_IDA'], true);
             $paradas_vuelta = json_decode($_POST['PARADAS_VUELTA'], true);
             if ($_POST['PARADAS_VUELTA'] != "0" && $_POST['PARADAS_IDA'] == "0") {
