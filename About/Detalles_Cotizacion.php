@@ -14,8 +14,9 @@
   */
   require_once "../PHP/procedimientosBD.php";
 
-  $cotizaciones = new procedimientosBD();
-  $cotizaciones = json_decode($cotizaciones->traer_viajes_cotizando_por_id($_GET['ID']), true);
+  $cotizacion = new procedimientosBD();
+  $cotizaciones = json_decode($cotizacion->traer_viajes_cotizando_por_id($_GET['ID']), true);
+  $paradas = json_decode($cotizacion->traer_paradas_viajes_cotizando_por_id($_GET['ID']), true);
 
   switch($cotizaciones[0]['TIPO']){
     case "Traslados":
@@ -218,7 +219,7 @@
                     echo '
                     <h2>Datos de la Ida:</h2>
                     <p><i class="fas fa-calendar-days"></i> <b>Fecha de ida: </b>'.$fecha_salida.'</p>
-                    <p><i class="fas fa-clock"></i> <b>Hora: </b>'.$cotizaciones[0]["HORA_SALIDA"].'</p>
+                    <p><i class="fas fa-clock"></i> <b>Hora: </b>'.$cotizaciones[0]["HORA"].'</p>
                     <p><i class="fas fa-location-dot"></i> <b>Origen: </b>'.$cotizaciones[0]["LOCALIDAD_ORIGEN"].', '.$cotizaciones[0]["BARRIO_ORIGEN"].'</p>
                     <p><i class="fas fa-route"></i> <b>Destino o Punto de Interés: </b>'.$cotizaciones[0]["BARRIO_DESTINO"].', '.$cotizaciones[0]["PUNTO_DESTINO"].'</p>
                     <p><i class="fas fa-people-group"></i> <b>Cantidad de Pasajeros: </b>'.$cotizaciones[0]["CANTIDAD_PASAJEROS"].'</p>';
@@ -262,46 +263,51 @@
                 if($TIPO_VIAJE == "Traslado"){
                     echo '<p><i class="fas fa-route"></i> <b>Destino o Punto de Interés: </b>'.$cotizaciones[0]["LOCALIDAD_DESTINO"].', '.$cotizaciones[0]["BARRIO_DESTINO"].', '.$cotizaciones[0]["DIRECCION_DESTINO"].'</p>';
                 }
-                
 
-                if(isset($paradas_ida_array) || isset($paradas_vuelta_array)){    
+                if(isset($paradas)){
+                    $paradas_ida_array = array();
+                    $paradas_vuelta_array = array();
 
-                    if(isset($paradas_ida_array)){
-                        if(count($paradas_ida_array,true) > 0){
-                            echo '<p><i class="fas fa-flag"></i> <b>Paradas (Ida): </b>';
-                        
-                            for($a = 0; $a < count($paradas_ida_array); $a++){
-                                if($paradas_ida_array[$a] != ""){
-                                    if($a == (count($paradas_ida_array) - 1)){
-                                        $mail->Body .= $paradas_ida_array[$a] . '.';
-                                    }else{
-                                        $mail->Body .= $paradas_ida_array[$a] . ', ';
-                                    }
-                                }
-                            }
-                            echo '</p>';
-                        }
+                    for($a = 0; $a < count($paradas); $a++){
+                      if($paradas[$a]['TRAMO'] == "ida"){
+                        array_push($paradas_ida_array, $paradas[$a]['CONTENIDO']);
+                      }else if($paradas[$a]['TRAMO'] == "vuelta"){
+                        array_push($paradas_vuelta_array, $paradas[$a]['CONTENIDO']);
+                      }
                     }
 
-                    if(isset($paradas_vuelta_array)){
-                        if(count($paradas_vuelta_array,true) > 0){
-                            echo '<p><i class="fas fa-flag"></i> <b>Paradas (Vuelta): </b>';
-                        
-                            for($a = 0; $a < count($paradas_vuelta_array); $a++){
-                                if($paradas_vuelta_array[$a] != ""){
-                                    if($a == (count($paradas_vuelta_array) - 1)){
-                                        $mail->Body .= $paradas_vuelta_array[$a] . '.';
-                                    }else{
-                                        $mail->Body .= $paradas_vuelta_array[$a] . ', ';
-                                    }
-                                }
-                            }
-                            echo '</p>';
-                        }
+                    if(count($paradas_ida_array) > 0){
+                      echo '<p><i class="fas fa-flag"></i> <b>Paradas (Ida): </b>';
+                  
+                      for($a = 0; $a < count($paradas_ida_array); $a++){
+                          if($paradas_ida_array[$a] != ""){
+                              if($a == (count($paradas_ida_array) - 1)){
+                                echo $paradas_ida_array[$a] . '.';
+                              }else{
+                                echo $paradas_ida_array[$a] . ', ';
+                              }
+                          }
+                      }
+                      echo '</p>';
+                    }
+
+                    if(count($paradas_vuelta_array) > 0){
+                      echo '<p><i class="fas fa-flag"></i> <b>Paradas (Vuelta): </b>';
+                  
+                      for($a = 0; $a < count($paradas_vuelta_array); $a++){
+                          if($paradas_ida_array[$a] != ""){
+                              if($a == (count($paradas_vuelta_array) - 1)){
+                                echo $paradas_vuelta_array[$a] . '.';
+                              }else{
+                                echo $paradas_vuelta_array[$a] . ', ';
+                              }
+                          }
+                      }
+                      echo '</p>';
                     }
                 }else{
                   echo '<h2><i class="fas fa-flag"></i> Paradas:</h2>
-                        <p>No hay paradas.</p>'
+                        <p>No hay paradas.</p>';
                 }
 
                 if(isset($cotizaciones[0]['OBSERVACIONES'])){
@@ -309,6 +315,9 @@
                         echo '<h2><i class="fas fa-comment-dots"></i> Observaciones:</h2>
                         <p>'.$cotizaciones[0]['OBSERVACIONES'].'</p>';
                     }
+                }else{
+                  echo '<h2><i class="fas fa-comment-dots"></i> Observaciones:</h2>
+                        <p>Ninguna</p>';
                 }
                 if(isset($cotizaciones[0]['MASCOTAS'])){
                     echo '<h2><i class="fas fa-dog"></i> Mascotas:</h2>';
