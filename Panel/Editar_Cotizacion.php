@@ -225,6 +225,8 @@ session_set_cookie_params($ttl);
                               <option value="0" disabled>Seleccione un Estado</option> 
                               <option value="cotizando" selected>Cotizando</option>
                               <option value="cotizado">Cotizado</option>
+                              <option value="aceptado">Aceptado</option>
+                              <option value="reconfirmado">Reconfirmado</option>
                             </select>
                             <?php
                           }else {
