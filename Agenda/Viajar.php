@@ -514,7 +514,7 @@ session_start();
               <div class="input">
                 <i class="fas fa-plane" id="icon"></i>
                 <select name="" id="select_transfer" onchange="select_transfer()">
-                  <option value="1" selected disabled hidden >Transfer de Arribos</option>
+                  <option value="0" selected disabled hidden >Seleccione una Tipo de Transfer</option>
                   <option value="1">Transfer de Arribos</option>
                   <option value="2">Transfer de Partidas</option>
                 </select>
@@ -716,7 +716,7 @@ session_start();
               <div class="input">
                 <i class="fas fa-exchange-alt" id="icon"></i>
                 <select name="" id="select_fiesta" onchange="select_fiesta()">
-                  <option value="0" selected disabled hidden >Solo Ida</option>
+                  <option value="0" selected disabled hidden >Seleccione un Tramo</option>
                   <option value="1">Solo Ida</option>
                   <option value="2">Solo Vuelta</option>
                   <option value="3">Ida y Vuelta</option>
@@ -1139,6 +1139,17 @@ session_start();
             </div>
 
             <div class="step_4">
+
+              <div class="send-wrapper">
+
+                <div class="sending-icon">
+                  <i class="fas fa-spinner"></i>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="step_5">
 
               <div class="send-wrapper">
 

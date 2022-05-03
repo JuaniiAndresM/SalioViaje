@@ -22,7 +22,7 @@ $DATOS = $_POST['DATA'];
 
 $datos_array = json_decode(stripslashes($DATOS),true);
 
-$id_cotizacion = $_POST["COTIZACION"];
+$id_cotizacion = $_POST['COTIZACION'];
 
 
 if(isset($_POST['PARADAS_IDA'])){
@@ -85,7 +85,7 @@ $mail->From = 'promouruguay010@gmail.com';             //  Editar
 $mail->FromName = 'SalióViaje';                    //  Editar
 $mail->addAddress('admin@salioviaje.com.uy');       //  Editar
 $mail->isHTML(true);
-$mail->Subject = "Invitación a cotizar un " . $TIPO_VIAJE . " #" . $id_cotizacion . $_POST["COTIZACION"];   //  Editar
+$mail->Subject = "Invitación a cotizar un " . $TIPO_VIAJE . " #" . $id_cotizacion;   //  Editar
 
 $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white;">
                         <table style="width: 100%; background: linear-gradient(120deg, #3844bc, #2b3179); border: none;" cellspacing="0" cellpadding="0">
@@ -133,7 +133,7 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                                                 <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Hora: </b>'.$datos_array["HORA"].'</p>
                                                 <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Origen: </b>'.$datos_array["LOCALIDAD_ORIGEN"].', '.$datos_array["BARRIO_ORIGEN"].'</p>
                                                 <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Destino o Punto de Interés: </b>'.$datos_array["BARRIO_DESTINO"].', '.$datos_array["PUNTO_DESTINO"].'</p>
-                                                <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Cantidad de Pasajeros: </b>'.$datos_array["CANTIDAD_PASAJEROS"].'</p>';
+                                                <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Cantidad de Pasajeros: </b>'.$datos_array["CANTIDAD_PASAJEROS_IDA"].'</p>';
                                             }else if($TIPO_VIAJE == "Fiesta o Evento - Vuelta"){
                                                 $mail->Body .= '
                                                 <h4 style="font-size: 16px; margin-top: 40px;">Datos de la Vuelta:</h4>
@@ -141,7 +141,7 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                                                 <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Hora: </b>'.$datos_array["HORA"].'</p>
                                                 <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Origen o Punto de Interés: </b>'.$datos_array["BARRIO_ORIGEN"].', '.$datos_array["PUNTO_ORIGEN"].'</p>
                                                 <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Destino: </b>'.$datos_array["LOCALIDAD_DESTINO"].', '.$datos_array["BARRIO_DESTINO"].', '.$datos_array["DIRECCION_DESTINO"].'</p>
-                                                <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Cantidad de Pasajeros: </b>'.$datos_array["CANTIDAD_PASAJEROS"].'</p>';
+                                                <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Cantidad de Pasajeros: </b>'.$datos_array["CANTIDAD_PASAJEROS_VUELTA"].'</p>';
                                             }else if($TIPO_VIAJE == "Fiesta o Evento - Ida y Vuelta"){
                                                 $mail->Body .= '
                                                 <h4 style="font-size: 16px; margin-top: 40px;">Datos de la Ida:</h4>
@@ -149,7 +149,7 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                                                 <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Hora: </b>'.$datos_array["HORA_SALIDA"].'</p>
                                                 <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Origen: </b>'.$datos_array["LOCALIDAD_ORIGEN"].', '.$datos_array["BARRIO_ORIGEN"].'</p>
                                                 <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Destino o Punto de Interés: </b>'.$datos_array["BARRIO_DESTINO"].', '.$datos_array["PUNTO_DESTINO"].'</p>
-                                                <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Cantidad de Pasajeros: </b>'.$datos_array["CANTIDAD_PASAJEROS"].'</p>';
+                                                <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Cantidad de Pasajeros: </b>'.$datos_array["CANTIDAD_PASAJEROS_IDA"].'</p>';
 
                                                 $mail->Body .= '
                                                 <h4 style="font-size: 16px; margin-top: 40px;">Datos de la Vuelta:</h4>
@@ -157,7 +157,7 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                                                 <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Hora: </b>'.$datos_array["HORA_REGRESO"].'</p>
                                                 <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Origen o Punto de Interés: </b>'.$datos_array["BARRIO_ORIGEN"].', '.$datos_array["PUNTO_ORIGEN"].'</p>
                                                 <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Destino: </b>'.$datos_array["LOCALIDAD_DESTINO"].', '.$datos_array["BARRIO_DESTINO"].', '.$datos_array["DIRECCION_DESTINO"].'</p>
-                                                <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Cantidad de Pasajeros: </b>'.$datos_array["CANTIDAD_PASAJEROS"].'</p>';
+                                                <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Cantidad de Pasajeros: </b>'.$datos_array["CANTIDAD_PASAJEROS_VUELTA"].'</p>';
                                             }else{
                                                 $mail->Body .= '
                                                 <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Fecha de Salida: </b>'.$fecha_salida.'</p>

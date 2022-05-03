@@ -10,22 +10,22 @@ $(document).ready(function () {
     $("#fiestas").on('click', function () {
         window.location.href = "https://www.salioviaje.com.uy/Viajar/#Cotizacion"
         sessionStorage.setItem("origen", 1)
-        sessionStorage.setItem("opcion", "1")
+        sessionStorage.setItem("opcion", "4")
     });
     $("#aeropuerto").on('click', function () {
         window.location.href = "https://www.salioviaje.com.uy/Viajar/#Cotizacion"
         sessionStorage.setItem("origen", 1)
-        sessionStorage.setItem("opcion", "2")
+        sessionStorage.setItem("opcion", "3")
     });
     $("#paseo").on('click', function () {
         window.location.href = "https://www.salioviaje.com.uy/Viajar/#Cotizacion"
         sessionStorage.setItem("origen", 1)
-        sessionStorage.setItem("opcion", "3")
+        sessionStorage.setItem("opcion", "2")
     });
     $("#picada").on('click', function () {
         window.location.href = "https://www.salioviaje.com.uy/Viajar/#Cotizacion"
         sessionStorage.setItem("origen", 1)
-        sessionStorage.setItem("opcion", "4")
+        sessionStorage.setItem("opcion", "1")
     });
 
 });
@@ -59,7 +59,7 @@ function finalizar(enviar_solicitud) {
         /* 
         Traslado        
         */
-        case "1":
+        case "1": default:
             datos_traslado = {
                 "FECHA_SALIDA": $('#fecha_salida').val(),
                 "DIRECCION_ORIGEN": $('#direccion_traslado_origen').val(),
@@ -78,7 +78,7 @@ function finalizar(enviar_solicitud) {
                 if (verificar_fechas(datos_traslado['FECHA_SALIDA'], null, 0)) {
                     next();
                     if (enviar_solicitud == 1) {
-                        var id_cotizacion = guardar_cotizacion(datos_traslado,array_paradas_1,0,"traslados");
+                        guardar_cotizacion(datos_traslado,array_paradas_1,0,"traslados");
 
                         setTimeout(() => {
                             $.ajax({
@@ -128,7 +128,6 @@ function finalizar(enviar_solicitud) {
 
             if (validacion('Tour', datos_tour)) {
                 if (verificar_fechas(datos_tour['FECHA_SALIDA'], null, 0)) {
-                    next();
                     if (enviar_solicitud == 1) {
                         guardar_cotizacion(datos_tour,array_paradas_1,0,"tour");
 
@@ -136,7 +135,7 @@ function finalizar(enviar_solicitud) {
                             $.ajax({
                                 type: "POST",
                                 url: "/Mail/mail-SalioViaje.php",
-                                data: {ID: id_cotizacion, TIPO: "Tour o Servicio por Hora", DATA: JSON.stringify(datos_tour), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
+                                data: {COTIZACION: id_cotizacion, TIPO: "Tour o Servicio por Hora", DATA: JSON.stringify(datos_tour), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
                                 success: function (response) {
     
                                 },
@@ -198,7 +197,7 @@ function finalizar(enviar_solicitud) {
                                     $.ajax({
                                         type: "POST",
                                         url: "/Mail/mail-SalioViaje.php",
-                                        data: {ID: id_cotizacion, TIPO: "Transfer de Arribo", DATA: JSON.stringify(datos_transfer_in), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
+                                        data: {COTIZACION: id_cotizacion, TIPO: "Transfer de Arribo", DATA: JSON.stringify(datos_transfer_in), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
                                         success: function (response) {
     
                                         },
@@ -252,7 +251,7 @@ function finalizar(enviar_solicitud) {
                                     $.ajax({
                                         type: "POST",
                                         url: "/Mail/mail-SalioViaje.php",
-                                        data: {ID: id_cotizacion, TIPO: "Transfer de Partida", DATA: JSON.stringify(datos_transfer_out), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
+                                        data: {COTIZACION: id_cotizacion, TIPO: "Transfer de Partida", DATA: JSON.stringify(datos_transfer_out), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
                                         success: function (response) {
     
                                         },
@@ -290,7 +289,7 @@ function finalizar(enviar_solicitud) {
             console.log(array_paradas_1)
             console.log(array_paradas_2)
             switch (tramos) {
-                case "1":
+                case "1": default:
                     fiestas = "Solo Ida";
                     datos_fiestaseventos_ida = {
                         "TRAMOS_FIESTA": fiestas,
@@ -316,7 +315,7 @@ function finalizar(enviar_solicitud) {
                                     $.ajax({
                                         type: "POST",
                                         url: "/Mail/mail-SalioViaje.php",
-                                        data: {ID: id_cotizacion, TIPO: "Fiesta o Evento - Ida", DATA: JSON.stringify(datos_fiestaseventos_ida), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
+                                        data: {COTIZACION: id_cotizacion, TIPO: "Fiesta o Evento - Ida", DATA: JSON.stringify(datos_fiestaseventos_ida), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
                                         success: function (response) {
     
                                         },
@@ -363,13 +362,13 @@ function finalizar(enviar_solicitud) {
                         if (verificar_fechas(datos_fiestaseventos_vuelta['FECHA_REGRESO'], null, 0)) {
                             next();
                             if (enviar_solicitud == 1) {
-                                var id_cotizacion = guardar_cotizacion(datos_fiestaseventos_vuelta,0,array_paradas_2,"fiestasVuelta");
+                                guardar_cotizacion(datos_fiestaseventos_vuelta,0,array_paradas_2,"fiestasVuelta");
                                 
                                 setTimeout(() => {
                                     $.ajax({
                                         type: "POST",
                                         url: "/Mail/mail-SalioViaje.php",
-                                        data: {ID: id_cotizacion, TIPO: "Fiesta o Evento - Vuelta", DATA: JSON.stringify(datos_fiestaseventos_vuelta), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
+                                        data: {COTIZACION: id_cotizacion, TIPO: "Fiesta o Evento - Vuelta", DATA: JSON.stringify(datos_fiestaseventos_vuelta), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
                                         success: function (response) {
     
                                         },
@@ -444,7 +443,7 @@ function finalizar(enviar_solicitud) {
                                     $.ajax({
                                         type: "POST",
                                         url: "/Mail/mail-SalioViaje.php",
-                                        data: {ID: id_cotizacion, TIPO: "Fiesta o Evento - Ida y Vuelta", DATA: JSON.stringify(datos_fiestaseventos_idavuelta), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
+                                        data: {COTIZACION: id_cotizacion, TIPO: "Fiesta o Evento - Ida y Vuelta", DATA: JSON.stringify(datos_fiestaseventos_idavuelta), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
                                         success: function (response) {
     
                                         },
@@ -481,7 +480,7 @@ function guardar_cotizacion(datos_cotizacion,paradas_ida,paradas_vuelta,tipo) {
         url: "/PHP/procedimientosForm.php",
         data: { tipo: "agregar_cotizacion", datos: JSON.stringify(datos_cotizacion), PARADAS_IDA: JSON.stringify(paradas_ida), PARADAS_VUELTA: JSON.stringify(paradas_vuelta),tipo_cotizacion:tipo },
         success: function (response) {
-            id_cotizacion = response
+            id_cotizacion = response;
         }
     });
 }
@@ -571,6 +570,10 @@ function steps(step) {
     $(".step_2_transfer").hide();
     $(".step_2_fiestas").hide();
     $(".step_3").hide();
+<<<<<<< HEAD
+=======
+    $(".step_4").hide();
+>>>>>>> 701af1bf957ecf1cd2a3e7499c0e56d785315b5a
     $(".step_5").hide();
     $("#paradas_vuelta").hide();
 
@@ -655,6 +658,10 @@ function steps(step) {
 
         case 4:
             $(".step_4").show();
+            $(".progress-bar").hide();
+            break;
+        case 5:
+            $(".step_5").show();
             $(".progress-bar").hide();
             break;
     }
