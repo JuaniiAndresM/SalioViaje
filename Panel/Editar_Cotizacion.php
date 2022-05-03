@@ -219,28 +219,58 @@ session_set_cookie_params($ttl);
                         <td><?php echo $cotizaciones[$i]['FECHA_SALIDA'] ?></td>
                         <td>
                           <?php
-                          if ($cotizaciones[$i]['ESTADO'] == "cotizando") {
-                            ?>
-                            <select class="select-estado" id="estado-cotizacion-<?php echo $cotizaciones[$i]['ID'] ?>" onchange="cambiar_estado_cotizacion_panel_admin(<?php echo $cotizaciones[$i]['ID'] ?>)">
-                              <option value="0" disabled>Seleccione un Estado</option> 
-                              <option value="cotizando" selected>Cotizando</option>
-                              <option value="cotizado">Cotizado</option>
-                              <option value="aceptado">Aceptado</option>
-                              <option value="reconfirmado">Reconfirmado</option>
-                            </select>
-                            <?php
-                          }else {
-                            ?>
-                            <select class="select-estado" id="estado-cotizacion-<?php echo $cotizaciones[$i]['ID'] ?>" onchange="cambiar_estado_cotizacion_panel_admin(<?php echo $cotizaciones[$i]['ID'] ?>)">
-                              <option value="0" disabled>Seleccione un Estado</option> 
-                              <option value="cotizando">Cotizando</option>
-                              <option value="cotizado" selected>Cotizado</option>
-                              <option value="aceptado">Aceptado</option>
-                              <option value="reconfirmado">Reconfirmado</option>
-                            </select>
-                            <?php
+                          switch($cotizaciones[$i]['ESTADO']){
+                            case "cotizando":
+                              ?>
+                              <select class="select-estado" id="estado-cotizacion-<?php echo $cotizaciones[$i]['ID'] ?>" onchange="cambiar_estado_cotizacion_panel_admin(<?php echo $cotizaciones[$i]['ID'] ?>)">
+                                <option value="0" disabled>Seleccione un Estado</option> 
+                                <option value="cotizando" selected>Cotizando</option>
+                                <option value="cotizado">Cotizado</option>
+                                <option value="aceptado">Aceptado</option>
+                                <option value="reconfirmado">Reconfirmado</option>
+                              </select>
+                              <?php
+                              break;
+                              
+                            case "cotizado":
+                              ?>
+                              <select class="select-estado" id="estado-cotizacion-<?php echo $cotizaciones[$i]['ID'] ?>" onchange="cambiar_estado_cotizacion_panel_admin(<?php echo $cotizaciones[$i]['ID'] ?>)">
+                                <option value="0" disabled>Seleccione un Estado</option> 
+                                <option value="cotizando">Cotizando</option>
+                                <option value="cotizado" selected>Cotizado</option>
+                                <option value="aceptado">Aceptado</option>
+                                <option value="reconfirmado">Reconfirmado</option>
+                              </select>
+                              <?php
+                              break;
+                              
+                            case "aceptado":
+                              ?>
+                              <select class="select-estado" id="estado-cotizacion-<?php echo $cotizaciones[$i]['ID'] ?>" onchange="cambiar_estado_cotizacion_panel_admin(<?php echo $cotizaciones[$i]['ID'] ?>)">
+                                <option value="0" disabled>Seleccione un Estado</option> 
+                                <option value="cotizando">Cotizando</option>
+                                <option value="cotizado">Cotizado</option>
+                                <option value="aceptado" selected>Aceptado</option>
+                                <option value="reconfirmado">Reconfirmado</option>
+                              </select>
+                              <?php
+                              break;
+                              
+                            case "reconfirma":
+                              ?>
+                              <select class="select-estado" id="estado-cotizacion-<?php echo $cotizaciones[$i]['ID'] ?>" onchange="cambiar_estado_cotizacion_panel_admin(<?php echo $cotizaciones[$i]['ID'] ?>)">
+                                <option value="0" disabled>Seleccione un Estado</option> 
+                                <option value="cotizando">Cotizando</option>
+                                <option value="cotizado">Cotizado</option>
+                                <option value="aceptado">Aceptado</option>
+                                <option value="reconfirmado" selected>Reconfirmado</option>
+                              </select>
+                              <?php
+                              break;
+                              
                           }
                           ?>
+
                         </td>
                       </tr>
                       <?php
