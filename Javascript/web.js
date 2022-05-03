@@ -44,6 +44,11 @@ function suscripcion(){
             if(response == 1){
                 $('.suscribirse-mail').hide();
                 $('.suscrito-mail').show();
+                $('#mail-footer').val(" ")
+                setTimeout(() => {
+                    $('.suscribirse-mail').show();
+                    $('.suscrito-mail').hide();
+                }, 5000);
             }else{
                 console.log(response);
             }

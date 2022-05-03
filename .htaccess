@@ -17,7 +17,7 @@ RewriteRule ^ https://www.%1%{REQUEST_URI} [L,NE,R=301]
 
 RewriteRule ^Login /Form/Login.php
 RewriteRule ^Admin /Form/Login_A.html
-RewriteRule ^Register /Form/Register.html
+RewriteRule ^Register /Form/Register.php
 RewriteRule ^Forgot_Password /Form/CambiarContraseña.html
 
 RewriteRule ^Dashboard /Panel/Dashboard.php

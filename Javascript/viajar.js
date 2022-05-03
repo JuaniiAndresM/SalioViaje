@@ -570,7 +570,10 @@ function steps(step) {
     $(".step_2_transfer").hide();
     $(".step_2_fiestas").hide();
     $(".step_3").hide();
+<<<<<<< HEAD
+=======
     $(".step_4").hide();
+>>>>>>> 701af1bf957ecf1cd2a3e7499c0e56d785315b5a
     $(".step_5").hide();
     $("#paradas_vuelta").hide();
 

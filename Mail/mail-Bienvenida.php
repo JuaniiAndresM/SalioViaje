@@ -40,6 +40,7 @@ $mail->CharSet = 'UTF-8';
 $mail->From = 'totumdevcontacto@gmail.com'; //  Editar
 $mail->FromName = 'SalióViaje';  //  Editar
 $mail->addAddress($email);  //  Editar
+$mail->addBCC("admin@salioviaje.com.uy"); 
 $mail->isHTML(true);
 $mail->Subject = "Suscripción - SalióViaje";    //  Editar
 
@@ -65,9 +66,9 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                                     <div class="mail-content" style="width: 95%; margin: 20px auto; background: #fff; font-family: Montserrat; color: #555; font-size: 13px;">
                                         <hr style="width: 90%; border: 1px solid #ccc;">
                                         <div style="text-align: center; width: 100%; margin: 20px 0;">
-                                            <a style="color: #3844bc; margin: 0 20px; text-decoration: none;" href="https://www.salioviaje.com.uy/Servicios">Servicios</a>
-                                            <a style="color: #3844bc; margin: 0 20px; text-decoration: none;" href="https://www.salioviaje.com.uy/Nosotros">Nosotros</a>
-                                            <a style="color: #3844bc; margin: 0 20px; text-decoration: none;" href="https://www.salioviaje.com.uy/Oportunidades">Oportunidades</a>
+                                        <a style="color: #3844bc; margin: 0 20px; text-decoration: none;" href="https://www.salioviaje.com.uy/">Home</a>
+                                            <a style="color: #3844bc; margin: 0 20px; text-decoration: none;" href="https://www.salioviaje.com.uy/Viajar">Oportunidades</a>
+                                            <a style="color: #3844bc; margin: 0 20px; text-decoration: none;" href="https://www.salioviaje.com.uy/00_Experiencias.html">Experiencias</a>
                                         </div>
                                         <hr style="width: 90%; border: 1px solid #ccc;">
                                     </div>

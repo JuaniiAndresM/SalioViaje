@@ -1,3 +1,10 @@
+<?php
+require_once '../PHP/procedimientosBD.php';
+
+$regiones_mtop = new procedimientosBD();
+
+$regiones_mtop = json_decode($regiones_mtop->traer_regiones_mtop(), true);
+?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -183,11 +190,15 @@
                 <i class="fas fa-map-marked-alt" id="icon"></i>
                 <input list="Barrio" id="barrio" placeholder="Barrio">
                 <datalist id="Barrio">
-                  <option value="Barrio 1">
-                  <option value="Barrio 2">
-                  <option value="Barrio 3">
-                  <option value="Barrio 4">
-                  <option value="Barrio 5">
+                  <?php
+                    if (isset($regiones_mtop)) {
+                      for ($i=0; $i < count($regiones_mtop); $i++) { 
+                       ?>
+                       <option value="<?php echo $regiones_mtop[$i]['REGION'] ?>">
+                       <?php
+                      }
+                    }
+                  ?>
                 </datalist>
               </div>
 
@@ -200,11 +211,25 @@
                 <i class="fas fa-map" id="icon"></i>
                 <input list="Departamento" id="departamento" placeholder="Departamento">
                 <datalist id="Departamento">
-                  <option value="Departamento 1">
-                  <option value="Departamento 2">
-                  <option value="Departamento 3">
-                  <option value="Departamento 4">
-                  <option value="Departamento 5">
+                   <option value="ARTIGAS">
+                   <option value="CANELONES">
+                   <option value="CERRO LARGO">
+                   <option value="SAN JOSE">
+                   <option value="FLORIDA">
+                   <option value="SORIANO">
+                   <option value="RIO NEGRO">
+                   <option value="TACUAREMBO">
+                   <option value="RIVERA">
+                   <option value="MONTEVIDEO">
+                   <option value="ROCHA">
+                   <option value="SALTO">
+                   <option value="RIVERA">
+                   <option value="PAYSANDU">
+                   <option value="TREINTA Y TRES">
+                   <option value="FLORES"> 
+                   <option value="COLONIA">
+                   <option value="MALDONADO"> 
+                   <option value="LAVALLEJA">
                 </datalist>
               </div>
 
