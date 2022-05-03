@@ -135,7 +135,7 @@ function finalizar(enviar_solicitud) {
                             $.ajax({
                                 type: "POST",
                                 url: "/Mail/mail-SalioViaje.php",
-                                data: {ID: id_cotizacion, TIPO: "Tour o Servicio por Hora", DATA: JSON.stringify(datos_tour), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
+                                data: {COTIZACION: id_cotizacion, TIPO: "Tour o Servicio por Hora", DATA: JSON.stringify(datos_tour), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
                                 success: function (response) {
     
                                 },
@@ -197,7 +197,7 @@ function finalizar(enviar_solicitud) {
                                     $.ajax({
                                         type: "POST",
                                         url: "/Mail/mail-SalioViaje.php",
-                                        data: {ID: id_cotizacion, TIPO: "Transfer de Arribo", DATA: JSON.stringify(datos_transfer_in), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
+                                        data: {COTIZACION: id_cotizacion, TIPO: "Transfer de Arribo", DATA: JSON.stringify(datos_transfer_in), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
                                         success: function (response) {
     
                                         },
@@ -251,7 +251,7 @@ function finalizar(enviar_solicitud) {
                                     $.ajax({
                                         type: "POST",
                                         url: "/Mail/mail-SalioViaje.php",
-                                        data: {ID: id_cotizacion, TIPO: "Transfer de Partida", DATA: JSON.stringify(datos_transfer_out), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
+                                        data: {COTIZACION: id_cotizacion, TIPO: "Transfer de Partida", DATA: JSON.stringify(datos_transfer_out), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
                                         success: function (response) {
     
                                         },
@@ -315,7 +315,7 @@ function finalizar(enviar_solicitud) {
                                     $.ajax({
                                         type: "POST",
                                         url: "/Mail/mail-SalioViaje.php",
-                                        data: {ID: id_cotizacion, TIPO: "Fiesta o Evento - Ida", DATA: JSON.stringify(datos_fiestaseventos_ida), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
+                                        data: {COTIZACION: id_cotizacion, TIPO: "Fiesta o Evento - Ida", DATA: JSON.stringify(datos_fiestaseventos_ida), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
                                         success: function (response) {
     
                                         },
@@ -368,7 +368,7 @@ function finalizar(enviar_solicitud) {
                                     $.ajax({
                                         type: "POST",
                                         url: "/Mail/mail-SalioViaje.php",
-                                        data: {ID: id_cotizacion, TIPO: "Fiesta o Evento - Vuelta", DATA: JSON.stringify(datos_fiestaseventos_vuelta), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
+                                        data: {COTIZACION: id_cotizacion, TIPO: "Fiesta o Evento - Vuelta", DATA: JSON.stringify(datos_fiestaseventos_vuelta), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
                                         success: function (response) {
     
                                         },
@@ -443,7 +443,7 @@ function finalizar(enviar_solicitud) {
                                     $.ajax({
                                         type: "POST",
                                         url: "/Mail/mail-SalioViaje.php",
-                                        data: {ID: id_cotizacion, TIPO: "Fiesta o Evento - Ida y Vuelta", DATA: JSON.stringify(datos_fiestaseventos_idavuelta), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
+                                        data: {COTIZACION: id_cotizacion, TIPO: "Fiesta o Evento - Ida y Vuelta", DATA: JSON.stringify(datos_fiestaseventos_idavuelta), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
                                         success: function (response) {
     
                                         },
