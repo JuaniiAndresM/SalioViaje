@@ -10,22 +10,22 @@ $(document).ready(function () {
     $("#fiestas").on('click', function () {
         window.location.href = "https://www.salioviaje.com.uy/Viajar/#Cotizacion"
         sessionStorage.setItem("origen", 1)
-        sessionStorage.setItem("opcion", "1")
+        sessionStorage.setItem("opcion", "4")
     });
     $("#aeropuerto").on('click', function () {
         window.location.href = "https://www.salioviaje.com.uy/Viajar/#Cotizacion"
         sessionStorage.setItem("origen", 1)
-        sessionStorage.setItem("opcion", "2")
+        sessionStorage.setItem("opcion", "3")
     });
     $("#paseo").on('click', function () {
         window.location.href = "https://www.salioviaje.com.uy/Viajar/#Cotizacion"
         sessionStorage.setItem("origen", 1)
-        sessionStorage.setItem("opcion", "3")
+        sessionStorage.setItem("opcion", "2")
     });
     $("#picada").on('click', function () {
         window.location.href = "https://www.salioviaje.com.uy/Viajar/#Cotizacion"
         sessionStorage.setItem("origen", 1)
-        sessionStorage.setItem("opcion", "4")
+        sessionStorage.setItem("opcion", "1")
     });
 
 });
