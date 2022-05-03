@@ -17,6 +17,7 @@
   $cotizacion = new procedimientosBD();
   $cotizaciones = json_decode($cotizacion->traer_viajes_cotizando_por_id($_GET['ID']), true);
   $paradas = json_decode($cotizacion->traer_paradas_viajes_cotizando_por_id($_GET['ID']), true);
+  $solicitante = $cotizacion->info_usuario_profile($cotizaciones[0]['ID_SOLICITANTE']);
 
   switch($cotizaciones[0]['TIPO']){
     case "Traslados":
@@ -327,6 +328,11 @@
                       echo '<p>No Admitidas</p>';
                     }
                 }
+                echo '<h2><i class="fas fa-id-card"></i> Informacion del Solicitante:</h2>
+                <p><i class="fas fa-user"></i> <b>Nombre del Solicitante: </b>'.$solicitante[0]['NOMBRE'].''.$solicitante[0]['APELLIDO'].'</p>
+                <a><i class="fas fa-phone"></i> <b>Teléfono: </b><a href="tel:'.$solicitante[0]['TELEFONO'].'">'.$solicitante[0]['TELEFONO'].'</a></p>
+                <p><i class="fas fa-envelope"></i> <b>Mail: </b><a href="mailto:'.$solicitante[0]['EMAIL'].'">'.$solicitante[0]['EMAIL'].'</a></p>
+                <p><i class="fas fa-map-location-dot"></i> <b>Dirección: </b>'.$solicitante[0]['DEPARTAMENTO'].', '.$solicitante[0]['BARRIO'].'</p>';
               ?>
             </div>
           </div>
