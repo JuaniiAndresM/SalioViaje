@@ -221,7 +221,7 @@ session_set_cookie_params($ttl);
                           <?php
                           if ($cotizaciones[$i]['ESTADO'] == "cotizando") {
                             ?>
-                            <select class="select-estado" id="estado-cotizacion" onchange="cambiar_estado_cotizacion_panel_admin(<?php echo $cotizaciones[$i]['ID'] ?>)">
+                            <select class="select-estado" id="estado-cotizacion-<?php echo $cotizaciones[$i]['ID'] ?>" onchange="cambiar_estado_cotizacion_panel_admin(<?php echo $cotizaciones[$i]['ID'] ?>)">
                               <option value="0" disabled>Seleccione un Estado</option> 
                               <option value="cotizando" selected>Cotizando</option>
                               <option value="cotizado">Cotizado</option>
@@ -231,7 +231,7 @@ session_set_cookie_params($ttl);
                             <?php
                           }else {
                             ?>
-                            <select class="select-estado" id="estado-cotizacion" onchange="cambiar_estado_cotizacion_panel_admin(<?php echo $cotizaciones[$i]['ID'] ?>)">
+                            <select class="select-estado" id="estado-cotizacion-<?php echo $cotizaciones[$i]['ID'] ?>" onchange="cambiar_estado_cotizacion_panel_admin(<?php echo $cotizaciones[$i]['ID'] ?>)">
                               <option value="0" disabled>Seleccione un Estado</option> 
                               <option value="cotizando">Cotizando</option>
                               <option value="cotizado" selected>Cotizado</option>
