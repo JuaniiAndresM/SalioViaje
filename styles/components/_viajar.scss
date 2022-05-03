@@ -412,7 +412,8 @@
         .step_2_transfer,
         .step_2_fiestas,
         .step_3,
-        .step_4{
+        .step_4,
+        .step_5{
 
           .title{
             font-size: 1.5em;
@@ -594,6 +595,14 @@
               i{
                 color: #70ff7c;
                 font-size: 3em;
+              }
+            }
+            .sending-icon{
+              animation: spinner 1s infinite forwards linear;
+
+              i{
+                font-size: 3em;
+                color: $main_1;
               }
             }
             .send-info{

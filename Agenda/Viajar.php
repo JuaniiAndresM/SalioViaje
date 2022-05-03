@@ -1142,6 +1142,17 @@ session_start();
 
               <div class="send-wrapper">
 
+                <div class="sending-icon">
+                  <i class="fas fa-spinner"></i>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="step_5">
+
+              <div class="send-wrapper">
+
                 <div class="send-icon">
                   <i class="fas fa-check-circle"></i>
                 </div>

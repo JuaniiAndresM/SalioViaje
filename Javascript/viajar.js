@@ -76,6 +76,7 @@ function finalizar(enviar_solicitud) {
 
             if (validacion('Translado', datos_traslado)) {
                 if (verificar_fechas(datos_traslado['FECHA_SALIDA'], null, 0)) {
+                    next();
                     if (enviar_solicitud == 1) {
                         guardar_cotizacion(datos_traslado,array_paradas_1,0,"traslados");
 
@@ -188,6 +189,7 @@ function finalizar(enviar_solicitud) {
 
                     if (validacion('Transfer_in', datos_transfer_in)) {
                         if (verificar_fechas(datos_transfer_in['FECHA_ARRIBO'], null, 0)) {
+                            next();
                             if (enviar_solicitud == 1) {
                                 guardar_cotizacion(datos_transfer_in,array_paradas_1,0,"transferIn");
 
@@ -241,6 +243,7 @@ function finalizar(enviar_solicitud) {
 
                     if (validacion('Transfer_out', datos_transfer_out)) {
                         if (verificar_fechas(datos_transfer_out['FECHA_PARTIDA'], null, 0)) {
+                            next();
                             if (enviar_solicitud == 1) {
                                 guardar_cotizacion(datos_transfer_out,array_paradas_1,0,"transferOut");
 
@@ -304,6 +307,7 @@ function finalizar(enviar_solicitud) {
 
                     if (validacion('FIESTA-IDA', datos_fiestaseventos_ida)) {
                         if (verificar_fechas(datos_fiestaseventos_ida['FECHA_SALIDA'], null, 0)) {
+                            next();
                             if (enviar_solicitud == 1) {
                                 guardar_cotizacion(datos_fiestaseventos_ida,array_paradas_1,0,"fiestasIda");
 
@@ -356,6 +360,7 @@ function finalizar(enviar_solicitud) {
 
                     if (validacion('FIESTA-VUELTA', datos_fiestaseventos_vuelta)) {
                         if (verificar_fechas(datos_fiestaseventos_vuelta['FECHA_REGRESO'], null, 0)) {
+                            next();
                             if (enviar_solicitud == 1) {
                                 guardar_cotizacion(datos_fiestaseventos_vuelta,0,array_paradas_2,"fiestasVuelta");
                                 
@@ -430,6 +435,7 @@ function finalizar(enviar_solicitud) {
 
                     if (validacion('FIESTA-IDA-VUELTA', datos_fiestaseventos_idavuelta)) {
                         if (verificar_fechas(datos_fiestaseventos_idavuelta['FECHA_SALIDA'], datos_fiestaseventos_idavuelta['FECHA_REGRESO'], 1)) {
+                            next();
                             if (enviar_solicitud == 1) {
                                 guardar_cotizacion(datos_fiestaseventos_idavuelta,array_paradas_1,array_paradas_2,"fiestasIdaVuelta");
 
@@ -565,6 +571,7 @@ function steps(step) {
     $(".step_2_fiestas").hide();
     $(".step_3").hide();
     $(".step_4").hide();
+    $(".step_5").hide();
     $("#paradas_vuelta").hide();
 
     $(".mensaje-error").css('color', '#ff635a');
@@ -648,6 +655,10 @@ function steps(step) {
 
         case 4:
             $(".step_4").show();
+            $(".progress-bar").hide();
+            break;
+        case 5:
+            $(".step_5").show();
             $(".progress-bar").hide();
             break;
     }

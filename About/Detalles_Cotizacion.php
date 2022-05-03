@@ -179,88 +179,88 @@
           <div class="cotizacion-content">
 
             <div class="cotizacion-info">
-              <h2>Información:</h2>
+              <h2><i class="fas fa-info"></i> Información:</h2>
               <?php
-              echo '<p><b>N° Cotización: </b>'.$cotizaciones[0]['ID'].'</p>
-                    <p><b>Tipo de Viaje: </b>'.$TIPO_VIAJE.'</p>';
+              echo '<p><i class="fas fa-address-card"></i> <b>N° Cotización: </b>'.$cotizaciones[0]['ID'].'</p>
+                    <p><i class="fas fa-list-ol"></i> <b>Tipo de Viaje: </b>'.$TIPO_VIAJE.'</p>';
               
                 if($TIPO_VIAJE == "Transfer de Arribo"){
                     echo '
-                    <p><b>Fecha del Arribo: </b>'.$fecha_salida.'</p>
-                    <p><b>Hora del Arribo: </b>'.$cotizaciones[0]["HORA"].'</p>
-                    <p><b>Número del Vuelo / Barco: </b>'.$cotizaciones[0]["NRO_BARCO_VUELO"].'</p>
-                    <p><b>Cantidad de Pasajeros: </b>'.$cotizaciones[0]["CANTIDAD_PASAJEROS"].'</p>
-                    <p><b>Cantidad de Equipaje: </b>'.$cotizaciones[0]["EQUIPAJE"].'</p>';
+                    <p><i class="fas fa-calendar-days"></i> <b>Fecha del Arribo: </b>'.$fecha_salida.'</p>
+                    <p><i class="fas fa-clock"></i> <b>Hora del Arribo: </b>'.$cotizaciones[0]["HORA"].'</p>
+                    <p><i class="fas fa-ticket"></i> <b>Número del Vuelo / Barco: </b>'.$cotizaciones[0]["NRO_BARCO_VUELO"].'</p>
+                    <p><i class="fas fa-people-group"></i> <b>Cantidad de Pasajeros: </b>'.$cotizaciones[0]["CANTIDAD_PASAJEROS"].'</p>
+                    <p><i class="fas fa-briefcase"></i> <b>Cantidad de Equipaje: </b>'.$cotizaciones[0]["EQUIPAJE"].'</p>';
                 }else if($TIPO_VIAJE == "Transfer de Partida"){
                     echo '
-                    <p><b>Fecha del Partida: </b>'.$fecha_partida.'</p>
-                    <p><b>Hora para pasar a buscar: </b>'.$cotizaciones[0]["HORA"].'</p>
-                    <p><b>Número del Vuelo / Barco: </b>'.$cotizaciones[0]["NRO_VUELO_BARCO"].'</p>
-                    <p><b>Cantidad de Pasajeros: </b>'.$cotizaciones[0]["CANTIDAD_PASAJEROS"].'</p>
-                    <p><b>Cantidad de Equipaje: </b>'.$cotizaciones[0]["EQUIPAJE"].'</p>';
+                    <p><i class="fas fa-calendar-days"></i> <b>Fecha del Partida: </b>'.$fecha_partida.'</p>
+                    <p><i class="fas fa-clock"></i> <b>Hora para pasar a buscar: </b>'.$cotizaciones[0]["HORA"].'</p>
+                    <p><i class="fas fa-ticket"></i> <b>Número del Vuelo / Barco: </b>'.$cotizaciones[0]["NRO_VUELO_BARCO"].'</p>
+                    <p><i class="fas fa-people-group"></i> <b>Cantidad de Pasajeros: </b>'.$cotizaciones[0]["CANTIDAD_PASAJEROS"].'</p>
+                    <p><i class="fas fa-briefcase"></i> <b>Cantidad de Equipaje: </b>'.$cotizaciones[0]["EQUIPAJE"].'</p>';
                 }else if($TIPO_VIAJE == "Fiesta o Evento - Ida"){
                     echo '
                     <h3>Datos de la Ida:</h3>
-                    <p><b>Fecha de ida: </b>'.$fecha_salida.'</p>
-                    <p><b>Hora: </b>'.$cotizaciones[0]["HORA"].'</p>
-                    <p><b>Origen: </b>'.$cotizaciones[0]["LOCALIDAD_ORIGEN"].', '.$cotizaciones[0]["BARRIO_ORIGEN"].'</p>
-                    <p><b>Destino o Punto de Interés: </b>'.$cotizaciones[0]["BARRIO_DESTINO"].', '.$cotizaciones[0]["PUNTO_DESTINO"].'</p>
-                    <p><b>Cantidad de Pasajeros: </b>'.$cotizaciones[0]["CANTIDAD_PASAJEROS"].'</p>';
+                    <p><i class="fas fa-calendar-days"></i> <b>Fecha de ida: </b>'.$fecha_salida.'</p>
+                    <p><i class="fas fa-clock"></i> <b>Hora: </b>'.$cotizaciones[0]["HORA"].'</p>
+                    <p><i class="fas fa-location-dot"></i> <b>Origen: </b>'.$cotizaciones[0]["LOCALIDAD_ORIGEN"].', '.$cotizaciones[0]["BARRIO_ORIGEN"].'</p>
+                    <p><i class="fas fa-route"></i> <b>Destino o Punto de Interés: </b>'.$cotizaciones[0]["BARRIO_DESTINO"].', '.$cotizaciones[0]["PUNTO_DESTINO"].'</p>
+                    <p><i class="fas fa-people-group"></i> <b>Cantidad de Pasajeros: </b>'.$cotizaciones[0]["CANTIDAD_PASAJEROS"].'</p>';
                 }else if($TIPO_VIAJE == "Fiesta o Evento - Vuelta"){
                     echo '
                     <h3>Datos de la Vuelta:</h3>
-                    <p><b>Fecha de vuelta: </b>'.$fecha_regreso.'</p>
-                    <p><b>Hora: </b>'.$cotizaciones[0]["HORA"].'</p>
-                    <p><b>Origen o Punto de Interés: </b>'.$cotizaciones[0]["BARRIO_ORIGEN"].', '.$cotizaciones[0]["PUNTO_ORIGEN"].'</p>
-                    <p><b>Destino: </b>'.$cotizaciones[0]["LOCALIDAD_DESTINO"].', '.$cotizaciones[0]["BARRIO_DESTINO"].', '.$cotizaciones[0]["DIRECCION_DESTINO"].'</p>
-                    <p><b>Cantidad de Pasajeros: </b>'.$cotizaciones[0]["CANTIDAD_PASAJEROS"].'</p>';
+                    <p><i class="fas fa-calendar-days"></i> <b>Fecha de vuelta: </b>'.$fecha_regreso.'</p>
+                    <p><i class="fas fa-clock"></i> <b>Hora: </b>'.$cotizaciones[0]["HORA"].'</p>
+                    <p><i class="fas fa-location-dot"></i> <b>Origen o Punto de Interés: </b>'.$cotizaciones[0]["BARRIO_ORIGEN"].', '.$cotizaciones[0]["PUNTO_ORIGEN"].'</p>
+                    <p><i class="fas fa-route"></i> <b>Destino: </b>'.$cotizaciones[0]["LOCALIDAD_DESTINO"].', '.$cotizaciones[0]["BARRIO_DESTINO"].', '.$cotizaciones[0]["DIRECCION_DESTINO"].'</p>
+                    <p><i class="fas fa-people-group"></i> <b>Cantidad de Pasajeros: </b>'.$cotizaciones[0]["CANTIDAD_PASAJEROS"].'</p>';
                 }else if($TIPO_VIAJE == "Fiesta o Evento - Ida y Vuelta"){
                     echo '
                     <h2>Datos de la Ida:</h2>
-                    <p><b>Fecha de ida: </b>'.$fecha_salida.'</p>
-                    <p><b>Hora: </b>'.$cotizaciones[0]["HORA_SALIDA"].'</p>
-                    <p><b>Origen: </b>'.$cotizaciones[0]["LOCALIDAD_ORIGEN"].', '.$cotizaciones[0]["BARRIO_ORIGEN"].'</p>
-                    <p><b>Destino o Punto de Interés: </b>'.$cotizaciones[0]["BARRIO_DESTINO"].', '.$cotizaciones[0]["PUNTO_DESTINO"].'</p>
-                    <p><b>Cantidad de Pasajeros: </b>'.$cotizaciones[0]["CANTIDAD_PASAJEROS"].'</p>';
+                    <p><i class="fas fa-calendar-days"></i> <b>Fecha de ida: </b>'.$fecha_salida.'</p>
+                    <p><i class="fas fa-clock"></i> <b>Hora: </b>'.$cotizaciones[0]["HORA_SALIDA"].'</p>
+                    <p><i class="fas fa-location-dot"></i> <b>Origen: </b>'.$cotizaciones[0]["LOCALIDAD_ORIGEN"].', '.$cotizaciones[0]["BARRIO_ORIGEN"].'</p>
+                    <p><i class="fas fa-route"></i> <b>Destino o Punto de Interés: </b>'.$cotizaciones[0]["BARRIO_DESTINO"].', '.$cotizaciones[0]["PUNTO_DESTINO"].'</p>
+                    <p><i class="fas fa-people-group"></i> <b>Cantidad de Pasajeros: </b>'.$cotizaciones[0]["CANTIDAD_PASAJEROS"].'</p>';
 
                     echo '
                     <h2>Datos de la Vuelta:</h2>
-                    <p><b>Fecha de vuelta: </b>'.$fecha_regreso.'</p>
-                    <p><b>Hora: </b>'.$cotizaciones[0]["HORA_REGRESO"].'</p>
-                    <p><b>Origen o Punto de Interés: </b>'.$cotizaciones[0]["BARRIO_ORIGEN"].', '.$cotizaciones[0]["PUNTO_ORIGEN"].'</p>
-                    <p><b>Destino: </b>'.$cotizaciones[0]["LOCALIDAD_DESTINO"].', '.$cotizaciones[0]["BARRIO_DESTINO"].', '.$cotizaciones[0]["DIRECCION_DESTINO"].'</p>
-                    <p><b>Cantidad de Pasajeros: </b>'.$cotizaciones[0]["CANTIDAD_PASAJEROS"].'</p>';
+                    <p><i class="fas fa-calendar-days"></i> <b>Fecha de vuelta: </b>'.$fecha_regreso.'</p>
+                    <p><i class="fas fa-clock"></i> <b>Hora: </b>'.$cotizaciones[0]["HORA_REGRESO"].'</p>
+                    <p><i class="fas fa-location-dot"></i> <b>Origen o Punto de Interés: </b>'.$cotizaciones[0]["BARRIO_ORIGEN"].', '.$cotizaciones[0]["PUNTO_ORIGEN"].'</p>
+                    <p><i class="fas fa-route"></i> <b>Destino: </b>'.$cotizaciones[0]["LOCALIDAD_DESTINO"].', '.$cotizaciones[0]["BARRIO_DESTINO"].', '.$cotizaciones[0]["DIRECCION_DESTINO"].'</p>
+                    <p><i class="fas fa-people-group"></i> <b>Cantidad de Pasajeros: </b>'.$cotizaciones[0]["CANTIDAD_PASAJEROS"].'</p>';
                 }else{
                     echo '
-                    <p><b>Fecha de Salida: </b>'.$fecha_salida.'</p>
-                    <p><b>Hora: </b>'.$cotizaciones[0]["HORA"].'</p>
-                    <p><b>Cantidad de Pasajeros: </b>'.$cotizaciones[0]["CANTIDAD_PASAJEROS"].'</p>';
+                    <p><i class="fas fa-calendar-days"></i> <b>Fecha de Salida: </b>'.$fecha_salida.'</p>
+                    <p><i class="fas fa-clock"></i> <b>Hora: <b>Hora: </b>'.$cotizaciones[0]["HORA"].'</p>
+                    <p><i class="fas fa-people-group"></i> <b>Cantidad de Pasajeros: </b>'.$cotizaciones[0]["CANTIDAD_PASAJEROS"].'</p>';
                 }
 
                 if($TIPO_VIAJE == "Transfer de Arribo"){
                     echo '
-                    <p><b>Aeropuerto / Puerto: </b>'.$cotizaciones[0]['LOCALIDAD_ORIGEN'].'</p>
-                    <p><b>Destino: </b>'.$cotizaciones[0]["LOCALIDAD_DESTINO"].', '.$cotizaciones[0]["BARRIO_DESTINO"].'</p>';
+                    <p><i class="fas fa-plane"></i> <b>Aeropuerto / Puerto: </b>'.$cotizaciones[0]['LOCALIDAD_ORIGEN'].'</p>
+                    <p><i class="fas fa-route"></i> <b>Destino: </b>'.$cotizaciones[0]["LOCALIDAD_DESTINO"].', '.$cotizaciones[0]["BARRIO_DESTINO"].'</p>';
                 }
                 if($TIPO_VIAJE == "Transfer de Partida"){
                     echo '
-                    <p><b>Origen: </b>'.$cotizaciones[0]['LOCALIDAD_ORIGEN'].','.$cotizaciones[0]['BARRIO_ORIGEN'].'</p>
-                    <p><b>Aeropuerto / Puerto: </b>'.$cotizaciones[0]["LOCALIDAD_DESTINO"].', '.$cotizaciones[0]["BARRIO_DESTINO"].'</p>';
+                    <p><i class="fas fa-location-dot"></i> <b>Origen: </b>'.$cotizaciones[0]['LOCALIDAD_ORIGEN'].','.$cotizaciones[0]['BARRIO_ORIGEN'].'</p>
+                    <p><i class="fas fa-plane"></i> <b>Aeropuerto / Puerto: </b>'.$cotizaciones[0]["LOCALIDAD_DESTINO"].', '.$cotizaciones[0]["BARRIO_DESTINO"].'</p>';
                 }
                 
                 if($TIPO_VIAJE == "Traslado"){
-                    echo '<p><b>Origen: </b>'.$cotizaciones[0]["LOCALIDAD_ORIGEN"].', '.$cotizaciones[0]["BARRIO_ORIGEN"].'</p>';
+                    echo '<p><i class="fas fa-location-dot"></i> <b>Origen: </b>'.$cotizaciones[0]["LOCALIDAD_ORIGEN"].', '.$cotizaciones[0]["BARRIO_ORIGEN"].'</p>';
                 }else if($TIPO_VIAJE == "Tour o Servicio por Hora"){
-                    echo '<p><b>Origen: </b>'.$cotizaciones[0]["LOCALIDAD_ORIGEN"].', '.$cotizaciones[0]["BARRIO_ORIGEN"].'</p>';
+                    echo '<p><i class="fas fa-location-dot"></i> <b>Origen: </b>'.$cotizaciones[0]["LOCALIDAD_ORIGEN"].', '.$cotizaciones[0]["BARRIO_ORIGEN"].'</p>';
                 }
                 
                 if($TIPO_VIAJE == "Tour o Servicio por Hora"){
-                    echo '<p><b>Ciudad del Servicio: </b>'.$cotizaciones[0]["BARRIO_DESTINO"].'</p>';
-                    echo '<p><b>Duración del Servicio en horas: </b>'.$cotizaciones[0]["DURACION"].'</p>';
+                    echo '<p><i class="fas fa-city"></i> <b>Ciudad del Servicio: </b>'.$cotizaciones[0]["BARRIO_DESTINO"].'</p>';
+                    echo '<p><i class="fas fa-stopwatch"></i> <b>Duración del Servicio en horas: </b>'.$cotizaciones[0]["DURACION"].'</p>';
                 }
 
                 if($TIPO_VIAJE == "Traslado"){
-                    echo '<p><b>Destino o Punto de Interés: </b>'.$cotizaciones[0]["LOCALIDAD_DESTINO"].', '.$cotizaciones[0]["BARRIO_DESTINO"].', '.$cotizaciones[0]["DIRECCION_DESTINO"].'</p>';
+                    echo '<p><i class="fas fa-route"></i> <b>Destino o Punto de Interés: </b>'.$cotizaciones[0]["LOCALIDAD_DESTINO"].', '.$cotizaciones[0]["BARRIO_DESTINO"].', '.$cotizaciones[0]["DIRECCION_DESTINO"].'</p>';
                 }
                 
 
@@ -268,7 +268,7 @@
 
                     if(isset($paradas_ida_array)){
                         if(count($paradas_ida_array,true) > 0){
-                            echo '<p><b>Paradas (Ida): </b>';
+                            echo '<p><i class="fas fa-flag"></i> <b>Paradas (Ida): </b>';
                         
                             for($a = 0; $a < count($paradas_ida_array); $a++){
                                 if($paradas_ida_array[$a] != ""){
@@ -285,7 +285,7 @@
 
                     if(isset($paradas_vuelta_array)){
                         if(count($paradas_vuelta_array,true) > 0){
-                            echo '<p><b>Paradas (Vuelta): </b>';
+                            echo '<p><i class="fas fa-flag"></i> <b>Paradas (Vuelta): </b>';
                         
                             for($a = 0; $a < count($paradas_vuelta_array); $a++){
                                 if($paradas_vuelta_array[$a] != ""){
@@ -299,16 +299,19 @@
                             echo '</p>';
                         }
                     }
+                }else{
+                  echo '<h2><i class="fas fa-flag"></i> Paradas:</h2>
+                        <p>No hay paradas.</p>'
                 }
 
                 if(isset($cotizaciones[0]['OBSERVACIONES'])){
                     if($cotizaciones[0]['OBSERVACIONES'] != ""){
-                        echo '<h2>Observaciones:</h2>
+                        echo '<h2><i class="fas fa-comment-dots"></i> Observaciones:</h2>
                         <p>'.$cotizaciones[0]['OBSERVACIONES'].'</p>';
                     }
                 }
                 if(isset($cotizaciones[0]['MASCOTAS'])){
-                    echo '<h2>Mascotas:</h2>';
+                    echo '<h2><i class="fas fa-dog"></i> Mascotas:</h2>';
                     if($cotizaciones[0]['MASCOTAS'] == "Con mascota"){
                       echo '<p>Admitidas</p>';
                     }else{
