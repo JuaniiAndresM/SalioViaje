@@ -152,6 +152,12 @@ session_set_cookie_params($ttl);
     
     if($tipo == 1){
       echo '<li>
+              <a class href="https://www.salioviaje.com.uy/Central">
+                <span class="icon"><i class="fas fa-hand-holding-dollar"></i></span>
+                <span class="title">Cotizaciones</span>
+              </a>
+            </li>
+            <li>
               <a class href="https://www.salioviaje.com.uy/Editar_Cotizacion">
                 <span class="icon"><i class="fas fa-chart-line"></i></span>
                 <span class="title">Editar Cotizaciones</span>

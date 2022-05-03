@@ -187,6 +187,7 @@ session_set_cookie_params($ttl);
               </thead>
               <tbody id="tbody">
                   <?php
+                  if(isset($cotizaciones)){
                     for ($i=0; $i < count($cotizaciones); $i++) {
                       ?>
                       <tr>
@@ -240,6 +241,8 @@ session_set_cookie_params($ttl);
                       </tr>
                       <?php
                     }
+                  }
+                    
                   ?>
               </tbody>
             </table>
