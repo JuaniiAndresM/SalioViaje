@@ -289,7 +289,7 @@ function finalizar(enviar_solicitud) {
             console.log(array_paradas_1)
             console.log(array_paradas_2)
             switch (tramos) {
-                case "1":
+                case "1": default:
                     fiestas = "Solo Ida";
                     datos_fiestaseventos_ida = {
                         "TRAMOS_FIESTA": fiestas,
