@@ -167,7 +167,8 @@ $cotizaciones = json_decode($cotizaciones->traer_viajes_cotizando_panel_admin(),
 if ($cotizaciones != null) {
     for ($i = 0; $i < count($cotizaciones); $i++) {
         //print_r(json_encode($cotizaciones[$i])."\n");
-        ?>
+        if ($cotizaciones[$i]['ESTADO'] == "cotizando") {
+            ?>
                         <div class="Cotizaciones">
 
 <div class="Cotizaciones-left">
@@ -180,12 +181,12 @@ if ($cotizaciones != null) {
     <p><i class="fas fa-map-marker-alt"></i>Origen: <?php echo $cotizaciones[$i]['LOCALIDAD_ORIGEN']; ?>, <?php echo $cotizaciones[$i]['BARRIO_ORIGEN']; ?>.</p>
     <p><i class="fas fa-route"></i>Destino: <?php
 if ($cotizaciones[$i]['LOCALIDAD_DESTINO'] != null) {
-            echo $cotizaciones[$i]['LOCALIDAD_DESTINO'] . ", " . $cotizaciones[$i]['BARRIO_DESTINO'];
-        } else {
-            echo $cotizaciones[$i]['BARRIO_DESTINO'];
-        }
+                echo $cotizaciones[$i]['LOCALIDAD_DESTINO'] . ", " . $cotizaciones[$i]['BARRIO_DESTINO'];
+            } else {
+                echo $cotizaciones[$i]['BARRIO_DESTINO'];
+            }
 
-        ?>.</p>
+            ?>.</p>
   </div>
 
   <div class="travel">
@@ -197,12 +198,12 @@ if ($cotizaciones[$i]['LOCALIDAD_DESTINO'] != null) {
     <p><i class="fas fa-user-friends"></i><?php echo $cotizaciones[$i]['CANTIDAD_PASAJEROS']; ?></p>
     <p><i class="fas fa-dog"></i><?php
 if ($cotizaciones[$i]['MASCOTAS'] == 2) {
-            echo "sin mascotas";
-        } else {
-            echo "con mascotas";
-        }
+                echo "sin mascotas";
+            } else {
+                echo "con mascotas";
+            }
 
-        ?></p>
+            ?></p>
   </div>
 
 </div>
@@ -218,8 +219,9 @@ if ($cotizaciones[$i]['MASCOTAS'] == 2) {
 </div>
               <?php
 }
-}else {
-  ?>
+    }
+} else {
+    ?>
   <script>
 $(".list-empty-cotizacion").css('display', 'flex');
 $(".Cotizaciones-list").hide();

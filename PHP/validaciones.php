@@ -672,16 +672,11 @@ class validaciones
                             $VALIDACION['HORA'] = 1;
                         } else { $VALIDACION['HORA'] = 0;}
                         break;
-                    case 'OBSERVACIONES':
-                        if ($valor != null) {
-                            $VALIDACION['OBSERVACIONES'] = 1;
-                        } else { $VALIDACION['OBSERVACIONES'] = 0;}
-                        break;
                 }
             }
         }
 
-        if (count($VALIDACION) != 11) {
+        if (count($VALIDACION) != 10) {
             $DATOS_VACIOS = "Err-1";
         }
 
@@ -751,16 +746,11 @@ class validaciones
                             $VALIDACION['MASCOTA'] = 1;
                         } else { $VALIDACION['MASCOTA'] = 0;}
                         break;
-                    case 'OBSERVACIONES':
-                        if ($valor != null) {
-                            $VALIDACION['OBSERVACIONES'] = 1;
-                        } else { $VALIDACION['OBSERVACIONES'] = 0;}
-                        break;
                 }
             }
         }
 
-        if (count($VALIDACION) != 10) {
+        if (count($VALIDACION) != 9) {
             $DATOS_VACIOS = "Err-1";
         }
 

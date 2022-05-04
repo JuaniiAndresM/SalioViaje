@@ -18,7 +18,9 @@ require_once '../PHP/procedimientosBD.php';
 $TIPO = $_POST['TIPO'];
 $DATOS = $_POST['DATA'];
 
+session_start();
 
+$mail_solicitante = $_SESSION['datos_usuario']['MAIL'];
 
 $datos_array = json_decode(stripslashes($DATOS),true);
 
@@ -84,6 +86,7 @@ $mail->CharSet = 'UTF-8';
 $mail->From = 'promouruguay010@gmail.com';             //  Editar
 $mail->FromName = 'SalióViaje';                    //  Editar
 $mail->addAddress('admin@salioviaje.com.uy');       //  Editar
+$mail->addBCC($mail_solicitante);
 $mail->isHTML(true);
 $mail->Subject = "Invitación a cotizar un " . $TIPO_VIAJE . " #" . $id_cotizacion;   //  Editar
 
