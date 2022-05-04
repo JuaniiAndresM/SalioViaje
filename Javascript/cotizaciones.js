@@ -1,6 +1,6 @@
 function cambiar_estado_cotizacion_panel_admin(id_cotizacion) {
-    console.log("Cotizacion ID: "+id_cotizacion+" Nuevo estado: "+$("#estado-cotizacion").val())
-    let estado = $("#estado-cotizacion").val()
+    console.log("Cotizacion ID: "+id_cotizacion+" Nuevo estado: "+$("#estado-cotizacion-" + id_cotizacion).val())
+    let estado = $("#estado-cotizacion-" + id_cotizacion).val()
     $.ajax({
         type: "POST",
         url: "/PHP/procedimientosForm.php",
