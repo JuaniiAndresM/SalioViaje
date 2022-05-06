@@ -82,6 +82,13 @@ session_start();
   <body>
     <input type="text" class="session-output" value='<?php if(isset($_SESSION['usuario'])){ echo 0; }else{ echo 1; }; ?>' >
     <input type="text" class="session-input" value='<?php echo $_GET['opcion']; ?>'>
+
+    <script>
+      window.onload = function (){
+        timeoutformulario(<?php if(isset($_GET['opcion'])){ echo $_GET['opcion']; }else{ echo '""'; }; ?>);
+      }
+
+    </script>
     <div id="header"></div>
 
     <div id="pre-loader">

@@ -1,40 +1,41 @@
 $(document).ready(function () {
     
-    steps(1);
+    steps(1);   
 
     select_fiesta();
     select_transfer();
 
     $('.mensaje-error').hide();
-    
-    if($('.session-input').val() != undefined){
-        window.location.hash = "Cotizacion"
-        desplegar(document.getElementById("agendar"), $(".session-output").val());
-        select_usuario();
-
-        console.log($(".session-output").val())
-    }
-
-    setTimeout(() => {
-        console.log($(".session-input").val())
-    }, 1000);
-
-    
 
     $("#fiestas").on('click', function () {
-        window.location.href = "https://www.salioviaje.com.uy/Viajar/?opcion=4#Cotizacion"
+        window.location.href = "https://www.salioviaje.com.uy/Viajar/?opcion=4"
     });
     $("#aeropuerto").on('click', function () {
-        window.location.href = "https://www.salioviaje.com.uy/Viajar/?opcion=3#Cotizacion"
+        window.location.href = "https://www.salioviaje.com.uy/Viajar/?opcion=3"
     });
     $("#paseo").on('click', function () {
-        window.location.href = "https://www.salioviaje.com.uy/Viajar/?opcion=2#Cotizacion"
+        window.location.href = "https://www.salioviaje.com.uy/Viajar/?opcion=2"
     });
     $("#picada").on('click', function () {
-        window.location.href = "https://www.salioviaje.com.uy/Viajar/?opcion=1#Cotizacion"
+        window.location.href = "https://www.salioviaje.com.uy/Viajar/?opcion=1"
     });
 
+    
+    
 });
+
+function timeoutformulario(opcion){
+    console.log("Holaaaaaaaaa: " + opcion);
+    setTimeout(() => {
+        if(opcion != ""){
+            window.location.hash = "Cotizacion";
+            desplegar(document.getElementById("agendar"), $(".session-output").val());
+            select_usuario();
+        }else{
+            console.log("asdasdasddasadsads");
+        }
+    }, 1000);
+}
 
 var step = 1;
 
@@ -595,9 +596,8 @@ function steps(step) {
             break;
 
         case 2:
-            if ($(".session-input").val() != undefined) {
+            if ($(".session-input").val() != "") {
                 viaje = $(".session-input").val();
-                $(".session-input").val(undefined);
             } else {
                 viaje = $("#select_users").val();
             }
@@ -607,21 +607,25 @@ function steps(step) {
                 case "1":
                     $(".step_2_traslado").show();
                     $(".session-input").val()
+                    $(".session-input").val("");
                     break;
 
                 case "2":
                     $(".step_2_tour").show();
                     $(".session-input").val()
+                    $(".session-input").val("");
                     break;
 
                 case "3":
                     $(".step_2_transfer").show();
                     $(".session-input").val()
+                    $(".session-input").val("");
                     break;
 
                 case "4":
                     $(".step_2_fiestas").show();
                     $(".session-input").val()
+                    $(".session-input").val("");
                     break;
             }
 
@@ -682,13 +686,17 @@ function nueva_cotizacion() {
 
 function select_usuario() {
 
-    if ($(".session-input").val() != undefined) {
+    console.log("Opción: " + $("#select_users").val());
+
+    if ($(".session-input").val() != "") {
+        console.log("---------");
         let opcion_input = $(".session-input").val();
         console.log(opcion_input)
         $("#select_users").val(opcion_input);
         viaje = opcion_input;
         next();
     }else{
+        console.log("++++++++");
         viaje = $("#select_users").val();
         next();
     }
