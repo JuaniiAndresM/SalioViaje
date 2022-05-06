@@ -15,7 +15,11 @@ $(document).ready(function () {
         console.log($(".session-output").val())
     }
 
-    console.log($(".session-input").val())
+    setTimeout(() => {
+        console.log($(".session-input").val())
+    }, 1000);
+
+    
 
     $("#fiestas").on('click', function () {
         window.location.href = "https://www.salioviaje.com.uy/Viajar/?opcion=4#Cotizacion"
@@ -593,6 +597,7 @@ function steps(step) {
         case 2:
             if ($(".session-input").val() != undefined) {
                 viaje = $(".session-input").val();
+                $(".session-input").val(undefined);
             } else {
                 viaje = $("#select_users").val();
             }
@@ -675,7 +680,7 @@ function nueva_cotizacion() {
     steps(step);
 }
 
-function select_usuario(arg) {
+function select_usuario() {
 
     if ($(".session-input").val() != undefined) {
         let opcion_input = $(".session-input").val();
@@ -683,13 +688,9 @@ function select_usuario(arg) {
         $("#select_users").val(opcion_input);
         viaje = opcion_input;
         next();
-    }
-
-    if (arg == null) {
+    }else{
         viaje = $("#select_users").val();
-        if (viaje != null) {
-            next()
-        }
+        next();
     }
 
 }
