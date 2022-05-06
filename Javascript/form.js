@@ -844,6 +844,7 @@ function login(ADMIN) {
    let pin = document.getElementById('passwd').value;
    let pattern = /^[0-9]$/i
    if (!pattern.test(usuario) || usuario.length >= 8) {
+
       $.ajax({
          type: "POST",
          url: "/PHP/procedimientosForm.php",
@@ -858,11 +859,9 @@ function login(ADMIN) {
                $(".mensaje-error").text("Usuario o Contraseña Incorrectos.");
                console.log("Usuario o contraseña incorrectos...");
             }
-         },
-         complete: function () {
-            location.reload()
          }
       });
+
    } else { $(".mensaje-error").text("Usuario o Contraseña Incorrectos."); }
 
 }

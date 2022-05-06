@@ -80,6 +80,8 @@ session_start();
     <script src="https://www.salioviaje.com.uy/Javascript/viajar.js"></script>
   </head>
   <body>
+    <input type="text" class="session-output" value='<?php if(isset($_SESSION['usuario'])){ echo 0; }else{ echo 1; }; ?>' >
+    <input type="text" class="session-input" value='<?php echo $_GET['opcion']; ?>'>
     <div id="header"></div>
 
     <div id="pre-loader">
@@ -1171,13 +1173,16 @@ session_start();
         </div>
       </section>
     </div>
+    
     <script>
-          if (sessionStorage.getItem("origen") == 1) {
-            sessionStorage.removeItem("origen")
+          if (localStorage.getItem("origen") == 1) {
+            console.log("Desplegar Function")
+            localStorage.removeItem("origen")
             desplegar(document.getElementById("agendar"), <?php if (!isset($_SESSION['usuario'])) {echo 1;} else {echo 2;}?>)
             select_usuario()
           }
-        </script>
+    </script>
+
     <div id="footer"></div>
   </body>
 </html>

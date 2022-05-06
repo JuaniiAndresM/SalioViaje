@@ -167,6 +167,37 @@ $cotizaciones = json_decode($cotizaciones->traer_viajes_cotizando_panel_admin(),
 if ($cotizaciones != null) {
     for ($i = 0; $i < count($cotizaciones); $i++) {
         //print_r(json_encode($cotizaciones[$i])."\n");
+
+        switch($cotizaciones[$i]['TIPO']){
+          case "Traslados":
+            $TIPO_VIAJE = "Traslado";
+            break;
+        
+          case "Tour":
+            $TIPO_VIAJE = "Tour o Servicio por Hora";
+            break;
+        
+          case "Transfer In":
+            $TIPO_VIAJE = "Transfer de Arribo";
+            break;
+        
+          case "Transfer Out":
+            $TIPO_VIAJE = "Transfer de Partida";
+            break;
+        
+          case "Solo Ida":
+            $TIPO_VIAJE = "Fiesta o Evento - Ida";
+            break;
+        
+          case "Solo Vuelta":
+            $TIPO_VIAJE = "Fiesta o Evento - Vuelta";
+            break;
+        
+          case "Ida y Vuelta":
+            $TIPO_VIAJE = "Fiesta o Evento - Ida y Vuelta";
+            break;
+        }
+
         if ($cotizaciones[$i]['ESTADO'] == "cotizando") {
             ?>
                         <div class="Cotizaciones">
@@ -177,7 +208,7 @@ if ($cotizaciones != null) {
   </div>
 
   <div class="travel">
-    <p><i class="fas fa-van-shuttle"></i><?php echo $cotizaciones[$i]['TIPO']; ?>.</p>
+    <p><i class="fas fa-van-shuttle"></i><?php echo $TIPO_VIAJE; ?>.</p>
     <p><i class="fas fa-map-marker-alt"></i>Origen: <?php echo $cotizaciones[$i]['LOCALIDAD_ORIGEN']; ?>, <?php echo $cotizaciones[$i]['BARRIO_ORIGEN']; ?>.</p>
     <p><i class="fas fa-route"></i>Destino: <?php
             if ($cotizaciones[$i]['LOCALIDAD_DESTINO'] != null) {

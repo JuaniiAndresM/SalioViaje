@@ -6,26 +6,32 @@ $(document).ready(function () {
     select_transfer();
 
     $('.mensaje-error').hide();
+    
+    if($('.session-input').val() != undefined){
+        window.location.hash = "Cotizacion"
+        desplegar(document.getElementById("agendar"), $(".session-output").val());
+        select_usuario();
+
+        console.log($(".session-output").val())
+    }
+
+    setTimeout(() => {
+        console.log($(".session-input").val())
+    }, 1000);
+
+    
 
     $("#fiestas").on('click', function () {
-        window.location.href = "https://www.salioviaje.com.uy/Viajar/#Cotizacion"
-        sessionStorage.setItem("origen", 1)
-        sessionStorage.setItem("opcion", "4")
+        window.location.href = "https://www.salioviaje.com.uy/Viajar/?opcion=4#Cotizacion"
     });
     $("#aeropuerto").on('click', function () {
-        window.location.href = "https://www.salioviaje.com.uy/Viajar/#Cotizacion"
-        sessionStorage.setItem("origen", 1)
-        sessionStorage.setItem("opcion", "3")
+        window.location.href = "https://www.salioviaje.com.uy/Viajar/?opcion=3#Cotizacion"
     });
     $("#paseo").on('click', function () {
-        window.location.href = "https://www.salioviaje.com.uy/Viajar/#Cotizacion"
-        sessionStorage.setItem("origen", 1)
-        sessionStorage.setItem("opcion", "2")
+        window.location.href = "https://www.salioviaje.com.uy/Viajar/?opcion=2#Cotizacion"
     });
     $("#picada").on('click', function () {
-        window.location.href = "https://www.salioviaje.com.uy/Viajar/#Cotizacion"
-        sessionStorage.setItem("origen", 1)
-        sessionStorage.setItem("opcion", "1")
+        window.location.href = "https://www.salioviaje.com.uy/Viajar/?opcion=1#Cotizacion"
     });
 
 });
@@ -588,6 +594,7 @@ function steps(step) {
     $(".mensaje-error").css('color', '#ff635a');
 
     switch (step) {
+        
         case 1:
             $(".step_1").show();
 
@@ -599,8 +606,9 @@ function steps(step) {
             break;
 
         case 2:
-            if (sessionStorage.getItem("opcion") != null) {
-                viaje = sessionStorage.getItem("opcion")
+            if ($(".session-input").val() != undefined) {
+                viaje = $(".session-input").val();
+                //$(".session-input").val(undefined);
             } else {
                 viaje = $("#select_users").val();
             }
@@ -609,19 +617,22 @@ function steps(step) {
             switch (viaje) {
                 case "1":
                     $(".step_2_traslado").show();
-                    
+                    $(".session-input").val()
                     break;
 
                 case "2":
                     $(".step_2_tour").show();
+                    $(".session-input").val()
                     break;
 
                 case "3":
                     $(".step_2_transfer").show();
+                    $(".session-input").val()
                     break;
 
                 case "4":
                     $(".step_2_fiestas").show();
+                    $(".session-input").val()
                     break;
             }
 
@@ -680,22 +691,17 @@ function nueva_cotizacion() {
     steps(step);
 }
 
-function select_usuario(arg) {
+function select_usuario() {
 
-    if (sessionStorage.getItem("opcion") != null) {
-        console.log(sessionStorage.getItem("opcion"))
-        setTimeout(function () {
-            $("#select_users").val(sessionStorage.getItem("opcion"));
-            viaje = $("#select_users").val()
-            next()
-        }, 500);
-    }
-
-    if (arg == null) {
+    if ($(".session-input").val() != undefined) {
+        let opcion_input = $(".session-input").val();
+        console.log(opcion_input)
+        $("#select_users").val(opcion_input);
+        viaje = opcion_input;
+        next();
+    }else{
         viaje = $("#select_users").val();
-        if (viaje != null) {
-            next()
-        }
+        next();
     }
 
 }
@@ -703,7 +709,10 @@ function select_usuario(arg) {
 function desplegar(button, session) {
 
     if (session == 1) {
-        location.href = "/Login";
+        setTimeout(() => {
+            location.href = "/Login";
+        }, 500);
+        
     } else {
         button.classList.toggle("active");
         button.nextElementSibling.classList.toggle("show");
