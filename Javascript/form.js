@@ -843,7 +843,9 @@ function login(ADMIN) {
    let usuario = document.getElementById('usuario').value;
    let pin = document.getElementById('passwd').value;
    let pattern = /^[0-9]$/i
+   let iniciado = false;
    if (!pattern.test(usuario) || usuario.length >= 8) {
+
       $.ajax({
          type: "POST",
          url: "/PHP/procedimientosForm.php",
@@ -852,7 +854,8 @@ function login(ADMIN) {
             console.log(response)
             if (response != '') {
                $(".mensaje-error").hide();
-               history.go(-1)
+               iniciado = true;
+               history.go(-1);
             } else {
                $(".mensaje-error").show();
                $(".mensaje-error").text("Usuario o Contraseña Incorrectos.");
@@ -860,9 +863,13 @@ function login(ADMIN) {
             }
          },
          complete: function () {
-            location.reload()
+            if(iniciado == false){
+               location.reload();
+            }
+            
          }
       });
+
    } else { $(".mensaje-error").text("Usuario o Contraseña Incorrectos."); }
 
 }

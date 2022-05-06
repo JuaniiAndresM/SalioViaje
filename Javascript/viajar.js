@@ -1,6 +1,6 @@
 $(document).ready(function () {
     
-        steps(1);
+    steps(1);
 
     select_fiesta();
     select_transfer();
@@ -11,21 +11,25 @@ $(document).ready(function () {
         window.location.href = "https://www.salioviaje.com.uy/Viajar/#Cotizacion"
         sessionStorage.setItem("origen", 1)
         sessionStorage.setItem("opcion", "4")
+        select_usuario();
     });
     $("#aeropuerto").on('click', function () {
         window.location.href = "https://www.salioviaje.com.uy/Viajar/#Cotizacion"
         sessionStorage.setItem("origen", 1)
         sessionStorage.setItem("opcion", "3")
+        select_usuario();
     });
     $("#paseo").on('click', function () {
         window.location.href = "https://www.salioviaje.com.uy/Viajar/#Cotizacion"
         sessionStorage.setItem("origen", 1)
         sessionStorage.setItem("opcion", "2")
+        select_usuario();
     });
     $("#picada").on('click', function () {
         window.location.href = "https://www.salioviaje.com.uy/Viajar/#Cotizacion"
         sessionStorage.setItem("origen", 1)
         sessionStorage.setItem("opcion", "1")
+        select_usuario();
     });
 
 });
@@ -577,6 +581,7 @@ function steps(step) {
     $(".mensaje-error").css('color', '#ff635a');
 
     switch (step) {
+        
         case 1:
             $(".step_1").show();
 
@@ -692,7 +697,10 @@ function select_usuario(arg) {
 function desplegar(button, session) {
 
     if (session == 1) {
-        location.href = "/Login";
+        setTimeout(() => {
+            location.href = "/Login";
+        }, 500);
+        
     } else {
         button.classList.toggle("active");
         button.nextElementSibling.classList.toggle("show");

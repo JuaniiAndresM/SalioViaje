@@ -1173,6 +1173,7 @@ session_start();
     </div>
     <script>
           if (sessionStorage.getItem("origen") == 1) {
+            console.log("Desplegar Function")
             sessionStorage.removeItem("origen")
             desplegar(document.getElementById("agendar"), <?php if (!isset($_SESSION['usuario'])) {echo 1;} else {echo 2;}?>)
             select_usuario()
