@@ -843,7 +843,6 @@ function login(ADMIN) {
    let usuario = document.getElementById('usuario').value;
    let pin = document.getElementById('passwd').value;
    let pattern = /^[0-9]$/i
-   let iniciado = false;
    if (!pattern.test(usuario) || usuario.length >= 8) {
 
       $.ajax({
@@ -854,19 +853,12 @@ function login(ADMIN) {
             console.log(response)
             if (response != '') {
                $(".mensaje-error").hide();
-               iniciado = true;
-               history.go(-1);
+               history.go(-1)
             } else {
                $(".mensaje-error").show();
                $(".mensaje-error").text("Usuario o Contraseña Incorrectos.");
                console.log("Usuario o contraseña incorrectos...");
             }
-         },
-         complete: function () {
-            if(iniciado == false){
-               location.reload();
-            }
-            
          }
       });
 
