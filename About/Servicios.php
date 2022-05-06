@@ -180,8 +180,8 @@ if ($cotizaciones != null) {
     <p><i class="fas fa-van-shuttle"></i><?php echo $cotizaciones[$i]['TIPO']; ?>.</p>
     <p><i class="fas fa-map-marker-alt"></i>Origen: <?php echo $cotizaciones[$i]['LOCALIDAD_ORIGEN']; ?>, <?php echo $cotizaciones[$i]['BARRIO_ORIGEN']; ?>.</p>
     <p><i class="fas fa-route"></i>Destino: <?php
-if ($cotizaciones[$i]['LOCALIDAD_DESTINO'] != null) {
-                echo $cotizaciones[$i]['LOCALIDAD_DESTINO'] . ", " . $cotizaciones[$i]['BARRIO_DESTINO'];
+            if ($cotizaciones[$i]['LOCALIDAD_DESTINO'] != null) {
+                echo $cotizaciones[$i]['LOCALIDAD_DESTINO'] . ", " . $cotizaciones[$i]['BARRIO_DESTINO']. ", " . $cotizaciones[$i]['DIRECCION_DESTINO'];
             } else {
                 echo $cotizaciones[$i]['BARRIO_DESTINO'];
             }

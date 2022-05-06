@@ -1,6 +1,6 @@
 $(document).ready(function () {
     
-        steps(1);
+    steps(1);
 
     select_fiesta();
     select_transfer();
@@ -75,7 +75,7 @@ function finalizar(enviar_solicitud) {
             };
 
             if (validacion('Translado', datos_traslado)) {
-                if (verificar_fechas(datos_traslado['FECHA_SALIDA'], null, 0)) {
+                if (verificar_fechas(datos_traslado['FECHA_SALIDA'], null, 0,datos_traslado['HORA'])) {
                     next();
                     if (enviar_solicitud == 1) {
                         guardar_cotizacion(datos_traslado,array_paradas_1,0,"traslados");
@@ -127,7 +127,8 @@ function finalizar(enviar_solicitud) {
             };
 
             if (validacion('Tour', datos_tour)) {
-                if (verificar_fechas(datos_tour['FECHA_SALIDA'], null, 0)) {
+                if (verificar_fechas(datos_tour['FECHA_SALIDA'], null, 0, datos_tour['HORA'])) {
+                    next();
                     if (enviar_solicitud == 1) {
                         guardar_cotizacion(datos_tour,array_paradas_1,0,"tour");
 
@@ -188,7 +189,7 @@ function finalizar(enviar_solicitud) {
                     };
 
                     if (validacion('Transfer_in', datos_transfer_in)) {
-                        if (verificar_fechas(datos_transfer_in['FECHA_ARRIBO'], null, 0)) {
+                        if (verificar_fechas(datos_transfer_in['FECHA_ARRIBO'], null, 0,datos_transfer_in['HORA'])) {
                             next();
                             if (enviar_solicitud == 1) {
                                 guardar_cotizacion(datos_transfer_in,array_paradas_1,0,"transferIn");
@@ -242,7 +243,7 @@ function finalizar(enviar_solicitud) {
                     };
 
                     if (validacion('Transfer_out', datos_transfer_out)) {
-                        if (verificar_fechas(datos_transfer_out['FECHA_PARTIDA'], null, 0)) {
+                        if (verificar_fechas(datos_transfer_out['FECHA_PARTIDA'], null, 0, datos_transfer_out['HORA'])) {
                             next();
                             if (enviar_solicitud == 1) {
                                 guardar_cotizacion(datos_transfer_out,array_paradas_1,0,"transferOut");
@@ -306,7 +307,7 @@ function finalizar(enviar_solicitud) {
                     };
 
                     if (validacion('FIESTA-IDA', datos_fiestaseventos_ida)) {
-                        if (verificar_fechas(datos_fiestaseventos_ida['FECHA_SALIDA'], null, 0)) {
+                        if (verificar_fechas(datos_fiestaseventos_ida['FECHA_SALIDA'], null, 0,datos_fiestaseventos_ida["HORA"])) {
                             next();
                             if (enviar_solicitud == 1) {
                                 guardar_cotizacion(datos_fiestaseventos_ida,array_paradas_1,0,"fiestasIda");
@@ -359,7 +360,7 @@ function finalizar(enviar_solicitud) {
                     };
 
                     if (validacion('FIESTA-VUELTA', datos_fiestaseventos_vuelta)) {
-                        if (verificar_fechas(datos_fiestaseventos_vuelta['FECHA_REGRESO'], null, 0)) {
+                        if (verificar_fechas(datos_fiestaseventos_vuelta['FECHA_REGRESO'], null, 0,datos_fiestaseventos_vuelta['HORA'])) {
                             next();
                             if (enviar_solicitud == 1) {
                                 guardar_cotizacion(datos_fiestaseventos_vuelta,0,array_paradas_2,"fiestasVuelta");
@@ -434,7 +435,7 @@ function finalizar(enviar_solicitud) {
                     };
 
                     if (validacion('FIESTA-IDA-VUELTA', datos_fiestaseventos_idavuelta)) {
-                        if (verificar_fechas(datos_fiestaseventos_idavuelta['FECHA_SALIDA'], datos_fiestaseventos_idavuelta['FECHA_REGRESO'], 1)) {
+                        if (verificar_fechas(datos_fiestaseventos_idavuelta['FECHA_SALIDA'], datos_fiestaseventos_idavuelta['FECHA_REGRESO'], 1,datos_fiestaseventos_idavuelta['HORA_SALIDA'])) {
                             next();
                             if (enviar_solicitud == 1) {
                                 guardar_cotizacion(datos_fiestaseventos_idavuelta,array_paradas_1,array_paradas_2,"fiestasIdaVuelta");
@@ -485,13 +486,24 @@ function guardar_cotizacion(datos_cotizacion,paradas_ida,paradas_vuelta,tipo) {
     });
 }
 
-function verificar_fechas(fecha1, fecha2, evento) {
+function verificar_fechas(fecha1, fecha2, evento, hora_salida) {
+
+    if (fecha2 != null) {
+        var fecha2 = fecha2.split("-")
+        var fecha2 = new Date(fecha2[0],fecha2[1],fecha2[2],hora_salida[0],hora_salida[1])
+    }
+    var fecha1 = fecha1.split("-")
+    var hora_salida = hora_salida.split(":")
 
     var fecha_actual = new Date();
     var dd = String(fecha_actual.getDate()).padStart(2, '0');
     var mm = String(fecha_actual.getMonth() + 1).padStart(2, '0');
     var yyyy = fecha_actual.getFullYear();
-    fecha_actual = yyyy + '-' + mm + '-' + dd;
+    var hh = String(fecha_actual.getHours());
+    var min = String(fecha_actual.getMinutes());
+
+    var fecha1 = new Date(fecha1[0],fecha1[1],fecha1[2],hora_salida[0],hora_salida[1])
+    var fecha_actual = new Date(yyyy,mm,dd,hh,min)
 
     if (evento == 1) {
         if (fecha1 < fecha2 && fecha1 >= fecha_actual && fecha2 > fecha_actual) {
@@ -502,7 +514,6 @@ function verificar_fechas(fecha1, fecha2, evento) {
             return true
         } else { return false }
     }
-
 }
 
 function restarHoras(inicio, fin) {
@@ -590,7 +601,6 @@ function steps(step) {
         case 2:
             if (sessionStorage.getItem("opcion") != null) {
                 viaje = sessionStorage.getItem("opcion")
-                sessionStorage.removeItem("opcion")
             } else {
                 viaje = $("#select_users").val();
             }
@@ -599,6 +609,7 @@ function steps(step) {
             switch (viaje) {
                 case "1":
                     $(".step_2_traslado").show();
+                    
                     break;
 
                 case "2":
