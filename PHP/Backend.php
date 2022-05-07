@@ -160,9 +160,11 @@ class Backend extends procedimientosBD
                     			</div>
                     				<div class="propietario-info">
                       				<h3>'.$datos_e[$i]["NOMBRE_EMPRESA"].'</h3>';
-									  if($size != 0){
-										$this->EMPRESAS_DASHBOARD .= '<p><i class="fas fa-bus"></i> '.$size.' Vehiculos</p>';
-									  }
+									if($size == 1){
+										$this->EMPRESAS_DASHBOARD .= '<p><i class="fas fa-bus"></i> '.$size.' Vehículo</p>';
+									}else if($size > 1){
+										$this->EMPRESAS_DASHBOARD .= '<p><i class="fas fa-bus"></i> '.$size.' Vehículos</p>';
+									}
                       				$this->EMPRESAS_DASHBOARD .= '
                     			</div>
                   			</div>
@@ -183,9 +185,11 @@ class Backend extends procedimientosBD
                     			</div>
                     				<div class="propietario-info">
                       				<h3>'.$datos_e[$i]["NOMBRE_EMPRESA"].'</h3>';
-									  if($size != 0){
-										$this->EMPRESAS_DASHBOARD .= '<p><i class="fas fa-bus"></i> '.$size.' Vehiculos</p>';
-									  }
+										if($size == 1){
+											$this->EMPRESAS_DASHBOARD .= '<p><i class="fas fa-bus"></i> '.$size.' Vehículo</p>';
+										}else if($size > 1){
+											$this->EMPRESAS_DASHBOARD .= '<p><i class="fas fa-bus"></i> '.$size.' Vehículos</p>';
+										}
                       				$this->EMPRESAS_DASHBOARD .= '
                     			</div>
                   			</div>

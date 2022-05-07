@@ -19,7 +19,7 @@ for ($i=0; $i < count($datos); $i++) {
                     <div class="propietario-info">
                       <h3>'.$datos[$i]["NOMBRE_EMPRESA"].'</h3>';
                       if(count($vehiculos) != 0){
-                        $NUEVA_EMPRESA_DASHBOARD .= '<p><i class="fas fa-bus"></i>'.count($vehiculos).' Vehiculos</p>';
+                        $NUEVA_EMPRESA_DASHBOARD .= '<p><i class="fas fa-bus"></i>'.count($vehiculos).' Vehículos</p>';
                       }
                       $NUEVA_EMPRESA_DASHBOARD .= '
                     </div>
