@@ -1118,7 +1118,7 @@ session_start();
 
             </div>
 
-            <div class="step_3">
+            <div class="step_3" id="Paradas">
 
               <div class="loader_step3">
                 <i class="fas fa-spinner" id="spinner"></i>
