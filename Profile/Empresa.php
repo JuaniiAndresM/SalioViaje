@@ -183,7 +183,7 @@ session_set_cookie_params($ttl);
             if($usuario[0]['TIPO_USUARIO'] != "ANF" && $usuario[0]['TIPO_USUARIO'] != "AGT" && $usuario[0]['TIPO_USUARIO'] != "HTL"){
               echo '<div class="user-informacion">
 
-              <h3><i class="fas fa-bus"></i> Vehiculos de la Empresa</h3>
+              <h3><i class="fas fa-bus"></i> Vehículos de la Empresa</h3>
 
               <div class="search">
               <i class="fas fa-search"></i>

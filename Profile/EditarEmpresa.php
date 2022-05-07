@@ -238,7 +238,7 @@ if (!isset($_SESSION['usuario'])) {
 
           <?php if($usuario[0]['TIPO_USUARIO'] != "ANF" && $usuario[0]['TIPO_USUARIO'] != "AGT" && $usuario[0]['TIPO_USUARIO'] != "HTL"){
             echo '<div class="viajes-wrapper">
-            <h3><i class="fas fa-bus"></i> Agregar Vehiculos</h3>
+            <h3><i class="fas fa-bus"></i> Agregar Vehículos</h3>
 
             <div class="agregar-vehicle">
                 <div class="input">
@@ -287,7 +287,7 @@ if (!isset($_SESSION['usuario'])) {
                 </div>
 
                 <div class="button-wrapper">
-                    <button class="button-agregar" onclick="add_vehicle()"><i class="fas fa-plus"></i> Agregar Vehiculo</button>
+                    <button class="button-agregar" onclick="add_vehicle()"><i class="fas fa-plus"></i> Agregar Vehículo</button>
                     <button class="button-register" id="guardar-cambios" onclick="editar_vehiculo()"><i class="fas fa-car-side"></i> Guardar Cambios</button>
                 </div>
 

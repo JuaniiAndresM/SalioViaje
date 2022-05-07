@@ -182,7 +182,7 @@ session_set_cookie_params($ttl);
                   <th id="ID">ID <i class="fas fa-angle-down"></i></th>
                   <th>Fecha <i class="fas fa-angle-down"></i></th>
                   <th>Hora <i class="fas fa-angle-down"></i></th>
-                  <th>Vehiculo <i class="fas fa-angle-down"></i></th>
+                  <th>Vehículo <i class="fas fa-angle-down"></i></th>
                   <th>Origen <i class="fas fa-angle-down"></i></th>
                   <th>Destino <i class="fas fa-angle-down"></i></th>
                   <th>Distancia <i class="fas fa-angle-down"></i></th>

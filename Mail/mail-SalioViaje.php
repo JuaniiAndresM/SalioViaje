@@ -251,11 +251,11 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                             <tr>
                                 <td>
                                     <div style="margin: 20px 0; margin-bottom: 30px; text-align: center;">
-                                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeQtd-s1ngnM-F-HbLYHhIOSW1_L0GiUZKoVoiXdnWWV5nsBg/viewform" target="_blank" style="padding: 15px 20px; background-color: #4db979; color: #ffffff; text-decoration: none; font-family: Montserrat; font-size: 15px; border-radius: 10px; margin: 0 50px;">
+                                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeQtd-s1ngnM-F-HbLYHhIOSW1_L0GiUZKoVoiXdnWWV5nsBg/viewform" target="_blank" style="padding: 15px 20px; background-color: #4db979; color: #ffffff; text-decoration: none; font-family: Montserrat; font-size: 15px; border-radius: 10px; margin: 0 30px;">
                                             Cotizar
                                         </a>
 
-                                        <a href="https://www.salioviaje.com.uy" target="_blank" style="padding: 15px 20px; background-color: #ff635a; color: #ffffff; text-decoration: none; font-family: Montserrat; font-size: 15px; border-radius: 10px; margin: 0 50px;">
+                                        <a href="https://www.salioviaje.com.uy" target="_blank" style="padding: 15px 20px; background-color: #ff635a; color: #ffffff; text-decoration: none; font-family: Montserrat; font-size: 15px; border-radius: 10px; margin: 0 30px;">
                                             No Cotizar
                                         </a>
                                     </div>

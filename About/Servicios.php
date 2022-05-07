@@ -165,7 +165,7 @@ $cotizaciones = json_decode($cotizaciones->traer_viajes_cotizando_panel_admin(),
         <div class="Cotizaciones-list">
           <?php
 if ($cotizaciones != null) {
-    for ($i = 0; $i < count($cotizaciones); $i++) {
+    for ($i = count($cotizaciones); $i > 0; $i--) {
         //print_r(json_encode($cotizaciones[$i])."\n");
 
         switch($cotizaciones[$i]['TIPO']){
@@ -242,7 +242,14 @@ if ($cotizaciones[$i]['MASCOTAS'] == 2) {
 <div class="Cotizaciones-right">
 
   <div class="button-wrapper">
-      <button class="comprar-button" type="submit" onclick='location.href="https://docs.google.com/forms/d/e/1FAIpQLSeQtd-s1ngnM-F-HbLYHhIOSW1_L0GiUZKoVoiXdnWWV5nsBg/viewform"'><i class="fas fa-chart-line"></i> Cotizar</button>
+      <?php
+      if($_SESSION['tipo_usuario'] == "Transportista" || $_SESSION['tipo_usuario'] == "Administrador"){
+        ?>
+        <button class="comprar-button" type="submit" onclick='location.href="https://docs.google.com/forms/d/e/1FAIpQLSeQtd-s1ngnM-F-HbLYHhIOSW1_L0GiUZKoVoiXdnWWV5nsBg/viewform"'><i class="fas fa-chart-line"></i> Cotizar</button>
+        <?php
+      }
+      ?>
+
       <button onclick="location.href = '/Cotizacion/' + <?php echo $cotizaciones[$i]['ID']; ?>;"><i class="fas fa-info"></i> Detalles</button>
   </div>
 

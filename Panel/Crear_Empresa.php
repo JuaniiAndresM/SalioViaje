@@ -205,7 +205,7 @@ session_set_cookie_params($ttl);
             </div>
 
             <div id="step_2">
-            <h2 class="step_title"><i class="fas fa-bus"></i> Agregar Vehiculos</h2>
+            <h2 class="step_title"><i class="fas fa-bus"></i> Agregar Vehículos</h2>
             <div class="inputs-wrapper-register">
                 <div class="column">
                 <div class="input">
@@ -273,7 +273,7 @@ session_set_cookie_params($ttl);
 
             <div class="vehiculos-wrapper">
             <div class="vehiculos">
-                <div id="no-vehicle"><p>No hay vehiculos agregados.</p></div>
+                <div id="no-vehicle"><p>No hay vehículos agregados.</p></div>
             </div>
             <button class="finalizar-button" id="finalizar_empresa_2" onclick="crear_empresa_dash('<?php echo $_SESSION['datos_usuario']['TIPO_USUARIO'] ?>')"><i class="fas fa-building"></i> Finalizar Empresa</button>
 

@@ -25,14 +25,11 @@ $(document).ready(function () {
 });
 
 function timeoutformulario(opcion){
-    console.log("Holaaaaaaaaa: " + opcion);
     setTimeout(() => {
         if(opcion != ""){
             window.location.hash = "Cotizacion";
             desplegar(document.getElementById("agendar"), $(".session-output").val());
             select_usuario();
-        }else{
-            console.log("asdasdasddasadsads");
         }
     }, 1000);
 }
@@ -113,7 +110,11 @@ function finalizar(enviar_solicitud) {
                     $(".mensaje-error").text("No puedes poner una fecha anterior a la actual.");
                 }
             } else { console.log("No valido") }
-            vaciar_paradas()
+
+            setTimeout(() => {
+                vaciar_paradas()
+            }, 1100);
+            
             break;
 
         /* 
@@ -742,6 +743,7 @@ function paradas(tipo) {
                     success: function (response) {
                         $("#tags_paradas_1").append(response);
                         $("#paradas_1").val("");
+                        console.log(array_paradas_1);
                     }
                 });
                 count_paradas_1++;

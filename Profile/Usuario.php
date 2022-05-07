@@ -338,7 +338,7 @@
                                         </div>
                                         <div class="empresa-info">
                                         <h3>'.$empresas[$i]['NOMBRE_COMERCIAL'].'</h3>
-                                        <p><i class="fas fa-bus"></i> '.$size_vehiculos.' Vehiculos</p>
+                                        <p><i class="fas fa-bus"></i> '.$size_vehiculos.' Vehículos</p>
                                         </div>
                                       </div>
                                         <div class="empresa-button">

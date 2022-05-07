@@ -56,7 +56,7 @@ if (!isset($_SESSION['usuario'])) {
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.salioviaje.com.uy/Vehiculos" />
-    <meta property="og:title" content="SalióViaje | Vehiculos" />
+    <meta property="og:title" content="SalióViaje | Vehículos" />
     <meta
       property="og:description"
       content="Plataforma que optimiza el traslado ocasional de personas."
@@ -71,7 +71,7 @@ if (!isset($_SESSION['usuario'])) {
     <meta property="twitter:url" content="https://www.salioviaje.com.uy/Vehiculos" />
     <meta
       property="twitter:title"
-      content="SalióViaje | Vehiculos"
+      content="SalióViaje | Vehículos"
     />
     <meta
       property="twitter:description"

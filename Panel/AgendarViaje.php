@@ -171,7 +171,7 @@ session_set_cookie_params($ttl);
                     <i class="fas fa-bus"></i>
                   </div>
                   <div class="vehicle-info">
-                    <h3>Información del Vehiculo</h3>
+                    <h3>Información del Vehículo</h3>
                     <p><i class="fas fa-car"></i> Hyundai</p>
                     <p><i class="fas fa-list"></i> H1 2001</p>
                     <p><i class="fas fa-users"></i> 12</p>
@@ -180,7 +180,7 @@ session_set_cookie_params($ttl);
                 </div>
 
                 <div class="empty-list">
-                  <p>No hay ningun vehiculo seleccionado.</p>
+                  <p>No hay ningun vehículo seleccionado.</p>
                 </div>
 
               </div>
@@ -189,7 +189,7 @@ session_set_cookie_params($ttl);
                 <div class="input" id="vehiculos">
                   <i class="fas fa-bus" id="icon"></i>
                   <select name="" id="vehiculos-select">
-                    <option value="0" selected disabled hidden>Seleccione un Vehiculo</option>
+                    <option value="0" selected disabled hidden>Seleccione un Vehículo</option>
                   </select>
                 </div>
 
