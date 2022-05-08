@@ -139,15 +139,15 @@ session_set_cookie_params($ttl);
             <h2><i class="fas fa-chart-line"></i> Cotizaciones</h2>
           </div>
           <div class="filters">
-            <!-- <div class="search">
+            <div class="search">
               <i class="fas fa-search"></i>
               <input
                 type="text"
                 placeholder="Buscar"
                 id="searchbar"
-                onkeyup="buscarUsuarios(3)"
+                onkeyup="buscarUsuarios(4)"
               />
-            </div> -->
+            </div>
 
             <!-- <div class="checkboxs">
 
@@ -175,7 +175,7 @@ session_set_cookie_params($ttl);
             </div> -->
           </div>
           <div class="table-overflow">
-            <table class="usuarios-table">
+            <table class="usuarios-table" id="search-table-cotizaciones">
               <thead>
                 <tr>
                   <th>ID <i class="fas fa-angle-down"></i></th>
@@ -216,7 +216,7 @@ session_set_cookie_params($ttl);
                           }
                         
                         ?></td>
-                        <td><?php echo $cotizaciones[$i]['FECHA_SALIDA'] ?></td>
+                        <td><?php echo str_replace("-","/",$cotizaciones[$i]['FECHA_SALIDA']); ?></td>
                         <td>
                           <?php
                           switch($cotizaciones[$i]['ESTADO']){
