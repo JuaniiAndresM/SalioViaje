@@ -972,7 +972,7 @@ class procedimientosBD
 
     public function traer_viajes_cotizando_panel_admin()
     {
-        $choferes = array();
+        $cotizaciones = array();
         $conn = $this->conexion();
         $query = "SELECT ID,DIRECCION_ORIGEN,BARRIO_ORIGEN,LOCALIDAD_ORIGEN,DIRECCION_DESTINO,BARRIO_DESTINO,LOCALIDAD_DESTINO,FECHA_SALIDA,ESTADO,HORA,CANTIDAD_PASAJEROS,MASCOTAS,TIPO FROM `cotizaciones` ORDER BY FECHA_SALIDA, HORA";
         $stmt = $conn->prepare($query);
