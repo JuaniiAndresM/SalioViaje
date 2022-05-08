@@ -151,16 +151,51 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                                                 <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Fecha de ida: </b>'.$fecha_salida.'</p>
                                                 <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Hora: </b>'.$datos_array["HORA_SALIDA"].'</p>
                                                 <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Origen: </b>'.$datos_array["LOCALIDAD_ORIGEN"].', '.$datos_array["BARRIO_ORIGEN"].'</p>
-                                                <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Destino o Punto de Interés: </b>'.$datos_array["BARRIO_DESTINO"].', '.$datos_array["PUNTO_DESTINO"].'</p>
+                                                <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Destino o Punto de Interés: </b>'.$datos_array["LOCALIDAD_DESTINO"].', '.$datos_array["BARRIO_DESTINO"].', '.$datos_array["LOCALIDAD_DESTINO"].'</p>
                                                 <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Cantidad de Pasajeros: </b>'.$datos_array["CANTIDAD_PASAJEROS_IDA"].'</p>';
+
+                                                if(isset($paradas_ida_array)){
+                                                    if(count($paradas_ida_array,true) > 0){
+                                                        $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Paradas (Ida): </b>';
+                                                    
+                                                        for($a = 0; $a < count($paradas_ida_array); $a++){
+                                                            if($paradas_ida_array[$a] != ""){
+                                                                if($a == (count($paradas_ida_array) - 1)){
+                                                                    $mail->Body .= $paradas_ida_array[$a] . '.';
+                                                                }else{
+                                                                    $mail->Body .= $paradas_ida_array[$a] . ', ';
+                                                                }
+                                                            }
+                                                        }
+                                                        $mail->Body .= '</p>';
+                                                    }
+                                                }
 
                                                 $mail->Body .= '
                                                 <h4 style="font-size: 16px; margin-top: 40px;">Datos de la Vuelta:</h4>
                                                 <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Fecha de vuelta: </b>'.$fecha_regreso.'</p>
                                                 <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Hora: </b>'.$datos_array["HORA_REGRESO"].'</p>
-                                                <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Origen o Punto de Interés: </b>'.$datos_array["BARRIO_ORIGEN"].', '.$datos_array["PUNTO_ORIGEN"].'</p>
-                                                <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Destino: </b>'.$datos_array["LOCALIDAD_DESTINO"].', '.$datos_array["BARRIO_DESTINO"].', '.$datos_array["DIRECCION_DESTINO"].'</p>
+                                                <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Origen o Punto de Interés: </b>'.$datos_array["DIRECCION_ORIGEN_VUELTA"].', '.$datos_array["BARRIO_ORIGEN_VUELTA"].'</p>
+                                                <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Destino: </b>'.$datos_array["LOCALIDAD_DESTINO_VUELTA"].', '.$datos_array["BARRIO_DESTINO_VUELTA"].', '.$datos_array["DIRECCION_DESTINO_VUELTA"].'</p>
                                                 <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Cantidad de Pasajeros: </b>'.$datos_array["CANTIDAD_PASAJEROS_VUELTA"].'</p>';
+
+                                                if(isset($paradas_vuelta_array)){
+                                                    if(count($paradas_vuelta_array,true) > 0){
+                                                        $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Paradas (Vuelta): </b>';
+                                                    
+                                                        for($a = 0; $a < count($paradas_vuelta_array); $a++){
+                                                            if($paradas_vuelta_array[$a] != ""){
+                                                                if($a == (count($paradas_vuelta_array) - 1)){
+                                                                    $mail->Body .= $paradas_vuelta_array[$a] . '.';
+                                                                }else{
+                                                                    $mail->Body .= $paradas_vuelta_array[$a] . ', ';
+                                                                }
+                                                            }
+                                                        }
+                                                        $mail->Body .= '</p>';
+                                                    }
+                                                }
+
                                             }else{
                                                 $mail->Body .= '
                                                 <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Fecha de Salida: </b>'.$fecha_salida.'</p>
@@ -195,39 +230,41 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                                             }
                                             
     
-                                            if(isset($paradas_ida_array) || isset($paradas_vuelta_array)){    
-
-                                                if(isset($paradas_ida_array)){
-                                                    if(count($paradas_ida_array,true) > 0){
-                                                        $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Paradas (Ida): </b>';
-                                                    
-                                                        for($a = 0; $a < count($paradas_ida_array); $a++){
-                                                            if($paradas_ida_array[$a] != ""){
-                                                                if($a == (count($paradas_ida_array) - 1)){
-                                                                    $mail->Body .= $paradas_ida_array[$a] . '.';
-                                                                }else{
-                                                                    $mail->Body .= $paradas_ida_array[$a] . ', ';
+                                            if(isset($paradas_ida_array) || isset($paradas_vuelta_array)){
+                                                
+                                                if($TIPO_VIAJE != "Fiesta o Evento - Ida y Vuelta"){
+                                                    if(isset($paradas_ida_array)){
+                                                        if(count($paradas_ida_array,true) > 0){
+                                                            $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Paradas (Ida): </b>';
+                                                        
+                                                            for($a = 0; $a < count($paradas_ida_array); $a++){
+                                                                if($paradas_ida_array[$a] != ""){
+                                                                    if($a == (count($paradas_ida_array) - 1)){
+                                                                        $mail->Body .= $paradas_ida_array[$a] . '.';
+                                                                    }else{
+                                                                        $mail->Body .= $paradas_ida_array[$a] . ', ';
+                                                                    }
                                                                 }
                                                             }
+                                                            $mail->Body .= '</p>';
                                                         }
-                                                        $mail->Body .= '</p>';
                                                     }
-                                                }
-    
-                                                if(isset($paradas_vuelta_array)){
-                                                    if(count($paradas_vuelta_array,true) > 0){
-                                                        $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Paradas (Vuelta): </b>';
-                                                    
-                                                        for($a = 0; $a < count($paradas_vuelta_array); $a++){
-                                                            if($paradas_vuelta_array[$a] != ""){
-                                                                if($a == (count($paradas_vuelta_array) - 1)){
-                                                                    $mail->Body .= $paradas_vuelta_array[$a] . '.';
-                                                                }else{
-                                                                    $mail->Body .= $paradas_vuelta_array[$a] . ', ';
+        
+                                                    if(isset($paradas_vuelta_array)){
+                                                        if(count($paradas_vuelta_array,true) > 0){
+                                                            $mail->Body .= '<p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Paradas (Vuelta): </b>';
+                                                        
+                                                            for($a = 0; $a < count($paradas_vuelta_array); $a++){
+                                                                if($paradas_vuelta_array[$a] != ""){
+                                                                    if($a == (count($paradas_vuelta_array) - 1)){
+                                                                        $mail->Body .= $paradas_vuelta_array[$a] . '.';
+                                                                    }else{
+                                                                        $mail->Body .= $paradas_vuelta_array[$a] . ', ';
+                                                                    }
                                                                 }
                                                             }
+                                                            $mail->Body .= '</p>';
                                                         }
-                                                        $mail->Body .= '</p>';
                                                     }
                                                 }
                                             }

@@ -572,7 +572,7 @@ session_start();
                 <div class="column">
 
                   <div class="input">
-                    <p><i class="far fa-calendar-alt"></i> Hora de pasar a buscar</p>
+                    <p><i class="far fa-calendar-alt"></i> Hora</p>
                     <input type="time" id="hora_transfer_in"/>
                   </div>
 

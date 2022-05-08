@@ -222,7 +222,7 @@
                     <p><i class="fas fa-calendar-days"></i> <b>Fecha de ida: </b>'.$fecha_salida.'</p>
                     <p><i class="fas fa-clock"></i> <b>Hora: </b>'.$cotizaciones[0]["HORA"].'</p>
                     <p><i class="fas fa-location-dot"></i> <b>Origen: </b>'.$cotizaciones[0]["LOCALIDAD_ORIGEN"].', '.$cotizaciones[0]["BARRIO_ORIGEN"].'</p>
-                    <p><i class="fas fa-route"></i> <b>Destino o Punto de Interés: </b>'.$cotizaciones[0]["BARRIO_DESTINO"].', '.$cotizaciones[0]["PUNTO_DESTINO"].'</p>
+                    <p><i class="fas fa-route"></i> <b>Destino o Punto de Interés: </b>'.$cotizaciones[0]["LOCALIDAD_DESTINO"].', '.$cotizaciones[0]["BARRIO_DESTINO"].', '.$cotizaciones[0]["DIRECCION_DESTINO"].'</p>
                     <p><i class="fas fa-people-group"></i> <b>Cantidad de Pasajeros: </b>'.$cotizaciones[0]["CANTIDAD_PASAJEROS"].'</p>';
 
                     if(isset($paradas)){
@@ -256,8 +256,8 @@
                     <h2><i class="fas fa-arrow-down"></i> Datos de la Vuelta:</h2>
                     <p><i class="fas fa-calendar-days"></i> <b>Fecha de vuelta: </b>'.$fecha_regreso.'</p>
                     <p><i class="fas fa-clock"></i> <b>Hora: </b>'.$cotizaciones[0]["HORA_REGRESO"].'</p>
-                    <p><i class="fas fa-location-dot"></i> <b>Origen o Punto de Interés: </b>'.$cotizaciones[0]["BARRIO_ORIGEN"].', '.$cotizaciones[0]["PUNTO_ORIGEN"].'</p>
-                    <p><i class="fas fa-route"></i> <b>Destino: </b>'.$cotizaciones[0]["LOCALIDAD_DESTINO"].', '.$cotizaciones[0]["BARRIO_DESTINO"].', '.$cotizaciones[0]["DIRECCION_DESTINO"].'</p>
+                    <p><i class="fas fa-location-dot"></i> <b>Origen o Punto de Interés: </b>'.$cotizaciones[0]["LOCALIDAD_ORIGEN_VUELTA"].', '.$cotizaciones[0]["BARRIO_ORIGEN_VUELTA"].'</p>
+                    <p><i class="fas fa-route"></i> <b>Destino: </b>'.$cotizaciones[0]["LOCALIDAD_DESTINO_VUELTA"].', '.$cotizaciones[0]["BARRIO_DESTINO_VUELTA"].', '.$cotizaciones[0]["DIRECCION_DESTINO_VUELTA"].'</p>
                     <p><i class="fas fa-people-group"></i> <b>Cantidad de Pasajeros: </b>'.$cotizaciones[0]["CANTIDAD_PASAJEROS"].'</p>';
 
                     if(isset($paradas)){
