@@ -782,30 +782,18 @@ function editar_vehiculo() {
             vehiculos[i]['CAPACIDAD'] = document.getElementById('capacidad_pasajeros').value;
             vehiculos[i]['EQUIPAJE'] = document.getElementById('capacidad_equipaje').value;
 
-            console.log(document.getElementById('capacidad_pasajeros').value);
-            console.log(vehiculos[i]['CAPACIDAD']);
-
             $.ajax({
                type: "POST",
                url: "/PHP/procedimientosForm.php",
                data: { tipo: "editar-vehiculos", id_vehiculo: ID_VEHICULO_EDITADO, datos: JSON.stringify(vehiculos[i]) },
                success: function (response) {
+                  console.log(response)
+                  if (response == 1) {
+                     console.log("ya existe un vehiculo con esa matricula...")
+                  }else{
+                     actualizar_vehiculos(vehiculos[i])
+                  }
                   $('.button-agregar').show();
-                  vehiculos.splice(i, 1)
-               },
-            });
-
-            $.ajax({
-               type: "POST",
-               url: "/PHP/Tablas/agregarVehiculo.php",
-               data: { datos: JSON.stringify(vehiculos[i]) },
-               success: function (response) {
-                  $('#' + matricula).remove();
-                  $('.vehiculos').append(response);
-                  $('#add-vehicle2').show();
-                  $('#guardar-cambios').hide();
-                  $(".eliminar_vehiculo").removeAttr('disabled', 'disabled');
-                  reset_vehicle_inputs();
                },
             });
          }else{
@@ -825,6 +813,22 @@ function editar_vehiculo() {
          }
       }
    }
+}
+
+function actualizar_vehiculos(vehiculos) {
+   $.ajax({
+      type: "POST",
+      url: "/PHP/Tablas/agregarVehiculo.php",
+      data: { datos: JSON.stringify(vehiculos) },
+      success: function (response) {
+         $('#' + matricula).remove();
+         $('.vehiculos').append(response);
+         $('#add-vehicle2').show();
+         $('#guardar-cambios').hide();
+         $(".eliminar_vehiculo").removeAttr('disabled', 'disabled');
+         reset_vehicle_inputs();
+      },
+   });
 }
 
 /*
