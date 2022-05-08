@@ -67,11 +67,15 @@ function buscarUsuarios(buscador) {
             break;
         case 2:
             table = document.getElementById("search-table-usuarios");
-            tdlength = 14;
+            tdlength = 12;
             break;
         case 3:
             table = document.getElementById("search-table-empresas");
             tdlength = 6;
+            break;
+        case 4:
+            table = document.getElementById("search-table-cotizaciones");
+            tdlength = 5;
             break;
     }
 
