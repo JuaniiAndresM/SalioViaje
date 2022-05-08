@@ -144,8 +144,11 @@ if ($_POST['tipo'] == 1) {
             break;
         case 'editar-vehiculos':
             $datos = json_decode($_POST["datos"], true);
-            
-            echo $procedimientosForm->editar_vehiculos($_POST['id_vehiculo'], $datos);
+            if ($procedimientosForm->existencia_matricula($datos['MATRICULA']) != 1) {
+                echo $procedimientosForm->editar_vehiculos($_POST['id_vehiculo'], $datos);
+            }else{
+                echo $procedimientosForm->existencia_matricula($datos['MATRICULA']);
+            }
             break;
         case 'id-empresas':
             session_start();
