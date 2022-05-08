@@ -796,11 +796,26 @@ session_start();
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-solid fa-house-building"></i> Barrio</p>
-                    <input list="Destino" id="fiestasida_origen_barrios">
-                    <datalist id="Destino">
-                      <option value="Canelones">
-                      <option value="Montevideo">
+                    <p><i class="fa fa-map-location-dot"></i> Barrio</p>
+                    <input list="Barrio" id="fiestasida_origen_barrios">
+                    <datalist id="Barrio">
+                      <option value="Barrio 1">
+                      <option value="Barrio 2">
+                      <option value="Barrio 3">
+                      <option value="Barrio 4">
+                      <option value="Barrio 5">
+                    </datalist>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fa-solid fa-globe"></i> Localidad</p>
+                    <input list="Localidad" id="fiestasida_origen_localidad">
+                    <datalist id="Localidad">
+                      <option value="Localidad 1">
+                      <option value="Localidad 2">
+                      <option value="Localidad 3">
+                      <option value="Localidad 4">
+                      <option value="Localidad 5">
                     </datalist>
                   </div>
 
@@ -835,11 +850,26 @@ session_start();
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-solid fa-house-building"></i> Barrio</p>
-                    <input list="Destino" id="fiestasvuelta_origen_barrios">
-                    <datalist id="Destino">
-                      <option value="Canelones">
-                      <option value="Montevideo">
+                    <p><i class="fa fa-map-location-dot"></i> Barrio</p>
+                    <input list="Barrio" id="fiestasvuelta_origen_barrios">
+                    <datalist id="Barrio">
+                      <option value="Barrio 1">
+                      <option value="Barrio 2">
+                      <option value="Barrio 3">
+                      <option value="Barrio 4">
+                      <option value="Barrio 5">
+                    </datalist>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fa-solid fa-globe"></i> Localidad</p>
+                    <input list="Localidad" id="fiestasvuelta_origen_localidad">
+                    <datalist id="Localidad">
+                      <option value="Localidad 1">
+                      <option value="Localidad 2">
+                      <option value="Localidad 3">
+                      <option value="Localidad 4">
+                      <option value="Localidad 5">
                     </datalist>
                   </div>
 
