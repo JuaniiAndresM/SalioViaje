@@ -77,6 +77,7 @@ $cotizaciones = json_decode($cotizaciones->traer_viajes_cotizando_panel_admin(),
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script src="https://www.salioviaje.com.uy/Javascript/web.js"></script>
+    <script src="https://www.salioviaje.com.uy/Javascript/cotizaciones.js"></script>
   </head>
   <body>
     <div id="header"></div>
@@ -120,7 +121,7 @@ $cotizaciones = json_decode($cotizaciones->traer_viajes_cotizando_panel_admin(),
           </div>
 
           <div class="button-filtrar">
-            <button onclick="filtros(1)"><i class="fas fa-sort-amount-down"></i> Filtrar</button>
+            <button onclick="filtros_cotizaciones()"><i class="fas fa-sort-amount-down"></i> Filtrar</button>
           </div>
         </div>
 
@@ -128,7 +129,7 @@ $cotizaciones = json_decode($cotizaciones->traer_viajes_cotizando_panel_admin(),
 
           <div class="input" id="destino">
             <i class="fas fa-location-dot" id="icon"></i>
-            <input list="Origen" id="origen_2" placeholder="Origen" />
+            <input list="Origen" id="origen_cotizacion" placeholder="Origen" onchange="filtrar()"  />
             <datalist id="Origen">
               <option value="Canelones"></option>
               <option value="Montevideo"></option>
@@ -140,7 +141,7 @@ $cotizaciones = json_decode($cotizaciones->traer_viajes_cotizando_panel_admin(),
 
           <div class="input" id="destino">
             <i class="fas fa-route" id="icon"></i>
-            <input list="Destino" id="destino_2" placeholder="Destino">
+            <input list="Destino" id="destino_cotizacion" placeholder="Destino" onchange="filtrar()" >
             <datalist id="Destino">
               <option value="Canelones">
               <option value="Montevideo">
@@ -152,7 +153,7 @@ $cotizaciones = json_decode($cotizaciones->traer_viajes_cotizando_panel_admin(),
 
           <div class="input" id="origen">
             <i class="far fa-calendar-alt" id="icon"></i>
-            <input type="date" id="fecha_2" placeholder="Fecha y Hora" />
+            <input type="date" id="fecha_cotizacion" placeholder="Fecha y Hora" onchange="filtrar()" />
           </div>
 
         </div>
@@ -165,7 +166,7 @@ $cotizaciones = json_decode($cotizaciones->traer_viajes_cotizando_panel_admin(),
         <div class="Cotizaciones-list">
           <?php
 if ($cotizaciones != null) {
-    for ($i = count($cotizaciones); $i > 0; $i--) {
+    for ($i = 0; $i < count($cotizaciones); $i++) {
         //print_r(json_encode($cotizaciones[$i])."\n");
 
         switch($cotizaciones[$i]['TIPO']){
@@ -243,11 +244,15 @@ if ($cotizaciones[$i]['MASCOTAS'] == 2) {
 
   <div class="button-wrapper">
       <?php
-      if($_SESSION['tipo_usuario'] == "Transportista" || $_SESSION['tipo_usuario'] == "Administrador"){
-        ?>
-        <button class="comprar-button" type="submit" onclick='location.href="https://docs.google.com/forms/d/e/1FAIpQLSeQtd-s1ngnM-F-HbLYHhIOSW1_L0GiUZKoVoiXdnWWV5nsBg/viewform"'><i class="fas fa-chart-line"></i> Cotizar</button>
-        <?php
+      session_start();
+      if(isset($_SESSION['usuario'])){
+        if($_SESSION['tipo_usuario'] == "Transportista" || $_SESSION['tipo_usuario'] == "Administrador"){
+          ?>
+          <button class="comprar-button" type="submit" onclick='location.href="https://docs.google.com/forms/d/e/1FAIpQLSeQtd-s1ngnM-F-HbLYHhIOSW1_L0GiUZKoVoiXdnWWV5nsBg/viewform"'><i class="fas fa-chart-line"></i> Cotizar</button>
+          <?php
+        }
       }
+      
       ?>
 
       <button onclick="location.href = '/Cotizacion/' + <?php echo $cotizaciones[$i]['ID']; ?>;"><i class="fas fa-info"></i> Detalles</button>

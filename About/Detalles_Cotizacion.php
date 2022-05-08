@@ -197,7 +197,7 @@
                     echo '
                     <p><i class="fas fa-calendar-days"></i> <b>Fecha del Partida: </b>'.$fecha_salida.'</p>
                     <p><i class="fas fa-clock"></i> <b>Hora para pasar a buscar: </b>'.$cotizaciones[0]["HORA"].'</p>
-                    <p><i class="fas fa-ticket"></i> <b>Número del Vuelo / Barco: </b>'.$cotizaciones[0]["NRO_VUELO_BARCO"].'</p>
+                    <p><i class="fas fa-ticket"></i> <b>Número del Vuelo / Barco: </b>'.$cotizaciones[0]["NRO_BARCO_VUELO"].'</p>
                     <p><i class="fas fa-people-group"></i> <b>Cantidad de Pasajeros: </b>'.$cotizaciones[0]["CANTIDAD_PASAJEROS"].'</p>
                     <p><i class="fas fa-briefcase"></i> <b>Cantidad de Equipaje: </b>'.$cotizaciones[0]["EQUIPAJE"].'</p>';
                 }else if($TIPO_VIAJE == "Fiesta o Evento - Ida"){
@@ -225,6 +225,33 @@
                     <p><i class="fas fa-route"></i> <b>Destino o Punto de Interés: </b>'.$cotizaciones[0]["BARRIO_DESTINO"].', '.$cotizaciones[0]["PUNTO_DESTINO"].'</p>
                     <p><i class="fas fa-people-group"></i> <b>Cantidad de Pasajeros: </b>'.$cotizaciones[0]["CANTIDAD_PASAJEROS"].'</p>';
 
+                    if(isset($paradas)){
+                      $paradas_ida_array = array();
+
+                      for($a = 0; $a < count($paradas); $a++){
+                        if($paradas[$a]['TRAMO'] == "ida"){
+                          array_push($paradas_ida_array, $paradas[$a]['CONTENIDO']);
+                        }
+                      }
+
+                      if(count($paradas_ida_array) > 0){
+                        echo '<p><i class="fas fa-flag"></i> <b>Paradas (Ida): </b>';
+                    
+                        for($a = 0; $a < count($paradas_ida_array); $a++){
+                            if($paradas_ida_array[$a] != ""){
+                                if($a == (count($paradas_ida_array) - 1)){
+                                  echo $paradas_ida_array[$a] . '.';
+                                }else{
+                                  echo $paradas_ida_array[$a] . ', ';
+                                }
+                            }
+                        }
+                        echo '</p>';
+                      }
+                    }else{
+                      echo '<p><i class="fas fa-flag"></i> <b>Paradas (Ida): No hay paradas.</b>';
+                    }
+
                     echo '
                     <h2><i class="fas fa-arrow-down"></i> Datos de la Vuelta:</h2>
                     <p><i class="fas fa-calendar-days"></i> <b>Fecha de vuelta: </b>'.$fecha_regreso.'</p>
@@ -232,6 +259,35 @@
                     <p><i class="fas fa-location-dot"></i> <b>Origen o Punto de Interés: </b>'.$cotizaciones[0]["BARRIO_ORIGEN"].', '.$cotizaciones[0]["PUNTO_ORIGEN"].'</p>
                     <p><i class="fas fa-route"></i> <b>Destino: </b>'.$cotizaciones[0]["LOCALIDAD_DESTINO"].', '.$cotizaciones[0]["BARRIO_DESTINO"].', '.$cotizaciones[0]["DIRECCION_DESTINO"].'</p>
                     <p><i class="fas fa-people-group"></i> <b>Cantidad de Pasajeros: </b>'.$cotizaciones[0]["CANTIDAD_PASAJEROS"].'</p>';
+
+                    if(isset($paradas)){
+                      $paradas_vuelta_array = array();
+
+                      for($a = 0; $a < count($paradas); $a++){
+                        if($paradas[$a]['TRAMO'] == "vuelta"){
+                          array_push($paradas_vuelta_array, $paradas[$a]['CONTENIDO']);
+                        }
+                      }
+
+                      if(count($paradas_vuelta_array) > 0){
+                        echo '<p><i class="fas fa-flag"></i> <b>Paradas (Vuelta): </b>';
+                    
+                        for($a = 0; $a < count($paradas_vuelta_array); $a++){
+                            if($paradas_vuelta_array[$a] != ""){
+                                if($a == (count($paradas_vuelta_array) - 1)){
+                                  echo $paradas_vuelta_array[$a] . '.';
+                                }else{
+                                  echo $paradas_vuelta_array[$a] . ', ';
+                                }
+                            }
+                        }
+                        echo '</p>';
+                      }
+                    }else{
+                      echo '<p><i class="fas fa-flag"></i> <b>Paradas (Vuelta): No hay paradas.</b>';
+                    }
+
+                    
                 }else{
                     echo '
                     <p><i class="fas fa-calendar-days"></i> <b>Fecha de Salida: </b>'.$fecha_salida.'</p>
@@ -265,7 +321,7 @@
                     echo '<p><i class="fas fa-route"></i> <b>Destino o Punto de Interés: </b>'.$cotizaciones[0]["LOCALIDAD_DESTINO"].', '.$cotizaciones[0]["BARRIO_DESTINO"].', '.$cotizaciones[0]["DIRECCION_DESTINO"].'</p>';
                 }
 
-                if(isset($paradas)){
+                if(isset($paradas) && $TIPO_VIAJE != "Fiesta o Evento - Ida y Vuelta"){
                     $paradas_ida_array = array();
                     $paradas_vuelta_array = array();
 
@@ -306,7 +362,7 @@
                       }
                       echo '</p>';
                     }
-                }else{
+                }else if(!isset($paradas) && $TIPO_VIAJE != "Fiesta o Evento - Ida y Vuelta"){
                   echo '<h2><i class="fas fa-flag"></i> Paradas:</h2>
                         <p>No hay paradas.</p>';
                 }
@@ -318,22 +374,24 @@
                     }
                 }else{
                   echo '<h2><i class="fas fa-comment-dots"></i> Observaciones:</h2>
-                        <p>Ninguna</p>';
+                        <p>No</p>';
                 }
                 if(isset($cotizaciones[0]['MASCOTAS'])){
                     echo '<h2><i class="fas fa-dog"></i> Mascotas:</h2>';
                     if($cotizaciones[0]['MASCOTAS'] == "Con mascota"){
-                      echo '<p>Admitidas</p>';
+                      echo '<p>Con Mascota</p>';
                     }else{
-                      echo '<p>No Admitidas</p>';
+                      echo '<p>No</p>';
                     }
                 }
-                echo '<h2><i class="fas fa-id-card"></i> Información del Solicitante:</h2>
-                <p><i class="fas fa-user"></i> <b>Nombre del Solicitante: </b>'.$solicitante[0]['NOMBRE'].''.$solicitante[0]['APELLIDO'].'</p>
-                <p><i class="fas fa-phone"></i> <b>Teléfono: </b><a href="tel:0'.$solicitante[0]['TELEFONO'].'">0'.$solicitante[0]['TELEFONO'].'</a></p>
-                <p><i class="fas fa-envelope"></i> <b>Mail: </b><a href="mailto:'.$solicitante[0]['EMAIL'].'">'.$solicitante[0]['EMAIL'].'</a></p>
-                <p><i class="fas fa-map-location-dot"></i> <b>Dirección: </b>'.$solicitante[0]['DEPARTAMENTO'].', '.$solicitante[0]['BARRIO'].'</p>';
-              ?>
+                if($_SESSION['tipo_usuario'] == "Administrador"){
+                  echo '<h2><i class="fas fa-id-card"></i> Información del Solicitante:</h2>
+                  <p><i class="fas fa-user"></i> <b>Nombre del Solicitante: </b>'.$solicitante[0]['NOMBRE'].''.$solicitante[0]['APELLIDO'].'</p>
+                  <p><i class="fas fa-phone"></i> <b>Teléfono: </b><a href="tel:0'.$solicitante[0]['TELEFONO'].'">0'.$solicitante[0]['TELEFONO'].'</a></p>
+                  <p><i class="fas fa-envelope"></i> <b>Mail: </b><a href="mailto:'.$solicitante[0]['EMAIL'].'">'.$solicitante[0]['EMAIL'].'</a></p>
+                  <p><i class="fas fa-map-location-dot"></i> <b>Dirección: </b>'.$solicitante[0]['DEPARTAMENTO'].', '.$solicitante[0]['BARRIO'].'</p>';  
+                }
+                ?>
             </div>
           </div>
         </div>

@@ -19,8 +19,6 @@ $(document).ready(function () {
     $("#picada").on('click', function () {
         window.location.href = "https://www.salioviaje.com.uy/Viajar/?opcion=1"
     });
-
-    
     
 });
 
@@ -168,7 +166,9 @@ function finalizar(enviar_solicitud) {
             } else {
                 console.log("No valido");
             }
-            vaciar_paradas()
+            setTimeout(() => {
+                vaciar_paradas()
+            }, 1100);
             break;
 
         /* 
@@ -230,7 +230,6 @@ function finalizar(enviar_solicitud) {
                     } else {
                         console.log("No valido");
                     }
-
                     break;
 
                 case "2":
@@ -286,7 +285,9 @@ function finalizar(enviar_solicitud) {
                     }
                     break;
             }
-            vaciar_paradas()
+            setTimeout(() => {
+                vaciar_paradas()
+            }, 1100);
             break;
 
         /* 
@@ -349,7 +350,6 @@ function finalizar(enviar_solicitud) {
                     } else {
                         console.log("No valido")
                     }
-
                     break;
                 case "2":
                     fiestas = "Solo Vuelta";
@@ -403,7 +403,6 @@ function finalizar(enviar_solicitud) {
                     } else {
                         console.log("No valido");
                     }
-
                     break;
                 case "3":
                     fiestas = "Ida y Vuelta";
@@ -478,7 +477,9 @@ function finalizar(enviar_solicitud) {
                     }
                     break;
             }
-            vaciar_paradas()
+            setTimeout(() => {
+                vaciar_paradas()
+            }, 1100);
             break;
     }
 }
@@ -594,6 +595,7 @@ function steps(step) {
     $("#paradas_vuelta").hide();
 
     $(".mensaje-error").css('color', '#ff635a');
+    var paradas_div = document.getElementById("Cotizacion");
 
     switch (step) {
         
@@ -608,6 +610,8 @@ function steps(step) {
             break;
 
         case 2:
+            paradas_div.scrollIntoView();
+
             if ($(".session-input").val() != "") {
                 viaje = $(".session-input").val();
             } else {
@@ -650,7 +654,8 @@ function steps(step) {
             break;
 
         case 3:
-
+            paradas_div.scrollIntoView();
+            
             $('.loader_step3').hide();
 
             if ($("#select_users").val() == "4") {
@@ -681,10 +686,12 @@ function steps(step) {
             break;
 
         case 4:
+            paradas_div.scrollIntoView();
             $(".step_4").show();
             $(".progress-bar").hide();
             break;
         case 5:
+            paradas_div.scrollIntoView();
             $(".step_5").show();
             $(".progress-bar").hide();
             break;
