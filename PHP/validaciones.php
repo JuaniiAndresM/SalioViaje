@@ -632,11 +632,6 @@ class validaciones
                             $VALIDACION['DIRECCION_ORIGEN'] = 1;
                         } else { $VALIDACION['DIRECCION_ORIGEN'] = 0;}
                         break;
-                    case 'BARRIO_ORIGEN':
-                        if ($valor != null) {
-                            $VALIDACION['BARRIO_ORIGEN'] = 1;
-                        } else { $VALIDACION['BARRIO_ORIGEN'] = 0;}
-                        break;
                     case 'LOCALIDAD_ORIGEN':
                         if ($valor != null) {
                             $VALIDACION['LOCALIDAD_ORIGEN'] = 1;
@@ -646,11 +641,6 @@ class validaciones
                         if ($valor != null) {
                             $VALIDACION['DIRECCION_DESTINO'] = 1;
                         } else { $VALIDACION['DIRECCION_DESTINO'] = 0;}
-                        break;
-                    case 'BARRIO_DESTINO':
-                        if ($valor != null) {
-                            $VALIDACION['BARRIO_DESTINO'] = 1;
-                        } else { $VALIDACION['BARRIO_DESTINO'] = 0;}
                         break;
                     case 'LOCALIDAD_DESTINO':
                         if ($valor != null) {
@@ -676,7 +666,7 @@ class validaciones
             }
         }
 
-        if (count($VALIDACION) != 10) {
+        if (count($VALIDACION) != 8) {
             $DATOS_VACIOS = "Err-1";
         }
 
@@ -710,11 +700,6 @@ class validaciones
                         if ($valor != null) {
                             $VALIDACION['DIRECCION_SALIDA_TOUR'] = 1;
                         } else { $VALIDACION['DIRECCION_SALIDA_TOUR'] = 0;}
-                        break;
-                    case 'BARRIO_TOUR':
-                        if ($valor != null) {
-                            $VALIDACION['BARRIO_TOUR'] = 1;
-                        } else { $VALIDACION['BARRIO_TOUR'] = 0;}
                         break;
                     case 'LOCALIDAD_TOUR':
                         if ($valor != null) {
@@ -750,7 +735,7 @@ class validaciones
             }
         }
 
-        if (count($VALIDACION) != 9) {
+        if (count($VALIDACION) != 8) {
             $DATOS_VACIOS = "Err-1";
         }
 
@@ -800,11 +785,6 @@ class validaciones
                             $VALIDACION['DIRECCION_DESTINO'] = 1;
                         } else { $VALIDACION['DIRECCION_DESTINO'] = 0;}
                         break;
-                    case 'BARRIO_DESTINO':
-                        if ($valor != null) {
-                            $VALIDACION['BARRIO_DESTINO'] = 1;
-                        } else { $VALIDACION['BARRIO_DESTINO'] = 0;}
-                        break;
                     case 'LOCALIDAD_DESTINO':
                         if ($valor != null) {
                             $VALIDACION['LOCALIDAD_DESTINO'] = 1;
@@ -829,7 +809,7 @@ class validaciones
             }
         }
 
-        if (count($VALIDACION) != 10) {
+        if (count($VALIDACION) != 9) {
             $DATOS_VACIOS = "Err-1";
         }
 
@@ -879,11 +859,6 @@ class validaciones
                             $VALIDACION['DIRECCION_ORIGEN'] = 1;
                         } else { $VALIDACION['DIRECCION_ORIGEN'] = 0;}
                         break;
-                    case 'BARRIO_ORIGEN':
-                        if ($valor != null) {
-                            $VALIDACION['BARRIO_ORIGEN'] = 1;
-                        } else { $VALIDACION['BARRIO_ORIGEN'] = 0;}
-                        break;
                     case 'LOCALIDAD_ORIGEN':
                         if ($valor != null) {
                             $VALIDACION['LOCALIDAD_ORIGEN'] = 1;
@@ -908,7 +883,7 @@ class validaciones
             }
         }
 
-        if (count($VALIDACION) != 10) {
+        if (count($VALIDACION) != 9) {
             $DATOS_VACIOS = "Err-1";
         }
 
@@ -948,11 +923,6 @@ class validaciones
                             $VALIDACION['DIRECCION_ORIGEN'] = 1;
                         } else { $VALIDACION['DIRECCION_ORIGEN'] = 0;}
                         break;
-                    case 'BARRIO_ORIGEN':
-                        if ($valor != null) {
-                            $VALIDACION['BARRIO_ORIGEN'] = 1;
-                        } else { $VALIDACION['BARRIO_ORIGEN'] = 0;}
-                        break;
                     case 'LOCALIDAD_ORIGEN':
                         if ($valor != null) {
                             $VALIDACION['LOCALIDAD_ORIGEN'] = 1;
@@ -962,11 +932,6 @@ class validaciones
                         if ($valor != null) {
                             $VALIDACION['PUNTO_DESTINO'] = 1;
                         } else { $VALIDACION['PUNTO_DESTINO'] = 0;}
-                        break;
-                    case 'BARRIO_DESTINO':
-                        if ($valor != null) {
-                            $VALIDACION['BARRIO_DESTINO'] = 1;
-                        } else { $VALIDACION['BARRIO_DESTINO'] = 0;}
                         break;
                     case 'CANTIDAD_PASAJEROS_IDA':
                         if ($valor != null) {
@@ -982,7 +947,7 @@ class validaciones
             }
         }
 
-        if (count($VALIDACION) != 9) {
+        if (count($VALIDACION) != 7) {
             $DATOS_VACIOS = "Err-1";
         }
 
@@ -1022,11 +987,6 @@ class validaciones
                             $VALIDACION['DIRECCION_DESTINO'] = 1;
                         } else { $VALIDACION['DIRECCION_DESTINO'] = 0;}
                         break;
-                    case 'BARRIO_DESTINO':
-                        if ($valor != null) {
-                            $VALIDACION['BARRIO_DESTINO'] = 1;
-                        } else { $VALIDACION['BARRIO_DESTINO'] = 0;}
-                        break;
                     case 'LOCALIDAD_DESTINO':
                         if ($valor != null) {
                             $VALIDACION['LOCALIDAD_DESTINO'] = 1;
@@ -1036,11 +996,6 @@ class validaciones
                         if ($valor != null) {
                             $VALIDACION['PUNTO_ORIGEN'] = 1;
                         } else { $VALIDACION['PUNTO_ORIGEN'] = 0;}
-                        break;
-                    case 'BARRIO_ORIGEN':
-                        if ($valor != null) {
-                            $VALIDACION['BARRIO_ORIGEN'] = 1;
-                        } else { $VALIDACION['BARRIO_ORIGEN'] = 0;}
                         break;
                     case 'CANTIDAD_PASAJEROS_VUELTA':
                         if ($valor != null) {
@@ -1056,7 +1011,7 @@ class validaciones
             }
         }
 
-        if (count($VALIDACION) != 9) {
+        if (count($VALIDACION) != 7) {
             $DATOS_VACIOS = "Err-1";
         }
 
@@ -1095,11 +1050,6 @@ class validaciones
                             $VALIDACION['DIRECCION_ORIGEN'] = 1;
                         } else { $VALIDACION['DIRECCION_ORIGEN'] = 0;}
                         break;
-                    case 'BARRIO_ORIGEN':
-                        if ($valor != null) {
-                            $VALIDACION['BARRIO_ORIGEN'] = 1;
-                        } else { $VALIDACION['BARRIO_ORIGEN'] = 0;}
-                        break;
                     case 'LOCALIDAD_ORIGEN':
                         if ($valor != null) {
                             $VALIDACION['LOCALIDAD_ORIGEN'] = 1;
@@ -1109,11 +1059,6 @@ class validaciones
                         if ($valor != null) {
                             $VALIDACION['DIRECCION_DESTINO'] = 1;
                         } else { $VALIDACION['DIRECCION_DESTINO'] = 0;}
-                        break;
-                    case 'BARRIO_DESTINO':
-                        if ($valor != null) {
-                            $VALIDACION['BARRIO_DESTINO'] = 1;
-                        } else { $VALIDACION['BARRIO_DESTINO'] = 0;}
                         break;
                     case 'LOCALIDAD_DESTINO':
                         if ($valor != null) {
@@ -1140,11 +1085,6 @@ class validaciones
                             $VALIDACION['DIRECCION_ORIGEN_VUELTA'] = 1;
                         } else { $VALIDACION['DIRECCION_ORIGEN_VUELTA'] = 0;}
                         break;
-                    case 'BARRIO_ORIGEN_VUELTA':
-                        if ($valor != null) {
-                            $VALIDACION['BARRIO_ORIGEN_VUELTA'] = 1;
-                        } else { $VALIDACION['BARRIO_ORIGEN_VUELTA'] = 0;}
-                        break;
                     case 'LOCALIDAD_ORIGEN_VUELTA':
                         if ($valor != null) {
                             $VALIDACION['LOCALIDAD_ORIGEN_VUELTA'] = 1;
@@ -1154,11 +1094,6 @@ class validaciones
                         if ($valor != null) {
                             $VALIDACION['DIRECCION_DESTINO_VUELTA'] = 1;
                         } else { $VALIDACION['DIRECCION_DESTINO_VUELTA'] = 0;}
-                        break;
-                    case 'BARRIO_DESTINO_VUELTA':
-                        if ($valor != null) {
-                            $VALIDACION['BARRIO_DESTINO_VUELTA'] = 1;
-                        } else { $VALIDACION['BARRIO_DESTINO_VUELTA'] = 0;}
                         break;
                     case 'LOCALIDAD_DESTINO_VUELTA':
                         if ($valor != null) {
@@ -1179,7 +1114,7 @@ class validaciones
             }
         }
 
-        if (count($VALIDACION) != 19) {
+        if (count($VALIDACION) != 15) {
             $DATOS_VACIOS = "Err-1";
         }
 

@@ -222,7 +222,7 @@ function steps(step) {
          break;
 
       case 4:
-         
+
          $('.progress').css('width', '100%');
 
          $('.circle1').css('background-color', '#2b3179');
@@ -234,23 +234,23 @@ function steps(step) {
 
          switch (user) {
             case "5":
-               if($('#existe-hotel').val() == 1){
+               if ($('#existe-hotel').val() == 1) {
                   $('#step_hotel_si').show();
-               }else{
+               } else {
                   $('#step_hotel_no').show();
-               }               
+               }
 
                $('.progress-bar').show();
                $('.progress-bar2').hide();
-               
+
                $('.mensaje-error').hide();
                break;
-            
+
             default:
                $('#step_4').show();
                $('.vehiculos-wrapper').show();
                break;
-         }         
+         }
          break;
 
       case 5:
@@ -534,7 +534,7 @@ function register_form(opcion) {
                   $.ajax({
                      type: "POST",
                      url: "/PHP/procedimientosForm.php",
-                     data: { tipo: '5',idUsuario: ID_USUARIO,datos:JSON.stringify(datos_Hotel)},
+                     data: { tipo: '5', idUsuario: ID_USUARIO, datos: JSON.stringify(datos_Hotel) },
                      success: function (response) {
                         console.log(response)
                         window.location = "https://www.salioviaje.com.uy/Success";
@@ -774,21 +774,10 @@ function editar_vehiculo() {
          vehiculos[i]['CAPACIDAD_PASAJEROS'] = document.getElementById('capacidad_pasajeros').value;
          vehiculos[i]['CAPACIDAD_EQUIPAJE'] = document.getElementById('capacidad_equipaje').value;
          vehiculos[i]['PET_FRIENDLY'] = document.getElementById('pet_friendly').value;
-         $.ajax({
-            type: "POST",
-            url: "/PHP/Tablas/agregarVehiculo.php",
-            data: { datos: JSON.stringify(vehiculos[i]) },
-            success: function (response) {
-               $('#' + matricula).remove();
-               $('.vehiculos').append(response);
-               $('#add-vehicle2').show();
-               $('#guardar-cambios').hide();
-               $(".eliminar_vehiculo").removeAttr('disabled', 'disabled');
-               reset_vehicle_inputs();
-            },
-         });
 
          var Location = location.toString();
+
+
          if (Location.includes('Profile/Empresa/Editar')) {
             vehiculos[i]['CAPACIDAD'] = document.getElementById('capacidad_pasajeros').value;
             vehiculos[i]['EQUIPAJE'] = document.getElementById('capacidad_equipaje').value;
@@ -802,6 +791,7 @@ function editar_vehiculo() {
                data: { tipo: "editar-vehiculos", id_vehiculo: ID_VEHICULO_EDITADO, datos: JSON.stringify(vehiculos[i]) },
                success: function (response) {
                   $('.button-agregar').show();
+                  vehiculos.splice(i, 1)
                },
             });
 
@@ -818,8 +808,21 @@ function editar_vehiculo() {
                   reset_vehicle_inputs();
                },
             });
+         }else{
+            $.ajax({
+               type: "POST",
+               url: "/PHP/Tablas/agregarVehiculo.php",
+               data: { datos: JSON.stringify(vehiculos[i]) },
+               success: function (response) {
+                  $('#' + matricula).remove();
+                  $('.vehiculos').append(response);
+                  $('#add-vehicle2').show();
+                  $('#guardar-cambios').hide();
+                  $(".eliminar_vehiculo").removeAttr('disabled', 'disabled');
+                  reset_vehicle_inputs();
+               },
+            });
          }
-
       }
    }
 }

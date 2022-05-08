@@ -74,14 +74,11 @@ class procedimientosForm extends procedimientosBD
 
     public function guardar_vehiculos($vehiculos, $rut, $id_emp, $rut_agencia_contratista)
     {
-        echo json_encode($vehiculos);
         echo $rut;
-        for ($x = 0; $x < count($vehiculos); $x++) {
-            if ($rut_agencia_contratista != null) {
-                $this->register_vehiculo($rut, $rut_agencia_contratista, $vehiculos[$x], $id_emp, $rut_agencia_contratista);
-            } else {
-                $this->register_vehiculo($rut, 0, $vehiculos[$x], $id_emp, $rut_agencia_contratista);
-            }
+        if ($rut_agencia_contratista != null) {
+            $this->register_vehiculo($rut, $rut_agencia_contratista, $vehiculos, $id_emp, $rut_agencia_contratista);
+        } else {
+            $this->register_vehiculo($rut, 0, $vehiculos, $id_emp, $rut_agencia_contratista);
         }
     }
 
@@ -139,10 +136,15 @@ if ($_POST['tipo'] == 1) {
             break;
         case 'guardar-vehiculos':
             $datos = json_decode($_POST["vehiculos"], true);
-            echo $procedimientosForm->guardar_vehiculos($datos, $_POST['rut'], $_POST['id_empresa'], $_POST['rut_empresa_contratista']);
+            for ($i = 0; $i < count($datos); $i++) {
+                if ($procedimientosForm->existencia_matricula($datos[$i]['MATRICULA']) != 1) {
+                    echo $procedimientosForm->guardar_vehiculos($datos[$i], $_POST['rut'], $_POST['id_empresa'], $_POST['rut_empresa_contratista']);
+                }
+            }
             break;
         case 'editar-vehiculos':
             $datos = json_decode($_POST["datos"], true);
+            
             echo $procedimientosForm->editar_vehiculos($_POST['id_vehiculo'], $datos);
             break;
         case 'id-empresas':
@@ -161,7 +163,7 @@ if ($_POST['tipo'] == 1) {
         case 'agregar_cotizacion':
             session_start();
             $id_solicitante = $_SESSION['datos_usuario']['ID'];
-            $id_cotizacion = $procedimientosForm->agregar_cotizacion($_POST['datos'], $_POST['tipo_cotizacion'],$id_solicitante)['ID'];
+            $id_cotizacion = $procedimientosForm->agregar_cotizacion($_POST['datos'], $_POST['tipo_cotizacion'], $id_solicitante)['ID'];
             $paradas_ida = json_decode($_POST['PARADAS_IDA'], true);
             $paradas_vuelta = json_decode($_POST['PARADAS_VUELTA'], true);
             if ($_POST['PARADAS_VUELTA'] != "0" && $_POST['PARADAS_IDA'] == "0") {

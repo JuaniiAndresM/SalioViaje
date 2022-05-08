@@ -1057,4 +1057,20 @@ class procedimientosBD
         return json_encode($regiones);
     }
 
+    public function existencia_matricula($matr)
+    {
+        //SELECT Matricula FROM `vehiculos` WHERE Matricula = $matr
+        $conn = $this->conexion();
+        $query = "SELECT 1 FROM `vehiculos` WHERE `Matricula` = '$matr'";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($existencia);
+            while ($stmt->fetch()) {
+                $result = $existencia;
+            }
+        }
+        $stmt->close();
+        return $existencia;
+    }
 }
