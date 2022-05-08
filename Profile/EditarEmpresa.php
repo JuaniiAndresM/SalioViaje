@@ -285,7 +285,7 @@ if (!isset($_SESSION['usuario'])) {
                     <option value="2">Si</option>
                     </select>
                 </div>
-
+                <p id="mensaje-error-vehiculos" class="mensaje-error"></p>
                 <div class="button-wrapper">
                     <button class="button-agregar" onclick="add_vehicle()"><i class="fas fa-plus"></i> Agregar Vehículo</button>
                     <button class="button-register" id="guardar-cambios" onclick="editar_vehiculo()"><i class="fas fa-car-side"></i> Guardar Cambios</button>
@@ -306,7 +306,6 @@ if (!isset($_SESSION['usuario'])) {
                       }
                       echo '
                     </div>
-                    <p id="mensaje-error-vehiculos" class="mensaje-error"></p>
                     <button class="save-button" id="finalizar_empresa_2" onclick="guardar_cambios_vehiculos_panel('.$usuario[0]['RUT'].','.$usuario[0]['ID'].','.$datos_usuario[0]['AGENCIA_CONTRATISTA'].')"><i class="fas fa-save"></i> Guardar Cambios</button>
 
                 </div>
