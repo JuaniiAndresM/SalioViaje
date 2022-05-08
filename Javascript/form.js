@@ -790,6 +790,7 @@ function editar_vehiculo() {
                   console.log(response)
                   if (response == 1) {
                      console.log("ya existe un vehiculo con esa matricula...")
+                     $('#guardar-cambios').hide();
                   }else{
                      actualizar_vehiculos(vehiculos[i])
                   }
