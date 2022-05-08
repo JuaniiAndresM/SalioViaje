@@ -791,6 +791,7 @@ function editar_vehiculo() {
                   if (response == 1) {
                      console.log("ya existe un vehiculo con esa matricula...")
                      $('#guardar-cambios').hide();
+                     $('#mensaje-error-vehiculos').show();
                   }else{
                      actualizar_vehiculos(vehiculos[i])
                   }
