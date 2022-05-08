@@ -236,7 +236,7 @@ session_start();
         </div>
       </section>
 
-      <section class="salioviaje">
+      <section class="salioviaje" id="Cotizacion">
         <h2>
           Solicitar una Cotización
         </h2>
@@ -1180,8 +1180,6 @@ session_start();
         </div>
       </section>
     </div>
-
-    <div id="Cotizacion"></div>
     
     <script>
           if (localStorage.getItem("origen") == 1) {
