@@ -11,21 +11,22 @@ function cambiar_estado_cotizacion_panel_admin(id_cotizacion) {
      });
 }
 
-// function filtros_cotizaciones(){
-//    $('#filters').toggle('');
-//    $(".filter-wrapper").toggleClass("filtrar");
+function filtros_cotizaciones(){
+   $('#filters').toggle('');
 
-//    if($(".filter-wrapper").hasClass("filtrar")){
-//       filtrar();
-//    }
-// }
+   // $(".filter-wrapper").toggleClass("filtrar");
+
+   // if($(".filter-wrapper").hasClass("filtrar")){
+   //    filtrar();
+   // }
+}
 
 function filtrar(){
    var origen = $("#origen_cotizacion").val();
    var destino = $("#destino_cotizacion").val();
    var fecha = $("#fecha_cotizacion").val();
 
-   console.log("Origen: " + origen + " Destino: " + destino + " Fecha: " + fecha);
+   // console.log("Origen: " + origen + " Destino: " + destino + " Fecha: " + fecha);
 
    var cards = document.getElementsByClassName("Cotizaciones").length;
 

@@ -121,7 +121,7 @@ $cotizaciones = json_decode($cotizaciones->traer_viajes_cotizando_panel_admin(),
           </div>
 
           <div class="button-filtrar">
-            <button><i class="fas fa-sort-amount-down"></i> Filtrar</button>
+            <button onclick="filtros_cotizaciones()"><i class="fas fa-sort-amount-down"></i> Filtrar</button>
           </div>
         </div>
 
@@ -129,7 +129,7 @@ $cotizaciones = json_decode($cotizaciones->traer_viajes_cotizando_panel_admin(),
 
           <div class="input" id="destino">
             <i class="fas fa-location-dot" id="icon"></i>
-            <input list="Origen" id="origen_cotizacion" placeholder="Origen" onchange="filtrar()"  />
+            <input list="Origen" id="origen_cotizacion" placeholder="Origen" onkeyup="filtrar()"  />
             <datalist id="Origen">
               <option value="Canelones"></option>
               <option value="Montevideo"></option>
@@ -141,7 +141,7 @@ $cotizaciones = json_decode($cotizaciones->traer_viajes_cotizando_panel_admin(),
 
           <div class="input" id="destino">
             <i class="fas fa-route" id="icon"></i>
-            <input list="Destino" id="destino_cotizacion" placeholder="Destino" onchange="filtrar()" >
+            <input list="Destino" id="destino_cotizacion" placeholder="Destino" onkeyup="filtrar()" >
             <datalist id="Destino">
               <option value="Canelones">
               <option value="Montevideo">
