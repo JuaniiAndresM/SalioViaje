@@ -201,7 +201,7 @@ if ($cotizaciones != null) {
 
         if ($cotizaciones[$i]['ESTADO'] == "cotizando") {
             
-          echo '<div class="Cotizaciones" data-value="'.$cotizaciones[$i]["LOCALIDAD_ORIGEN"].'-'.$cotizaciones[$i]["BARRIO_ORIGEN"].'-'.$cotizaciones[$i]["LOCALIDAD_DESTINO"].'-'.$cotizaciones[$i]["BARRIO_DESTINO"].'-'.$cotizaciones[$i]["DIRECCION_DESTINO"].'-'.$cotizaciones[$i]["FECHA_SALIDA"].'">';
+          echo '<div class="Cotizaciones" id="'.$cotizaciones[$i]['ID'].'" data-value="'.$cotizaciones[$i]["LOCALIDAD_ORIGEN"].'-'.$cotizaciones[$i]["BARRIO_ORIGEN"].'-'.$cotizaciones[$i]["LOCALIDAD_DESTINO"].'-'.$cotizaciones[$i]["BARRIO_DESTINO"].'-'.$cotizaciones[$i]["DIRECCION_DESTINO"].'-'.$cotizaciones[$i]["FECHA_SALIDA"].'">';
         ?>
 
 <div class="Cotizaciones-left">
