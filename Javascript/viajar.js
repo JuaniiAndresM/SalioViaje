@@ -998,3 +998,48 @@ function reset_errores() {
     $('#tipo-select_1').css('border-bottom', '1px solid #aaaaaa')
     $('#tipo-select_2').css('border-bottom', '1px solid #aaaaaa')
 }
+
+function rellenar(input){
+    switch(input){
+        // Autorellanar Origen
+
+        case "Direccion_Origen":
+            var direccion_origen = $("#direccion_ida_origen_fiestas_idavuelta").val();
+            $("#direccion_vuelta_destino_fiestas_idavuelta").val(direccion_origen);
+            break;
+
+        case "Barrio_Origen":
+            var barrio_origen = $("#barrio_ida_origen_fiestas_idavuelta").val();
+            $("#barrio_vuelta_destino_fiestas_idavuelta").val(barrio_origen);
+            break;
+
+        case "Localidad_Origen":
+            var localidad_origen = $("#localidad_ida_origen_fiestas_idavuelta").val();
+            $("#localidad_vuelta_destino_fiestas_idavuelta").val(localidad_origen);
+            break;
+
+        // Autorellanar Destino
+
+        case "Direccion_Destino":
+            var direccion_destino = $("#direccion_ida_destino_fiestas_idavuelta").val();
+            $("#direccion_vuelta_origen_fiestas_idavuelta").val(direccion_destino);
+            break;
+    
+        case "Barrio_Destino":
+            var barrio_destino = $("#barrio_ida_destino_fiestas_idavuelta").val();
+            $("#barrio_vuelta_origen_fiestas_idavuelta").val(barrio_destino);
+            break;
+
+        case "Localidad_Destino":
+            var localidad_destino = $("#localidad_ida_destino_fiestas_idavuelta").val();
+            $("#localidad_vuelta_origen_fiestas_idavuelta").val(localidad_destino);
+            break;
+
+        case "Cantidad_Pasajeros":
+            var cantidad_pasajeros = $("#cant_pasajeros_ida_fiestas_idavuelta").val();
+            $("#cant_pasajeros_vuelta_fiestas_idavuelta").val(cantidad_pasajeros);
+            break;
+
+    }
+
+}

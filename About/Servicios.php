@@ -129,7 +129,7 @@ $cotizaciones = json_decode($cotizaciones->traer_viajes_cotizando_panel_admin(),
 
           <div class="input" id="destino">
             <i class="fas fa-location-dot" id="icon"></i>
-            <input list="Origen" id="origen_cotizacion" placeholder="Origen" onchange="filtrar()"  />
+            <input list="Origen" id="origen_cotizacion" placeholder="Origen" onkeyup="filtrar()"  />
             <datalist id="Origen">
               <option value="Canelones"></option>
               <option value="Montevideo"></option>
@@ -141,7 +141,7 @@ $cotizaciones = json_decode($cotizaciones->traer_viajes_cotizando_panel_admin(),
 
           <div class="input" id="destino">
             <i class="fas fa-route" id="icon"></i>
-            <input list="Destino" id="destino_cotizacion" placeholder="Destino" onchange="filtrar()" >
+            <input list="Destino" id="destino_cotizacion" placeholder="Destino" onkeyup="filtrar()" >
             <datalist id="Destino">
               <option value="Canelones">
               <option value="Montevideo">
@@ -199,9 +199,10 @@ if ($cotizaciones != null) {
             break;
         }
 
-        if ($cotizaciones[$i]['ESTADO'] == "cotizando") {
-            ?>
-                        <div class="Cotizaciones">
+        if ($cotizaciones[$i]['ESTADO'] == "1") {
+            
+          echo '<div class="Cotizaciones" id="'.$cotizaciones[$i]['ID'].'" data-value="'.$cotizaciones[$i]["LOCALIDAD_ORIGEN"].','.$cotizaciones[$i]["BARRIO_ORIGEN"].','.$cotizaciones[$i]["LOCALIDAD_DESTINO"].','.$cotizaciones[$i]["BARRIO_DESTINO"].','.$cotizaciones[$i]["DIRECCION_DESTINO"].','.$cotizaciones[$i]["FECHA_SALIDA"].'">';
+        ?>
 
 <div class="Cotizaciones-left">
   <div class="discount">
