@@ -214,3 +214,15 @@ Stack trace:
 [26-Apr-2022 15:34:56 America/Chicago] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
 [26-Apr-2022 15:34:56 America/Chicago] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
 [26-Apr-2022 15:34:56 America/Chicago] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 179
+[02-May-2022 11:20:58 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function traer_datos_vehiculo() on null in /home/salioviajeuy/public_html/Panel/Vehiculos.php:178
+Stack trace:
+#0 {main}
+  thrown in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 178
+[02-May-2022 21:15:00 America/Chicago] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Editar_Cotizacion.php on line 190
+[03-May-2022 11:41:41 America/Chicago] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/salioviajeuy/public_html/Panel/Editar_Cotizacion.php on line 190
+[08-May-2022 17:55:17 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function traer_datos_vehiculo() on null in /home/salioviajeuy/public_html/Panel/Vehiculos.php:178
+Stack trace:
+#0 {main}
+  thrown in /home/salioviajeuy/public_html/Panel/Vehiculos.php on line 178
+[08-May-2022 22:06:10 America/Chicago] PHP Parse error:  syntax error, unexpected 'break' (T_BREAK), expecting ';' or ',' in /home/salioviajeuy/public_html/Panel/Editar_Cotizacion.php on line 273
+[08-May-2022 22:06:14 America/Chicago] PHP Parse error:  syntax error, unexpected 'break' (T_BREAK), expecting ';' or ',' in /home/salioviajeuy/public_html/Panel/Editar_Cotizacion.php on line 273

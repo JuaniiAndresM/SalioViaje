@@ -269,7 +269,7 @@ session_set_cookie_params($ttl);
                               break;
                               
                               case "4":
-                                echo '<p>'.$cotizaciones[$i]['ESTADO'].'</p>'
+                                echo '<p>'.$cotizaciones[$i]['ESTADO'].'</p>';
                                 break;
                           }
                           ?>
