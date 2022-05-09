@@ -32,7 +32,7 @@ function filtrar(){
    var cards = document.getElementsByClassName("Cotizaciones").length;
 
    for(var a = 0; a < (cards - 1); a++){
-      console.log($('[data-value="Fecha'+cards+'"]').text()); 
+      console.log($('[data-value="Fecha'+cards+'"]').text());
    }
 
 }

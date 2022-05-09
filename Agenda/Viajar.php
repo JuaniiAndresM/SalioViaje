@@ -956,12 +956,12 @@ session_start();
 
                     <div class="input">
                       <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
-                      <input type="text" id="direccion_ida_origen_fiestas_idavuelta"/>
+                      <input type="text" id="direccion_ida_origen_fiestas_idavuelta" onchange="rellenar('Direccion_Origen')"/>
                     </div>
 
                     <div class="input">
                       <p><i class="fa fa-map-location-dot"></i> Barrio</p>
-                      <input list="Barrio" id="barrio_ida_origen_fiestas_idavuelta">
+                      <input list="Barrio" id="barrio_ida_origen_fiestas_idavuelta" onchange="rellenar('Barrio_Origen')">
                       <datalist id="Barrio">
                         <option value="Barrio 1">
                         <option value="Barrio 2">
@@ -973,7 +973,7 @@ session_start();
 
                     <div class="input">
                       <p><i class="fa-solid fa-globe"></i> Localidad</p>
-                      <input list="Localidad" id="localidad_ida_origen_fiestas_idavuelta">
+                      <input list="Localidad" id="localidad_ida_origen_fiestas_idavuelta" onchange="rellenar('Localidad_Origen')">
                       <datalist id="Localidad">
                         <option value="Localidad 1">
                         <option value="Localidad 2">
@@ -992,12 +992,12 @@ session_start();
 
                     <div class="input">
                       <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
-                      <input type="text" id="direccion_ida_destino_fiestas_idavuelta"/>
+                      <input type="text" id="direccion_ida_destino_fiestas_idavuelta" onchange="rellenar('Direccion_Destino')"/>
                     </div>
 
                     <div class="input">
                       <p><i class="fa fa-map-location-dot"></i> Barrio</p>
-                      <input list="Barrio" id="barrio_ida_destino_fiestas_idavuelta">
+                      <input list="Barrio" id="barrio_ida_destino_fiestas_idavuelta" onchange="rellenar('Barrio_Destino')">
                       <datalist id="Barrio">
                         <option value="Barrio 1">
                         <option value="Barrio 2">
@@ -1009,7 +1009,7 @@ session_start();
 
                     <div class="input">
                       <p><i class="fa-solid fa-globe"></i> Localidad</p>
-                      <input list="Localidad" id="localidad_ida_destino_fiestas_idavuelta">
+                      <input list="Localidad" id="localidad_ida_destino_fiestas_idavuelta" onchange="rellenar('Localidad_Destino')">
                       <datalist id="Localidad">
                         <option value="Localidad 1">
                         <option value="Localidad 2">
