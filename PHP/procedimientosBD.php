@@ -1095,7 +1095,7 @@ class procedimientosBD
     {
         $id = array($id);
         $conn = $this->conexion();
-        $query = "SELECT ID FROM `cotizaciones`;";
+        $query = "SELECT ID FROM `cotizaciones` WHERE ESTADO = '1';";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
