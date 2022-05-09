@@ -66,7 +66,7 @@ session_set_cookie_params($ttl);
                     if(isset($_SESSION['usuario'])){
                         echo '  <div class="usuario">
                                     <h3>'.$_SESSION["usuario"].'</h3>
-                                    <p><i class="fas fa-bus"></i> Transportista</p>
+                                    <p><i class="fas fa-bus"></i> '.$_SESSION['tipo_usuario'].'</p>
                                 </div>';
                     }
 

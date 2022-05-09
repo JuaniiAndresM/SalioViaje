@@ -22,12 +22,20 @@ $(document).ready(function () {
     
 });
 
+function abrirFormularioCotizacion(){
+    window.location.href = "https://www.salioviaje.com.uy/Viajar/?opcion=5"
+    timeoutformulario(5);  
+}
+
 function timeoutformulario(opcion){
     setTimeout(() => {
         if(opcion != ""){
             window.location.hash = "Cotizacion";
             desplegar(document.getElementById("agendar"), $(".session-output").val());
-            select_usuario();
+            if(opcion != 5){
+                select_usuario();
+            }
+            
         }
     }, 1000);
 }
@@ -614,10 +622,11 @@ function steps(step) {
         case 2:
             paradas_div.scrollIntoView();
 
-            if ($(".session-input").val() != "") {
+            if ($(".session-input").val() != "" && $(".session-input").val() != "5") {
                 viaje = $(".session-input").val();
             } else {
                 viaje = $("#select_users").val();
+                console.log(viaje);
             }
             //
             console.log(viaje)
@@ -709,10 +718,9 @@ function select_usuario() {
 
     console.log("Opción: " + $("#select_users").val());
 
-    if ($(".session-input").val() != "") {
+    if ($(".session-input").val() != "" && $(".session-input").val() != 5) {
         console.log("---------");
         let opcion_input = $(".session-input").val();
-        console.log(opcion_input)
         $("#select_users").val(opcion_input);
         viaje = opcion_input;
         next();
@@ -734,6 +742,9 @@ function desplegar(button, session) {
     } else {
         button.classList.toggle("active");
         button.nextElementSibling.classList.toggle("show");
+
+        var paradas_div = document.getElementById("Cotizacion");
+        paradas_div.scrollIntoView();
     }
 }
 
