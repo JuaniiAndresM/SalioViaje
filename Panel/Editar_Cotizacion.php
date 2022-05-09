@@ -149,30 +149,18 @@ session_set_cookie_params($ttl);
               />
             </div>
 
-            <!-- <div class="checkboxs">
+            <div class="checkboxs">
 
               <div class="checkbox">
-                <input type="checkbox" name="" id="tta" checked />
-                <p>TTA</p>
+                <input type="checkbox" name="" id="Cotizando" checked />
+                <p>Cotizando</p>
               </div>
               <div class="checkbox">
-                <input type="checkbox" name="" id="cho" checked />
-                <p>CHO</p>
-              </div>
-              <div class="checkbox">
-                <input type="checkbox" name="" id="agt" checked />
-                <p>AGT</p>
-              </div>
-              <div class="checkbox">
-                <input type="checkbox" name="" id="anf" checked />
-                <p>ANF</p>
-              </div>
-              <div class="checkbox">
-                <input type="checkbox" name="" id="htl" checked />
-                <p>HTL</p>
+                <input type="checkbox" name="" id="Cotizado" checked />
+                <p>Cotizado</p>
               </div>
 
-            </div> -->
+            </div>
           </div>
           <div class="table-overflow">
             <table class="usuarios-table" id="search-table-cotizaciones">
@@ -189,8 +177,9 @@ session_set_cookie_params($ttl);
                   <?php
                   if(isset($cotizaciones)){
                     for ($i=0; $i < count($cotizaciones); $i++) {
+                      
+                      echo '<tr class="'.$cotizaciones[$i]['ESTADO'].'">';
                       ?>
-                      <tr>
                         <td><?php echo $cotizaciones[$i]['ID'] ?></td>
                         <td><?php 
                           

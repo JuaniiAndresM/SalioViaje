@@ -494,6 +494,8 @@ function filtros() {
         if (!$("#htl").prop("checked")) { $(".HTL").hide() } else { $(".HTL").show() }
         if (!$("#agt").prop("checked")) { $(".AGT").hide() } else { $(".AGT").show() }
         if (!$("#ase").prop("checked")) { $(".ASE").hide() } else { $(".ASE").show() }
+        if (!$("#Cotizando").prop("checked")) { $(".1").hide() } else { $(".1").show() }
+        if (!$("#Cotizado").prop("checked")) { $(".2").hide() } else { $(".2").show() }
         //if(!$("#").prop("checked")){ console.log("Oculto") }else{ console.log("Muestro") }
     });
 }
