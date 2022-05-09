@@ -30,7 +30,7 @@ session_set_cookie_params($ttl);
     />
 
     <meta name="author" content="Daniel Schlebinger" />
-
+    <meta name="robots" content="noindex,nofollow"/>
     <meta
       name="description"
       content="Plataforma que optimiza el traslado ocasional de personas."
