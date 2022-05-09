@@ -442,7 +442,7 @@ function finalizar(enviar_solicitud) {
                     };
 
                     if (validacion('FIESTA-IDA-VUELTA', datos_fiestaseventos_idavuelta)) {
-                        if (verificar_fechas(datos_fiestaseventos_idavuelta['FECHA_SALIDA'], datos_fiestaseventos_idavuelta['FECHA_REGRESO'], 1,datos_fiestaseventos_idavuelta['HORA_SALIDA'])) {
+                        if (verificar_fechas(datos_fiestaseventos_idavuelta['FECHA_SALIDA'], datos_fiestaseventos_idavuelta['FECHA_REGRESO'], 1,datos_fiestaseventos_idavuelta['HORA_SALIDA'],datos_fiestaseventos_idavuelta['HORA_REGRESO'])) {
                             next();
                             if (enviar_solicitud == 1) {
                                 guardar_cotizacion(datos_fiestaseventos_idavuelta,array_paradas_1,array_paradas_2,"fiestasIdaVuelta");
@@ -495,11 +495,13 @@ function guardar_cotizacion(datos_cotizacion,paradas_ida,paradas_vuelta,tipo) {
     });
 }
 
-function verificar_fechas(fecha1, fecha2, evento, hora_salida) {
+function verificar_fechas(fecha1, fecha2, evento, hora_salida,hora_vuelta) {
 
-    if (fecha2 != null) {
+    console.log(hora_vuelta);
+    if (fecha2 != null && hora_vuelta != null) {
+        var hora_vuelta = hora_vuelta.split(":")
         var fecha2 = fecha2.split("-")
-        var fecha2 = new Date(fecha2[0],fecha2[1],fecha2[2],hora_salida[0],hora_salida[1])
+        var fecha2 = new Date(fecha2[0],fecha2[1],fecha2[2],hora_vuelta[0],hora_vuelta[1])
     }
     var fecha1 = fecha1.split("-")
     var hora_salida = hora_salida.split(":")
@@ -515,7 +517,7 @@ function verificar_fechas(fecha1, fecha2, evento, hora_salida) {
     var fecha_actual = new Date(yyyy,mm,dd,hh,min)
 
     if (evento == 1) {
-        if (fecha1 < fecha2 && fecha1 >= fecha_actual && fecha2 > fecha_actual) {
+        if (fecha1 <= fecha2 && fecha1 >= fecha_actual && fecha2 > fecha_actual) {
             return true
         } else { return false }
     } else {
