@@ -17,8 +17,6 @@ function filtros_cotizaciones(){
 
    if($(".filter-wrapper").hasClass("filtrar")){
       filtrar();
-   }else{
-      eliminar_filtros();
    }
 }
 
@@ -31,14 +29,9 @@ function filtrar(){
 
    var cards = document.getElementsByClassName("Cotizaciones").length;
 
-   for(var a = 0; a < (cards - 1); a++){
-      console.log($('[data-value="Fecha'+cards+'"]').text());
-   }
-
 }
 
 function eliminar_filtros(){
-   console.log("Hola");
    $("#origen_cotizacion").val("")
    $("#destino_cotizacion").val("")
    $("#fecha_cotizacion").val("")
