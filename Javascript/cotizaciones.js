@@ -11,14 +11,14 @@ function cambiar_estado_cotizacion_panel_admin(id_cotizacion) {
      });
 }
 
-function filtros_cotizaciones(){
-   $('#filters').toggle('');
-   $(".filter-wrapper").toggleClass("filtrar");
+// function filtros_cotizaciones(){
+//    $('#filters').toggle('');
+//    $(".filter-wrapper").toggleClass("filtrar");
 
-   if($(".filter-wrapper").hasClass("filtrar")){
-      filtrar();
-   }
-}
+//    if($(".filter-wrapper").hasClass("filtrar")){
+//       filtrar();
+//    }
+// }
 
 function filtrar(){
    var origen = $("#origen_cotizacion").val();

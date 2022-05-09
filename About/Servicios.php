@@ -121,7 +121,7 @@ $cotizaciones = json_decode($cotizaciones->traer_viajes_cotizando_panel_admin(),
           </div>
 
           <div class="button-filtrar">
-            <button onclick="filtros_cotizaciones()"><i class="fas fa-sort-amount-down"></i> Filtrar</button>
+            <button><i class="fas fa-sort-amount-down"></i> Filtrar</button>
           </div>
         </div>
 
