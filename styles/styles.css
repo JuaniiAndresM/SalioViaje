@@ -169,7 +169,7 @@
 }
 
 .servicios .servicios-wrapper .card {
-  max-width: 300px;
+  max-width: 280px;
   width: 100%;
   min-height: 470px;
   background: linear-gradient(45deg, #3844bc, #2b3179);
@@ -872,14 +872,14 @@
           transform: rotate(180deg);
 }
 
-@media screen and (max-width: 1550px) {
+@media screen and (max-width: 1100px) {
   .landing .landing-wrapper-grid .landing-right .landing-img-wrapper img {
     -o-object-position: right;
        object-position: right;
   }
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1100px) {
   .landing {
     max-height: 600px;
     overflow: hidden;
@@ -924,7 +924,7 @@
   }
 }
 
-@media screen and (max-width: 1226px) {
+@media screen and (max-width: 1100px) {
   .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel:nth-child(4) {
     display: none;
   }
@@ -1289,7 +1289,7 @@ header .header-wrapper .header-right #links-mobile .links-wrapper button:hover {
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1100px) {
   header .header-wrapper .header-right .header-links .links {
     display: none;
   }
@@ -1597,7 +1597,7 @@ header_2 .header_2-wrapper .header_2-right #links-mobile .links-wrapper button:h
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1100px) {
   header_2 .header_2-wrapper .header_2-right .header_2-links .links {
     display: none;
   }
@@ -6543,7 +6543,7 @@ footer .totum p a:hover {
   margin-right: 5px;
 }
 
-@media screen and (max-width: 1260px) {
+@media screen and (max-width: 1100px) {
   .register .register-wrapper .vehiculos-wrapper {
     position: relative;
     right: 0;
@@ -10916,7 +10916,7 @@ footer .totum p a:hover {
   max-height: max-content;
 }
 
-@media screen and (max-width: 1197px) {
+@media screen and (max-width: 1100px) {
   .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel:nth-child(4) {
     display: none;
   }
@@ -15315,7 +15315,7 @@ footer .totum p a:hover {
   margin-right: 5px;
 }
 
-@media screen and (max-width: 1320px) {
+@media screen and (max-width: 1100px) {
   .crear_empresa-wrapper .vehiculos-wrapper {
     position: relative;
     right: 0;
