@@ -1023,7 +1023,7 @@ session_start();
 
                   <div class="input">
                     <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p>
-                    <input type="number" id="cant_pasajeros_ida_fiestas_idavuelta"/>
+                    <input type="number" id="cant_pasajeros_ida_fiestas_idavuelta" onchange="rellenar('Cantidad_Pasajeros')"/>
                   </div>
 
                   <div class="input">

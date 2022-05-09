@@ -1010,12 +1010,12 @@ function rellenar(input){
 
         case "Barrio_Origen":
             var barrio_origen = $("#barrio_ida_origen_fiestas_idavuelta").val();
-            $("#barrio_vuelta_destino_fiestas_idavuelta").val(barrio);
+            $("#barrio_vuelta_destino_fiestas_idavuelta").val(barrio_origen);
             break;
 
         case "Localidad_Origen":
             var localidad_origen = $("#localidad_ida_origen_fiestas_idavuelta").val();
-            $("#localidad_vuelta_destino_fiestas_idavuelta").val(localidad);
+            $("#localidad_vuelta_destino_fiestas_idavuelta").val(localidad_origen);
             break;
 
         // Autorellanar Destino
@@ -1033,6 +1033,11 @@ function rellenar(input){
         case "Localidad_Destino":
             var localidad_destino = $("#localidad_ida_destino_fiestas_idavuelta").val();
             $("#localidad_vuelta_origen_fiestas_idavuelta").val(localidad_destino);
+            break;
+
+        case "Cantidad_Pasajeros":
+            var cantidad_pasajeros = $("#cant_pasajeros_ida_fiestas_idavuelta").val();
+            $("#cant_pasajeros_vuelta_fiestas_idavuelta").val(cantidad_pasajeros);
             break;
 
     }
