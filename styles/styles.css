@@ -13055,6 +13055,12 @@ footer .totum p a:hover {
           transform: scale(1.2);
 }
 
+.profile-wrapper .profile-grid .viajes-wrapper .password-change .mensaje-error, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .mensaje-error {
+  color: #ff635a;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
 .profile-wrapper .profile-grid .viajes-wrapper .password-change .button-wrapper, .profile-wrapper .profile-grid .viajes-wrapper .agregar-vehicle .button-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
