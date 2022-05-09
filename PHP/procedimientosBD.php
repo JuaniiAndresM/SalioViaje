@@ -1073,4 +1073,38 @@ class procedimientosBD
         $stmt->close();
         return $existencia;
     }
+
+    public function existencia_matricula_por_id($matr,$id)
+    {
+        //SELECT Matricula FROM `vehiculos` WHERE Matricula = $matr
+        $conn = $this->conexion();
+        $query = "SELECT 1 FROM `vehiculos` WHERE `Matricula` = '$matr' AND `ID` != $id";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($existencia);
+            while ($stmt->fetch()) {
+                $result = $existencia;
+            }
+        }
+        $stmt->close();
+        return $existencia;
+    }
+
+    public function traer_id_viajes_cotizando()
+    {
+        $id = array($id);
+        $conn = $this->conexion();
+        $query = "SELECT ID FROM `cotizaciones`;";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($id_cotizacion);
+            while ($stmt->fetch()) {
+                $id[] = $id_cotizacion;
+            }
+        }
+        $stmt->close();
+        return json_encode($id);
+    }
 }

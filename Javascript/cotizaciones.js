@@ -1,3 +1,16 @@
+let id_cotizaciones;
+$(document).ready(function () {
+   $.ajax({
+      type: "POST",
+      url: "/PHP/procedimientosForm.php",
+      data: {tipo:"traer_id_cotizaciones"},
+      success: function (response) {
+         id_cotizaciones = JSON.parse(response)
+      }
+   });
+});
+
+
 function cambiar_estado_cotizacion_panel_admin(id_cotizacion) {
     console.log("Cotizacion ID: "+id_cotizacion+" Nuevo estado: "+$("#estado-cotizacion-" + id_cotizacion).val())
     let estado = $("#estado-cotizacion-" + id_cotizacion).val()
@@ -30,6 +43,14 @@ function filtrar(){
    console.log("Origen: " + origen + " Destino: " + destino + " Fecha: " + fecha);
 
    var cards = document.getElementsByClassName("Cotizaciones").length;
+
+   
+
+   for (let i = 0; i < id_cotizaciones.length; i++) {
+      if (id_cotizaciones[i] != null) {
+         console.log($("#"+id_cotizaciones[i]).data('value'))
+      }
+   }
 
    for(var a = 0; a < (cards - 1); a++){
       console.log($('[data-value="Fecha'+cards+'"]').text()); 

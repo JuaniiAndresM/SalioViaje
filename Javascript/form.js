@@ -787,15 +787,15 @@ function editar_vehiculo() {
                url: "/PHP/procedimientosForm.php",
                data: { tipo: "editar-vehiculos", id_vehiculo: ID_VEHICULO_EDITADO, datos: JSON.stringify(vehiculos[i]) },
                success: function (response) {
-                  console.log(response)
-                  if (response == 1) {
-                     console.log("ya existe un vehiculo con esa matricula...")
-                     $('#guardar-cambios').hide();
-                     $('#mensaje-error-vehiculos').show();
-                  }else{
-                     actualizar_vehiculos(vehiculos[i])
-                  }
-                  $('.button-agregar').show();
+                     if (response == 1) {
+                        console.log("ya existe un vehiculo con esa matricula...")
+                        $('#guardar-cambios').hide();
+                        $('#mensaje-error-vehiculos').show();
+                     }else{
+                        actualizar_vehiculos(vehiculos[i])
+                        location.reload()
+                     }
+                     $('.button-agregar').show();
                },
             });
          }else{

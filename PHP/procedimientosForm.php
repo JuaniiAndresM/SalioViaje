@@ -144,7 +144,7 @@ if ($_POST['tipo'] == 1) {
             break;
         case 'editar-vehiculos':
             $datos = json_decode($_POST["datos"], true);
-            if ($procedimientosForm->existencia_matricula($datos['MATRICULA']) != 1) {
+            if ($procedimientosForm->existencia_matricula_por_id($datos['MATRICULA'],$_POST['id_vehiculo']) != 1) {
                 echo $procedimientosForm->editar_vehiculos($_POST['id_vehiculo'], $datos);
             }else{
                 echo $procedimientosForm->existencia_matricula($datos['MATRICULA']);
@@ -189,6 +189,9 @@ if ($_POST['tipo'] == 1) {
         case 'cambio_estado_cotizacion':
             $procedimientosForm->cambiar_estado_cotizacion($_POST['idCotizacion'], $_POST['estado']);
             break;
+        case 'traer_id_cotizaciones':
+            echo $procedimientosForm->traer_id_viajes_cotizando();
+        break;
     }
 
 }
