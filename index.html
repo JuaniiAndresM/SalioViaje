@@ -76,6 +76,16 @@
 
     <script src="Javascript/web.js"></script>
     <script src="Javascript/viajar.js"></script>
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
+    <script>
+      var OneSignal = window.OneSignal || [];
+      OneSignal.push(function() {
+        OneSignal.init({
+          appId: "e851ce3f-65f4-4745-976e-781b3c36d150",
+        });
+      });
+      
+    </script>
   </head>
   <body>
     <div id="pre-loader">
