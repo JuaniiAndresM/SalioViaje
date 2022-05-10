@@ -19,7 +19,7 @@ $cotizaciones = json_decode($cotizaciones->traer_viajes_cotizando_panel_admin(),
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
 
-    <meta name="author" content="TotumDev" />
+    <meta name="author" content="Daniel Schlebinger" />
 
     <meta
       name="description"
@@ -111,13 +111,6 @@ $cotizaciones = json_decode($cotizaciones->traer_viajes_cotizando_panel_admin(),
 
         <div class="filter-wrapper">
           <div class="search">
-            <i class="fas fa-search"></i>
-            <input
-              type="text"
-              placeholder="Buscar"
-              id="searchbar"
-              onkeyup="buscarOportunidades()"
-            />
           </div>
 
           <div class="button-filtrar">
@@ -156,11 +149,13 @@ $cotizaciones = json_decode($cotizaciones->traer_viajes_cotizando_panel_admin(),
             <input type="date" id="fecha_cotizacion" placeholder="Fecha y Hora" onchange="filtrar()" />
           </div>
 
+          <button onclick="eliminar_filtros()"><i class="fas fa-arrows-rotate"></i></button>
+
         </div>
 
 
         <div class="list-empty-cotizacion">
-          <p>Lo sentimos, de momento no hay cotizaciones disponibles.</p>
+          <p>Lo sentimos, no hay cotizaciones disponibles.</p>
         </div>
 
         <div class="Cotizaciones-list">

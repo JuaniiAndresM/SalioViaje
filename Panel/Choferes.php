@@ -26,8 +26,8 @@ session_set_cookie_params($ttl);
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
-
-    <meta name="author" content="TotumDev" />
+    <meta name="robots" content="noindex,nofollow"/>
+    <meta name="author" content="Daniel Schlebinger" />
 
     <meta
       name="description"

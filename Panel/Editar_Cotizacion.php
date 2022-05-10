@@ -14,7 +14,9 @@ session_set_cookie_params($ttl);
 
   $cotizaciones = new procedimientosBD();
 
+  $usuarios = $cotizaciones->datos_usuarios();
   $cotizaciones = json_decode($cotizaciones->traer_viajes_cotizando_panel_admin(),true);
+
 
 ?>
 
@@ -31,8 +33,8 @@ session_set_cookie_params($ttl);
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
-
-    <meta name="author" content="TotumDev" />
+    <meta name="robots" content="noindex,nofollow"/>
+    <meta name="author" content="Daniel Schlebinger" />
 
     <meta
       name="description"
@@ -149,30 +151,18 @@ session_set_cookie_params($ttl);
               />
             </div>
 
-            <!-- <div class="checkboxs">
+            <div class="checkboxs">
 
               <div class="checkbox">
-                <input type="checkbox" name="" id="tta" checked />
-                <p>TTA</p>
+                <input type="checkbox" name="" id="Cotizando" checked />
+                <p>Cotizando</p>
               </div>
               <div class="checkbox">
-                <input type="checkbox" name="" id="cho" checked />
-                <p>CHO</p>
-              </div>
-              <div class="checkbox">
-                <input type="checkbox" name="" id="agt" checked />
-                <p>AGT</p>
-              </div>
-              <div class="checkbox">
-                <input type="checkbox" name="" id="anf" checked />
-                <p>ANF</p>
-              </div>
-              <div class="checkbox">
-                <input type="checkbox" name="" id="htl" checked />
-                <p>HTL</p>
+                <input type="checkbox" name="" id="Cotizado" checked />
+                <p>Cotizado</p>
               </div>
 
-            </div> -->
+            </div>
           </div>
           <div class="table-overflow">
             <table class="usuarios-table" id="search-table-cotizaciones">
@@ -183,14 +173,16 @@ session_set_cookie_params($ttl);
                   <th>Destino <i class="fas fa-angle-down"></i></th>
                   <th>Fecha <i class="fas fa-angle-down"></i></th>
                   <th>Estado <i class="fas fa-angle-down"></i></th>
+                  <th>Responsable ( <i class="fas fa-hammer"></i> ) <i class="fas fa-angle-down"></i></th>
                 </tr>
               </thead>
               <tbody id="tbody">
                   <?php
                   if(isset($cotizaciones)){
                     for ($i=0; $i < count($cotizaciones); $i++) {
+                      
+                      echo '<tr class="'.$cotizaciones[$i]['ESTADO'].'">';
                       ?>
-                      <tr>
                         <td><?php echo $cotizaciones[$i]['ID'] ?></td>
                         <td><?php 
                           
@@ -274,6 +266,21 @@ session_set_cookie_params($ttl);
                           }
                           ?>
 
+                        </td>
+                        <td>
+                          <select id="tta-responsable">
+                          <option value="0" selected>Sin Asignar</option>
+
+                          <?php
+                            for($a = 0; $a < count($usuarios); $a++){
+                              if($usuarios[$a]['TIPO_USUARIO'] == "TTA"){
+                                echo '<option value="'.$usuarios[$a]['ID'].'">'.$usuarios[$a]['ID'].' - '.$usuarios[$a]['NOMBRE'].' '.$usuarios[$a]['APELLIDO'].' - 0'.$usuarios[$a]['TELEFONO'].'</option>';
+                              }
+                            }
+                            
+                          ?>
+
+                          </select>
                         </td>
                       </tr>
                       <?php

@@ -862,7 +862,12 @@ function login(ADMIN) {
             console.log(response)
             if (response != '') {
                $(".mensaje-error").hide();
-               history.go(-1)
+               if(document.referrer.includes("salioviaje")){
+                  history.go(-1);
+               }else{
+                  location.href = "https://www.SalioViaje.com.uy/"
+               }
+               
             } else {
                $(".mensaje-error").show();
                $(".mensaje-error").text("Usuario o Contraseña Incorrectos.");
