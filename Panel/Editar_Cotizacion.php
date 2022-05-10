@@ -14,7 +14,9 @@ session_set_cookie_params($ttl);
 
   $cotizaciones = new procedimientosBD();
 
+  $usuarios = $cotizaciones->datos_usuarios();
   $cotizaciones = json_decode($cotizaciones->traer_viajes_cotizando_panel_admin(),true);
+
 
 ?>
 
@@ -171,6 +173,7 @@ session_set_cookie_params($ttl);
                   <th>Destino <i class="fas fa-angle-down"></i></th>
                   <th>Fecha <i class="fas fa-angle-down"></i></th>
                   <th>Estado <i class="fas fa-angle-down"></i></th>
+                  <th>Responsable ( <i class="fas fa-hammer"></i> ) <i class="fas fa-angle-down"></i></th>
                 </tr>
               </thead>
               <tbody id="tbody">
@@ -263,6 +266,21 @@ session_set_cookie_params($ttl);
                           }
                           ?>
 
+                        </td>
+                        <td>
+                          <select id="tta-responsable">
+                          <option value="0" selected>Sin Asignar</option>
+
+                          <?php
+                            for($a = 0; $a < count($usuarios); $a++){
+                              if($usuarios[$a]['TIPO_USUARIO'] == "TTA"){
+                                echo '<option value="'.$usuarios[$a]['ID'].'">'.$usuarios[$a]['ID'].' - '.$usuarios[$a]['NOMBRE'].' '.$usuarios[$a]['APELLIDO'].' - '.$usuarios[$a]['TELEFONO'].'</option>';
+                              }
+                            }
+                            
+                          ?>
+
+                          </select>
                         </td>
                       </tr>
                       <?php
