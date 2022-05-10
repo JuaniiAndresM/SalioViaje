@@ -111,13 +111,6 @@ $cotizaciones = json_decode($cotizaciones->traer_viajes_cotizando_panel_admin(),
 
         <div class="filter-wrapper">
           <div class="search">
-            <i class="fas fa-search"></i>
-            <input
-              type="text"
-              placeholder="Buscar"
-              id="searchbar"
-              onkeyup="buscarOportunidades()"
-            />
           </div>
 
           <div class="button-filtrar">
@@ -162,7 +155,7 @@ $cotizaciones = json_decode($cotizaciones->traer_viajes_cotizando_panel_admin(),
 
 
         <div class="list-empty-cotizacion">
-          <p>Lo sentimos, de momento no hay cotizaciones disponibles.</p>
+          <p>Lo sentimos, no hay cotizaciones disponibles.</p>
         </div>
 
         <div class="Cotizaciones-list">
