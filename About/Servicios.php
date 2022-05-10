@@ -156,6 +156,8 @@ $cotizaciones = json_decode($cotizaciones->traer_viajes_cotizando_panel_admin(),
             <input type="date" id="fecha_cotizacion" placeholder="Fecha y Hora" onchange="filtrar()" />
           </div>
 
+          <button onclick="eliminar_filtros()"><i class="fas fa-arrows-rotate"></i></button>
+
         </div>
 
 

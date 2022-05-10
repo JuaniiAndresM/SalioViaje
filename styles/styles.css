@@ -8960,6 +8960,36 @@ footer .totum p a:hover {
   color: #555;
 }
 
+.Cotizaciones-section #filters button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #3844bc;
+  border: none;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.Cotizaciones-section #filters button i {
+  color: white;
+  font-size: 15px;
+}
+
+.Cotizaciones-section #filters button:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
 .Cotizaciones-section .list-empty-cotizacion {
   width: 100%;
   height: 400px;

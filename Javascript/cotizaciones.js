@@ -51,21 +51,64 @@ function filtrar() {
    console.log("Origen: " + origen + " Destino: " + destino + " Fecha: " + fecha);
 
    //var cards = document.getElementsByClassName("Cotizaciones").length;
-   /*
-   for (let i = 0; i < atributos.length; i++) {
-      datos = atributos[i].split(',')
-      for (let x = 0; x < 3; x++) {
-         switch (datos[x].includes(origen)) {
-            case true: case origen != "":
-               $("#" + datos[6]).show()
-               break;
-            case false: case origen != "":
-               $("#" + datos[6]).hide()
-               break;
+
+   if(origen != "" || destino != "" || fecha != ""){
+      for (let i = 0; i < atributos.length; i++) {
+         datos = atributos[i].split(',')
+   
+         function dateFormat(inputDate, format) {
+            const date = new Date(inputDate);
+   
+            const day = date.getDate() + 1;
+            const month = date.getMonth() + 1;
+            const year = date.getFullYear();    
+        
+            format = format.replace("MM", month.toString().padStart(2,"0"));        
+   
+            if (format.indexOf("yyyy") > -1) {
+                format = format.replace("yyyy", year.toString());
+            } else if (format.indexOf("yy") > -1) {
+                format = format.replace("yy", year.toString().substr(2,2));
+            }
+   
+            format = format.replace("dd", day.toString().padStart(2,"0"));
+        
+            return format;
+        }
+   
+         var encontrado = false;
+   
+         for (let x = 0; x < 2; x++) {
+            if(datos[x].toLowerCase().includes(origen.toLowerCase()) && origen != ""){
+               encontrado = true;
+            }
+         }
+   
+         for (let x = 2; x < 5; x++) {
+            if(datos[x].toLowerCase().includes(destino.toLowerCase()) && destino != ""){
+               encontrado = true;
+            }
+         }
+   
+         if(datos[5] == dateFormat(fecha, 'dd-MM-yyyy')){
+            encontrado = true;
+         }
+   
+         if(encontrado == true){
+            $("#" + datos[6]).show();
+         }else{
+            $("#" + datos[6]).hide();
          }
       }
+   }else{
+      for (let i = 0; i < atributos.length; i++) {
+         datos = atributos[i].split(',');
+         $("#" + datos[6]).show();
+      }
    }
-   */
+
+   
+
    /*
    for(var a = 0; a < (cards - 1); a++){
       console.log($('[data-value="Fecha'+cards+'"]').text()); 

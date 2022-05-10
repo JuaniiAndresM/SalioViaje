@@ -122,6 +122,28 @@
         color: #555;
       }
     }
+    button{
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: $main_1;
+      border: none;
+      cursor: pointer;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      transition: .2s;
+
+      i{
+        color: white;
+        font-size: 15px;
+      }
+    }
+    button:hover{
+      transform: scale(1.05);
+    }
   }
 
   .list-empty-cotizacion {
