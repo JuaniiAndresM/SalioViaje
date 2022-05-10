@@ -89,6 +89,8 @@ session_set_cookie_params($ttl);
     <script src="https://www.salioviaje.com.uy/Javascript/faq.js"></script>
     <script src="https://www.salioviaje.com.uy/Javascript/settings.js"></script>
     <script src="https://www.salioviaje.com.uy/Javascript/loader.js"></script>
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
   </head>
   <body>
     <div id="pre-loader">
@@ -138,7 +140,10 @@ session_set_cookie_params($ttl);
 
             <div class="input">
               <i class="fas fa-signature" id="icon2"></i>
-              <textarea name="" id="respuesta" placeholder="Respuesta"></textarea>
+
+              <!-- <textarea name="" id="respuesta" placeholder="Respuesta"></textarea> -->
+
+              <textarea id="editor"></textarea>
             </div>
 
             <p id="mensaje-error">Debe completar todos los campos.</p>
@@ -166,5 +171,10 @@ session_set_cookie_params($ttl);
         </div>
       </div>
     </section>
+    <script>
+      ClassicEditor.create( document.querySelector( '#editor' ) ).catch( error => {
+        console.error( error );
+      } );
+    </script>
   </body>
 </html>
