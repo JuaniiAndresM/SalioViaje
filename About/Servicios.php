@@ -247,6 +247,10 @@ if ($cotizaciones[$i]['MASCOTAS'] == 2) {
           <button class="comprar-button" type="submit" onclick='location.href="https://docs.google.com/forms/d/e/1FAIpQLSeQtd-s1ngnM-F-HbLYHhIOSW1_L0GiUZKoVoiXdnWWV5nsBg/viewform"'><i class="fas fa-chart-line"></i> Cotizar</button>
           <?php
         }
+      }else{
+        ?>
+        <button class="comprar-button" type="submit" onclick='location.href="https://www.salioviaje.com.uy/Login"'><i class="fas fa-chart-line"></i> Cotizar</button>
+        <?php
       }
       
       ?>
