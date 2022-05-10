@@ -143,7 +143,7 @@ session_set_cookie_params($ttl);
 
               <!-- <textarea name="" id="respuesta" placeholder="Respuesta"></textarea> -->
 
-              <textarea id="editor"></textarea>
+              <div id="editor"></div>
             </div>
 
             <p id="mensaje-error">Debe completar todos los campos.</p>
@@ -172,9 +172,16 @@ session_set_cookie_params($ttl);
       </div>
     </section>
     <script>
-      ClassicEditor.create( document.querySelector( '#editor' ) ).catch( error => {
-        console.error( error );
+      let editor;
+
+      ClassicEditor.create( document.querySelector( '#editor' ) ).then( newEditor => {
+        editor = newEditor;
+      } ).catch( error => {
+
+          console.error( error );
+
       } );
+      
     </script>
   </body>
 </html>

@@ -258,7 +258,7 @@ class Backend extends procedimientosBD
                     	</button>
 
                     	<div class="content">
-                        	<p>'.$datos[$i]["RESPUESTA"].'</p>
+                        	'.$datos[$i]["RESPUESTA"].'
                     	</div>
                 	</div>
 					';
@@ -278,7 +278,7 @@ class Backend extends procedimientosBD
                     	</button>
 
                     	<div class="content">
-                        	<p>'.$datos[$i]["RESPUESTA"].'</p>
+							'.$datos[$i]["RESPUESTA"].'
                     	</div>
                 	</div>
 					';
