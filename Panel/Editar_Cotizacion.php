@@ -274,7 +274,7 @@ session_set_cookie_params($ttl);
                           <?php
                             for($a = 0; $a < count($usuarios); $a++){
                               if($usuarios[$a]['TIPO_USUARIO'] == "TTA"){
-                                echo '<option value="'.$usuarios[$a]['ID'].'">'.$usuarios[$a]['ID'].' - '.$usuarios[$a]['NOMBRE'].' '.$usuarios[$a]['APELLIDO'].' - '.$usuarios[$a]['TELEFONO'].'</option>';
+                                echo '<option value="'.$usuarios[$a]['ID'].'">'.$usuarios[$a]['ID'].' - '.$usuarios[$a]['NOMBRE'].' '.$usuarios[$a]['APELLIDO'].' - 0'.$usuarios[$a]['TELEFONO'].'</option>';
                               }
                             }
                             
