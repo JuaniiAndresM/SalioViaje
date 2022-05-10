@@ -496,6 +496,8 @@ function filtros() {
         if (!$("#ase").prop("checked")) { $(".ASE").hide() } else { $(".ASE").show() }
         if (!$("#Cotizando").prop("checked")) { $(".1").hide() } else { $(".1").show() }
         if (!$("#Cotizado").prop("checked")) { $(".2").hide() } else { $(".2").show() }
+        if (!$("#Aceptado").prop("checked")) { $(".3").hide() } else { $(".3").show() }
+        if (!$("#Reconfirmado").prop("checked")) { $(".4").hide() } else { $(".4").show() }
         //if(!$("#").prop("checked")){ console.log("Oculto") }else{ console.log("Muestro") }
     });
 }

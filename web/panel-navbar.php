@@ -78,6 +78,14 @@ session_set_cookie_params($ttl);
               </a>
             </li>';
     }
+    if($tipo == 2){
+      echo '<li>
+              <a href="https://www.salioviaje.com.uy/Cotizaciones">
+                <span class="icon"><i class="fas fa-hand-holding-dollar"></i></span>
+                <span class="title">Mis Cotizaciones</span>
+              </a>
+            </li>';
+    }
     
     if($tipo == 1){
       echo '  <li>
