@@ -151,7 +151,7 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                                                 <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Fecha de ida: </b>'.$fecha_salida.'</p>
                                                 <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Hora: </b>'.$datos_array["HORA_SALIDA"].'</p>
                                                 <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Origen: </b>'.$datos_array["LOCALIDAD_ORIGEN"].', '.$datos_array["BARRIO_ORIGEN"].'</p>
-                                                <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Destino o Punto de Interés: </b>'.$datos_array["LOCALIDAD_DESTINO"].', '.$datos_array["BARRIO_DESTINO"].', '.$datos_array["LOCALIDAD_DESTINO"].'</p>
+                                                <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Destino o Punto de Interés: </b>'.$datos_array["LOCALIDAD_DESTINO"].', '.$datos_array["BARRIO_DESTINO"].', '.$datos_array["DIRECCION_DESTINO"].'</p>
                                                 <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Cantidad de Pasajeros: </b>'.$datos_array["CANTIDAD_PASAJEROS_IDA"].'</p>';
 
                                                 if(isset($paradas_ida_array)){
@@ -175,8 +175,8 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                                                 <h4 style="font-size: 16px; margin-top: 40px;">Datos de la Vuelta:</h4>
                                                 <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Fecha de vuelta: </b>'.$fecha_regreso.'</p>
                                                 <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Hora: </b>'.$datos_array["HORA_REGRESO"].'</p>
-                                                <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Origen o Punto de Interés: </b>'.$datos_array["DIRECCION_ORIGEN_VUELTA"].', '.$datos_array["BARRIO_ORIGEN_VUELTA"].'</p>
-                                                <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Destino: </b>'.$datos_array["LOCALIDAD_DESTINO_VUELTA"].', '.$datos_array["BARRIO_DESTINO_VUELTA"].', '.$datos_array["DIRECCION_DESTINO_VUELTA"].'</p>
+                                                <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Origen o Punto de Interés: </b>'.$datos_array["DIRECCION_ORIGEN_VUELTA"].', '.$datos_array["BARRIO_ORIGEN_VUELTA"].', '.$datos_array["DIRECCION_ORIGEN_VUELTA"]'</p>
+                                                <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Destino: </b>'.$datos_array["LOCALIDAD_DESTINO_VUELTA"].', '.$datos_array["BARRIO_DESTINO_VUELTA"].'</p>
                                                 <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Cantidad de Pasajeros: </b>'.$datos_array["CANTIDAD_PASAJEROS_VUELTA"].'</p>';
 
                                                 if(isset($paradas_vuelta_array)){
