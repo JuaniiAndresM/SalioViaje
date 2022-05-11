@@ -19,7 +19,7 @@ function crear_pregunta(){
     let valido;
     let pregunta = {
         "PREGUNTA" : document.getElementById('pregunta').value,
-        "RESPUESTA" : document.getElementById('respuesta').value
+        "RESPUESTA" : editor.getData()
     }
 
     $('#mensaje-error').hide()
@@ -63,7 +63,7 @@ function traer_datos_preguntas(id){
             RESPUESTA = response['RESPUESTA']
 
             document.getElementById('pregunta').value = response['PREGUNTA']
-            document.getElementById('respuesta').value = response['RESPUESTA']
+            editor.setData(response['RESPUESTA']);
         }
     })
 }
@@ -113,7 +113,7 @@ function verificar_pregunta(pregunta){
 
 function editar_pregunta(){
     PREGUNTA = document.getElementById('pregunta').value;
-    RESPUESTA = document.getElementById('respuesta').value;
+    RESPUESTA = editor.getData();
     $.ajax({
         type: 'POST',       
         url: "/PHP/Backend.php",
@@ -124,7 +124,7 @@ function editar_pregunta(){
             $('#eliminar-pregunta').hide()
             $('#guardar-pregunta').hide()
             document.getElementById('pregunta').value = "";
-            document.getElementById('respuesta').value = "";
+            editor.setData("");
         },
         complete: function(){
             traer_preguntas_seccion_admin();
@@ -142,7 +142,7 @@ function borrar_pregunta(){
             $('#eliminar-pregunta').hide()
             $('#guardar-pregunta').hide()
             document.getElementById('pregunta').value = "";
-            document.getElementById('respuesta').value = "";
+            editor.setData("")
         },
         complete: function(){
             traer_preguntas_seccion_admin();

@@ -173,6 +173,8 @@
                     if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "TTA" || $_SESSION['datos_usuario']['TIPO_USUARIO'] == "ADM") {
                         echo "<button class='cotizar-button' onclick='location.href= \"https://docs.google.com/forms/d/e/1FAIpQLSeQtd-s1ngnM-F-HbLYHhIOSW1_L0GiUZKoVoiXdnWWV5nsBg/viewform\"'><i class='fas fa-chart-line'></i> Cotizar</button>";                     
                     }
+                }else{
+                  echo "<button class='cotizar-button' onclick='location.href= \"https://www.salioviaje.com.uy/Login\"'><i class='fas fa-chart-line'></i> Cotizar</button>";                     
                 }
 
                ?>
@@ -256,8 +258,8 @@
                     <h2><i class="fas fa-arrow-down"></i> Datos de la Vuelta:</h2>
                     <p><i class="fas fa-calendar-days"></i> <b>Fecha de vuelta: </b>'.$fecha_regreso.'</p>
                     <p><i class="fas fa-clock"></i> <b>Hora: </b>'.$cotizaciones[0]["HORA_REGRESO"].'</p>
-                    <p><i class="fas fa-location-dot"></i> <b>Origen o Punto de Interés: </b>'.$cotizaciones[0]["LOCALIDAD_ORIGEN_VUELTA"].', '.$cotizaciones[0]["BARRIO_ORIGEN_VUELTA"].'</p>
-                    <p><i class="fas fa-route"></i> <b>Destino: </b>'.$cotizaciones[0]["LOCALIDAD_DESTINO_VUELTA"].', '.$cotizaciones[0]["BARRIO_DESTINO_VUELTA"].', '.$cotizaciones[0]["DIRECCION_DESTINO_VUELTA"].'</p>
+                    <p><i class="fas fa-location-dot"></i> <b>Origen o Punto de Interés: </b>'.$cotizaciones[0]["LOCALIDAD_ORIGEN_VUELTA"].', '.$cotizaciones[0]["BARRIO_ORIGEN_VUELTA"].', '.$cotizaciones[0]["DIRECCION_ORIGEN_VUELTA"].'</p>
+                    <p><i class="fas fa-route"></i> <b>Destino: </b>'.$cotizaciones[0]["LOCALIDAD_DESTINO_VUELTA"].', '.$cotizaciones[0]["BARRIO_DESTINO_VUELTA"].'</p>
                     <p><i class="fas fa-people-group"></i> <b>Cantidad de Pasajeros: </b>'.$cotizaciones[0]["CANTIDAD_PASAJEROS"].'</p>';
 
                     if(isset($paradas)){

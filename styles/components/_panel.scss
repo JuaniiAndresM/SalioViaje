@@ -435,6 +435,7 @@ $main_3: #6d76db;
 
       border-radius: 10px;
       padding: 20px;
+      margin-bottom: 20px;
 
       .usuarios-info {
         display: flex;
@@ -1100,8 +1101,9 @@ $main_3: #6d76db;
 
       .checkboxs{
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
+        flex-wrap: wrap;
 
         .checkbox{
           display: flex;

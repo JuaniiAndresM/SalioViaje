@@ -68,6 +68,13 @@ class Backend extends procedimientosBD
 			$contenido_tbody = 0;
 			$datos = $this->datos_usuarios();
 
+			// $contador_usuarios = 0;
+			// if(count($datos) < 8){
+			// 	$contador_usuarios = count($datos);
+			// }else{
+			// 	$contador_usuarios = 8;
+			// }
+
 			for ($i=0; $i < count($datos); $i++) { 
 				if ($i==0) {
 					$contenido_tbody = "
@@ -258,7 +265,7 @@ class Backend extends procedimientosBD
                     	</button>
 
                     	<div class="content">
-                        	<p>'.$datos[$i]["RESPUESTA"].'</p>
+                        	'.$datos[$i]["RESPUESTA"].'
                     	</div>
                 	</div>
 					';
@@ -278,7 +285,7 @@ class Backend extends procedimientosBD
                     	</button>
 
                     	<div class="content">
-                        	<p>'.$datos[$i]["RESPUESTA"].'</p>
+							'.$datos[$i]["RESPUESTA"].'
                     	</div>
                 	</div>
 					';

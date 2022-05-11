@@ -161,6 +161,14 @@ session_set_cookie_params($ttl);
                 <input type="checkbox" name="" id="Cotizado" checked />
                 <p>Cotizado</p>
               </div>
+              <div class="checkbox">
+                <input type="checkbox" name="" id="Aceptado" checked />
+                <p>Aceptado</p>
+              </div>
+              <div class="checkbox">
+                <input type="checkbox" name="" id="Reconfirmado" checked />
+                <p>Reconfirmado</p>
+              </div>
 
             </div>
           </div>

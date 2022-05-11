@@ -19,6 +19,13 @@ $(document).ready(function () {
     $("#picada").on('click', function () {
         window.location.href = "https://www.salioviaje.com.uy/Viajar/?opcion=1"
     });
+
+    if($(".session-input").val() = 5){
+        setTimeout(() => {
+            timeoutformulario(5);
+        }, 1000);
+    }
+    
     
 });
 

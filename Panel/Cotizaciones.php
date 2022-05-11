@@ -1,15 +1,14 @@
 <?php 
+require_once '../PHP/procedimientosBD.php';
+
 $ttl = (60 * 60 * 24); # 1 día
 session_set_cookie_params($ttl);
   session_start(); 
 
   if(!isset($_SESSION['usuario'])){
     header('Location: https://www.salioviaje.com.uy/Login');
-
-  }else{
-    if($_SESSION['tipo_usuario'] != "Administrador"){
-      header('Location: https://www.salioviaje.com.uy/');
-    }
+  }elseif(!$_SESSION['datos_usuario']['TIPO_USUARIO'] == "TTA" || !$_SESSION['datos_usuario']['TIPO_USUARIO'] == "ADM") {
+    header('Location: https://www.salioviaje.com.uy/Login');
   }
 
 ?>
@@ -17,7 +16,7 @@ session_set_cookie_params($ttl);
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <title>SalióViaje | Editar FAQs</title>
+    <title>SalióViaje | Mis Cotizaciones</title>
 
     <!-- // Meta Etiquetas -->
 
@@ -41,8 +40,8 @@ session_set_cookie_params($ttl);
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.salioviaje.com.uy/FAQ_Edit" />
-    <meta property="og:title" content="SalióViaje | Editar FAQs" />
+    <meta property="og:url" content="https://www.salioviaje.com.uy/Cotizaciones" />
+    <meta property="og:title" content="SalióViaje | Mis Cotizaciones" />
     <meta
       property="og:description"
       content="Plataforma que optimiza el traslado ocasional de personas."
@@ -54,10 +53,10 @@ session_set_cookie_params($ttl);
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://www.salioviaje.com.uy/FAQ_Edit" />
+    <meta property="twitter:url" content="https://www.salioviaje.com.uy/Cotizaciones" />
     <meta
       property="twitter:title"
-      content="SalióViaje | Editar FAQs"
+      content="SalióViaje | Mis Cotizaciones"
     />
     <meta
       property="twitter:description"
@@ -86,11 +85,10 @@ session_set_cookie_params($ttl);
     ></script>
 
     <script src="https://www.salioviaje.com.uy/Javascript/panel.js"></script>
-    <script src="https://www.salioviaje.com.uy/Javascript/faq.js"></script>
     <script src="https://www.salioviaje.com.uy/Javascript/settings.js"></script>
     <script src="https://www.salioviaje.com.uy/Javascript/loader.js"></script>
-
-    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+    <script type="text/javascript">
+    </script>
   </head>
   <body>
     <div id="pre-loader">
@@ -108,7 +106,7 @@ session_set_cookie_params($ttl);
           <button onclick="navbar()"><i class="fas fa-bars"></i></button>
         </div>
         <div class="header-title">
-          <h2>Editar FAQs</h2>
+          <h2>Cotizaciones</h2>
         </div>
       </div>
       <div class="header-right">
@@ -116,7 +114,7 @@ session_set_cookie_params($ttl);
           <div class="icon"><img src="https://www.salioviaje.com.uy/media/svg/Logo-SalioViaje-White.svg" alt="Logo SalióViaje"></div>
           <div class="user">
           <h2><?php echo $_SESSION['usuario']; ?></h2> 
-          <p><i class="fas fa-user-tie"></i> <?php echo $_SESSION['tipo_usuario'] ?></p>
+                <p><i class="fas fa-user-tie"></i> <?php echo $_SESSION['tipo_usuario'] ?></p>
           </div>
           <button id="cerrar_session_dashboard"><i class="fas fa-sign-out-alt"></i></button>
         </div>
@@ -126,62 +124,68 @@ session_set_cookie_params($ttl);
     <nav class="nav-hidden active" id="panel-navbar"></nav>
 
     <section class="panel" id="panel">
-      <div class="edit-faq">
-
-        <div class="faq-grid">
-
-          <div class="create-faq">
-            <h2><i class="fas fa-question"></i> Editar FAQs</h2>
-
-            <div class="input">
-              <i class="fas fa-question" id="icon"></i>
-              <input type="text" id="pregunta" placeholder="Pregunta">
-            </div>
-
-            <div class="input">
-              <i class="fas fa-signature" id="icon2"></i>
-
-              <!-- <textarea name="" id="respuesta" placeholder="Respuesta"></textarea> -->
-
-              <div id="editor"></div>
-            </div>
-
-            <p id="mensaje-error">Debe completar todos los campos.</p>
-            
-            <div class="button-wrapper">
-              <button id="crear-pregunta" onclick="crear_pregunta()"><i class="fas fa-plus"></i> Crear Pregunta</button>
-              <button id="guardar-pregunta" onclick="editar_pregunta()"><i class="fas fa-save"></i> Guardar Pregunta</button>
-              <button id="eliminar-pregunta" onclick="borrar_pregunta()"><i class="fas fa-trash-alt"></i> Eliminar Pregunta</button>
-            </div>
+      <div class="section-usuarios">
+        <div class="usuarios-recientes">
+          <div class="usuarios-info">
+            <h2><i class="fas fa-hand-holding-dollar"></i> Mis Cotizaciones</h2>
           </div>
+          <div class="filters">
+            <div class="search">
+              <i class="fas fa-search"></i>
+              <input
+                type="text"
+                placeholder="Buscar"
+                id="searchbar"
+                onkeyup="buscarUsuarios(5)"
+              />
+            </div>
+            <!-- <div class="filters2">
 
-          <div class="lista-faq">
-            <h2><i class="fas fa-list-ol"></i> Lista de FAQs</h2>
-
-            <div class="faq-list">
-
-              <div class="faq-question">
-                <h3>¿Pregunta N° 1?</h3>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus, odio.</p>
+              <div class="input">
+                <i class="far fa-calendar-alt" id="icon"></i>
+                <input type="date" id="date_agenda">
               </div>
 
-            </div>
-          </div>
+              <div class="input">
+                <i class="fas fa-clock" id="icon"></i>
+                <input type="time" id="time_agenda">
+              </div>
 
+              <div class="input">
+                <i class="fas fa-list" id="icon"></i>
+                <select id="estado_agenda">
+                  <option value="0" disabled selected hidden>Seleccione un Estado</option>
+                  <option value="1">En Venta</option>
+                  <option value="2">Indefinido</option>
+                  <option value="2">Aprobado</option>
+                  <option value="3">Rechazado</option>
+                </select>
+              </div>
+
+              <button class="reload-filters">
+                <i class="fa fa-refresh"></i>
+              </button>
+
+            </div> -->
+          </div>
+          <div class="table-overflow">
+            <table class="usuarios-table" id="search-cotizaciones-table">
+              <thead>
+                <tr>
+                  <th id="ID">ID <i class="fas fa-angle-down"></i></th>
+                  <th>Origen <i class="fas fa-angle-down"></i></th>
+                  <th>Destino <i class="fas fa-angle-down"></i></th>
+                  <th>Fecha <i class="fas fa-angle-down"></i></th>
+                  <th>Estado <i class="fas fa-angle-down"></i></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="tbody-cotizaciones">
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </section>
-    <script>
-      let editor;
-
-      ClassicEditor.create( document.querySelector( '#editor' ) ).then( newEditor => {
-        editor = newEditor;
-      } ).catch( error => {
-
-          console.error( error );
-
-      } );
-      
-    </script>
   </body>
 </html>
