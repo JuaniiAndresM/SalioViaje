@@ -252,7 +252,7 @@ class procedimientosBD
 
         $vehiculo = array();
         $conn = $this->conexion();
-        $query = "SELECT * FROM salioviajeuy_salioviajeuy.vehiculos WHERE ID_EMPRESA = $id";
+        $query = "SELECT * FROM salioviajeuy_salioviajeuy.vehiculos WHERE ID_EMPRESA = $id or RUT_EC = (SELECT RUT FROM empresas where ID = $id) ";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
