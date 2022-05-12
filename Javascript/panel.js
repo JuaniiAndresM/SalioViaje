@@ -82,12 +82,8 @@ function buscarUsuarios(buscador) {
             tdlength = 5;
             break;
         case 6:
-            table = document.getElementById("cotz-pres");
-            tdlength = 5;
-            break;
-        case 7:
-            table = document.getElementById("cotz-reci");
-            tdlength = 5;
+            table = document.getElementById("search-agendar-table");
+            tdlength = 11;
             break;
     }
 
