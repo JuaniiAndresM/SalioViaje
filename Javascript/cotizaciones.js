@@ -29,8 +29,32 @@ function cambiar_estado_cotizacion_panel_admin(id_cotizacion) {
       data: { tipo: 'cambio_estado_cotizacion', idCotizacion: id_cotizacion, estado: estado },
       success: function (response) {
          console.log(response)
+         var estado = "";
+
+         switch($("#estado-cotizacion-" + id_cotizacion).val()){
+            case "1":
+               estado = "Cotizando";
+               break;
+            case "2":
+               estado = "Cotizado";
+               break;
+            case "3":
+               estado = "Aceptado";
+               break;
+            case "4":
+               estado = "Reconfirmado";
+               break;
+         }
+         $("#value-estado-" + id_cotizacion).html(estado);
       },
    });
+}
+
+function update_responsable(id_cotizacion){
+   var responsable = $("select#tta-responsable-" + id_cotizacion + " option").filter(":selected").text();
+   console.log(responsable);
+
+   $("#value-responsable-" + id_cotizacion).html(responsable);
 }
 
 function filtros_cotizaciones() {

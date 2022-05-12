@@ -282,7 +282,7 @@ session_set_cookie_params($ttl);
 
                         </td>
                         <td>
-                          <select id="tta-responsable">
+                          <select id="tta-responsable-<?php echo $cotizaciones[$i]['ID'] ?>" onchange="update_responsable(<?php echo $cotizaciones[$i]['ID'] ?>)">
                           <option value="0" selected>Sin Asignar</option>
 
                           <?php
@@ -304,6 +304,90 @@ session_set_cookie_params($ttl);
                   ?>
               </tbody>
             </table>
+
+
+            <table class="usuarios-table" id="search-table-excel" style="display: none">
+              <thead>
+                <tr>
+                  <th>ID <i class="fas fa-angle-down"></i></th>
+                  <th>Origen <i class="fas fa-angle-down"></i></th>
+                  <th>Destino <i class="fas fa-angle-down"></i></th>
+                  <th>Fecha <i class="fas fa-angle-down"></i></th>
+                  <th>Estado <i class="fas fa-angle-down"></i></th>
+                  <th>Responsable ( <i class="fas fa-hammer"></i> ) <i class="fas fa-angle-down"></i></th>
+                </tr>
+              </thead>
+              <tbody id="tbody">
+                  <?php
+                  if(isset($cotizaciones)){
+                    for ($i=0; $i < count($cotizaciones); $i++) {
+                      
+                      echo '<tr class="'.$cotizaciones[$i]['ESTADO'].'">';
+                      ?>
+                        <td><?php echo $cotizaciones[$i]['ID'] ?></td>
+                        <td><?php 
+                          
+                          if ($cotizaciones[$i]['DIRECCION_ORIGEN'] != null && $cotizaciones[$i]['BARRIO_ORIGEN'] != null && $cotizaciones[$i]['LOCALIDAD_ORIGEN'] != null) {
+                            echo $cotizaciones[$i]['DIRECCION_ORIGEN'].", ".$cotizaciones[$i]['BARRIO_ORIGEN'].", ".$cotizaciones[$i]['LOCALIDAD_ORIGEN']."."; 
+                          } elseif ($cotizaciones[$i]['DIRECCION_ORIGEN'] == null && $cotizaciones[$i]['BARRIO_ORIGEN'] == null && $cotizaciones[$i]['LOCALIDAD_ORIGEN'] != null){
+                            echo $cotizaciones[$i]['LOCALIDAD_ORIGEN']."."; 
+                          } else {
+                            echo $cotizaciones[$i]['BARRIO_ORIGEN'].", ".$cotizaciones[$i]['LOCALIDAD_ORIGEN'].".";
+                          }
+                        
+                        ?></td>
+                        <td><?php 
+                          
+                          if ($cotizaciones[$i]['DIRECCION_DESTINO'] != null && $cotizaciones[$i]['BARRIO_DESTINO'] != null && $cotizaciones[$i]['LOCALIDAD_DESTINO'] != null) {
+                            echo $cotizaciones[$i]['DIRECCION_DESTINO'].", ".$cotizaciones[$i]['BARRIO_DESTINO'].", ".$cotizaciones[$i]['LOCALIDAD_DESTINO']."."; 
+                          } elseif ($cotizaciones[$i]['DIRECCION_DESTINO'] == null && $cotizaciones[$i]['BARRIO_DESTINO'] == null && $cotizaciones[$i]['LOCALIDAD_DESTINO'] != null){
+                            echo $cotizaciones[$i]['LOCALIDAD_DESTINO']."."; 
+                          } elseif ($cotizaciones[$i]['DIRECCION_DESTINO'] != null && $cotizaciones[$i]['BARRIO_DESTINO'] == null && $cotizaciones[$i]['LOCALIDAD_DESTINO'] == null){
+                            echo $cotizaciones[$i]['DIRECCION_DESTINO']."."; 
+                          } else {
+                            echo $cotizaciones[$i]['BARRIO_DESTINO'].", ".$cotizaciones[$i]['LOCALIDAD_DESTINO'].".";
+                          }
+                        
+                        ?></td>
+                        <td>0- <?php echo $cotizaciones[$i]['FECHA_SALIDA']; ?></td>
+                        <td id="value-estado-<?php echo $cotizaciones[$i]['ID'] ?>">
+                          <?php
+                            switch($cotizaciones[$i]['ESTADO']){
+                              case "1":
+                                ?>
+                                Cotizando
+                                <?php
+                                break;
+                                
+                              case "2":
+                                ?>
+                                Cotizado
+                                <?php
+                                break;
+                                
+                              case "3":
+                                ?>
+                                Aceptado
+                                <?php
+                                break;
+                                
+                              case "4":
+                                ?>
+                                Reconfirmado
+                                <?php
+                                break;
+                            }
+                          ?>
+                        </td>
+                        <td id="value-responsable-<?php echo $cotizaciones[$i]['ID'] ?>">Sin Asignar</td>
+                      </tr>
+                      <?php
+                    }
+                  }
+                    
+                  ?>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
@@ -312,7 +396,7 @@ session_set_cookie_params($ttl);
     <script>
 
       function exportarTabla(type){
-        var data = document.getElementById('search-table-cotizaciones');
+        var data = document.getElementById('search-table-excel');
         var file = XLSX.utils.table_to_book(data, {sheet: "sheet1"});
 
         XLSX.write(file, { bookType: type, bookSST: true, type: 'base64'});
