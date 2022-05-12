@@ -1149,6 +1149,16 @@ $main_3: #6d76db;
 
       
     }
+    .exportar-section{
+      margin: 10px 0;
+
+      #button-exportar{
+        @include button();
+      }
+      #button-exportar:hover{
+        @include button-hover();
+      }
+    }
     .table-overflow{
       width: 100%;
       overflow: hidden;

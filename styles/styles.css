@@ -8136,6 +8136,32 @@ footer .totum p a:hover {
   border: none;
 }
 
+.section-usuarios .usuarios-recientes .exportar-section {
+  margin: 10px 0;
+}
+
+.section-usuarios .usuarios-recientes .exportar-section #button-exportar {
+  background: -webkit-gradient(linear, left top, right top, from(#3844bc), to(#2b3179));
+  background: linear-gradient(to right, #3844bc, #2b3179);
+  color: #ffffff;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 2em;
+  margin-top: 10px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.section-usuarios .usuarios-recientes .exportar-section #button-exportar i {
+  margin-right: 5px;
+}
+
+.section-usuarios .usuarios-recientes .exportar-section #button-exportar:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
 .section-usuarios .usuarios-recientes .table-overflow {
   width: 100%;
   overflow: hidden;

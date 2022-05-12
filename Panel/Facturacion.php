@@ -78,6 +78,8 @@ session_set_cookie_params($ttl);
     <link rel="stylesheet" href="https://www.salioviaje.com.uy/styles/styles.css" />
 
     <!-- Scripts -->
+    <script src="https://unpkg.com/xlsx@0.16.9/dist/xlsx.full.min.js"></script>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script
       src="https://kit.fontawesome.com/1e193e3a23.js"
@@ -168,6 +170,9 @@ session_set_cookie_params($ttl);
 
             </div> -->
           </div>
+          <div class="exportar-section">
+              <button id="button-exportar" onclick="exportarTabla('xlsx')"><i class="fas fa-file-excel"></i> Exportar Tabla</button>
+          </div>
           <div class="table-overflow">
             <table class="usuarios-table" id="search-facturacion-table">
               <thead>
@@ -199,5 +204,18 @@ session_set_cookie_params($ttl);
         </div>
       </div>
     </section>
+
+    <script>
+
+      function exportarTabla(type){
+        var data = document.getElementById('search-facturacion-table');
+        var file = XLSX.utils.table_to_book(data, {sheet: "Facturación"});
+
+        XLSX.write(file, { bookType: type, bookSST: true, type: 'base64'});
+
+        XLSX.writeFile(file, 'Tabla-Facturación.' + type);
+      }
+
+    </script>
   </body>
 </html>
