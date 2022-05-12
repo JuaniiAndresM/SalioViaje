@@ -33,14 +33,14 @@ $mail->SMTPDebug = 0;
 
 $mail->Host = 'smtp.gmail.com';
 $mail->SMTPAuth = true;
-$mail->Username ='totumdevcontacto@gmail.com';
-$mail->Password = 'manuni7817';
+$mail->Username ='promouruguay010@gmail.com';
+$mail->Password = 'El trabajo es la respuesta';
 $mail->SMTPSecure = 'tls';
 $mail->Port = 587;
 
 $mail->CharSet = 'UTF-8';
 // $mail->From = 'sv_info@salioviaje.com.uy'; //  Editar
-$mail->From = 'totumdevcontacto@gmail.com'; //  Editar
+$mail->From = 'promouruguay010@gmail.com'; //  Editar
 $mail->FromName = 'SalióViaje';  //  Editar
 $mail->addAddress($_SESSION['datos_usuario']['MAIL']);  //  Editar
 $mail->isHTML(true);

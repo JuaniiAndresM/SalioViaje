@@ -133,6 +133,15 @@ session_set_cookie_params($ttl);
               </li>';
     }
 
+    if($tipo != 7 && $tipo != 6){
+      echo '  <li>
+                <a href="https://www.salioviaje.com.uy/Facturacion">
+                  <span class="icon"><i class="fas fa-wallet"></i></span>
+                  <span class="title">Facturación</span>
+                </a>
+              </li>';
+    }
+
     if($tipo == 1){
       echo '<li>
               <a class href="https://www.salioviaje.com.uy/FAQ_Edit">

@@ -7,7 +7,7 @@ session_set_cookie_params($ttl);
 
   if(!isset($_SESSION['usuario'])){
     header('Location: https://www.salioviaje.com.uy/Login');
-  }elseif(!$_SESSION['datos_usuario']['TIPO_USUARIO'] == "TTA" || !$_SESSION['datos_usuario']['TIPO_USUARIO'] == "ADM") {
+  }elseif($_SESSION['datos_usuario']['TIPO_USUARIO'] == "PAX" || $_SESSION['datos_usuario']['TIPO_USUARIO'] == "HTL") {
     header('Location: https://www.salioviaje.com.uy/Login');
   }
 
@@ -16,7 +16,7 @@ session_set_cookie_params($ttl);
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <title>SalióViaje | Mis Cotizaciones</title>
+    <title>SalióViaje | Facturación</title>
 
     <!-- // Meta Etiquetas -->
 
@@ -40,8 +40,8 @@ session_set_cookie_params($ttl);
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.salioviaje.com.uy/Cotizaciones" />
-    <meta property="og:title" content="SalióViaje | Mis Cotizaciones" />
+    <meta property="og:url" content="https://www.salioviaje.com.uy/Facturacion" />
+    <meta property="og:title" content="SalióViaje | Facturación" />
     <meta
       property="og:description"
       content="Plataforma que optimiza el traslado ocasional de personas."
@@ -53,10 +53,10 @@ session_set_cookie_params($ttl);
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://www.salioviaje.com.uy/Cotizaciones" />
+    <meta property="twitter:url" content="https://www.salioviaje.com.uy/Facturacion" />
     <meta
       property="twitter:title"
-      content="SalióViaje | Mis Cotizaciones"
+      content="SalióViaje | Facturación"
     />
     <meta
       property="twitter:description"
@@ -78,6 +78,8 @@ session_set_cookie_params($ttl);
     <link rel="stylesheet" href="https://www.salioviaje.com.uy/styles/styles.css" />
 
     <!-- Scripts -->
+    <script src="https://unpkg.com/xlsx@0.16.9/dist/xlsx.full.min.js"></script>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script
       src="https://kit.fontawesome.com/1e193e3a23.js"
@@ -106,7 +108,7 @@ session_set_cookie_params($ttl);
           <button onclick="navbar()"><i class="fas fa-bars"></i></button>
         </div>
         <div class="header-title">
-          <h2>Cotizaciones</h2>
+          <h2>Facturación</h2>
         </div>
       </div>
       <div class="header-right">
@@ -127,7 +129,7 @@ session_set_cookie_params($ttl);
       <div class="section-usuarios">
         <div class="usuarios-recientes">
           <div class="usuarios-info">
-            <h2><i class="fas fa-hand-holding-dollar"></i> Mis Cotizaciones</h2>
+            <h2><i class="fas fa-wallet"></i> Facturación</h2>
           </div>
           <div class="filters">
             <div class="search">
@@ -168,29 +170,33 @@ session_set_cookie_params($ttl);
 
             </div> -->
           </div>
+          <div class="exportar-section">
+              <button id="button-exportar" onclick="exportarTabla('xlsx')"><i class="fas fa-file-excel"></i> Exportar Tabla</button>
+          </div>
           <div class="table-overflow">
-            <table class="usuarios-table" id="search-cotizaciones-table">
+            <table class="usuarios-table" id="search-facturacion-table">
               <thead>
                 <tr>
-                  <th id="ID">ID <i class="fas fa-angle-down"></i></th>
-                  <th>Origen <i class="fas fa-angle-down"></i></th>
-                  <th>Destino <i class="fas fa-angle-down"></i></th>
+                  <th>ID Viaje<i class="fas fa-angle-down"></i></th>
                   <th>Fecha <i class="fas fa-angle-down"></i></th>
-                  <th>Estado <i class="fas fa-angle-down"></i></th>
-                  <th></th>
+                  <th>Modalidad <i class="fas fa-angle-down"></i></th>
+                  <th>Destino <i class="fas fa-angle-down"></i></th>
+                  <th>Precio <i class="fas fa-angle-down"></i></th>
+                  <th>Comisión SV <i class="fas fa-angle-down"></i></th>
+                  <th>N° Factura <i class="fas fa-angle-down"></i></th>
+                  <th>MTOP <i class="fas fa-angle-down"></i></th>
                 </tr>
               </thead>
-              <tbody id="tbody-cotizaciones">
+              <tbody id="tbody-facturacion">
                 <tr>
                   <td>000</td>
-                  <td>Example, Example 2</td>
-                  <td>Example 3, Example 4</td>
                   <td>dd/mm/aaaa</td>
-                  <td>Cotizando</td>
-                  <td>
-                    <div class="button-wrapper">
-                      <button class="button"><i class="fas fa-ban"></i></button>
-                  </td>
+                  <td>Oportunidad</td>
+                  <td>Example</td>
+                  <td>$0.000</td>
+                  <td>$000</td>
+                  <td>000000</td>
+                  <td>-</td>
                 </tr>
               </tbody>
             </table>
@@ -198,5 +204,18 @@ session_set_cookie_params($ttl);
         </div>
       </div>
     </section>
+
+    <script>
+
+      function exportarTabla(type){
+        var data = document.getElementById('search-facturacion-table');
+        var file = XLSX.utils.table_to_book(data, {sheet: "Facturación"});
+
+        XLSX.write(file, { bookType: type, bookSST: true, type: 'base64'});
+
+        XLSX.writeFile(file, 'Tabla-Facturación.' + type);
+      }
+
+    </script>
   </body>
 </html>

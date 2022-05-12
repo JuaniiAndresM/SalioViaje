@@ -79,11 +79,11 @@ class Backend extends procedimientosBD
 				if ($i==0) {
 					$contenido_tbody = "
 						<tr class='".$datos[$i]['TIPO_USUARIO']."'>
-							<td>".$datos[$i]['TIPO_USUARIO']."</td>
-							<td>".$datos[$i]['NOMBRE']."</td>
-							<td>".$datos[$i]['APELLIDO']."</td>
-							<td>".$datos[$i]['DEPARTAMENTO']."</td>
-							<td>".$datos[$i]['TELEFONO']."</td>
+							<td data-title='Tipo'>".$datos[$i]['TIPO_USUARIO']."</td>
+							<td data-title='Nombre'>".$datos[$i]['NOMBRE']."</td>
+							<td data-title='Apellido'>".$datos[$i]['APELLIDO']."</td>
+							<td data-title='Departamento'>".$datos[$i]['DEPARTAMENTO']."</td>
+							<td data-title='Teléfono'>".$datos[$i]['TELEFONO']."</td>
 							<td>
 								<div class='button-wrapper'>
 									<button id=".$datos[$i]['ID']." onclick='ver_usuario(".$datos[$i]['ID'].")'><i class='far fa-eye'></i></button>
@@ -97,11 +97,11 @@ class Backend extends procedimientosBD
 				}else{
 					$contenido_tbody = $contenido_tbody."
 						<tr class='".$datos[$i]['TIPO_USUARIO']."'>
-							<td>".$datos[$i]['TIPO_USUARIO']."</td>
-							<td>".$datos[$i]['NOMBRE']."</td>
-							<td>".$datos[$i]['APELLIDO']."</td>
-							<td>".$datos[$i]['DEPARTAMENTO']."</td>
-							<td>".$datos[$i]['TELEFONO']."</td>
+							<td data-title='Tipo'>".$datos[$i]['TIPO_USUARIO']."</td>
+							<td data-title='Nombre'>".$datos[$i]['NOMBRE']."</td>
+							<td data-title='Apellido'>".$datos[$i]['APELLIDO']."</td>
+							<td data-title='Departamento'>".$datos[$i]['DEPARTAMENTO']."</td>
+							<td data-title='Teléfono'>".$datos[$i]['TELEFONO']."</td>
 							<td>
 								<div class='button-wrapper'>
 									<button id=".$datos[$i]['ID']." onclick='ver_usuario(".$datos[$i]['ID'].")'><i class='far fa-eye'></i></button>
