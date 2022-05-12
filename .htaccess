@@ -32,6 +32,7 @@ RewriteRule ^FAQ_Edit /Panel/FAQ.php
 RewriteRule ^Crear_Empresa /Panel/Crear_Empresa.php
 RewriteRule ^Editar_Cotizacion /Panel/Editar_Cotizacion.php
 RewriteRule ^Cotizaciones /Panel/Cotizaciones.php
+RewriteRule ^Facturacion /Panel/Facturacion.php
 
 RewriteRule ^Success /Form/Success.html
 RewriteRule ^Failed /Form/Failed.html

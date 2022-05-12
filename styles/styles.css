@@ -8295,6 +8295,9 @@ footer .totum p a:hover {
   .panel-header .header-left .header-title {
     display: none;
   }
+  .panel-header .header-right .header-user .icon {
+    display: none;
+  }
   .panel .panel-cards {
     display: -webkit-box;
     display: -ms-flexbox;

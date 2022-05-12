@@ -77,9 +77,22 @@ function buscarUsuarios(buscador) {
             table = document.getElementById("search-table-cotizaciones");
             tdlength = 5;
             break;
+        case 5:
+            table = document.getElementById("search-table-agenda");
+            tdlength = 5;
+            break;
+        case 6:
+            table = document.getElementById("cotz-pres");
+            tdlength = 5;
+            break;
+        case 7:
+            table = document.getElementById("cotz-reci");
+            tdlength = 5;
+            break;
     }
 
     tr = table.getElementsByTagName("tr");
+    console.log(tr);
 
 
     for (i = 0; i < tr.length; i++) {

@@ -264,10 +264,6 @@ session_set_cookie_params($ttl);
                             <a href="Empresas"><i class="fas fa-list-ul"></i></a>
                           </div>
                         </div>
-                        <div class="search">
-                          <i class="fas fa-search"></i>
-                          <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarusuarios()"/>
-                        </div>
                         <div class="propietarios">
 
                         </div>
@@ -310,17 +306,13 @@ session_set_cookie_params($ttl);
                         <div>
                           <div class="usuarios-recientes">
                             <div class="usuarios-info">
-                              <h2><i class="fas fa-bus"></i> Mis Viajes</h2>
+                              <h2><i class="fas fa-bus"></i> Mis Viajes ( <i class="fas fa-hammer"></i> )</h2>
                               <div class="button-wrapper">
                                 <a href="Agendar" class="add"><i class="fas fa-plus"></i></a>
                                 <a href="Viajes"><i class="fas fa-list-ul"></i></a>
                               </div>
                             </div>
-                            <div class="search">
-                              <i class="fas fa-search"></i>
-                              <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarUsuarios(1)"/>
-                            </div>
-                            <table class="usuarios-table">
+                            <table class="usuarios-table" id="search-table-agenda">
                               <thead>
                                 <tr>
                                   <th>ID <i class="fas fa-angle-down"></i></th>
@@ -335,22 +327,32 @@ session_set_cookie_params($ttl);
                                 </tr>
                               </thead>
                               <tbody id="tbody-viajes-dashboard">
+                                <tr>
+                                  <td data-title="ID">000</td>
+                                  <td data-title="Origen">Example, Example 2</td>
+                                  <td data-title="Destino">Example 3, Example 4</td>
+                                  <td data-title="Fecha">dd/mm/aaaa</td>
+                                  <td data-title="Estado">En Venta</td>
+                                  <td data-title="Modalidad">Oportunidad</td>
+                                  <td>
+                                    <div class="button-wrapper">
+                                      <button class="button"><i class="fas fa-file-contract"></i></button>
+                                      <button class="button"><i class="fas fa-edit"></i></button>
+                                      <button class="button"><i class="fas fa-ban"></i></button>
+                                  </td>
+                                </tr>
                               </tbody>
                             </table>
                           </div>
 
                           <div class="usuarios-recientes">
                             <div class="usuarios-info">
-                              <h2><i class="fas fa-hand-holding-dollar"></i> Mis Cotizaciones ( <i class="fas fa-hammer"></i> )</h2>
+                              <h2><i class="fas fa-hand-holding-dollar"></i> Cotizaciones Presentadas ( <i class="fas fa-hammer"></i> )</h2>
                               <div class="button-wrapper">
                                 <a href="Cotizaciones"><i class="fas fa-list-ul"></i></a>
                               </div>
                             </div>
-                            <div class="search">
-                              <i class="fas fa-search"></i>
-                              <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarUsuarios(1)"/>
-                            </div>
-                            <table class="usuarios-table">
+                            <table class="usuarios-table" id="cotz-pres">
                               <thead>
                                 <tr>
                                   <th>ID <i class="fas fa-angle-down"></i></th>
@@ -363,7 +365,18 @@ session_set_cookie_params($ttl);
                                   <th></th>
                                 </tr>
                               </thead>
-                              <tbody id="tbody-viajes-dashboard">
+                              <tbody id="tbody-cotizaciones-dashboard">
+                                <tr>
+                                  <td data-title="ID">000</td>
+                                  <td data-title="Origen">Example, Example 2</td>
+                                  <td data-title="Destino">Example 3, Example 4</td>
+                                  <td data-title="Fecha">dd/mm/aaaa</td>
+                                  <td data-title="Estado">Cotizando</td>
+                                  <td>
+                                    <div class="button-wrapper">
+                                      <button class="button"><i class="fas fa-ban"></i></button>
+                                  </td>
+                                </tr>
                               </tbody>
                             </table>
                           </div>
@@ -372,22 +385,38 @@ session_set_cookie_params($ttl);
                             <div class="usuarios-info">
                               <h2><i class="fas fa-hand-holding-dollar"></i> Cotizaciones Recibidas ( <i class="fas fa-hammer"></i> )</h2>
                             </div>
-                            <div class="search">
-                              <i class="fas fa-search"></i>
-                              <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarUsuarios(1)"/>
-                            </div>
-                            <table class="usuarios-table">
+                            <table class="usuarios-table" id="cotz-reci">
                               <thead>
                                 <tr>
                                   <th>ID <i class="fas fa-angle-down"></i></th>
                                   <th>Reputación <i class="fas fa-angle-down"></i></th>
-                                  <th>Modelo / Modelo <i class="fas fa-angle-down"></i></th>
+                                  <th>Marca / Modelo <i class="fas fa-angle-down"></i></th>
                                   <th>Capacidad <i class="fas fa-angle-down"></i></th>
                                   <th>Precio <i class="fas fa-angle-down"></i></th>
                                   <th></th>
                                 </tr>
                               </thead>
-                              <tbody id="tbody-viajes-dashboard">
+                              <tbody id="tbody-cotizaciones-dashboard">
+                                <tr>
+                                  <td data-title="ID">000</td>
+                                  <td data-title="Reputación">
+                                    <div class="reputacion">
+                                      <i class="fas fa-star"></i>
+                                      <i class="fas fa-star"></i>
+                                      <i class="fas fa-star"></i>
+                                      <i class="fas fa-star"></i>
+                                      <i class="fas fa-star-half"></i>
+                                    </div>
+                                  </td>
+                                  <td data-title="Marca / Modelo">Example 3, Example 4</td>
+                                  <td data-title="Capacidad">00</td>
+                                  <td data-title="Precio">$0.000</td>
+                                  <td>
+                                    <div class="button-wrapper">
+                                      <button class="button"><i class="fas fa-dollar-sign"></i></button>
+                                      <button class="button"><i class="fas fa-ban"></i></button>
+                                  </td>
+                                </tr>
                               </tbody>
                             </table>
                           </div>
@@ -402,10 +431,6 @@ session_set_cookie_params($ttl);
                               <a href="https://www.salioviaje.com.uy/Crear_Empresa" class="add"><i class="fas fa-plus"></i></a>
                               <a href="https://www.salioviaje.com.uy/Empresas"><i class="fas fa-list-ul"></i></a>
                             </div>
-                          </div>
-                          <div class="search">
-                            <i class="fas fa-search"></i>
-                            <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarusuarios()"/>
                           </div>
                           <div class="propietarios">
                 
@@ -456,10 +481,6 @@ session_set_cookie_params($ttl);
                       <a href="Viajes"><i class="fas fa-list-ul"></i></a>
                     </div>
                   </div>
-                  <div class="search">
-                    <i class="fas fa-search"></i>
-                    <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarUsuarios(1)"/>
-                  </div>
                   <table class="usuarios-table">
                     <thead>
                       <tr>
@@ -483,16 +504,12 @@ session_set_cookie_params($ttl);
                   <div class="usuarios-info">
                     <h2><i class="fas fa-hand-holding-dollar"></i> Cotizaciones Recibidas ( <i class="fas fa-hammer"></i> )</h2>
                   </div>
-                  <div class="search">
-                    <i class="fas fa-search"></i>
-                    <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarUsuarios(1)"/>
-                  </div>
                   <table class="usuarios-table">
                     <thead>
                       <tr>
                         <th>ID <i class="fas fa-angle-down"></i></th>
                         <th>Reputación <i class="fas fa-angle-down"></i></th>
-                        <th>Modelo / Modelo <i class="fas fa-angle-down"></i></th>
+                        <th>Marca / Modelo <i class="fas fa-angle-down"></i></th>
                         <th>Capacidad <i class="fas fa-angle-down"></i></th>
                         <th>Precio <i class="fas fa-angle-down"></i></th>
                         <th></th>
@@ -512,10 +529,6 @@ session_set_cookie_params($ttl);
                     <a href="https://www.salioviaje.com.uy/Crear_Empresa" class="add"><i class="fas fa-plus"></i></a>
                     <a href="https://www.salioviaje.com.uy/Empresas"><i class="fas fa-list-ul"></i></a>
                   </div>
-                </div>
-                <div class="search">
-                  <i class="fas fa-search"></i>
-                  <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarusuarios()"/>
                 </div>
                 <div class="propietarios">
       
@@ -565,16 +578,12 @@ session_set_cookie_params($ttl);
                                 <a href="Cotizaciones"><i class="fas fa-list-ul"></i></a>
                               </div>
                             </div>
-                            <div class="search">
-                              <i class="fas fa-search"></i>
-                              <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarUsuarios(1)"/>
-                            </div>
                             <table class="usuarios-table">
                               <thead>
                                 <tr>
                                   <th>ID <i class="fas fa-angle-down"></i></th>
                                   <th>Reputación <i class="fas fa-angle-down"></i></th>
-                                  <th>Modelo / Modelo <i class="fas fa-angle-down"></i></th>
+                                  <th>Marca / Modelo <i class="fas fa-angle-down"></i></th>
                                   <th>Capacidad <i class="fas fa-angle-down"></i></th>
                                   <th>Precio <i class="fas fa-angle-down"></i></th>
                                   <th></th>
@@ -593,10 +602,6 @@ session_set_cookie_params($ttl);
                               <a href="https://www.salioviaje.com.uy/Crear_Empresa" class="add"><i class="fas fa-plus"></i></a>
                               <a href="https://www.salioviaje.com.uy/Empresas"><i class="fas fa-list-ul"></i></a>
                             </div>
-                          </div>
-                          <div class="search">
-                            <i class="fas fa-search"></i>
-                            <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarusuarios()"/>
                           </div>
                           <div class="propietarios">
                 
@@ -645,16 +650,12 @@ session_set_cookie_params($ttl);
                                 <a href="Cotizaciones"><i class="fas fa-list-ul"></i></a>
                               </div>
                             </div>
-                            <div class="search">
-                              <i class="fas fa-search"></i>
-                              <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarUsuarios(1)"/>
-                            </div>
                             <table class="usuarios-table">
                               <thead>
                                 <tr>
                                   <th>ID <i class="fas fa-angle-down"></i></th>
                                   <th>Reputación <i class="fas fa-angle-down"></i></th>
-                                  <th>Modelo / Modelo <i class="fas fa-angle-down"></i></th>
+                                  <th>Marca / Modelo <i class="fas fa-angle-down"></i></th>
                                   <th>Capacidad <i class="fas fa-angle-down"></i></th>
                                   <th>Precio <i class="fas fa-angle-down"></i></th>
                                   <th></th>
@@ -673,10 +674,6 @@ session_set_cookie_params($ttl);
                             <div class="button-wrapper">
                               <a href="https://www.salioviaje.com.uy/Empresas"><i class="fas fa-list-ul"></i></a>
                             </div>
-                          </div>
-                          <div class="search">
-                            <i class="fas fa-search"></i>
-                            <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarusuarios()"/>
                           </div>
                           <div class="propietarios">
                 
@@ -726,10 +723,6 @@ session_set_cookie_params($ttl);
                               <a href="Viajes"><i class="fas fa-list-ul"></i></a>
                             </div>
                           </div>
-                          <div class="search">
-                            <i class="fas fa-search"></i>
-                            <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarUsuarios(1)"/>
-                          </div>
                           <table class="viajes-table" id="search-table">
                             <thead>
                               <tr>
@@ -754,16 +747,12 @@ session_set_cookie_params($ttl);
                               <a href="Cotizaciones"><i class="fas fa-list-ul"></i></a>
                             </div>
                           </div>
-                          <div class="search">
-                            <i class="fas fa-search"></i>
-                            <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarUsuarios(1)"/>
-                          </div>
                           <table class="usuarios-table">
                             <thead>
                               <tr>
                                 <th>ID <i class="fas fa-angle-down"></i></th>
                                 <th>Reputación <i class="fas fa-angle-down"></i></th>
-                                <th>Modelo / Modelo <i class="fas fa-angle-down"></i></th>
+                                <th>Marca / Modelo <i class="fas fa-angle-down"></i></th>
                                 <th>Capacidad <i class="fas fa-angle-down"></i></th>
                                 <th>Precio <i class="fas fa-angle-down"></i></th>
                                 <th></th>
