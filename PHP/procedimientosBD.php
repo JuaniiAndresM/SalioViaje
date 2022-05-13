@@ -740,7 +740,7 @@ class procedimientosBD
             $stmt->bind_result($id, $vehiculo, $distancia, $cantidad_pasajeros, $fecha, $origen, $destino, $precio, $rutas, $estado, $modalidad, $id_transportista);
             while ($stmt->fetch()) {
                 $result = array('ID' => $id, 'VEHICULO' => $vehiculo, 'DISTANCIA' => $distancia, 'CANTIDAD_PASAJERO' => $cantidad_pasajeros, 'FECHA' => $fecha, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'PRECIO' => $precio, 'RUTAS' => $rutas, 'ESTADO' => $estado, 'MODALIDAD' => $modalidad, 'ID_TRANSPORTISTA' => $id_transportista);
-                $fecha = substr($result["FECHA"],0,10);
+                $fecha = $result["FECHA"];
                 $timestamp = strtotime($fecha); 
                 $newDate = date("d-m-Y h:i", $timestamp);  
                 $result["FECHA"] = $newDate;

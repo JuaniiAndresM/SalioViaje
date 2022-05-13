@@ -513,6 +513,7 @@ function filtros() {
 
 
 function tabla_oportunidades() {
+    console.log("hola")
     $.ajax({
         type: 'POST',
         url: "/PHP/Tablas/tabla_viajes_panel.php",

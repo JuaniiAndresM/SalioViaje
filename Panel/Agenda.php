@@ -14,8 +14,6 @@ session_set_cookie_params($ttl);
 
       $vehiculos = $info_usuario->traer_agenda_usuario($_SESSION['datos_usuario']["ID"]);
       $oportunidades = $info_usuario->traer_oportunidades_usuario($_SESSION['datos_usuario']["ID"]);
-
-      $vehiculos;
   }
 
 ?>
@@ -203,7 +201,7 @@ session_set_cookie_params($ttl);
                       $info = explode(" ", $vehiculos[$i]['FECHA']);
                       $FECHA =$info[0];
                       $HORA = $info[1];
-                      echo '<tbody id="tbody">
+                      echo '<tr>
                           <td>'.$vehiculos[$i]['ID'].'</td>
                           <td>'.$FECHA.'</td>
                           <td>'.$HORA.'</td>
@@ -215,7 +213,7 @@ session_set_cookie_params($ttl);
                           <td>$'.number_format( $vehiculos[$i]['PRECIO'], 0,'','.').'</td>
                           <td>-</td>
                           <td>'.$vehiculos[$i]['ESTADO'].'</td>
-                      </tbody>';
+                      </tr>';
                     }
                   }
                   if($oportunidades === null){
@@ -226,7 +224,7 @@ session_set_cookie_params($ttl);
                       $info = explode(" ", $oportunidades[$i]['FECHA']);
                       $FECHA =$info[0];
                       $HORA = $info[1];
-                      echo '<tbody id="tbody">
+                      echo '<tr>
                           <td>'.$oportunidades[$i]['ID'].'</td>
                           <td>'.$FECHA.'</td>
                           <td>'.$HORA.'</td>
@@ -238,7 +236,7 @@ session_set_cookie_params($ttl);
                           <td>$'.number_format( $oportunidades[$i]['PRECIO'], 0,'','.').'</td>
                           <td>'.$oportunidades[$i]['DESCUENTO'].'%</td>
                           <td>'.$oportunidades[$i]['ESTADO'].'</td>
-                      </tbody>';
+                      </tr>';
                     }
                   }
               ?>
