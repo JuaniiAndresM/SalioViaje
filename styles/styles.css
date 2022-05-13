@@ -6806,6 +6806,7 @@ footer .totum p a:hover {
   overflow: hidden;
   -webkit-animation: none !important;
           animation: none !important;
+  overflow-y: scroll;
   opacity: 1;
   -webkit-transform: translateX(0);
           transform: translateX(0);
