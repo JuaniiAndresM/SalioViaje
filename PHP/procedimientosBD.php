@@ -1159,7 +1159,7 @@ class procedimientosBD
             $stmt->store_result();
             $stmt->bind_result($barrios);
             while ($stmt->fetch()) {
-                $barrio->array_push($barrios);
+                $barrio[] = $barrios;
             }
         }
         $stmt->close();
