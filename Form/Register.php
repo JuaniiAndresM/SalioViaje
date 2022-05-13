@@ -196,7 +196,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
                     if (isset($barrios)) {
                       for ($i=0; $i < count($barrios); $i++) { 
                        ?>
-                       <option value="<?php echo $barrios[$i]['REGION'] ?>">
+                       <option value="<?php echo $barrios[$i] ?>">
                        <?php
                       }
                     }
