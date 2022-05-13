@@ -111,6 +111,7 @@ if ($_SESSION['datos_usuario']['TIPO_USUARIO'] != "PAX" && $datos2 != null) {
                       <td>' . $datos2[$i]['MODALIDAD'] . '</td>
                       <td>
                           <div class="button-wrapper">
+                              <button class="button" onclick="mtop_oportunidad(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-file-contract"></i></button>
                               <button class="button" onclick="eliminar_oportunidad(' . $datos2[$i]['ID'] . ')"><i class="fas fa-trash-alt"></i></button>
                           </div>
                         </td>
@@ -127,6 +128,7 @@ if ($_SESSION['datos_usuario']['TIPO_USUARIO'] != "PAX" && $datos2 != null) {
                       <td>' . $datos2[$i]['MODALIDAD'] . '</td>
                       <td>
                           <div class="button-wrapper">
+                              <button class="button" onclick="mtop_oportunidad(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-file-contract"></i></button>
                               <button class="button" onclick="eliminar_oportunidad(' . $datos2[$i]['ID'] . ')"><i class="fas fa-trash-alt"></i></button>
                           </div>
                         </td>
