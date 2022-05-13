@@ -1159,10 +1159,9 @@ class procedimientosBD
             $stmt->bind_result($barrios);
             while ($stmt->fetch()) {
                 $result = array('BARRIOS' => $barrios);
-                $barrios[] = $result;
             }
         }
         $stmt->close();
-        return json_encode($barrios);
+        return json_encode($result);
     }
 }
