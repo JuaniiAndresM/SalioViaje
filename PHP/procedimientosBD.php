@@ -1151,7 +1151,7 @@ class procedimientosBD
 
     public function traer_barrios()
     {
-        $barrios = array();
+        $barrio = array();
         $conn = $this->conexion();
         $query = "SELECT * FROM `barrios`";
         $stmt = $conn->prepare($query);
@@ -1159,11 +1159,10 @@ class procedimientosBD
             $stmt->store_result();
             $stmt->bind_result($barrios);
             while ($stmt->fetch()) {
-                $result = array('BARRIOS' => $barrios);
-                $barrios[] = $result;
+                $barrio[] = $barrios;
             }
         }
         $stmt->close();
-        return json_encode($barrios);
+        return json_encode($barrio);
     }
 }
