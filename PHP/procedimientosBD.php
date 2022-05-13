@@ -1151,7 +1151,7 @@ class procedimientosBD
 
     public function traer_barrios()
     {
-        $barrios = array();
+        $barrio = array();
         $conn = $this->conexion();
         $query = "SELECT * FROM `barrios`";
         $stmt = $conn->prepare($query);
