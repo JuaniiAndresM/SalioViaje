@@ -9632,6 +9632,66 @@ footer .totum p a:hover {
   color: #555;
 }
 
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper #filters button, .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper #filters2 button,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper #filters button,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper #filters2 button,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper #filters button,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper #filters2 button,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper #filters button,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper #filters2 button,
+.viajar-wrapper .salioviaje .oportunidades-wrapper #filters button,
+.viajar-wrapper .salioviaje .oportunidades-wrapper #filters2 button,
+.viajar-wrapper .salioviaje .ofertas-wrapper #filters button,
+.viajar-wrapper .salioviaje .ofertas-wrapper #filters2 button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #3844bc;
+  border: none;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper #filters button i, .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper #filters2 button i,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper #filters button i,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper #filters2 button i,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper #filters button i,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper #filters2 button i,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper #filters button i,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper #filters2 button i,
+.viajar-wrapper .salioviaje .oportunidades-wrapper #filters button i,
+.viajar-wrapper .salioviaje .oportunidades-wrapper #filters2 button i,
+.viajar-wrapper .salioviaje .ofertas-wrapper #filters button i,
+.viajar-wrapper .salioviaje .ofertas-wrapper #filters2 button i {
+  color: white;
+  font-size: 15px;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper #filters button:hover, .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper #filters2 button:hover,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper #filters button:hover,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper #filters2 button:hover,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper #filters button:hover,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper #filters2 button:hover,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper #filters button:hover,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper #filters2 button:hover,
+.viajar-wrapper .salioviaje .oportunidades-wrapper #filters button:hover,
+.viajar-wrapper .salioviaje .oportunidades-wrapper #filters2 button:hover,
+.viajar-wrapper .salioviaje .ofertas-wrapper #filters button:hover,
+.viajar-wrapper .salioviaje .ofertas-wrapper #filters2 button:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
 .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .list-empty,
 .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .list-empty2,
 .viajar-wrapper .oportunidades-viajar .ofertas-wrapper .list-empty,
@@ -9915,6 +9975,15 @@ footer .totum p a:hover {
       -ms-flex-direction: column;
           flex-direction: column;
   margin-right: 20px;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper p,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper p,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper p,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper p,
+.viajar-wrapper .salioviaje .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper p,
+.viajar-wrapper .salioviaje .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper p {
+  margin-bottom: 0;
 }
 
 .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper button,

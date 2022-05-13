@@ -1,9 +1,16 @@
+let atributos = new Array();
+
 $(document).ready(function () {
     
     steps(1);   
 
     select_fiesta();
     select_transfer();
+
+    setTimeout(() => {
+        datavalue_oportunidades();
+    }, 1000);
+    
 
     $('.mensaje-error').hide();
 
@@ -25,9 +32,22 @@ $(document).ready(function () {
             timeoutformulario(5);
         }, 1000);
     }
-    
-    
 });
+
+function datavalue_oportunidades(){
+    var oportunidades = document.getElementsByClassName("oportunidad").length;
+
+    console.log(oportunidades);
+
+    if(oportunidades != 0){
+        for(var a = 0; a < oportunidades; a++){
+            let data_value_info = $("#Opo-" + a).data('value');
+            atributos.push(data_value_info);
+        }
+
+        console.log(atributos);
+    }
+}
 
 function abrirFormularioCotizacion(){
     window.location.href = "https://www.salioviaje.com.uy/Viajar/?opcion=5"
@@ -1061,3 +1081,177 @@ function rellenar(input){
     }
 
 }
+
+
+// ---------------- FILTROS ------------------
+
+function filtrar_divs(tipo) {
+    var origen;
+    switch(tipo){
+
+        case "Oportunidad":
+            origen = $("#origen_oportunidad").val();
+            var destino = $("#destino_oportunidad").val();
+            var fecha = $("#fecha_oportunidad").val();
+            break;
+
+    }
+ 
+    if(origen != "" || destino != "" || fecha != ""){
+ 
+       var encontrado_origen = [];
+       var encontrado_destino = [];
+       var encontrado_fecha = [];
+ 
+       var comparacion_1 = [];
+       var comparacion_2 = [];
+       var comparacion_3 = [];
+ 
+       for (let i = 0; i < atributos.length; i++) {
+          datos = atributos[i].split(',')
+    
+            function dateFormat(inputDate, format) {
+                const date = new Date(inputDate);
+        
+                const day = date.getDate() + 1;
+                const month = date.getMonth() + 1;
+                const year = date.getFullYear();    
+            
+                format = format.replace("MM", month.toString().padStart(2,"0"));        
+        
+                if (format.indexOf("yyyy") > -1) {
+                    format = format.replace("yyyy", year.toString());
+                } else if (format.indexOf("yy") > -1) {
+                    format = format.replace("yy", year.toString().substr(2,2));
+                }
+        
+                format = format.replace("dd", day.toString().padStart(2,"0"));
+            
+                return format;
+            }
+
+            console.log(origen);
+
+            if(datos[0].toLowerCase().includes(origen.toLowerCase()) && origen != ""){
+                encontrado_origen.push(i);
+            }
+    
+            if(datos[1].toLowerCase().includes(destino.toLowerCase()) && destino != ""){
+                encontrado_destino.push(i);
+            }
+    
+            if(datos[2] == dateFormat(fecha, 'dd-MM-yyyy')){
+                encontrado_fecha.push(i);
+            }
+ 
+       }
+ 
+ 
+       if(encontrado_origen.length != 0 && encontrado_destino.length != 0){
+          for(let x = 0; x < encontrado_origen.length; x++){
+             for(let a = 0; a < encontrado_destino.length; a++){
+                if(encontrado_origen[x] == encontrado_destino[a]){
+                   comparacion_1.push(encontrado_destino[a]);
+                }
+             }
+          }
+       }else if(encontrado_origen.length == 0 && encontrado_destino.length != 0 && origen == ""){
+          comparacion_1 = encontrado_destino;
+       }else if(encontrado_origen.length != 0 && encontrado_destino.length == 0 && destino == ""){
+          comparacion_1 = encontrado_origen;
+       }
+ 
+       if(encontrado_origen.length != 0 && encontrado_fecha.length != 0){
+          for(let x = 0; x < encontrado_origen.length; x++){
+             for(let a = 0; a < encontrado_fecha.length; a++){
+                if(encontrado_origen[x] == encontrado_fecha[a]){
+                   comparacion_2.push(encontrado_fecha[a]);
+                }
+             }
+          }
+       }else if(encontrado_origen.length == 0 && encontrado_fecha.length != 0 && origen == ""){
+          comparacion_2 = encontrado_fecha;
+       }else if(encontrado_origen.length != 0 && encontrado_fecha.length == 0 && fecha == ""){
+          comparacion_2 = encontrado_origen;
+       }
+ 
+ 
+ 
+       if(comparacion_1.length != 0 && comparacion_2.length != 0){
+          for(let x = 0; x < comparacion_1.length; x++){
+             for(let a = 0; a < comparacion_2.length; a++){
+                if(comparacion_1[x] == comparacion_2[a]){
+                   comparacion_3.push(comparacion_2[a]);
+                }
+             }
+          }
+       }else if(comparacion_1.length == 0 && comparacion_2.length != 0 && origen == "" && destino == ""){
+          comparacion_3 = comparacion_2;
+       }else if(comparacion_1.length != 0 && comparacion_2.length == 0 && origen == "" && fecha == ""){
+          comparacion_3 = comparacion_1;
+       }
+ 
+       console.log(comparacion_3);
+
+       for (let i = 0; i < atributos.length; i++) {
+          datos = atributos[i].split(',');
+ 
+          if(comparacion_3.length != 0){
+             $(".oportunidades-list").show();
+             $(".list-empty").css('display','none');
+             var encontrado_final = false;
+
+             for(let x = 0; x < comparacion_3.length; x++){
+
+                if(i == comparacion_3[x]){
+                   $("#Opo-" + i).show();
+                   encontrado_final = true;
+                }else{
+                   if(encontrado_final != true){
+                      $("#Opo-" + i).hide();
+                   }
+                }
+             }
+          }else{
+             for (let i = 0; i < atributos.length; i++) {
+                $("#Opo-" + i).hide();
+ 
+                $(".oportunidades-list").hide();
+                $(".list-empty").css('display','flex');
+             }
+          }
+          
+       }
+ 
+       
+ 
+    }else{
+       for (let i = 0; i < atributos.length; i++) {
+          $("#Opo-" + i).show();
+ 
+          $(".oportunidades-list").show();
+          $(".list-empty").css('display','none');
+       }
+    }
+ 
+    
+ 
+    /*
+    for(var a = 0; a < (cards - 1); a++){
+       console.log($('[data-value="Fecha'+cards+'"]').text()); 
+    }
+    */
+ }
+
+ function eliminar_filtros(tipo) {
+
+    switch(tipo){
+        case "Oportunidad":
+            $("#origen_oportunidad").val("");
+            $("#destino_oportunidad").val("");
+            $("#fecha_oportunidad").val("");
+            break;
+    }
+ 
+    filtrar_divs(tipo);
+ }

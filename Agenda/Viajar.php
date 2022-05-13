@@ -122,15 +122,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
         </p>
         <div class="oportunidades-wrapper">
           <div class="filter-wrapper">
-            <div class="search">
-              <i class="fas fa-search"></i>
-              <input
-                type="text"
-                placeholder="Buscar"
-                id="searchbar"
-                onkeyup="buscarOportunidades()"
-              />
-            </div>
+            <div class="search"></div>
 
             <div class="button-filtrar">
               <button onclick="filtros(1)"><i class="fas fa-sort-amount-down"></i> Filtrar</button>
@@ -141,37 +133,25 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
 
             <div class="input" id="destino">
               <i class="fas fa-location-dot" id="icon"></i>
-              <input list="Origen" id="destino_2" placeholder="Origen" />
-              <datalist id="Origen">
-                <option value="Canelones"></option>
-                <option value="Montevideo"></option>
-                <option value="Tacuarembó"></option>
-                <option value="Maldonado"></option>
-                <option value="Rivera"></option>
-              </datalist>
+              <input list="Localidad" id="origen_oportunidad" placeholder="Origen" onkeyup="filtrar_divs('Oportunidad')" />
             </div>
 
             <div class="input" id="destino">
               <i class="fas fa-route" id="icon"></i>
-              <input list="Destino" id="destino_2" placeholder="Destino">
-              <datalist id="Destino">
-                <option value="Canelones">
-                <option value="Montevideo">
-                <option value="Tacuarembó">
-                <option value="Maldonado">
-                <option value="Rivera">
-              </datalist>
+              <input list="Localidad" id="destino_oportunidad" placeholder="Destino" onkeyup="filtrar_divs('Oportunidad')" >
             </div>
 
             <div class="input" id="origen">
               <i class="far fa-calendar-alt" id="icon"></i>
-              <input type="date" id="fecha_2" placeholder="Fecha y Hora" />
+              <input type="date" id="fecha_oportunidad" placeholder="Fecha y Hora" onchange="filtrar_divs('Oportunidad')" />
             </div>
+
+            <button onclick="eliminar_filtros('Oportunidad')"><i class="fas fa-arrows-rotate"></i></button>
 
           </div>
 
           <div class="list-empty">
-            <p>Lo sentimos, de momento no hay oportunidades disponibles.</p>
+            <p>Lo sentimos, no hay oportunidades disponibles.</p>
           </div>
           <div class="oportunidades-list">
           </div>
@@ -231,6 +211,8 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
               <i class="far fa-calendar-alt" id="icon"></i>
               <input type="date" id="fecha_2" placeholder="Fecha y Hora" />
             </div>
+
+            <button onclick="eliminar_filtros('Ofertas')"><i class="fas fa-arrows-rotate"></i></button>
 
           </div>
 
@@ -339,7 +321,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
                       <option value="FLORIDA">
                       <option value="SORIANO">
                       <option value="RIO NEGRO">
-                      <option value="TACUAREMBO">
+                      <option value="TACUAREMBÓ">
                       <option value="RIVERA">
                       <option value="MONTEVIDEO">
                       <option value="ROCHA">

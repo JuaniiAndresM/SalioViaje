@@ -160,7 +160,7 @@ session_set_cookie_params($ttl);
                 <i class="fas fa-list" id="icon"></i>
                 <select id="estado_agenda">
                   <option value="0" disabled selected hidden>Seleccione un Estado</option>
-                  <option value="1">Disponible</option>
+                  <option value="1">En Venta</option>
                   <option value="2">Comprado</option>
                   <option value="3">Reconfirmado</option>
                   <option value="4">Vencido</option>

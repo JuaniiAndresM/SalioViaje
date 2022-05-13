@@ -12,10 +12,12 @@ $datos = json_decode($datos->traer_oportunidades(), true);
 $contenido_oportunidades = ' ';
 
 for ($i = 0; $i < count($datos); $i++) {
-    if (isset($_SESSION['usuario']) || $_SESSION['datos_usuario']['TIPO_USUARIO'] != "CHO") {
+    if (isset($_SESSION['usuario'])) {
+      if($_SESSION['datos_usuario']['TIPO_USUARIO'] != "CHO"){
         $boton = '<button class="comprar-button" type="submit" onclick="comprar_oportunidad('.$datos[$i]['ID'].')"><i class="fas fa-comments-dollar"></i> Comprar</button>';
+      }
     } else if (!isset($_SESSION['usuario'])) {
-        $boton = 'Debes loguearte para comprar.';
+        $boton = '<p style="color: white; font-size: 12px;">Debes loguearte para comprar.</p>';
     } else {
         $boton = ' ';
     }
@@ -23,7 +25,7 @@ for ($i = 0; $i < count($datos); $i++) {
     $PRECIO_CON_DESCUENTO_APLICADO = round($datos[$i]['PRECIO'] - $datos[$i]['PRECIO'] * ($datos[$i]['DESCUENTO'] / 100));
     if ($i == 0 && $datos[$i]['ESTADO'] == 'En venta') {
         $contenido_oportunidades = '
-					<div class="oportunidad">
+					<div class="oportunidad" id="Opo-'.$i.'" data-value="'.$datos[$i]['ORIGEN'].','.$datos[$i]['DESTINO'].','.$fecha[0].'">
 
               <div class="oportunidad-left">
                 <div class="discount">
@@ -70,7 +72,7 @@ for ($i = 0; $i < count($datos); $i++) {
 
     } else if ($datos[$i]['ESTADO'] == 'En venta') {
         $contenido_oportunidades = $contenido_oportunidades . '
-					<div class="oportunidad">
+					<div class="oportunidad" id="Opo-'.$i.'" data-value="'.$datos[$i]['ORIGEN'].','.$datos[$i]['DESTINO'].','.$fecha[0].'">
 
               <div class="oportunidad-left">
                 <div class="discount">
