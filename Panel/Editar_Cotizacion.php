@@ -283,14 +283,23 @@ session_set_cookie_params($ttl);
                         </td>
                         <td>
                           <select id="tta-responsable-<?php echo $cotizaciones[$i]['ID'] ?>" onchange="update_responsable(<?php echo $cotizaciones[$i]['ID'] ?>)">
-                          <option value="0" selected>Sin Asignar</option>
-
                           <?php
-                            for($a = 0; $a < count($usuarios); $a++){
-                              if($usuarios[$a]['TIPO_USUARIO'] == "TTA"){
+                          if($cotizaciones[$i]['ID_RESPONSABLE'] != null){
+                            echo '<option value="0">Sin Asignar</option>';
+                          }else{
+                            echo '<option value="0" selected>Sin Asignar</option>';
+                          }
+                         
+                          for($a = 0; $a < count($usuarios); $a++){
+                            if($usuarios[$a]['TIPO_USUARIO'] == "TTA"){
+                              if($cotizaciones[$i]['ID_RESPONSABLE'] == $usuarios[$a]['ID']){
+                                echo '<option value="'.$usuarios[$a]['ID'].'" selected>'.$usuarios[$a]['ID'].' - '.$usuarios[$a]['NOMBRE'].' '.$usuarios[$a]['APELLIDO'].' - 0'.$usuarios[$a]['TELEFONO'].'</option>';
+                              }else{
                                 echo '<option value="'.$usuarios[$a]['ID'].'">'.$usuarios[$a]['ID'].' - '.$usuarios[$a]['NOMBRE'].' '.$usuarios[$a]['APELLIDO'].' - 0'.$usuarios[$a]['TELEFONO'].'</option>';
                               }
+                              
                             }
+                          }
                             
                           ?>
 
@@ -379,7 +388,21 @@ session_set_cookie_params($ttl);
                             }
                           ?>
                         </td>
-                        <td id="value-responsable-<?php echo $cotizaciones[$i]['ID'] ?>">Sin Asignar</td>
+                        <td id="value-responsable-<?php echo $cotizaciones[$i]['ID'] ?>">
+                          <?php
+                            if($cotizaciones[$i]['ID_RESPONSABLE'] == null){
+                                echo 'Sin Asignar';
+                            }else{
+                              $id_tta = $cotizaciones[$i]['ID_RESPONSABLE'];
+
+                              for($a = 0; $a < count($usuarios); $a++){
+                                if($usuarios[$a]['ID'] == $id_tta){
+                                  echo $usuarios[$a]['ID'].' - '.$usuarios[$a]['NOMBRE'].' '.$usuarios[$a]['APELLIDO'].' - 0'.$usuarios[$a]['TELEFONO'];
+                                }
+                              }
+                            }
+                          ?>
+                        </td>
                       </tr>
                       <?php
                     }

@@ -499,27 +499,6 @@ session_set_cookie_params($ttl);
                     </tbody>
                   </table>
                 </div>
-
-                <div class="usuarios-recientes">
-                  <div class="usuarios-info">
-                    <h2><i class="fas fa-hand-holding-dollar"></i> Cotizaciones Recibidas ( <i class="fas fa-hammer"></i> )</h2>
-                  </div>
-                  <table class="usuarios-table">
-                    <thead>
-                      <tr>
-                        <th>ID <i class="fas fa-angle-down"></i></th>
-                        <th>Reputación <i class="fas fa-angle-down"></i></th>
-                        <th>Marca / Modelo <i class="fas fa-angle-down"></i></th>
-                        <th>Capacidad <i class="fas fa-angle-down"></i></th>
-                        <th>Precio <i class="fas fa-angle-down"></i></th>
-                        <th></th>
-                      </tr>
-                    </thead>
-                    <tbody id="tbody-viajes-dashboard">
-                    </tbody>
-                  </table>
-                </div>
-
               </div>
 
               <div class="usuarios-propietarios">

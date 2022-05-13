@@ -186,8 +186,11 @@ if ($_POST['tipo'] == 1) {
             echo $id_cotizacion;
             break;
 
-        case 'cambio_estado_cotizacion':
+        case 'cambiar_estado_cotizacion_panel_admin':
             $procedimientosForm->cambiar_estado_cotizacion($_POST['idCotizacion'], $_POST['estado']);
+            break;
+        case 'cambiar_responsable_cotizacion_panel_admin':
+            $procedimientosForm->cambiar_responsable_cotizacion($_POST['idCotizacion'], $_POST['responsable']);
             break;
         case 'traer_id_cotizaciones':
             echo $procedimientosForm->traer_id_viajes_cotizando();

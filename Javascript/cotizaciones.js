@@ -26,7 +26,7 @@ function cambiar_estado_cotizacion_panel_admin(id_cotizacion) {
    $.ajax({
       type: "POST",
       url: "/PHP/procedimientosForm.php",
-      data: { tipo: 'cambio_estado_cotizacion', idCotizacion: id_cotizacion, estado: estado },
+      data: { tipo: 'cambiar_estado_cotizacion_panel_admin', idCotizacion: id_cotizacion, estado: estado },
       success: function (response) {
          console.log(response)
          var estado = "";
@@ -51,10 +51,18 @@ function cambiar_estado_cotizacion_panel_admin(id_cotizacion) {
 }
 
 function update_responsable(id_cotizacion){
-   var responsable = $("select#tta-responsable-" + id_cotizacion + " option").filter(":selected").text();
-   console.log(responsable);
+   var responsable_text = $("select#tta-responsable-" + id_cotizacion + " option").filter(":selected").text();
+   var responsable = $("#tta-responsable-" + id_cotizacion).val();
 
-   $("#value-responsable-" + id_cotizacion).html(responsable);
+   $.ajax({
+      type: "POST",
+      url: "/PHP/procedimientosForm.php",
+      data: { tipo: 'cambiar_responsable_cotizacion_panel_admin', idCotizacion: id_cotizacion, responsable: responsable },
+      success: function (response) {
+         console.log(response)
+         $("#value-responsable-" + id_cotizacion).html(responsable_text);
+      },
+   });
 }
 
 function filtros_cotizaciones() {

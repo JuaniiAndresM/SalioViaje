@@ -974,13 +974,13 @@ class procedimientosBD
     {
         $cotizaciones = array();
         $conn = $this->conexion();
-        $query = "SELECT ID,DIRECCION_ORIGEN,BARRIO_ORIGEN,LOCALIDAD_ORIGEN,DIRECCION_DESTINO,BARRIO_DESTINO,LOCALIDAD_DESTINO,FECHA_SALIDA,ESTADO,HORA,CANTIDAD_PASAJEROS,MASCOTAS,TIPO FROM `cotizaciones` ORDER BY FECHA_SALIDA, HORA";
+        $query = "SELECT ID,DIRECCION_ORIGEN,BARRIO_ORIGEN,LOCALIDAD_ORIGEN,DIRECCION_DESTINO,BARRIO_DESTINO,LOCALIDAD_DESTINO,FECHA_SALIDA,ESTADO,HORA,CANTIDAD_PASAJEROS,MASCOTAS,TIPO,ID_TTA_RESPONSABLE FROM `cotizaciones` ORDER BY FECHA_SALIDA, HORA";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($id_cotizacion, $direccion_origen, $barrio_origen, $localidad_origen, $direccion_destino, $barrio_destino, $localidad_destino, $fecha_salida, $estado,$hora,$cantidad_pasajeros,$mascotas,$tipo);
+            $stmt->bind_result($id_cotizacion, $direccion_origen, $barrio_origen, $localidad_origen, $direccion_destino, $barrio_destino, $localidad_destino, $fecha_salida, $estado,$hora,$cantidad_pasajeros,$mascotas,$tipo,$id_tta_responsable);
             while ($stmt->fetch()) {
-                $result = array('ID' => $id_cotizacion, 'DIRECCION_ORIGEN' => $direccion_origen, 'BARRIO_ORIGEN' => $barrio_origen, 'LOCALIDAD_ORIGEN' => $localidad_origen, 'DIRECCION_DESTINO' => $direccion_destino, 'BARRIO_DESTINO' => $barrio_destino, 'LOCALIDAD_DESTINO' => $localidad_destino, 'FECHA_SALIDA' => $fecha_salida, 'ESTADO' => $estado, 'HORA' => $hora, 'CANTIDAD_PASAJEROS' => $cantidad_pasajeros, 'MASCOTAS' => $mascotas,'TIPO' => $tipo);
+                $result = array('ID' => $id_cotizacion, 'DIRECCION_ORIGEN' => $direccion_origen, 'BARRIO_ORIGEN' => $barrio_origen, 'LOCALIDAD_ORIGEN' => $localidad_origen, 'DIRECCION_DESTINO' => $direccion_destino, 'BARRIO_DESTINO' => $barrio_destino, 'LOCALIDAD_DESTINO' => $localidad_destino, 'FECHA_SALIDA' => $fecha_salida, 'ESTADO' => $estado, 'HORA' => $hora, 'CANTIDAD_PASAJEROS' => $cantidad_pasajeros, 'MASCOTAS' => $mascotas,'TIPO' => $tipo,'ID_RESPONSABLE' => $id_tta_responsable);
                 $fecha = $result["FECHA_SALIDA"];
                 $timestamp = strtotime($fecha); 
                 $newDate = date("d-m-Y", $timestamp);  
@@ -1019,6 +1019,16 @@ class procedimientosBD
         $query = "CALL cambiar_estado_cotizacion(?,?)";
         $stmt = $conn->prepare($query);
         $stmt->bind_param("ii", $id, $estado);
+        $stmt->execute();
+        $stmt->close();
+    }
+
+    public function cambiar_responsable_cotizacion($id,$responsable)
+    {
+        $conn = $this->conexion();
+        $query = "CALL cambio_responsable_cotizacion(?,?)";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("ii", $id, $responsable);
         $stmt->execute();
         $stmt->close();
     }
