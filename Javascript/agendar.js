@@ -149,8 +149,6 @@ function calcular_hora() {
 
     fecha_1 = $("#fecha_1").val();
 
-    //2022-03-09T02:34
-
     let km = document.getElementById('distancia-input').value
     let tiempo = $("#fecha_1").val().substring(11, 16);
     let tiempo_2;
@@ -191,7 +189,9 @@ function calcular_hora() {
 
     fecha_2 = fecha_2 + tiempo_2
 
-    $("#fecha_2").val(fecha_2)
+    if ($("#fecha_2").val() == "") {
+        $("#fecha_2").val(fecha_2)
+    }
 }
 
 function calcular_hora_invertido() {
@@ -238,7 +238,10 @@ function calcular_hora_invertido() {
 
     fecha_2 = fecha_2 + tiempo_2
 
-    $("#fecha_1").val(fecha_2)
+    
+    if ($("#fecha_1").val() == "") {
+        $("#fecha_1").val(fecha_2)
+    }
 }
 
 
@@ -482,12 +485,16 @@ function cargar_vista_previa() {
     if (datos_etapa_2_tramo_2['TIPO'] == 1) { $('.tipo_2').html("Agenda") } else { $('.tipo_2').html("Agenda") }
     if (datos_etapa_2_tramo_2['DESCUENTO_OPORTUNIDAD'] != undefined) { $('.porcentaje_2').html(datos_etapa_2_tramo_2['DESCUENTO_OPORTUNIDAD'] + "%") } else { $('.porcentaje_2').html("No hay descuento") }
     $('.fecha_2').html(datos_etapa_2_tramo_2['FECHA'])
-    $('.origen_2i').html(datos_etapa_2_tramo_2['ORIGEN'])
+    $('.origen_2').html(datos_etapa_2_tramo_2['ORIGEN'])
     $('.destino_2').html(datos_etapa_2_tramo_2['DESTINO'])
     $('.precio_2').html("$" + datos_etapa_2_tramo_2['PRECIO_REFERENCIA'])
 
     for (var i = 0; i < array_rutas.length; i++) {
-        array_rutas[i]
+        if (i != array_rutas.length - 1 && array_rutas[i] != undefined) {
+            $('.rutas_ingresadas').append(array_rutas[i]+", ")
+        } else {
+            $('.rutas_ingresadas').append(array_rutas[i]+".")
+        }
     }
 }
 
@@ -495,8 +502,8 @@ function cargar_vista_previa() {
 //                                         Agendar Viaje                                     //
 /*-------------------------------------------------------------------------------------------*/
 
-function finalizar() {
-
+function finalizar() {  
+    $('#step-agendar_MTOP').attr('disabled', 'disabled');
     let datos = {}
     let tipos_tramo = {}
 
@@ -518,7 +525,7 @@ function finalizar() {
                         $.ajax({
                             type: "POST",
                             url: "/PHP/Backend.php",
-                            data: { opcion: "agendarViaje", datos: JSON.stringify(datos) },
+                            data: { opcion: "agendarViaje", datos: JSON.stringify(datos), rutas:JSON.stringify(array_rutas) },
                             success: function (response) {
                                 console.log(response)
                             },
@@ -531,7 +538,7 @@ function finalizar() {
                         $.ajax({
                             type: "POST",
                             url: "/PHP/Backend.php",
-                            data: { opcion: "agregarOportunidad", datos: JSON.stringify(datos) },
+                            data: { opcion: "agregarOportunidad", datos: JSON.stringify(datos), rutas:JSON.stringify(array_rutas) },
                             success: function (response) {
                                 console.log(response)
                             },
@@ -552,7 +559,7 @@ function finalizar() {
                         $.ajax({
                             type: "POST",
                             url: "/PHP/Backend.php",
-                            data: { opcion: "agendarViaje", datos: JSON.stringify(datos) },
+                            data: { opcion: "agendarViaje", datos: JSON.stringify(datos), rutas:JSON.stringify(array_rutas) },
                             success: function (response) {
                                 console.log(response)
                             },
@@ -565,7 +572,7 @@ function finalizar() {
                         $.ajax({
                             type: "POST",
                             url: "/PHP/Backend.php",
-                            data: { opcion: "agregarOportunidad", datos: JSON.stringify(datos) },
+                            data: { opcion: "agregarOportunidad", datos: JSON.stringify(datos), rutas:JSON.stringify(array_rutas) },
                             success: function (response) {
                                 console.log(response)
                             },

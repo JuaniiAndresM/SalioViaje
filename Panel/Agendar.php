@@ -493,7 +493,7 @@ session_set_cookie_params($ttl);
             <hr>
             <div class="rutas">
               <b><i class="fas fa-route"></i> Rutas</b>
-              <p class="rutas_ingresadas">Ruta 1, Ruta Intelbarnearia, Ruta 5.</p>
+              <p class="rutas_ingresadas"></p>
             </div>
             <div class="button-wrapper">
               <button class="button-agendar" id="button_volver" onclick="volver()">
