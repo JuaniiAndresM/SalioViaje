@@ -114,7 +114,7 @@ $contraste_2: #ffffff;
 }
 
 .servicios {
-  max-width: 1500px;
+  max-width: 1100px;
   width: 100%;
 
   margin: 0 auto;
@@ -150,7 +150,7 @@ $contraste_2: #ffffff;
     margin: 20px 0;
 
     .card {
-      max-width: 300px;
+      max-width: 280px;
       width: 100%;
       min-height: 470px;
 
@@ -704,7 +704,7 @@ $contraste_2: #ffffff;
   }
 }
 
-@media screen and(max-width: 1550px) {
+@media screen and(max-width: 1100px) {
   .landing {
     .landing-wrapper-grid {
       .landing-right {
