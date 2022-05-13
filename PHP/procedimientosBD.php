@@ -367,8 +367,16 @@ class procedimientosBD
         $query = "call agendar_viaje(?,?,?,?,?,?,?,?);";
         $stmt = $conn->prepare($query);
         $stmt->bind_param("siisssii", $datos['MATRICULA'], $datos["DISTANCIA"], $datos["CANTIDAD_DE_PASAJEROS"], $datos["FECHA"], $datos["ORIGEN"], $datos["DESTINO"], $datos["PRECIO_REFERENCIA"], $id);
-        $stmt->execute();
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($last_insert_id);
+            while ($stmt->fetch()) {
+                $result = $last_insert_id;
+            }
+        }
+        echo $stmt->error;
         $stmt->close();
+        return json_encode($result);
     }
 
     public function agregar_oportunidad($datos)
@@ -380,8 +388,31 @@ class procedimientosBD
         $query = "call agregar_oportunidad(?,?,?,?,?,?,?,?,?);";
         $stmt = $conn->prepare($query);
         $stmt->bind_param("isiisssii", $datos['DESCUENTO_OPORTUNIDAD'], $datos['MATRICULA'], $datos["DISTANCIA"], $datos["CANTIDAD_DE_PASAJEROS"], $datos["FECHA"], $datos["ORIGEN"], $datos["DESTINO"], $datos["PRECIO_REFERENCIA"], $id);
-        $stmt->execute();
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($last_insert_id);
+            while ($stmt->fetch()) {
+                $result = $last_insert_id;
+            }
+        }
+        echo $stmt->error;
         $stmt->close();
+        return json_encode($result);
+    }
+
+    public function registrar_rutas_agenda($rutas,$id_viaje){
+        $rutas = json_decode($rutas, true);
+        echo "id_viaje : ".$id_viaje;
+        echo json_encode($rutas);
+        for ($i=0; $i < count($rutas); $i++) { 
+            $conn = $this->conexion();
+            $query = "call agregar_rutas_agenda(?,?);";
+            $stmt = $conn->prepare($query);
+            $stmt->bind_param("is", $id_viaje, $rutas[$i]);
+            $stmt->execute();
+            echo $stmt->error;
+            $stmt->close();
+        }
     }
 
     public function traer_oportunidades()
