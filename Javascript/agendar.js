@@ -319,7 +319,7 @@ function select_vehiculos() {
     console.log(id_empresas_array)
     //tipo: "vehiculos-agenda",id_empresa:id_empresas_array[i]['ID']
     var selectVehiculos = document.getElementById('vehiculos-select');
-    $("#vehiculos-select").empty().append($("<option></option>").attr({ "value": 0, "selected": true, 'disabled': true, 'hidden': true }).text('Seleccione un vehiculo'));
+    $("#vehiculos-select").empty().append($("<option></option>").attr({ "value": 0, "selected": true, 'disabled': true, 'hidden': true }).text('Seleccione un Vehículo'));
 
     for (var i = 0; i < id_empresas_array.length; i++) {
         let vehiculos_select_array = $.ajax({
