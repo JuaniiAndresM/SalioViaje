@@ -3,7 +3,9 @@ require_once '../PHP/procedimientosBD.php';
 
 $regiones_mtop = new procedimientosBD();
 
-$regiones_mtop = json_decode($regiones_mtop->traer_regiones_mtop(), true);
+$barrios = json_decode($regiones_mtop->traer_barrios(), true);
+// $regiones_mtop = json_decode($regiones_mtop->traer_regiones_mtop(), true);
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -191,10 +193,10 @@ $regiones_mtop = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                 <input list="Barrio" id="barrio" placeholder="Barrio">
                 <datalist id="Barrio">
                   <?php
-                    if (isset($regiones_mtop)) {
-                      for ($i=0; $i < count($regiones_mtop); $i++) { 
+                    if (isset($barrios)) {
+                      for ($i=0; $i < count($barrios); $i++) { 
                        ?>
-                       <option value="<?php echo $regiones_mtop[$i]['REGION'] ?>">
+                       <option value="<?php echo $barrios[$i]['REGION'] ?>">
                        <?php
                       }
                     }
