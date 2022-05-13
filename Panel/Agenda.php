@@ -207,7 +207,7 @@ session_set_cookie_params($ttl);
                       echo '<tr>
                           <td>'.$vehiculos[$i]['ID'].'</td>
                           <td>'.$FECHA.'</td>
-                          <td>'.$HORA.'</td>
+                          <td>'.$HORA." ".$info[2].'</td>
                           <td>'.$vehiculos[$i]['VEHICULO'].'</td>
                           <td>'.$vehiculos[$i]['ORIGEN'].'</td>
                           <td>'.$vehiculos[$i]['DESTINO'].'</td>
@@ -230,7 +230,7 @@ session_set_cookie_params($ttl);
                       echo '<tr>
                           <td>'.$oportunidades[$i]['ID'].'</td>
                           <td>'.$FECHA.'</td>
-                          <td>'.$HORA.'</td>
+                          <td>'.$HORA." ".$info[2].'</td>
                           <td>'.$oportunidades[$i]['VEHICULO'].'</td>
                           <td>'.$oportunidades[$i]['ORIGEN'].'</td>
                           <td>'.$oportunidades[$i]['DESTINO'].'</td>
