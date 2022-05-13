@@ -34,8 +34,10 @@ function filtroAgenda() {
 
     if(fecha != "" || hora != "" || estado != null){
 
+        var tr_length = tr.length;
+
         if(estado != null){
-            for (i = 0; i < tr.length; i++) {
+            for (i = 0; i < tr_length; i++) {
                 var encontrado = false;
     
                 td = tr[i].getElementsByTagName("td")[10];
@@ -50,6 +52,7 @@ function filtroAgenda() {
                         tr[i].style.display = "none";
                     }
                 }
+                
             }
         }
 
