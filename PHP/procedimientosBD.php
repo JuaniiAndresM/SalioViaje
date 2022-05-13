@@ -1159,7 +1159,6 @@ class procedimientosBD
             $stmt->store_result();
             $stmt->bind_result($barrios);
             while ($stmt->fetch()) {
-                //$result = array('BARRIO' => $barrio);
                 $barrio[] = $barrios;
             }
         }
