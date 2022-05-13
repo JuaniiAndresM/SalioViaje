@@ -740,9 +740,9 @@ class procedimientosBD
             $stmt->bind_result($id, $vehiculo, $distancia, $cantidad_pasajeros, $fecha, $origen, $destino, $precio, $rutas, $estado, $modalidad, $id_transportista);
             while ($stmt->fetch()) {
                 $result = array('ID' => $id, 'VEHICULO' => $vehiculo, 'DISTANCIA' => $distancia, 'CANTIDAD_PASAJERO' => $cantidad_pasajeros, 'FECHA' => $fecha, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'PRECIO' => $precio, 'RUTAS' => $rutas, 'ESTADO' => $estado, 'MODALIDAD' => $modalidad, 'ID_TRANSPORTISTA' => $id_transportista);
-                $fecha = substr($result["FECHA"],0,10);
+                $fecha = $result["FECHA"];
                 $timestamp = strtotime($fecha); 
-                $newDate = date("d-m-Y h:i", $timestamp);  
+                $newDate = date("d-m-Y h:i A", $timestamp);  
                 $result["FECHA"] = $newDate;
                 $agenda[$size] = $result;
                 $return = $agenda;
@@ -768,7 +768,7 @@ class procedimientosBD
                 $result = array('ID' => $id, 'DESCUENTO' => $descuento, 'VEHICULO' => $vehiculo, 'DISTANCIA' => $distancia, 'CANTIDAD_PASAJERO' => $cantidad_pasajeros, 'FECHA' => $fecha, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'PRECIO' => $precio, 'RUTAS' => $rutas, 'ESTADO' => $estado, 'ID_TRANSPORTISTA' => $id_transportista, 'ID_COMPRADOR' => $id_comprador, 'MODALIDAD' => $modalidad);
                 $fecha = $result["FECHA"];
                 $timestamp = strtotime($fecha); 
-                $newDate = date("d-m-Y h:i", $timestamp);  
+                $newDate = date("d-m-Y h:i A", $timestamp);  
                 $result["FECHA"] = $newDate;
                 $agenda[$size] = $result;
                 $return = $agenda;
@@ -1147,5 +1147,22 @@ class procedimientosBD
         }
         $stmt->close();
         return json_encode($id);
+    }
+
+    public function traer_barrios()
+    {
+        $conn = $this->conexion();
+        $query = "SELECT * FROM `barrios`";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($barrios);
+            while ($stmt->fetch()) {
+                $result = array('BARRIOS' => $barrios);
+                $barrios[] = $result;
+            }
+        }
+        $stmt->close();
+        return json_encode($barrios);
     }
 }

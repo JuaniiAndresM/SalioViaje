@@ -112,15 +112,5 @@ for ($i=0; $i < count($datos2); $i++) {
         }
 }
 
-
-
-        if ($i==0) {
-
-        }else{
-
-        }
-
-
-
 echo $oportunidades_dashboard;
 ?>
