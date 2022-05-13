@@ -3,10 +3,10 @@ $main_2: #2b3179;
 $main_3: #6d76db;
 
 .panel-header {
-  width: calc(100% - 80px);
+  width: calc(100% - 70px);
   height: 80px;
 
-  margin-left: 80px;
+  margin-left: 70px;
   position: relative;
   z-index: 10;
 
@@ -216,9 +216,9 @@ $main_3: #6d76db;
         .icon {
           position: relative;
           display: block;
-          min-width: 60px;
-          height: 49px;
-          line-height: 49px;
+          min-width: 50px;
+          height: 43px;
+          line-height: 43px;
           text-align: center;
 
           img {
@@ -227,7 +227,7 @@ $main_3: #6d76db;
           }
 
           i {
-            font-size: 1.5em;
+            font-size: 1.2em;
           }
         }
 
@@ -235,10 +235,11 @@ $main_3: #6d76db;
           position: relative;
           display: block;
           padding: 0 10px;
-          height: 49px;
-          line-height: 49px;
+          height: 43px;
+          line-height: 43px;
           text-align: start;
           white-space: nowrap;
+          font-size: 15px;
         }
         .tool-tip[title-new]:hover .tool-tip[title-new]:after {
           content: attr(title-new);
@@ -322,20 +323,20 @@ $main_3: #6d76db;
   }
 }
 #panel-navbar.active {
-  width: 80px;
+  width: 70px;
 }
 
 .panel {
   width: calc(100vw - 80px);
   min-height: calc(100vh - 80px);
 
-  margin-left: 80px;
+  margin-left: 70px;
   background-color: #fff;
 
   display: flex;
   align-items: center;
   flex-direction: column;
-  overflow: auto;
+  overflow-y: auto;
 
   transition: 0.5s;
 

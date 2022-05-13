@@ -35,6 +35,8 @@ for ($i = 0; $i < count($oportunidades); $i++) {
                 <td>' . $oportunidades[$i]['MODALIDAD'] . '</td>
                 <td>
                     <div class="button-wrapper">
+                      <button class="button" onclick="mtop_oportunidad(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-file-contract"></i></button>
+                      <button class="button" onclick="editar_oportunidad(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-edit"></i></button>
                       <button class="button" onclick="eliminar_oportunidad(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-trash-alt"></i></button>
                     </div>
                   </td>
@@ -69,6 +71,8 @@ for ($i = 0; $i < count($oportunidades); $i++) {
                 <td>' . $oportunidades[$i]['MODALIDAD'] . '</td>
                 <td>
                     <div class="button-wrapper">
+                      <button class="button" onclick="mtop_oportunidad(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-file-contract"></i></button>
+                      <button class="button" onclick="editar_oportunidad(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-edit"></i></button>
                       <button class="button" onclick="eliminar_oportunidad(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-trash-alt"></i></button>
                     </div>
                   </td>

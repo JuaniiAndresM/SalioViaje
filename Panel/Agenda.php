@@ -143,7 +143,7 @@ session_set_cookie_params($ttl);
                 type="text"
                 placeholder="Buscar"
                 id="searchbar"
-                onkeyup="buscarUsuarios(2)"
+                onkeyup="buscarUsuarios(6)"
               />
             </div>
             <div class="filters2">
@@ -176,7 +176,7 @@ session_set_cookie_params($ttl);
             </div>
           </div>
           <div class="table-overflow">
-            <table class="usuarios-table" id="search-usuarios-table">
+            <table class="usuarios-table" id="search-agendar-table">
               <thead>
                 <tr>
                   <th id="ID">ID <i class="fas fa-angle-down"></i></th>
@@ -210,9 +210,9 @@ session_set_cookie_params($ttl);
                           <td>'.$vehiculos[$i]['VEHICULO'].'</td>
                           <td>'.$vehiculos[$i]['ORIGEN'].'</td>
                           <td>'.$vehiculos[$i]['DESTINO'].'</td>
-                          <td>'.$vehiculos[$i]['DISTANCIA'].'</td>
+                          <td>'.$vehiculos[$i]['DISTANCIA'].' km</td>
                           <td>'.$vehiculos[$i]['CANTIDAD_PASAJERO'].'</td>
-                          <td>'.$vehiculos[$i]['PRECIO'].'</td>
+                          <td>$'.number_format( $vehiculos[$i]['PRECIO'], 0,'','.').'</td>
                           <td>-</td>
                           <td>'.$vehiculos[$i]['ESTADO'].'</td>
                       </tbody>';
@@ -233,10 +233,10 @@ session_set_cookie_params($ttl);
                           <td>'.$oportunidades[$i]['VEHICULO'].'</td>
                           <td>'.$oportunidades[$i]['ORIGEN'].'</td>
                           <td>'.$oportunidades[$i]['DESTINO'].'</td>
-                          <td>'.$oportunidades[$i]['DISTANCIA'].'</td>
+                          <td>'.$oportunidades[$i]['DISTANCIA'].' km</td>
                           <td>'.$oportunidades[$i]['CANTIDAD_PASAJERO'].'</td>
-                          <td>'.$oportunidades[$i]['PRECIO'].'</td>
-                          <td>'.$oportunidades[$i]['DESCUENTO'].'</td>
+                          <td>$'.number_format( $oportunidades[$i]['PRECIO'], 0,'','.').'</td>
+                          <td>'.$oportunidades[$i]['DESCUENTO'].'%</td>
                           <td>'.$oportunidades[$i]['ESTADO'].'</td>
                       </tbody>';
                     }
