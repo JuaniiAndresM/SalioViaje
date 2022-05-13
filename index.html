@@ -314,54 +314,55 @@
 
       <div class="oportunidades-wrapper">
 
-        <!-- <div class="filter-wrapper">
-          <div class="search">
-            <i class="fas fa-search"></i>
-            <input
-              type="text"
-              placeholder="Buscar"
-              id="searchbar"
-              onkeyup="buscarOportunidades()"
-            />
-          </div>
+        <div class="filter-wrapper">
+          <div class="search"></div>
 
           <div class="button-filtrar">
-            <button onclick="filtros(1)">
-              <i class="fas fa-sort-amount-down"></i> Filtrar
-            </button>
+            <button onclick="filtros(1)"><i class="fas fa-sort-amount-down"></i> Filtrar</button>
           </div>
         </div>
 
         <div id="filters">
+
           <div class="input" id="destino">
             <i class="fas fa-location-dot" id="icon"></i>
-            <input list="Origen" id="origen_2" placeholder="Origen" />
-            <datalist id="Origen">
-              <option value="Canelones"></option>
-              <option value="Montevideo"></option>
-              <option value="Tacuarembó"></option>
-              <option value="Maldonado"></option>
-              <option value="Rivera"></option>
-            </datalist>
+            <input list="Localidad" id="origen_oportunidad" placeholder="Origen" onkeyup="filtrar_divs('Oportunidad')" />
+            <datalist id="Localidad">
+              <option value="ARTIGAS">
+              <option value="CANELONES">
+              <option value="CERRO LARGO">
+              <option value="SAN JOSE">
+              <option value="FLORIDA">
+              <option value="SORIANO">
+              <option value="RIO NEGRO">
+              <option value="TACUAREMBÓ">
+              <option value="RIVERA">
+              <option value="MONTEVIDEO">
+              <option value="ROCHA">
+              <option value="SALTO">
+              <option value="RIVERA">
+              <option value="PAYSANDU">
+              <option value="TREINTA Y TRES">
+              <option value="FLORES"> 
+              <option value="COLONIA">
+              <option value="MALDONADO"> 
+              <option value="LAVALLEJA">
+              </datalist>
           </div>
 
           <div class="input" id="destino">
             <i class="fas fa-route" id="icon"></i>
-            <input list="Destino" id="destino_2" placeholder="Destino" />
-            <datalist id="Destino">
-              <option value="Canelones"></option>
-              <option value="Montevideo"></option>
-              <option value="Tacuarembó"></option>
-              <option value="Maldonado"></option>
-              <option value="Rivera"></option>
-            </datalist>
+            <input list="Localidad" id="destino_oportunidad" placeholder="Destino" onkeyup="filtrar_divs('Oportunidad')" >
           </div>
 
           <div class="input" id="origen">
             <i class="far fa-calendar-alt" id="icon"></i>
-            <input type="date" id="fecha_2" placeholder="Fecha y Hora" />
+            <input type="date" id="fecha_oportunidad" placeholder="Fecha y Hora" onchange="filtrar_divs('Oportunidad')" />
           </div>
-        </div> -->
+
+          <button onclick="eliminar_filtros('Oportunidad')"><i class="fas fa-arrows-rotate"></i></button>
+
+        </div>
 
         <div class="list-empty">
           <p>Lo sentimos, de momento no hay oportunidades disponibles.</p>

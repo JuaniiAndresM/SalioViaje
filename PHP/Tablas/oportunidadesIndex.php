@@ -17,7 +17,7 @@ for ($i = 0; $i < count($datos); $i++) {
         $boton = '<button class="comprar-button" type="submit" onclick="comprar_oportunidad('.$datos[$i]['ID'].')"><i class="fas fa-comments-dollar"></i> Comprar</button>';
       }
     } else if (!isset($_SESSION['usuario'])) {
-        $boton = '<p style="color: white; font-size: 12px;">Debes loguearte para comprar.</p>';
+        $boton = '<button class="comprar-button" type="submit" onclick="location.href=\'https://www.salioviaje.com.uy/Login\'"><i class="fas fa-comments-dollar"></i> Comprar</button>';
     } else {
         $boton = ' ';
     }

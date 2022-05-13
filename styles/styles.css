@@ -126,7 +126,6 @@
 }
 
 .servicios {
-  max-width: 1100px;
   width: 100%;
   margin: 0 auto;
   padding: 10px 10px;
@@ -629,6 +628,36 @@
   color: #555;
 }
 
+.oportunidades #filters button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #3844bc;
+  border: none;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.oportunidades #filters button i {
+  color: white;
+  font-size: 15px;
+}
+
+.oportunidades #filters button:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
 .oportunidades .list-empty {
   width: 100%;
   height: 400px;
@@ -879,7 +908,7 @@
   }
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1100px) {
   .landing {
     max-height: 600px;
     overflow: hidden;

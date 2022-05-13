@@ -114,7 +114,6 @@ $contraste_2: #ffffff;
 }
 
 .servicios {
-  max-width: 1100px;
   width: 100%;
 
   margin: 0 auto;
@@ -514,6 +513,29 @@ $contraste_2: #ffffff;
         color: #555;
       }
     }
+
+    button{
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: $main_1;
+      border: none;
+      cursor: pointer;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      transition: .2s;
+
+      i{
+        color: white;
+        font-size: 15px;
+      }
+    }
+    button:hover{
+      transform: scale(1.05);
+    }
   }
 
   .list-empty {
@@ -717,7 +739,7 @@ $contraste_2: #ffffff;
     }
   }
 }
-@media screen and(max-width: 1280px) {
+@media screen and(max-width: 1100px) {
   .landing {
     max-height: 600px;
     overflow: hidden;
