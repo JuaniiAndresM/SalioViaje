@@ -56,7 +56,6 @@ session_set_cookie_params($ttl);
     <li>
       <a href="https://www.salioviaje.com.uy/" class="tool-tip" title-new="Volver al Inicio.">
         <span class="icon"><img src="https://www.salioviaje.com.uy/media/svg/Logo-SalioViaje-White.svg" alt="Logo SalióViaje"></span>
-        <span class="title">SalióViaje</span>
       </a>
     </li>
     <?php 
@@ -64,7 +63,7 @@ session_set_cookie_params($ttl);
     if($tipo != 0){
       echo '<li>
               <a href="/Dashboard">
-                <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
+                <span class="icon"><i class="fa-solid fa-table-columns"></i></span>
                 <span class="title">Dashboard</span>
               </a>
             </li>';
@@ -73,7 +72,7 @@ session_set_cookie_params($ttl);
     if($tipo == 2 || $tipo == 3){
       echo '<li>
               <a href="https://www.salioviaje.com.uy/Agendar">
-                <span class="icon"><i class="fas fa-plus"></i></span>
+                <span class="icon"><i class="fa-solid fa-calendar-plus"></i></span>
                 <span class="title">Agendar Viaje</span>
               </a>
             </li>';
@@ -81,7 +80,7 @@ session_set_cookie_params($ttl);
     if($tipo == 2){
       echo '<li>
               <a href="https://www.salioviaje.com.uy/Cotizaciones">
-                <span class="icon"><i class="fas fa-hand-holding-dollar"></i></span>
+                <span class="icon"><i class="fa-solid fa-money-check-dollar"></i></span>
                 <span class="title">Mis Cotizaciones</span>
               </a>
             </li>';
@@ -127,7 +126,7 @@ session_set_cookie_params($ttl);
     if($tipo != 0){
       echo '  <li>
                 <a href="https://www.salioviaje.com.uy/Viajes">
-                  <span class="icon"><i class="fas fa-book"></i></span>
+                  <span class="icon"><i class="fa-solid fa-calendar-days"></i></span>
                   <span class="title">Agenda</span>
                 </a>
               </li>';
@@ -136,7 +135,7 @@ session_set_cookie_params($ttl);
     if($tipo != 7 && $tipo != 6){
       echo '  <li>
                 <a href="https://www.salioviaje.com.uy/Facturacion">
-                  <span class="icon"><i class="fas fa-wallet"></i></span>
+                  <span class="icon"><i class="fa-solid fa-file-invoice-dollar"></i></span>
                   <span class="title">Facturación</span>
                 </a>
               </li>';
@@ -153,8 +152,8 @@ session_set_cookie_params($ttl);
 
     echo '<li>
         <a class href="https://www.salioviaje.com.uy/FAQ">
-          <span class="icon"><i class="fas fa-question"></i></span>
-          <span class="title">FAQs</span>
+          <span class="icon"><i class="fa-solid fa-circle-question"></i></span>
+          <span class="title">FAQ\'s</span>
         </a>
       </li>';
 
@@ -162,7 +161,7 @@ session_set_cookie_params($ttl);
 
     echo '<li>
             <a class href="https://www.salioviaje.com.uy/Profile/'. $_SESSION['datos_usuario']['ID'] .'">
-              <span class="icon"><i class="fas fa-address-card"></i></span>
+              <span class="icon"><i class="fa-solid fa-id-card"></i></span>
               <span class="title">Mi Perfil</span>
             </a>
           </li>';
