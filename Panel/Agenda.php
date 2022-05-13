@@ -92,6 +92,7 @@ session_set_cookie_params($ttl);
     <script src="https://www.salioviaje.com.uy/Javascript/panel.js"></script>
     <script src="https://www.salioviaje.com.uy/Javascript/settings.js"></script>
     <script src="https://www.salioviaje.com.uy/Javascript/loader.js"></script>
+    <script src="https://www.salioviaje.com.uy/Javascript/filtros.js"></script>
     <script type="text/javascript">
     </script>
   </head>
@@ -148,29 +149,29 @@ session_set_cookie_params($ttl);
 
               <div class="input">
                 <i class="far fa-calendar-alt" id="icon"></i>
-                <input type="date" id="date_agenda">
+                <input type="date" id="date_agenda" onchange="filtroAgenda()">
               </div>
 
               <div class="input">
                 <i class="fas fa-clock" id="icon"></i>
-                <input type="time" id="time_agenda">
+                <input type="time" id="time_agenda" onchange="filtroAgenda()">
               </div>
 
               <div class="input">
                 <i class="fas fa-list" id="icon"></i>
-                <select id="estado_agenda">
+                <select id="estado_agenda" onchange="filtroAgenda()">
                   <option value="0" disabled selected hidden>Seleccione un Estado</option>
-                  <option value="1">En Venta</option>
-                  <option value="2">Comprado</option>
-                  <option value="3">Reconfirmado</option>
-                  <option value="4">Vencido</option>
-                  <option value="5">Cancelado</option>
-                  <option value="6">Cotizando</option>
-                  <option value="7">Cotizado</option>
+                  <option value="En Venta">En Venta</option>
+                  <option value="Comprado">Comprado</option>
+                  <option value="Reconfirmado">Reconfirmado</option>
+                  <option value="Vencido">Vencido</option>
+                  <option value="Cancelado">Cancelado</option>
+                  <option value="Cotizando">Cotizando</option>
+                  <option value="Cotizado">Cotizado</option>
                 </select>
               </div>
 
-              <button class="reload-filters">
+              <button class="reload-filters" onclick="filtroAgenda_reload()">
                 <i class="fa fa-refresh"></i>
               </button>
 
