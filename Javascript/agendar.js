@@ -466,7 +466,7 @@ function verificar_rutas_para_MTOP() {
 /*-------------------------------------------------------------------------------------------*/
 
 function cargar_vista_previa() {
-
+    
     datos_etapa_2_tramo_1['FECHA'] = datos_etapa_2_tramo_1['FECHA'].replace("T", " ");
     datos_etapa_2_tramo_2['FECHA'] = datos_etapa_2_tramo_2['FECHA'].replace("T", " ");
 
@@ -477,14 +477,14 @@ function cargar_vista_previa() {
 
     if (datos_etapa_2_tramo_1['TIPO'] == 1) { $('.tipo_1').html("Agenda") } else { $('.tipo_1').html("Oportunidad") }
     if (datos_etapa_2_tramo_1['DESCUENTO_OPORTUNIDAD'] != undefined) { $('.porcentaje_1').html(datos_etapa_2_tramo_1['DESCUENTO_OPORTUNIDAD'] + "%") } else { $('.porcentaje_1').html("No hay descuento") }
-    $('.fecha_1').html(datos_etapa_2_tramo_1['FECHA'])
+    $('.fecha_1').html(formato(datos_etapa_2_tramo_1['FECHA'].substring(0,10))+datos_etapa_2_tramo_1['FECHA'].substring(10,17))
     $('.origen_1').html(datos_etapa_2_tramo_1['ORIGEN'])
     $('.destino_1').html(datos_etapa_2_tramo_1['DESTINO'])
     $('.precio_1').html("$" + datos_etapa_2_tramo_1['PRECIO_REFERENCIA'])
 
     if (datos_etapa_2_tramo_2['TIPO'] == 1) { $('.tipo_2').html("Agenda") } else { $('.tipo_2').html("Agenda") }
     if (datos_etapa_2_tramo_2['DESCUENTO_OPORTUNIDAD'] != undefined) { $('.porcentaje_2').html(datos_etapa_2_tramo_2['DESCUENTO_OPORTUNIDAD'] + "%") } else { $('.porcentaje_2').html("No hay descuento") }
-    $('.fecha_2').html(datos_etapa_2_tramo_2['FECHA'])
+    $('.fecha_2').html(formato(datos_etapa_2_tramo_2['FECHA'].substring(0,10))+datos_etapa_2_tramo_2['FECHA'].substring(10,17))
     $('.origen_2').html(datos_etapa_2_tramo_2['ORIGEN'])
     $('.destino_2').html(datos_etapa_2_tramo_2['DESTINO'])
     $('.precio_2').html("$" + datos_etapa_2_tramo_2['PRECIO_REFERENCIA'])
@@ -498,6 +498,9 @@ function cargar_vista_previa() {
     }
 }
 
+function formato(texto){
+    return texto.replace(/^(\d{4})-(\d{2})-(\d{2})$/g,'$3/$2/$1');
+  }
 /*-------------------------------------------------------------------------------------------*/
 //                                         Agendar Viaje                                     //
 /*-------------------------------------------------------------------------------------------*/
