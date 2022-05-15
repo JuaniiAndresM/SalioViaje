@@ -33,6 +33,7 @@ RewriteRule ^Crear_Empresa /Panel/Crear_Empresa.php
 RewriteRule ^Editar_Cotizacion /Panel/Editar_Cotizacion.php
 RewriteRule ^Cotizaciones /Panel/Cotizaciones.php
 RewriteRule ^Facturacion /Panel/Facturacion.php
+RewriteRule ^Editar_Oportunidad/([a-zA-Z0-9_\.]+)$ /Panel/Editar_Oportunidad.php?ID=$1
 
 RewriteRule ^Success /Form/Success.html
 RewriteRule ^Failed /Form/Failed.html

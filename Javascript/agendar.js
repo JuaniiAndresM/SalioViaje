@@ -477,14 +477,22 @@ function cargar_vista_previa() {
 
     if (datos_etapa_2_tramo_1['TIPO'] == 1) { $('.tipo_1').html("Agenda") } else { $('.tipo_1').html("Oportunidad") }
     if (datos_etapa_2_tramo_1['DESCUENTO_OPORTUNIDAD'] != undefined) { $('.porcentaje_1').html(datos_etapa_2_tramo_1['DESCUENTO_OPORTUNIDAD'] + "%") } else { $('.porcentaje_1').html("No hay descuento") }
-    $('.fecha_1').html(datos_etapa_2_tramo_1['FECHA'])
+    
+    var fecha_1 = datos_etapa_2_tramo_1['FECHA'].split(' ');
+    var fecha_1_arreglada = dateFormat(fecha_1[0], 'dd-MM-yyyy')
+
+    $('.fecha_1').html(fecha_1_arreglada + ' ' + fecha_1[1])
     $('.origen_1').html(datos_etapa_2_tramo_1['ORIGEN'])
     $('.destino_1').html(datos_etapa_2_tramo_1['DESTINO'])
     $('.precio_1').html("$" + datos_etapa_2_tramo_1['PRECIO_REFERENCIA'])
 
     if (datos_etapa_2_tramo_2['TIPO'] == 1) { $('.tipo_2').html("Agenda") } else { $('.tipo_2').html("Oportunidad") }
     if (datos_etapa_2_tramo_2['DESCUENTO_OPORTUNIDAD'] != undefined) { $('.porcentaje_2').html(datos_etapa_2_tramo_2['DESCUENTO_OPORTUNIDAD'] + "%") } else { $('.porcentaje_2').html("No hay descuento") }
-    $('.fecha_2').html(datos_etapa_2_tramo_2['FECHA'])
+    
+    var fecha_2 = datos_etapa_2_tramo_2['FECHA'].split(' ');
+    var fecha_2_arreglada = dateFormat(fecha_2[0], 'dd-MM-yyyy')
+    
+    $('.fecha_2').html(fecha_2_arreglada + ' ' + fecha_2[1])
     $('.origen_2').html(datos_etapa_2_tramo_2['ORIGEN'])
     $('.destino_2').html(datos_etapa_2_tramo_2['DESTINO'])
     $('.precio_2').html("$" + datos_etapa_2_tramo_2['PRECIO_REFERENCIA'])
@@ -496,6 +504,26 @@ function cargar_vista_previa() {
             $('.rutas_ingresadas').append(array_rutas[i]+".")
         }
     }
+}
+
+function dateFormat(inputDate, format) {
+    const date = new Date(inputDate);
+
+    const day = date.getDate() + 1;
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();    
+
+    format = format.replace("MM", month.toString().padStart(2,"0"));        
+
+    if (format.indexOf("yyyy") > -1) {
+        format = format.replace("yyyy", year.toString());
+    } else if (format.indexOf("yy") > -1) {
+        format = format.replace("yy", year.toString().substr(2,2));
+    }
+
+    format = format.replace("dd", day.toString().padStart(2,"0"));
+
+    return format;
 }
 
 /*-------------------------------------------------------------------------------------------*/

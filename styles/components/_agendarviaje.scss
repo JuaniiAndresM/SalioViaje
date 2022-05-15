@@ -213,6 +213,7 @@
     }
 
     .inputs-wrapper-agendar,
+    .inputs-wrapper-agendar-editar,
     .inputs-agendar,
     .inputs-wrapper-agendar-rutas {
       width: 100%;
@@ -368,6 +369,11 @@
         }
       }
     }
+    .inputs-wrapper-agendar-editar{
+      grid-template-columns: 1fr;
+      max-width: 400px;
+      margin: 0 auto;
+    }
     .inputs-wrapper-agendar-rutas{
       grid-template-columns: 1fr;
     }
@@ -452,11 +458,6 @@
         grid-template-columns: 1fr;
       }
     }
-  }
-}
-
-@media screen and(max-width: 450px) {
-  .agendarViaje {
     #step_4 {
       .vehicle-resumen{
         grid-template-columns: 1fr;
@@ -465,6 +466,10 @@
           margin-top: 10px;
           text-align: center;
         }
+      }
+
+      .inputs-wrapper-agendar{
+        grid-template-columns: 1fr;
       }
     }
   }

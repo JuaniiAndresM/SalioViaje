@@ -11,6 +11,8 @@ $datos = json_decode($datos->traer_oportunidades(), true);
 
 $contenido_oportunidades = ' ';
 
+$contador = 0;
+
 for ($i = 0; $i < count($datos); $i++) {
     if (isset($_SESSION['usuario'])) {
       if($_SESSION['datos_usuario']['TIPO_USUARIO'] != "CHO"){
@@ -25,7 +27,7 @@ for ($i = 0; $i < count($datos); $i++) {
     $PRECIO_CON_DESCUENTO_APLICADO = round($datos[$i]['PRECIO'] - $datos[$i]['PRECIO'] * ($datos[$i]['DESCUENTO'] / 100));
     if ($i == 0 && $datos[$i]['ESTADO'] == 'En venta') {
         $contenido_oportunidades = '
-					<div class="oportunidad" id="Opo-'.$i.'" data-value="'.$datos[$i]['ORIGEN'].','.$datos[$i]['DESTINO'].','.$fecha[0].'">
+					<div class="oportunidad" id="Opo-'.$contador.'" data-value="'.$datos[$i]['ORIGEN'].','.$datos[$i]['DESTINO'].','.$fecha[0].'">
 
               <div class="oportunidad-left">
                 <div class="discount">
@@ -70,9 +72,11 @@ for ($i = 0; $i < count($datos); $i++) {
               </div>
 					';
 
+          $contador++;
+
     } else if ($datos[$i]['ESTADO'] == 'En venta') {
         $contenido_oportunidades = $contenido_oportunidades . '
-					<div class="oportunidad" id="Opo-'.$i.'" data-value="'.$datos[$i]['ORIGEN'].','.$datos[$i]['DESTINO'].','.$fecha[0].'">
+					<div class="oportunidad" id="Opo-'.$contador.'" data-value="'.$datos[$i]['ORIGEN'].','.$datos[$i]['DESTINO'].','.$fecha[0].'">
 
               <div class="oportunidad-left">
                 <div class="discount">
@@ -116,6 +120,8 @@ for ($i = 0; $i < count($datos); $i++) {
               </div>
               </div>
 					';
+
+          $contador++;
     }
 
 }

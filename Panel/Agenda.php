@@ -7,8 +7,6 @@ session_set_cookie_params($ttl);
 
   if(!isset($_SESSION['usuario'])){
     header('Location: https://www.salioviaje.com.uy/Login');
-  }elseif ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "PAX") {
-    // code...
   }else{
     $info_usuario = new procedimientosBD();
 
@@ -197,6 +195,7 @@ session_set_cookie_params($ttl);
               </thead>
               <tbody id="tbody-agenda">
               <?php 
+                  
                   if($vehiculos === null){
                     
                   }else{
@@ -208,7 +207,7 @@ session_set_cookie_params($ttl);
                       echo '<tr>
                           <td>'.$vehiculos[$i]['ID'].'</td>
                           <td>'.$FECHA.'</td>
-                          <td>'.$HORA." ".$info[2].'</td>
+                          <td>'.$HORA.'</td>
                           <td>'.$vehiculos[$i]['VEHICULO'].'</td>
                           <td>'.$vehiculos[$i]['ORIGEN'].'</td>
                           <td>'.$vehiculos[$i]['DESTINO'].'</td>
@@ -231,7 +230,7 @@ session_set_cookie_params($ttl);
                       echo '<tr>
                           <td>'.$oportunidades[$i]['ID'].'</td>
                           <td>'.$FECHA.'</td>
-                          <td>'.$HORA." ".$info[2].'</td>
+                          <td>'.$HORA.'</td>
                           <td>'.$oportunidades[$i]['VEHICULO'].'</td>
                           <td>'.$oportunidades[$i]['ORIGEN'].'</td>
                           <td>'.$oportunidades[$i]['DESTINO'].'</td>
