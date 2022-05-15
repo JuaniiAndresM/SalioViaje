@@ -13,13 +13,19 @@ session_set_cookie_params($ttl);
     }
   }
 
+  $id_oportunidad = $_GET['ID'];
+
+  require_once '../PHP/procedimientosBD.php';
+  $regiones_mtop = new procedimientosBD();
+  $regiones_mtop = json_decode($regiones_mtop->traer_regiones_mtop(), true);
+
 
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <title>SalióViaje | Agendar Viaje</title>
+    <title>SalióViaje | Editar Oportunidad #<?php echo $_GET['ID'] ?></title>
 
     <!-- // Meta Etiquetas -->
 
@@ -43,8 +49,8 @@ session_set_cookie_params($ttl);
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.salioviaje.com.uy/Agendar" />
-    <meta property="og:title" content="SalióViaje | Agendar Viaje" />
+    <meta property="og:url" content="https://www.salioviaje.com.uy/Editar_Oportunidad/<?php echo $_GET['ID'] ?>" />
+    <meta property="og:title" content="SalióViaje | Editar Oportunidad" />
     <meta
       property="og:description"
       content="Plataforma que optimiza el traslado ocasional de personas."
@@ -56,10 +62,10 @@ session_set_cookie_params($ttl);
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://www.salioviaje.com.uy/Agendar" />
+    <meta property="twitter:url" content="https://www.salioviaje.com.uy/Editar_Oportunidad/<?php echo $_GET['ID'] ?>" />
     <meta
       property="twitter:title"
-      content="SalióViaje | Agendar Viaje"
+      content="SalióViaje | Editar Oportunidad"
     />
     <meta
       property="twitter:description"
@@ -90,13 +96,6 @@ session_set_cookie_params($ttl);
     <script src="https://www.salioviaje.com.uy/Javascript/panel.js"></script>
     <script src="https://www.salioviaje.com.uy/Javascript/settings.js"></script>
     <script src="https://www.salioviaje.com.uy/Javascript/loader.js"></script>
-        <script type="text/javascript">
-            window.onload = function(){
-              let seccion = "empresas"
-              traerEmpresas(seccion)
-              filtros()
-            }
-    </script>
   </head>
   <body>
     <div id="pre-loader">
@@ -114,7 +113,7 @@ session_set_cookie_params($ttl);
           <button onclick="navbar()"><i class="fas fa-bars"></i></button>
         </div>
         <div class="header-title">
-          <h2>Empresas</h2>
+          <h2>Editar Oportunidad #<?php echo $_GET['ID'] ?></h2>
         </div>
       </div>
       <div class="header-right">
@@ -134,88 +133,69 @@ session_set_cookie_params($ttl);
     <section class="panel" id="panel">
 
         <div class="agendarViaje">
-          <div class="info-user">
-            <div class="column1">
-              <div class="user-icon">
-                <i class="fas fa-user"></i>
-              </div>
-              <div class="user-name">
-                <h3><?php echo $_SESSION['usuario']; ?></h3>
-                <p><i class="fas fa-bus"></i> <?php echo $_SESSION['tipo_usuario']; ?></p>
-              </div>
-            </div>
-            <div class="column2">
-              <div>
-                <p><i class="fas fa-address-card"></i> 5487923-9</p>
-                <p><i class="fas fa-phone"></i> 098 234 717</p>
-                <p><i class="fas fa-map-marker-alt"></i> Ciudad de la Costa, Canelones.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="progress-bar">
-            <span class="line"></span>
-            <span class="progress"></span>
-            <span class="circle1"></span>
-            <span class="circle2"></span>
-            <span class="circle3"></span>
-          </div>
           
-          <div id="step_1">
-            <h2 class="step_title"><i class="fas fa-book"></i> Agendar Viaje</h2>
-            <div class="inputs-wrapper-agendar">
+          <div id="step_2">
 
-            <div class="column">
-
-                <div class="vehicle">
-                  <div class="vehicle-icon">
-                    <i class="fas fa-bus"></i>
-                  </div>
-                  <div class="vehicle-info">
-                    <h3>Información del Vehículo</h3>
-                    <p><i class="fas fa-car"></i> Hyundai</p>
-                    <p><i class="fas fa-list"></i> H1 2001</p>
-                    <p><i class="fas fa-users"></i> 12</p>
-                    <p><i class="fas fa-gas-pump"></i> Diesel</p>
-                  </div>
-                </div>
-
-                <div class="empty-list">
-                  <p>No hay ningun vehículo seleccionado.</p>
-                </div>
-
-              </div>
+            <div class="inputs-wrapper-agendar-editar">
 
               <div class="column">
-                <div class="input" id="vehiculos">
-                  <i class="fas fa-bus" id="icon"></i>
-                  <select name="" id="vehiculos-select">
-                    <option value="0" selected disabled hidden>Seleccione un Vehículo</option>
+                <h2 class="step_title"><i class="fas fa-edit"></i> Editar Oportunidad</h2>
+
+                <div class="input" id="descuento2">
+                  <i class="fas fa-tags" id="icon"></i>
+                  <select name="" id="desc_oport2" placeholder="Descuento de la Oportunidad">
+                    <option value="0" disabled selected hidden>Seleccione un Descuento</option>
+                    <option value="50">50%</option>
+                    <option value="60">60%</option>
+                    <option value="70">70%</option>
+                    <option value="80">80%</option>
+                    <option value="90">90%</option>
                   </select>
                 </div>
 
-                <div class="input" id="pasajeros">
-                  <i class="fas fa-users" id="icon"></i>
-                  <input type="number" id="pasajeros" placeholder="Cantidad de Pasajeros" />
+                <div class="input" id="origen">
+                  <i class="far fa-calendar-alt" id="icon"></i>
+                  <input type="datetime-local" id="fecha_2" placeholder="Fecha y Hora" onchange="calcular_hora_invertido()" />
                 </div>
 
-                <div class="input" id="km">
-                  <i class="fas fa-road" id="icon"></i>
-                  <input type="number" id="distancia" placeholder="Distancia del Viaje" />
-                  <p id="end-text">km</p>
+                <div class="input" id="origen">
+                  <i class="fas fa-map-marker-alt" id="icon"></i>
+                  <input list="RegionesMTOP" id="origen_2" placeholder="Origen" onchange="select_origen_destino(3)"> 
+
+                  <datalist id="RegionesMTOP">
+                        <?php
+                          if (isset($regiones_mtop)) {
+                            for ($i=0; $i < count($regiones_mtop); $i++) { 
+                            ?>
+                            <option value="<?php echo $regiones_mtop[$i]['REGION'] ?>">
+                            <?php
+                            }
+                          }
+                        ?>
+                  </datalist>
+                  
+                </div>
+
+                <div class="input" id="destino">
+                  <i class="fas fa-route" id="icon"></i>
+                  <input list="RegionesMTOP" id="destino_2" placeholder="Destino" onchange="select_origen_destino(4)">
+                </div>
+
+                <div class="input" id="precioref">
+                  <i class="fas fa-dollar-sign" id="icon"></i>
+                  <input type="number" id="precioref_2" placeholder="Precio de Referencia" />
                 </div>
 
               </div>
             </div>
             <p id="mensaje-error1" class="mensaje-error"></p>
 
-            <button class="button-agendar" id="button_volver" onclick="volver()">
-              <i class="fas fa-arrow-circle-left"></i> Volver
-            </button>
-            <button class="button-agendar" id="step-next" onclick="next()">
-              <i class="fas fa-arrow-circle-right"></i> Siguiente
+            <button class="button-agendar">
+              <i class="fas fa-edit"></i> Editar
             </button>
           </div>
+
+
         </div>
     </section>
   </body>

@@ -429,7 +429,7 @@ class procedimientosBD
                 $result = array('ID' => $idOportunidad, 'DESCUENTO' => $descuento, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'FECHA' => $fecha, 'NOMBRE' => $nombre, 'APELLIDO' => $apellido, 'MARCA' => $marca, 'MODELO' => $modelo, 'CAPACIDAD_VEHICULO' => $capacidad_vehiculo, 'ESTADO' => $estado, 'MATRICULA' => $matricula, 'DISTANCIA' => $distancia, 'PRECIO' => $precio);
                 $fecha = $result["FECHA"];
                 $timestamp = strtotime($fecha); 
-                $newDate = date("d-m-Y h:i", $timestamp);  
+                $newDate = date("d-m-Y H:i", $timestamp);  
                 $result["FECHA"] = $newDate;
                 $oportunidades[] = $result;
             }
@@ -452,7 +452,7 @@ class procedimientosBD
                 $result = array('ID' => $idOportunidad, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'FECHA' => $fecha, 'ESTADO' => $estado, 'MODALIDAD' => $modalidad);
                 $fecha = $result["FECHA"];
                 $timestamp = strtotime($fecha); 
-                $newDate = date("d-m-Y h:i", $timestamp);  
+                $newDate = date("d-m-Y H:i", $timestamp);  
                 $result["FECHA"] = $newDate;
                 $oportunidades[] = $result;
             }
@@ -475,7 +475,7 @@ class procedimientosBD
                 $result = array('ID' => $idOportunidad, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'FECHA' => $fecha, 'ESTADO' => $estado, 'MODALIDAD' => $modalidad);
                 $fecha = $result["FECHA"];
                 $timestamp = strtotime($fecha); 
-                $newDate = date("d-m-Y h:i", $timestamp);  
+                $newDate = date("d-m-Y H:i", $timestamp);  
                 $result["FECHA"] = $newDate;
                 $oportunidades[] = $result;
             }
@@ -498,7 +498,7 @@ class procedimientosBD
                 $result = array('ID' => $idOportunidad, 'DESCUENTO' => $descuento, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'FECHA' => $fecha, 'NOMBRE' => $nombre, 'APELLIDO' => $apellido, 'MARCA' => $marca, 'MODELO' => $modelo, 'CAPACIDAD_VEHICULO' => $capacidad_vehiculo, 'ESTADO' => $estado, 'MATRICULA' => $matricula, 'DISTANCIA' => $distancia, 'PRECIO' => $precio, 'ID_TRANSPORTISTA' => $idTransportista, 'TIPO_USUARIO' => $tipo_usuario);
                 $fecha = $result["FECHA"];
                 $timestamp = strtotime($fecha); 
-                $newDate = date("d-m-Y h:i", $timestamp);  
+                $newDate = date("d-m-Y H:i", $timestamp);  
                 $result["FECHA"] = $newDate;
                 $oportunidades[$size] = $result;
                 $return = $oportunidades;
@@ -522,7 +522,7 @@ class procedimientosBD
                 $result = array('ID' => $id, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'FECHA' => $fecha, 'NOMBRE' => $nombre, 'APELLIDO' => $apellido, 'MARCA' => $marca, 'MODELO' => $modelo, 'CANTIDAD_PASAJEROS' => $cantidad_pasajeros, 'ESTADO' => $estado, 'MATRICULA' => $matricula, 'DISTANCIA' => $distancia, 'PRECIO' => $precio);
                 $fecha = $result["FECHA"];
                 $timestamp = strtotime($fecha); 
-                $newDate = date("d-m-Y h:i", $timestamp);  
+                $newDate = date("d-m-Y H:i", $timestamp);  
                 $result["FECHA"] = $newDate;
                 $viajes[] = $result;
             }
@@ -742,7 +742,7 @@ class procedimientosBD
                 $result = array('ID' => $id, 'VEHICULO' => $vehiculo, 'DISTANCIA' => $distancia, 'CANTIDAD_PASAJERO' => $cantidad_pasajeros, 'FECHA' => $fecha, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'PRECIO' => $precio, 'RUTAS' => $rutas, 'ESTADO' => $estado, 'MODALIDAD' => $modalidad, 'ID_TRANSPORTISTA' => $id_transportista);
                 $fecha = $result["FECHA"];
                 $timestamp = strtotime($fecha); 
-                $newDate = date("d-m-Y h:i A", $timestamp);  
+                $newDate = date("d-m-Y H:i A", $timestamp);  
                 $result["FECHA"] = $newDate;
                 $agenda[$size] = $result;
                 $return = $agenda;
@@ -768,7 +768,7 @@ class procedimientosBD
                 $result = array('ID' => $id, 'DESCUENTO' => $descuento, 'VEHICULO' => $vehiculo, 'DISTANCIA' => $distancia, 'CANTIDAD_PASAJERO' => $cantidad_pasajeros, 'FECHA' => $fecha, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'PRECIO' => $precio, 'RUTAS' => $rutas, 'ESTADO' => $estado, 'ID_TRANSPORTISTA' => $id_transportista, 'ID_COMPRADOR' => $id_comprador, 'MODALIDAD' => $modalidad);
                 $fecha = $result["FECHA"];
                 $timestamp = strtotime($fecha); 
-                $newDate = date("d-m-Y h:i A", $timestamp);  
+                $newDate = date("d-m-Y H:i", $timestamp);  
                 $result["FECHA"] = $newDate;
                 $agenda[$size] = $result;
                 $return = $agenda;

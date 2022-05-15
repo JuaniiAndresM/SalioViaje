@@ -65,31 +65,12 @@ function filtroAgenda() {
     
                 if (td) {
                     txtValue = td.textContent || td.innerText;
-    
-                    var hora_split = txtValue.split(' ');
 
-                    console.log(hora_split[0]);
-                    console.log(hora_split[1]);
-
-                    if(hora_split[1] == "PM"){
-                        var time = hora_split[0].split(':');
-                        var nueva_hora = (parseInt(time[0]) + 12);
-
-                        nueva_hora = nueva_hora + ":" + time[1];
-
-                        if (nueva_hora == hora) {
-                            tr[i].style.display = "";
-                            encontrado = true;
-                        } else {
-                            tr[i].style.display = "none";
-                        }
-                    }else{
-                        if (hora_split[0] == hora) {
-                            tr[i].style.display = "";
-                            encontrado = true;
-                        } else {
-                            tr[i].style.display = "none";
-                        }
+                    if (txtValue == hora) {
+                        tr[i].style.display = "";
+                        encontrado = true;
+                    } else {
+                        tr[i].style.display = "none";
                     }
 
                     

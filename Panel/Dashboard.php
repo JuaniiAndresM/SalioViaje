@@ -426,7 +426,7 @@ session_set_cookie_params($ttl);
 
                         <div class="usuarios-propietarios">
                           <div class="usuarios-info">
-                            <h2><i class="fas fa-building"></i> Tus Empresas</h2>
+                            <h2><i class="fas fa-building"></i> Mis Empresas</h2>
                             <div class="button-wrapper">
                               <a href="https://www.salioviaje.com.uy/Crear_Empresa" class="add"><i class="fas fa-plus"></i></a>
                               <a href="https://www.salioviaje.com.uy/Empresas"><i class="fas fa-list-ul"></i></a>
@@ -503,7 +503,7 @@ session_set_cookie_params($ttl);
 
               <div class="usuarios-propietarios">
                 <div class="usuarios-info">
-                  <h2><i class="fas fa-building"></i> Tus Empresas</h2>
+                  <h2><i class="fas fa-building"></i> Mis Empresas</h2>
                   <div class="button-wrapper">
                     <a href="https://www.salioviaje.com.uy/Crear_Empresa" class="add"><i class="fas fa-plus"></i></a>
                     <a href="https://www.salioviaje.com.uy/Empresas"><i class="fas fa-list-ul"></i></a>
@@ -576,7 +576,7 @@ session_set_cookie_params($ttl);
                         </div>
                         <div class="usuarios-propietarios">
                           <div class="usuarios-info">
-                            <h2><i class="fas fa-building"></i> Tus Empresas</h2>
+                            <h2><i class="fas fa-building"></i> Mis Empresas</h2>
                             <div class="button-wrapper">
                               <a href="https://www.salioviaje.com.uy/Crear_Empresa" class="add"><i class="fas fa-plus"></i></a>
                               <a href="https://www.salioviaje.com.uy/Empresas"><i class="fas fa-list-ul"></i></a>
@@ -649,7 +649,7 @@ session_set_cookie_params($ttl);
 
                         <div class="usuarios-propietarios">
                           <div class="usuarios-info">
-                            <h2><i class="fas fa-building"></i> Tus Hoteles</h2>
+                            <h2><i class="fas fa-building"></i> Mis Hoteles</h2>
                             <div class="button-wrapper">
                               <a href="https://www.salioviaje.com.uy/Empresas"><i class="fas fa-list-ul"></i></a>
                             </div>

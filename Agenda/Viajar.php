@@ -6,6 +6,7 @@ session_start();
 require_once '../PHP/procedimientosBD.php';
 $regiones_mtop = new procedimientosBD();
 $barrios = json_decode($regiones_mtop->traer_barrios(), true);
+$regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 ?>
 
 
@@ -133,12 +134,23 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
 
             <div class="input" id="destino">
               <i class="fas fa-location-dot" id="icon"></i>
-              <input list="Localidad" id="origen_oportunidad" placeholder="Origen" onkeyup="filtrar_divs('Oportunidad')" />
+              <input list="RegionesMTOP" id="origen_oportunidad" placeholder="Origen" onkeyup="filtrar_divs('Oportunidad')" />
+              <datalist id="RegionesMTOP">
+                        <?php
+                          if (isset($regiones)) {
+                            for ($i=0; $i < count($regiones); $i++) { 
+                            ?>
+                            <option value="<?php echo $regiones[$i]['REGION'] ?>">
+                            <?php
+                            }
+                          }
+                        ?>
+              </datalist>
             </div>
 
             <div class="input" id="destino">
               <i class="fas fa-route" id="icon"></i>
-              <input list="Localidad" id="destino_oportunidad" placeholder="Destino" onkeyup="filtrar_divs('Oportunidad')" >
+              <input list="RegionesMTOP" id="destino_oportunidad" placeholder="Destino" onkeyup="filtrar_divs('Oportunidad')" >
             </div>
 
             <div class="input" id="origen">
