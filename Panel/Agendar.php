@@ -12,7 +12,8 @@ session_set_cookie_params($ttl);
       header('Location: https://www.salioviaje.com.uy/');
     }
   }
-  
+
+  require_once '../PHP/procedimientosBD.php';
   $regiones_mtop = new procedimientosBD();
   $regiones_mtop = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 ?>
@@ -448,7 +449,7 @@ session_set_cookie_params($ttl);
                   
                   <div class="info">
                     <b><i class="fas fa-list-ul"></i> Tipo</b>
-                    <p class="tipo_2">Agenda</p>
+                    <p class="tipo_2"></p>
                   </div>
 
                   <div class="info">
