@@ -12,7 +12,9 @@ session_set_cookie_params($ttl);
       header('Location: https://www.salioviaje.com.uy/');
     }
   }
-
+  
+  $regiones_mtop = new procedimientosBD();
+  $regiones_mtop = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 ?>
 
 <!DOCTYPE html>
@@ -263,26 +265,23 @@ session_set_cookie_params($ttl);
 
                 <div class="input" id="origen">
                   <i class="fas fa-map-marker-alt" id="icon"></i>
-                  <input list="Origen" id="origen_1" placeholder="Origen" onchange="select_origen_destino(1)">
-                  <datalist id="Origen">
-                    <option value="Canelones">
-                    <option value="Montevideo">
-                    <option value="Tacuarembó">
-                    <option value="Maldonado">
-                    <option value="Rivera">
-                  </datalist> 
+                  <input list="RegionesMTOP" id="origen_1" placeholder="Origen" onchange="select_origen_destino(1)">
+                  <datalist id="RegionesMTOP">
+                        <?php
+                          if (isset($regiones_mtop)) {
+                            for ($i=0; $i < count($regiones_mtop); $i++) { 
+                            ?>
+                            <option value="<?php echo $regiones_mtop[$i]['REGION'] ?>">
+                            <?php
+                            }
+                          }
+                        ?>
+                  </datalist>
                 </div>
 
                 <div class="input" id="destino">
                   <i class="fas fa-route" id="icon"></i>
-                  <input list="Destino" id="destino_1" placeholder="Destino" onchange="select_origen_destino(2)">
-                  <datalist id="Destino">
-                    <option value="Canelones">
-                    <option value="Montevideo">
-                    <option value="Tacuarembó">
-                    <option value="Maldonado">
-                    <option value="Rivera">
-                  </datalist> 
+                  <input list="RegionesMTOP" id="destino_1" placeholder="Destino" onchange="select_origen_destino(2)"> 
                 </div>
 
                 <div class="input" id="precioref">
@@ -322,26 +321,12 @@ session_set_cookie_params($ttl);
 
                 <div class="input" id="origen">
                   <i class="fas fa-map-marker-alt" id="icon"></i>
-                  <input list="Origen" id="origen_2" placeholder="Origen" onchange="select_origen_destino(3)">
-                  <datalist id="Origen">
-                    <option value="Canelones">
-                    <option value="Montevideo">
-                    <option value="Tacuarembó">
-                    <option value="Maldonado">
-                    <option value="Rivera">
-                  </datalist>  
+                  <input list="RegionesMTOP" id="origen_2" placeholder="Origen" onchange="select_origen_destino(3)"> 
                 </div>
 
                 <div class="input" id="destino">
                   <i class="fas fa-route" id="icon"></i>
-                  <input list="Destino" id="destino_2" placeholder="Destino" onchange="select_origen_destino(4)">
-                  <datalist id="Destino">
-                    <option value="Canelones">
-                    <option value="Montevideo">
-                    <option value="Tacuarembó">
-                    <option value="Maldonado">
-                    <option value="Rivera">
-                  </datalist> 
+                  <input list="RegionesMTOP" id="destino_2" placeholder="Destino" onchange="select_origen_destino(4)">
                 </div>
 
                 <div class="input" id="precioref">
