@@ -477,30 +477,22 @@ function cargar_vista_previa() {
 
     if (datos_etapa_2_tramo_1['TIPO'] == 1) { $('.tipo_1').html("Agenda") } else { $('.tipo_1').html("Oportunidad") }
     if (datos_etapa_2_tramo_1['DESCUENTO_OPORTUNIDAD'] != undefined) { $('.porcentaje_1').html(datos_etapa_2_tramo_1['DESCUENTO_OPORTUNIDAD'] + "%") } else { $('.porcentaje_1').html("No hay descuento") }
-<<<<<<< HEAD
-    $('.fecha_1').html(formato(datos_etapa_2_tramo_1['FECHA'].substring(0,10))+datos_etapa_2_tramo_1['FECHA'].substring(10,17))
-=======
     
     var fecha_1 = datos_etapa_2_tramo_1['FECHA'].split(' ');
     var fecha_1_arreglada = dateFormat(fecha_1[0], 'dd-MM-yyyy')
 
     $('.fecha_1').html(fecha_1_arreglada + ' ' + fecha_1[1])
->>>>>>> 64546b3e44dc63a0ab60e5d872eba1bebc3f004e
     $('.origen_1').html(datos_etapa_2_tramo_1['ORIGEN'])
     $('.destino_1').html(datos_etapa_2_tramo_1['DESTINO'])
     $('.precio_1').html("$" + datos_etapa_2_tramo_1['PRECIO_REFERENCIA'])
 
     if (datos_etapa_2_tramo_2['TIPO'] == 1) { $('.tipo_2').html("Agenda") } else { $('.tipo_2').html("Oportunidad") }
     if (datos_etapa_2_tramo_2['DESCUENTO_OPORTUNIDAD'] != undefined) { $('.porcentaje_2').html(datos_etapa_2_tramo_2['DESCUENTO_OPORTUNIDAD'] + "%") } else { $('.porcentaje_2').html("No hay descuento") }
-<<<<<<< HEAD
-    $('.fecha_2').html(formato(datos_etapa_2_tramo_2['FECHA'].substring(0,10))+datos_etapa_2_tramo_2['FECHA'].substring(10,17))
-=======
     
     var fecha_2 = datos_etapa_2_tramo_2['FECHA'].split(' ');
     var fecha_2_arreglada = dateFormat(fecha_2[0], 'dd-MM-yyyy')
     
     $('.fecha_2').html(fecha_2_arreglada + ' ' + fecha_2[1])
->>>>>>> 64546b3e44dc63a0ab60e5d872eba1bebc3f004e
     $('.origen_2').html(datos_etapa_2_tramo_2['ORIGEN'])
     $('.destino_2').html(datos_etapa_2_tramo_2['DESTINO'])
     $('.precio_2').html("$" + datos_etapa_2_tramo_2['PRECIO_REFERENCIA'])
@@ -514,11 +506,6 @@ function cargar_vista_previa() {
     }
 }
 
-<<<<<<< HEAD
-function formato(texto){
-    return texto.replace(/^(\d{4})-(\d{2})-(\d{2})$/g,'$3/$2/$1');
-  }
-=======
 function dateFormat(inputDate, format) {
     const date = new Date(inputDate);
 
@@ -539,7 +526,6 @@ function dateFormat(inputDate, format) {
     return format;
 }
 
->>>>>>> 64546b3e44dc63a0ab60e5d872eba1bebc3f004e
 /*-------------------------------------------------------------------------------------------*/
 //                                         Agendar Viaje                                     //
 /*-------------------------------------------------------------------------------------------*/
@@ -548,6 +534,10 @@ function finalizar() {
     $('#step-agendar_MTOP').attr('disabled', 'disabled');
     let datos = {}
     let tipos_tramo = {}
+    let id_tramo_vinculado_para_tramo_1;
+    let modalidad_viaje_vinculado_para_tramo_1;
+    let id_tramo_vinculado_para_tramo_2;
+    let modalidad_viaje_vinculado_para_tramo_2;
 
     if (datos_etapa_2_tramo_1['TIPO'] == 1) { tipos_tramo['TIPO_TRAMO_1'] = 1 } else if (datos_etapa_2_tramo_1['TIPO'] == 2) { tipos_tramo['TIPO_TRAMO_1'] = 2 }
     if (datos_etapa_2_tramo_2['TIPO'] == 1) { tipos_tramo['TIPO_TRAMO_2'] = 1 } else if (datos_etapa_2_tramo_2['TIPO'] == 2) { tipos_tramo['TIPO_TRAMO_2'] = 2 }
@@ -570,6 +560,8 @@ function finalizar() {
                             data: { opcion: "agendarViaje", datos: JSON.stringify(datos), rutas:JSON.stringify(array_rutas) },
                             success: function (response) {
                                 console.log(response)
+                                id_tramo_vinculado_para_tramo_2 = response
+                                modalidad_viaje_vinculado_para_tramo_2 = "Agenda"
                             },
                         });
                         break;
@@ -583,6 +575,8 @@ function finalizar() {
                             data: { opcion: "agregarOportunidad", datos: JSON.stringify(datos), rutas:JSON.stringify(array_rutas) },
                             success: function (response) {
                                 console.log(response)
+                                id_tramo_vinculado_para_tramo_2 = response
+                                modalidad_viaje_vinculado_para_tramo_2 = "Oportunidad"
                             },
                         });
                         break;
@@ -604,6 +598,8 @@ function finalizar() {
                             data: { opcion: "agendarViaje", datos: JSON.stringify(datos), rutas:JSON.stringify(array_rutas) },
                             success: function (response) {
                                 console.log(response)
+                                id_tramo_vinculado_para_tramo_1 = response
+                                modalidad_viaje_vinculado_para_tramo_1 = "Agenda"
                             },
                         });
                         break;
@@ -616,7 +612,8 @@ function finalizar() {
                             url: "/PHP/Backend.php",
                             data: { opcion: "agregarOportunidad", datos: JSON.stringify(datos), rutas:JSON.stringify(array_rutas) },
                             success: function (response) {
-                                console.log(response)
+                                id_tramo_vinculado_para_tramo_1 = response
+                                modalidad_viaje_vinculado_para_tramo_1 = "Oportunidad"
                             },
                         });
                         break;
@@ -624,6 +621,21 @@ function finalizar() {
                 }
         }
     }
+
+    /*
+        registro los tramos vinculados 
+    */
+
+    $.ajax({
+        type: "POST",
+        url: "/PHP/Backend.php",
+        data: { opcion: "tramosVinculados", id_tramo_vinculado_para_tramo_1: id_tramo_vinculado_para_tramo_1, modalidad_viaje_vinculado_para_tramo_1:modalidad_viaje_vinculado_para_tramo_1, id_tramo_vinculado_para_tramo_2: id_tramo_vinculado_para_tramo_2, modalidad_viaje_vinculado_para_tramo_2:modalidad_viaje_vinculado_para_tramo_2 },
+        success: function (response) {
+            id_tramo_vinculado_para_tramo_1 = response
+            modalidad_viaje_vinculado_para_tramo_1 = "Oportunidad"
+        },
+    });
+
     setTimeout(function () {
         window.location = "https://www.salioviaje.com.uy/Panel/Success_Agenda";
     }, 1000);
