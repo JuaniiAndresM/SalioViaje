@@ -1108,7 +1108,7 @@ function filtrar_divs(tipo) {
        var comparacion_3 = [];
  
        for (let i = 0; i < atributos.length; i++) {
-          datos = atributos[i].split(',')
+            datos = atributos[i].split(',')
     
             function dateFormat(inputDate, format) {
                 const date = new Date(inputDate);
