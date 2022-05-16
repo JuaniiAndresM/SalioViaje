@@ -8385,11 +8385,11 @@ footer .totum p a:hover {
     width: 100%;
     max-width: none !important;
   }
-  .panel-tables .usuarios-recientes .usuarios-table {
+  .panel-tables .usuarios-recientes .usuarios-table, .panel-tables .usuarios-recientes .viajes-table {
     width: calc(100% - 20px) !important;
     margin: 0 auto;
   }
-  .panel-tables .usuarios-recientes .usuarios-table tr {
+  .panel-tables .usuarios-recientes .usuarios-table tr, .panel-tables .usuarios-recientes .viajes-table tr {
     margin-bottom: 8px;
     border: none;
     display: block;
@@ -8397,39 +8397,42 @@ footer .totum p a:hover {
     -webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.3);
             box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.3);
   }
-  .panel-tables .usuarios-recientes .usuarios-table thead {
+  .panel-tables .usuarios-recientes .usuarios-table thead, .panel-tables .usuarios-recientes .viajes-table thead {
     display: none;
   }
-  .panel-tables .usuarios-recientes .usuarios-table th {
+  .panel-tables .usuarios-recientes .usuarios-table th, .panel-tables .usuarios-recientes .viajes-table th {
     border: none !important;
     display: none;
   }
-  .panel-tables .usuarios-recientes .usuarios-table td {
+  .panel-tables .usuarios-recientes .usuarios-table td, .panel-tables .usuarios-recientes .viajes-table td {
     display: block;
     border-bottom: 1px solid rgba(43, 49, 121, 0.2);
     text-align: right;
     margin: 10px;
   }
-  .panel-tables .usuarios-recientes .usuarios-table td:last-child {
+  .panel-tables .usuarios-recientes .usuarios-table td:last-child, .panel-tables .usuarios-recientes .viajes-table td:last-child {
     border-bottom: 0;
   }
-  .panel-tables .usuarios-recientes .usuarios-table td:before {
+  .panel-tables .usuarios-recientes .usuarios-table td:before, .panel-tables .usuarios-recientes .viajes-table td:before {
     content: attr(data-title);
     font-weight: 600;
     float: left;
   }
   .panel-tables .usuarios-recientes .usuarios-table th,
-  .panel-tables .usuarios-recientes .usuarios-table td {
+  .panel-tables .usuarios-recientes .usuarios-table td, .panel-tables .usuarios-recientes .viajes-table th,
+  .panel-tables .usuarios-recientes .viajes-table td {
     font-size: 12px;
   }
   .panel-tables .usuarios-recientes .usuarios-table th .estado,
-  .panel-tables .usuarios-recientes .usuarios-table td .estado {
+  .panel-tables .usuarios-recientes .usuarios-table td .estado, .panel-tables .usuarios-recientes .viajes-table th .estado,
+  .panel-tables .usuarios-recientes .viajes-table td .estado {
     -webkit-box-pack: end !important;
         -ms-flex-pack: end !important;
             justify-content: flex-end !important;
   }
   .panel-tables .usuarios-recientes .usuarios-table th select,
-  .panel-tables .usuarios-recientes .usuarios-table td select {
+  .panel-tables .usuarios-recientes .usuarios-table td select, .panel-tables .usuarios-recientes .viajes-table th select,
+  .panel-tables .usuarios-recientes .viajes-table td select {
     height: 40px;
     background-color: transparent;
     border: none;

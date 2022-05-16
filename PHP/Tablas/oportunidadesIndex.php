@@ -38,6 +38,7 @@ for ($i = 0; $i < count($datos); $i++) {
                   </div>
                 </div>
                 <div class="travel">
+                  <p><i class="fas fa-passport"></i> N° Viaje: #' . $datos[$i]['ID'] . '.</p>
                   <p><i class="fas fa-map-marker-alt"></i> Origen: ' . $datos[$i]['ORIGEN'] . '.</p>
                   <p><i class="fas fa-route"></i> Destino: ' . $datos[$i]['DESTINO'] . '.</p>
                 </div>
@@ -87,6 +88,7 @@ for ($i = 0; $i < count($datos); $i++) {
                   </div>
                 </div>
                 <div class="travel">
+                  <p><i class="fas fa-passport"></i> N° Viaje: #' . $datos[$i]['ID'] . '.</p>
                   <p><i class="fas fa-map-marker-alt"></i> Origen: ' . $datos[$i]['ORIGEN'] . '.</p>
                   <p><i class="fas fa-route"></i> Destino: ' . $datos[$i]['DESTINO'] . '.</p>
                 </div>
