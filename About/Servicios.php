@@ -107,7 +107,7 @@ for($a = 0; $a < count($cotizaciones); $a++){
 
     <section class="Cotizaciones-section" id="Cotizaciones">
       <h2>
-        Central de cotizaciones (<?php echo $contador_cotizaciones; ?>)
+        Central de Cotizaciones (<?php echo $contador_cotizaciones; ?>)
       </h2>
       <hr />
       <p class="description">
