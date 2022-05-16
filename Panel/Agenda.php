@@ -236,9 +236,13 @@ session_set_cookie_params($ttl);
                           <td>'.$oportunidades[$i]['DESTINO'].'</td>
                           <td>'.$oportunidades[$i]['DISTANCIA'].' km</td>
                           <td>'.$oportunidades[$i]['CANTIDAD_PASAJERO'].'</td>
-                          <td>$'.number_format( $oportunidades[$i]['PRECIO'], 0,'','.').'</td>
-                          <td>'.$oportunidades[$i]['DESCUENTO'].'%</td>
-                          <td>'.$oportunidades[$i]['ESTADO'].'</td>
+                          <td>$'.number_format( $oportunidades[$i]['PRECIO'], 0,'','.').'</td>';
+                          if($oportunidades[$i]['DESCUENTO'] == ""){
+                            echo '<td>-</td>';
+                          }else{
+                            echo '<td>'.$oportunidades[$i]['DESCUENTO'].'%</td>';
+                          }
+                    echo '<td>'.$oportunidades[$i]['ESTADO'].'</td>
                       </tr>';
                     }
                   }

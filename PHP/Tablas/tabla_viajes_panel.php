@@ -27,7 +27,12 @@ for ($i=0; $i < count($datos); $i++) {
                       <td>'.$datos[$i]['DISTANCIA'].' km</td>
                       <td>'.$datos[$i]['CANTIDAD_PASAJEROS'].'</td>
                       <td>'.$datos[$i]['PRECIO'].'</td>
-                      <td>'.$datos[$i]['DESCUENTO'].'%</td>
+                      <td>'.if($datos[$i]['DESCUENTO'] != ""){
+                              echo $datos[$i]['DESCUENTO'].'%';
+                            }else{
+                              echo '-';
+                            }.'
+                      </td>
                       <td>'.$datos[$i]['ESTADO'].'</td>
                       <td>
                           <div class="button-wrapper">
@@ -49,7 +54,12 @@ for ($i=0; $i < count($datos); $i++) {
                       <td>'.$datos[$i]['DISTANCIA'].' km</td>
                       <td>'.$datos[$i]['CANTIDAD_PASAJEROS'].'</td>
                       <td>'.$datos[$i]['PRECIO'].'</td>
-                      <td>'.$datos[$i]['DESCUENTO'].'%</td>
+                      <td>'.if($datos[$i]['DESCUENTO'] != ""){
+                              echo $datos[$i]['DESCUENTO'].'%';
+                            }else{
+                              echo '-';
+                            }.'
+                      </td>
                       <td>'.$datos[$i]['ESTADO'].'</td>
                       <td>
                           <div class="button-wrapper">
