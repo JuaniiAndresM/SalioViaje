@@ -44,7 +44,7 @@ class procedimientosBD
         $conn = $this->conexion();
         $query = "call register_empresa(?,?,?,?,?,?,?,?,?,?);";
         $stmt = $conn->prepare($query);
-        echo "\n" . $datos["RUT"] . " " . $datos["NOMBRE_COMERCIAL"] . " " . $datos["RAZON_SOCIAL"] . " " . $datos["NUMERO_MTOP"] . " " . $datos["PASSWORD_MTOP"] . " " . $tipo_usuario . " " . $id_usuario . " " . $datos['CHOFERES_SUB']. " " . $datos['DIRECCION_HOTEL'] . " " .$contador. "\n";
+        echo "\n" . $datos["RUT"] . " " . $datos["NOMBRE_COMERCIAL"] . " " . $datos["RAZON_SOCIAL"] . " " . $datos["NUMERO_MTOP"] . " " . $datos["PASSWORD_MTOP"] . " " . $tipo_usuario . " " . $id_usuario . " " . $datos['CHOFERES_SUB'] . " " . $datos['DIRECCION_HOTEL'] . " " . $contador . "\n";
         $stmt->bind_param("isssissiis", $contador, $datos["RUT"], $datos["NOMBRE_COMERCIAL"], $datos["RAZON_SOCIAL"], $datos["NUMERO_MTOP"], $datos["PASSWORD_MTOP"], $tipo_usuario, $id_usuario, $datos['CHOFERES_SUB'], $datos['DIRECCION_HOTEL']);
         $stmt->execute();
         echo $stmt->error;
@@ -82,7 +82,7 @@ class procedimientosBD
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($nombre_empresa, $razon_social, $rut, $acepta_cho,$tipo_usuario);
+            $stmt->bind_result($nombre_empresa, $razon_social, $rut, $acepta_cho, $tipo_usuario);
             while ($stmt->fetch()) {
                 $result = array('NOMBRE_COMERCIAL' => $nombre_empresa, 'RAZON_SOCIAL' => $razon_social, 'RUT' => $rut, 'CHOFERES_SUB' => $acepta_cho, 'TIPO_USUARIO' => $tipo_usuario);
                 $empresas[] = $result;
@@ -398,9 +398,10 @@ class procedimientosBD
         return json_encode($result);
     }
 
-    public function registrar_rutas_agenda($rutas,$id_viaje){
+    public function registrar_rutas_agenda($rutas, $id_viaje)
+    {
         $rutas = json_decode($rutas, true);
-        for ($i=0; $i < count($rutas); $i++) { 
+        for ($i = 0; $i < count($rutas); $i++) {
             $conn = $this->conexion();
             $query = "call agregar_rutas_agenda(?,?);";
             $stmt = $conn->prepare($query);
@@ -416,7 +417,7 @@ class procedimientosBD
         // ORIGEN DESTINO FECHA HORA PASAJEROS MARCA Y MODELO DEL VEHICULO nombre de transportista
         $oportunidades = array();
         $conn = $this->conexion();
-        $query = "SELECT idOportunidad,Descuento,Origen,Destino,Fecha,Nombre,Apellido,Marca,Modelo,Capacidad,Estado,Matricula,Distancia,Precio FROM oportunidades,usuarios,vehiculos where idTransportista = usuarios.ID and Vehiculo = Matricula;";
+        $query = "SELECT idViaje,Descuento,Origen,Destino,Fecha,Nombre,Apellido,Marca,Modelo,Capacidad,Estado,Matricula,Distancia,Precio FROM viajes,usuarios,vehiculos where idTransportista = usuarios.ID and Vehiculo = Matricula and Modalidad = 'Oportunidad';";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
@@ -424,8 +425,8 @@ class procedimientosBD
             while ($stmt->fetch()) {
                 $result = array('ID' => $idOportunidad, 'DESCUENTO' => $descuento, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'FECHA' => $fecha, 'NOMBRE' => $nombre, 'APELLIDO' => $apellido, 'MARCA' => $marca, 'MODELO' => $modelo, 'CAPACIDAD_VEHICULO' => $capacidad_vehiculo, 'ESTADO' => $estado, 'MATRICULA' => $matricula, 'DISTANCIA' => $distancia, 'PRECIO' => $precio);
                 $fecha = $result["FECHA"];
-                $timestamp = strtotime($fecha); 
-                $newDate = date("d-m-Y H:i", $timestamp);  
+                $timestamp = strtotime($fecha);
+                $newDate = date("d-m-Y H:i", $timestamp);
                 $result["FECHA"] = $newDate;
                 $oportunidades[] = $result;
             }
@@ -439,7 +440,7 @@ class procedimientosBD
         // ORIGEN DESTINO FECHA HORA PASAJEROS MARCA Y MODELO DEL VEHICULO nombre de transportista
         $oportunidades = array();
         $conn = $this->conexion();
-        $query = "SELECT idOportunidad,Origen,Destino,Fecha,Estado,Modalidad FROM oportunidades where idComprador = $id";
+        $query = "SELECT idViaje,Origen,Destino,Fecha,Estado,Modalidad FROM viajes where idComprador = $id and Modalidad = 'Oportunidad'";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
@@ -447,8 +448,8 @@ class procedimientosBD
             while ($stmt->fetch()) {
                 $result = array('ID' => $idOportunidad, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'FECHA' => $fecha, 'ESTADO' => $estado, 'MODALIDAD' => $modalidad);
                 $fecha = $result["FECHA"];
-                $timestamp = strtotime($fecha); 
-                $newDate = date("d-m-Y H:i", $timestamp);  
+                $timestamp = strtotime($fecha);
+                $newDate = date("d-m-Y H:i", $timestamp);
                 $result["FECHA"] = $newDate;
                 $oportunidades[] = $result;
             }
@@ -462,16 +463,16 @@ class procedimientosBD
         // ORIGEN DESTINO FECHA HORA PASAJEROS MARCA Y MODELO DEL VEHICULO nombre de transportista
         $oportunidades = array();
         $conn = $this->conexion();
-        $query = "SELECT idOportunidad,Origen,Destino,Fecha,Estado,Modalidad FROM oportunidades where idTransportista = $id";
+        $query = "SELECT idViaje,Origen,Destino,Fecha,Estado,Modalidad FROM viajes where idTransportista = $id";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($idOportunidad, $origen, $destino, $fecha, $estado,$modalidad);
+            $stmt->bind_result($idOportunidad, $origen, $destino, $fecha, $estado, $modalidad);
             while ($stmt->fetch()) {
                 $result = array('ID' => $idOportunidad, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'FECHA' => $fecha, 'ESTADO' => $estado, 'MODALIDAD' => $modalidad);
                 $fecha = $result["FECHA"];
-                $timestamp = strtotime($fecha); 
-                $newDate = date("d-m-Y H:i", $timestamp);  
+                $timestamp = strtotime($fecha);
+                $newDate = date("d-m-Y H:i", $timestamp);
                 $result["FECHA"] = $newDate;
                 $oportunidades[] = $result;
             }
@@ -485,7 +486,7 @@ class procedimientosBD
         $return = null;
         $size = 0;
         $conn = $this->conexion();
-        $query = "SELECT idOportunidad,Descuento,Origen,Destino,Fecha,Nombre,Apellido,Marca,Modelo,Capacidad,Estado,Matricula,Distancia,Precio,idTransportista,Tipo_Usuario FROM oportunidades,usuarios,vehiculos where idTransportista = usuarios.ID and Vehiculo = Matricula and idOportunidad = $id;";
+        $query = "SELECT idViaje,Descuento,Origen,Destino,Fecha,Nombre,Apellido,Marca,Modelo,Capacidad,Estado,Matricula,Distancia,Precio,idTransportista,Tipo_Usuario FROM viajes,usuarios,vehiculos where idTransportista = usuarios.ID and Vehiculo = Matricula and idViaje = $id and Modalidad = 'Oportunidad';";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
@@ -493,8 +494,8 @@ class procedimientosBD
             while ($stmt->fetch()) {
                 $result = array('ID' => $idOportunidad, 'DESCUENTO' => $descuento, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'FECHA' => $fecha, 'NOMBRE' => $nombre, 'APELLIDO' => $apellido, 'MARCA' => $marca, 'MODELO' => $modelo, 'CAPACIDAD_VEHICULO' => $capacidad_vehiculo, 'ESTADO' => $estado, 'MATRICULA' => $matricula, 'DISTANCIA' => $distancia, 'PRECIO' => $precio, 'ID_TRANSPORTISTA' => $idTransportista, 'TIPO_USUARIO' => $tipo_usuario);
                 $fecha = $result["FECHA"];
-                $timestamp = strtotime($fecha); 
-                $newDate = date("d-m-Y H:i", $timestamp);  
+                $timestamp = strtotime($fecha);
+                $newDate = date("d-m-Y H:i", $timestamp);
                 $result["FECHA"] = $newDate;
                 $oportunidades[$size] = $result;
                 $return = $oportunidades;
@@ -509,7 +510,7 @@ class procedimientosBD
     {
         $viajes = array();
         $conn = $this->conexion();
-        $query = "SELECT idViaje,Origen,Destino,Fecha,Nombre,Apellido,Marca,Modelo,CantidadPasajeros,Estado,Matricula,Distancia,Precio FROM agenda,usuarios,vehiculos where idTransportista = usuarios.ID and Vehiculo = Matricula;";
+        $query = "SELECT idViaje,Origen,Destino,Fecha,Nombre,Apellido,Marca,Modelo,CantidadPasajeros,Estado,Matricula,Distancia,Precio FROM viajes,usuarios,vehiculos where idTransportista = usuarios.ID and Vehiculo = Matricula and Modalidad = 'Agendado';";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
@@ -517,8 +518,8 @@ class procedimientosBD
             while ($stmt->fetch()) {
                 $result = array('ID' => $id, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'FECHA' => $fecha, 'NOMBRE' => $nombre, 'APELLIDO' => $apellido, 'MARCA' => $marca, 'MODELO' => $modelo, 'CANTIDAD_PASAJEROS' => $cantidad_pasajeros, 'ESTADO' => $estado, 'MATRICULA' => $matricula, 'DISTANCIA' => $distancia, 'PRECIO' => $precio);
                 $fecha = $result["FECHA"];
-                $timestamp = strtotime($fecha); 
-                $newDate = date("d-m-Y H:i", $timestamp);  
+                $timestamp = strtotime($fecha);
+                $newDate = date("d-m-Y H:i", $timestamp);
                 $result["FECHA"] = $newDate;
                 $viajes[] = $result;
             }
@@ -566,7 +567,7 @@ class procedimientosBD
     public function traer_datos_transportista($id)
     {
         $conn = $this->conexion();
-        $query = "SELECT Telefono,Nombre,idOportunidad,Email from usuarios,oportunidades where ID = $id;";
+        $query = "SELECT Telefono,Nombre,idViaje,Email from usuarios,viajes where ID = $id;";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
@@ -733,12 +734,12 @@ class procedimientosBD
         $stmt->bind_param("s", $id);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($id, $vehiculo, $distancia, $cantidad_pasajeros, $fecha, $origen, $destino, $precio, $rutas, $estado, $modalidad, $id_transportista);
+            $stmt->bind_result($id, $vehiculo, $distancia, $cantidad_pasajeros, $fecha, $origen, $destino, $precio, $estado, $modalidad, $id_transportista,$id_tramo_vinculado);
             while ($stmt->fetch()) {
                 $result = array('ID' => $id, 'VEHICULO' => $vehiculo, 'DISTANCIA' => $distancia, 'CANTIDAD_PASAJERO' => $cantidad_pasajeros, 'FECHA' => $fecha, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'PRECIO' => $precio, 'RUTAS' => $rutas, 'ESTADO' => $estado, 'MODALIDAD' => $modalidad, 'ID_TRANSPORTISTA' => $id_transportista);
                 $fecha = $result["FECHA"];
-                $timestamp = strtotime($fecha); 
-                $newDate = date("d-m-Y H:i A", $timestamp);  
+                $timestamp = strtotime($fecha);
+                $newDate = date("d-m-Y H:i A", $timestamp);
                 $result["FECHA"] = $newDate;
                 $agenda[$size] = $result;
                 $return = $agenda;
@@ -759,12 +760,12 @@ class procedimientosBD
         $stmt->bind_param("s", $id);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($id, $descuento, $vehiculo, $distancia, $cantidad_pasajeros, $fecha, $origen, $destino, $precio, $rutas, $estado, $id_transportista, $id_comprador,$modalidad);
+            $stmt->bind_result($id, $descuento, $vehiculo, $distancia, $cantidad_pasajeros, $fecha, $origen, $destino, $precio, $estado, $id_transportista, $id_comprador, $modalidad);
             while ($stmt->fetch()) {
                 $result = array('ID' => $id, 'DESCUENTO' => $descuento, 'VEHICULO' => $vehiculo, 'DISTANCIA' => $distancia, 'CANTIDAD_PASAJERO' => $cantidad_pasajeros, 'FECHA' => $fecha, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'PRECIO' => $precio, 'RUTAS' => $rutas, 'ESTADO' => $estado, 'ID_TRANSPORTISTA' => $id_transportista, 'ID_COMPRADOR' => $id_comprador, 'MODALIDAD' => $modalidad);
                 $fecha = $result["FECHA"];
-                $timestamp = strtotime($fecha); 
-                $newDate = date("d-m-Y H:i", $timestamp);  
+                $timestamp = strtotime($fecha);
+                $newDate = date("d-m-Y H:i", $timestamp);
                 $result["FECHA"] = $newDate;
                 $agenda[$size] = $result;
                 $return = $agenda;
@@ -923,7 +924,7 @@ class procedimientosBD
         return json_encode($empresas_choferes);
     }
 
-    //SELECT * from vehiculos where RUT_EM IN(SELECT RUT FROM `empresas` WHERE Usuario_ID IN (SELECT ID FROM usuarios WHERE Agencia_C IN (SELECT RUT FROM empresas where Usuario_ID = 435))) 
+    //SELECT * from vehiculos where RUT_EM IN(SELECT RUT FROM `empresas` WHERE Usuario_ID IN (SELECT ID FROM usuarios WHERE Agencia_C IN (SELECT RUT FROM empresas where Usuario_ID = 435)))
 
     public function traer_vehiculos_empresas_choferes_por_tta_id($id)
     {
@@ -943,36 +944,36 @@ class procedimientosBD
         return json_encode($vehiculos_choferes);
     }
 
-    public function agregar_cotizacion($datos, $tipo,$id_solicitante)
+    public function agregar_cotizacion($datos, $tipo, $id_solicitante)
     {
         $datos = json_decode($datos, true);
-        $datos['ID_SOLICITANTE'] = $id_solicitante; 
+        $datos['ID_SOLICITANTE'] = $id_solicitante;
         $conn = $this->conexion();
         $query = "CALL agregar_cotizacion(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         $stmt = $conn->prepare($query);
         switch ($tipo) {
             case "traslados":
                 $datos["TIPO"] = "Traslados";
-                $stmt->bind_param("ssssssssssssiisssisisssisii", $datos["DIRECCION_ORIGEN"], $datos["BARRIO_ORIGEN"], $datos["LOCALIDAD_ORIGEN"], $datos["DIRECCION_DESTINO"], $datos["BARRIO_DESTINO"], $datos["LOCALIDAD_DESTINO"],$datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["MASCOTAS"], $datos["CANTIDAD_PASAJEROS"], $datos["HORA"], $datos["OBSERVACIONES"], $datos['FECHA_SALIDA'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos["TIPO"], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL'],$datos['ID_SOLICITANTE']);
+                $stmt->bind_param("ssssssssssssiisssisisssisii", $datos["DIRECCION_ORIGEN"], $datos["BARRIO_ORIGEN"], $datos["LOCALIDAD_ORIGEN"], $datos["DIRECCION_DESTINO"], $datos["BARRIO_DESTINO"], $datos["LOCALIDAD_DESTINO"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["MASCOTAS"], $datos["CANTIDAD_PASAJEROS"], $datos["HORA"], $datos["OBSERVACIONES"], $datos['FECHA_SALIDA'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos["TIPO"], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['ID_SOLICITANTE']);
                 break;
             case 'tour':
                 $datos["TIPO"] = "Tour";
-                $stmt->bind_param("ssssssssssssiisssisisssisii", $datos["DIRECCION_SALIDA_TOUR"], $datos["BARRIO_TOUR"], $datos["LOCALIDAD_TOUR"], $datos["NULL"], $datos["CIUDAD"], $datos["LOCALIDAD_DESTINO"],$datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["MASCOTA"], $datos["CANTIDAD_PASAJEROS"], $datos["HORA"], $datos["OBSERVACIONES"], $datos['FECHA_SALIDA'], $datos['DURACION'], $datos['NULL'], $datos['NULL'], $datos["TIPO"], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL'],$datos['ID_SOLICITANTE']);
+                $stmt->bind_param("ssssssssssssiisssisisssisii", $datos["DIRECCION_SALIDA_TOUR"], $datos["BARRIO_TOUR"], $datos["LOCALIDAD_TOUR"], $datos["NULL"], $datos["CIUDAD"], $datos["LOCALIDAD_DESTINO"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["MASCOTA"], $datos["CANTIDAD_PASAJEROS"], $datos["HORA"], $datos["OBSERVACIONES"], $datos['FECHA_SALIDA'], $datos['DURACION'], $datos['NULL'], $datos['NULL'], $datos["TIPO"], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['ID_SOLICITANTE']);
                 break;
             case 'transferIn':
-                $stmt->bind_param("ssssssssssssiisssisisssisii", $datos["DIRECCION_ORIGEN"], $datos["BARRIO_ORIGEN"], $datos["PUNTO_ORIGEN"], $datos["DIRECCION_DESTINO"], $datos["BARRIO_DESTINO"], $datos["LOCALIDAD_DESTINO"],$datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["MASCOTAS"], $datos["CANTIDAD_PASAJEROS"], $datos["HORA"], $datos["OBSERVACIONES"], $datos['FECHA_ARRIBO'], $datos['NULL'], $datos['NRO_VUELO_BARCO'], $datos['EQUIPAJE'], $datos['TIPO_TRANSFER'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL'],$datos['ID_SOLICITANTE']);
+                $stmt->bind_param("ssssssssssssiisssisisssisii", $datos["DIRECCION_ORIGEN"], $datos["BARRIO_ORIGEN"], $datos["PUNTO_ORIGEN"], $datos["DIRECCION_DESTINO"], $datos["BARRIO_DESTINO"], $datos["LOCALIDAD_DESTINO"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["MASCOTAS"], $datos["CANTIDAD_PASAJEROS"], $datos["HORA"], $datos["OBSERVACIONES"], $datos['FECHA_ARRIBO'], $datos['NULL'], $datos['NRO_VUELO_BARCO'], $datos['EQUIPAJE'], $datos['TIPO_TRANSFER'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['ID_SOLICITANTE']);
                 break;
             case 'transferOut':
-                $stmt->bind_param("ssssssssssssiisssisisssisii", $datos["DIRECCION_ORIGEN"], $datos["BARRIO_ORIGEN"], $datos["LOCALIDAD_ORIGEN"], $datos["DIRECCION_DESTINO"], $datos["BARRIO_DESTINO"], $datos["PUNTO_DESTINO"],$datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["MASCOTAS"], $datos["CANTIDAD_PASAJEROS"], $datos["HORA"], $datos["OBSERVACIONES"], $datos['FECHA_PARTIDA'], $datos['NULL'], $datos['NRO_VUELO_BARCO'], $datos['EQUIPAJE'], $datos['TIPO_TRANSFER'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL'],$datos['ID_SOLICITANTE']);
+                $stmt->bind_param("ssssssssssssiisssisisssisii", $datos["DIRECCION_ORIGEN"], $datos["BARRIO_ORIGEN"], $datos["LOCALIDAD_ORIGEN"], $datos["DIRECCION_DESTINO"], $datos["BARRIO_DESTINO"], $datos["PUNTO_DESTINO"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["MASCOTAS"], $datos["CANTIDAD_PASAJEROS"], $datos["HORA"], $datos["OBSERVACIONES"], $datos['FECHA_PARTIDA'], $datos['NULL'], $datos['NRO_VUELO_BARCO'], $datos['EQUIPAJE'], $datos['TIPO_TRANSFER'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['ID_SOLICITANTE']);
                 break;
             case 'fiestasIda':
-                $stmt->bind_param("ssssssssssssiisssisisssisii", $datos["DIRECCION_ORIGEN"], $datos["BARRIO_ORIGEN"], $datos["LOCALIDAD_ORIGEN"], $datos["DIRECCION_DESTINO"], $datos["BARRIO_DESTINO"], $datos["PUNTO_DESTINO"],$datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["MASCOTAS"], $datos["CANTIDAD_PASAJEROS_IDA"], $datos["HORA"], $datos["OBSERVACIONES"], $datos['FECHA_SALIDA'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['TRAMOS_FIESTA'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL'],$datos['ID_SOLICITANTE']);
+                $stmt->bind_param("ssssssssssssiisssisisssisii", $datos["DIRECCION_ORIGEN"], $datos["BARRIO_ORIGEN"], $datos["LOCALIDAD_ORIGEN"], $datos["DIRECCION_DESTINO"], $datos["BARRIO_DESTINO"], $datos["PUNTO_DESTINO"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["MASCOTAS"], $datos["CANTIDAD_PASAJEROS_IDA"], $datos["HORA"], $datos["OBSERVACIONES"], $datos['FECHA_SALIDA'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['TRAMOS_FIESTA'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['ID_SOLICITANTE']);
                 break;
             case 'fiestasVuelta':
-                $stmt->bind_param("ssssssssssssiisssisisssisii", $datos["DIRECCION_ORIGEN"], $datos["BARRIO_ORIGEN"], $datos["PUNTO_ORIGEN"], $datos["DIRECCION_DESTINO"], $datos["BARRIO_DESTINO"], $datos["LOCALIDAD_DESTINO"],$datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["MASCOTAS"], $datos["CANTIDAD_PASAJEROS_VUELTA"], $datos["HORA"], $datos["OBSERVACIONES"], $datos['FECHA_REGRESO'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['TRAMOS_FIESTA'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL'],$datos['ID_SOLICITANTE']);
+                $stmt->bind_param("ssssssssssssiisssisisssisii", $datos["DIRECCION_ORIGEN"], $datos["BARRIO_ORIGEN"], $datos["PUNTO_ORIGEN"], $datos["DIRECCION_DESTINO"], $datos["BARRIO_DESTINO"], $datos["LOCALIDAD_DESTINO"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["NULL"], $datos["MASCOTAS"], $datos["CANTIDAD_PASAJEROS_VUELTA"], $datos["HORA"], $datos["OBSERVACIONES"], $datos['FECHA_REGRESO'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['TRAMOS_FIESTA'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['ID_SOLICITANTE']);
                 break;
             case 'fiestasIdaVuelta':
-                $stmt->bind_param("ssssssssssssiisssisisssisii", $datos["DIRECCION_ORIGEN"], $datos["BARRIO_ORIGEN"], $datos["LOCALIDAD_ORIGEN"], $datos["DIRECCION_DESTINO"], $datos["BARRIO_DESTINO"], $datos["LOCALIDAD_DESTINO"],$datos["DIRECCION_ORIGEN_VUELTA"], $datos["BARRIO_ORIGEN_VUELTA"], $datos["LOCALIDAD_ORIGEN_VUELTA"], $datos["DIRECCION_DESTINO_VUELTA"], $datos["BARRIO_DESTINO_VUELTA"], $datos["LOCALIDAD_DESTINO_VUELTA"], $datos["MASCOTAS"], $datos["CANTIDAD_PASAJEROS_IDA"], $datos["HORA_SALIDA"], $datos["OBSERVACIONES"], $datos['FECHA_SALIDA'],$datos['NULL'],$datos['NULL'],$datos['NULL'],$datos['TRAMOS_FIESTA'],$datos['PUNTO_DESTINO'],$datos['PUNTO_SALIDA'],$datos['CANTIDAD_PASAJEROS_VUELTA'],$datos['HORA_REGRESO'],$datos['FECHA_REGRESO'],$datos['ID_SOLICITANTE']);
+                $stmt->bind_param("ssssssssssssiisssisisssisii", $datos["DIRECCION_ORIGEN"], $datos["BARRIO_ORIGEN"], $datos["LOCALIDAD_ORIGEN"], $datos["DIRECCION_DESTINO"], $datos["BARRIO_DESTINO"], $datos["LOCALIDAD_DESTINO"], $datos["DIRECCION_ORIGEN_VUELTA"], $datos["BARRIO_ORIGEN_VUELTA"], $datos["LOCALIDAD_ORIGEN_VUELTA"], $datos["DIRECCION_DESTINO_VUELTA"], $datos["BARRIO_DESTINO_VUELTA"], $datos["LOCALIDAD_DESTINO_VUELTA"], $datos["MASCOTAS"], $datos["CANTIDAD_PASAJEROS_IDA"], $datos["HORA_SALIDA"], $datos["OBSERVACIONES"], $datos['FECHA_SALIDA'], $datos['NULL'], $datos['NULL'], $datos['NULL'], $datos['TRAMOS_FIESTA'], $datos['PUNTO_DESTINO'], $datos['PUNTO_SALIDA'], $datos['CANTIDAD_PASAJEROS_VUELTA'], $datos['HORA_REGRESO'], $datos['FECHA_REGRESO'], $datos['ID_SOLICITANTE']);
                 break;
         }
         if ($stmt->execute()) {
@@ -1005,12 +1006,12 @@ class procedimientosBD
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($id_cotizacion, $direccion_origen, $barrio_origen, $localidad_origen, $direccion_destino, $barrio_destino, $localidad_destino, $fecha_salida, $estado,$hora,$cantidad_pasajeros,$mascotas,$tipo,$id_tta_responsable);
+            $stmt->bind_result($id_cotizacion, $direccion_origen, $barrio_origen, $localidad_origen, $direccion_destino, $barrio_destino, $localidad_destino, $fecha_salida, $estado, $hora, $cantidad_pasajeros, $mascotas, $tipo, $id_tta_responsable);
             while ($stmt->fetch()) {
-                $result = array('ID' => $id_cotizacion, 'DIRECCION_ORIGEN' => $direccion_origen, 'BARRIO_ORIGEN' => $barrio_origen, 'LOCALIDAD_ORIGEN' => $localidad_origen, 'DIRECCION_DESTINO' => $direccion_destino, 'BARRIO_DESTINO' => $barrio_destino, 'LOCALIDAD_DESTINO' => $localidad_destino, 'FECHA_SALIDA' => $fecha_salida, 'ESTADO' => $estado, 'HORA' => $hora, 'CANTIDAD_PASAJEROS' => $cantidad_pasajeros, 'MASCOTAS' => $mascotas,'TIPO' => $tipo,'ID_RESPONSABLE' => $id_tta_responsable);
+                $result = array('ID' => $id_cotizacion, 'DIRECCION_ORIGEN' => $direccion_origen, 'BARRIO_ORIGEN' => $barrio_origen, 'LOCALIDAD_ORIGEN' => $localidad_origen, 'DIRECCION_DESTINO' => $direccion_destino, 'BARRIO_DESTINO' => $barrio_destino, 'LOCALIDAD_DESTINO' => $localidad_destino, 'FECHA_SALIDA' => $fecha_salida, 'ESTADO' => $estado, 'HORA' => $hora, 'CANTIDAD_PASAJEROS' => $cantidad_pasajeros, 'MASCOTAS' => $mascotas, 'TIPO' => $tipo, 'ID_RESPONSABLE' => $id_tta_responsable);
                 $fecha = $result["FECHA_SALIDA"];
-                $timestamp = strtotime($fecha); 
-                $newDate = date("d-m-Y", $timestamp);  
+                $timestamp = strtotime($fecha);
+                $newDate = date("d-m-Y", $timestamp);
                 $result["FECHA_SALIDA"] = $newDate;
                 $cotizaciones[] = $result;
             }
@@ -1026,12 +1027,12 @@ class procedimientosBD
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($id_cotizacion,$tipo,$dir_origen, $bar_origen, $loc_origen, $dir_destino, $bar_destino, $loc_destino,$dir_origen_vuelta, $bar_origen_vuelta, $loc_origen_vuelta, $dir_destino_vuelta, $bar_destino_vuelta, $loc_destino_vuelta, $dest_salida_eventos, $ori_salida_eventos, $mascotas, $cantidad_pasajeros,$cant_pasajeros_regreso, $len, $hora, $hr_regreso,$nro_b_v,$nro_equi, $obs, $fechaSalida,$fechaRegreso,$estado,$id_soli);
+            $stmt->bind_result($id_cotizacion, $tipo, $dir_origen, $bar_origen, $loc_origen, $dir_destino, $bar_destino, $loc_destino, $dir_origen_vuelta, $bar_origen_vuelta, $loc_origen_vuelta, $dir_destino_vuelta, $bar_destino_vuelta, $loc_destino_vuelta, $dest_salida_eventos, $ori_salida_eventos, $mascotas, $cantidad_pasajeros, $cant_pasajeros_regreso, $len, $hora, $hr_regreso, $nro_b_v, $nro_equi, $obs, $fechaSalida, $fechaRegreso, $estado, $id_soli);
             while ($stmt->fetch()) {
-                $result = array('ID' => $id_cotizacion, 'DIRECCION_ORIGEN' => $dir_origen, 'BARRIO_ORIGEN' => $bar_origen, 'LOCALIDAD_ORIGEN' => $loc_origen, 'DIRECCION_DESTINO' => $dir_destino, 'BARRIO_DESTINO' => $bar_destino, 'LOCALIDAD_DESTINO' => $loc_destino, 'FECHA_SALIDA' => $fechaSalida, 'ESTADO' => $estado, 'HORA' => $hora, 'CANTIDAD_PASAJEROS' => $cantidad_pasajeros, 'MASCOTAS' => $mascotas,'TIPO' => $tipo,'OBSERVACIONES' => $obs,'MASCOTAS' => $mascotas,'DURACION' => $len,'NRO_BARCO_VUELO' => $nro_b_v,'EQUIPAJE' => $nro_equi,'HORA_REGRESO' => $hr_regreso,'FECHA_REGRESO' => $fechaRegreso,'ID_SOLICITANTE' => $id_soli,'LOCALIDAD_ORIGEN_VUELTA' => $loc_origen_vuelta,'BARRIO_ORIGEN_VUELTA' => $bar_origen_vuelta,'DIRECCION_ORIGEN_VUELTA' => $dir_origen_vuelta,'LOCALIDAD_DESTINO_VUELTA' => $loc_destino_vuelta,'BARRIO_DESTINO_VUELTA' => $bar_destino_vuelta,'DIRECCION_DESTINO_VUELTA' => $dir_destino_vuelta);
+                $result = array('ID' => $id_cotizacion, 'DIRECCION_ORIGEN' => $dir_origen, 'BARRIO_ORIGEN' => $bar_origen, 'LOCALIDAD_ORIGEN' => $loc_origen, 'DIRECCION_DESTINO' => $dir_destino, 'BARRIO_DESTINO' => $bar_destino, 'LOCALIDAD_DESTINO' => $loc_destino, 'FECHA_SALIDA' => $fechaSalida, 'ESTADO' => $estado, 'HORA' => $hora, 'CANTIDAD_PASAJEROS' => $cantidad_pasajeros, 'MASCOTAS' => $mascotas, 'TIPO' => $tipo, 'OBSERVACIONES' => $obs, 'MASCOTAS' => $mascotas, 'DURACION' => $len, 'NRO_BARCO_VUELO' => $nro_b_v, 'EQUIPAJE' => $nro_equi, 'HORA_REGRESO' => $hr_regreso, 'FECHA_REGRESO' => $fechaRegreso, 'ID_SOLICITANTE' => $id_soli, 'LOCALIDAD_ORIGEN_VUELTA' => $loc_origen_vuelta, 'BARRIO_ORIGEN_VUELTA' => $bar_origen_vuelta, 'DIRECCION_ORIGEN_VUELTA' => $dir_origen_vuelta, 'LOCALIDAD_DESTINO_VUELTA' => $loc_destino_vuelta, 'BARRIO_DESTINO_VUELTA' => $bar_destino_vuelta, 'DIRECCION_DESTINO_VUELTA' => $dir_destino_vuelta);
                 $fecha = $result["FECHA_SALIDA"];
-                $timestamp = strtotime($fecha); 
-                $newDate = date("d-m-Y", $timestamp);  
+                $timestamp = strtotime($fecha);
+                $newDate = date("d-m-Y", $timestamp);
                 $result["FECHA_SALIDA"] = $newDate;
                 $cotizaciones[] = $result;
             }
@@ -1040,7 +1041,7 @@ class procedimientosBD
         return json_encode($cotizaciones);
     }
 
-    public function cambiar_estado_cotizacion($id,$estado)
+    public function cambiar_estado_cotizacion($id, $estado)
     {
         $conn = $this->conexion();
         $query = "CALL cambiar_estado_cotizacion(?,?)";
@@ -1050,7 +1051,7 @@ class procedimientosBD
         $stmt->close();
     }
 
-    public function cambiar_responsable_cotizacion($id,$responsable)
+    public function cambiar_responsable_cotizacion($id, $responsable)
     {
         $conn = $this->conexion();
         $query = "CALL cambio_responsable_cotizacion(?,?)";
@@ -1067,7 +1068,7 @@ class procedimientosBD
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($id_parada,$contenido,$tramo);
+            $stmt->bind_result($id_parada, $contenido, $tramo);
             while ($stmt->fetch()) {
                 $result = array('ID' => $id_parada, 'CONTENIDO' => $contenido, 'TRAMO' => $tramo);
                 $paradas[] = $result;
@@ -1084,7 +1085,7 @@ class procedimientosBD
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($pais,$dpto,$region);
+            $stmt->bind_result($pais, $dpto, $region);
             while ($stmt->fetch()) {
                 $result = array('PAIS' => $pais, 'DPTO' => $dpto, 'REGION' => $region);
                 $regiones[] = $result;
@@ -1111,7 +1112,7 @@ class procedimientosBD
         return $existencia;
     }
 
-    public function existencia_matricula_por_id($matr,$id)
+    public function existencia_matricula_por_id($matr, $id)
     {
         //SELECT Matricula FROM `vehiculos` WHERE Matricula = $matr
         $conn = $this->conexion();
@@ -1162,19 +1163,23 @@ class procedimientosBD
         return json_encode($barrio);
     }
 
-    public function registrar_tramos_vinculados($id_tramo_vinculado,$modalidad_tramo_vinculado,$id){
-        
-        for ($i=0; $i < 2; $i++) { 
-            $conn = $this->conexion();
-            if ($modalidad_tramo_vinculado == "Agenda") {
-                $query = "UPDATE `agenda` SET id_tramo_vinculado = $id_tramo_vinculado, modalidad_tramo_vinculado = '$modalidad_tramo_vinculado' WHERE idViaje = $id;";
-            } else {
-                $query = "UPDATE `oportunidades` SET id_tramo_vinculado = $id_tramo_vinculado, modalidad_tramo_vinculado = '$modalidad_tramo_vinculado' WHERE idOportunidad = $id;";
-            }
-            $stmt = $conn->prepare($query);
-            $stmt->execute();
-            $stmt->close();
-        }
+    public function registrar_tramos_vinculados($id_tramo_vinculado, $id)
+    {
+        $conn = $this->conexion();
+        $query = "CALL registrar_tramos_vinculados(?,?)";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("ii", $id, $id_tramo_vinculado);
+        $stmt->execute();
+        $stmt->close();
+    }
 
+    public function eliminar_viajes($id)
+    {
+        $conn = $this->conexion();
+        $query = "CALL eliminar_viaje(?)";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $stmt->close();
     }
 }

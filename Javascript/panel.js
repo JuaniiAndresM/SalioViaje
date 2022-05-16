@@ -1008,5 +1008,16 @@ function confirmar_rut(validacion) {
 }
 
 /*-------------------------------------------------------------------------------------------*/
-//                                Exportar Excel                                             //
+//                               Eliminar viajes                                             //
 /*-------------------------------------------------------------------------------------------*/
+
+function eliminar_viaje(id){
+    $.ajax({
+        type: "POST",
+        data: { opcion: "eliminar_viajes", id:id },
+        url: "https://www.salioviaje.com.uy/PHP/Backend.php",
+        success: function (response) {
+            console.log(response);
+        }
+    });
+}

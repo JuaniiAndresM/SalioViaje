@@ -329,24 +329,10 @@ class Backend extends procedimientosBD
 	} else if($_POST['opcion'] == "cho") {
 		echo $Backend->traer_choferes_por_tta_id($_POST['datos']);
 	} else if($_POST['opcion'] == "tramosVinculados") {
-		switch ($_POST['modalidad_viaje_vinculado_para_tramo_1']) {
-			case 'Oportunidad':
-				$Backend->registrar_tramos_vinculados($_POST['id_tramo_vinculado_para_tramo_1'],"Oportunidad",$_POST['id_tramo_vinculado_para_tramo_2']);
-				break;
-			
-			case 'Agenda':
-				$Backend->registrar_tramos_vinculados($_POST['id_tramo_vinculado_para_tramo_1'],"Agenda",$_POST['id_tramo_vinculado_para_tramo_2']);
-				break;
-		}
-		switch ($_POST['modalidad_viaje_vinculado_para_tramo_2']) {
-			case 'Oportunidad':
-				$Backend->registrar_tramos_vinculados($_POST['id_tramo_vinculado_para_tramo_2'],"Oportunidad",$_POST['id_tramo_vinculado_para_tramo_1']);
-				break;
-			
-			case 'Agenda':
-				$Backend->registrar_tramos_vinculados($_POST['id_tramo_vinculado_para_tramo_2'],"Agenda",$_POST['id_tramo_vinculado_para_tramo_1']);
-				break;
-		}
+		echo $Backend->registrar_tramos_vinculados($_POST['id_tramo_vinculado_para_tramo_1'],$_POST['id_tramo_vinculado_para_tramo_2']);	
+		echo $Backend->registrar_tramos_vinculados($_POST['id_tramo_vinculado_para_tramo_2'],$_POST['id_tramo_vinculado_para_tramo_1']);
+	} else if($_POST['opcion'] == "eliminar_viajes") {
+		echo $Backend->eliminar_viajes($_POST['id']);
 	} else {
 		echo $Backend->getVehiculos();
 	}

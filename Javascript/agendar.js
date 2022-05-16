@@ -238,7 +238,7 @@ function calcular_hora_invertido() {
 
     fecha_2 = fecha_2 + tiempo_2
 
-    
+
     if ($("#fecha_1").val() == "") {
         $("#fecha_1").val(fecha_2)
     }
@@ -466,7 +466,7 @@ function verificar_rutas_para_MTOP() {
 /*-------------------------------------------------------------------------------------------*/
 
 function cargar_vista_previa() {
-    
+
     datos_etapa_2_tramo_1['FECHA'] = datos_etapa_2_tramo_1['FECHA'].replace("T", " ");
     datos_etapa_2_tramo_2['FECHA'] = datos_etapa_2_tramo_2['FECHA'].replace("T", " ");
 
@@ -477,7 +477,7 @@ function cargar_vista_previa() {
 
     if (datos_etapa_2_tramo_1['TIPO'] == 1) { $('.tipo_1').html("Agenda") } else { $('.tipo_1').html("Oportunidad") }
     if (datos_etapa_2_tramo_1['DESCUENTO_OPORTUNIDAD'] != undefined) { $('.porcentaje_1').html(datos_etapa_2_tramo_1['DESCUENTO_OPORTUNIDAD'] + "%") } else { $('.porcentaje_1').html("No hay descuento") }
-    
+
     var fecha_1 = datos_etapa_2_tramo_1['FECHA'].split(' ');
     var fecha_1_arreglada = dateFormat(fecha_1[0], 'dd-MM-yyyy')
 
@@ -488,10 +488,10 @@ function cargar_vista_previa() {
 
     if (datos_etapa_2_tramo_2['TIPO'] == 1) { $('.tipo_2').html("Agenda") } else { $('.tipo_2').html("Oportunidad") }
     if (datos_etapa_2_tramo_2['DESCUENTO_OPORTUNIDAD'] != undefined) { $('.porcentaje_2').html(datos_etapa_2_tramo_2['DESCUENTO_OPORTUNIDAD'] + "%") } else { $('.porcentaje_2').html("No hay descuento") }
-    
+
     var fecha_2 = datos_etapa_2_tramo_2['FECHA'].split(' ');
     var fecha_2_arreglada = dateFormat(fecha_2[0], 'dd-MM-yyyy')
-    
+
     $('.fecha_2').html(fecha_2_arreglada + ' ' + fecha_2[1])
     $('.origen_2').html(datos_etapa_2_tramo_2['ORIGEN'])
     $('.destino_2').html(datos_etapa_2_tramo_2['DESTINO'])
@@ -499,9 +499,9 @@ function cargar_vista_previa() {
 
     for (var i = 0; i < array_rutas.length; i++) {
         if (i != array_rutas.length - 1 && array_rutas[i] != undefined) {
-            $('.rutas_ingresadas').append(array_rutas[i]+", ")
+            $('.rutas_ingresadas').append(array_rutas[i] + ", ")
         } else {
-            $('.rutas_ingresadas').append(array_rutas[i]+".")
+            $('.rutas_ingresadas').append(array_rutas[i] + ".")
         }
     }
 }
@@ -511,17 +511,17 @@ function dateFormat(inputDate, format) {
 
     const day = date.getDate() + 1;
     const month = date.getMonth() + 1;
-    const year = date.getFullYear();    
+    const year = date.getFullYear();
 
-    format = format.replace("MM", month.toString().padStart(2,"0"));        
+    format = format.replace("MM", month.toString().padStart(2, "0"));
 
     if (format.indexOf("yyyy") > -1) {
         format = format.replace("yyyy", year.toString());
     } else if (format.indexOf("yy") > -1) {
-        format = format.replace("yy", year.toString().substr(2,2));
+        format = format.replace("yy", year.toString().substr(2, 2));
     }
 
-    format = format.replace("dd", day.toString().padStart(2,"0"));
+    format = format.replace("dd", day.toString().padStart(2, "0"));
 
     return format;
 }
@@ -529,15 +529,16 @@ function dateFormat(inputDate, format) {
 /*-------------------------------------------------------------------------------------------*/
 //                                         Agendar Viaje                                     //
 /*-------------------------------------------------------------------------------------------*/
+let id_tramo_vinculado_para_tramo_1;
+let modalidad_viaje_vinculado_para_tramo_1;
+let id_tramo_vinculado_para_tramo_2;
+let modalidad_viaje_vinculado_para_tramo_2;
 
-function finalizar() {  
+function finalizar() {
     $('#step-agendar_MTOP').attr('disabled', 'disabled');
     let datos = {}
     let tipos_tramo = {}
-    let id_tramo_vinculado_para_tramo_1;
-    let modalidad_viaje_vinculado_para_tramo_1;
-    let id_tramo_vinculado_para_tramo_2;
-    let modalidad_viaje_vinculado_para_tramo_2;
+
 
     if (datos_etapa_2_tramo_1['TIPO'] == 1) { tipos_tramo['TIPO_TRAMO_1'] = 1 } else if (datos_etapa_2_tramo_1['TIPO'] == 2) { tipos_tramo['TIPO_TRAMO_1'] = 2 }
     if (datos_etapa_2_tramo_2['TIPO'] == 1) { tipos_tramo['TIPO_TRAMO_2'] = 1 } else if (datos_etapa_2_tramo_2['TIPO'] == 2) { tipos_tramo['TIPO_TRAMO_2'] = 2 }
@@ -557,11 +558,11 @@ function finalizar() {
                         $.ajax({
                             type: "POST",
                             url: "/PHP/Backend.php",
-                            data: { opcion: "agendarViaje", datos: JSON.stringify(datos), rutas:JSON.stringify(array_rutas) },
+                            data: { opcion: "agendarViaje", datos: JSON.stringify(datos), rutas: JSON.stringify(array_rutas) },
                             success: function (response) {
                                 console.log(response)
-                                id_tramo_vinculado_para_tramo_2 = response
-                                modalidad_viaje_vinculado_para_tramo_2 = "Agenda"
+                                sessionStorage.setItem("id_tramo_vinculado_para_tramo_2", response)
+                                sessionStorage.setItem("modalidad_viaje_vinculado_para_tramo_2", "Agenda")
                             },
                         });
                         break;
@@ -572,11 +573,11 @@ function finalizar() {
                         $.ajax({
                             type: "POST",
                             url: "/PHP/Backend.php",
-                            data: { opcion: "agregarOportunidad", datos: JSON.stringify(datos), rutas:JSON.stringify(array_rutas) },
+                            data: { opcion: "agregarOportunidad", datos: JSON.stringify(datos), rutas: JSON.stringify(array_rutas) },
                             success: function (response) {
                                 console.log(response)
-                                id_tramo_vinculado_para_tramo_2 = response
-                                modalidad_viaje_vinculado_para_tramo_2 = "Oportunidad"
+                                sessionStorage.setItem("id_tramo_vinculado_para_tramo_2", response)
+                                sessionStorage.setItem("modalidad_viaje_vinculado_para_tramo_2", "Oportunidad")
                             },
                         });
                         break;
@@ -595,11 +596,11 @@ function finalizar() {
                         $.ajax({
                             type: "POST",
                             url: "/PHP/Backend.php",
-                            data: { opcion: "agendarViaje", datos: JSON.stringify(datos), rutas:JSON.stringify(array_rutas) },
+                            data: { opcion: "agendarViaje", datos: JSON.stringify(datos), rutas: JSON.stringify(array_rutas) },
                             success: function (response) {
                                 console.log(response)
-                                id_tramo_vinculado_para_tramo_1 = response
-                                modalidad_viaje_vinculado_para_tramo_1 = "Agenda"
+                                sessionStorage.setItem("id_tramo_vinculado_para_tramo_1", response)
+                                sessionStorage.setItem("modalidad_viaje_vinculado_para_tramo_1", "Agenda")
                             },
                         });
                         break;
@@ -610,10 +611,10 @@ function finalizar() {
                         $.ajax({
                             type: "POST",
                             url: "/PHP/Backend.php",
-                            data: { opcion: "agregarOportunidad", datos: JSON.stringify(datos), rutas:JSON.stringify(array_rutas) },
+                            data: { opcion: "agregarOportunidad", datos: JSON.stringify(datos), rutas: JSON.stringify(array_rutas) },
                             success: function (response) {
-                                id_tramo_vinculado_para_tramo_1 = response
-                                modalidad_viaje_vinculado_para_tramo_1 = "Oportunidad"
+                                sessionStorage.setItem("id_tramo_vinculado_para_tramo_1", response)
+                                sessionStorage.setItem("modalidad_viaje_vinculado_para_tramo_1", "Oportunidad")
                             },
                         });
                         break;
@@ -626,21 +627,35 @@ function finalizar() {
         registro los tramos vinculados 
     */
 
-    $.ajax({
-        type: "POST",
-        url: "/PHP/Backend.php",
-        data: { opcion: "tramosVinculados", id_tramo_vinculado_para_tramo_1: id_tramo_vinculado_para_tramo_1, modalidad_viaje_vinculado_para_tramo_1:modalidad_viaje_vinculado_para_tramo_1, id_tramo_vinculado_para_tramo_2: id_tramo_vinculado_para_tramo_2, modalidad_viaje_vinculado_para_tramo_2:modalidad_viaje_vinculado_para_tramo_2 },
-        success: function (response) {
-            id_tramo_vinculado_para_tramo_1 = response
-            modalidad_viaje_vinculado_para_tramo_1 = "Oportunidad"
-        },
-    });
+    
 
     setTimeout(function () {
+        registro_tramos_vinculados()
         window.location = "https://www.salioviaje.com.uy/Panel/Success_Agenda";
     }, 1000);
 }
 
+
+function registro_tramos_vinculados() {
+    let id_tramo_vinculado_para_tramo_1 = sessionStorage.getItem("id_tramo_vinculado_para_tramo_1")
+    let modalidad_viaje_vinculado_para_tramo_1 = sessionStorage.getItem("modalidad_viaje_vinculado_para_tramo_1")
+    let id_tramo_vinculado_para_tramo_2 = sessionStorage.getItem("id_tramo_vinculado_para_tramo_2")
+    let modalidad_viaje_vinculado_para_tramo_2 = sessionStorage.getItem("modalidad_viaje_vinculado_para_tramo_2")
+
+    console.log(id_tramo_vinculado_para_tramo_1)
+    console.log(modalidad_viaje_vinculado_para_tramo_1)
+    console.log(id_tramo_vinculado_para_tramo_2)
+    console.log(modalidad_viaje_vinculado_para_tramo_2)
+
+    $.ajax({
+        type: "POST",
+        url: "/PHP/Backend.php",
+        data: { opcion: "tramosVinculados", id_tramo_vinculado_para_tramo_1: id_tramo_vinculado_para_tramo_1, modalidad_viaje_vinculado_para_tramo_1: modalidad_viaje_vinculado_para_tramo_1, id_tramo_vinculado_para_tramo_2: id_tramo_vinculado_para_tramo_2, modalidad_viaje_vinculado_para_tramo_2: modalidad_viaje_vinculado_para_tramo_2 },
+        success: function (response) {
+            console.log(response)
+        },
+    });
+}
 /*-------------------------------------------------------------------------------------------*/
 //                                          Validacion                                       //
 /*-------------------------------------------------------------------------------------------*/
