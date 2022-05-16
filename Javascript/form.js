@@ -862,11 +862,15 @@ function login(ADMIN) {
             console.log(response)
             if (response != '') {
                $(".mensaje-error").hide();
-               if(document.referrer.includes("salioviaje")){
-                  history.go(-1);
-               }else{
-                  location.href = "https://www.SalioViaje.com.uy/"
-               }
+               
+               document.getElementById('pre-loader').classList.toggle('load');
+               setTimeout(() => {
+                  if(document.referrer.includes("salioviaje")){
+                     history.go(-1);
+                  }else{
+                     location.href = "https://www.SalioViaje.com.uy/"
+                  }
+               }, 1500);               
                
             } else {
                $(".mensaje-error").show();

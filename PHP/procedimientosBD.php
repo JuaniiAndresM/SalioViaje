@@ -417,7 +417,7 @@ class procedimientosBD
         // ORIGEN DESTINO FECHA HORA PASAJEROS MARCA Y MODELO DEL VEHICULO nombre de transportista
         $oportunidades = array();
         $conn = $this->conexion();
-        $query = "SELECT idViaje,Descuento,Origen,Destino,Fecha,Nombre,Apellido,Marca,Modelo,Capacidad,Estado,Matricula,Distancia,Precio FROM viajes,usuarios,vehiculos where idTransportista = usuarios.ID and Vehiculo = Matricula and Modalidad = 'Oportunidad' and visivilidad != 0;";
+        $query = "SELECT idViaje,Descuento,Origen,Destino,Fecha,Nombre,Apellido,Marca,Modelo,Capacidad,Estado,Matricula,Distancia,Precio FROM viajes,usuarios,vehiculos where idTransportista = usuarios.ID and Vehiculo = Matricula and Modalidad = 'Oportunidad' and visivilidad != 0 ORDER BY Fecha;";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
