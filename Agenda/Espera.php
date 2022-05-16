@@ -160,8 +160,8 @@ session_set_cookie_params($ttl);
             oportunidad.
           </p>
           <div class="info">
-            <p><b>Nombre:</b> Juan Morena</p>
-            <p><b>Teléfono:</b> <a href="tel:098234717">098234717</a></p>
+            <p id="espera-nombre"><b>Nombre:</b> Juan Morena</p>
+            <p id="espera-telefono"><b>Teléfono:</b> <a href="tel:098234717">098234717</a></p>
           </div>
         </div>
 
