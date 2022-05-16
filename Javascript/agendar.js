@@ -466,7 +466,7 @@ function verificar_rutas_para_MTOP() {
 /*-------------------------------------------------------------------------------------------*/
 
 function cargar_vista_previa() {
-
+    
     datos_etapa_2_tramo_1['FECHA'] = datos_etapa_2_tramo_1['FECHA'].replace("T", " ");
     datos_etapa_2_tramo_2['FECHA'] = datos_etapa_2_tramo_2['FECHA'].replace("T", " ");
 
@@ -534,6 +534,10 @@ function finalizar() {
     $('#step-agendar_MTOP').attr('disabled', 'disabled');
     let datos = {}
     let tipos_tramo = {}
+    let id_tramo_vinculado_para_tramo_1;
+    let modalidad_viaje_vinculado_para_tramo_1;
+    let id_tramo_vinculado_para_tramo_2;
+    let modalidad_viaje_vinculado_para_tramo_2;
 
     if (datos_etapa_2_tramo_1['TIPO'] == 1) { tipos_tramo['TIPO_TRAMO_1'] = 1 } else if (datos_etapa_2_tramo_1['TIPO'] == 2) { tipos_tramo['TIPO_TRAMO_1'] = 2 }
     if (datos_etapa_2_tramo_2['TIPO'] == 1) { tipos_tramo['TIPO_TRAMO_2'] = 1 } else if (datos_etapa_2_tramo_2['TIPO'] == 2) { tipos_tramo['TIPO_TRAMO_2'] = 2 }
@@ -556,6 +560,8 @@ function finalizar() {
                             data: { opcion: "agendarViaje", datos: JSON.stringify(datos), rutas:JSON.stringify(array_rutas) },
                             success: function (response) {
                                 console.log(response)
+                                id_tramo_vinculado_para_tramo_2 = response
+                                modalidad_viaje_vinculado_para_tramo_2 = "Agenda"
                             },
                         });
                         break;
@@ -569,6 +575,8 @@ function finalizar() {
                             data: { opcion: "agregarOportunidad", datos: JSON.stringify(datos), rutas:JSON.stringify(array_rutas) },
                             success: function (response) {
                                 console.log(response)
+                                id_tramo_vinculado_para_tramo_2 = response
+                                modalidad_viaje_vinculado_para_tramo_2 = "Oportunidad"
                             },
                         });
                         break;
@@ -590,6 +598,8 @@ function finalizar() {
                             data: { opcion: "agendarViaje", datos: JSON.stringify(datos), rutas:JSON.stringify(array_rutas) },
                             success: function (response) {
                                 console.log(response)
+                                id_tramo_vinculado_para_tramo_1 = response
+                                modalidad_viaje_vinculado_para_tramo_1 = "Agenda"
                             },
                         });
                         break;
@@ -602,7 +612,8 @@ function finalizar() {
                             url: "/PHP/Backend.php",
                             data: { opcion: "agregarOportunidad", datos: JSON.stringify(datos), rutas:JSON.stringify(array_rutas) },
                             success: function (response) {
-                                console.log(response)
+                                id_tramo_vinculado_para_tramo_1 = response
+                                modalidad_viaje_vinculado_para_tramo_1 = "Oportunidad"
                             },
                         });
                         break;
@@ -610,6 +621,21 @@ function finalizar() {
                 }
         }
     }
+
+    /*
+        registro los tramos vinculados 
+    */
+
+    $.ajax({
+        type: "POST",
+        url: "/PHP/Backend.php",
+        data: { opcion: "tramosVinculados", id_tramo_vinculado_para_tramo_1: id_tramo_vinculado_para_tramo_1, modalidad_viaje_vinculado_para_tramo_1:modalidad_viaje_vinculado_para_tramo_1, id_tramo_vinculado_para_tramo_2: id_tramo_vinculado_para_tramo_2, modalidad_viaje_vinculado_para_tramo_2:modalidad_viaje_vinculado_para_tramo_2 },
+        success: function (response) {
+            id_tramo_vinculado_para_tramo_1 = response
+            modalidad_viaje_vinculado_para_tramo_1 = "Oportunidad"
+        },
+    });
+
     setTimeout(function () {
         window.location = "https://www.salioviaje.com.uy/Panel/Success_Agenda";
     }, 1000);

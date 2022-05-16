@@ -374,7 +374,6 @@ class procedimientosBD
                 $result = $last_insert_id;
             }
         }
-        echo $stmt->error;
         $stmt->close();
         return json_encode($result);
     }
@@ -395,24 +394,21 @@ class procedimientosBD
                 $result = $last_insert_id;
             }
         }
-        echo $stmt->error;
         $stmt->close();
         return json_encode($result);
     }
 
     public function registrar_rutas_agenda($rutas,$id_viaje){
         $rutas = json_decode($rutas, true);
-        echo "id_viaje : ".$id_viaje;
-        echo json_encode($rutas);
         for ($i=0; $i < count($rutas); $i++) { 
             $conn = $this->conexion();
             $query = "call agregar_rutas_agenda(?,?);";
             $stmt = $conn->prepare($query);
             $stmt->bind_param("is", $id_viaje, $rutas[$i]);
             $stmt->execute();
-            echo $stmt->error;
             $stmt->close();
         }
+        return $id_viaje;
     }
 
     public function traer_oportunidades()
@@ -1164,5 +1160,21 @@ class procedimientosBD
         }
         $stmt->close();
         return json_encode($barrio);
+    }
+
+    public function registrar_tramos_vinculados($id_tramo_vinculado,$modalidad_tramo_vinculado,$id){
+        
+        for ($i=0; $i < 2; $i++) { 
+            $conn = $this->conexion();
+            if ($modalidad_tramo_vinculado == "Agenda") {
+                $query = "UPDATE `agenda` SET id_tramo_vinculado = $id_tramo_vinculado, modalidad_tramo_vinculado = '$modalidad_tramo_vinculado' WHERE idViaje = $id;";
+            } else {
+                $query = "UPDATE `oportunidades` SET id_tramo_vinculado = $id_tramo_vinculado, modalidad_tramo_vinculado = '$modalidad_tramo_vinculado' WHERE idOportunidad = $id;";
+            }
+            $stmt = $conn->prepare($query);
+            $stmt->execute();
+            $stmt->close();
+        }
+
     }
 }
