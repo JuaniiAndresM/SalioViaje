@@ -208,7 +208,7 @@
     
               h3 {
                 color: $main_1;
-                font-size: 2em;
+                font-size: 1.8em;
               }
     
               .precio{
@@ -238,6 +238,8 @@
               p {
                 margin: 5px 10px;
                 color: $contraste_2;
+                font-size: 14px;
+                max-width: 500px;
                 i {
                   font-size: 1.1em;
                 }
