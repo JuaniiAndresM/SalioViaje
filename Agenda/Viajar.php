@@ -275,7 +275,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                   <option value="0" selected disabled hidden >Tipo de Viaje</option>
                   <option value="1">Traslado</option>
                   <option value="2">Tour o Servicio por Horas.</option>
-                  <option value="3">Transfer</option>
+                  <option value="3">Transfer (Aeropuerto / Puerto)</option>
                   <option value="4">Fiestas o Eventos</option>
                 </select>
               </div>
@@ -534,7 +534,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
             <div class="step_2_transfer">
 
-              <h3 class="title"><i class="fas fa-plane-departure"></i> Transfer</h3>
+              <h3 class="title"><i class="fas fa-plane-departure"></i> Transfer (Aeropuerto / Puerto)</h3>
 
               <div class="input">
                 <i class="fas fa-plane" id="icon"></i>
@@ -556,7 +556,13 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
                   <div class="input">
                     <p><i class="fas fa-plane-arrival"></i> Origen (Puerto o Aeropuerto)</p>
-                    <input type="text" id="aeropuerto_transfer_in">
+                    <input list="Aeropuertos" id="aeropuerto_transfer_in">
+                      <datalist id="Aeropuertos">
+                        <option value="Aeropuerto Internacional de Carrasco Gral. Cesáreo L. Berisso">
+                        <option value="Aeropuerto Internacional C/C Carlos A. Curbelo de Laguna del Sauce">
+                        <option value="Puerto de Montevideo">
+                        <option value="Puerto de Colonia">
+                      </datalist>
                   </div>
 
 
@@ -697,7 +703,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
                   <div class="input">
                     <p><i class="fas fa-plane-departure"></i> Destino (Puerto o Aeropuerto)</p>
-                    <input type="text" id="aeropuerto_transfer_out">
+                    <input list="Aeropuertos" id="aeropuerto_transfer_out">
                   </div>
 
                   <div class="input">
