@@ -298,8 +298,7 @@ class Backend extends procedimientosBD
 }
 
 	$Backend = new Backend($_POST['opcion']);
-	//mostrarPreguntasSeccionFAQ
-//tramosVinculados
+
 	if ($_POST['opcion'] == "usr") {
 		echo $Backend->getUsuarios();
 	} else if($_POST['opcion'] == "emp") {
@@ -333,6 +332,8 @@ class Backend extends procedimientosBD
 		echo $Backend->registrar_tramos_vinculados($_POST['id_tramo_vinculado_para_tramo_2'],$_POST['id_tramo_vinculado_para_tramo_1']);
 	} else if($_POST['opcion'] == "eliminar_viajes") {
 		echo $Backend->eliminar_viajes($_POST['id']);
+	} else if($_POST['opcion'] == "editar-oportunidad") {
+		echo $Backend->editar_oportunidades($_POST['id'],$_POST['datos']);
 	} else {
 		echo $Backend->getVehiculos();
 	}
