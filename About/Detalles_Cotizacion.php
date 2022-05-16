@@ -373,6 +373,9 @@
                     if($cotizaciones[0]['OBSERVACIONES'] != ""){
                         echo '<h2><i class="fas fa-comment-dots"></i> Observaciones:</h2>
                         <p>'.$cotizaciones[0]['OBSERVACIONES'].'</p>';
+                    }else{
+                      echo '<h2><i class="fas fa-comment-dots"></i> Observaciones:</h2>
+                            <p>No</p>';
                     }
                 }else{
                   echo '<h2><i class="fas fa-comment-dots"></i> Observaciones:</h2>

@@ -30,12 +30,16 @@ $(document).ready(function () {
     if($(".session-input").val() = 5){
         setTimeout(() => {
             timeoutformulario(5);
-        }, 1000);
+        }, 500);
     }
+
+    $("#contador-oportunidades").html(document.getElementsByClassName("oportunidad").length);
 });
 
 function datavalue_oportunidades(){
     var oportunidades = document.getElementsByClassName("oportunidad").length;
+
+    $("#contador-oportunidades").html(oportunidades);
 
     console.log(oportunidades);
 

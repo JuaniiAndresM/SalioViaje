@@ -4,11 +4,18 @@ require_once '../PHP/procedimientosBD.php';
 $cotizaciones = new procedimientosBD();
 
 $cotizaciones = json_decode($cotizaciones->traer_viajes_cotizando_panel_admin(), true);
+$contador_cotizaciones = 0;
+
+for($a = 0; $a < count($cotizaciones); $a++){
+  if($cotizaciones[$a]['ESTADO'] == 1){
+    $contador_cotizaciones++;
+  }
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <title>SalióViaje - Cotizaciones</title>
+    <title>SalióViaje - Cotizaciones (<?php echo $contador_cotizaciones; ?>)</title>
 
     <!-- // Meta Etiquetas -->
 
@@ -100,7 +107,7 @@ $cotizaciones = json_decode($cotizaciones->traer_viajes_cotizando_panel_admin(),
 
     <section class="Cotizaciones-section" id="Cotizaciones">
       <h2>
-        Central de cotizaciones
+        Central de Cotizaciones (<?php echo $contador_cotizaciones; ?>)
       </h2>
       <hr />
       <p class="description">
