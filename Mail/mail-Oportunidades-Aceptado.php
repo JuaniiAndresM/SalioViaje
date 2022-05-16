@@ -109,7 +109,7 @@ $mail->Body    = '    <div class="mail" style="max-width: 600px; background: whi
     }
 
     $mail->CharSet = 'UTF-8';
-    $mail->From = 'totumdevcontacto@gmail.com'; //  Editar
+    $mail->From = 'promouruguay010@gmail.com'; //  Editar
     $mail->FromName = 'SalióViaje';  //  Editar
     $mail->addAddress('admin@salioviaje.com.uy');  //  Editar
     $mail->isHTML(true);
@@ -192,7 +192,7 @@ $mail->Body    = '    <div class="mail" style="max-width: 600px; background: whi
 
 
 $mail->CharSet = 'UTF-8';
-$mail->From = 'totumdevcontacto@gmail.com'; //  Editar
+$mail->From = 'promouruguay010@gmail.com'; //  Editar
 $mail->FromName = 'SalióViaje';  //  Editar
 $mail->addAddress($mail_tta);  //  Editar
 $mail->isHTML(true);
