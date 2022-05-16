@@ -1000,10 +1000,16 @@ class procedimientosBD
 
     public function traer_viajes_cotizando_panel_admin()
     {
+        //UPDATE cotizaciones SET ESTADO = 5 WHERE FECHA_SALIDA < CURRENT_DATE or (FECHA_SALIDA = CURRENT_DATE and HORA < CURRENT_TIME) and ESTADO = 1;
         $cotizaciones = array();
         $conn = $this->conexion();
         $query = "SELECT ID,DIRECCION_ORIGEN,BARRIO_ORIGEN,LOCALIDAD_ORIGEN,DIRECCION_DESTINO,BARRIO_DESTINO,LOCALIDAD_DESTINO,FECHA_SALIDA,ESTADO,HORA,CANTIDAD_PASAJEROS,MASCOTAS,TIPO,ID_TTA_RESPONSABLE FROM `cotizaciones` ORDER BY FECHA_SALIDA, HORA";
+        $query2 = "UPDATE cotizaciones SET ESTADO = 5 WHERE FECHA_SALIDA < CURRENT_DATE or (FECHA_SALIDA = CURRENT_DATE and HORA < CURRENT_TIME) and ESTADO = 1;";
+        
         $stmt = $conn->prepare($query);
+        $update_cotizaciones_vencidas = $conn->prepare($query2);
+        $update_cotizaciones_vencidas->execute();
+
         if ($stmt->execute()) {
             $stmt->store_result();
             $stmt->bind_result($id_cotizacion, $direccion_origen, $barrio_origen, $localidad_origen, $direccion_destino, $barrio_destino, $localidad_destino, $fecha_salida, $estado, $hora, $cantidad_pasajeros, $mascotas, $tipo, $id_tta_responsable);
@@ -1024,7 +1030,13 @@ class procedimientosBD
     {
         $conn = $this->conexion();
         $query = "SELECT * FROM `cotizaciones` WHERE ID = $id";
+        $query2 = "UPDATE cotizaciones SET ESTADO = 5 WHERE FECHA_SALIDA < CURRENT_DATE or (FECHA_SALIDA = CURRENT_DATE and HORA < CURRENT_TIME) and ESTADO = 1;";
+
         $stmt = $conn->prepare($query);
+
+        $update_cotizaciones_vencidas = $conn->prepare($query2);
+        $update_cotizaciones_vencidas->execute();
+
         if ($stmt->execute()) {
             $stmt->store_result();
             $stmt->bind_result($id_cotizacion, $tipo, $dir_origen, $bar_origen, $loc_origen, $dir_destino, $bar_destino, $loc_destino, $dir_origen_vuelta, $bar_origen_vuelta, $loc_origen_vuelta, $dir_destino_vuelta, $bar_destino_vuelta, $loc_destino_vuelta, $dest_salida_eventos, $ori_salida_eventos, $mascotas, $cantidad_pasajeros, $cant_pasajeros_regreso, $len, $hora, $hr_regreso, $nro_b_v, $nro_equi, $obs, $fechaSalida, $fechaRegreso, $estado, $id_soli);
@@ -1134,7 +1146,13 @@ class procedimientosBD
         $id = array($id);
         $conn = $this->conexion();
         $query = "SELECT ID FROM `cotizaciones` WHERE ESTADO = '1';";
+        $query2 = "UPDATE cotizaciones SET ESTADO = 5 WHERE FECHA_SALIDA < CURRENT_DATE or (FECHA_SALIDA = CURRENT_DATE and HORA < CURRENT_TIME) and ESTADO = 1;";
+
         $stmt = $conn->prepare($query);
+
+        $update_cotizaciones_vencidas = $conn->prepare($query2);
+        $update_cotizaciones_vencidas->execute();
+
         if ($stmt->execute()) {
             $stmt->store_result();
             $stmt->bind_result($id_cotizacion);
