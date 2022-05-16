@@ -115,7 +115,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
     <div class="viajar-wrapper">
       <section class="oportunidades-viajar">
         <h2>
-          Oportunidades
+          Oportunidades (<span id="contador-oportunidades"></span>)
         </h2>
         <hr />
         <p class="description">
@@ -171,7 +171,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
       </section>
       <section class="ofertas-viajar">
         <h2>
-          Ofertas
+          Ofertas (0)
         </h2>
         <hr />
         <p class="description">Conseguí las mejores ofertas con nosotros.</p>
