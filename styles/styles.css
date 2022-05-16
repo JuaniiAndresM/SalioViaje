@@ -9158,6 +9158,8 @@ footer .totum p a:hover {
 .Cotizaciones-section .Cotizaciones-list .Cotizaciones .Cotizaciones-left .travel p {
   margin: 5px 10px;
   color: #ffffff;
+  font-size: 14px;
+  max-width: 500px;
 }
 
 .Cotizaciones-section .Cotizaciones-list .Cotizaciones .Cotizaciones-left .travel p i {
