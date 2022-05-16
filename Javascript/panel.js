@@ -1056,7 +1056,7 @@ function editar_oportunidad(id) {
                 data: { opcion: "editar-oportunidad" ,datos: JSON.stringify(datos),id : id},
                 url: "https://www.salioviaje.com.uy/PHP/Backend.php",
                 success: function (response) {
-                    console.log(response);
+                    window.location = 'https://www.salioviaje.com.uy/Dashboard';
                 }
             })
         } else {
