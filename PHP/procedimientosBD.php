@@ -100,10 +100,10 @@ class procedimientosBD
         $stmt->bind_param("s", $usuario);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($id, $pin_bd, $passwd, $nombre, $apellido, $tipo_usuario, $ci, $telefono, $barrio, $departamento, $mail);
+            $stmt->bind_result($id, $pin_bd, $passwd, $nombre, $apellido, $tipo_usuario, $ci, $telefono, $direccion, $barrio, $departamento, $mail);
             while ($stmt->fetch()) {
                 if (password_verify($pin, $pin_bd) || password_verify($pin, $passwd)) {
-                    $datos_usuarios = array('TIPO_USUARIO' => $tipo_usuario, 'ID' => $id, 'CI' => $ci, 'TELEFONO' => $telefono, 'BARRIO' => $barrio, 'DEPARTAMENTO' => $departamento, 'MAIL' => $mail);
+                    $datos_usuarios = array('TIPO_USUARIO' => $tipo_usuario, 'ID' => $id, 'CI' => $ci, 'TELEFONO' => $telefono, 'DIRECCION' => $direccion, 'BARRIO' => $barrio, 'DEPARTAMENTO' => $departamento, 'MAIL' => $mail);
                     $usuario = $nombre . " " . $apellido;
                     session_start();
                     $_SESSION['usuario'] = $usuario;
