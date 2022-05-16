@@ -195,7 +195,7 @@ session_set_cookie_params($ttl);
             </div>
             <p id="mensaje-error1" class="mensaje-error"></p>
 
-            <button class="button-agendar">
+            <button class="button-agendar" onclick="editar_oportunidad(<?php echo $_GET['ID'] ?>)">
               <i class="fas fa-edit"></i> Editar
             </button>
           </div>

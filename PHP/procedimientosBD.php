@@ -1182,4 +1182,18 @@ class procedimientosBD
         $stmt->execute();
         $stmt->close();
     }
+
+    public function editar_oportunidades($id,$datos)
+    {
+        $datos = json_decode($datos,true);
+        $datos['FECHA'] = str_replace("T", " ",$datos['FECHA']);
+
+        $conn = $this->conexion();
+        $query = "CALL editar_oportunidad(?,?,?,?,?,?)";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("iisssi", $id , $datos['DESCUENTO'], $datos['ORIGEN'], $datos['DESTINO'], $datos['FECHA'], $datos['PRECIO']);
+        $stmt->execute();
+        echo $stmt->error;
+        $stmt->close();
+    }
 }

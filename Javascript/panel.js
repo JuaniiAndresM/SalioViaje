@@ -1026,3 +1026,62 @@ function eliminar_viajes(id){
 function abrir_editar_oportunidad(id) {
     window.location = 'https://www.salioviaje.com.uy/Editar_Oportunidad/'+id;
 }
+
+function editar_oportunidad(id) {
+    let datos = {
+        'DESCUENTO' : $("#desc_oport2").val(),
+        'FECHA' : $("#fecha_2").val(),
+        'ORIGEN' : $("#origen_2").val(),
+        'DESTINO' : $("#destino_2").val(),
+        'PRECIO' : $("#precioref_2").val()
+    }
+
+    console.log(datos)
+
+    validacion = $.ajax({
+        type: 'POST',
+        url: "/PHP/Validaciones.php",
+        data: { tipo: "E-OPORUTNIDADES", datos: JSON.stringify(datos) },
+        global: false,
+        async: false,
+        success: function (response) {
+        }
+    }).responseText;
+
+    console.log(validacion)
+    if (verificar_fecha(datos['FECHA']) == true) {
+        if (validacion == "VALIDO") {
+            $.ajax({
+                type: "POST",
+                data: { opcion: "editar-oportunidad" ,datos: JSON.stringify(datos),id : id},
+                url: "https://www.salioviaje.com.uy/PHP/Backend.php",
+                success: function (response) {
+                    window.location = 'https://www.salioviaje.com.uy/Dashboard';
+                }
+            })
+        } else {
+            console.log("No valido...")
+        }
+    } else {
+        console.log("Fecha no valida")
+    }
+}
+
+function verificar_fecha(fecha) {
+    var fecha = fecha.split("T");
+    var hora_salida = fecha[1].split(":");
+    fecha = fecha[0].split("-");
+
+    var fecha_actual = new Date();
+    var dd = String(fecha_actual.getDate()).padStart(2, '0');
+    var mm = String(fecha_actual.getMonth() + 1).padStart(2, '0');
+    var yyyy = fecha_actual.getFullYear();
+    var hh = String(fecha_actual.getHours());
+    var min = String(fecha_actual.getMinutes());
+    var fecha_viaje = new Date(fecha[0],fecha[1],fecha[2],hora_salida[0],hora_salida[1])
+    var fecha_actual = new Date(yyyy,mm,dd,hh,min)
+
+    if (fecha_viaje > fecha_actual) {
+        return true
+    } else { return false }
+}

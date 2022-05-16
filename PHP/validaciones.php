@@ -84,6 +84,10 @@ class validaciones
                 $validacion = $this->validar_formulario_fiestas_y_eventos_ida_y_vuelta($datos);
                 if ($validacion == 1) {echo "VALIDO";} else {echo $validacion;}
                 break;
+            case 'E-OPORUTNIDADES':
+                $validacion = $this->validar_formulario_editar_oportunidades($datos);
+                if ($validacion == 1) {echo "VALIDO";} else {echo $validacion;}
+                break;
             default:
                 echo "Esperando para validar...";
                 break;
@@ -564,30 +568,6 @@ class validaciones
 
         if ($DATOS_VACIOS == null && $errores == 0) {return true;} elseif ($DATOS_VACIOS != null) {return $DATOS_VACIOS;} else {return json_encode($VALIDACION);}
 
-    }
-
-    private function validar_origen_destino_input($dato){
-        // dato: guarda el origen o destino ingresado por el usuario para verificar si es uno de la lista
-        require_once '../PHP/procedimientosBD.php';
-        $existe = array();
-        $regiones_mtop = new procedimientosBD();
-        $regiones_mtop = json_decode($regiones_mtop->traer_regiones_mtop(), true);
-        if (isset($regiones_mtop)) {
-            for ($i=0; $i < count($regiones_mtop); $i++) { 
-                if ($regiones_mtop[$i]['REGION'] == $dato) {
-                    $existe[] = 1;
-                }else{
-                    $existe[] = 0; 
-                }
-            }
-        }
-        $valido = 0;
-        for ($i=0; $i < count($existe); $i++) { 
-            if ($existe[$i] == 1) {
-               $valido = 1;
-            }
-        }
-        return $valido;
     }
 
     private function validar_formulario_agendar_viaje_etapa_3($datos)
@@ -1187,6 +1167,61 @@ class validaciones
 
     }
 
+    private function validar_formulario_editar_oportunidades($datos){
+
+        $datos = json_decode($datos,true);
+        $VALIDACION = array();
+        $DATOS_VACIOS = null;
+        $TIENE_DESCUENTO = null;
+        $CAPACIDAD_PASAJEROS_VECHICULO = null;
+        $errores = 0;
+
+        foreach ($datos as $clave => $valor) {
+            if ($valor != null || $valor != '') {
+                switch ($clave) {
+                    case 'FECHA':
+                        if ($valor != null) {
+                            $VALIDACION['FECHA'] = 1;
+                        } else { $VALIDACION['FECHA'] = 0;}
+                        break;
+                    case 'ORIGEN':
+                        if ($valor != null && $this->validar_origen_destino_input($valor) == 1) {
+                            $VALIDACION['ORIGEN'] = 1;
+                        } else { $VALIDACION['ORIGEN'] = 0;}
+                        break;
+                    case 'DESTINO':
+                        if ($valor != null && $this->validar_origen_destino_input($valor) == 1) {
+                            $VALIDACION['DESTINO'] = 1;
+                        } else { $VALIDACION['DESTINO'] = 0;}
+                        break;
+                    case 'PRECIO':
+                        if ($valor != null) {
+                            $VALIDACION['PRECIO_REFERENCIA'] = 1;
+                        } else { $VALIDACION['PRECIO_REFERENCIA'] = 0;}
+                        break;
+                    case 'DESCUENTO':
+                        if ($valor != null && $valor <= "100" && $valor >= "50") {
+                            $VALIDACION['DESCUENTO'] = 1;
+                        } else { $VALIDACION['DESCUENTO'] = 0;}
+                        break;
+                }
+            }
+        }
+
+        if (count($VALIDACION) != 5) {
+            $DATOS_VACIOS = "Err-1";
+        }
+
+        foreach ($VALIDACION as $clave => $valor) {
+            if ($valor == 0) {
+                $errores++;
+            }
+        }
+
+        if ($DATOS_VACIOS == null && $errores == 0) {return true;} elseif ($DATOS_VACIOS != null) {return $DATOS_VACIOS;} else {return json_encode($VALIDACION);}
+
+    }
+
     private function validar_digito_ci($ci)
     {
 
@@ -1210,6 +1245,30 @@ class validaciones
         } else {
             return 0;
         }
+    }
+
+    private function validar_origen_destino_input($dato){
+        // dato: guarda el origen o destino ingresado por el usuario para verificar si es uno de la lista
+        require_once '../PHP/procedimientosBD.php';
+        $existe = array();
+        $regiones_mtop = new procedimientosBD();
+        $regiones_mtop = json_decode($regiones_mtop->traer_regiones_mtop(), true);
+        if (isset($regiones_mtop)) {
+            for ($i=0; $i < count($regiones_mtop); $i++) { 
+                if ($regiones_mtop[$i]['REGION'] == $dato) {
+                    $existe[] = 1;
+                }else{
+                    $existe[] = 0; 
+                }
+            }
+        }
+        $valido = 0;
+        for ($i=0; $i < count($existe); $i++) { 
+            if ($existe[$i] == 1) {
+               $valido = 1;
+            }
+        }
+        return $valido;
     }
 }
 $Validar = new validaciones($_POST['tipo'], $_POST['datos']);
