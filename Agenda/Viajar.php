@@ -610,7 +610,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
                     <div class="input">
                       <p><i class="fa fa-map-location-dot"></i> Barrio</p>
-                      <input list="Barrio" id="barrio_transfer_in">
+                      <input list="Barrio" id="barrio_transfer_in" value="<?php echo $_SESSION['datos_usuario']['BARRIO']; ?>">
                       <datalist id="Barrio">
                         <option value="Barrio 1">
                         <option value="Barrio 2">
@@ -622,7 +622,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
                     <div class="input">
                       <p><i class="fa-solid fa-globe"></i> Localidad</p>
-                      <input list="Localidad" id="localidad_transfer_in">
+                      <input list="Localidad" id="localidad_transfer_in" value="<?php echo $_SESSION['datos_usuario']['DEPARTAMENTO']; ?>">
                       <datalist id="Localidad">
                         <option value="Localidad 1">
                         <option value="Localidad 2">
@@ -663,7 +663,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
                     <div class="input">
                       <p><i class="fa fa-map-location-dot"></i> Barrio</p>
-                      <input list="Barrio" id="barrio_transfer_out">
+                      <input list="Barrio" id="barrio_transfer_out" value="<?php echo $_SESSION['datos_usuario']['BARRIO']; ?>">
                       <datalist id="Barrio">
                         <option value="Barrio 1">
                         <option value="Barrio 2">
@@ -675,7 +675,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
                     <div class="input">
                       <p><i class="fa-solid fa-globe"></i> Localidad</p>
-                      <input list="Localidad" id="localidad_transfer_out">
+                      <input list="Localidad" id="localidad_transfer_out" value="<?php echo $_SESSION['datos_usuario']['DEPARTAMENTO']; ?>">
                       <datalist id="Localidad">
                         <option value="Localidad 1">
                         <option value="Localidad 2">
