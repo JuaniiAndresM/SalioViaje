@@ -303,12 +303,12 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
                     <div class="input">
                       <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
-                      <input type="text" id="direccion_traslado_origen"/>
+                      <input type="text" id="direccion_traslado_origen" value="<?php echo $_SESSION['datos_usuario']['DIRECCION']; ?>"/>
                     </div>
 
                     <div class="input">
                       <p><i class="fa fa-map-location-dot"></i> Barrio</p>
-                      <input list="Barrio" id="barrio_traslado_origen">
+                      <input list="Barrio" id="barrio_traslado_origen" value="<?php echo $_SESSION['datos_usuario']['BARRIO']; ?>">
                       <datalist id="Barrio">
                         <?php
                           if (isset($barrios)) {
@@ -324,7 +324,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
                     <div class="input">
                       <p><i class="fa-solid fa-globe"></i> Localidad</p>
-                      <input list="Localidad" id="localidad_traslado_origen">
+                      <input list="Localidad" id="localidad_traslado_origen" value="<?php echo $_SESSION['datos_usuario']['DEPARTAMENTO']; ?>">
                       <datalist id="Localidad">
                       <option value="ARTIGAS">
                       <option value="CANELONES">
@@ -446,12 +446,12 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
                     <div class="input">
                       <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
-                      <input type="text" id="direccion_salida_tour"/>
+                      <input type="text" id="direccion_salida_tour" value="<?php echo $_SESSION['datos_usuario']['DIRECCION']; ?>"/>
                     </div>
 
                     <div class="input">
                       <p><i class="fa fa-map-location-dot"></i> Barrio</p>
-                      <input list="Barrio" id="barrio_barrios">
+                      <input list="Barrio" id="barrio_barrios" value="<?php echo $_SESSION['datos_usuario']['BARRIO']; ?>">
                       <datalist id="Barrio">
                         <option value="Barrio 1">
                         <option value="Barrio 2">
@@ -463,7 +463,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
                     <div class="input">
                       <p><i class="fa-solid fa-globe"></i> Localidad</p>
-                      <input list="Localidad" id="localidad_tour">
+                      <input list="Localidad" id="localidad_tour" value="<?php echo $_SESSION['datos_usuario']['DEPARTAMENTO']; ?>">
                       <datalist id="Localidad">
                         <option value="Localidad 1">
                         <option value="Localidad 2">
@@ -605,12 +605,12 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
                     <div class="input">
                       <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
-                      <input type="text" id="direccion_transfer_in"/>
+                      <input type="text" id="direccion_transfer_in" value="<?php echo $_SESSION['datos_usuario']['DIRECCION']; ?>"/>
                     </div>
 
                     <div class="input">
                       <p><i class="fa fa-map-location-dot"></i> Barrio</p>
-                      <input list="Barrio" id="barrio_transfer_in">
+                      <input list="Barrio" id="barrio_transfer_in" value="<?php echo $_SESSION['datos_usuario']['BARRIO']; ?>">
                       <datalist id="Barrio">
                         <option value="Barrio 1">
                         <option value="Barrio 2">
@@ -622,7 +622,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
                     <div class="input">
                       <p><i class="fa-solid fa-globe"></i> Localidad</p>
-                      <input list="Localidad" id="localidad_transfer_in">
+                      <input list="Localidad" id="localidad_transfer_in" value="<?php echo $_SESSION['datos_usuario']['DEPARTAMENTO']; ?>">
                       <datalist id="Localidad">
                         <option value="Localidad 1">
                         <option value="Localidad 2">
@@ -658,12 +658,12 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
                     <div class="input">
                       <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
-                      <input type="text" id="direccion_transfer_out"/>
+                      <input type="text" id="direccion_transfer_out" value="<?php echo $_SESSION['datos_usuario']['DIRECCION']; ?>"/>
                     </div>
 
                     <div class="input">
                       <p><i class="fa fa-map-location-dot"></i> Barrio</p>
-                      <input list="Barrio" id="barrio_transfer_out">
+                      <input list="Barrio" id="barrio_transfer_out" value="<?php echo $_SESSION['datos_usuario']['BARRIO']; ?>">
                       <datalist id="Barrio">
                         <option value="Barrio 1">
                         <option value="Barrio 2">
@@ -675,7 +675,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
                     <div class="input">
                       <p><i class="fa-solid fa-globe"></i> Localidad</p>
-                      <input list="Localidad" id="localidad_transfer_out">
+                      <input list="Localidad" id="localidad_transfer_out" value="<?php echo $_SESSION['datos_usuario']['DEPARTAMENTO']; ?>">
                       <datalist id="Localidad">
                         <option value="Localidad 1">
                         <option value="Localidad 2">
@@ -769,12 +769,12 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
                     <div class="input">
                       <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
-                      <input type="text" id="direccion_fiestas_ida"/>
+                      <input type="text" id="direccion_fiestas_ida" value="<?php echo $_SESSION['datos_usuario']['DIRECCION']; ?>"/>
                     </div>
 
                     <div class="input">
                       <p><i class="fa fa-map-location-dot"></i> Barrio</p>
-                      <input list="Barrio" id="barrio_fiestas_ida">
+                      <input list="Barrio" id="barrio_fiestas_ida" value="<?php echo $_SESSION['datos_usuario']['BARRIO']; ?>">
                       <datalist id="Barrio">
                         <option value="Barrio 1">
                         <option value="Barrio 2">
@@ -786,7 +786,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
                     <div class="input">
                       <p><i class="fa-solid fa-globe"></i> Localidad</p>
-                      <input list="Localidad" id="localidad_fiestas_ida">
+                      <input list="Localidad" id="localidad_fiestas_ida" value="<?php echo $_SESSION['datos_usuario']['DEPARTAMENTO']; ?>">
                       <datalist id="Localidad">
                         <option value="Localidad 1">
                         <option value="Localidad 2">
@@ -929,12 +929,12 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
                     <div class="input">
                       <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
-                      <input type="text" id="direccion_fiesta_vuelta"/>
+                      <input type="text" id="direccion_fiesta_vuelta" value="<?php echo $_SESSION['datos_usuario']['DIRECCION']; ?>"/>
                     </div>
 
                     <div class="input">
                       <p><i class="fa fa-map-location-dot"></i> Barrio</p>
-                      <input list="Barrio" id="barrio_fiesta_vuelta">
+                      <input list="Barrio" id="barrio_fiesta_vuelta" value="<?php echo $_SESSION['datos_usuario']['BARRIO']; ?>">
                       <datalist id="Barrio">
                         <option value="Barrio 1">
                         <option value="Barrio 2">
@@ -946,7 +946,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
                     <div class="input">
                       <p><i class="fa-solid fa-globe"></i> Localidad</p>
-                      <input list="Localidad" id="localidad_fiesta_vuelta">
+                      <input list="Localidad" id="localidad_fiesta_vuelta" value="<?php echo $_SESSION['datos_usuario']['DEPARTAMENTO']; ?>">
                       <datalist id="Localidad">
                         <option value="Localidad 1">
                         <option value="Localidad 2">
@@ -978,12 +978,12 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
                     <div class="input">
                       <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
-                      <input type="text" id="direccion_ida_origen_fiestas_idavuelta" onchange="rellenar('Direccion_Origen')"/>
+                      <input type="text" id="direccion_ida_origen_fiestas_idavuelta" onchange="rellenar('Direccion_Origen')" value="<?php echo $_SESSION['datos_usuario']['DIRECCION']; ?>"/>
                     </div>
 
                     <div class="input">
                       <p><i class="fa fa-map-location-dot"></i> Barrio</p>
-                      <input list="Barrio" id="barrio_ida_origen_fiestas_idavuelta" onchange="rellenar('Barrio_Origen')">
+                      <input list="Barrio" id="barrio_ida_origen_fiestas_idavuelta" onchange="rellenar('Barrio_Origen')" value="<?php echo $_SESSION['datos_usuario']['BARRIO']; ?>">
                       <datalist id="Barrio">
                         <option value="Barrio 1">
                         <option value="Barrio 2">
@@ -995,7 +995,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
                     <div class="input">
                       <p><i class="fa-solid fa-globe"></i> Localidad</p>
-                      <input list="Localidad" id="localidad_ida_origen_fiestas_idavuelta" onchange="rellenar('Localidad_Origen')">
+                      <input list="Localidad" id="localidad_ida_origen_fiestas_idavuelta" onchange="rellenar('Localidad_Origen')" value="<?php echo $_SESSION['datos_usuario']['DEPARTAMENTO']; ?>">
                       <datalist id="Localidad">
                         <option value="Localidad 1">
                         <option value="Localidad 2">
@@ -1112,12 +1112,12 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
                     <div class="input">
                       <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
-                      <input type="text" id="direccion_vuelta_destino_fiestas_idavuelta"/>
+                      <input type="text" id="direccion_vuelta_destino_fiestas_idavuelta" value="<?php echo $_SESSION['datos_usuario']['DIRECCION']; ?>"/>
                     </div>
 
                     <div class="input">
                       <p><i class="fa fa-map-location-dot"></i> Barrio</p>
-                      <input list="Barrio" id="barrio_vuelta_destino_fiestas_idavuelta">
+                      <input list="Barrio" id="barrio_vuelta_destino_fiestas_idavuelta" value="<?php echo $_SESSION['datos_usuario']['BARRIO']; ?>">
                       <datalist id="Barrio">
                         <option value="Barrio 1">
                         <option value="Barrio 2">
@@ -1129,7 +1129,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
                     <div class="input">
                       <p><i class="fa-solid fa-globe"></i> Localidad</p>
-                      <input list="Localidad" id="localidad_vuelta_destino_fiestas_idavuelta">
+                      <input list="Localidad" id="localidad_vuelta_destino_fiestas_idavuelta" value="<?php echo $_SESSION['datos_usuario']['DEPARTAMENTO']; ?>">
                       <datalist id="Localidad">
                         <option value="Localidad 1">
                         <option value="Localidad 2">
