@@ -67,12 +67,12 @@ class notifyMeActions {
                     if(strpos($estado, "Opci\\u00f3n 1") !== false){
 
                         $bd = new procedimientosBD();
-                        $bd->cambio_estado_oportunidad("Aprobada",$id_oportunidad,$_SESSION['datos_usuario']['ID']);
+                        $bd->cambio_estado_oportunidad("Reconfirmado",$id_oportunidad,$_SESSION['datos_usuario']['ID']);
 
                     }else if(strpos($estado, "Opci\\u00f3n 3") !== false){
 
                         $bd = new procedimientosBD();
-                        $bd->cambio_estado_oportunidad("Rechazada",$id_oportunidad,$_SESSION['datos_usuario']['ID']);
+                        $bd->cambio_estado_oportunidad("Cancelado",$id_oportunidad,$_SESSION['datos_usuario']['ID']);
 
                     }
 

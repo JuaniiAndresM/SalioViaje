@@ -1,6 +1,5 @@
 $(document).ready(function () {
     steps(1);
-
     setTimeout(() => {
         steps(2);
     }, 2000);
@@ -62,7 +61,7 @@ function getIdOportunidad(id){
     id_oportunidad = id
 }
 
-function esperandoAprobacion(){
+function esperandoAprobacion(id_oportunidad){
     console.log("Esperando estado 'Aprobado' en Oportunidad (id): "+id_oportunidad)
 
     $.ajax({
@@ -70,6 +69,7 @@ function esperandoAprobacion(){
         url: "/PHP/comprar_oportunidad.php",
         data: {opcion:3,ID: id_oportunidad},
         success: function (response) {
+            console.log(response)
             response = JSON.parse(response)
             
             if (response[0]['ESTADO'] == 'Aprobada') { 
