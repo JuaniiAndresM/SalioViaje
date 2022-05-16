@@ -19,7 +19,12 @@ session_set_cookie_params($ttl);
   $regiones_mtop = new procedimientosBD();
   $regiones_mtop = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
-
+  $oportunidad = new procedimientosBD();
+  $oportunidad = $oportunidad->traer_oportunidades_por_id($id_oportunidad);
+  /*
+  [{"ID":33,"DESCUENTO":60,"ORIGEN":"PEDRO ARAMENDIA","DESTINO":"MERCEDES","FECHA":"27-05-2022 03:12","NOMBRE":"TRANSPORTISTA","APELLIDO":"SEIS","MARCA":"MB","MODELO":"SPRINTER","CAPACIDAD_VEHICULO":16,"ESTADO":"En venta","MATRICULA":"GHD0001","DISTANCIA":321,"PRECIO":10914,"ID_TRANSPORTISTA":496,"TIPO_USUARIO":"TTA"}] 
+  */
+  
 ?>
 
 <!DOCTYPE html>
@@ -198,5 +203,18 @@ session_set_cookie_params($ttl);
 
         </div>
     </section>
+    <script>
+      <?php 
+        $timestamp = strtotime($oportunidad[0]['FECHA']);
+        $newDate = date("Y-m-d H:i", $timestamp);
+        $oportunidad[0]['FECHA'] = $newDate;
+        $oportunidad[0]['FECHA'] = str_replace(" ", "T",$oportunidad[0]['FECHA']);
+      ?>
+      $("#desc_oport2").val(<?php echo $oportunidad[0]['DESCUENTO']; ?>);
+      $("#fecha_2").val("<?php echo $oportunidad[0]['FECHA']; ?>");
+      $("#origen_2").val("<?php echo $oportunidad[0]['ORIGEN']; ?>");
+      $("#destino_2").val("<?php echo $oportunidad[0]['DESTINO']; ?>");
+      $("#precioref_2").val(<?php echo $oportunidad[0]['PRECIO']; ?>);
+    </script>
   </body>
 </html>

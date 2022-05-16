@@ -24,7 +24,7 @@ for ($i = 0; $i < count($oportunidades); $i++) {
     $fecha = explode(' ', $oportunidades[$i]['FECHA']);
 
     if ($i == 0) {
-        if ($_SESSION['datos_usuario']['TIPO_USUARIO'] != "PAX") {
+        if ($_SESSION['datos_usuario']['TIPO_USUARIO'] != "PAX" && $oportunidades[$i]['MODALIDAD'] == "Oportunidad") {
             $oportunidades_dashboard = '
             <tr>
                 <td>' . $oportunidades[$i]['ID'] . '</td>
@@ -36,12 +36,12 @@ for ($i = 0; $i < count($oportunidades); $i++) {
                 <td>
                     <div class="button-wrapper">
                       <button class="button" onclick="mtop_oportunidad(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-file-contract"></i></button>
-                      <button class="button" onclick="editar_oportunidad(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-edit"></i></button>
+                      <button class="button" onclick="abrir_editar_oportunidad(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-edit"></i></button>
                       <button class="button" onclick="eliminar_viajes(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-trash-alt"></i></button>
                     </div>
                   </td>
             </tr>
-    ';
+            ';
         } else {
             $oportunidades_dashboard = '
             <tr>
@@ -56,11 +56,11 @@ for ($i = 0; $i < count($oportunidades); $i++) {
                     </div>
                   </td>
             </tr>
-    ';
+            ';
         }
 
     } else {
-          if ($_SESSION['datos_usuario']['TIPO_USUARIO'] != "PAX") {
+        if ($_SESSION['datos_usuario']['TIPO_USUARIO'] != "PAX" && $oportunidades[$i]['MODALIDAD'] == "Oportunidad") {
             $oportunidades_dashboard = $oportunidades_dashboard . '
             <tr>
                 <td>' . $oportunidades[$i]['ID'] . '</td>
@@ -72,13 +72,13 @@ for ($i = 0; $i < count($oportunidades); $i++) {
                 <td>
                     <div class="button-wrapper">
                       <button class="button" onclick="mtop_oportunidad(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-file-contract"></i></button>
-                      <button class="button" onclick="editar_oportunidad(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-edit"></i></button>
+                      <button class="button" onclick="abrir_editar_oportunidad(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-edit"></i></button>
                       <button class="button" onclick="eliminar_viajes(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-trash-alt"></i></button>
                     </div>
                   </td>
             </tr>
-    ';
-        } else {
+            ';
+        } elseif ($oportunidades[$i]['MODALIDAD'] == "Oportunidad") {
             $oportunidades_dashboard = $oportunidades_dashboard . '
             <tr>
                 <td>' . $oportunidades[$i]['ID'] . '</td>
@@ -92,50 +92,50 @@ for ($i = 0; $i < count($oportunidades); $i++) {
                     </div>
                   </td>
             </tr>
-    ';
+            ';
         }
     }
 
 }
-if ($_SESSION['datos_usuario']['TIPO_USUARIO'] != "PAX" && $datos2 != null) {
-    for ($i = 0; $i < count($datos2); $i++) {
-        $fecha = explode(' ', $datos2[$i]['FECHA']);
-        if ($i == 0 && $oportunidades_dashboard == null) {
-            $oportunidades_dashboard = '
-                  <tr>
-                      <td>' . $datos2[$i]['ID'] . '</td>
-                      <td>' . $datos2[$i]['ORIGEN'] . '</td>
-                      <td>' . $datos2[$i]['DESTINO'] . '</td>
-                      <td>' . $fecha[0] . '</td>
-                      <td>' . $datos2[$i]['ESTADO'] . '</td>
-                      <td>' . $datos2[$i]['MODALIDAD'] . '</td>
-                      <td>
-                          <div class="button-wrapper">
-                              <button class="button" onclick="mtop_oportunidad(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-file-contract"></i></button>
-                              <button class="button" onclick="eliminar_viajes(' . $datos2[$i]['ID'] . ')"><i class="fas fa-trash-alt"></i></button>
-                          </div>
-                        </td>
-                  </tr>
-          ';
-        } else {
-            $oportunidades_dashboard = $oportunidades_dashboard . '
-                  <tr>
-                      <td>' . $datos2[$i]['ID'] . '</td>
-                      <td>' . $datos2[$i]['ORIGEN'] . '</td>
-                      <td>' . $datos2[$i]['DESTINO'] . '</td>
-                      <td>' . $fecha[0] . '</td>
-                      <td>' . $datos2[$i]['ESTADO'] . '</td>
-                      <td>' . $datos2[$i]['MODALIDAD'] . '</td>
-                      <td>
-                          <div class="button-wrapper">
-                              <button class="button" onclick="mtop_oportunidad(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-file-contract"></i></button>
-                              <button class="button" onclick="eliminar_viajes(' . $datos2[$i]['ID'] . ')"><i class="fas fa-trash-alt"></i></button>
-                          </div>
-                        </td>
-                  </tr>
-          ';
-        }
+
+for ($i = 0; $i < count($oportunidades); $i++) {
+    $fecha = explode(' ', $oportunidades[$i]['FECHA']);
+    if ($oportunidades[$i]['MODALIDAD'] == "Agendado" && $oportunidades_dashboard == null && $_SESSION['datos_usuario']['TIPO_USUARIO'] != "PAX") {
+        $oportunidades_dashboard = '
+              <tr>
+                  <td>' . $oportunidades[$i]['ID'] . '</td>
+                  <td>' . $oportunidades[$i]['ORIGEN'] . '</td>
+                  <td>' . $oportunidades[$i]['DESTINO'] . '</td>
+                  <td>' . $fecha[0] . '</td>
+                  <td>' . $oportunidades[$i]['ESTADO'] . '</td>
+                  <td>' . $oportunidades[$i]['MODALIDAD'] . '</td>
+                  <td>
+                      <div class="button-wrapper">
+                          <button class="button" onclick="mtop_oportunidad(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-file-contract"></i></button>
+                          <button class="button" onclick="eliminar_viajes(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-trash-alt"></i></button>
+                      </div>
+                    </td>
+              </tr>
+      ';
+    } elseif ($oportunidades[$i]['MODALIDAD'] == "Agendado") {
+        $oportunidades_dashboard = $oportunidades_dashboard . '
+              <tr>
+                  <td>' . $oportunidades[$i]['ID'] . '</td>
+                  <td>' . $oportunidades[$i]['ORIGEN'] . '</td>
+                  <td>' . $oportunidades[$i]['DESTINO'] . '</td>
+                  <td>' . $fecha[0] . '</td>
+                  <td>' . $oportunidades[$i]['ESTADO'] . '</td>
+                  <td>' . $oportunidades[$i]['MODALIDAD'] . '</td>
+                  <td>
+                      <div class="button-wrapper">
+                          <button class="button" onclick="mtop_oportunidad(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-file-contract"></i></button>
+                          <button class="button" onclick="eliminar_viajes(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-trash-alt"></i></button>
+                      </div>
+                    </td>
+              </tr>
+      ';
     }
+
 }
 
 echo $oportunidades_dashboard;

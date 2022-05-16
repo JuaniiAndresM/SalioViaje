@@ -1008,10 +1008,10 @@ function confirmar_rut(validacion) {
 }
 
 /*-------------------------------------------------------------------------------------------*/
-//                               Eliminar viajes                                             //
+//                              Manejo de viajes                                             //
 /*-------------------------------------------------------------------------------------------*/
 
-function eliminar_viaje(id){
+function eliminar_viajes(id){
     $.ajax({
         type: "POST",
         data: { opcion: "eliminar_viajes", id:id },
@@ -1020,4 +1020,9 @@ function eliminar_viaje(id){
             console.log(response);
         }
     });
+}
+
+//https://www.salioviaje.com.uy/Editar_Oportunidad/
+function abrir_editar_oportunidad(id) {
+    window.location = 'https://www.salioviaje.com.uy/Editar_Oportunidad/'+id;
 }
