@@ -570,6 +570,16 @@ $main_3: #6d76db;
           background-color: #eee;
         }
       }
+
+      .empty-table{
+        height: 100px;
+        text-align: center;
+        color: $main_1;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
     }
     .usuarios-propietarios {
       .propietarios {

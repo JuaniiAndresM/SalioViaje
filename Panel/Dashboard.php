@@ -343,6 +343,9 @@ session_set_cookie_params($ttl);
                                 </tr>
                               </tbody>
                             </table>
+                            <div class="empty-table" id="empty-viajes">
+                              <p><i class="fas fa-info-circle"></i> No hay viajes disponibles.</p>
+                            </div>
                           </div>
 
                           <div class="usuarios-recientes">
@@ -352,7 +355,7 @@ session_set_cookie_params($ttl);
                                 <a href="Cotizaciones"><i class="fas fa-list-ul"></i></a>
                               </div>
                             </div>
-                            <table class="usuarios-table" id="cotz-pres">
+                            <table class="usuarios-table" id="cotz-pres" style="display: none;">
                               <thead>
                                 <tr>
                                   <th>ID <i class="fas fa-angle-down"></i></th>
@@ -379,13 +382,16 @@ session_set_cookie_params($ttl);
                                 </tr>
                               </tbody>
                             </table>
+                            <div class="empty-table" id="empty-cotiz-pres">
+                              <p><i class="fas fa-info-circle"></i> No hay cotizaciones presentadas.</p>
+                            </div>
                           </div>
 
                           <div class="usuarios-recientes">
                             <div class="usuarios-info">
                               <h2><i class="fas fa-hand-holding-dollar"></i> Cotizaciones Recibidas ( <i class="fas fa-hammer"></i> )</h2>
                             </div>
-                            <table class="usuarios-table" id="cotz-reci">
+                            <table class="usuarios-table" id="cotz-reci" style="display: none;">
                               <thead>
                                 <tr>
                                   <th>ID <i class="fas fa-angle-down"></i></th>
@@ -419,6 +425,9 @@ session_set_cookie_params($ttl);
                                 </tr>
                               </tbody>
                             </table>
+                            <div class="empty-table" id="empty-cotiz-reci">
+                              <p><i class="fas fa-info-circle"></i> No hay cotizaciones recibidas.</p>
+                            </div>
                           </div>
 
                         </div>
@@ -481,7 +490,7 @@ session_set_cookie_params($ttl);
                       <a href="Viajes"><i class="fas fa-list-ul"></i></a>
                     </div>
                   </div>
-                  <table class="usuarios-table">
+                  <table class="usuarios-table" id="search-table-agenda">
                     <thead>
                       <tr>
                         <th>ID <i class="fas fa-angle-down"></i></th>
@@ -498,6 +507,9 @@ session_set_cookie_params($ttl);
                     <tbody id="tbody-viajes-dashboard">
                     </tbody>
                   </table>
+                  <div class="empty-table" id="empty-viajes">
+                    <p><i class="fas fa-info-circle"></i> No hay viajes disponibles.</p>
+                  </div>
                 </div>
               </div>
 
@@ -557,7 +569,7 @@ session_set_cookie_params($ttl);
                                 <a href="Cotizaciones"><i class="fas fa-list-ul"></i></a>
                               </div>
                             </div>
-                            <table class="usuarios-table">
+                            <table class="usuarios-table" style="display: none;">
                               <thead>
                                 <tr>
                                   <th>ID <i class="fas fa-angle-down"></i></th>
@@ -571,6 +583,9 @@ session_set_cookie_params($ttl);
                               <tbody id="tbody-viajes-dashboard">
                               </tbody>
                             </table>
+                            <div class="empty-table" id="empty-cotiz-reci">
+                              <p><i class="fas fa-info-circle"></i> No hay cotizaciones recibidas.</p>
+                            </div>
                           </div>
 
                         </div>
@@ -629,7 +644,7 @@ session_set_cookie_params($ttl);
                                 <a href="Cotizaciones"><i class="fas fa-list-ul"></i></a>
                               </div>
                             </div>
-                            <table class="usuarios-table">
+                            <table class="usuarios-table" style="display: none;">
                               <thead>
                                 <tr>
                                   <th>ID <i class="fas fa-angle-down"></i></th>
@@ -643,6 +658,9 @@ session_set_cookie_params($ttl);
                               <tbody id="tbody-viajes-dashboard">
                               </tbody>
                             </table>
+                            <div class="empty-table" id="empty-cotiz-reci">
+                              <p><i class="fas fa-info-circle"></i> No hay cotizaciones recibidas.</p>
+                            </div>
                           </div>
 
                         </div>
@@ -702,7 +720,7 @@ session_set_cookie_params($ttl);
                               <a href="Viajes"><i class="fas fa-list-ul"></i></a>
                             </div>
                           </div>
-                          <table class="viajes-table" id="search-table">
+                          <table class="viajes-table" id="search-table-agenda">
                             <thead>
                               <tr>
                                 <th>ID <i class="fas fa-angle-down"></i></th>
@@ -717,6 +735,9 @@ session_set_cookie_params($ttl);
                             </thead>
                             <tbody id="tbody-viajes-dashboard"></tbody>
                           </table>
+                          <div class="empty-table" id="empty-viajes">
+                              <p><i class="fas fa-info-circle"></i> No hay viajes disponibles.</p>
+                          </div>
                         </div>
 
                         <div class="usuarios-recientes">
@@ -726,7 +747,7 @@ session_set_cookie_params($ttl);
                               <a href="Cotizaciones"><i class="fas fa-list-ul"></i></a>
                             </div>
                           </div>
-                          <table class="usuarios-table">
+                          <table class="usuarios-table" style="display: none;">
                             <thead>
                               <tr>
                                 <th>ID <i class="fas fa-angle-down"></i></th>
@@ -740,6 +761,9 @@ session_set_cookie_params($ttl);
                             <tbody id="tbody-viajes-dashboard">
                             </tbody>
                           </table>
+                          <div class="empty-table" id="empty-cotiz-reci">
+                              <p><i class="fas fa-info-circle"></i> No hay cotizaciones recibidas.</p>
+                          </div>
                         </div>
 
                       </div>
