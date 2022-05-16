@@ -1855,7 +1855,7 @@ footer .footer-wrapper .column_3 .suscrito-mail i {
 
 footer .totum {
   width: 100%;
-  height: 30px;
+  min-height: 30px;
   background-color: #2b3179;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1871,6 +1871,8 @@ footer .totum {
 footer .totum p {
   color: #ffffff;
   font-weight: 300;
+  text-align: center;
+  margin: 5px 0;
 }
 
 footer .totum p a {
