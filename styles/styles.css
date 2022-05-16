@@ -735,7 +735,7 @@
 
 .oportunidades .oportunidades-list .oportunidad .oportunidad-left .discount h3 {
   color: #3844bc;
-  font-size: 2em;
+  font-size: 1.8em;
 }
 
 .oportunidades .oportunidades-list .oportunidad .oportunidad-left .discount .precio {
@@ -778,6 +778,8 @@
 .oportunidades .oportunidades-list .oportunidad .oportunidad-left .travel p {
   margin: 5px 10px;
   color: #ffffff;
+  font-size: 14px;
+  max-width: 500px;
 }
 
 .oportunidades .oportunidades-list .oportunidad .oportunidad-left .travel p i {
@@ -7341,6 +7343,22 @@ footer .totum p a:hover {
   background-color: #eee;
 }
 
+.panel .panel-tables .usuarios-recientes .empty-table,
+.panel .panel-tables .usuarios-propietarios .empty-table {
+  height: 100px;
+  text-align: center;
+  color: #3844bc;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .panel .panel-tables .usuarios-propietarios .propietarios {
   width: 100%;
   margin: 10px 0;
@@ -9131,7 +9149,7 @@ footer .totum p a:hover {
 
 .Cotizaciones-section .Cotizaciones-list .Cotizaciones .Cotizaciones-left .discount h3 {
   color: #3844bc;
-  font-size: 2em;
+  font-size: 1.8em;
 }
 
 .Cotizaciones-section .Cotizaciones-list .Cotizaciones .Cotizaciones-left .travel {
@@ -9142,6 +9160,8 @@ footer .totum p a:hover {
 .Cotizaciones-section .Cotizaciones-list .Cotizaciones .Cotizaciones-left .travel p {
   margin: 5px 10px;
   color: #ffffff;
+  font-size: 14px;
+  max-width: 500px;
 }
 
 .Cotizaciones-section .Cotizaciones-list .Cotizaciones .Cotizaciones-left .travel p i {

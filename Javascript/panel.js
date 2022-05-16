@@ -531,7 +531,14 @@ function tabla_oportunidades_dashboard() {
         url: "/PHP/Tablas/tabla_viajes_panel_principal.php",
         success: function (response) {
             console.log(response)
-            $('#tbody-viajes-dashboard').html(response)
+            if(response != ""){
+                $('#empty-viajes').hide();
+                $('#tbody-viajes-dashboard').html(response)
+            }else{
+                $('#search-table-agenda').hide();
+                $('#empty-viajes').css('display', 'flex');
+            }
+           
         }
     });
 
