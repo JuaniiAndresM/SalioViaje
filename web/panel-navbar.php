@@ -132,7 +132,7 @@ session_set_cookie_params($ttl);
               </li>';
     }
 
-    if($tipo != 7 && $tipo != 6 && $tipo != 3){
+    if($tipo == 1 || $tipo == 2 ){
       echo '  <li>
                 <a href="https://www.salioviaje.com.uy/Facturacion">
                   <span class="icon"><i class="fa-solid fa-file-invoice-dollar"></i></span>

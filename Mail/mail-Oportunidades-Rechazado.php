@@ -119,7 +119,7 @@ try {
 
 session_start();
 $mail->CharSet = 'UTF-8';
-$mail->From = 'totumdevcontacto@gmail.com'; //  Editar
+$mail->From = 'promouruguay010@gmail.com'; //  Editar
 $mail->FromName = 'SalióViaje';  //  Editar
 $mail->addAddress($_SESSION['datos_usuario']['MAIL']);  //  Editar
 $mail->isHTML(true);
@@ -191,7 +191,7 @@ try {
 
 
 $mail->CharSet = 'UTF-8';
-$mail->From = 'totumdevcontacto@gmail.com'; //  Editar
+$mail->From = 'promouruguay010@gmail.com'; //  Editar
 $mail->FromName = 'SalióViaje';  //  Editar
 $mail->addAddress($mail_tta);  //  Editar
 $mail->isHTML(true);
