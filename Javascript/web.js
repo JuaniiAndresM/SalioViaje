@@ -102,6 +102,10 @@ function traer_oportunidades(){
              
         }
     });
+
+    setTimeout(() => {
+        $("#contador-oportunidades").html(document.getElementsByClassName('oportunidad').length);
+    }, 500);
 }
 
 function traer_cotizacion(){
