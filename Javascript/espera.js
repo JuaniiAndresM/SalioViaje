@@ -55,15 +55,17 @@ function steps(step){
 }
 
 let id_oportunidad;
-let esperar_aprobacion = setInterval(function(){ esperandoAprobacion(id_oportunidad) },2000)
-
-function getIdOportunidad(id){
-    id_oportunidad = id
-}
+let contador = 0;
+let esperar_aprobacion = setInterval(function(){ esperandoAprobacion($("#id_oportunidad").val()) },2000)
 
 function esperandoAprobacion(id_oportunidad){
     console.log("Esperando estado 'Aprobado' en Oportunidad (id): "+id_oportunidad)
-
+    if (contador == 0) {
+        setTimeout(() => {
+            comprar_oportunidad_function($("#id_oportunidad").val())
+        }, 1000);
+    }
+    contador++;
     $.ajax({
         type: "POST",
         url: "/PHP/comprar_oportunidad.php",
@@ -72,12 +74,12 @@ function esperandoAprobacion(id_oportunidad){
             console.log(response)
             response = JSON.parse(response)
             
-            if (response[0]['ESTADO'] == 'Aprobada') { 
+            if (response[0]['ESTADO'] == 'Reconfirmado') { 
                 steps(3);
                 oportunidad_aprobada(id_oportunidad);
                 clearInterval(esperar_aprobacion);
             }
-            else if (response[0]['ESTADO'] == 'Rechazada') { 
+            else if (response[0]['ESTADO'] == 'Cancelado') { 
                 steps(4);
                 oportunidad_rechazada(id_oportunidad);
                 clearInterval(esperar_aprobacion);

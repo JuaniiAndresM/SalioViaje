@@ -67,9 +67,6 @@ function comprar_oportunidad_function(id){
                 response = JSON.parse(response);
                 send.realizarLlamada("tpc_notificacion_opciones","2022-02-07T15:00:00+03:00",id_llamada,response['TELEFONO'],response['NOMBRE'],"Su oportunidad numero "+id+" fue comprada. Presione 1 para aceptar, 3 para rechazar",id);
                 send.enviarSMS(response['TELEFONO'],"2022-02-04T15:00:00+03:00",mensaje,id_llamada);
-            },
-            complete: function(){
-                window.open('/Espera/' + id, '_blank');
             }
         });
 }

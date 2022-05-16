@@ -98,13 +98,7 @@ session_set_cookie_params($ttl);
         window.addEventListener('beforeunload', function (e) {
             e.preventDefault();
             e.returnValue = '';
-
         });
-
-          window.onload = function(){
-            comprar_oportunidad(<?php echo $_GET['ID']; ?>)        
-            getIdOportunidad(<?php echo $_GET['ID']; ?>)      
-          }
     </script>
     
   </head>
@@ -140,6 +134,7 @@ session_set_cookie_params($ttl);
           <div class="loader">
             <i class="fas fa-spinner"></i>
           </div>
+          <input id="id_oportunidad" type="hidden" name="" value="<?php echo $_GET['ID']; ?>">
           <h2><i class="far fa-address-card"></i> Viaje N° <?php echo $_GET['ID']; ?></h2>
           <h3>
             Estamos procesando su solicitud, este proceso puede tardar unos
