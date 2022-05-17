@@ -12,7 +12,7 @@ require_once '../PHP/procedimientosBD.php';
 // Importar Variables (Opcional)
 //
 
-$bd = new peocedimientosBD();
+$bd = new procedimientosBD();
 
 
 $mail_tta = $_POST['mail_tta'];
@@ -21,7 +21,7 @@ $id = $_POST['id_viaje'];
 
 $datos_oportunidad = $bd->traer_oportunidades_por_id($id);
 
-$datos_comprador =  $bd->info_usuario_profile($id);
+$datos_comprador =  $bd->info_usuario_profile($datos_oportunidad[0]['ID_COMPRADOR']);
 //
 /*------------------------------------------------------------------------------------------*/
 
@@ -77,9 +77,9 @@ $mail->Body    = '<div class="mail" style="max-width: 600px; background: white;"
                 <td>
                     <div class="mail-content" style="width: 500px; margin: 20px auto; background: #fff; font-family: Montserrat; color: #3844bc;">
                         <h1 style="font-size: 20px;">Información del Transportista</h1>
-                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Nombre: </b>'.$datos_oportunidad['NOMBRE'].'</p>
-                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Apellido: </b>'.$datos_oportunidad['APELLIDO'].'</p>
-                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Teléfono: </b><a href="tel:'.$datos_oportunidad['TELEFONO'].'" style="text-decoration: none; color: #3844bc;">'.$datos_oportunidad['TELEFONO'].'</a></p>
+                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Nombre: </b>'.$datos_oportunidad[0]['NOMBRE'].'</p>
+                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Apellido: </b>'.$datos_oportunidad[0]['APELLIDO'].'</p>
+                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Teléfono: </b><a href="tel:'.$datos_oportunidad[0]['TELEFONO'].'" style="text-decoration: none; color: #3844bc;">'.$datos_oportunidad[0]['TELEFONO'].'</a></p>
                         <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Correo Electrónico: </b>'.$mail_tta.'</p>
                     </div>
                 </td>
@@ -88,10 +88,10 @@ $mail->Body    = '<div class="mail" style="max-width: 600px; background: white;"
                 <td>
                     <div class="mail-content" style="width: 500px; margin: 20px auto; background: #fff; font-family: Montserrat; color: #3844bc;">
                         <h1 style="font-size: 20px;">Información del Pasajero</h1>
-                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Nombre: </b>'.$datos_comprador['NOMBRE'].'</p>
-                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Apellido: </b>'.$datos_comprador['APELLIDO'].'</p>
-                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Teléfono: </b><a href="tel:'.$datos_comprador['TELEFONO'].'" style="text-decoration: none; color: #3844bc;">'.$datos_comprador['TELEFONO'].'</a></p>
-                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Correo Electrónico: </b>'.$datos_comprador['EMAIL'].'</p>
+                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Nombre: </b>'.$datos_comprador[0]['NOMBRE'].'</p>
+                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Apellido: </b>'.$datos_comprador[0]['APELLIDO'].'</p>
+                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Teléfono: </b><a href="tel:'.$datos_comprador[0]['TELEFONO'].'" style="text-decoration: none; color: #3844bc;">'.$datos_comprador[0]['TELEFONO'].'</a></p>
+                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Correo Electrónico: </b>'.$datos_comprador[0]['EMAIL'].'</p>
                     </div>
                 </td>
             </tr>
@@ -159,9 +159,9 @@ $mail->Body    = '    <div class="mail" style="max-width: 600px; background: whi
                 <td>
                     <div class="mail-content" style="width: 500px; margin: 20px auto; background: #fff; font-family: Montserrat; color: #3844bc;">
                         <h1 style="font-size: 20px;">Información del Transportista</h1>
-                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Nombre: </b>'.$datos_oportunidad['NOMBRE'].'</p>
-                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Apellido: </b>'.$datos_oportunidad['APELLIDO'].'</p>
-                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Teléfono: </b><a href="tel:'.$datos_oportunidad['TELEFONO'].'" style="text-decoration: none; color: #3844bc;">'.$datos_oportunidad['TELEFONO'].'</a></p>
+                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Nombre: </b>'.$datos_oportunidad[0]['NOMBRE'].'</p>
+                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Apellido: </b>'.$datos_oportunidad[0]['APELLIDO'].'</p>
+                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Teléfono: </b><a href="tel:'.$datos_oportunidad[0]['TELEFONO'].'" style="text-decoration: none; color: #3844bc;">'.$datos_oportunidad[0]['TELEFONO'].'</a></p>
                         <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Correo Electrónico: </b>'.$mail_tta.'</p>
                     </div>
                 </td>
