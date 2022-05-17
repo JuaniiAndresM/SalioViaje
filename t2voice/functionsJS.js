@@ -115,7 +115,7 @@ function oportunidad_aprobada(id){
                 url: "/Mail/mail-Oportunidades-Aceptado.php",
                 data: { mail_tta:JSON.parse(mail_tta)['MAIL'], id_viaje: id},
                 success: function (response) {
-                    cambiar_estado_oportunidad('Aprobada',id)
+                    cambiar_estado_oportunidad('Reconfirmado',id)
                 }
             });
 }
@@ -137,7 +137,7 @@ function oportunidad_rechazada(id){
             url: "/Mail/mail-Oportunidades-Rechazado.php",
             data: { mail_tta:JSON.parse(mail_tta)['MAIL'] },
             success: function (response) {
-                console.log(response)
+                cambiar_estado_oportunidad('Cancelado',id)
             }
         });
 }
