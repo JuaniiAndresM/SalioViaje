@@ -79,7 +79,7 @@
     <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
     <script>
       var OneSignal = window.OneSignal || [];
-      OneSignal.push(function() {
+      OneSignal.push(function () {
         OneSignal.init({
           appId: "e851ce3f-65f4-4745-976e-781b3c36d150",
         });
@@ -270,9 +270,7 @@
             <div class="card-info">
               <h3>Salió Viaje</h3>
               <hr />
-              <p class="info_1">
-                Te llevamos donde necesites al mejor precio.
-              </p>
+              <p class="info_1">Te llevamos donde necesites al mejor precio.</p>
             </div>
           </div>
           <div class="click-here" id="picada">
@@ -313,55 +311,71 @@
       </p>
 
       <div class="oportunidades-wrapper">
-
         <div class="filter-wrapper">
           <div class="search"></div>
 
           <div class="button-filtrar">
-            <button onclick="filtros(1)"><i class="fas fa-sort-amount-down"></i> Filtrar</button>
+            <button onclick="filtros(1)">
+              <i class="fas fa-sort-amount-down"></i> Filtrar
+            </button>
           </div>
         </div>
 
         <div id="filters">
-
           <div class="input" id="destino">
             <i class="fas fa-location-dot" id="icon"></i>
-            <input list="Localidad" id="origen_oportunidad" placeholder="Origen" onkeyup="filtrar_divs('Oportunidad')" />
+            <input
+              list="Localidad"
+              id="origen_oportunidad"
+              placeholder="Origen"
+              onkeyup="filtrar_divs('Oportunidad')"
+            />
             <datalist id="Localidad">
-              <option value="ARTIGAS">
-              <option value="CANELONES">
-              <option value="CERRO LARGO">
-              <option value="SAN JOSE">
-              <option value="FLORIDA">
-              <option value="SORIANO">
-              <option value="RIO NEGRO">
-              <option value="TACUAREMBÓ">
-              <option value="RIVERA">
-              <option value="MONTEVIDEO">
-              <option value="ROCHA">
-              <option value="SALTO">
-              <option value="RIVERA">
-              <option value="PAYSANDU">
-              <option value="TREINTA Y TRES">
-              <option value="FLORES"> 
-              <option value="COLONIA">
-              <option value="MALDONADO"> 
-              <option value="LAVALLEJA">
-              </datalist>
+              <option value="ARTIGAS"></option>
+              <option value="CANELONES"></option>
+              <option value="CERRO LARGO"></option>
+              <option value="SAN JOSE"></option>
+              <option value="FLORIDA"></option>
+              <option value="SORIANO"></option>
+              <option value="RIO NEGRO"></option>
+              <option value="TACUAREMBÓ"></option>
+              <option value="RIVERA"></option>
+              <option value="MONTEVIDEO"></option>
+              <option value="ROCHA"></option>
+              <option value="SALTO"></option>
+              <option value="RIVERA"></option>
+              <option value="PAYSANDU"></option>
+              <option value="TREINTA Y TRES"></option>
+              <option value="FLORES"></option>
+              <option value="COLONIA"></option>
+              <option value="MALDONADO"></option>
+              <option value="LAVALLEJA"></option>
+            </datalist>
           </div>
 
           <div class="input" id="destino">
             <i class="fas fa-route" id="icon"></i>
-            <input list="Localidad" id="destino_oportunidad" placeholder="Destino" onkeyup="filtrar_divs('Oportunidad')" >
+            <input
+              list="Localidad"
+              id="destino_oportunidad"
+              placeholder="Destino"
+              onkeyup="filtrar_divs('Oportunidad')"
+            />
           </div>
 
           <div class="input" id="origen">
             <i class="far fa-calendar-alt" id="icon"></i>
-            <input type="date" id="fecha_oportunidad" placeholder="Fecha y Hora" onchange="filtrar_divs('Oportunidad')" />
+            <input
+              type="date"
+              id="fecha_oportunidad"
+              placeholder="Fecha y Hora"
+              onchange="filtrar_divs('Oportunidad')"
+            />
           </div>
 
-          <button onclick="eliminar_filtros('Oportunidad')"><i class="fas fa-arrows-rotate"></i></button>
-
+          <button onclick="eliminar_filtros('Oportunidad')">
+            <i class="fas fa-arrows-rotate"></i>
+          </button>
         </div>
 
         <div class="list-empty">
