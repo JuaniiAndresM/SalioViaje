@@ -135,7 +135,7 @@ function oportunidad_rechazada(id){
         $.ajax({
             type: "POST",
             url: "/Mail/mail-Oportunidades-Rechazado.php",
-            data: { mail_tta:JSON.parse(mail_tta)['MAIL'] },
+            data: { mail_tta:JSON.parse(mail_tta)['MAIL'], id_viaje: id },
             success: function (response) {
                 cambiar_estado_oportunidad('Cancelado',id)
             }

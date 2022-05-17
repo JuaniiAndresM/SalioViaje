@@ -16,6 +16,11 @@ for ($i=0; $i < count($datos); $i++) {
  $fecha = explode(' ', $datos[$i]['FECHA']);
 
         if ($i==0) {
+          if($datos[$i]['DESCUENTO'] != ""){
+            $datos[$i]['DESCUENTO'] = $datos[$i]['DESCUENTO'].'%';
+          }else{
+            $datos[$i]['DESCUENTO'] = '-';
+          }
           $oportunidades_dashboard = '
                   <tr>
                       <td>'.$datos[$i]['ID'].'</td>
@@ -27,11 +32,7 @@ for ($i=0; $i < count($datos); $i++) {
                       <td>'.$datos[$i]['DISTANCIA'].' km</td>
                       <td>'.$datos[$i]['CANTIDAD_PASAJEROS'].'</td>
                       <td>'.$datos[$i]['PRECIO'].'</td>
-                      <td>'.if($datos[$i]['DESCUENTO'] != ""){
-                              echo $datos[$i]['DESCUENTO'].'%';
-                            }else{
-                              echo '-';
-                            }.'
+                      <td>'.$datos[$i]['DESCUENTO'].'
                       </td>
                       <td>'.$datos[$i]['ESTADO'].'</td>
                       <td>
@@ -43,6 +44,11 @@ for ($i=0; $i < count($datos); $i++) {
                   </tr> 
           ';
         }else{
+          if($datos[$i]['DESCUENTO'] != ""){
+            $datos[$i]['DESCUENTO'] = $datos[$i]['DESCUENTO'].'%';
+          }else{
+            $datos[$i]['DESCUENTO'] = '-';
+          }
           $oportunidades_dashboard= $oportunidades_dashboard.'
                   <tr>
                       <td>'.$datos[$i]['ID'].'</td>
@@ -54,11 +60,7 @@ for ($i=0; $i < count($datos); $i++) {
                       <td>'.$datos[$i]['DISTANCIA'].' km</td>
                       <td>'.$datos[$i]['CANTIDAD_PASAJEROS'].'</td>
                       <td>'.$datos[$i]['PRECIO'].'</td>
-                      <td>'.if($datos[$i]['DESCUENTO'] != ""){
-                              echo $datos[$i]['DESCUENTO'].'%';
-                            }else{
-                              echo '-';
-                            }.'
+                      <td>'.$datos[$i]['DESCUENTO'].'
                       </td>
                       <td>'.$datos[$i]['ESTADO'].'</td>
                       <td>
