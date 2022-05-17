@@ -233,22 +233,7 @@ $mail->Body    = '<div class="mail" style="max-width: 600px; background: white;"
                             </tr>
                         </table>
                     </div>';
+
+                    $mail->send();
             }
     }
-
-
-
-
-
-
-try {
-    $mail->send();
-    echo 1;
-    return 1;
-
-} catch (Exception $e) {
-
-    echo "Mailer Error: " . $mail->ErrorInfo;
-    echo 0;
-    return 0;
-}
