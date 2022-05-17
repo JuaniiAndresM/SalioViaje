@@ -80,7 +80,7 @@ function esperandoAprobacion(id_oportunidad){
                 clearInterval(esperar_aprobacion);
 
                 $("#espera-nombre").html("<b>Nombre:</b> " + response[0]['NOMBRE'] + " " + response[0]['APELLIDO']);
-                $("#espera-telefono").html("<b>Teléfono:</b> <a href='tel:"+ response[0]['TELEFONO'] + "'>"+ response[0]['NOMBRE'] + "</a>");
+                $("#espera-telefono").html("<b>Teléfono:</b> <a href='tel:0"+ response[0]['TELEFONO'] + "'>0"+ response[0]['TELEFONO'] + "</a>");
             }
             else if (response[0]['ESTADO'] == 'Cancelado') { 
                 steps(4);
