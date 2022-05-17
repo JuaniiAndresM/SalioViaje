@@ -1,7 +1,35 @@
 <?php 
-$ID = $_GET['ID'];
 
+$ttl = (60 * 60 * 24); # 1 día
+session_set_cookie_params($ttl);
+session_start();
+
+
+if(!isset($_SESSION['usuario'])){
+    header('Location: https://www.salioviaje.com.uy/Login');
+}else{
+  if($_SESSION['tipo_usuario'] == "Chofer"){
+    header('Location: https://www.salioviaje.com.uy/');
+  }
+}
+
+$ID = $_GET['ID'];
 $ID = substr($ID, 0, -1);
+
+require_once "../PHP/procedimientosBD.php";
+
+$datos = new procedimientosBD();
+$array_oportuidad = $datos->traer_oportunidades_por_id($ID);
+$expired = 0;
+
+if($array_oportuidad[0]['ID_TRANSPORTISTA'] != $_SESSION['datos_usuario']['ID']){
+  header('Location: https://www.salioviaje.com.uy/');
+}
+
+if($array_oportuidad[0]['ESTADO'] != "En venta"){
+  $expired = 1;
+}
+
 ?>
 
 
@@ -102,6 +130,8 @@ $ID = substr($ID, 0, -1);
     </a>
 
     <input id="id_get" type="hidden" value="<?php echo $_GET['ID']; ?>">
+    <input id="session_get" type="hidden" value="<?php if(isset($_SESSION['usuario'])){ echo 1; }else{ echo 0;} ?>">
+    <input id="expired_get" type="hidden" value="<?php echo $expired; ?>">
 
     <section class="solicitud">
       <div class="solicitud-wrapper">

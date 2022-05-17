@@ -1,23 +1,21 @@
 <?php 
   $ttl = (60 * 60 * 24); # 1 día
   session_set_cookie_params($ttl);
-  session_start(); 
-  /*
-  if(!isset($_SESSION['usuario'])){
-      header('Location: https://www.salioviaje.com.uy/Login');
-  }else{
-    
-    if($_SESSION['tipo_usuario'] == "Chofer"){
-      header('Location: https://www.salioviaje.com.uy/');
-    }
-    
-  }
-  */
-  require_once "../PHP/procedimientosBD.php";
+  session_start();
 
+  // if(!isset($_SESSION['usuario'])){
+  //     header('Location: https://www.salioviaje.com.uy/Login');
+  // }else{
+  //   if($_SESSION['tipo_usuario'] == "Chofer"){
+  //     header('Location: https://www.salioviaje.com.uy/');
+  //   }
+  // }
+
+  require_once "../PHP/procedimientosBD.php";
 
   $datos = new procedimientosBD();
   $array_oportuidad = $datos->traer_oportunidades_por_id($_GET['ID']);
+
 
   $descuento = $array_oportuidad[0]['DESCUENTO']/100;
   $PRECIO_CON_DESCUENTO_APLICADO =  round($array_oportuidad[0]['PRECIO'] - $array_oportuidad[0]['PRECIO'] * $descuento);
