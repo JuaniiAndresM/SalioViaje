@@ -6,14 +6,22 @@ use PHPMailer\PHPMailer\Exception;
 require '../Plugins/PHPMailer/src/Exception.php';
 require '../Plugins/PHPMailer/src/PHPMailer.php';
 require '../Plugins/PHPMailer/src/SMTP.php';
+require_once '../PHP/procedimientosBD.php';
 
 /*------------------------------------------------------------------------------------------*/
 // Importar Variables (Opcional)
 //
 
+$bd = new peocedimientosBD();
+
+
 $mail_tta = $_POST['mail_tta'];
 $id = $_POST['id_viaje'];
 
+
+$datos_oportunidad = $bd->traer_oportunidades_por_id($id);
+
+echo json_encode($datos_oportunidad);
 //
 /*------------------------------------------------------------------------------------------*/
 
