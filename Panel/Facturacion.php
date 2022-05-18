@@ -11,6 +11,9 @@ session_set_cookie_params($ttl);
     header('Location: https://www.salioviaje.com.uy/Login');
   }
 
+$bd = new procedimientosBD();
+$viajes = $bd->traer_oportunidades_por_id_tta_seccion_facturacion($_SESSION['datos_usuario']['ID']);
+$viajes = json_decode($viajes, true);
 ?>
 
 <!DOCTYPE html>
@@ -188,16 +191,32 @@ session_set_cookie_params($ttl);
                 </tr>
               </thead>
               <tbody id="tbody-facturacion">
-                <tr>
-                  <td>000</td>
-                  <td>dd/mm/aaaa</td>
-                  <td>Oportunidad</td>
-                  <td>Example</td>
-                  <td>$0.000</td>
-                  <td>$000</td>
-                  <td>000000</td>
-                  <td>-</td>
-                </tr>
+                <?php
+                  for ($i=0; $i < count($viajes); $i++) { 
+
+                    
+                    if ($viajes[$i]['PRECIO'] < 2150) {
+                      $comision = $viajes[$i]['PRECIO'] * 0.07; // Regla de tres
+                      $comision = round($comision, 0);
+                    }else {
+                      $comision = 150;
+                    }
+                    
+                    ?>
+                    <tr>
+                      <td><?php echo $viajes[$i]['ID']; ?></td>
+                      <td><?php echo $viajes[$i]['FECHA']; ?></td>
+                      <td><?php echo $viajes[$i]['MODALIDAD']; ?></td>
+                      <td><?php echo $viajes[$i]['DESTINO']; ?></td>
+                      <td>$<?php echo $viajes[$i]['PRECIO']; ?></td>
+                      <td>$<?php echo $comision; ?></td>
+                      <td>000000</td>
+                      <td>-</td>
+                    </tr>
+                    <?php
+                  }
+                ?>
+
               </tbody>
             </table>
           </div>

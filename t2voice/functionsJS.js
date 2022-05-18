@@ -53,17 +53,14 @@ require_once '../PHP/procedimientosBD.php';
 
 function comprar_oportunidad_function(id){
 
-       console.log("comprada y mando mensaje - ID oportunidad : "+id)
-
-       let id_llamada = Math.floor(Math.random() * 1000);
-       let mensaje = 'Tu oportunidad ha sido comprada!\n Aceptar:  https://www.salioviaje.com.uy/Solicitud/'+id+'A\n  Rechazar: https://www.salioviaje.com.uy/Solicitud/'+id+'R';
+       let id_llamada = Math.floor(Math.random() * 100000);
+       let mensaje = `Tu oportunidad ha sido comprada!  Aceptar:  https://www.salioviaje.com.uy/Solicitud/${id}A Rechazar: https://www.salioviaje.com.uy/Solicitud/${id}R`;
 
         $.ajax({
             type: "POST",
             url: "/PHP/comprar_oportunidad.php",
             data: {opcion:1, ID:id },
             success: function (response) {
-                console.log(response)
                 response = JSON.parse(response);
                 send.realizarLlamada("tpc_notificacion_opciones","2022-02-07T15:00:00+03:00",id_llamada,response['TELEFONO'],response['NOMBRE'],"Su oportunidad numero "+id+" fue comprada. Presione 1 para aceptar, 3 para rechazar",id);
                 send.enviarSMS(response['TELEFONO'],"2022-02-04T15:00:00+03:00",mensaje,id_llamada);
@@ -110,7 +107,7 @@ function oportunidad_aprobada(id){
                             return response;
                         }
                     }).responseText;
-
+                    
             $.ajax({
                 type: "POST",
                 url: "/Mail/mail-Oportunidades-Aceptado.php",
