@@ -1,4 +1,4 @@
-.viajar-wrapper {
+.viajar-wrapper, .viajar-wrapper-index{
   margin-top: 85px;
   .oportunidades-viajar,
   .ofertas-viajar,
@@ -304,11 +304,7 @@
       }
     }
   }
-  .salioviaje {
-    padding: 20px 0;
-    padding-bottom: 40px;
-    margin-bottom: 80px;
-    
+  .salioviaje {    
     .button-agendar {
       position: relative;
       z-index: 10;
@@ -318,11 +314,10 @@
       @include button-hover();
     }
     .button-agendar.active {
-      opacity: 0;
+      display: none;
     }
 
     .salioviaje-desplegable {
-      margin-top: -80px;
       padding: 0 18px;
       max-height: 0;
       transition: 0.6s ease-in-out;
@@ -337,11 +332,12 @@
 
       .formulario-viaje {
         margin-top: 15px;
-        max-width: 600px;
         width: 100%;
 
         .user-info{
+          max-width: 600px;
           width: 100%;
+          margin: 0 auto;
           margin-top: 20px;
 
           display: flex;
@@ -380,6 +376,7 @@
 
         .progress-bar {
           position: relative;
+          max-width: 600px;
           width: 90%;
           height: 15px;
 
@@ -489,7 +486,9 @@
           }
 
           .formulario-grid, .paradas-wrapper{
+            max-width: 750px;
             width: 100%;
+            margin: 10px auto;
   
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -555,7 +554,7 @@
           }
           .paradas-wrapper{
             display: block;
-            margin: 20px 0;
+            margin: 20px auto;
           }
 
           .tags {
@@ -671,6 +670,18 @@
             }
           }
         }
+        .step_5{
+          .send-wrapper{
+            .send-info{
+              p{
+                margin-top: 10px;
+              }
+              button{
+                margin-top: 20px;
+              }
+            }
+          }
+        }
       }
     }
 
@@ -680,6 +691,11 @@
     }
   }
 }
+
+.viajar-wrapper-index{
+  margin-top: 0;
+}
+
 @media screen and(max-width: 1197px) {
   .viajar-wrapper {
     .oportunidades-viajar {

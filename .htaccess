@@ -1,7 +1,7 @@
 Options +FollowSymLinks
 RewriteEngine on
 
-DirectoryIndex index.html
+DirectoryIndex index.php
 
 php_value display_errors 1
 php_flag output_buffering on
