@@ -185,7 +185,7 @@
             <div class="cotizacion-info">
               <h2><i class="fas fa-info-circle"></i> Información:</h2>
               <?php
-              echo '<p><i class="fas fa-address-card"></i> <b>N° Cotización: </b>'.$cotizaciones[0]['ID'].'</p>
+              echo '<p><i class="fas fa-address-card"></i> <b>N° de Viaje: </b>'.$cotizaciones[0]['ID'].'</p>
                     <p><i class="fas fa-list-ol"></i> <b>Tipo de Viaje: </b>'.$TIPO_VIAJE.'</p>';
               
                 if($TIPO_VIAJE == "Transfer de Arribo"){
@@ -365,28 +365,23 @@
                       echo '</p>';
                     }
                 }else if(!isset($paradas) && $TIPO_VIAJE != "Fiesta o Evento - Ida y Vuelta"){
-                  echo '<h2><i class="fas fa-flag"></i> Paradas:</h2>
-                        <p>No hay paradas.</p>';
+                  echo '<p><i class="fas fa-flag"></i> <b>Paradas: </b>No hay paradas.</p>';
                 }
 
                 if(isset($cotizaciones[0]['OBSERVACIONES'])){
                     if($cotizaciones[0]['OBSERVACIONES'] != ""){
-                        echo '<h2><i class="fas fa-comment-dots"></i> Observaciones:</h2>
-                        <p>'.$cotizaciones[0]['OBSERVACIONES'].'</p>';
+                        echo '<p><i class="fas fa-comment-dots"></i> <b>Observaciones: </b>'.$cotizaciones[0]['OBSERVACIONES'].'</p>';
                     }else{
-                      echo '<h2><i class="fas fa-comment-dots"></i> Observaciones:</h2>
-                            <p>No</p>';
+                      echo '<p><i class="fas fa-comment-dots"></i> <b>Observaciones: </b>No</p>';
                     }
                 }else{
-                  echo '<h2><i class="fas fa-comment-dots"></i> Observaciones:</h2>
-                        <p>No</p>';
+                  echo '<p><i class="fas fa-comment-dots"></i> <b>Observaciones: </b>No</p>';
                 }
                 if(isset($cotizaciones[0]['MASCOTAS'])){
-                    echo '<h2><i class="fas fa-dog"></i> Mascotas:</h2>';
                     if($cotizaciones[0]['MASCOTAS'] == "Con mascota"){
-                      echo '<p>Con Mascota</p>';
+                      echo '<p><i class="fas fa-dog"></i> <b>Mascotas: </b>Con Mascotas</p>';
                     }else{
-                      echo '<p>No</p>';
+                      echo '<p><i class="fas fa-dog"></i> <b>Mascotas: </b>No</p>';
                     }
                 }
                 if($_SESSION['tipo_usuario'] == "Administrador"){

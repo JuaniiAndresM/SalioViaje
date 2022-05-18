@@ -138,7 +138,9 @@
                 if ($_SESSION['datos_usuario']['TIPO_USUARIO'] != "CHO") {
                   if (isset($_SESSION["usuario"])) {
                     echo '<button class="comprar-button" id="comprar_oportunidad" onclick="comprar_oportunidad_function('.$array_oportuidad[0]['ID'].')"><i class="fas fa-comments-dollar"></i> Comprar</button>'; 
-                  }else{echo 'Debes loguearte para comprar esta oportunidad';}
+                  }else{
+                    echo '<button class="comprar-button" id="comprar_oportunidad" onclick="location.href=\'https://www.salioviaje.com.uy/Login\'"><i class="fas fa-comments-dollar"></i> Comprar</button>'; 
+                  }
                 }
                ?>
             </div>
@@ -180,7 +182,7 @@
             </div>
             <div class="price_wrapper">
               <div class="discount">
-                <h3><?php echo $array_oportuidad[0]['DESCUENTO']; ?>% <i class="fas fa-tags"></i></h3>
+                <h3><?php echo $array_oportuidad[0]['DESCUENTO']; ?>% OFF <i class="fas fa-tags"></i></h3>
               </div>
               <div class="price">
                 <p class="desc">$ <?php echo number_format($array_oportuidad[0]['PRECIO']); ?></p>
