@@ -48,14 +48,14 @@ $mail->SMTPSecure = 'tls';
 $mail->Port = 587;
 
 /* 
--------- MAIL PASAJERO --------
+? -------- MAIL PASAJERO --------
 */
 
                             
 $mail->CharSet = 'UTF-8';
 $mail->From = 'promouruguay010@gmail.com'; //  Editar
 $mail->FromName = 'SalióViaje';  //  Editar
-$mail->addAddress($_SESSION['datos_usuario']['MAIL']);  //  Editar
+$mail->addAddress($datos_comprador[0]['EMAIL']);  //  Editar
 $mail->isHTML(true);
 $mail->Subject = "Oportunidad Aprobada - SalióViaje";
 $mail->Body    = '    <div class="mail" style="max-width: 600px; background: white;">
@@ -113,7 +113,7 @@ $mail->Body    = '    <div class="mail" style="max-width: 600px; background: whi
     }else{
                 
         /* 
-        -------- MAIL ADMINISTRADOR --------
+        ? -------- MAIL ADMINISTRADOR --------
         */
 
 
@@ -190,7 +190,7 @@ $mail->Body    = '    <div class="mail" style="max-width: 600px; background: whi
                         }else{
 
                             /* 
-                            -------- MAIL TRANSPORTISTA --------
+                            ? -------- MAIL TRANSPORTISTA --------
                             */
 
 
