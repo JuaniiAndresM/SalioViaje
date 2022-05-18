@@ -642,11 +642,6 @@ function registro_tramos_vinculados() {
     let id_tramo_vinculado_para_tramo_2 = sessionStorage.getItem("id_tramo_vinculado_para_tramo_2")
     let modalidad_viaje_vinculado_para_tramo_2 = sessionStorage.getItem("modalidad_viaje_vinculado_para_tramo_2")
 
-    console.log(id_tramo_vinculado_para_tramo_1)
-    console.log(modalidad_viaje_vinculado_para_tramo_1)
-    console.log(id_tramo_vinculado_para_tramo_2)
-    console.log(modalidad_viaje_vinculado_para_tramo_2)
-
     $.ajax({
         type: "POST",
         url: "/PHP/Backend.php",

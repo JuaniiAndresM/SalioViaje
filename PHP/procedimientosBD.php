@@ -481,6 +481,29 @@ class procedimientosBD
         return json_encode($oportunidades);
     }
 
+    public function traer_oportunidades_por_id_tta_seccion_facturacion($id)
+    {
+        // ORIGEN DESTINO FECHA HORA PASAJEROS MARCA Y MODELO DEL VEHICULO nombre de transportista
+        $oportunidades = array();
+        $conn = $this->conexion();
+        $query = "SELECT idViaje,Destino,Fecha,Modalidad,Precio FROM viajes where idTransportista = $id and visivilidad != 0 and Estado = 'Reconfirmado';";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($idOportunidad, $destino, $fecha, $modalidad, $precio);
+            while ($stmt->fetch()) {
+                $result = array('ID' => $idOportunidad, 'DESTINO' => $destino, 'FECHA' => $fecha, 'MODALIDAD' => $modalidad, 'PRECIO' => $precio);
+                $fecha = $result["FECHA"];
+                $timestamp = strtotime($fecha);
+                $newDate = date("d-m-Y H:i", $timestamp);
+                $result["FECHA"] = $newDate;
+                $oportunidades[] = $result;
+            }
+        }
+        $stmt->close();
+        return json_encode($oportunidades);
+    }
+
     public function traer_oportunidades_por_id($id)
     {
         $return = null;
