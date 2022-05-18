@@ -134,6 +134,15 @@
               </div>
             </div>
             <div class="oportunidad-buttons">
+              <div class="price_wrapper">
+                <div class="discount">
+                  <h3><?php echo $array_oportuidad[0]['DESCUENTO']; ?>% OFF <i class="fas fa-tags"></i></h3>
+                </div>
+                <div class="price">
+                  <p class="desc">$ <?php echo number_format($array_oportuidad[0]['PRECIO']); ?></p>
+                  <p>$ <?php echo number_format($PRECIO_CON_DESCUENTO_APLICADO); ?></p>
+                </div>
+              </div>
               <?php 
                 if ($_SESSION['datos_usuario']['TIPO_USUARIO'] != "CHO") {
                   if (isset($_SESSION["usuario"])) {
@@ -149,47 +158,14 @@
 
             <div class="oportunidad-info">
 
-              <div class="info">
-                <b><i class="far fa-address-card"></i> N° Viaje</b>
-                <p>#<?php echo $array_oportuidad[0]['ID']; ?></p>
-              </div>
-
-              <div class="info">
-                <b><i class="fas fa-map-marker-alt"></i> Origen</b>
-                <p><?php echo $array_oportuidad[0]['ORIGEN']; ?></p>
-              </div>
-
-              <div class="info">
-                <b><i class="fas fa-route"></i> Destino</b>
-                <p><?php echo $array_oportuidad[0]['DESTINO']; ?></p>
-              </div>
-
-              <div class="info">
-                <b><i class="far fa-calendar-alt"></i> Fecha</b>
-                <p><?php echo $fecha[0]; ?></p>
-              </div>
-
-              <div class="info">
-                <b><i class="far fa-clock"></i> Hora</b>
-                <p><?php echo $fecha[1]; ?></p>
-              </div>
-
-              <div class="info">
-                <b><i class="fas fa-user-friends"></i> Capacidad</b>
-                <p><?php echo $array_oportuidad[0]['CAPACIDAD_VEHICULO']; ?></p>
-              </div>
+              <p><i class="fas fa-address-card"></i> <b>N° de Viaje: </b><?php echo $array_oportuidad[0]['ID']; ?></p>
+              <p><i class="fas fa-location-dot"></i> <b>Origen: </b><?php echo $array_oportuidad[0]['ORIGEN']; ?></p>
+              <p><i class="fas fa-route"></i> <b>Destino: </b><?php echo $array_oportuidad[0]['DESTINO']; ?></p>
+              <p><i class="far fa-calendar-alt"></i> <b>Fecha: </b><?php echo $fecha[0]; ?></p>
+              <p><i class="far fa-clock"></i> <b>Hora: </b><?php echo $fecha[1]; ?></p>
+              <p><i class="fas fa-user-friends"></i> <b>Capacidad: </b><?php echo $array_oportuidad[0]['CAPACIDAD_VEHICULO']; ?></p>
 
             </div>
-            <div class="price_wrapper">
-              <div class="discount">
-                <h3><?php echo $array_oportuidad[0]['DESCUENTO']; ?>% OFF <i class="fas fa-tags"></i></h3>
-              </div>
-              <div class="price">
-                <p class="desc">$ <?php echo number_format($array_oportuidad[0]['PRECIO']); ?></p>
-                <p>$ <?php echo number_format($PRECIO_CON_DESCUENTO_APLICADO); ?></p>
-              </div>
-            </div>
-
           </div>
         </div>
     </section>

@@ -344,7 +344,7 @@ session_set_cookie_params($ttl);
                               </tbody>
                             </table>
                             <div class="empty-table" id="empty-viajes">
-                              <p><i class="fas fa-info-circle"></i> No hay viajes disponibles.</p>
+                              <p><i class="fas fa-info-circle"></i> No hay viajes pendientes.</p>
                             </div>
                           </div>
 
@@ -508,7 +508,7 @@ session_set_cookie_params($ttl);
                     </tbody>
                   </table>
                   <div class="empty-table" id="empty-viajes">
-                    <p><i class="fas fa-info-circle"></i> No hay viajes disponibles.</p>
+                    <p><i class="fas fa-info-circle"></i> No hay viajes pendientes.</p>
                   </div>
                 </div>
               </div>
@@ -716,7 +716,7 @@ session_set_cookie_params($ttl);
                           <div class="usuarios-info">
                             <h2><i class="fas fa-bus"></i> Mis Viajes</h2>
                             <div class="button-wrapper">
-                              <a href="Agendar" class="add"><i class="fas fa-plus"></i></a>
+                              <a href="https://www.salioviaje.com.uy/Viajar/?opcion=5" class="add"><i class="fas fa-plus"></i></a>
                               <a href="Viajes"><i class="fas fa-list-ul"></i></a>
                             </div>
                           </div>
@@ -736,7 +736,7 @@ session_set_cookie_params($ttl);
                             <tbody id="tbody-viajes-dashboard"></tbody>
                           </table>
                           <div class="empty-table" id="empty-viajes">
-                              <p><i class="fas fa-info-circle"></i> No hay viajes disponibles.</p>
+                              <p><i class="fas fa-info-circle"></i> No hay viajes pendientes.</p>
                           </div>
                         </div>
 

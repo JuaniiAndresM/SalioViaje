@@ -1,6 +1,5 @@
 .oportunidad-detalles-wrapper{
     width: 100%;
-    min-height: calc(100vh - 80px);
     margin-top: 80px;
 
     .oportunidad{
@@ -57,7 +56,34 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                flex-direction: column;
+                flex-wrap: wrap;
+
+                .price_wrapper{
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                    margin-right: 20px;
+    
+                    .discount{
+                        h3{
+                            color: $main_1;
+                            font-size: 2.2em;
+                            margin-right: 10px;
+                        }
+                    }
+                    .price{
+                        margin: 20px 0;
+                        .desc{
+                            color: #ff5353;
+                            text-decoration-line: line-through;
+                        }
+                        p{
+                            color: #329e3b;
+                            font-size: 1.2em ;
+                        }  
+                    }
+                }
+
                 button{
                      @include button();
                      width: 150px;
@@ -70,56 +96,41 @@
             }
         }
         .oportunidad-content{
+            margin: 40px 0;
             .oportunidad-info{
                 width: 100%;
                 margin: 20px auto;
+                margin-top: 10px;
+                color: $main_1;
 
-                .info{
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-
-                    border-bottom: 1px solid #aaa;
-
-                    height: 40px;
-                    margin-top: 20px;
-                    b{
-                        font-size: 1.1em;
-                        color: $main_1;
-                        i{
-                            margin-right: 5px;
-                        }
-                    }
-                    p{
-                        color: #555;
-                    }
+                h1{
+                    margin-bottom: 20px;
                 }
-            }
-            .price_wrapper{
-                display: flex;
-                justify-content: flex-end;
-                align-items: center;
-
-                .discount{
-                    h3{
-                        color: $main_1;
-                        font-size: 2.2em;
-                        margin-right: 10px;
-                    }
-                }
-                .price{
+                h2, h3{
                     margin: 20px 0;
-                    .desc{
-                        color: #ff5353;
-                        text-decoration-line: line-through;
+                    color: $main_1;
+                }
+                h2{
+                    margin: 30px 0;
+                    margin-top: 50px;
+                }
+                h2:nth-child(1){
+                    margin-top: 0;
+                }
+                h3{
+                    margin-bottom: 10px;
+                }
+
+                p{
+                    font-size: 17px;
+                    margin: 10px 0;
+                    color: $main_1;
+                    b{
+                        color: #444;
+                        margin-right: 5px;
                     }
-                    p{
-                        color: #329e3b;
-                        font-size: 1.2em ;
-                    }  
                 }
             }
-            
         }
         
     }

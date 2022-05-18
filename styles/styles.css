@@ -14008,7 +14008,6 @@ footer .totum p a:hover {
 
 .oportunidad-detalles-wrapper {
   width: 100%;
-  min-height: calc(100vh - 80px);
   margin-top: 80px;
 }
 
@@ -14086,10 +14085,42 @@ footer .totum p a:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.oportunidad-detalles-wrapper .oportunidad .oportunidad-header .oportunidad-buttons .price_wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 20px;
+}
+
+.oportunidad-detalles-wrapper .oportunidad .oportunidad-header .oportunidad-buttons .price_wrapper .discount h3 {
+  color: #3844bc;
+  font-size: 2.2em;
+  margin-right: 10px;
+}
+
+.oportunidad-detalles-wrapper .oportunidad .oportunidad-header .oportunidad-buttons .price_wrapper .price {
+  margin: 20px 0;
+}
+
+.oportunidad-detalles-wrapper .oportunidad .oportunidad-header .oportunidad-buttons .price_wrapper .price .desc {
+  color: #ff5353;
+  -webkit-text-decoration-line: line-through;
+          text-decoration-line: line-through;
+}
+
+.oportunidad-detalles-wrapper .oportunidad .oportunidad-header .oportunidad-buttons .price_wrapper .price p {
+  color: #329e3b;
+  font-size: 1.2em;
 }
 
 .oportunidad-detalles-wrapper .oportunidad .oportunidad-header .oportunidad-buttons button {
@@ -14117,70 +14148,48 @@ footer .totum p a:hover {
           transform: scale(1.1);
 }
 
+.oportunidad-detalles-wrapper .oportunidad .oportunidad-content {
+  margin: 40px 0;
+}
+
 .oportunidad-detalles-wrapper .oportunidad .oportunidad-content .oportunidad-info {
   width: 100%;
   margin: 20px auto;
-}
-
-.oportunidad-detalles-wrapper .oportunidad .oportunidad-content .oportunidad-info .info {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border-bottom: 1px solid #aaa;
-  height: 40px;
-  margin-top: 20px;
-}
-
-.oportunidad-detalles-wrapper .oportunidad .oportunidad-content .oportunidad-info .info b {
-  font-size: 1.1em;
+  margin-top: 10px;
   color: #3844bc;
 }
 
-.oportunidad-detalles-wrapper .oportunidad .oportunidad-content .oportunidad-info .info b i {
-  margin-right: 5px;
+.oportunidad-detalles-wrapper .oportunidad .oportunidad-content .oportunidad-info h1 {
+  margin-bottom: 20px;
 }
 
-.oportunidad-detalles-wrapper .oportunidad .oportunidad-content .oportunidad-info .info p {
-  color: #555;
-}
-
-.oportunidad-detalles-wrapper .oportunidad .oportunidad-content .price_wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.oportunidad-detalles-wrapper .oportunidad .oportunidad-content .price_wrapper .discount h3 {
-  color: #3844bc;
-  font-size: 2.2em;
-  margin-right: 10px;
-}
-
-.oportunidad-detalles-wrapper .oportunidad .oportunidad-content .price_wrapper .price {
+.oportunidad-detalles-wrapper .oportunidad .oportunidad-content .oportunidad-info h2, .oportunidad-detalles-wrapper .oportunidad .oportunidad-content .oportunidad-info h3 {
   margin: 20px 0;
+  color: #3844bc;
 }
 
-.oportunidad-detalles-wrapper .oportunidad .oportunidad-content .price_wrapper .price .desc {
-  color: #ff5353;
-  -webkit-text-decoration-line: line-through;
-          text-decoration-line: line-through;
+.oportunidad-detalles-wrapper .oportunidad .oportunidad-content .oportunidad-info h2 {
+  margin: 30px 0;
+  margin-top: 50px;
 }
 
-.oportunidad-detalles-wrapper .oportunidad .oportunidad-content .price_wrapper .price p {
-  color: #329e3b;
-  font-size: 1.2em;
+.oportunidad-detalles-wrapper .oportunidad .oportunidad-content .oportunidad-info h2:nth-child(1) {
+  margin-top: 0;
+}
+
+.oportunidad-detalles-wrapper .oportunidad .oportunidad-content .oportunidad-info h3 {
+  margin-bottom: 10px;
+}
+
+.oportunidad-detalles-wrapper .oportunidad .oportunidad-content .oportunidad-info p {
+  font-size: 17px;
+  margin: 10px 0;
+  color: #3844bc;
+}
+
+.oportunidad-detalles-wrapper .oportunidad .oportunidad-content .oportunidad-info p b {
+  color: #444;
+  margin-right: 5px;
 }
 
 @media screen and (max-width: 618px) {
