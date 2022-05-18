@@ -64,6 +64,7 @@ function comprar_oportunidad_function(id){
                 response = JSON.parse(response);
                 send.realizarLlamada("tpc_notificacion_opciones","2022-02-07T15:00:00+03:00",id_llamada,response['TELEFONO'],response['NOMBRE'],"Su oportunidad numero "+id+" fue comprada. Presione 1 para aceptar, 3 para rechazar",id);
                 send.enviarSMS(response['TELEFONO'],"2022-02-04T15:00:00+03:00",mensaje,id_llamada);
+                // toDo: Mandar mail a TTA con botones para aceptar y rechazar;
             }
         });
 }
@@ -121,7 +122,7 @@ function oportunidad_rechazada(id){
             let mail_tta = $.ajax({
                         type: 'POST',     
                         url: "/PHP/comprar_oportunidad.php",
-                        data: { ID:id },
+                        data: { opcion:1,ID:id },
                         global: false,
                         async:false,
                         success: function(response) {
@@ -134,7 +135,7 @@ function oportunidad_rechazada(id){
             url: "/Mail/mail-Oportunidades-Rechazado.php",
             data: { mail_tta:JSON.parse(mail_tta)['MAIL'], id_viaje: id },
             success: function (response) {
-                console.log(response)
+                console.log(response);
                 cambiar_estado_oportunidad('Cancelado',id)
             }
         });

@@ -103,8 +103,6 @@ session_set_cookie_params($ttl);
     
   </head>
   <body>
-    <div id="header"></div>
-
     <div id="pre-loader">
       <div class="lds-ellipsis">
         <div></div>
@@ -113,13 +111,6 @@ session_set_cookie_params($ttl);
         <div></div>
       </div>
     </div>
-
-    <a href="https://www.salioviaje.com.uy/FAQ" target="_BLANK" id="faq-float">
-      <i class="fas fa-question"></i>
-    </a>
-    <a href="https://wa.link/mmdp0q" target="_BLANK" id="whatsapp-float">
-      <img src="https://www.salioviaje.com.uy/media/images/whatsapp.png" alt="">
-    </a>
 
     <section class="espera-wrapper">
       <div class="espera">
@@ -206,7 +197,5 @@ session_set_cookie_params($ttl);
         </div>
       </div>
     </section>
-
-    <div id="footer"></div>
   </body>
 </html>

@@ -42,7 +42,7 @@ for ($i = 0; $i < count($oportunidades); $i++) {
                   </td>
             </tr>
             ';
-        } else {
+        } else if($oportunidades[$i]['MODALIDAD'] == "Oportunidad"){
             $oportunidades_dashboard = '
             <tr>
                 <td data-title="ID">' . $oportunidades[$i]['ID'] . '</td>

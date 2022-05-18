@@ -544,6 +544,7 @@ function finalizar() {
     if (datos_etapa_2_tramo_2['TIPO'] == 1) { tipos_tramo['TIPO_TRAMO_2'] = 1 } else if (datos_etapa_2_tramo_2['TIPO'] == 2) { tipos_tramo['TIPO_TRAMO_2'] = 2 }
 
     for (const property in tipos_tramo) {
+        
         switch (property) {
             case "TIPO_TRAMO_1":
                 console.log(tipos_tramo['TIPO_TRAMO_1'])
@@ -624,24 +625,34 @@ function finalizar() {
     }
 
     /*
-        registro los tramos vinculados 
+    registro los tramos vinculados 
     */
-
-    
-
-    setTimeout(function () {
-        registro_tramos_vinculados()
-        window.location = "https://www.salioviaje.com.uy/Panel/Success_Agenda";
+   
+   
+   
+   
+   setTimeout(function () {
+       registro_tramos_vinculados()
+       window.location = "https://www.salioviaje.com.uy/Panel/Success_Agenda";
     }, 1000);
 }
-
 
 function registro_tramos_vinculados() {
     let id_tramo_vinculado_para_tramo_1 = sessionStorage.getItem("id_tramo_vinculado_para_tramo_1")
     let modalidad_viaje_vinculado_para_tramo_1 = sessionStorage.getItem("modalidad_viaje_vinculado_para_tramo_1")
     let id_tramo_vinculado_para_tramo_2 = sessionStorage.getItem("id_tramo_vinculado_para_tramo_2")
     let modalidad_viaje_vinculado_para_tramo_2 = sessionStorage.getItem("modalidad_viaje_vinculado_para_tramo_2")
-
+    
+    sessionStorage.removeItem("id_tramo_vinculado_para_tramo_1")
+    sessionStorage.removeItem("modalidad_viaje_vinculado_para_tramo_1")
+    sessionStorage.removeItem("id_tramo_vinculado_para_tramo_2")
+    sessionStorage.removeItem("modalidad_viaje_vinculado_para_tramo_2")
+    
+    // console.log(id_tramo_vinculado_para_tramo_1)
+    // console.log(modalidad_viaje_vinculado_para_tramo_1)
+    // console.log(id_tramo_vinculado_para_tramo_2)
+    // console.log(modalidad_viaje_vinculado_para_tramo_2)
+    
     $.ajax({
         type: "POST",
         url: "/PHP/Backend.php",
@@ -650,6 +661,7 @@ function registro_tramos_vinculados() {
             console.log(response)
         },
     });
+    
 }
 /*-------------------------------------------------------------------------------------------*/
 //                                          Validacion                                       //
@@ -770,7 +782,7 @@ function marcar_errores(resultado_validacion, TRAMO) {
 
                 break;
         }
-
+        
     }
 }
 

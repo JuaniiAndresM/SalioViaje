@@ -78,8 +78,13 @@ function suscripcion(){
 }
 
 function comprar_oportunidad(id){
-    window.open('/Espera/' + id, '_blank');
+    abrir_ventana(id);
     comprar_oportunidad_function(id)
+}
+
+function abrir_ventana(id) { 
+    var features = 'directories=no,menubar=no,status=no,titlebar=no,toolbar=no,width=550,height=700';
+    var mypopup = window.open('https://www.salioviaje.com.uy/Espera/' + id, 'mypopup', features);
 }
 
 function detalles_oportunidad(id){

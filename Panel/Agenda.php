@@ -186,7 +186,7 @@ session_set_cookie_params($ttl);
                   <th>Origen <i class="fas fa-angle-down"></i></th>
                   <th>Destino <i class="fas fa-angle-down"></i></th>
                   <th>Distancia <i class="fas fa-angle-down"></i></th>
-                  <th>Capacidad <i class="fas fa-angle-down"></i></th>
+                  <th>Pasajeros <i class="fas fa-angle-down"></i></th>
                   <th>Precio <i class="fas fa-angle-down"></i></th>
                   <th>Descuento <i class="fas fa-angle-down"></i></th>
                   <th>Estado <i class="fas fa-angle-down"></i></th>

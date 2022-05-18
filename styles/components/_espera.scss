@@ -1,7 +1,6 @@
 .espera-wrapper{
     width: 100%;
-    height: calc(100vh - 80px);
-    margin-top: 80px;
+    height: 100vh;
 
     display: flex;
     justify-content: center;
@@ -10,7 +9,6 @@
     .espera{
         max-width: 500px;
         width: 100%;
-        box-shadow: 10px 0 20px 0 rgba($color: #000000, $alpha: .3);
 
         border-radius: 1.2em;
         margin: 10px;
