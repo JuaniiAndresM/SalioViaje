@@ -9312,8 +9312,17 @@ footer .totum p a:hover {
   }
 }
 
+@media screen and (max-width: 630px) {
+  .Cotizaciones-section h2 {
+    font-size: 1.9em;
+  }
+  .Cotizaciones-section p {
+    font-size: 14px;
+  }
+}
+
 .viajar-wrapper {
-  margin-top: 120px;
+  margin-top: 85px;
 }
 
 .viajar-wrapper .oportunidades-viajar,
@@ -9340,12 +9349,6 @@ footer .totum p a:hover {
   width: 100px;
   border: 1px solid #3844bc;
   margin: 10px auto;
-}
-
-.viajar-wrapper .oportunidades-viajar p,
-.viajar-wrapper .ofertas-viajar p,
-.viajar-wrapper .salioviaje p {
-  margin-bottom: 40px;
 }
 
 .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper,
@@ -10140,6 +10143,7 @@ footer .totum p a:hover {
 }
 
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje {
+  margin-top: 15px;
   max-width: 600px;
   width: 100%;
 }
@@ -11160,6 +11164,16 @@ footer .totum p a:hover {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
     gap: 0;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .viajar-wrapper .oportunidades-viajar h2, .viajar-wrapper .ofertas-viajar h2, .viajar-wrapper .salioviaje h2 {
+    font-size: 1.9em;
+    margin: 0 10px;
+  }
+  .viajar-wrapper .oportunidades-viajar p, .viajar-wrapper .ofertas-viajar p, .viajar-wrapper .salioviaje p {
+    font-size: 14px;
   }
 }
 

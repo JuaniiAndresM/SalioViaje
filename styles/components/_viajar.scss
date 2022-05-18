@@ -1,5 +1,5 @@
 .viajar-wrapper {
-  margin-top: 120px;
+  margin-top: 85px;
   .oportunidades-viajar,
   .ofertas-viajar,
   .salioviaje {
@@ -21,10 +21,6 @@
       width: 100px;
       border: 1px solid $main_1;
       margin: 10px auto;
-    }
-
-    p {
-      margin-bottom: 40px;
     }
 
     .oportunidades-wrapper,
@@ -340,6 +336,7 @@
       flex-direction: column;
 
       .formulario-viaje {
+        margin-top: 15px;
         max-width: 600px;
         width: 100%;
 
@@ -774,6 +771,21 @@
       }
     }
   }
+}
+
+@media screen and(max-width: 630px) {
+  .viajar-wrapper{
+    .oportunidades-viajar, .ofertas-viajar, .salioviaje{
+      h2{
+        font-size: 1.9em;
+        margin: 0 10px;
+      }
+      p{
+        font-size: 14px;
+      }
+    }
+    
+  }   
 }
 
 @keyframes spinner{
