@@ -1048,8 +1048,8 @@ header .header-wrapper {
 }
 
 header .header-wrapper .header-logo {
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
 }
 
 header .header-wrapper .header-right {
@@ -1078,7 +1078,7 @@ header .header-wrapper .header-right .header-links .links a {
   margin-left: 2.0em;
   text-decoration: none;
   color: #3844bc;
-  font-size: 1.1em;
+  font-size: 1em;
 }
 
 header .header-wrapper .header-right .header-links .links a:hover {
@@ -1130,8 +1130,8 @@ header .header-wrapper .header-right .header-links .session .close-session {
 }
 
 header .header-wrapper .header-right .header-links .session .close-session button {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1152,7 +1152,7 @@ header .header-wrapper .header-right .header-links .session .close-session butto
 }
 
 header .header-wrapper .header-right .header-links .session .close-session button i {
-  font-size: 1.2em;
+  font-size: 1em;
 }
 
 header .header-wrapper .header-right .header-links .session .close-session button:hover {
