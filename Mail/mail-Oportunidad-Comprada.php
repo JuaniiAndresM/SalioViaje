@@ -6,6 +6,7 @@ use PHPMailer\PHPMailer\Exception;
 require '../Plugins/PHPMailer/src/Exception.php';
 require '../Plugins/PHPMailer/src/PHPMailer.php';
 require '../Plugins/PHPMailer/src/SMTP.php';
+require_once '../PHP/procedimientosBD.php';
 
 /*------------------------------------------------------------------------------------------*/
 // ? Importar Variables (Opcional)
@@ -15,16 +16,18 @@ $bd = new procedimientosBD();
 
 $id = $_POST['id_viaje'];
 
+session_start();
+
 
 $datos_oportunidad = $bd->traer_oportunidades_por_id($id);
 
-$datos_comprador =  $bd->info_usuario_profile($datos_oportunidad[0]['ID_COMPRADOR']);
+$datos_comprador =  $bd->info_usuario_profile($_SESSION['datos_usuario']['ID']);
 $datos_transportista =  $bd->info_usuario_profile($datos_oportunidad[0]['ID_TRANSPORTISTA']);
 
-$fecha = explode(' ', $array_oportuidad[0]['FECHA']);
+$fecha = explode(' ', $datos_oportunidad[0]['FECHA']);
 
-$descuento = $array_oportuidad[0]['DESCUENTO']/100;
-$PRECIO_CON_DESCUENTO_APLICADO =  round($array_oportuidad[0]['PRECIO'] - $array_oportuidad[0]['PRECIO'] * $descuento);
+$descuento = $datos_oportunidad[0]['DESCUENTO']/100;
+$PRECIO_CON_DESCUENTO_APLICADO =  round($datos_oportunidad[0]['PRECIO'] - $datos_oportunidad[0]['PRECIO'] * $descuento);
 
 //
 /*------------------------------------------------------------------------------------------*/
@@ -83,27 +86,27 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                                 <td>
                                     <div class="mail-content" style="width: 500px; margin: 20px auto; background: #fff; font-family: Montserrat; color: #3844bc;">
                                         <h1 style="font-size: 20px;">Información de la Oportunidad</h1>
-                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">ID Oportunidad: #</b>'.$datos_oportunidad[0]['ID'].'</p>
+                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">ID Oportunidad: </b>#'.$datos_oportunidad[0]['ID'].'</p>
                                         <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Origen: </b>'.$datos_oportunidad[0]['ORIGEN'].'</p>
                                         <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Destino: </b>'.$datos_oportunidad[0]['DESTINO'].'</p>
                                         <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Fecha: </b>'.$fecha[0].'</p>
                                         <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Hora: </b>'.$fecha[1].'</p>
                                         <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Capacidad: </b>'.$datos_oportunidad[0]['CAPACIDAD_VEHICULO'].'</p>
                                         <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Matrícula: </b>'.$datos_oportunidad[0]['MATRICULA'].'</p>
-                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Precio ('.$datos_oportunidad[0]['DESCUENTO'].'% OFF): </b> <span style="color: #ff635a; text-decoration: line-through; margin-right: 5px;">$'.number_format($array_oportuidad[0]['PRECIO']).'</span><span style="color: #4db979;">$'.number_format($PRECIO_CON_DESCUENTO_APLICADO).'</span></p>
+                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Precio ('.$datos_oportunidad[0]['DESCUENTO'].'% OFF): </b> <span style="color: #ff635a; text-decoration: line-through; margin-right: 5px;">$'.number_format($datos_oportunidad[0]['PRECIO']).'</span><span style="color: #4db979;">$'.number_format($PRECIO_CON_DESCUENTO_APLICADO).'</span></p>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <div style="margin: 20px 0; margin-bottom: 30px; text-align: center;">
-                                        <a href="https://www.salioviaje.com.uy/Solicitud/'.$datos_oportunidad[0]['ID'].'A" target="_blank" style="padding: 15px 20px; background-color: #4db979; color: #ffffff; text-decoration: none;
-                                        font-family: Montserrat; font-size: 15px; border-radius: 10px; margin: 0 50px;">
+                                    <div style="width: 500px; margin: 20px 0; margin-bottom: 30px; text-align: center;">
+                                        <a href="https://www.salioviaje.com.uy/Solicitud/'.$datos_oportunidad[0]['ID'].'A" target="_blank" style="padding: 12px 18px; background-color: #4db979; color: #ffffff; text-decoration: none;
+                                        font-family: Montserrat; font-size: 15px; border-radius: 10px; margin: 0 20px;">
                                             Confirmar
                                         </a>
 
-                                        <a href="https://www.salioviaje.com.uy/Solicitud/'.$datos_oportunidad[0]['ID'].'R" target="_blank" style="padding: 15px 20px; background-color: #ff635a; color: #ffffff; text-decoration: none;
-                                        font-family: Montserrat; font-size: 15px; border-radius: 10px; margin: 0 50px;">
+                                        <a href="https://www.salioviaje.com.uy/Solicitud/'.$datos_oportunidad[0]['ID'].'R" target="_blank" style="padding: 12px 28px; background-color: #ff635a; color: #ffffff; text-decoration: none;
+                                        font-family: Montserrat; font-size: 15px; border-radius: 10px; margin: 0 20px;">
                                             Rechazar
                                         </a>
                                     </div>
@@ -165,13 +168,13 @@ if(!$mail->send()){
                                 <td>
                                     <div class="mail-content" style="width: 500px; margin: 20px auto; background: #fff; font-family: Montserrat; color: #3844bc;">
                                         <h1 style="font-size: 20px;">Información de la Oportunidad</h1>
-                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">ID Oportunidad: #</b>'.$datos_oportunidad[0]['ID'].'</p>
+                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">ID Oportunidad: </b>#'.$datos_oportunidad[0]['ID'].'</p>
                                         <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Origen: </b>'.$datos_oportunidad[0]['ORIGEN'].'</p>
                                         <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Destino: </b>'.$datos_oportunidad[0]['DESTINO'].'</p>
                                         <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Fecha: </b>'.$fecha[0].'</p>
                                         <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Hora: </b>'.$fecha[1].'</p>
                                         <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Capacidad: </b>'.$datos_oportunidad[0]['CAPACIDAD_VEHICULO'].'</p>
-                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Precio ('.$datos_oportunidad[0]['DESCUENTO'].'% OFF): </b> <span style="color: #ff635a; text-decoration: line-through; margin-right: 5px;">$'.number_format($array_oportuidad[0]['PRECIO']).'</span><span style="color: #4db979;">$'.number_format($PRECIO_CON_DESCUENTO_APLICADO).'</span></p>
+                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Precio ('.$datos_oportunidad[0]['DESCUENTO'].'% OFF): </b> <span style="color: #ff635a; text-decoration: line-through; margin-right: 5px;">$'.number_format($datos_oportunidad[0]['PRECIO']).'</span><span style="color: #4db979;">$'.number_format($PRECIO_CON_DESCUENTO_APLICADO).'</span></p>
                                     </div>
                                 </td>
                             </tr>
