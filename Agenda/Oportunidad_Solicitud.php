@@ -29,7 +29,7 @@ if($array_oportuidad[0]['ID_TRANSPORTISTA'] != $_SESSION['datos_usuario']['ID'])
   header('Location: https://www.salioviaje.com.uy/');
 }
 */
-if($array_oportuidad[0]['ESTADO'] != "En venta"){
+if($array_oportuidad[0]['ESTADO'] != "Comprada"){
   $expired = 1;
 }
 
