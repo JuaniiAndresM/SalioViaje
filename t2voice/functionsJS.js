@@ -146,7 +146,7 @@ function oportunidad_rechazada(id){
 function mail_aprobar_rechazar(id) {
     $.ajax({
         type: "POST",
-        url: "",
+        url: "/Mail/mail-Oportunidad-Comprada.php",
         data: { id_viaje: id },
         success: function (response) {
             console.log(response);
