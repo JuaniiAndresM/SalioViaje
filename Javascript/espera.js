@@ -1,5 +1,13 @@
 $(document).ready(function () {
     steps(1);
+    $.ajax({
+        type: "POST",
+        url: "/PHP/procedimientosForm.php",
+        data: {tipo:"cambiarIdComprador",id_oportunidad:$("#id_oportunidad").val()},
+        success: function (response) {
+            console.log(response)
+        }
+    });
     setTimeout(() => {
         steps(2);
     }, 2000);
@@ -76,6 +84,7 @@ function esperandoAprobacion(id_oportunidad){
             
             if (response[0]['ESTADO'] == 'Reconfirmado') { 
                 steps(3);
+                cambiar_estado_oportunidad("Reconfirmado",id_oportunidad)
                 oportunidad_aprobada(id_oportunidad);
                 clearInterval(esperar_aprobacion);
 
@@ -84,6 +93,7 @@ function esperandoAprobacion(id_oportunidad){
             }
             else if (response[0]['ESTADO'] == 'Cancelado') { 
                 steps(4);
+                cambiar_estado_oportunidad("Cancelado",id_oportunidad)
                 oportunidad_rechazada(id_oportunidad);
                 clearInterval(esperar_aprobacion);
             }

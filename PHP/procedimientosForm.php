@@ -195,6 +195,9 @@ if ($_POST['tipo'] == 1) {
         case 'traer_id_cotizaciones':
             echo $procedimientosForm->traer_id_viajes_cotizando();
         break;
+        case 'cambiarIdComprador':
+            echo $procedimientosForm->cambiarIdComprador($_POST['id_oportunidad']);
+        break;
     }
 
 }

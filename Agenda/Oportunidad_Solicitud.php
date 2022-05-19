@@ -1,5 +1,6 @@
 <?php 
 
+/*
 $ttl = (60 * 60 * 24); # 1 día
 session_set_cookie_params($ttl);
 session_start();
@@ -12,6 +13,7 @@ if(!isset($_SESSION['usuario'])){
     header('Location: https://www.salioviaje.com.uy/');
   }
 }
+*/
 
 $ID = $_GET['ID'];
 $ID = substr($ID, 0, -1);
@@ -22,10 +24,11 @@ $datos = new procedimientosBD();
 $array_oportuidad = $datos->traer_oportunidades_por_id($ID);
 $expired = 0;
 
+/*
 if($array_oportuidad[0]['ID_TRANSPORTISTA'] != $_SESSION['datos_usuario']['ID']){
   header('Location: https://www.salioviaje.com.uy/');
 }
-
+*/
 if($array_oportuidad[0]['ESTADO'] != "En venta"){
   $expired = 1;
 }
