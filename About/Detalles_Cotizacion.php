@@ -183,7 +183,6 @@
           <div class="cotizacion-content">
 
             <div class="cotizacion-info">
-              <h2><i class="fas fa-info-circle"></i> Información:</h2>
               <?php
               echo '<p><i class="fas fa-address-card"></i> <b>N° de Viaje: </b>'.$cotizaciones[0]['ID'].'</p>
                     <p><i class="fas fa-list-ol"></i> <b>Tipo de Viaje: </b>'.$TIPO_VIAJE.'</p>';

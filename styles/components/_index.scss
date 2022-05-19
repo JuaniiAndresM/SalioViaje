@@ -30,7 +30,7 @@ $contraste_2: #ffffff;
   max-height: 700px;
 
   background-color: #fff;
-  margin-top: 10px;
+  margin-top: 80px;
 
   display: grid;
 
@@ -826,6 +826,7 @@ $contraste_2: #ffffff;
   .oportunidades {
     .oportunidades-wrapper {
       .oportunidades-list {
+        max-height: 600px;
         .oportunidad {
           flex-direction: column;
           width: calc(100% - 20px);

@@ -653,8 +653,10 @@ function steps(step) {
         case 2:
             paradas_div.scrollIntoView();
 
-            if ($(".session-input").val() != "" && $(".session-input").val() != "5") {
-                viaje = $(".session-input").val();
+            if ($(".session-input").val() != "" && $(".session-input").val() != null) {
+                if($(".session-input").val() != "5"){
+                    viaje = $(".session-input").val();
+                }                
             } else {
                 viaje = $("#select_users").val();
                 console.log(viaje);
@@ -745,11 +747,11 @@ function nueva_cotizacion() {
     steps(step);
 }
 
-function select_usuario() {
+function select_usuario(tipo) {
 
     console.log("Opción: " + $("#select_users").val());
 
-    if ($(".session-input").val() != "" && $(".session-input").val() != 5) {
+    if ($(".session-input").val() != "" && $(".session-input").val() != 5 && tipo != 1) {
         console.log("---------");
         let opcion_input = $(".session-input").val();
         $("#select_users").val(opcion_input);
