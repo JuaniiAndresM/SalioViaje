@@ -8,7 +8,7 @@ require '../Plugins/PHPMailer/src/PHPMailer.php';
 require '../Plugins/PHPMailer/src/SMTP.php';
 
 /*------------------------------------------------------------------------------------------*/
-// Importar Variables (Opcional)
+// ? Importar Variables (Opcional)
 //
 
 $bd = new procedimientosBD();
