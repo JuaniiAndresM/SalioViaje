@@ -6,7 +6,7 @@ class validaciones
 {
     private $PATTERN_NOMBRES = "/[^0-9\.\,\"\?\!\;\:\#\$\%\&\(\)\*\+\-\/\<\>\=\@\[\]\\\^\_\{\}\|\~]+/";
     private $PATTERN_CI = "/^[0-9]{7,8}$/i";
-    private $PATTERN_MAIL = "/.+@[a-z]{4,5}.+\.[?=com]\w.+/i";
+    private $PATTERN_MAIL = "/.+@[a-z]{3,5}.+\.[?=com]\w.+/i";
     private $PATTERN_DIRECCION = "/[^\.\,\"\?\!\;\:\#\$\%\&\(\)\*\+\-\/\<\>\=\@\[\]\\\^\_\{\}\|\~]+/i";
     private $PATTERN_TELEFONO = "/^(?=09[\d]){3}[0-9]{9}$/i";
     private $PATTERN_PIN = "/[0-9]{4}/i";
