@@ -1,5 +1,11 @@
 <?php 
-session_start(); 
+$ttl = (60 * 60 * 24); # 1 día
+session_set_cookie_params($ttl);
+session_start();
+
+require_once 'PHP/procedimientosBD.php';
+$regiones_mtop = new procedimientosBD();
+$barrios = json_decode($regiones_mtop->traer_barrios(), true);
 ?>
 
 <!DOCTYPE html>
@@ -111,7 +117,7 @@ session_start();
         alt=""
       />
     </a>
-    
+
     <section class="landing">
       <div class="landing-wrapper-grid">
         <div class="landing-left">
@@ -393,7 +399,7 @@ session_start();
     </div>
 
     <section class="viajar-wrapper-index">
-      <div class="salioviaje">
+      <div class="salioviaje" id="Cotizacion">
           <h2>
             Solicitar una Cotización
           </h2>
@@ -430,7 +436,7 @@ session_start();
       
                 <div class="input">
                   <i class="fas fa-suitcase-rolling" id="icon"></i>
-                  <select name="" id="select_users" onchange="select_usuario()">
+                  <select name="" id="select_users" onchange="select_usuario(1)">
                     <option value="0" selected disabled hidden >Tipo de Viaje</option>
                     <option value="1">Traslado</option>
                     <option value="2">Tour o Servicio por Horas.</option>

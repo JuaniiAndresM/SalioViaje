@@ -968,6 +968,9 @@
 }
 
 @media screen and (max-width: 842px) {
+  .oportunidades .oportunidades-wrapper .oportunidades-list {
+    max-height: 600px;
+  }
   .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -8883,7 +8886,7 @@ footer .totum p a:hover {
 
 .Cotizaciones-section {
   margin: 20px auto;
-  margin-top: 100px;
+  margin-top: 80px;
   margin-bottom: 20px;
   padding: 0 20px;
   max-width: 1300px;
@@ -9097,7 +9100,6 @@ footer .totum p a:hover {
   width: 100%;
   height: 400px;
   display: block;
-  margin-top: 10px;
   max-height: 350px;
   overflow: hidden;
   overflow-y: auto;
@@ -9256,6 +9258,10 @@ footer .totum p a:hover {
 }
 
 @media screen and (max-width: 877px) {
+  .Cotizaciones-section .Cotizaciones-wrapper .Cotizaciones-list {
+    height: auto;
+    max-height: 700px;
+  }
   .Cotizaciones-section .Cotizaciones-wrapper .Cotizaciones-list .Cotizaciones {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -9332,7 +9338,6 @@ footer .totum p a:hover {
 .viajar-wrapper-index .salioviaje {
   margin: 20px auto;
   margin-bottom: 40px;
-  padding: 0 20px;
   max-width: 1300px;
   width: 100%;
   text-align: center;
@@ -12045,6 +12050,9 @@ footer .totum p a:hover {
 }
 
 @media screen and (max-width: 862px) {
+  .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list {
+    max-height: 600px;
+  }
   .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .oportunidad {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -12084,7 +12092,13 @@ footer .totum p a:hover {
   .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .formulario-grid,
   .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .formulario-grid,
   .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .formulario-grid,
-  .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .formulario-grid {
+  .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .formulario-grid, .viajar-wrapper-index .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .formulario-grid,
+  .viajar-wrapper-index .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .formulario-grid,
+  .viajar-wrapper-index .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .formulario-grid,
+  .viajar-wrapper-index .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .formulario-grid,
+  .viajar-wrapper-index .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .formulario-grid,
+  .viajar-wrapper-index .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .formulario-grid,
+  .viajar-wrapper-index .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .formulario-grid {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
     gap: 0;
@@ -12092,11 +12106,11 @@ footer .totum p a:hover {
 }
 
 @media screen and (max-width: 630px) {
-  .viajar-wrapper .oportunidades-viajar h2, .viajar-wrapper .ofertas-viajar h2, .viajar-wrapper .salioviaje h2 {
+  .viajar-wrapper .oportunidades-viajar h2, .viajar-wrapper .ofertas-viajar h2, .viajar-wrapper .salioviaje h2, .viajar-wrapper-index .oportunidades-viajar h2, .viajar-wrapper-index .ofertas-viajar h2, .viajar-wrapper-index .salioviaje h2 {
     font-size: 1.9em;
     margin: 0 10px;
   }
-  .viajar-wrapper .oportunidades-viajar p, .viajar-wrapper .ofertas-viajar p, .viajar-wrapper .salioviaje p {
+  .viajar-wrapper .oportunidades-viajar p, .viajar-wrapper .ofertas-viajar p, .viajar-wrapper .salioviaje p, .viajar-wrapper-index .oportunidades-viajar p, .viajar-wrapper-index .ofertas-viajar p, .viajar-wrapper-index .salioviaje p {
     font-size: 14px;
   }
 }
