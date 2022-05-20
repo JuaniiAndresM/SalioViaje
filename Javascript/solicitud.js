@@ -2,8 +2,6 @@ $(document).ready(function () {
     var ID = $("#id_get").val();
     var ID_Slice = ID.slice(0,-1);
     
-
-    if($("#session_get").val() == 1){
         if($("#expired_get").val() == "1"){
             solicitud_response = "E";
         }else{
@@ -23,7 +21,6 @@ $(document).ready(function () {
                 solicitud(3,ID);
                 break;
         }
-    }
     
     
 });

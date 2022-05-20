@@ -65,7 +65,6 @@ function comprar_oportunidad_function(id){
                 send.realizarLlamada("tpc_notificacion_opciones","2022-02-07T15:00:00+03:00",id_llamada,response['TELEFONO'],response['NOMBRE'],"Su oportunidad numero "+id+" fue comprada. Presione 1 para aceptar, 3 para rechazar",id);
                 send.enviarSMS(response['TELEFONO'],"2022-02-04T15:00:00+03:00",mensaje,id_llamada);
                 mail_aprobar_rechazar(id)
-                // toDo: Mandar mail a TTA con botones para aceptar y rechazar;
             }
         });
 }

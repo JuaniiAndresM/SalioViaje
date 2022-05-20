@@ -1237,4 +1237,31 @@ class procedimientosBD
         echo $stmt->error;
         $stmt->close();
     }
+
+    public function cambiarIdComprador($id_oportunidad){
+        session_start();
+        $id_usuario = $_SESSION['datos_usuario']['ID'];
+        $conn = $this->conexion();
+        $query = "UPDATE viajes SET idComprador = $id_usuario, Estado = 'Comprada' WHERE idViaje = $id_oportunidad;";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("iisssi", $id , $datos['DESCUENTO'], $datos['ORIGEN'], $datos['DESTINO'], $datos['FECHA'], $datos['PRECIO']);
+        $stmt->execute();
+        echo $stmt->error;
+        $stmt->close();
+    }
+
+    public function obtener_id_comprador($id){
+        $conn = $this->conexion();
+        $query = "SELECT idComprador FROM `viajes` where idViaje = $id;";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($id_comprador);
+            while ($stmt->fetch()) {
+                $comprador[] = $id_comprador;
+            }
+        }
+        $stmt->close();
+        return json_encode($comprador);
+    }
 }
