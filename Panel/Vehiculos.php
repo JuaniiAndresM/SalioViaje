@@ -152,7 +152,7 @@ if (!isset($_SESSION['usuario'])) {
                 type="text"
                 placeholder="Buscar"
                 id="searchbar"
-                onkeyup="buscarUsuarios(4)"
+                onkeyup="buscarUsuarios(7)"
               />
             </div>
           </div>
@@ -170,9 +170,9 @@ if (!isset($_SESSION['usuario'])) {
                   <th>RUT Empresa <i class="fas fa-angle-down"></i></th>
                   <th>RUT Empresa Contratista <i class="fas fa-angle-down"></i></th>
                   <th>Pet Friendly <i class="fas fa-angle-down"></i></th>
-                  <th></th>
                 </tr>
               </thead>
+              <tbody id="tbody">
               <?php
 if ($_SESSION['tipo_usuario'] != "Administrador" && $_SESSION['tipo_usuario'] != "Transportista") {
 
@@ -191,7 +191,7 @@ if ($_SESSION['tipo_usuario'] != "Administrador" && $_SESSION['tipo_usuario'] !=
                 $pet_friendly = "Si";
             }
 
-            echo '<tbody id="tbody">
+            echo '<tr>
                       <td>' . $vehiculos[$a]['ID'] . '</td>
                       <td>' . $vehiculos[$a]['MATRICULA'] . '</td>
                       <td>' . $vehiculos[$a]['MARCA'] . '</td>
@@ -202,7 +202,7 @@ if ($_SESSION['tipo_usuario'] != "Administrador" && $_SESSION['tipo_usuario'] !=
                       <td>' . $vehiculos[$a]['RUT_EM'] . '</td>
                       <td>' . $vehiculos[$a]['RUT_EC'] . '</td>
                       <td>' . $pet_friendly . '</td>
-                    </tbody>';
+                    </tr>';
 
         }
     }
@@ -226,7 +226,7 @@ if ($_SESSION['tipo_usuario'] != "Administrador" && $_SESSION['tipo_usuario'] !=
               $pet_friendly = "Si";
           }
 
-          echo '<tbody id="tbody">
+          echo '<tr>
                     <td>' . $vehiculos[$a]['ID'] . '</td>
                     <td>' . $vehiculos[$a]['MATRICULA'] . '</td>
                     <td>' . $vehiculos[$a]['MARCA'] . '</td>
@@ -237,7 +237,7 @@ if ($_SESSION['tipo_usuario'] != "Administrador" && $_SESSION['tipo_usuario'] !=
                     <td>' . $vehiculos[$a]['RUT_EM'] . '</td>
                     <td>-</td>
                     <td>' . $pet_friendly . '</td>
-                  </tbody>';
+                  </tr>';
 
       }
   }
@@ -250,7 +250,7 @@ if ($_SESSION['tipo_usuario'] != "Administrador" && $_SESSION['tipo_usuario'] !=
             $pet_friendly = "Si";
         }
 
-        echo '<tbody id="tbody">
+        echo '<tr>
                   <td>' . $vehiculos_chofer[$a]['ID'] . '</td>
                   <td>' . $vehiculos_chofer[$a]['MATRICULA'] . '</td>
                   <td>' . $vehiculos_chofer[$a]['MARCA'] . '</td>
@@ -261,7 +261,7 @@ if ($_SESSION['tipo_usuario'] != "Administrador" && $_SESSION['tipo_usuario'] !=
                   <td>' . $vehiculos_chofer[$a]['RUT_EM'] . '</td>
                   <td>' . $vehiculos_chofer[$a]['RUT_EC'] . '</td>
                   <td>' . $pet_friendly . '</td>
-                </tbody>';
+                </tr>';
 
     }
 }
@@ -278,7 +278,7 @@ if ($_SESSION['tipo_usuario'] != "Administrador" && $_SESSION['tipo_usuario'] !=
                 $pet_friendly = "Si";
             }
 
-            echo '<tbody id="tbody">
+            echo '<tr>
                         <td>' . $vehiculos[$i]['ID'] . '</td>
                         <td>' . $vehiculos[$i]['MATRICULA'] . '</td>
                         <td>' . $vehiculos[$i]['MARCA'] . '</td>
@@ -289,12 +289,13 @@ if ($_SESSION['tipo_usuario'] != "Administrador" && $_SESSION['tipo_usuario'] !=
                         <td>' . $vehiculos[$i]['RUT_EM'] . '</td>
                         <td>' . $vehiculos[$i]['RUT_EC'] . '</td>
                         <td>' . $pet_friendly . '</td>
-                    </tbody>';
+                    </tr>';
         }
     }
 }
 
 ?>
+            </tbody>
             </table>
           </div>
         </div>

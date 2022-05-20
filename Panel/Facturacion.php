@@ -141,7 +141,7 @@ $viajes = json_decode($viajes, true);
                 type="text"
                 placeholder="Buscar"
                 id="searchbar"
-                onkeyup="buscarUsuarios(5)"
+                onkeyup="buscarUsuarios(8)"
               />
             </div>
             <!-- <div class="filters2">
