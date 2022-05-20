@@ -82,7 +82,7 @@ $mail->SMTPSecure = 'tls';
 $mail->Port = 587;
 
 /* 
--------- MAIL ADMINISTRADOR --------
+? -------- MAIL ADMINISTRADOR --------
 */
                 
                 
@@ -336,7 +336,7 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                     }else{   
 
                         /* 
-                        -------- MAIL SOLICITANTE --------
+                        ? -------- MAIL SOLICITANTE --------
                         */
                 
                 
@@ -360,8 +360,8 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                                                         <td style="text-align: center;">
                                                             <div style="background-color: #dfdfdf; width: 500px; margin: 20px auto; text-align: left; font-family: Montserrat; font-size: 13px; border-left: 3px solid #3844bc; padding: 5px 10px; box-sizing: border-box; color: #3844bc;">
                                                                 <p>'.$diassemana[$num_dia - 1].' '.$dia.' de '.$meses[$num_mes - 1].' de '.$year.'</p>
-                                                                <b>Estimado Transportista,</b>
-                                                                <p>SalióViaje te invita a cotizar el servicio: #'.$id_cotizacion.'</p>
+                                                                <b>Estimado Usuario,</b>
+                                                                <p>En breve estarás recibiendo opciones para el viaje #'.$id_cotizacion.'.</p>
                                                             </div>
                                                             
                                                         </td>

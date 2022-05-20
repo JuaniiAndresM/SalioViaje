@@ -76,7 +76,7 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                                 <td style="text-align: center;">
                                     <div style="background-color: #dfdfdf; width: 500px; margin: 20px auto; text-align: left; font-family: Montserrat; font-size: 13px; border-left: 3px solid #3844bc; padding: 5px 10px; box-sizing: border-box; color: #3844bc;">
                                         <p>Felicitaciones, un pasajero ha comprado tu oportunidad!</p>
-                                        <b>Tenés 10 minutos para confirmar que podes realizar el viaje o si no será cancelado.</b>
+                                        <b>Tenés 5 minutos para confirmar que podes realizar el viaje o si no será cancelado.</b>
                                         <p>Acordate, una oportunidad reconfirmada es un compromiso.</p>
                                     </div>
                                     
@@ -100,12 +100,12 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                             <tr>
                                 <td>
                                     <div style="width: 500px; margin: 20px 0; margin-bottom: 30px; text-align: center;">
-                                        <a href="https://www.salioviaje.com.uy/Solicitud/'.$datos_oportunidad[0]['ID'].'A" target="_blank" style="padding: 12px 18px; background-color: #4db979; color: #ffffff; text-decoration: none;
+                                        <a href="https://www.salioviaje.com.uy/Solicitud/'.$datos_oportunidad[0]['ID'].'A" target="_blank" style="padding: 12px 18px; margin: 15px 5px; background-color: #4db979; color: #ffffff; text-decoration: none;
                                         font-family: Montserrat; font-size: 15px; border-radius: 10px; margin: 0 20px;">
                                             Confirmar
                                         </a>
 
-                                        <a href="https://www.salioviaje.com.uy/Solicitud/'.$datos_oportunidad[0]['ID'].'R" target="_blank" style="padding: 12px 28px; background-color: #ff635a; color: #ffffff; text-decoration: none;
+                                        <a href="https://www.salioviaje.com.uy/Solicitud/'.$datos_oportunidad[0]['ID'].'R" target="_blank" style="padding: 12px 28px; margin: 15px 5px; background-color: #ff635a; color: #ffffff; text-decoration: none;
                                         font-family: Montserrat; font-size: 15px; border-radius: 10px; margin: 0 20px;">
                                             Rechazar
                                         </a>
