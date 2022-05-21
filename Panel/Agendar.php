@@ -17,7 +17,7 @@ session_set_cookie_params($ttl);
   $regiones_mtop = new procedimientosBD();
   $regiones_mtop = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
-  $rutas = json_decode($regiones_mtop->traer_rutas_mtop());
+  $rutas = json_decode($regiones_mtop->traer_rutas_mtop(), true);
 ?>
 
 <!DOCTYPE html>
@@ -359,10 +359,10 @@ session_set_cookie_params($ttl);
                   <input list="Rutas" id="rutas_1" placeholder="Rutas" onchange="rutas()">
                   <datalist id="Rutas">
                     <?php
-                      if (isset($regiones_mtop)) {
-                        for ($i=0; $i < count($regiones_mtop); $i++) { 
+                      if (isset($rutas)) {
+                        for ($i=0; $i < count($rutas); $i++) { 
                           ?>
-                            <option value="<?php echo $regiones_mtop[$i]['REGION'] ?>">
+                            <option value="<?php echo $rutas[$i]['RUTA'] ?>">
                           <?php
                         }
                       }
