@@ -67,10 +67,10 @@ $mail->Body    = '<div class="mail" style="max-width: 600px; background: white;"
             <tr>
                 <td style="text-align: center;">
                     <h1 style="font-family: Montserrat; font-size: 25px; color: rgb(255, 91, 91);">Oportunidad Cancelada</h1>
-                    <p style="font-family: Montserrat; font-size: 18px; color: #3844bc"><b>N° Viaje: </b>21</p>
+                    <p style="font-family: Montserrat; font-size: 18px; color: #3844bc"><b>N° Viaje: </b>'.$id.'</p>
                     <div style="background-color: #dfdfdf; width: 500px; margin: 20px auto; text-align: left; font-family: Montserrat; font-size: 13px; border-left: 3px solid #3844bc; padding: 5px 10px; box-sizing: border-box; color: #3844bc;">
                         <p>Lo lamentamos, una oportunidad fue cancelada.</p>
-                        <b>El transportista rechazó la oportunidad o no hubo respuesta luego de 10 minutos.</b>
+                        <b>El transportista rechazó la oportunidad o no hubo respuesta luego de 5 minutos.</b>
                         <p></p>
                     </div>
                     
@@ -143,7 +143,7 @@ $mail->Body    = '<div class="mail" style="max-width: 600px; background: white;"
                     <tr>
                         <td style="text-align: center;">
                         <h1 style="font-family: Montserrat; font-size: 25px; color: rgb(255, 91, 91);">Petición Rechazada</h1>
-                            <p style="font-family: Montserrat; font-size: 18px; color: #3844bc"><b>N° Viaje: </b>21</p>
+                            <p style="font-family: Montserrat; font-size: 18px; color: #3844bc"><b>N° Viaje: </b>'.$id.'</p>
                             <div style="background-color: #dfdfdf; width: 500px; margin: 20px auto; text-align: left; font-family: Montserrat; font-size: 13px; border-left: 3px solid #3844bc; padding: 5px 10px; box-sizing: border-box; color: #3844bc;">
                                 <p>Lo lamentamos, tu petición fue rechazada.</p>
                                 <b>En breve nos comunicaremos para comentarte los motivos.</b>
@@ -194,7 +194,7 @@ $mail->Body    = '<div class="mail" style="max-width: 600px; background: white;"
                 $mail->addAddress($mail_tta);
                 $mail->isHTML(true);
                 
-                $mail->Subject = "Oportunidad Rechazada con Exito - SalióViaje";
+                $mail->Subject = "Rechazaste una Oportunidad - SalióViaje";
                 $mail->Body    = '       <div class="mail" style="max-width: 600px; background: white;">
                         <table style="width: 100%; background: linear-gradient(120deg, #3844bc, #2b3179); border: none;" cellspacing="0" cellpadding="0">
                             <tr>
@@ -207,7 +207,7 @@ $mail->Body    = '<div class="mail" style="max-width: 600px; background: white;"
                             <tr>
                                 <td style="text-align: center;">
                                     <h1 style="font-family: Montserrat; font-size: 25px; color: rgb(255, 91, 91);">Oportunidad Cancelada</h1>
-                                    <p style="font-family: Montserrat; font-size: 18px; color: #3844bc"><b>N° Viaje: </b>21</p>
+                                    <p style="font-family: Montserrat; font-size: 18px; color: #3844bc"><b>N° Viaje: </b>'.$id.'</p>
                                     <div style="background-color: #dfdfdf; width: 500px; margin: 20px auto; text-align: left; font-family: Montserrat; font-size: 13px; border-left: 3px solid #3844bc; padding: 5px 10px; box-sizing: border-box; color: #3844bc;">
                                         <p>Lo lamentamos, tu oportunidad fue canecelada.</p>
                                         <b>Esto se puede deber a que usted rechazo la oportunidad, o pasaron 10 minutos sin recibir respuesta de la misma.</b>

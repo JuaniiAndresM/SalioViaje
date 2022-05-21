@@ -153,7 +153,7 @@ session_set_cookie_params($ttl);
             <div class="column2">
               <div>
                 <p><i class="fas fa-address-card"></i> <?php echo $_SESSION['datos_usuario']['CI']; ?></p>
-                <p><i class="fas fa-phone"></i> <?php echo $_SESSION['datos_usuario']['TELEFONO']; ?></p>
+                <p><i class="fas fa-phone"></i> 0<?php echo $_SESSION['datos_usuario']['TELEFONO']; ?></p>
                 <p><i class="fas fa-map-marker-alt"></i> <?php echo $_SESSION['datos_usuario']['BARRIO'].", ".$_SESSION['datos_usuario']['DEPARTAMENTO']; ?></p>
               </div>
             </div>

@@ -85,6 +85,14 @@ function buscarUsuarios(buscador) {
             table = document.getElementById("search-agendar-table");
             tdlength = 11;
             break;
+        case 7:
+            table = document.getElementById("search-table-vehiculos");
+            tdlength = 10;
+            break;
+        case 8:
+            table = document.getElementById("search-facturacion-table");
+            tdlength = 8;
+            break;
     }
 
     tr = table.getElementsByTagName("tr");
