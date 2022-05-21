@@ -1130,6 +1130,23 @@ class procedimientosBD
         return json_encode($regiones);
     }
 
+    public function traer_rutas_mtop()
+    {
+        $conn = $this->conexion();
+        $query = "SELECT * FROM `rutas_mtop`";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($id, $ruta);
+            while ($stmt->fetch()) {
+                $result = array('ID' => $id, 'RUTA' => $ruta);
+                $rutas[] = $result;
+            }
+        }
+        $stmt->close();
+        return json_encode($rutas);
+    }
+
     public function existencia_matricula($matr)
     {
         //SELECT Matricula FROM `vehiculos` WHERE Matricula = $matr

@@ -16,6 +16,8 @@ session_set_cookie_params($ttl);
   require_once '../PHP/procedimientosBD.php';
   $regiones_mtop = new procedimientosBD();
   $regiones_mtop = json_decode($regiones_mtop->traer_regiones_mtop(), true);
+
+  $rutas = json_decode($regiones_mtop->traer_rutas_mtop());
 ?>
 
 <!DOCTYPE html>
@@ -356,10 +358,15 @@ session_set_cookie_params($ttl);
                   <i class="fas fa-road" id="icon"></i>
                   <input list="Rutas" id="rutas_1" placeholder="Rutas" onchange="rutas()">
                   <datalist id="Rutas">
-                    <option value="Ruta 1">
-                    <option value="Ruta 2">
-                    <option value="Ruta 3">
-                    <option value="Ruta 4">
+                    <?php
+                      if (isset($regiones_mtop)) {
+                        for ($i=0; $i < count($regiones_mtop); $i++) { 
+                          ?>
+                            <option value="<?php echo $regiones_mtop[$i]['REGION'] ?>">
+                          <?php
+                        }
+                      }
+                    ?>
                   </datalist> 
                 </div>
 
