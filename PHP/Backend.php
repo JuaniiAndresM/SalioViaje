@@ -1,7 +1,7 @@
 <?php 
 require ('procedimientosBD.php');
 /**
- * 
+ *
  */
 class Backend extends procedimientosBD
 {
