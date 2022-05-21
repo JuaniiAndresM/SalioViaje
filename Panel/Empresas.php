@@ -23,13 +23,12 @@ session_set_cookie_params($ttl);
     
     }
   }
-
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <title>SalióViaje | Usuarios</title>
+    <title>SalióViaje | Empresas</title>
 
     <!-- // Meta Etiquetas -->
 
@@ -213,7 +212,7 @@ session_set_cookie_params($ttl);
                             </tr>
                         </tbody>';
                       }
-                    }else if ($_SESSION['tipo_usuario'] == "Transportista") {
+                    } elseif ($_SESSION['tipo_usuario'] == "Transportista") {
                       $size = sizeof($empresas);
                       for($i = 0; $i< sizeof($empresas); $i++){
                         echo '<tbody id="tbody">

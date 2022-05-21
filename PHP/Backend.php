@@ -121,6 +121,15 @@ class Backend extends procedimientosBD
 
 			session_start();
 			$datos_e = $this->datos_empresas();
+			$emrpesas_choferes = json_decode($this->traer_empresas_choferes_por_tta_id($_SESSION['datos_usuario']['ID']),true);
+
+			if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == 'TTA') {
+				for ($i=0; $i < sizeof($emrpesas_choferes); $i++) { 
+					$datos_e_choferes[] = array("ID" => $emrpesas_choferes[$i]["ID"], "NOMBRE_EMPRESA" => $emrpesas_choferes[$i]["NOMBRE_COMERCIAL"], "RUT" => $emrpesas_choferes[$i]["RUT"]);
+					$this->tabla_empresas($i,$datos_e_choferes);
+				}
+			}
+			
 			$_SESSION['datos_usuario']['RUT_EMPRESAS'] = [];
 			for ($i=0; $i < count($datos_e); $i++) { 
 				if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == 'TTA' && $_SESSION['datos_usuario']['ID'] == $datos_e[$i]["ID_OWNER"]) {
