@@ -1,8 +1,8 @@
 let atributos = new Array();
 
 $(document).ready(function () {
-    
-    steps(1);   
+
+    steps(1);
 
     select_fiesta();
     select_transfer();
@@ -10,8 +10,8 @@ $(document).ready(function () {
     setTimeout(() => {
         datavalue_oportunidades();
     }, 1000);
-    
 
+    
     $('.mensaje-error').hide();
 
     $("#fiestas").on('click', function () {
@@ -27,7 +27,7 @@ $(document).ready(function () {
         window.location.href = "https://www.salioviaje.com.uy/Viajar/?opcion=1"
     });
 
-    if($(".session-input").val() = 5){
+    if ($(".session-input").val() = 5) {
         setTimeout(() => {
             timeoutformulario(5);
         }, 500);
@@ -36,15 +36,15 @@ $(document).ready(function () {
     $("#contador-oportunidades").html(document.getElementsByClassName("oportunidad").length);
 });
 
-function datavalue_oportunidades(){
+function datavalue_oportunidades() {
     var oportunidades = document.getElementsByClassName("oportunidad").length;
 
     $("#contador-oportunidades").html(oportunidades);
 
     console.log(oportunidades);
 
-    if(oportunidades != 0){
-        for(var a = 0; a < oportunidades; a++){
+    if (oportunidades != 0) {
+        for (var a = 0; a < oportunidades; a++) {
             let data_value_info = $("#Opo-" + a).data('value');
             atributos.push(data_value_info);
         }
@@ -53,20 +53,20 @@ function datavalue_oportunidades(){
     }
 }
 
-function abrirFormularioCotizacion(){
+function abrirFormularioCotizacion() {
     window.location.href = "https://www.salioviaje.com.uy/Viajar/?opcion=5"
-    timeoutformulario(5);  
+    timeoutformulario(5);
 }
 
-function timeoutformulario(opcion){
+function timeoutformulario(opcion) {
     setTimeout(() => {
-        if(opcion != ""){
+        if (opcion != "") {
             window.location.hash = "Cotizacion";
             desplegar(document.getElementById("agendar"), $(".session-output").val());
-            if(opcion != 5){
+            if (opcion != 5) {
                 select_usuario();
             }
-            
+
         }
     }, 1000);
 }
@@ -116,16 +116,16 @@ function finalizar(enviar_solicitud) {
             };
 
             if (validacion('Translado', datos_traslado)) {
-                if (verificar_fechas(datos_traslado['FECHA_SALIDA'], null, 0,datos_traslado['HORA'])) {
+                if (verificar_fechas(datos_traslado['FECHA_SALIDA'], null, 0, datos_traslado['HORA'])) {
                     next();
                     if (enviar_solicitud == 1) {
-                        guardar_cotizacion(datos_traslado,array_paradas_1,0,"traslados");
+                        guardar_cotizacion(datos_traslado, array_paradas_1, 0, "traslados");
 
                         setTimeout(() => {
                             $.ajax({
                                 type: "POST",
                                 url: "/Mail/mail-SalioViaje.php",
-                                data: {COTIZACION: id_cotizacion, TIPO: "Traslado", DATA: JSON.stringify(datos_traslado), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
+                                data: { COTIZACION: id_cotizacion, TIPO: "Traslado", DATA: JSON.stringify(datos_traslado), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
                                 success: function () {
                                     console.log("se ejecuta")
                                 },
@@ -140,7 +140,7 @@ function finalizar(enviar_solicitud) {
                             });
                         }, 1000);
 
-                        
+
                     }
                 } else {
                     $(".mensaje-error").show();
@@ -151,7 +151,7 @@ function finalizar(enviar_solicitud) {
             setTimeout(() => {
                 vaciar_paradas()
             }, 1100);
-            
+
             break;
 
         /* 
@@ -175,15 +175,15 @@ function finalizar(enviar_solicitud) {
                 if (verificar_fechas(datos_tour['FECHA_SALIDA'], null, 0, datos_tour['HORA'])) {
                     next();
                     if (enviar_solicitud == 1) {
-                        guardar_cotizacion(datos_tour,array_paradas_1,0,"tour");
+                        guardar_cotizacion(datos_tour, array_paradas_1, 0, "tour");
 
                         setTimeout(() => {
                             $.ajax({
                                 type: "POST",
                                 url: "/Mail/mail-SalioViaje.php",
-                                data: {COTIZACION: id_cotizacion, TIPO: "Tour o Servicio por Hora", DATA: JSON.stringify(datos_tour), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
+                                data: { COTIZACION: id_cotizacion, TIPO: "Tour o Servicio por Hora", DATA: JSON.stringify(datos_tour), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
                                 success: function (response) {
-    
+
                                 },
                                 complete: function (response) {
                                     if (response.responseText == 1) {
@@ -195,8 +195,8 @@ function finalizar(enviar_solicitud) {
                                 }
                             });
                         }, 1000);
-                        
-                        
+
+
                     }
                 } else {
                     $(".mensaje-error").show();
@@ -236,18 +236,18 @@ function finalizar(enviar_solicitud) {
                     };
 
                     if (validacion('Transfer_in', datos_transfer_in)) {
-                        if (verificar_fechas(datos_transfer_in['FECHA_ARRIBO'], null, 0,datos_transfer_in['HORA'])) {
+                        if (verificar_fechas(datos_transfer_in['FECHA_ARRIBO'], null, 0, datos_transfer_in['HORA'])) {
                             next();
                             if (enviar_solicitud == 1) {
-                                guardar_cotizacion(datos_transfer_in,array_paradas_1,0,"transferIn");
+                                guardar_cotizacion(datos_transfer_in, array_paradas_1, 0, "transferIn");
 
                                 setTimeout(() => {
                                     $.ajax({
                                         type: "POST",
                                         url: "/Mail/mail-SalioViaje.php",
-                                        data: {COTIZACION: id_cotizacion, TIPO: "Transfer de Arribo", DATA: JSON.stringify(datos_transfer_in), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
+                                        data: { COTIZACION: id_cotizacion, TIPO: "Transfer de Arribo", DATA: JSON.stringify(datos_transfer_in), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
                                         success: function (response) {
-    
+
                                         },
                                         complete: function (response) {
                                             if (response.responseText == 1) {
@@ -259,8 +259,8 @@ function finalizar(enviar_solicitud) {
                                         }
                                     });
                                 }, 1000);
-                                
-                                
+
+
                             }
                         } else {
                             $(".mensaje-error").show();
@@ -292,15 +292,15 @@ function finalizar(enviar_solicitud) {
                         if (verificar_fechas(datos_transfer_out['FECHA_PARTIDA'], null, 0, datos_transfer_out['HORA'])) {
                             next();
                             if (enviar_solicitud == 1) {
-                                guardar_cotizacion(datos_transfer_out,array_paradas_1,0,"transferOut");
+                                guardar_cotizacion(datos_transfer_out, array_paradas_1, 0, "transferOut");
 
                                 setTimeout(() => {
                                     $.ajax({
                                         type: "POST",
                                         url: "/Mail/mail-SalioViaje.php",
-                                        data: {COTIZACION: id_cotizacion, TIPO: "Transfer de Partida", DATA: JSON.stringify(datos_transfer_out), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
+                                        data: { COTIZACION: id_cotizacion, TIPO: "Transfer de Partida", DATA: JSON.stringify(datos_transfer_out), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
                                         success: function (response) {
-    
+
                                         },
                                         complete: function (response) {
                                             if (response.responseText == 1) {
@@ -312,8 +312,8 @@ function finalizar(enviar_solicitud) {
                                         }
                                     });
                                 }, 1000);
-                                
-                                
+
+
                             }
                         } else {
                             $(".mensaje-error").show();
@@ -355,18 +355,18 @@ function finalizar(enviar_solicitud) {
                     };
 
                     if (validacion('FIESTA-IDA', datos_fiestaseventos_ida)) {
-                        if (verificar_fechas(datos_fiestaseventos_ida['FECHA_SALIDA'], null, 0,datos_fiestaseventos_ida["HORA"])) {
+                        if (verificar_fechas(datos_fiestaseventos_ida['FECHA_SALIDA'], null, 0, datos_fiestaseventos_ida["HORA"])) {
                             next();
                             if (enviar_solicitud == 1) {
-                                guardar_cotizacion(datos_fiestaseventos_ida,array_paradas_1,0,"fiestasIda");
+                                guardar_cotizacion(datos_fiestaseventos_ida, array_paradas_1, 0, "fiestasIda");
 
                                 setTimeout(() => {
                                     $.ajax({
                                         type: "POST",
                                         url: "/Mail/mail-SalioViaje.php",
-                                        data: {COTIZACION: id_cotizacion, TIPO: "Fiesta o Evento - Ida", DATA: JSON.stringify(datos_fiestaseventos_ida), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
+                                        data: { COTIZACION: id_cotizacion, TIPO: "Fiesta o Evento - Ida", DATA: JSON.stringify(datos_fiestaseventos_ida), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
                                         success: function (response) {
-    
+
                                         },
                                         complete: function (response) {
                                             if (response.responseText == 1) {
@@ -378,9 +378,9 @@ function finalizar(enviar_solicitud) {
                                         }
                                     });
                                 }, 1000);
-                                
-                               console.log(datos_fiestaseventos_ida)
-                               
+
+                                console.log(datos_fiestaseventos_ida)
+
                             }
                         } else {
                             $(".mensaje-error").show();
@@ -407,18 +407,18 @@ function finalizar(enviar_solicitud) {
                     };
 
                     if (validacion('FIESTA-VUELTA', datos_fiestaseventos_vuelta)) {
-                        if (verificar_fechas(datos_fiestaseventos_vuelta['FECHA_REGRESO'], null, 0,datos_fiestaseventos_vuelta['HORA'])) {
+                        if (verificar_fechas(datos_fiestaseventos_vuelta['FECHA_REGRESO'], null, 0, datos_fiestaseventos_vuelta['HORA'])) {
                             next();
                             if (enviar_solicitud == 1) {
-                                guardar_cotizacion(datos_fiestaseventos_vuelta,0,array_paradas_2,"fiestasVuelta");
-                                
+                                guardar_cotizacion(datos_fiestaseventos_vuelta, 0, array_paradas_2, "fiestasVuelta");
+
                                 setTimeout(() => {
                                     $.ajax({
                                         type: "POST",
                                         url: "/Mail/mail-SalioViaje.php",
-                                        data: {COTIZACION: id_cotizacion, TIPO: "Fiesta o Evento - Vuelta", DATA: JSON.stringify(datos_fiestaseventos_vuelta), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
+                                        data: { COTIZACION: id_cotizacion, TIPO: "Fiesta o Evento - Vuelta", DATA: JSON.stringify(datos_fiestaseventos_vuelta), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
                                         success: function (response) {
-    
+
                                         },
                                         complete: function (response) {
                                             if (response.responseText == 1) {
@@ -430,10 +430,10 @@ function finalizar(enviar_solicitud) {
                                         }
                                     });
                                 }, 1000);
-                               
+
                                 console.log(datos_fiestaseventos_ida)
                                 console.log(array_paradas_2)
-                                
+
                             }
                         } else {
                             $(".mensaje-error").show();
@@ -449,50 +449,50 @@ function finalizar(enviar_solicitud) {
                         "TRAMOS_FIESTA": fiestas,
 
                         "FECHA_SALIDA": $('#fecha_salida_fiestas_idavuelta').val(),
-                        
+
                         "DIRECCION_ORIGEN": $('#direccion_ida_origen_fiestas_idavuelta').val(),
                         "BARRIO_ORIGEN": $('#barrio_ida_origen_fiestas_idavuelta').val(),
                         "LOCALIDAD_ORIGEN": $('#localidad_ida_origen_fiestas_idavuelta').val(),
-                        
+
                         "DIRECCION_DESTINO": $('#direccion_ida_destino_fiestas_idavuelta').val(),
                         "BARRIO_DESTINO": $('#barrio_ida_destino_fiestas_idavuelta').val(),
                         "LOCALIDAD_DESTINO": $('#localidad_ida_destino_fiestas_idavuelta').val(),
-                        
+
                         "HORA_SALIDA": $('#hora_ida_fiestas_idavuelta').val(),
                         "CANTIDAD_PASAJEROS_IDA": $('#cant_pasajeros_ida_fiestas_idavuelta').val(),
 
 
 
                         "FECHA_REGRESO": $('#fecha_regreso_fiestas_idavuelta').val(),
-                        
+
                         "DIRECCION_ORIGEN_VUELTA": $('#direccion_vuelta_origen_fiestas_idavuelta').val(),
                         "BARRIO_ORIGEN_VUELTA": $('#barrio_vuelta_origen_fiestas_idavuelta').val(),
                         "LOCALIDAD_ORIGEN_VUELTA": $('#localidad_vuelta_origen_fiestas_idavuelta').val(),
-                        
+
                         "DIRECCION_DESTINO_VUELTA": $('#direccion_vuelta_destino_fiestas_idavuelta').val(),
                         "BARRIO_DESTINO_VUELTA": $('#barrio_vuelta_destino_fiestas_idavuelta').val(),
                         "LOCALIDAD_DESTINO_VUELTA": $('#localidad_vuelta_destino_fiestas_idavuelta').val(),
-                        
+
                         "HORA_REGRESO": $('#hora_vuelta_fiestas_idavuelta').val(),
                         "CANTIDAD_PASAJEROS_VUELTA": $('#cant_pasajeros_vuelta_fiestas_idavuelta').val(),
-                    
+
                         "MASCOTAS": $('#mascotas_fiestas_idavuelta').val(),
                         "OBSERVACIONES": $('#observaciones_fiesta_idavuelta').val()
                     };
 
                     if (validacion('FIESTA-IDA-VUELTA', datos_fiestaseventos_idavuelta)) {
-                        if (verificar_fechas(datos_fiestaseventos_idavuelta['FECHA_SALIDA'], datos_fiestaseventos_idavuelta['FECHA_REGRESO'], 1,datos_fiestaseventos_idavuelta['HORA_SALIDA'],datos_fiestaseventos_idavuelta['HORA_REGRESO'])) {
+                        if (verificar_fechas(datos_fiestaseventos_idavuelta['FECHA_SALIDA'], datos_fiestaseventos_idavuelta['FECHA_REGRESO'], 1, datos_fiestaseventos_idavuelta['HORA_SALIDA'], datos_fiestaseventos_idavuelta['HORA_REGRESO'])) {
                             next();
                             if (enviar_solicitud == 1) {
-                                guardar_cotizacion(datos_fiestaseventos_idavuelta,array_paradas_1,array_paradas_2,"fiestasIdaVuelta");
+                                guardar_cotizacion(datos_fiestaseventos_idavuelta, array_paradas_1, array_paradas_2, "fiestasIdaVuelta");
 
                                 setTimeout(() => {
                                     $.ajax({
                                         type: "POST",
                                         url: "/Mail/mail-SalioViaje.php",
-                                        data: {COTIZACION: id_cotizacion, TIPO: "Fiesta o Evento - Ida y Vuelta", DATA: JSON.stringify(datos_fiestaseventos_idavuelta), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
+                                        data: { COTIZACION: id_cotizacion, TIPO: "Fiesta o Evento - Ida y Vuelta", DATA: JSON.stringify(datos_fiestaseventos_idavuelta), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
                                         success: function (response) {
-    
+
                                         },
                                         complete: function (response) {
                                             if (response.responseText == 1) {
@@ -504,8 +504,8 @@ function finalizar(enviar_solicitud) {
                                         }
                                     });
                                 }, 1000);
-                                
-                                
+
+
                             }
                         } else {
                             $(".mensaje-error").show();
@@ -523,24 +523,24 @@ function finalizar(enviar_solicitud) {
     }
 }
 
-function guardar_cotizacion(datos_cotizacion,paradas_ida,paradas_vuelta,tipo) {
+function guardar_cotizacion(datos_cotizacion, paradas_ida, paradas_vuelta, tipo) {
     $.ajax({
         type: "POST",
         url: "/PHP/procedimientosForm.php",
-        data: { tipo: "agregar_cotizacion", datos: JSON.stringify(datos_cotizacion), PARADAS_IDA: JSON.stringify(paradas_ida), PARADAS_VUELTA: JSON.stringify(paradas_vuelta),tipo_cotizacion:tipo },
+        data: { tipo: "agregar_cotizacion", datos: JSON.stringify(datos_cotizacion), PARADAS_IDA: JSON.stringify(paradas_ida), PARADAS_VUELTA: JSON.stringify(paradas_vuelta), tipo_cotizacion: tipo },
         success: function (response) {
             id_cotizacion = response;
         }
     });
 }
 
-function verificar_fechas(fecha1, fecha2, evento, hora_salida,hora_vuelta) {
+function verificar_fechas(fecha1, fecha2, evento, hora_salida, hora_vuelta) {
 
     console.log(hora_vuelta);
     if (fecha2 != null && hora_vuelta != null) {
         var hora_vuelta = hora_vuelta.split(":")
         var fecha2 = fecha2.split("-")
-        var fecha2 = new Date(fecha2[0],fecha2[1],fecha2[2],hora_vuelta[0],hora_vuelta[1])
+        var fecha2 = new Date(fecha2[0], fecha2[1], fecha2[2], hora_vuelta[0], hora_vuelta[1])
     }
     var fecha1 = fecha1.split("-")
     var hora_salida = hora_salida.split(":")
@@ -552,8 +552,8 @@ function verificar_fechas(fecha1, fecha2, evento, hora_salida,hora_vuelta) {
     var hh = String(fecha_actual.getHours());
     var min = String(fecha_actual.getMinutes());
 
-    var fecha1 = new Date(fecha1[0],fecha1[1],fecha1[2],hora_salida[0],hora_salida[1])
-    var fecha_actual = new Date(yyyy,mm,dd,hh,min)
+    var fecha1 = new Date(fecha1[0], fecha1[1], fecha1[2], hora_salida[0], hora_salida[1])
+    var fecha_actual = new Date(yyyy, mm, dd, hh, min)
 
     if (evento == 1) {
         if (fecha1 <= fecha2 && fecha1 >= fecha_actual && fecha2 > fecha_actual) {
@@ -639,7 +639,7 @@ function steps(step) {
     var paradas_div = document.getElementById("Cotizacion");
 
     switch (step) {
-        
+
         case 1:
             $(".step_1").show();
 
@@ -654,9 +654,9 @@ function steps(step) {
             paradas_div.scrollIntoView();
 
             if ($(".session-input").val() != "" && $(".session-input").val() != null) {
-                if($(".session-input").val() != "5"){
+                if ($(".session-input").val() != "5") {
                     viaje = $(".session-input").val();
-                }                
+                }
             } else {
                 viaje = $("#select_users").val();
                 console.log(viaje);
@@ -699,7 +699,7 @@ function steps(step) {
 
         case 3:
             paradas_div.scrollIntoView();
-            
+
             $('.loader_step3').hide();
 
             if ($("#select_users").val() == "4") {
@@ -757,7 +757,7 @@ function select_usuario(tipo) {
         $("#select_users").val(opcion_input);
         viaje = opcion_input;
         next();
-    }else{
+    } else {
         console.log("++++++++");
         viaje = $("#select_users").val();
         next();
@@ -771,7 +771,7 @@ function desplegar(button, session) {
         setTimeout(() => {
             location.href = "/Login";
         }, 500);
-        
+
     } else {
         button.classList.toggle("active");
         button.nextElementSibling.classList.toggle("show");
@@ -1043,8 +1043,8 @@ function reset_errores() {
     $('#tipo-select_2').css('border-bottom', '1px solid #aaaaaa')
 }
 
-function rellenar(input){
-    switch(input){
+function rellenar(input) {
+    switch (input) {
         // Autorellanar Origen
 
         case "Direccion_Origen":
@@ -1068,7 +1068,7 @@ function rellenar(input){
             var direccion_destino = $("#direccion_ida_destino_fiestas_idavuelta").val();
             $("#direccion_vuelta_origen_fiestas_idavuelta").val(direccion_destino);
             break;
-    
+
         case "Barrio_Destino":
             var barrio_destino = $("#barrio_ida_destino_fiestas_idavuelta").val();
             $("#barrio_vuelta_origen_fiestas_idavuelta").val(barrio_destino);
@@ -1093,7 +1093,7 @@ function rellenar(input){
 
 function filtrar_divs(tipo) {
     var origen;
-    switch(tipo){
+    switch (tipo) {
 
         case "Oportunidad":
             origen = $("#origen_oportunidad").val();
@@ -1102,162 +1102,162 @@ function filtrar_divs(tipo) {
             break;
 
     }
- 
-    if(origen != "" || destino != "" || fecha != ""){
- 
-       var encontrado_origen = [];
-       var encontrado_destino = [];
-       var encontrado_fecha = [];
- 
-       var comparacion_1 = [];
-       var comparacion_2 = [];
-       var comparacion_3 = [];
- 
-       for (let i = 0; i < atributos.length; i++) {
+
+    if (origen != "" || destino != "" || fecha != "") {
+
+        var encontrado_origen = [];
+        var encontrado_destino = [];
+        var encontrado_fecha = [];
+
+        var comparacion_1 = [];
+        var comparacion_2 = [];
+        var comparacion_3 = [];
+
+        for (let i = 0; i < atributos.length; i++) {
             datos = atributos[i].split(',')
-    
+
             function dateFormat(inputDate, format) {
                 const date = new Date(inputDate);
-        
+
                 const day = date.getDate() + 1;
                 const month = date.getMonth() + 1;
-                const year = date.getFullYear();    
-            
-                format = format.replace("MM", month.toString().padStart(2,"0"));        
-        
+                const year = date.getFullYear();
+
+                format = format.replace("MM", month.toString().padStart(2, "0"));
+
                 if (format.indexOf("yyyy") > -1) {
                     format = format.replace("yyyy", year.toString());
                 } else if (format.indexOf("yy") > -1) {
-                    format = format.replace("yy", year.toString().substr(2,2));
+                    format = format.replace("yy", year.toString().substr(2, 2));
                 }
-        
-                format = format.replace("dd", day.toString().padStart(2,"0"));
-            
+
+                format = format.replace("dd", day.toString().padStart(2, "0"));
+
                 return format;
             }
 
             console.log(origen);
 
-            if(datos[0].toLowerCase().includes(origen.toLowerCase()) && origen != ""){
+            if (datos[0].toLowerCase().includes(origen.toLowerCase()) && origen != "") {
                 encontrado_origen.push(i);
             }
-    
-            if(datos[1].toLowerCase().includes(destino.toLowerCase()) && destino != ""){
+
+            if (datos[1].toLowerCase().includes(destino.toLowerCase()) && destino != "") {
                 encontrado_destino.push(i);
             }
-    
-            if(datos[2] == dateFormat(fecha, 'dd-MM-yyyy')){
+
+            if (datos[2] == dateFormat(fecha, 'dd-MM-yyyy')) {
                 encontrado_fecha.push(i);
             }
- 
-       }
- 
- 
-       if(encontrado_origen.length != 0 && encontrado_destino.length != 0){
-          for(let x = 0; x < encontrado_origen.length; x++){
-             for(let a = 0; a < encontrado_destino.length; a++){
-                if(encontrado_origen[x] == encontrado_destino[a]){
-                   comparacion_1.push(encontrado_destino[a]);
-                }
-             }
-          }
-       }else if(encontrado_origen.length == 0 && encontrado_destino.length != 0 && origen == ""){
-          comparacion_1 = encontrado_destino;
-       }else if(encontrado_origen.length != 0 && encontrado_destino.length == 0 && destino == ""){
-          comparacion_1 = encontrado_origen;
-       }
- 
-       if(encontrado_origen.length != 0 && encontrado_fecha.length != 0){
-          for(let x = 0; x < encontrado_origen.length; x++){
-             for(let a = 0; a < encontrado_fecha.length; a++){
-                if(encontrado_origen[x] == encontrado_fecha[a]){
-                   comparacion_2.push(encontrado_fecha[a]);
-                }
-             }
-          }
-       }else if(encontrado_origen.length == 0 && encontrado_fecha.length != 0 && origen == ""){
-          comparacion_2 = encontrado_fecha;
-       }else if(encontrado_origen.length != 0 && encontrado_fecha.length == 0 && fecha == ""){
-          comparacion_2 = encontrado_origen;
-       }
- 
- 
- 
-       if(comparacion_1.length != 0 && comparacion_2.length != 0){
-          for(let x = 0; x < comparacion_1.length; x++){
-             for(let a = 0; a < comparacion_2.length; a++){
-                if(comparacion_1[x] == comparacion_2[a]){
-                   comparacion_3.push(comparacion_2[a]);
-                }
-             }
-          }
-       }else if(comparacion_1.length == 0 && comparacion_2.length != 0 && origen == "" && destino == ""){
-          comparacion_3 = comparacion_2;
-       }else if(comparacion_1.length != 0 && comparacion_2.length == 0 && origen == "" && fecha == ""){
-          comparacion_3 = comparacion_1;
-       }
- 
-       console.log(comparacion_3);
 
-       for (let i = 0; i < atributos.length; i++) {
-          datos = atributos[i].split(',');
- 
-          if(comparacion_3.length != 0){
-             $(".oportunidades-list").show();
-             $(".list-empty").css('display','none');
-             var encontrado_final = false;
+        }
 
-             for(let x = 0; x < comparacion_3.length; x++){
 
-                if(i == comparacion_3[x]){
-                   $("#Opo-" + i).show();
-                   encontrado_final = true;
-                }else{
-                   if(encontrado_final != true){
-                      $("#Opo-" + i).hide();
-                   }
+        if (encontrado_origen.length != 0 && encontrado_destino.length != 0) {
+            for (let x = 0; x < encontrado_origen.length; x++) {
+                for (let a = 0; a < encontrado_destino.length; a++) {
+                    if (encontrado_origen[x] == encontrado_destino[a]) {
+                        comparacion_1.push(encontrado_destino[a]);
+                    }
                 }
-             }
-          }else{
-             for (let i = 0; i < atributos.length; i++) {
-                $("#Opo-" + i).hide();
- 
-                $(".oportunidades-list").hide();
-                $(".list-empty").css('display','flex');
-             }
-          }
-          
-       }
- 
-       
- 
-    }else{
-       for (let i = 0; i < atributos.length; i++) {
-          $("#Opo-" + i).show();
- 
-          $(".oportunidades-list").show();
-          $(".list-empty").css('display','none');
-       }
+            }
+        } else if (encontrado_origen.length == 0 && encontrado_destino.length != 0 && origen == "") {
+            comparacion_1 = encontrado_destino;
+        } else if (encontrado_origen.length != 0 && encontrado_destino.length == 0 && destino == "") {
+            comparacion_1 = encontrado_origen;
+        }
+
+        if (encontrado_origen.length != 0 && encontrado_fecha.length != 0) {
+            for (let x = 0; x < encontrado_origen.length; x++) {
+                for (let a = 0; a < encontrado_fecha.length; a++) {
+                    if (encontrado_origen[x] == encontrado_fecha[a]) {
+                        comparacion_2.push(encontrado_fecha[a]);
+                    }
+                }
+            }
+        } else if (encontrado_origen.length == 0 && encontrado_fecha.length != 0 && origen == "") {
+            comparacion_2 = encontrado_fecha;
+        } else if (encontrado_origen.length != 0 && encontrado_fecha.length == 0 && fecha == "") {
+            comparacion_2 = encontrado_origen;
+        }
+
+
+
+        if (comparacion_1.length != 0 && comparacion_2.length != 0) {
+            for (let x = 0; x < comparacion_1.length; x++) {
+                for (let a = 0; a < comparacion_2.length; a++) {
+                    if (comparacion_1[x] == comparacion_2[a]) {
+                        comparacion_3.push(comparacion_2[a]);
+                    }
+                }
+            }
+        } else if (comparacion_1.length == 0 && comparacion_2.length != 0 && origen == "" && destino == "") {
+            comparacion_3 = comparacion_2;
+        } else if (comparacion_1.length != 0 && comparacion_2.length == 0 && origen == "" && fecha == "") {
+            comparacion_3 = comparacion_1;
+        }
+
+        console.log(comparacion_3);
+
+        for (let i = 0; i < atributos.length; i++) {
+            datos = atributos[i].split(',');
+
+            if (comparacion_3.length != 0) {
+                $(".oportunidades-list").show();
+                $(".list-empty").css('display', 'none');
+                var encontrado_final = false;
+
+                for (let x = 0; x < comparacion_3.length; x++) {
+
+                    if (i == comparacion_3[x]) {
+                        $("#Opo-" + i).show();
+                        encontrado_final = true;
+                    } else {
+                        if (encontrado_final != true) {
+                            $("#Opo-" + i).hide();
+                        }
+                    }
+                }
+            } else {
+                for (let i = 0; i < atributos.length; i++) {
+                    $("#Opo-" + i).hide();
+
+                    $(".oportunidades-list").hide();
+                    $(".list-empty").css('display', 'flex');
+                }
+            }
+
+        }
+
+
+
+    } else {
+        for (let i = 0; i < atributos.length; i++) {
+            $("#Opo-" + i).show();
+
+            $(".oportunidades-list").show();
+            $(".list-empty").css('display', 'none');
+        }
     }
- 
-    
- 
+
+
+
     /*
     for(var a = 0; a < (cards - 1); a++){
        console.log($('[data-value="Fecha'+cards+'"]').text()); 
     }
     */
- }
+}
 
- function eliminar_filtros(tipo) {
+function eliminar_filtros(tipo) {
 
-    switch(tipo){
+    switch (tipo) {
         case "Oportunidad":
             $("#origen_oportunidad").val("");
             $("#destino_oportunidad").val("");
             $("#fecha_oportunidad").val("");
             break;
     }
- 
+
     filtrar_divs(tipo);
- }
+}
