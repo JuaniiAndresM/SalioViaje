@@ -626,7 +626,7 @@ class procedimientosBD
         $stmt->bind_param("s", $RUT);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($id, $rut, $nombre_c, $razon_social, $nro_mtop, $pass_mtop, $id_usuario, $tipo_usuario, $choferes_sub, $direccion_hotel);
+            $stmt->bind_result($id, $rut, $nombre_c, $razon_social, $nro_mtop, $pass_mtop, $id_usuario, $tipo_usuario, $choferes_sub, $direccion_hotel,$visivilidad);
             while ($stmt->fetch()) {
                 $result = array('ID' => $id, 'RUT' => $rut, 'NOMBRE_COMERCIAL' => $nombre_c, 'RAZON_SOCIAL' => $razon_social, 'NRO_MTOP' => $nro_mtop, 'PASS_MTOP' => $pass_mtop, 'ID_USUARIO' => $id_usuario, 'TIPO_USUARIO' => $tipo_usuario, 'CHOFERES_SUB' => $choferes_sub, 'DIRECCION_HOTEL' => $direccion_hotel);
                 $empresa[] = $result;
@@ -646,7 +646,7 @@ class procedimientosBD
         $stmt->bind_param("i", $ID);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($id, $rut, $nombre_c, $razon_social, $nro_mtop, $pass_mtop, $usuario_id, $id_usuario, $choferes_sub, $direccion_hotel);
+            $stmt->bind_result($id, $rut, $nombre_c, $razon_social, $nro_mtop, $pass_mtop, $usuario_id, $id_usuario, $choferes_sub, $direccion_hotel,$visivilidad);
             while ($stmt->fetch()) {
                 $result = array('ID' => $id, 'RUT' => $rut, 'NOMBRE_COMERCIAL' => $nombre_c, 'RAZON_SOCIAL' => $razon_social, 'NRO_MTOP' => $nro_mtop, 'PASS_MTOP' => $pass_mtop, 'ID_USUARIO' => $usuario_id, 'TIPO_USUARIO' => $id_usuario, 'CHOFERES_SUB' => $choferes_sub, 'DIRECCION_HOTEL' => $direccion_hotel);
                 $empresa[$size] = $result;
@@ -933,11 +933,11 @@ class procedimientosBD
     {
         $empresas_choferes = array();
         $conn = $this->conexion();
-        $query = "SELECT * FROM `empresas` WHERE Usuario_ID IN (SELECT ID FROM usuarios WHERE Agencia_C IN (SELECT RUT FROM empresas where Usuario_ID = $id));";
+        $query = "SELECT * FROM `empresas` WHERE Usuario_ID IN (SELECT ID FROM usuarios WHERE Agencia_C IN (SELECT RUT FROM empresas where Usuario_ID = $id)) and  visibilidad = 1;";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($id, $rut, $nombre_c, $razon_social, $nro_mtop, $pass_mtop, $id_usuario, $tipo_usuario, $choferes_sub, $direccion_hotel);
+            $stmt->bind_result($id, $rut, $nombre_c, $razon_social, $nro_mtop, $pass_mtop, $id_usuario, $tipo_usuario, $choferes_sub, $direccion_hotel,$visivilidad);
             while ($stmt->fetch()) {
                 $result = array('ID' => $id, 'RUT' => $rut, 'NOMBRE_COMERCIAL' => $nombre_c, 'RAZON_SOCIAL' => $razon_social, 'NRO_MTOP' => $nro_mtop, 'PASS_MTOP' => $pass_mtop, 'ID_USUARIO' => $id_usuario, 'TIPO_USUARIO' => $tipo_usuario, 'CHOFERES_SUB' => $choferes_sub, 'DIRECCION_HOTEL' => $direccion_hotel);
                 $empresas_choferes[] = $result;
@@ -1130,6 +1130,23 @@ class procedimientosBD
         return json_encode($regiones);
     }
 
+    public function traer_rutas_mtop()
+    {
+        $conn = $this->conexion();
+        $query = "SELECT * FROM `rutas_mtop`";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($id, $ruta);
+            while ($stmt->fetch()) {
+                $result = array('ID' => $id, 'RUTA' => $ruta);
+                $rutas[] = $result;
+            }
+        }
+        $stmt->close();
+        return json_encode($rutas);
+    }
+
     public function existencia_matricula($matr)
     {
         //SELECT Matricula FROM `vehiculos` WHERE Matricula = $matr
@@ -1237,19 +1254,18 @@ class procedimientosBD
         echo $stmt->error;
         $stmt->close();
     }
-
+    
     public function cambiarIdComprador($id_oportunidad){
         session_start();
         $id_usuario = $_SESSION['datos_usuario']['ID'];
         $conn = $this->conexion();
         $query = "UPDATE viajes SET idComprador = $id_usuario, Estado = 'Comprada' WHERE idViaje = $id_oportunidad;";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("iisssi", $id , $datos['DESCUENTO'], $datos['ORIGEN'], $datos['DESTINO'], $datos['FECHA'], $datos['PRECIO']);
         $stmt->execute();
         echo $stmt->error;
         $stmt->close();
     }
-
+    
     public function obtener_id_comprador($id){
         $conn = $this->conexion();
         $query = "SELECT idComprador FROM `viajes` where idViaje = $id;";
