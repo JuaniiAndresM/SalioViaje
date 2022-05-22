@@ -16,7 +16,7 @@ session_set_cookie_params($ttl);
       $vehiculos = json_decode($info_usuario->traer_viajes(), true);
     } else {
       $vehiculos = $info_usuario->traer_agenda_usuario($_SESSION['datos_usuario']["ID"]);
-      $oportunidades = $info_usuario->traer_oportunidades_usuario($_SESSION['datos_usuario']["ID"]);
+      // $oportunidades = $info_usuario->traer_oportunidades_usuario($_SESSION['datos_usuario']["ID"]);
     }
 
   }
@@ -216,11 +216,11 @@ session_set_cookie_params($ttl);
                           <td>'.$vehiculos[$i]['ID'].'</td>
                           <td>'.$FECHA.'</td>
                           <td>'.$HORA.'</td>
-                          <td>'.$vehiculos[$i]['MATRICULA'] .'</td>
+                          <td>'.$vehiculos[$i]['VEHICULO'] .'</td>
                           <td>'.$vehiculos[$i]['ORIGEN'].'</td>
                           <td>'.$vehiculos[$i]['DESTINO'].'</td>
                           <td>'.$vehiculos[$i]['DISTANCIA'].' km</td>
-                          <td>'.$vehiculos[$i]['CANTIDAD_PASAJEROS'].'</td>
+                          <td>'.$vehiculos[$i]['CANTIDAD_PASAJERO'].'</td>
                           <td>$'.number_format( $vehiculos[$i]['PRECIO'], 0,'','.').'</td>
                           <td>-</td>
                           <td>'.$vehiculos[$i]['ESTADO'].'</td>
@@ -239,7 +239,7 @@ session_set_cookie_params($ttl);
                           <td>'.$oportunidades[$i]['ID'].'</td>
                           <td>'.$FECHA.'</td>
                           <td>'.$HORA.'</td>
-                          <td>'.$oportunidades[$i]['MATRICULA'].'</td>
+                          <td>'.$oportunidades[$i]['VEHICULO'].'</td>
                           <td>'.$oportunidades[$i]['ORIGEN'].'</td>
                           <td>'.$oportunidades[$i]['DESTINO'].'</td>
                           <td>'.$oportunidades[$i]['DISTANCIA'].' km</td>
