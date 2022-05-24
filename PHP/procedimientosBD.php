@@ -440,7 +440,7 @@ class procedimientosBD
         // ORIGEN DESTINO FECHA HORA PASAJEROS MARCA Y MODELO DEL VEHICULO nombre de transportista
         $oportunidades = array();
         $conn = $this->conexion();
-        $query = "SELECT idViaje,Origen,Destino,Fecha,Estado,Modalidad FROM viajes where idComprador = $id and Modalidad = 'Oportunidad' and visivilidad != 0;";
+        $query = "SELECT idViaje,Origen,Destino,Fecha,Estado,Modalidad FROM viajes where idComprador = $id and Modalidad = 'Oportunidad' and visivilidad != 0 ORDER BY Fecha;";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
@@ -463,7 +463,7 @@ class procedimientosBD
         // ORIGEN DESTINO FECHA HORA PASAJEROS MARCA Y MODELO DEL VEHICULO nombre de transportista
         $oportunidades = array();
         $conn = $this->conexion();
-        $query = "SELECT idViaje,Origen,Destino,Fecha,Estado,Modalidad FROM viajes where idTransportista = $id and visivilidad != 0;";
+        $query = "SELECT idViaje,Origen,Destino,Fecha,Estado,Modalidad FROM viajes where idTransportista = $id and visivilidad != 0 ORDER BY Fecha;";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
