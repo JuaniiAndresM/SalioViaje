@@ -272,23 +272,28 @@ let array_rutas = new Array()
 
 function rutas() {
     ruta = $("#rutas_1").val();
-    array_rutas[count_rutas] = ruta
-    $.ajax({
-        type: "POST",
-        url: "/PHP/Tablas/agregarTag.php",
-        data: { NRO_RUTA: count_rutas, NOMBRE_RUTA: ruta },
-        success: function (response) {
-            $("#tags_1").append(response);
-            $("#rutas_1").val("");
-        }
-    });
-    count_rutas++
+    console.log(array_rutas.includes(ruta))
+    if (!array_rutas.includes(ruta)) {
+        array_rutas[count_rutas] = ruta
+        $.ajax({
+            type: "POST",
+            url: "/PHP/Tablas/agregarTag.php",
+            data: { NRO_RUTA: count_rutas, NOMBRE_RUTA: ruta },
+            success: function (response) {
+                $("#tags_1").append(response);
+                $("#rutas_1").val("");
+            }
+        });
+        count_rutas++
+    }
+
     console.log(array_rutas)
 }
 
 function borrar_ruta(ruta) {
-    delete array_rutas[ruta]
-    $('#R' + ruta).remove();
+    ruta = ruta.split("-")
+    array_rutas.splice(array_rutas.indexOf(ruta[0]), 1);
+    $('#R' + ruta[1]).remove();
     console.log(array_rutas)
 }
 
@@ -437,27 +442,47 @@ function verificar_rutas_para_MTOP() {
 
     } else {
 
-        datos_etapa_2_tramo_1['FECHA'] = fecha_1.replace("T", " ");
-        datos_etapa_2_tramo_2['FECHA'] = fecha_2.replace("T", " ");
+        $(".mtop").html("<i class='fas fa-address-card'></i> MTOP: Si")
+
+        datos_etapa_2_tramo_1['FECHA'] = datos_etapa_2_tramo_1['FECHA'].replace("T", " ");
+        datos_etapa_2_tramo_2['FECHA'] = datos_etapa_2_tramo_2['FECHA'].replace("T", " ");
 
         next(2)
 
         $('.pasajeros').html('<i class="fas fa-user-friends"></i> ' + datos_etapa_1['CANTIDAD_DE_PASAJEROS'])
         $('.distancia').html('<i class="fas fa-road"></i> ' + datos_etapa_1['DISTANCIA'] + " Km")
 
-        if (datos_etapa_2_tramo_1['TIPO'] == "1") { $('.tipo_1').html("Agenda") } else { $('.tipo_1').html("Oportunidad") }
-        if (datos_etapa_2_tramo_1['DESCUENTO_OPORTUNIDAD'] != undefined) { $('.tipo_1').html("Oportunidad") } else { $('.tipo_1').html("Agenda") }
-        $('.fecha_1').html(datos_etapa_2_tramo_1['FECHA'])
+        if (datos_etapa_2_tramo_1['TIPO'] == 1) { $('.tipo_1').html("Agenda") } else { $('.tipo_1').html("Oportunidad") }
+        if (datos_etapa_2_tramo_1['DESCUENTO_OPORTUNIDAD'] != undefined) { $('.porcentaje_1').html(datos_etapa_2_tramo_1['DESCUENTO_OPORTUNIDAD'] + "%") } else { $('.porcentaje_1').html("No hay descuento") }
+
+        var fecha_1 = datos_etapa_2_tramo_1['FECHA'].split(' ');
+        var fecha_1_arreglada = dateFormat(fecha_1[0], 'dd-MM-yyyy')
+
+        $('.fecha_1').html(fecha_1_arreglada + ' ' + fecha_1[1])
         $('.origen_1').html(datos_etapa_2_tramo_1['ORIGEN'])
         $('.destino_1').html(datos_etapa_2_tramo_1['DESTINO'])
         $('.precio_1').html("$" + datos_etapa_2_tramo_1['PRECIO_REFERENCIA'])
 
-        if (datos_etapa_2_tramo_2['TIPO'] == "1") { $('.tipo_2').html("Agenda") } else { $('.tipo_2').html("Oportunidad") }
-        if (datos_etapa_2_tramo_2['DESCUENTO_OPORTUNIDAD'] != undefined) { $('.tipo_2').html("Oportunidad") } else { $('.tipo_2').html("Agenda") }
-        $('.fecha_2').html(datos_etapa_2_tramo_2['FECHA'])
-        $('.origen_2i').html(datos_etapa_2_tramo_2['ORIGEN'])
+        if (datos_etapa_2_tramo_2['TIPO'] == 1) { $('.tipo_2').html("Agenda") } else { $('.tipo_2').html("Oportunidad") }
+        if (datos_etapa_2_tramo_2['DESCUENTO_OPORTUNIDAD'] != undefined) { $('.porcentaje_2').html(datos_etapa_2_tramo_2['DESCUENTO_OPORTUNIDAD'] + "%") } else { $('.porcentaje_2').html("No hay descuento") }
+
+        var fecha_2 = datos_etapa_2_tramo_2['FECHA'].split(' ');
+        var fecha_2_arreglada = dateFormat(fecha_2[0], 'dd-MM-yyyy')
+
+        $('.fecha_2').html(fecha_2_arreglada + ' ' + fecha_2[1])
+        $('.origen_2').html(datos_etapa_2_tramo_2['ORIGEN'])
         $('.destino_2').html(datos_etapa_2_tramo_2['DESTINO'])
         $('.precio_2').html("$" + datos_etapa_2_tramo_2['PRECIO_REFERENCIA'])
+
+        for (var i = 0; i < array_rutas.length; i++) {
+            if(i == 0){
+                $('.rutas_ingresadas').html(array_rutas[i] + ", ")
+            }else if (i != array_rutas.length - 1 && array_rutas[i] != undefined) {
+                $('.rutas_ingresadas').append(array_rutas[i] + ", ")
+            } else {
+                $('.rutas_ingresadas').append(array_rutas[i] + ".")
+            }
+        }
     }
 }
 
@@ -466,6 +491,8 @@ function verificar_rutas_para_MTOP() {
 /*-------------------------------------------------------------------------------------------*/
 
 function cargar_vista_previa() {
+
+    $(".mtop").html("<i class='fas fa-address-card'></i> MTOP: No")
 
     datos_etapa_2_tramo_1['FECHA'] = datos_etapa_2_tramo_1['FECHA'].replace("T", " ");
     datos_etapa_2_tramo_2['FECHA'] = datos_etapa_2_tramo_2['FECHA'].replace("T", " ");
@@ -498,7 +525,9 @@ function cargar_vista_previa() {
     $('.precio_2').html("$" + datos_etapa_2_tramo_2['PRECIO_REFERENCIA'])
 
     for (var i = 0; i < array_rutas.length; i++) {
-        if (i != array_rutas.length - 1 && array_rutas[i] != undefined) {
+        if(i == 0){
+            $('.rutas_ingresadas').html(array_rutas[i] + ", ")
+        }else if (i != array_rutas.length - 1 && array_rutas[i] != undefined) {
             $('.rutas_ingresadas').append(array_rutas[i] + ", ")
         } else {
             $('.rutas_ingresadas').append(array_rutas[i] + ".")
@@ -544,7 +573,7 @@ function finalizar() {
     if (datos_etapa_2_tramo_2['TIPO'] == 1) { tipos_tramo['TIPO_TRAMO_2'] = 1 } else if (datos_etapa_2_tramo_2['TIPO'] == 2) { tipos_tramo['TIPO_TRAMO_2'] = 2 }
 
     for (const property in tipos_tramo) {
-        
+
         switch (property) {
             case "TIPO_TRAMO_1":
                 console.log(tipos_tramo['TIPO_TRAMO_1'])
@@ -627,13 +656,13 @@ function finalizar() {
     /*
     registro los tramos vinculados 
     */
-   
-   
-   
-   
-   setTimeout(function () {
-       registro_tramos_vinculados()
-       window.location = "https://www.salioviaje.com.uy/Panel/Success_Agenda";
+
+
+
+
+    setTimeout(function () {
+        registro_tramos_vinculados()
+        window.location = "https://www.salioviaje.com.uy/Panel/Success_Agenda";
     }, 1000);
 }
 
@@ -642,17 +671,17 @@ function registro_tramos_vinculados() {
     let modalidad_viaje_vinculado_para_tramo_1 = sessionStorage.getItem("modalidad_viaje_vinculado_para_tramo_1")
     let id_tramo_vinculado_para_tramo_2 = sessionStorage.getItem("id_tramo_vinculado_para_tramo_2")
     let modalidad_viaje_vinculado_para_tramo_2 = sessionStorage.getItem("modalidad_viaje_vinculado_para_tramo_2")
-    
+
     sessionStorage.removeItem("id_tramo_vinculado_para_tramo_1")
     sessionStorage.removeItem("modalidad_viaje_vinculado_para_tramo_1")
     sessionStorage.removeItem("id_tramo_vinculado_para_tramo_2")
     sessionStorage.removeItem("modalidad_viaje_vinculado_para_tramo_2")
-    
+
     // console.log(id_tramo_vinculado_para_tramo_1)
     // console.log(modalidad_viaje_vinculado_para_tramo_1)
     // console.log(id_tramo_vinculado_para_tramo_2)
     // console.log(modalidad_viaje_vinculado_para_tramo_2)
-    
+
     $.ajax({
         type: "POST",
         url: "/PHP/Backend.php",
@@ -661,7 +690,7 @@ function registro_tramos_vinculados() {
             console.log(response)
         },
     });
-    
+
 }
 /*-------------------------------------------------------------------------------------------*/
 //                                          Validacion                                       //
@@ -782,7 +811,7 @@ function marcar_errores(resultado_validacion, TRAMO) {
 
                 break;
         }
-        
+
     }
 }
 
