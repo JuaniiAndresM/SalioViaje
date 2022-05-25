@@ -143,6 +143,15 @@ function precio_referencia() {
 
     $("#precioref_1").attr('value', referencia);
     $("#precioref_2").attr('value', referencia);
+
+    var maximo = referencia + ((30 * referencia) / 100);
+
+
+    $('#precioref_1').attr('max', maximo);
+    $('#precioref_2').attr('max', maximo);
+
+    // $('#precioref_1').attr('min', minimo);
+    // $('#precioref_2').attr('min', minimo);
 }
 
 function calcular_hora() {
@@ -378,6 +387,28 @@ function mostrar_datos_vehiculo() {
     $(".capacidad").html('<i class="fas fa-users"></i> ' + vehiculo_seleccionado['CAPACIDAD'])
     $(".combustible").html('<i class="fas fa-gas-pump"></i> ' + vehiculo_seleccionado['COMBUSTIBLE'])
     if (vehiculos_select[i]['CAPACIDAD'] <= 3) { $(".vehicle-icon").html('<i class="fas fa-car"></i>') } else if (vehiculos_select[i]['CAPACIDAD'] > 3 && vehiculos_select[i]['CAPACIDAD'] <= 12) { $(".vehicle-icon").html('<i class="fas fa-shuttle-van"></i>') } else { $(".vehicle-icon").html('<i class="fas fa-bus"></i>') }
+}
+
+function checkInput(type){
+    switch (type) {
+        case 1:
+            var max = parseInt($('#precioref_1').attr('max'));
+
+            if($('#precioref_1').val() > max){
+                $('#precioref_1').val(max)
+            }
+            break;
+        case 2:
+            var max = parseInt($('#precioref_2').attr('max'));
+
+            $('#precioref_2').attr('max', max);
+            $('#precioref_2').attr('min', min);
+
+            if($('#precioref_2').val() > max){
+                $('#precioref_2').val(max)
+            }
+            break;
+    }
 }
 
 /*-------------------------------------------------------------------------------------------*/

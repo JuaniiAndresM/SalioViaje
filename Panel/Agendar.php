@@ -213,12 +213,12 @@ session_set_cookie_params($ttl);
 
                 <div class="input" id="pasajeros">
                   <i class="fas fa-user-friends" id="icon"></i>
-                  <input type="number" pattern="[1-9]" id="pasajeros-input" placeholder="Cantidad de Pasajeros" />
+                  <input type="number" pattern="[1-9]" min="0" id="pasajeros-input" placeholder="Cantidad de Pasajeros" oninput="this.value = Math.abs(this.value)"/>
                 </div>
 
                 <div class="input" id="km">
                   <i class="fas fa-road" id="icon"></i>
-                  <input type="number" pattern="[1-9]" id="distancia-input" placeholder="Distancia del Viaje" />
+                  <input type="number" pattern="[1-9]" min="0" id="distancia-input" placeholder="Distancia del Viaje" oninput="this.value = Math.abs(this.value)"/>
                   <p id="end-text">km</p>
                 </div>
 
@@ -290,7 +290,7 @@ session_set_cookie_params($ttl);
 
                 <div class="input" id="precioref">
                   <i class="fas fa-dollar-sign" id="icon"></i>
-                  <input type="number" id="precioref_1" placeholder="Precio de Referencia" />
+                  <input type="number" id="precioref_1" placeholder="Precio de Referencia" onchange="checkInput(1)"  oninput="this.value = Math.abs(this.value)" />
                 </div>
               </div>
 
@@ -335,7 +335,7 @@ session_set_cookie_params($ttl);
 
                 <div class="input" id="precioref">
                   <i class="fas fa-dollar-sign" id="icon"></i>
-                  <input type="number" id="precioref_2" placeholder="Precio de Referencia" />
+                  <input type="number" id="precioref_2" placeholder="Precio de Referencia" onchange="checkInput(2)"  oninput="this.value = Math.abs(this.value)" />
                 </div>
 
               </div>
