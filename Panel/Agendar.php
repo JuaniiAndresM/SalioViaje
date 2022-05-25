@@ -97,14 +97,14 @@ session_set_cookie_params($ttl);
     <script src="https://www.salioviaje.com.uy/Javascript/agendar.js"></script>
     <script src="https://www.salioviaje.com.uy/Javascript/loader.js"></script>
     <script type="text/javascript">
-        window.onload = function(){
-          $("#step-next-1").on('click', function() {
-            etapa_1();
-          });
-          $("#step-next-2").on('click', function() {
-            etapa_2();
-          });
-        }
+        // window.onload = function(){
+        //   $("#step-next-1").on('click', function() {
+        //     etapa_1();
+        //   });
+        //   $("#step-next-2").on('click', function() {
+        //     etapa_2();
+        //   });
+        // }
     </script>
   </head>
   <body>
@@ -163,14 +163,6 @@ session_set_cookie_params($ttl);
           </div>
 
           <h2 class="step_title"><i class="fas fa-book"></i> Agendar Viaje</h2>
-
-          <div class="progress-bar">
-            <span class="line"></span>
-            <span class="progress"></span>
-            <span class="circle1"></span>
-            <span class="circle2"></span>
-            <span class="circle3"></span>
-          </div>
           
           <div id="step_1">
             <div class="inputs-wrapper-agendar">
@@ -213,25 +205,18 @@ session_set_cookie_params($ttl);
 
                 <div class="input" id="pasajeros">
                   <i class="fas fa-user-friends" id="icon"></i>
-                  <input type="number" pattern="[1-9]" min="0" id="pasajeros-input" placeholder="Cantidad de Pasajeros" oninput="this.value = Math.abs(this.value)"/>
+                  <input type="number" pattern="[1-9]" min="0" id="pasajeros-input" placeholder="Cantidad de Pasajeros" oninput="this.value = Math.abs(this.value)" onkeyup="precio_referencia();"/>
                 </div>
 
                 <div class="input" id="km">
                   <i class="fas fa-road" id="icon"></i>
-                  <input type="number" pattern="[1-9]" min="0" id="distancia-input" placeholder="Distancia del Viaje" oninput="this.value = Math.abs(this.value)"/>
+                  <input type="number" pattern="[1-9]" min="0" id="distancia-input" placeholder="Distancia del Viaje" oninput="this.value = Math.abs(this.value)" onkeyup="precio_referencia();"/>
                   <p id="end-text">km</p>
                 </div>
 
               </div>
             </div>
             <p id="mensaje-error1" class="mensaje-error"></p>
-
-            <button class="button-agendar" id="button_volver" onclick="volver()">
-              <i class="fas fa-arrow-circle-left"></i> Volver
-            </button>
-            <button class="button-agendar" id="step-next-1">
-              <i class="fas fa-arrow-circle-right"></i> Siguiente
-            </button>
           </div>
           
           <div id="step_2">
@@ -325,7 +310,7 @@ session_set_cookie_params($ttl);
 
                 <div class="input" id="origen">
                   <i class="fas fa-map-marker-alt" id="icon"></i>
-                  <input list="RegionesMTOP" id="origen_2" placeholder="Origen" onchange="select_origen_destino(3)"> 
+                  <input list="RegionesMTOP" id="origen_2" placeholder="Origen" onchange="select_origen_destino(3)">
                 </div>
 
                 <div class="input" id="destino">
@@ -340,14 +325,7 @@ session_set_cookie_params($ttl);
 
               </div>
             </div>
-            <p id="mensaje-error1" class="mensaje-error"></p>
-
-            <button class="button-agendar" id="button_volver" onclick="volver()">
-              <i class="fas fa-arrow-circle-left"></i> Volver
-            </button>
-            <button class="button-agendar" id="step-next-2">
-              <i class="fas fa-arrow-circle-right"></i> Siguiente
-            </button>
+            <p id="mensaje-error2" class="mensaje-error"></p>
           </div>
 
           <div id="step_3">
@@ -376,7 +354,7 @@ session_set_cookie_params($ttl);
 
               </div>
             </div>
-            <p id="mensaje-error1" class="mensaje-error"></p>
+            <p id="mensaje-error3" class="mensaje-error"></p>
 
             <button class="button-agendar" id="button_volver" onclick="volver()">
               <i class="fas fa-arrow-circle-left"></i> Volver
