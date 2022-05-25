@@ -776,6 +776,7 @@ function cambiarPinAdmin(id, ciAnterior) {
 }
 
 function guardarEdicionEmpresa(rut) {
+
     datos_Empresa = {
         "RUT": document.getElementById("rut_empresa").value,
         "NOMBRE_COMERCIAL": document.getElementById("NcEdicion").value,
@@ -805,7 +806,7 @@ function guardarEdicionEmpresa(rut) {
             type: "POST",
             url: "/PHP/llamadosSol.php",
             //aca mandarias la info necesaria para el xml de llamada
-            data: { tipe: 5, RUTANTERIOR: rut, RUT: rut, NOMBRE: datos_Empresa["NOMBRE_COMERCIAL"], RS: datos_Empresa["RAZON_SOCIAL"], CA: document.getElementById("CaEdicion").value, NM: datos_Empresa["NUMERO_MTOP"], CM: datos_Empresa["PASSWORD_MTOP"] },
+            data: { tipe: 5, RUTANTERIOR: rut, RUT: datos_Empresa['RUT'], NOMBRE: datos_Empresa["NOMBRE_COMERCIAL"], RS: datos_Empresa["RAZON_SOCIAL"], CA: document.getElementById("CaEdicion").value, NM: datos_Empresa["NUMERO_MTOP"], CM: datos_Empresa["PASSWORD_MTOP"] },
             success: function (response) {
                 editarEmpresa(rut);
             }

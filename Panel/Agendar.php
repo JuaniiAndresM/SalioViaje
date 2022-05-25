@@ -17,7 +17,8 @@ session_set_cookie_params($ttl);
   $regiones_mtop = new procedimientosBD();
   $regiones_mtop = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
-  $rutas = json_decode($regiones_mtop->traer_rutas_mtop());
+  $rutas = new procedimientosBD();
+  $rutas = json_decode($rutas->traer_rutas_mtop(), true);
 ?>
 
 <!DOCTYPE html>
@@ -359,10 +360,10 @@ session_set_cookie_params($ttl);
                   <input list="Rutas" id="rutas_1" placeholder="Rutas" onchange="rutas()">
                   <datalist id="Rutas">
                     <?php
-                      if (isset($regiones_mtop)) {
-                        for ($i=0; $i < count($regiones_mtop); $i++) { 
+                      if (isset($rutas)) {
+                        for ($i=0; $i < count($rutas); $i++) { 
                           ?>
-                            <option value="<?php echo $regiones_mtop[$i]['REGION'] ?>">
+                            <option value="<?php echo $rutas[$i]['RUTA'] ?>">
                           <?php
                         }
                       }
@@ -412,7 +413,7 @@ session_set_cookie_params($ttl);
             <div class="info">
               <p class="pasajeros"><i class="fas fa-user-friends"></i> 13</p>
               <p class="distancia"><i class="fas fa-road"></i> 120km</p>
-              <p><i class="fas fa-address-card"></i> MTOP: No</p>
+              <p class="mtop"><i class="fas fa-address-card"></i> MTOP: No</p>
             </div>           
 
             <div class="inputs-wrapper-agendar">
