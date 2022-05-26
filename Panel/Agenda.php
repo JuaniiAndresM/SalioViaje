@@ -111,6 +111,8 @@ session_set_cookie_params($ttl);
       </div>
     </div>
 
+    <div id="modal"></div>
+
     <header class="panel-header" id="header">
       <div class="header-left">
         <div class="header-menu">
@@ -228,10 +230,10 @@ session_set_cookie_params($ttl);
                           if($_SESSION['datos_usuario']['TIPO_USUARIO'] != "PAX" && $vehiculos[$i]['MODALIDAD'] == "Oportunidad"){
                             echo '<button class="button" onclick="mtop_oportunidad('.$vehiculos[$i]['ID'].')"><i class="fas fa-file-contract"></i></button>
                                   <button class="button" onclick="abrir_editar_oportunidad('.$vehiculos[$i]['ID'].')"><i class="fas fa-edit"></i></button>
-                                  <button class="button" onclick="eliminar_viajes('.$vehiculos[$i]['ID'].')"><i class="fas fa-trash-alt"></i></button>';
+                                  <button class="button" onclick="eliminar_viajes('.$vehiculos[$i]['ID'].',1)"><i class="fas fa-trash-alt"></i></button>';
                           }else if($_SESSION['datos_usuario']['TIPO_USUARIO'] != "PAX" && $vehiculos[$i]['MODALIDAD'] == "Agendado"){
                             echo '<button class="button" onclick="mtop_oportunidad(' . $vehiculos[$i]['ID'] . ')"><i class="fas fa-file-contract"></i></button>
-                                  <button class="button" onclick="eliminar_viajes(' . $vehiculos[$i]['ID'] . ')"><i class="fas fa-trash-alt"></i></button>';
+                                  <button class="button" onclick="eliminar_viajes(' . $vehiculos[$i]['ID'] . ',1)"><i class="fas fa-trash-alt"></i></button>';
                           }
                           echo '</div>
                           </div>
@@ -262,7 +264,7 @@ session_set_cookie_params($ttl);
                           if($_SESSION['datos_usuario']['TIPO_USUARIO'] != "PAX"){
                             echo '<button class="button" onclick="mtop_oportunidad('.$oportunidades[$i]['ID'].')"><i class="fas fa-file-contract"></i></button>
                                   <button class="button" onclick="abrir_editar_oportunidad('.$oportunidades[$i]['ID'].')"><i class="fas fa-edit"></i></button>
-                                  <button class="button" onclick="eliminar_viajes('.$oportunidades[$i]['ID'].')"><i class="fas fa-trash-alt"></i></button>';
+                                  <button class="button" onclick="eliminar_viajes('.$oportunidades[$i]['ID'].',1)"><i class="fas fa-trash-alt"></i></button>';
                           }
                           echo '
                           </td>

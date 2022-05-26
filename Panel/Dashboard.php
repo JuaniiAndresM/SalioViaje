@@ -143,6 +143,9 @@ session_set_cookie_params($ttl);
               <div></div>
           </div>
         </div>
+
+        <div id="modal"></div>
+        
         <header class="panel-header" id="header">
           <div class="header-left">
             <div class="header-menu">
@@ -730,6 +733,7 @@ session_set_cookie_params($ttl);
                                 <th>Destino <i class="fas fa-angle-down"></i></th>
                                 <th>Fecha <i class="fas fa-angle-down"></i></th>
                                 <th>Estado <i class="fas fa-angle-down"></i></th>
+                                <th>Modalidad <i class="fas fa-angle-down"></i></th>
                                 <th></th>
                               </tr>
                             </thead>

@@ -37,7 +37,7 @@ for ($i = 0; $i < count($oportunidades); $i++) {
                     <div class="button-wrapper">
                       <button class="button" onclick="mtop_oportunidad(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-file-contract"></i></button>
                       <button class="button" onclick="abrir_editar_oportunidad(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-edit"></i></button>
-                      <button class="button" onclick="eliminar_viajes(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-trash-alt"></i></button>
+                      <button class="button" onclick="eliminar_viajes(' . $oportunidades[$i]['ID'] . ',1)"><i class="fas fa-trash-alt"></i></button>
                     </div>
                   </td>
             </tr>
@@ -73,7 +73,7 @@ for ($i = 0; $i < count($oportunidades); $i++) {
                     <div class="button-wrapper">
                       <button class="button" onclick="mtop_oportunidad(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-file-contract"></i></button>
                       <button class="button" onclick="abrir_editar_oportunidad(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-edit"></i></button>
-                      <button class="button" onclick="eliminar_viajes(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-trash-alt"></i></button>
+                      <button class="button" onclick="eliminar_viajes(' . $oportunidades[$i]['ID'] . ',1)"><i class="fas fa-trash-alt"></i></button>
                     </div>
                   </td>
             </tr>
@@ -112,7 +112,7 @@ for ($i = 0; $i < count($oportunidades); $i++) {
                   <td>
                       <div class="button-wrapper">
                           <button class="button" onclick="mtop_oportunidad(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-file-contract"></i></button>
-                          <button class="button" onclick="eliminar_viajes(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-trash-alt"></i></button>
+                          <button class="button" onclick="eliminar_viajes(' . $oportunidades[$i]['ID'] . ',1)"><i class="fas fa-trash-alt"></i></button>
                       </div>
                     </td>
               </tr>
@@ -129,7 +129,7 @@ for ($i = 0; $i < count($oportunidades); $i++) {
                   <td>
                       <div class="button-wrapper">
                           <button class="button" onclick="mtop_oportunidad(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-file-contract"></i></button>
-                          <button class="button" onclick="eliminar_viajes(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-trash-alt"></i></button>
+                          <button class="button" onclick="eliminar_viajes(' . $oportunidades[$i]['ID'] . ',1)"><i class="fas fa-trash-alt"></i></button>
                       </div>
                     </td>
               </tr>

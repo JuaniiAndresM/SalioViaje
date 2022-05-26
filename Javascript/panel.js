@@ -1026,16 +1026,37 @@ function confirmar_rut(validacion) {
 /*-------------------------------------------------------------------------------------------*/
 //                              Manejo de viajes                                             //
 /*-------------------------------------------------------------------------------------------*/
+function closeModal(){
+    $('#modal').hide();
+    $('#modal').html("");
+}
 
-function eliminar_viajes(id){
-    $.ajax({
-        type: "POST",
-        data: { opcion: "eliminar_viajes", id:id },
-        url: "https://www.salioviaje.com.uy/PHP/Backend.php",
-        success: function (response) {
-            console.log(response);
-        }
-    });
+function eliminar_viajes(id, step){
+    switch(step){
+        case 1:
+            $.ajax({
+                type: "POST",
+                url: "https://www.salioviaje.com.uy/Panel/modal.php",
+                data: { opcion: 1, data: id },
+                success: function (response) {
+                    console.log(response);
+                    $('#modal').css('display','flex');
+                    $('#modal').html(response);        
+                }
+            });
+            break;
+        case 2:
+            $.ajax({
+                type: "POST",
+                data: { opcion: "eliminar_viajes", id:id },
+                url: "https://www.salioviaje.com.uy/PHP/Backend.php",
+                success: function (response) {
+                    console.log(response);
+                    location.reload();
+                }
+            });
+            break;
+    }
 }
 
 //https://www.salioviaje.com.uy/Editar_Oportunidad/
