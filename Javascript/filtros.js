@@ -40,7 +40,7 @@ function filtroAgenda() {
             for (i = 0; i < tr_length; i++) {
                 var encontrado = false;
     
-                td = tr[i].getElementsByTagName("td")[10];
+                td = tr[i].getElementsByTagName("td")[9];
     
                 if (td) {
                     txtValue = td.textContent || td.innerText;
