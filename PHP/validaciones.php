@@ -233,7 +233,7 @@ class validaciones
             }
         }
 
-        if (count($VALIDACION) == 3 && $TIENE_MTOP == 0 && $TIENE_CHOFERES_SUB == null || count($VALIDACION) == 4 && $TIENE_MTOP == 0 && $TIENE_CHOFERES_SUB != null) {
+        if (count($VALIDACION) == 3 && $TIENE_MTOP == 0 && $TIENE_CHOFERES_SUB == null || count($VALIDACION) == 3 && $TIENE_MTOP == null && $TIENE_CHOFERES_SUB == null || count($VALIDACION) == 4 && $TIENE_MTOP == 0 && $TIENE_CHOFERES_SUB != null) {
             $DATOS_VACIOS = null;
         } else if (count($VALIDACION) != 6 && $TIENE_CHOFERES_SUB != null) {
             $DATOS_VACIOS = "Err-1";
