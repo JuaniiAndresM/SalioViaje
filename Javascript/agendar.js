@@ -83,6 +83,8 @@ function select_tipo(tipo) {
             $('#mensaje-agenda-info').html('<i class="fas fa-info-circle"></i> Debes llenar primero el Tramo N° 1.');
         }
     }
+
+    precio_referencia();
 }
 
 function precio_referencia() {
@@ -116,12 +118,20 @@ function precio_referencia() {
 
     var maximo = referencia + ((30 * referencia) / 100);
 
+    if($('#tipo-select_1').val() == 2){
+        $('#precioref_1').attr('max', maximo);
+    }else{
+        $('#precioref_1').attr('max', '');
+    }
 
-    $('#precioref_1').attr('max', maximo);
-    $('#precioref_2').attr('max', maximo);
+    if($('#tipo-select_2').val() === "2"){
+        $('#precioref_2').attr('max', maximo);
+    }else{
+        $('#precioref_2').attr('max', '');
+    }
 
-    // $('#precioref_1').attr('min', minimo);
-    // $('#precioref_2').attr('min', minimo);
+    checkInput(1);
+    checkInput(2);
 }
 
 function calcular_hora() {
@@ -370,9 +380,6 @@ function checkInput(type){
             break;
         case 2:
             var max = parseInt($('#precioref_2').attr('max'));
-
-            $('#precioref_2').attr('max', max);
-            $('#precioref_2').attr('min', min);
 
             if($('#precioref_2').val() > max){
                 $('#precioref_2').val(max)
