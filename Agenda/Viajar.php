@@ -422,9 +422,6 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
               <p class="mensaje-error">Debe completar todos los campos.</p>
 
-              <button class="button-viajar" onclick="volver()"><i class="fas fa-arrow-circle-left"></i> Volver</button>
-              <button class="button-viajar" onclick="finalizar()">Siguiente <i class="fas fa-arrow-circle-right"></i></button>
-
             </div>
 
             <div class="step_2_tour">
@@ -526,9 +523,6 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
               </div>
 
               <p class="mensaje-error">Debe completar todos los campos.</p>
-
-              <button class="button-viajar" onclick="volver()"><i class="fas fa-arrow-circle-left"></i> Volver</button>
-              <button class="button-viajar" onclick="finalizar()">Siguiente <i class="fas fa-arrow-circle-right"></i></button>
 
             </div>
 
@@ -734,9 +728,6 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
               </div>
 
               <p class="mensaje-error">Debe completar todos los campos.</p>
-
-              <button class="button-viajar" onclick="volver()"><i class="fas fa-arrow-circle-left"></i> Volver</button>
-              <button class="button-viajar" onclick="finalizar()">Siguiente <i class="fas fa-arrow-circle-right"></i></button>
 
             </div>
 
@@ -1163,10 +1154,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
               </div>
 
-              <p class="mensaje-error">Debe completar todos los campos.</p>
-
-              <button class="button-viajar" onclick="volver()"><i class="fas fa-arrow-circle-left"></i> Volver</button>
-              <button class="button-viajar" onclick="finalizar()">Siguiente <i class="fas fa-arrow-circle-right"></i></button>
+              <p class="mensaje-error">Debe completar todos los camposs.</p>
 
             </div>
 

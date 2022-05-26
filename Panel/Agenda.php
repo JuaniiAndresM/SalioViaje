@@ -192,10 +192,9 @@ session_set_cookie_params($ttl);
                   <th>Vehículo <i class="fas fa-angle-down"></i></th>
                   <th>Origen <i class="fas fa-angle-down"></i></th>
                   <th>Destino <i class="fas fa-angle-down"></i></th>
-                  <th>Distancia <i class="fas fa-angle-down"></i></th>
                   <th>Pasajeros <i class="fas fa-angle-down"></i></th>
                   <th>Precio <i class="fas fa-angle-down"></i></th>
-                  <th>Descuento <i class="fas fa-angle-down"></i></th>
+                  <th>Modalidad <i class="fas fa-angle-down"></i></th>
                   <th>Estado <i class="fas fa-angle-down"></i></th>
                   <th></th>
                 </tr>
@@ -219,11 +218,23 @@ session_set_cookie_params($ttl);
                           <td>'.$vehiculos[$i]['VEHICULO'] .'</td>
                           <td>'.$vehiculos[$i]['ORIGEN'].'</td>
                           <td>'.$vehiculos[$i]['DESTINO'].'</td>
-                          <td>'.$vehiculos[$i]['DISTANCIA'].' km</td>
                           <td>'.$vehiculos[$i]['CANTIDAD_PASAJERO'].'</td>
                           <td>$'.number_format( $vehiculos[$i]['PRECIO'], 0,'','.').'</td>
-                          <td>-</td>
+                          <td>'.$vehiculos[$i]['MODALIDAD'].'</td>
                           <td>'.$vehiculos[$i]['ESTADO'].'</td>
+                          <td>
+                            <div class="button-wrapper"> ';
+
+                          if($_SESSION['datos_usuario']['TIPO_USUARIO'] != "PAX" && $vehiculos[$i]['MODALIDAD'] == "Oportunidad"){
+                            echo '<button class="button" onclick="mtop_oportunidad('.$vehiculos[$i]['ID'].')"><i class="fas fa-file-contract"></i></button>
+                                  <button class="button" onclick="abrir_editar_oportunidad('.$vehiculos[$i]['ID'].')"><i class="fas fa-edit"></i></button>
+                                  <button class="button" onclick="eliminar_viajes('.$vehiculos[$i]['ID'].')"><i class="fas fa-trash-alt"></i></button>';
+                          }else if($_SESSION['datos_usuario']['TIPO_USUARIO'] != "PAX" && $vehiculos[$i]['MODALIDAD'] == "Agendado"){
+                            echo '<button class="button" onclick="mtop_oportunidad(' . $vehiculos[$i]['ID'] . ')"><i class="fas fa-file-contract"></i></button>
+                                  <button class="button" onclick="eliminar_viajes(' . $vehiculos[$i]['ID'] . ')"><i class="fas fa-trash-alt"></i></button>';
+                          }
+                          echo '</div>
+                          </div>
                       </tr>';
                     }
                   }
@@ -242,15 +253,19 @@ session_set_cookie_params($ttl);
                           <td>'.$oportunidades[$i]['VEHICULO'].'</td>
                           <td>'.$oportunidades[$i]['ORIGEN'].'</td>
                           <td>'.$oportunidades[$i]['DESTINO'].'</td>
-                          <td>'.$oportunidades[$i]['DISTANCIA'].' km</td>
                           <td>'.$oportunidades[$i]['CANTIDAD_PASAJERO'].'</td>
-                          <td>$'.number_format( $oportunidades[$i]['PRECIO'], 0,'','.').'</td>';
-                          if($oportunidades[$i]['DESCUENTO'] == ""){
-                            echo '<td>-</td>';
-                          }else{
-                            echo '<td>'.$oportunidades[$i]['DESCUENTO'].'%</td>';
+                          <td>$'.number_format( $oportunidades[$i]['PRECIO'], 0,'','.').'</td>
+                          <td>'.$oportunidades[$i]['MODALIDAD'].'</td>
+                          <td>'.$oportunidades[$i]['ESTADO'].'</td>
+                          <td>';
+
+                          if($_SESSION['datos_usuario']['TIPO_USUARIO'] != "PAX"){
+                            echo '<button class="button" onclick="mtop_oportunidad('.$oportunidades[$i]['ID'].')"><i class="fas fa-file-contract"></i></button>
+                                  <button class="button" onclick="abrir_editar_oportunidad('.$oportunidades[$i]['ID'].')"><i class="fas fa-edit"></i></button>
+                                  <button class="button" onclick="eliminar_viajes('.$oportunidades[$i]['ID'].')"><i class="fas fa-trash-alt"></i></button>';
                           }
-                    echo '<td>'.$oportunidades[$i]['ESTADO'].'</td>
+                          echo '
+                          </td>
                       </tr>';
                     }
                   }

@@ -117,9 +117,9 @@ function finalizar(enviar_solicitud) {
 
             if (validacion('Translado', datos_traslado)) {
                 if (verificar_fechas(datos_traslado['FECHA_SALIDA'], null, 0, datos_traslado['HORA'])) {
-                    next();
                     if (enviar_solicitud == 1) {
                         guardar_cotizacion(datos_traslado, array_paradas_1, 0, "traslados");
+                        next();
 
                         setTimeout(() => {
                             $.ajax({
@@ -133,6 +133,7 @@ function finalizar(enviar_solicitud) {
                                     if (response.responseText == 1) {
                                         step++;
                                         steps(step);
+                                        vaciar_paradas()
                                     } else {
                                         console.log(response);
                                     }
@@ -147,10 +148,6 @@ function finalizar(enviar_solicitud) {
                     $(".mensaje-error").text("No puedes poner una fecha anterior a la actual.");
                 }
             } else { console.log("No valido") }
-
-            setTimeout(() => {
-                vaciar_paradas()
-            }, 1100);
 
             break;
 
@@ -173,10 +170,9 @@ function finalizar(enviar_solicitud) {
 
             if (validacion('Tour', datos_tour)) {
                 if (verificar_fechas(datos_tour['FECHA_SALIDA'], null, 0, datos_tour['HORA'])) {
-                    next();
                     if (enviar_solicitud == 1) {
                         guardar_cotizacion(datos_tour, array_paradas_1, 0, "tour");
-
+                        next();
                         setTimeout(() => {
                             $.ajax({
                                 type: "POST",
@@ -189,6 +185,7 @@ function finalizar(enviar_solicitud) {
                                     if (response.responseText == 1) {
                                         step++;
                                         steps(step);
+                                        vaciar_paradas();
                                     } else {
                                         console.log(response);
                                     }
@@ -205,9 +202,6 @@ function finalizar(enviar_solicitud) {
             } else {
                 console.log("No valido");
             }
-            setTimeout(() => {
-                vaciar_paradas()
-            }, 1100);
             break;
 
         /* 
@@ -237,10 +231,9 @@ function finalizar(enviar_solicitud) {
 
                     if (validacion('Transfer_in', datos_transfer_in)) {
                         if (verificar_fechas(datos_transfer_in['FECHA_ARRIBO'], null, 0, datos_transfer_in['HORA'])) {
-                            next();
                             if (enviar_solicitud == 1) {
                                 guardar_cotizacion(datos_transfer_in, array_paradas_1, 0, "transferIn");
-
+                                next();
                                 setTimeout(() => {
                                     $.ajax({
                                         type: "POST",
@@ -253,6 +246,7 @@ function finalizar(enviar_solicitud) {
                                             if (response.responseText == 1) {
                                                 step++;
                                                 steps(step);
+                                                vaciar_paradas()
                                             } else {
                                                 console.log(response);
                                             }
@@ -290,10 +284,9 @@ function finalizar(enviar_solicitud) {
 
                     if (validacion('Transfer_out', datos_transfer_out)) {
                         if (verificar_fechas(datos_transfer_out['FECHA_PARTIDA'], null, 0, datos_transfer_out['HORA'])) {
-                            next();
                             if (enviar_solicitud == 1) {
                                 guardar_cotizacion(datos_transfer_out, array_paradas_1, 0, "transferOut");
-
+                                next();
                                 setTimeout(() => {
                                     $.ajax({
                                         type: "POST",
@@ -306,6 +299,7 @@ function finalizar(enviar_solicitud) {
                                             if (response.responseText == 1) {
                                                 step++;
                                                 steps(step);
+                                                vaciar_paradas()
                                             } else {
                                                 console.log(response);
                                             }
@@ -324,9 +318,6 @@ function finalizar(enviar_solicitud) {
                     }
                     break;
             }
-            setTimeout(() => {
-                vaciar_paradas()
-            }, 1100);
             break;
 
         /* 
@@ -356,10 +347,9 @@ function finalizar(enviar_solicitud) {
 
                     if (validacion('FIESTA-IDA', datos_fiestaseventos_ida)) {
                         if (verificar_fechas(datos_fiestaseventos_ida['FECHA_SALIDA'], null, 0, datos_fiestaseventos_ida["HORA"])) {
-                            next();
                             if (enviar_solicitud == 1) {
                                 guardar_cotizacion(datos_fiestaseventos_ida, array_paradas_1, 0, "fiestasIda");
-
+                                next();
                                 setTimeout(() => {
                                     $.ajax({
                                         type: "POST",
@@ -372,6 +362,7 @@ function finalizar(enviar_solicitud) {
                                             if (response.responseText == 1) {
                                                 step++;
                                                 steps(step);
+                                                vaciar_paradas()
                                             } else {
                                                 console.log(response);
                                             }
@@ -408,10 +399,9 @@ function finalizar(enviar_solicitud) {
 
                     if (validacion('FIESTA-VUELTA', datos_fiestaseventos_vuelta)) {
                         if (verificar_fechas(datos_fiestaseventos_vuelta['FECHA_REGRESO'], null, 0, datos_fiestaseventos_vuelta['HORA'])) {
-                            next();
                             if (enviar_solicitud == 1) {
                                 guardar_cotizacion(datos_fiestaseventos_vuelta, 0, array_paradas_2, "fiestasVuelta");
-
+                                next();
                                 setTimeout(() => {
                                     $.ajax({
                                         type: "POST",
@@ -424,6 +414,7 @@ function finalizar(enviar_solicitud) {
                                             if (response.responseText == 1) {
                                                 step++;
                                                 steps(step);
+                                                vaciar_paradas()
                                             } else {
                                                 console.log(response.responseText);
                                             }
@@ -482,10 +473,9 @@ function finalizar(enviar_solicitud) {
 
                     if (validacion('FIESTA-IDA-VUELTA', datos_fiestaseventos_idavuelta)) {
                         if (verificar_fechas(datos_fiestaseventos_idavuelta['FECHA_SALIDA'], datos_fiestaseventos_idavuelta['FECHA_REGRESO'], 1, datos_fiestaseventos_idavuelta['HORA_SALIDA'], datos_fiestaseventos_idavuelta['HORA_REGRESO'])) {
-                            next();
                             if (enviar_solicitud == 1) {
                                 guardar_cotizacion(datos_fiestaseventos_idavuelta, array_paradas_1, array_paradas_2, "fiestasIdaVuelta");
-
+                                next();
                                 setTimeout(() => {
                                     $.ajax({
                                         type: "POST",
@@ -498,6 +488,7 @@ function finalizar(enviar_solicitud) {
                                             if (response.responseText == 1) {
                                                 step++;
                                                 steps(step);
+                                                vaciar_paradas()
                                             } else {
                                                 console.log(response.responseText);
                                             }
@@ -516,9 +507,6 @@ function finalizar(enviar_solicitud) {
                     }
                     break;
             }
-            setTimeout(() => {
-                vaciar_paradas()
-            }, 1100);
             break;
     }
 }
@@ -661,7 +649,8 @@ function steps(step) {
                 viaje = $("#select_users").val();
                 console.log(viaje);
             }
-            //
+            $('.loader_step3').hide();
+            $(".step_3").show();
             console.log(viaje)
             switch (viaje) {
                 case "1":
@@ -699,42 +688,16 @@ function steps(step) {
 
         case 3:
             paradas_div.scrollIntoView();
-
-            $('.loader_step3').hide();
-
-            if ($("#select_users").val() == "4") {
-                if ($('#select_fiesta').val() == 3) {
-                    $("#paradas_vuelta").show();
-                    $("#paradas_ida").show();
-                } else if ($('#select_fiesta').val() == 2) {
-                    $("#paradas_vuelta").show();
-                    $("#paradas_ida").hide();
-                } else {
-                    $("#paradas_vuelta").hide();
-                    $("#paradas_ida").show();
-                }
-            } else {
-                $("#paradas_vuelta").hide();
-                $("#paradas_ida").show();
-            }
-
-
-
-            $(".step_3").show();
-
+            $(".step_4").show();
+            $(".progress-bar").hide();
+            break;
+        case 4:
             $('.progress').css('width', '100%');
 
             $('.circle1').css('background-color', '#2b3179');
             $('.circle2').css('background-color', '#2b3179');
             $('.circle3').css('background-color', '#2b3179');
-            break;
 
-        case 4:
-            paradas_div.scrollIntoView();
-            $(".step_4").show();
-            $(".progress-bar").hide();
-            break;
-        case 5:
             paradas_div.scrollIntoView();
             $(".step_5").show();
             $(".progress-bar").hide();

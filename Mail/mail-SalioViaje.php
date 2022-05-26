@@ -346,7 +346,7 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                         $mail->addBCC($mail_solicitante);
                         $mail->isHTML(true);
 
-                        $mail->Subject = "Invitación a cotizar un " . $TIPO_VIAJE . " #" . $id_cotizacion;
+                        $mail->Subject = "Solicitud de " . $TIPO_VIAJE . " enviada correctamente con ID #" . $id_cotizacion;
                         $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white;">
                                                 <table style="width: 100%; background: linear-gradient(120deg, #3844bc, #2b3179); border: none;" cellspacing="0" cellpadding="0">
                                                     <tr>

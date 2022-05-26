@@ -462,7 +462,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
                   <option value="0" selected disabled hidden>Combustible</option>
                   <option value="Nafta">Nafta</option>
                   <option value="Gasoil">Gasoil</option>
-                  <option value="Electico">Electrico</option>
+                  <option value="Electrico">Electrico</option>
                   <option value="Hibrido">Híbrido</option>
                 </select>
               </div>

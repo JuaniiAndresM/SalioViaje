@@ -25,9 +25,9 @@ function volver() {
 
 
 function steps(step) {
-    $("#step_1").hide();
-    $("#step_2").hide();
-    $("#step_3").hide();
+    $("#step_1").show();
+    $("#step_2").show();
+    $("#step_3").show();
     $("#step_4").hide();
 
     $('.progress-bar').show();
@@ -37,41 +37,11 @@ function steps(step) {
     $("#descuento1").hide();
     $("#descuento2").hide();
 
-    $('.circle1').css('background-color', '#aaa');
-    $('.circle2').css('background-color', '#aaa');
-    $('.circle3').css('background-color', '#aaa');
-
     switch (step) {
-        case 1:
-            $("#step_1").show();
-            $("#button_volver").hide();
-
-            $('.progress').css('width', '0%');
-            $('.circle1').css('background-color', '#2b3179');
-            break;
-
         case 2:
-            $("#step_2").show();
-
-            $('.progress').css('width', '50%');
-            $('.circle1').css('background-color', '#2b3179');
-            $('.circle2').css('background-color', '#2b3179');
-
-            precio_referencia();
-            select_tipo(1);
-            select_tipo(2);
-            break;
-
-        case 3:
-            $("#step_3").show();
-
-            $('.progress').css('width', '100%');
-            $('.circle1').css('background-color', '#2b3179');
-            $('.circle2').css('background-color', '#2b3179');
-            $('.circle3').css('background-color', '#2b3179');
-            break;
-
-        case 4:
+            $("#step_1").hide();
+            $("#step_2").hide();
+            $("#step_3").hide();
             $("#step_4").show();
 
             $('.progress-bar').hide();
@@ -113,6 +83,8 @@ function select_tipo(tipo) {
             $('#mensaje-agenda-info').html('<i class="fas fa-info-circle"></i> Debes llenar primero el Tramo N° 1.');
         }
     }
+
+    precio_referencia();
 }
 
 function precio_referencia() {
@@ -143,6 +115,23 @@ function precio_referencia() {
 
     $("#precioref_1").attr('value', referencia);
     $("#precioref_2").attr('value', referencia);
+
+    var maximo = referencia + ((30 * referencia) / 100);
+
+    if($('#tipo-select_1').val() == 2){
+        $('#precioref_1').attr('max', maximo);
+    }else{
+        $('#precioref_1').attr('max', '');
+    }
+
+    if($('#tipo-select_2').val() === "2"){
+        $('#precioref_2').attr('max', maximo);
+    }else{
+        $('#precioref_2').attr('max', '');
+    }
+
+    checkInput(1);
+    checkInput(2);
 }
 
 function calcular_hora() {
@@ -380,6 +369,25 @@ function mostrar_datos_vehiculo() {
     if (vehiculos_select[i]['CAPACIDAD'] <= 3) { $(".vehicle-icon").html('<i class="fas fa-car"></i>') } else if (vehiculos_select[i]['CAPACIDAD'] > 3 && vehiculos_select[i]['CAPACIDAD'] <= 12) { $(".vehicle-icon").html('<i class="fas fa-shuttle-van"></i>') } else { $(".vehicle-icon").html('<i class="fas fa-bus"></i>') }
 }
 
+function checkInput(type){
+    switch (type) {
+        case 1:
+            var max = parseInt($('#precioref_1').attr('max'));
+
+            if($('#precioref_1').val() > max){
+                $('#precioref_1').val(max)
+            }
+            break;
+        case 2:
+            var max = parseInt($('#precioref_2').attr('max'));
+
+            if($('#precioref_2').val() > max){
+                $('#precioref_2').val(max)
+            }
+            break;
+    }
+}
+
 /*-------------------------------------------------------------------------------------------*/
 //                                           Etapa 1                                         //
 /*-------------------------------------------------------------------------------------------*/
@@ -391,11 +399,7 @@ function etapa_1() {
         "DISTANCIA": document.getElementById('distancia-input').value
     }
     if (validacion('AGENDAR-VIAJE-ETAPA-1', datos_etapa_1)) {
-        next()
-
-        $("#step-next").on('click', function () {
-            etapa_2();
-        });
+        return true;
     } else { console.log("No valido...") }
 }
 
@@ -425,7 +429,7 @@ function etapa_2() {
 
     if (validacion('AGENDAR-VIAJE-ETAPA-2-TRAMO-1', datos_etapa_2_tramo_1)) {
         if (validacion('AGENDAR-VIAJE-ETAPA-2-TRAMO-2', datos_etapa_2_tramo_2)) {
-            next()
+            return true;
         } else { console.log("No valido...") }
     } else { console.log("No valido...") }
 }
@@ -438,49 +442,54 @@ function verificar_rutas_para_MTOP() {
 
     if (array_rutas.length == 0) {
 
-        console.log("Para agendar con MTOP debe ingresar almenos una ruta")
+        $('#mensaje-error3').show();
+        $('#mensaje-error3').text("Para agendar con MTOP debe ingresar almenos una ruta.")
 
     } else {
-
-        $(".mtop").html("<i class='fas fa-address-card'></i> MTOP: Si")
-
-        datos_etapa_2_tramo_1['FECHA'] = datos_etapa_2_tramo_1['FECHA'].replace("T", " ");
-        datos_etapa_2_tramo_2['FECHA'] = datos_etapa_2_tramo_2['FECHA'].replace("T", " ");
-
-        next(2)
-
-        $('.pasajeros').html('<i class="fas fa-user-friends"></i> ' + datos_etapa_1['CANTIDAD_DE_PASAJEROS'])
-        $('.distancia').html('<i class="fas fa-road"></i> ' + datos_etapa_1['DISTANCIA'] + " Km")
-
-        if (datos_etapa_2_tramo_1['TIPO'] == 1) { $('.tipo_1').html("Agenda") } else { $('.tipo_1').html("Oportunidad") }
-        if (datos_etapa_2_tramo_1['DESCUENTO_OPORTUNIDAD'] != undefined) { $('.porcentaje_1').html(datos_etapa_2_tramo_1['DESCUENTO_OPORTUNIDAD'] + "%") } else { $('.porcentaje_1').html("No hay descuento") }
-
-        var fecha_1 = datos_etapa_2_tramo_1['FECHA'].split(' ');
-        var fecha_1_arreglada = dateFormat(fecha_1[0], 'dd-MM-yyyy')
-
-        $('.fecha_1').html(fecha_1_arreglada + ' ' + fecha_1[1])
-        $('.origen_1').html(datos_etapa_2_tramo_1['ORIGEN'])
-        $('.destino_1').html(datos_etapa_2_tramo_1['DESTINO'])
-        $('.precio_1').html("$" + datos_etapa_2_tramo_1['PRECIO_REFERENCIA'])
-
-        if (datos_etapa_2_tramo_2['TIPO'] == 1) { $('.tipo_2').html("Agenda") } else { $('.tipo_2').html("Oportunidad") }
-        if (datos_etapa_2_tramo_2['DESCUENTO_OPORTUNIDAD'] != undefined) { $('.porcentaje_2').html(datos_etapa_2_tramo_2['DESCUENTO_OPORTUNIDAD'] + "%") } else { $('.porcentaje_2').html("No hay descuento") }
-
-        var fecha_2 = datos_etapa_2_tramo_2['FECHA'].split(' ');
-        var fecha_2_arreglada = dateFormat(fecha_2[0], 'dd-MM-yyyy')
-
-        $('.fecha_2').html(fecha_2_arreglada + ' ' + fecha_2[1])
-        $('.origen_2').html(datos_etapa_2_tramo_2['ORIGEN'])
-        $('.destino_2').html(datos_etapa_2_tramo_2['DESTINO'])
-        $('.precio_2').html("$" + datos_etapa_2_tramo_2['PRECIO_REFERENCIA'])
-
-        for (var i = 0; i < array_rutas.length; i++) {
-            if(i == 0){
-                $('.rutas_ingresadas').html(array_rutas[i] + ", ")
-            }else if (i != array_rutas.length - 1 && array_rutas[i] != undefined) {
-                $('.rutas_ingresadas').append(array_rutas[i] + ", ")
-            } else {
-                $('.rutas_ingresadas').append(array_rutas[i] + ".")
+        if(etapa_1()){
+            if(etapa_2()){
+                $('#mensaje-error3').hide();
+                $(".mtop").html("<i class='fas fa-address-card'></i> MTOP: Si")
+        
+                datos_etapa_2_tramo_1['FECHA'] = datos_etapa_2_tramo_1['FECHA'].replace("T", " ");
+                datos_etapa_2_tramo_2['FECHA'] = datos_etapa_2_tramo_2['FECHA'].replace("T", " ");
+        
+                next();
+        
+                $('.pasajeros').html('<i class="fas fa-user-friends"></i> ' + datos_etapa_1['CANTIDAD_DE_PASAJEROS'])
+                $('.distancia').html('<i class="fas fa-road"></i> ' + datos_etapa_1['DISTANCIA'] + " Km")
+        
+                if (datos_etapa_2_tramo_1['TIPO'] == 1) { $('.tipo_1').html("Agenda") } else { $('.tipo_1').html("Oportunidad") }
+                if (datos_etapa_2_tramo_1['DESCUENTO_OPORTUNIDAD'] != undefined) { $('.porcentaje_1').html(datos_etapa_2_tramo_1['DESCUENTO_OPORTUNIDAD'] + "%") } else { $('.porcentaje_1').html("No hay descuento") }
+        
+                var fecha_1 = datos_etapa_2_tramo_1['FECHA'].split(' ');
+                var fecha_1_arreglada = dateFormat(fecha_1[0], 'dd-MM-yyyy')
+        
+                $('.fecha_1').html(fecha_1_arreglada + ' ' + fecha_1[1])
+                $('.origen_1').html(datos_etapa_2_tramo_1['ORIGEN'])
+                $('.destino_1').html(datos_etapa_2_tramo_1['DESTINO'])
+                $('.precio_1').html("$" + datos_etapa_2_tramo_1['PRECIO_REFERENCIA'])
+        
+                if (datos_etapa_2_tramo_2['TIPO'] == 1) { $('.tipo_2').html("Agenda") } else { $('.tipo_2').html("Oportunidad") }
+                if (datos_etapa_2_tramo_2['DESCUENTO_OPORTUNIDAD'] != undefined) { $('.porcentaje_2').html(datos_etapa_2_tramo_2['DESCUENTO_OPORTUNIDAD'] + "%") } else { $('.porcentaje_2').html("No hay descuento") }
+        
+                var fecha_2 = datos_etapa_2_tramo_2['FECHA'].split(' ');
+                var fecha_2_arreglada = dateFormat(fecha_2[0], 'dd-MM-yyyy')
+        
+                $('.fecha_2').html(fecha_2_arreglada + ' ' + fecha_2[1])
+                $('.origen_2').html(datos_etapa_2_tramo_2['ORIGEN'])
+                $('.destino_2').html(datos_etapa_2_tramo_2['DESTINO'])
+                $('.precio_2').html("$" + datos_etapa_2_tramo_2['PRECIO_REFERENCIA'])
+        
+                for (var i = 0; i < array_rutas.length; i++) {
+                    if(i == 0){
+                        $('.rutas_ingresadas').html(array_rutas[i] + ", ")
+                    }else if (i != array_rutas.length - 1 && array_rutas[i] != undefined) {
+                        $('.rutas_ingresadas').append(array_rutas[i] + ", ")
+                    } else {
+                        $('.rutas_ingresadas').append(array_rutas[i] + ".")
+                    }
+                }
             }
         }
     }
@@ -492,45 +501,52 @@ function verificar_rutas_para_MTOP() {
 
 function cargar_vista_previa() {
 
-    $(".mtop").html("<i class='fas fa-address-card'></i> MTOP: No")
+    if(etapa_1()){
+        if(etapa_2()){
+            next();
+    
 
-    datos_etapa_2_tramo_1['FECHA'] = datos_etapa_2_tramo_1['FECHA'].replace("T", " ");
-    datos_etapa_2_tramo_2['FECHA'] = datos_etapa_2_tramo_2['FECHA'].replace("T", " ");
+            $(".mtop").html("<i class='fas fa-address-card'></i> MTOP: No")
 
-    next(1)
+            datos_etapa_2_tramo_1['FECHA'] = datos_etapa_2_tramo_1['FECHA'].replace("T", " ");
+            datos_etapa_2_tramo_2['FECHA'] = datos_etapa_2_tramo_2['FECHA'].replace("T", " ");
 
-    $('.pasajeros').html('<i class="fas fa-user-friends"></i> ' + datos_etapa_1['CANTIDAD_DE_PASAJEROS'])
-    $('.distancia').html('<i class="fas fa-road"></i> ' + datos_etapa_1['DISTANCIA'] + " Km")
+            
 
-    if (datos_etapa_2_tramo_1['TIPO'] == 1) { $('.tipo_1').html("Agenda") } else { $('.tipo_1').html("Oportunidad") }
-    if (datos_etapa_2_tramo_1['DESCUENTO_OPORTUNIDAD'] != undefined) { $('.porcentaje_1').html(datos_etapa_2_tramo_1['DESCUENTO_OPORTUNIDAD'] + "%") } else { $('.porcentaje_1').html("No hay descuento") }
+            $('.pasajeros').html('<i class="fas fa-user-friends"></i> ' + datos_etapa_1['CANTIDAD_DE_PASAJEROS'])
+            $('.distancia').html('<i class="fas fa-road"></i> ' + datos_etapa_1['DISTANCIA'] + " Km")
 
-    var fecha_1 = datos_etapa_2_tramo_1['FECHA'].split(' ');
-    var fecha_1_arreglada = dateFormat(fecha_1[0], 'dd-MM-yyyy')
+            if (datos_etapa_2_tramo_1['TIPO'] == 1) { $('.tipo_1').html("Agenda") } else { $('.tipo_1').html("Oportunidad") }
+            if (datos_etapa_2_tramo_1['DESCUENTO_OPORTUNIDAD'] != undefined) { $('.porcentaje_1').html(datos_etapa_2_tramo_1['DESCUENTO_OPORTUNIDAD'] + "%") } else { $('.porcentaje_1').html("No hay descuento") }
 
-    $('.fecha_1').html(fecha_1_arreglada + ' ' + fecha_1[1])
-    $('.origen_1').html(datos_etapa_2_tramo_1['ORIGEN'])
-    $('.destino_1').html(datos_etapa_2_tramo_1['DESTINO'])
-    $('.precio_1').html("$" + datos_etapa_2_tramo_1['PRECIO_REFERENCIA'])
+            var fecha_1 = datos_etapa_2_tramo_1['FECHA'].split(' ');
+            var fecha_1_arreglada = dateFormat(fecha_1[0], 'dd-MM-yyyy')
 
-    if (datos_etapa_2_tramo_2['TIPO'] == 1) { $('.tipo_2').html("Agenda") } else { $('.tipo_2').html("Oportunidad") }
-    if (datos_etapa_2_tramo_2['DESCUENTO_OPORTUNIDAD'] != undefined) { $('.porcentaje_2').html(datos_etapa_2_tramo_2['DESCUENTO_OPORTUNIDAD'] + "%") } else { $('.porcentaje_2').html("No hay descuento") }
+            $('.fecha_1').html(fecha_1_arreglada + ' ' + fecha_1[1])
+            $('.origen_1').html(datos_etapa_2_tramo_1['ORIGEN'])
+            $('.destino_1').html(datos_etapa_2_tramo_1['DESTINO'])
+            $('.precio_1').html("$" + datos_etapa_2_tramo_1['PRECIO_REFERENCIA'])
 
-    var fecha_2 = datos_etapa_2_tramo_2['FECHA'].split(' ');
-    var fecha_2_arreglada = dateFormat(fecha_2[0], 'dd-MM-yyyy')
+            if (datos_etapa_2_tramo_2['TIPO'] == 1) { $('.tipo_2').html("Agenda") } else { $('.tipo_2').html("Oportunidad") }
+            if (datos_etapa_2_tramo_2['DESCUENTO_OPORTUNIDAD'] != undefined) { $('.porcentaje_2').html(datos_etapa_2_tramo_2['DESCUENTO_OPORTUNIDAD'] + "%") } else { $('.porcentaje_2').html("No hay descuento") }
 
-    $('.fecha_2').html(fecha_2_arreglada + ' ' + fecha_2[1])
-    $('.origen_2').html(datos_etapa_2_tramo_2['ORIGEN'])
-    $('.destino_2').html(datos_etapa_2_tramo_2['DESTINO'])
-    $('.precio_2').html("$" + datos_etapa_2_tramo_2['PRECIO_REFERENCIA'])
+            var fecha_2 = datos_etapa_2_tramo_2['FECHA'].split(' ');
+            var fecha_2_arreglada = dateFormat(fecha_2[0], 'dd-MM-yyyy')
 
-    for (var i = 0; i < array_rutas.length; i++) {
-        if(i == 0){
-            $('.rutas_ingresadas').html(array_rutas[i] + ", ")
-        }else if (i != array_rutas.length - 1 && array_rutas[i] != undefined) {
-            $('.rutas_ingresadas').append(array_rutas[i] + ", ")
-        } else {
-            $('.rutas_ingresadas').append(array_rutas[i] + ".")
+            $('.fecha_2').html(fecha_2_arreglada + ' ' + fecha_2[1])
+            $('.origen_2').html(datos_etapa_2_tramo_2['ORIGEN'])
+            $('.destino_2').html(datos_etapa_2_tramo_2['DESTINO'])
+            $('.precio_2').html("$" + datos_etapa_2_tramo_2['PRECIO_REFERENCIA'])
+
+            for (var i = 0; i < array_rutas.length; i++) {
+                if(i == 0){
+                    $('.rutas_ingresadas').html(array_rutas[i] + ", ")
+                }else if (i != array_rutas.length - 1 && array_rutas[i] != undefined) {
+                    $('.rutas_ingresadas').append(array_rutas[i] + ", ")
+                } else {
+                    $('.rutas_ingresadas').append(array_rutas[i] + ".")
+                }
+            }
         }
     }
 }
@@ -718,8 +734,8 @@ function validacion(TIPO, DATOS) {
             console.log(validacion)
             if (validacion == "VALIDO") { VALIDO = true }
             else if (validacion == "Err-1") {
-                $('.mensaje-error').show();
-                $('.mensaje-error').text("Debe completar todos los campos.");
+                $('#mensaje-error1').show();
+                $('#mensaje-error1').text("Debe completar todos los campos.");
             } else { marcar_errores(validacion) }
             break;
         case "AGENDAR-VIAJE-ETAPA-2-TRAMO-1":
@@ -735,8 +751,8 @@ function validacion(TIPO, DATOS) {
             }).responseText;
             if (validacion == "VALIDO") { VALIDO = true }
             else if (validacion == "Err-1") {
-                $('.mensaje-error').show();
-                $('.mensaje-error').text("Debe completar todos los campos.");
+                $('#mensaje-error2').show();
+                $('#mensaje-error2').text("Debe completar todos los campos.");
             } else { marcar_errores(validacion, 1) }
             break;
         case "AGENDAR-VIAJE-ETAPA-2-TRAMO-2":
@@ -752,8 +768,8 @@ function validacion(TIPO, DATOS) {
             }).responseText;
             if (validacion == "VALIDO") { VALIDO = true }
             else if (validacion == "Err-1") {
-                $('.mensaje-error').show();
-                $('.mensaje-error').text("Debe completar todos los campos.");
+                $('#mensaje-error2').show();
+                $('#mensaje-error2').text("Debe completar todos los campos.");
             } else { marcar_errores(validacion, 2) }
             break;
         case "AGENDAR-VIAJE-ETAPA-3":
@@ -769,8 +785,8 @@ function validacion(TIPO, DATOS) {
             }).responseText;
             if (validacion == "VALIDO") { VALIDO = true }
             else if (validacion == "Err-1") {
-                $('.mensaje-error').show();
-                $('.mensaje-error').text("Debe completar todos los campos.");
+                $('#mensaje-error3').show();
+                $('#mensaje-error3').text("Debe completar todos los campos.");
             } else { marcar_errores(validacion) }
             break;
     }

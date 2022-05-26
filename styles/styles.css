@@ -12324,6 +12324,13 @@ footer .totum p a:hover {
   margin: auto;
 }
 
+.agendarViaje hr {
+  width: 90%;
+  border: none;
+  border-bottom: 1px solid #bbb;
+  margin: 10px auto;
+}
+
 .agendarViaje .info-user {
   width: 100%;
   display: -ms-grid;

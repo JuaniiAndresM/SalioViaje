@@ -101,12 +101,12 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                                 <td>
                                     <div style="width: 500px; margin: 20px 0; margin-bottom: 30px; text-align: center;">
                                         <a href="https://www.salioviaje.com.uy/Solicitud/'.$datos_oportunidad[0]['ID'].'A" target="_blank" style="padding: 12px 18px; margin: 15px 5px; background-color: #4db979; color: #ffffff; text-decoration: none;
-                                        font-family: Montserrat; font-size: 15px; border-radius: 10px; margin: 0 20px;">
+                                        font-family: Montserrat; font-size: 15px; border-radius: 10px;">
                                             Confirmar
                                         </a>
 
                                         <a href="https://www.salioviaje.com.uy/Solicitud/'.$datos_oportunidad[0]['ID'].'R" target="_blank" style="padding: 12px 28px; margin: 15px 5px; background-color: #ff635a; color: #ffffff; text-decoration: none;
-                                        font-family: Montserrat; font-size: 15px; border-radius: 10px; margin: 0 20px;">
+                                        font-family: Montserrat; font-size: 15px; border-radius: 10px;">
                                             Rechazar
                                         </a>
                                     </div>
