@@ -521,7 +521,6 @@ function filtros() {
 
 
 function tabla_oportunidades() {
-    console.log("hola")
     $.ajax({
         type: 'POST',
         url: "/PHP/Tablas/tabla_viajes_panel.php",
@@ -530,7 +529,6 @@ function tabla_oportunidades() {
             $('#tbody-agenda').html(response)
         }
     });
-
 }
 
 function tabla_oportunidades_dashboard() {
@@ -777,15 +775,41 @@ function cambiarPinAdmin(id, ciAnterior) {
 
 function guardarEdicionEmpresa(rut) {
 
-    datos_Empresa = {
-        "RUT": document.getElementById("rut_empresa").value,
-        "NOMBRE_COMERCIAL": document.getElementById("NcEdicion").value,
-        "RAZON_SOCIAL": document.getElementById("RsEdicion").value,
-        "NUMERO_MTOP": document.getElementById("NmEdicion").value,
-        "PASSWORD_MTOP": document.getElementById("password").value,
-        "CHOFERES_SUB": document.getElementById("CaEdicion").value,
-        "VEHICULOS": {}
-    };
+    let data_ajax
+
+    if ($("#NmEdicion").val() == undefined && $("#CaEdicion").val() == undefined) {
+        
+        datos_Empresa = {
+            "RUT": document.getElementById("rut_empresa").value,
+            "NOMBRE_COMERCIAL": document.getElementById("NcEdicion").value,
+            "RAZON_SOCIAL": document.getElementById("RsEdicion").value,
+            "NO_TTA_NO_CHO": 1 
+        };
+        data_ajax = { tipe: 5, RUTANTERIOR: rut, RUT: datos_Empresa['RUT'], NOMBRE: datos_Empresa["NOMBRE_COMERCIAL"], RS: datos_Empresa["RAZON_SOCIAL"], NM: datos_Empresa["NUMERO_MTOP"], CM: datos_Empresa["PASSWORD_MTOP"] };
+    } else if($("#NmEdicion").val() != undefined && $("#CaEdicion").val() == undefined){
+        datos_Empresa = {
+            "RUT": document.getElementById("rut_empresa").value,
+            "NOMBRE_COMERCIAL": document.getElementById("NcEdicion").value,
+            "RAZON_SOCIAL": document.getElementById("RsEdicion").value,
+            "NUMERO_MTOP": document.getElementById("NmEdicion").value,
+            "PASSWORD_MTOP": document.getElementById("password").value,
+            "VEHICULOS": {}
+        };
+        data_ajax = { tipe: 5, RUTANTERIOR: rut, RUT: datos_Empresa['RUT'], NOMBRE: datos_Empresa["NOMBRE_COMERCIAL"], RS: datos_Empresa["RAZON_SOCIAL"], NM: datos_Empresa["NUMERO_MTOP"], CM: datos_Empresa["PASSWORD_MTOP"] };
+
+    }else{
+        datos_Empresa = {
+            "RUT": document.getElementById("rut_empresa").value,
+            "NOMBRE_COMERCIAL": document.getElementById("NcEdicion").value,
+            "RAZON_SOCIAL": document.getElementById("RsEdicion").value,
+            "NUMERO_MTOP": document.getElementById("NmEdicion").value,
+            "PASSWORD_MTOP": document.getElementById("password").value,
+            "CHOFERES_SUB": document.getElementById("CaEdicion").value,
+            "VEHICULOS": {}
+        };
+        data_ajax = { tipe: 5, RUTANTERIOR: rut, RUT: datos_Empresa['RUT'], NOMBRE: datos_Empresa["NOMBRE_COMERCIAL"], RS: datos_Empresa["RAZON_SOCIAL"], CA: document.getElementById("CaEdicion").value, NM: datos_Empresa["NUMERO_MTOP"], CM: datos_Empresa["PASSWORD_MTOP"] };
+    }
+
 
     console.log(datos_Empresa);
     validacion = $.ajax({
@@ -806,7 +830,7 @@ function guardarEdicionEmpresa(rut) {
             type: "POST",
             url: "/PHP/llamadosSol.php",
             //aca mandarias la info necesaria para el xml de llamada
-            data: { tipe: 5, RUTANTERIOR: rut, RUT: datos_Empresa['RUT'], NOMBRE: datos_Empresa["NOMBRE_COMERCIAL"], RS: datos_Empresa["RAZON_SOCIAL"], CA: document.getElementById("CaEdicion").value, NM: datos_Empresa["NUMERO_MTOP"], CM: datos_Empresa["PASSWORD_MTOP"] },
+            data: data_ajax,
             success: function (response) {
                 editarEmpresa(rut);
             }
