@@ -5,6 +5,7 @@
   .salioviaje {
     margin: 20px auto;
     margin-bottom: 40px;
+    padding: 0 20px;
 
     max-width: 1300px;
     width: 100%;
@@ -25,7 +26,7 @@
     .ofertas-wrapper {
       max-width: 1300px;
       width: 100%;
-      padding: 20px;
+      padding: 20px 30px;
       margin-top: 30px;
 
       border-radius: 3em 0 3em 3em;
@@ -528,6 +529,11 @@
                 text-align: left;
 
                 color: $main_1;
+
+                .obligatorio{
+                  color: #ff5353;
+                  font-size: 20px;
+                }
               }
     
               input,

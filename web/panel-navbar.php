@@ -62,7 +62,7 @@ session_set_cookie_params($ttl);
 
     if($tipo != 0){
       echo '<li>
-              <a href="/Dashboard">
+              <a href="https://www.salioviaje.com.uy/Dashboard">
                 <span class="icon"><i class="fa-solid fa-table-columns"></i></span>
                 <span class="title">Dashboard</span>
               </a>
@@ -88,7 +88,7 @@ session_set_cookie_params($ttl);
     
     if($tipo == 1){
       echo '  <li>
-                <a href="/Usuarios">
+                <a href="https://www.salioviaje.com.uy/Usuarios">
                   <span class="icon"><i class="fas fas fa-user-friends"></i></span>
                   <span class="title">Usuarios</span>
                 </a>
@@ -206,3 +206,21 @@ session_set_cookie_params($ttl);
   </ul>
 
 </nav>
+
+<script type="text/javascript">
+  const currentLocation = location.href;
+  const menuItem = $('#panel-navbar a');
+  const menuLength = menuItem.length;
+
+
+  for(let i = 1; i < menuLength; i++){
+    hrefItem = menuItem[i].href.split('/');
+    
+    if(location.href.includes(hrefItem[3])){
+      menuItem[i].className = "active-page"
+      document.querySelector('.active-page').closest('li').className = "hovered"
+    }
+  }
+
+  ;
+</script>

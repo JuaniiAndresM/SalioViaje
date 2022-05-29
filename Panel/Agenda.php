@@ -185,7 +185,7 @@ session_set_cookie_params($ttl);
             </div>
           </div>
           <div class="table-overflow">
-            <table class="usuarios-table" id="search-agendar-table">
+            <table class="usuarios-table" id="search-agendar-table" style="min-width:1100px">
               <thead>
                 <tr>
                   <th id="ID">ID <i class="fas fa-angle-down"></i></th>

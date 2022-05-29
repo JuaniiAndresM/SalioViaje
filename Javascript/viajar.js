@@ -669,12 +669,14 @@ function steps(step) {
                     $(".step_2_transfer").show();
                     $(".session-input").val()
                     $(".session-input").val("");
+                    $('.step_3').hide();
                     break;
 
                 case "4":
                     $(".step_2_fiestas").show();
                     $(".session-input").val()
                     $(".session-input").val("");
+                    $('.step_3').hide();
                     break;
             }
 
@@ -813,18 +815,30 @@ function select_fiesta() {
     switch (tipo) {
         case "1":
             $('#fiesta_ida').show();
+            $('#fiesta_vuelta').hide();
+            $('#fiesta_idavuelta').hide();
+            $('.step_3').show();
             break;
 
         case "2":
+            $('#fiesta_ida').hide();
             $('#fiesta_vuelta').show();
+            $('#fiesta_idavuelta').hide();
+            $('.step_3').show();
             break;
 
         case "3":
+            $('#fiesta_ida').hide();
+            $('#fiesta_vuelta').hide();
             $('#fiesta_idavuelta').show();
+            $('.step_3').show();
             break;
 
         default:
-            $('#fiesta_ida').show();
+            $('#fiesta_ida').hide();
+            $('#fiesta_vuelta').hide();
+            $('#fiesta_idavuelta').hide();
+            $('.step_3').hide();
             break;
     }
 }
@@ -838,14 +852,20 @@ function select_transfer() {
     switch (tipo) {
         case "1":
             $('#transfer_in').show();
+            $('#transfer_out').hide();
+            $('.step_3').show();
             break;
 
         case "2":
+            $('#transfer_in').hide();
             $('#transfer_out').show();
+            $('.step_3').show();
             break;
 
         default:
-            $('#transfer_in').show();
+            $('#transfer_in').hide();
+            $('#transfer_out').hide();
+            $('.step_3').hide();
             break;
     }
 }

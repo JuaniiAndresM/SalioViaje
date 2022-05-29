@@ -450,890 +450,882 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
               </div>
       
               <div class="step_2_traslado">
-      
-                <h3 class="title"><i class="fas fa-bus"></i> Traslado</h3>
-      
-                <div class="formulario-grid">
-                  <div class="column">
-      
+
+              <h3 class="title"><i class="fas fa-bus"></i> Traslado</h3>
+
+              <div class="formulario-grid">
+                <div class="column">
+
+                  <div class="input">
+                    <p><i class="far fa-calendar-alt"></i> Fecha de Salida <span class="obligatorio">*</span></p> 
+                    <input type="date" id="fecha_salida"/>
+                  </div>
+
+                  <div class="sub-section">
+
+                    <h3><i class="fas fa-map"></i> Origen</h3>
+                    <hr>
+
                     <div class="input">
-                      <p><i class="far fa-calendar-alt"></i> Fecha de Salida</p>
-                      <input type="date" id="fecha_salida"/>
+                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes <span class="obligatorio">*</span></p>
+                      <input type="text" id="direccion_traslado_origen" value="<?php echo $_SESSION['datos_usuario']['DIRECCION']; ?>"/>
                     </div>
-      
-                    <div class="sub-section">
-      
-                      <h3><i class="fas fa-map"></i> Origen</h3>
-                      <hr>
-      
-                      <div class="input">
-                        <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
-                        <input type="text" id="direccion_traslado_origen" value="<?php echo $_SESSION['datos_usuario']['DIRECCION']; ?>"/>
-                      </div>
-      
-                      <div class="input">
-                        <p><i class="fa fa-map-location-dot"></i> Barrio</p>
-                        <input list="Barrio" id="barrio_traslado_origen" value="<?php echo $_SESSION['datos_usuario']['BARRIO']; ?>">
-                        <datalist id="Barrio">
-                          <?php
-                            if (isset($barrios)) {
-                              for ($i=0; $i < count($barrios); $i++) { 
-                              ?>
-                              <option value="<?php echo $barrios[$i] ?>">
-                              <?php
-                              }
+
+                    <div class="input">
+                      <p><i class="fa fa-map-location-dot"></i> Barrio <span class="obligatorio">*</span></p>
+                      <input list="Barrio" id="barrio_traslado_origen" value="<?php echo $_SESSION['datos_usuario']['BARRIO']; ?>">
+                      <datalist id="Barrio">
+                        <?php
+                          if (isset($barrios)) {
+                            for ($i=0; $i < count($barrios); $i++) { 
+                            ?>
+                            <option value="<?php echo $barrios[$i] ?>">
+                            <?php
                             }
-                          ?>
-                        </datalist>
-                      </div>
-      
-                      <div class="input">
-                        <p><i class="fa-solid fa-globe"></i> Localidad</p>
-                        <input list="Localidad" id="localidad_traslado_origen" value="<?php echo $_SESSION['datos_usuario']['DEPARTAMENTO']; ?>">
-                        <datalist id="Localidad">
-                        <option value="ARTIGAS">
-                        <option value="CANELONES">
-                        <option value="CERRO LARGO">
-                        <option value="SAN JOSE">
-                        <option value="FLORIDA">
-                        <option value="SORIANO">
-                        <option value="RIO NEGRO">
-                        <option value="TACUAREMBÓ">
-                        <option value="RIVERA">
-                        <option value="MONTEVIDEO">
-                        <option value="ROCHA">
-                        <option value="SALTO">
-                        <option value="RIVERA">
-                        <option value="PAYSANDU">
-                        <option value="TREINTA Y TRES">
-                        <option value="FLORES"> 
-                        <option value="COLONIA">
-                        <option value="MALDONADO"> 
-                        <option value="LAVALLEJA">
-                        </datalist>
-                      </div>
-      
+                          }
+                        ?>
+                      </datalist>
                     </div>
-                    
-      
-                    
-      
+
                     <div class="input">
-                      <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p>
-                      <input type="number" id="cant_pasajeros"/>
+                      <p><i class="fa-solid fa-globe"></i> Localidad <span class="obligatorio">*</span></p>
+                      <input list="Localidad" id="localidad_traslado_origen" value="<?php echo $_SESSION['datos_usuario']['DEPARTAMENTO']; ?>">
+                      <datalist id="Localidad">
+                      <option value="ARTIGAS">
+                      <option value="CANELONES">
+                      <option value="CERRO LARGO">
+                      <option value="SAN JOSE">
+                      <option value="FLORIDA">
+                      <option value="SORIANO">
+                      <option value="RIO NEGRO">
+                      <option value="TACUAREMBÓ">
+                      <option value="RIVERA">
+                      <option value="MONTEVIDEO">
+                      <option value="ROCHA">
+                      <option value="SALTO">
+                      <option value="RIVERA">
+                      <option value="PAYSANDU">
+                      <option value="TREINTA Y TRES">
+                      <option value="FLORES"> 
+                      <option value="COLONIA">
+                      <option value="MALDONADO"> 
+                      <option value="LAVALLEJA">
+                      </datalist>
                     </div>
-      
-                    <div class="input">
-                      <p><i class="fas fa-comment-dots"></i> Observaciones</p>
-                      <textarea class="Observaciones" id="observaciones_traslado"></textarea>
-                    </div>
-      
+
                   </div>
-      
-                  <div class="column">
-      
-                    <div class="input">
-                      <p><i class="far fa-calendar-alt"></i> Hora</p>
-                      <input type="time" id="hora"/>
-                    </div>
-      
-                    <div class="sub-section">
-      
-                      <h3><i class="fas fa-route"></i> Destino</h3>
-                      <hr>
-      
-                      <div class="input">
-                        <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
-                        <input type="text" id="direccion_traslado_destino"/>
-                      </div>
-      
-                      <div class="input">
-                        <p><i class="fa fa-map-location-dot"></i> Barrio</p>
-                        <input list="Barrio" id="barrio_traslado_destino">
-                        <datalist id="Barrio">
-                          <option value="Barrio 1">
-                          <option value="Barrio 2">
-                          <option value="Barrio 3">
-                          <option value="Barrio 4">
-                          <option value="Barrio 5">
-                        </datalist>
-                      </div>
-      
-                      <div class="input">
-                        <p><i class="fa-solid fa-globe"></i> Localidad</p>
-                        <input list="Localidad" id="localidad_traslado_destino">
-                        <datalist id="Localidad">
-                          <option value="Localidad 1">
-                          <option value="Localidad 2">
-                          <option value="Localidad 3">
-                          <option value="Localidad 4">
-                          <option value="Localidad 5">
-                        </datalist>
-                      </div>
-      
-                    </div>
-      
-                    <div class="input">
-                      <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas</p>
-                    <select name="mascota" id="mascotas_traslado">
-                    <option vlaue="1">Con mascota</option>
-                     <option value="2" selected>Sin mascota</option>
-                    </select>
-                    </div>
-      
+                  
+
+                  
+
+                  <div class="input">
+                    <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros <span class="obligatorio">*</span></p>
+                    <input type="number" id="cant_pasajeros"/>
                   </div>
-      
+
+                  <div class="input">
+                    <p><i class="fas fa-comment-dots"></i> Observaciones</p>
+                    <textarea class="Observaciones" id="observaciones_traslado"></textarea>
+                  </div>
+
                 </div>
-      
-                <p class="mensaje-error">Debe completar todos los campos.</p>
-      
-                <button class="button-viajar" onclick="volver()"><i class="fas fa-arrow-circle-left"></i> Volver</button>
-                <button class="button-viajar" onclick="finalizar()">Siguiente <i class="fas fa-arrow-circle-right"></i></button>
-      
+
+                <div class="column">
+
+                  <div class="input">
+                    <p><i class="far fa-calendar-alt"></i> Hora <span class="obligatorio">*</span></p>
+                    <input type="time" id="hora"/>
+                  </div>
+
+                  <div class="sub-section">
+
+                    <h3><i class="fas fa-route"></i> Destino</h3>
+                    <hr>
+
+                    <div class="input">
+                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes <span class="obligatorio">*</span></p>
+                      <input type="text" id="direccion_traslado_destino"/>
+                    </div>
+
+                    <div class="input">
+                      <p><i class="fa fa-map-location-dot"></i> Barrio</p>
+                      <input list="Barrio" id="barrio_traslado_destino">
+                      <datalist id="Barrio">
+                        <option value="Barrio 1">
+                        <option value="Barrio 2">
+                        <option value="Barrio 3">
+                        <option value="Barrio 4">
+                        <option value="Barrio 5">
+                      </datalist>
+                    </div>
+
+                    <div class="input">
+                      <p><i class="fa-solid fa-globe"></i> Localidad</p>
+                      <input list="Localidad" id="localidad_traslado_destino">
+                      <datalist id="Localidad">
+                        <option value="Localidad 1">
+                        <option value="Localidad 2">
+                        <option value="Localidad 3">
+                        <option value="Localidad 4">
+                        <option value="Localidad 5">
+                      </datalist>
+                    </div>
+
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas <span class="obligatorio">*</span></p>
+                  <select name="mascota" id="mascotas_traslado">
+                  <option vlaue="1">Con mascota</option>
+                   <option value="2" selected>Sin mascota</option>
+                  </select>
+                  </div>
+
+                </div>
+
               </div>
+
+              <p class="mensaje-error">Debe completar todos los campos.</p>
+
+            </div>
       
               <div class="step_2_tour">
-      
-                <h3 class="title"><i class="fas fa-city"></i> Tour o Servicio por Horas.</h3>
-      
-                <div class="formulario-grid">
-                  <div class="column">
-      
-                    <div class="input">
-                      <p><i class="far fa-calendar-alt"></i> Fecha de Salida</p>
-                      <input type="date" id="fecha_salida_tour"/>
-                    </div>
-      
-                    <div class="sub-section">
-      
-                      <h3><i class="fas fa-map"></i> Origen</h3>
-                      <hr>
-      
-                      <div class="input">
-                        <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
-                        <input type="text" id="direccion_salida_tour" value="<?php echo $_SESSION['datos_usuario']['DIRECCION']; ?>"/>
-                      </div>
-      
-                      <div class="input">
-                        <p><i class="fa fa-map-location-dot"></i> Barrio</p>
-                        <input list="Barrio" id="barrio_barrios" value="<?php echo $_SESSION['datos_usuario']['BARRIO']; ?>">
-                        <datalist id="Barrio">
-                          <option value="Barrio 1">
-                          <option value="Barrio 2">
-                          <option value="Barrio 3">
-                          <option value="Barrio 4">
-                          <option value="Barrio 5">
-                        </datalist>
-                      </div>
-      
-                      <div class="input">
-                        <p><i class="fa-solid fa-globe"></i> Localidad</p>
-                        <input list="Localidad" id="localidad_tour" value="<?php echo $_SESSION['datos_usuario']['DEPARTAMENTO']; ?>">
-                        <datalist id="Localidad">
-                          <option value="Localidad 1">
-                          <option value="Localidad 2">
-                          <option value="Localidad 3">
-                          <option value="Localidad 4">
-                          <option value="Localidad 5">
-                        </datalist>
-                      </div>
-      
-                    </div>
-      
-      
-                    <div class="input">
-                      <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p>
-                      <input type="number" id="cant_pasajeros_tour"/>
-                    </div>
-      
+
+              <h3 class="title"><i class="fas fa-city"></i> Tour o Servicio por Horas.</h3>
+
+              <div class="formulario-grid">
+                <div class="column">
+
+                  <div class="input">
+                    <p><i class="far fa-calendar-alt"></i> Fecha de Salida<span class="obligatorio">*</span></p>
+                    <input type="date" id="fecha_salida_tour"/>
                   </div>
-      
-                  <div class="column">
-      
+
+                  <div class="sub-section">
+
+                    <h3><i class="fas fa-map"></i> Origen</h3>
+                    <hr>
+
                     <div class="input">
-                      <p><i class="far fa-calendar-alt"></i> Hora</p>
-                      <input type="time" id="hora_tour"/>
+                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes <span class="obligatorio">*</span></p>
+                      <input type="text" id="direccion_salida_tour" value="<?php echo $_SESSION['datos_usuario']['DIRECCION']; ?>"/>
                     </div>
-      
+
                     <div class="input">
-                      <p><i class="fas fa-city"></i> Ciudad</p>
-      
-                      <input list="Destino" id="destino_tour">
-                      <datalist id="Destino">
-                        <option value="Canelones">
-                        <option value="Montevideo">
-                        <option value="Tacuarembó">
-                        <option value="Maldonado">
-                        <option value="Rivera">
+                      <p><i class="fa fa-map-location-dot"></i> Barrio <span class="obligatorio">*</span></p>
+                      <input list="Barrio" id="barrio_barrios" value="<?php echo $_SESSION['datos_usuario']['BARRIO']; ?>">
+                      <datalist id="Barrio">
+                        <option value="Barrio 1">
+                        <option value="Barrio 2">
+                        <option value="Barrio 3">
+                        <option value="Barrio 4">
+                        <option value="Barrio 5">
                       </datalist>
                     </div>
-      
+
                     <div class="input">
-                      <p><i class="fas fa-clock"></i> Duración (Horas)</p>
-                      <input type="number" id="duracion_tour"/>
+                      <p><i class="fa-solid fa-globe"></i> Localidad <span class="obligatorio">*</span></p>
+                      <input list="Localidad" id="localidad_tour" value="<?php echo $_SESSION['datos_usuario']['DEPARTAMENTO']; ?>">
+                      <datalist id="Localidad">
+                        <option value="Localidad 1">
+                        <option value="Localidad 2">
+                        <option value="Localidad 3">
+                        <option value="Localidad 4">
+                        <option value="Localidad 5">
+                      </datalist>
                     </div>
-      
-                    <div class="input">
-                      <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas</p>
-                    <select name="mascota" id="mascota_tour">
-                    <option vlaue="1">Con mascota</option>
-                     <option value="2" selected>Sin mascota</option>
-                    </select>
-                    </div>
-      
-                    <div class="input">
-                      <p><i class="fas fa-comment-dots"></i> Observaciones</p>
-                      <textarea class="Observaciones" id="observaciones_tour"></textarea>
-                    </div>
-      
+
                   </div>
-      
+
+
+                  <div class="input">
+                    <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros <span class="obligatorio">*</span></p>
+                    <input type="number" id="cant_pasajeros_tour"/>
+                  </div>
+
                 </div>
-      
-                <p class="mensaje-error">Debe completar todos los campos.</p>
-      
-                <button class="button-viajar" onclick="volver()"><i class="fas fa-arrow-circle-left"></i> Volver</button>
-                <button class="button-viajar" onclick="finalizar()">Siguiente <i class="fas fa-arrow-circle-right"></i></button>
-      
+
+                <div class="column">
+
+                  <div class="input">
+                    <p><i class="far fa-calendar-alt"></i> Hora <span class="obligatorio">*</span></p>
+                    <input type="time" id="hora_tour"/>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-city"></i> Ciudad <span class="obligatorio">*</span></p>
+
+                    <input list="Destino" id="destino_tour">
+                    <datalist id="Destino">
+                      <option value="Canelones">
+                      <option value="Montevideo">
+                      <option value="Tacuarembó">
+                      <option value="Maldonado">
+                      <option value="Rivera">
+                    </datalist>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-clock"></i> Duración (Horas) <span class="obligatorio">*</span></p>
+                    <input type="number" id="duracion_tour"/>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas <span class="obligatorio">*</span></p>
+                  <select name="mascota" id="mascota_tour">
+                  <option vlaue="1">Con mascota</option>
+                   <option value="2" selected>Sin mascota</option>
+                  </select>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-comment-dots"></i> Observaciones</p>
+                    <textarea class="Observaciones" id="observaciones_tour"></textarea>
+                  </div>
+
+                </div>
+
               </div>
+
+              <p class="mensaje-error">Debe completar todos los campos.</p>
+
+            </div>
       
               <div class="step_2_transfer">
-      
-                <h3 class="title"><i class="fas fa-plane-departure"></i> Transfer (Aeropuerto / Puerto)</h3>
-      
-                <div class="input">
-                  <i class="fas fa-plane" id="icon"></i>
-                  <select name="" id="select_transfer" onchange="select_transfer()">
-                    <option value="0" selected disabled hidden >Seleccione una Tipo de Transfer</option>
-                    <option value="1">Transfer de Arribos</option>
-                    <option value="2">Transfer de Partidas</option>
-                  </select>
-                </div>
-      
-      
-                <div class="formulario-grid" id="transfer_in">
-                  <div class="column">
-      
-                    <div class="input">
-                      <p><i class="far fa-calendar-alt"></i> Fecha de Arribo</p>
-                      <input type="date" id="fecha_regreso_transfer_in"/>
-                    </div>
-      
-                    <div class="input">
-                      <p><i class="fas fa-plane-arrival"></i> Origen (Puerto o Aeropuerto)</p>
-                      <input list="Aeropuertos" id="aeropuerto_transfer_in">
-                        <datalist id="Aeropuertos">
-                          <option value="Aeropuerto Internacional de Carrasco Gral. Cesáreo L. Berisso">
-                          <option value="Aeropuerto Internacional C/C Carlos A. Curbelo de Laguna del Sauce">
-                          <option value="Puerto de Montevideo">
-                          <option value="Puerto de Colonia">
-                        </datalist>
-                    </div>
-      
-      
-                    <div class="input">
-                      <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p>
-                      <input type="number" id="cant_pasajeros_transfer_in"/>
-                    </div>
-      
-                    <div class="input">
-                      <p><i class="fa fa-ticket"></i> N° de Vuelo / Barco</p>
-                      <input type="text" id="nro_vuelo_barco_in"/>
-                    </div>
-      
-                    <div class="input">
-                      <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas</p>
-                    <select name="mascota" id="mascotas_transfer_in">
-                    <option vlaue="1">Con mascota</option>
-                     <option value="2" selected>Sin mascota</option>
-                    </select>
-                    </div>
-      
-                    <div class="input">
-                      <p><i class="fas fa-suitcase-rolling"></i> Equipaje (Cant. Maletas)</p>
-                      <input type="number" id="equipaje_transfer_in"/>
-                    </div>
-      
-                  </div>
-      
-                  <div class="column">
-      
-                    <div class="input">
-                      <p><i class="far fa-calendar-alt"></i> Hora</p>
-                      <input type="time" id="hora_transfer_in"/>
-                    </div>
-      
-                    <div class="sub-section">
-      
-                      <h3><i class="fas fa-route"></i> Destino</h3>
-                      <hr>
-      
-                      <div class="input">
-                        <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
-                        <input type="text" id="direccion_transfer_in" value="<?php echo $_SESSION['datos_usuario']['DIRECCION']; ?>"/>
-                      </div>
-      
-                      <div class="input">
-                        <p><i class="fa fa-map-location-dot"></i> Barrio</p>
-                        <input list="Barrio" id="barrio_transfer_in" value="<?php echo $_SESSION['datos_usuario']['BARRIO']; ?>">
-                        <datalist id="Barrio">
-                          <option value="Barrio 1">
-                          <option value="Barrio 2">
-                          <option value="Barrio 3">
-                          <option value="Barrio 4">
-                          <option value="Barrio 5">
-                        </datalist>
-                      </div>
-      
-                      <div class="input">
-                        <p><i class="fa-solid fa-globe"></i> Localidad</p>
-                        <input list="Localidad" id="localidad_transfer_in" value="<?php echo $_SESSION['datos_usuario']['DEPARTAMENTO']; ?>">
-                        <datalist id="Localidad">
-                          <option value="Localidad 1">
-                          <option value="Localidad 2">
-                          <option value="Localidad 3">
-                          <option value="Localidad 4">
-                          <option value="Localidad 5">
-                        </datalist>
-                      </div>
-      
-                    </div>
-      
-                    <div class="input">
-                      <p><i class="fas fa-comment-dots"></i> Observaciones</p>
-                      <textarea class="Observaciones" id="observaciones_transfer_in"></textarea>
-                    </div>
-      
-                  </div>
-      
-                </div>
-      
-                <div class="formulario-grid" id="transfer_out">
-                  <div class="column">
-      
-                    <div class="input">
-                      <p><i class="far fa-calendar-alt"></i> Fecha de Partida</p>
-                      <input type="date" id="fecha_salida_transfer_out"/>
-                    </div>
-      
-                    <div class="sub-section">
-      
-                      <h3><i class="fas fa-map"></i> Origen</h3>
-                      <hr>
-      
-                      <div class="input">
-                        <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
-                        <input type="text" id="direccion_transfer_out" value="<?php echo $_SESSION['datos_usuario']['DIRECCION']; ?>"/>
-                      </div>
-      
-                      <div class="input">
-                        <p><i class="fa fa-map-location-dot"></i> Barrio</p>
-                        <input list="Barrio" id="barrio_transfer_out" value="<?php echo $_SESSION['datos_usuario']['BARRIO']; ?>">
-                        <datalist id="Barrio">
-                          <option value="Barrio 1">
-                          <option value="Barrio 2">
-                          <option value="Barrio 3">
-                          <option value="Barrio 4">
-                          <option value="Barrio 5">
-                        </datalist>
-                      </div>
-      
-                      <div class="input">
-                        <p><i class="fa-solid fa-globe"></i> Localidad</p>
-                        <input list="Localidad" id="localidad_transfer_out" value="<?php echo $_SESSION['datos_usuario']['DEPARTAMENTO']; ?>">
-                        <datalist id="Localidad">
-                          <option value="Localidad 1">
-                          <option value="Localidad 2">
-                          <option value="Localidad 3">
-                          <option value="Localidad 4">
-                          <option value="Localidad 5">
-                        </datalist>
-                      </div>
-      
-                    </div>
-      
-                    <div class="input">
-                      <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p>
-                      <input type="number" id="cant_pasajeros_transfer_out"/>
-                    </div>
-      
-                  </div>
-      
-                  <div class="column">
-      
-                    <div class="input">
-                      <p><i class="far fa-calendar-alt"></i> Hora que pasan a buscar</p>
-                      <input type="time" id="hora_transfer_out"/>
-                    </div>
-      
-                    <div class="input">
-                      <p><i class="fas fa-plane-departure"></i> Destino (Puerto o Aeropuerto)</p>
-                      <input list="Aeropuertos" id="aeropuerto_transfer_out">
-                    </div>
-      
-                    <div class="input">
-                      <p><i class="fas fa-suitcase-rolling"></i> Equipaje (Cant. Maletas)</p>
-                      <input type="number" id="equipaje_transfer_out"/>
-                    </div>
-      
-                    <div class="input">
-                      <p><i class="fa fa-ticket"></i> N° de Vuelo / Barco</p>
-                      <input type="text" id="nro_vuelo_barco_out"/>
-                    </div>
-      
-                    <div class="input">
-                      <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas</p>
-                      <select name="mascota" id="mascotas_transfer_out">
-                      <option vlaue="1">Con mascota</option>
-                     <option value="2" selected>Sin mascota</option>
-                    </select>
-                    </div>
-      
-                    <div class="input">
-                      <p><i class="fas fa-comment-dots"></i> Observaciones</p>
-                      <textarea class="Observaciones" id="observaciones_transfer_out"></textarea>
-                    </div>
-      
-                  </div>
-      
-                </div>
-      
-                <p class="mensaje-error">Debe completar todos los campos.</p>
-      
-                <button class="button-viajar" onclick="volver()"><i class="fas fa-arrow-circle-left"></i> Volver</button>
-                <button class="button-viajar" onclick="finalizar()">Siguiente <i class="fas fa-arrow-circle-right"></i></button>
-      
+
+              <h3 class="title"><i class="fas fa-plane-departure"></i> Transfer (Aeropuerto / Puerto)</h3>
+
+              <div class="input">
+                <i class="fas fa-plane" id="icon"></i>
+                <select name="" id="select_transfer" onchange="select_transfer()">
+                  <option value="0" selected disabled hidden >Seleccione una Tipo de Transfer</option>
+                  <option value="1">Transfer de Arribos</option>
+                  <option value="2">Transfer de Partidas</option>
+                </select>
               </div>
+
+              <p class="info"><i class="fas fa-info-circle"></i> Seleccione un tipo de transfer a realizar.</p>
+
+
+              <div class="formulario-grid" id="transfer_in">
+                <div class="column">
+
+                  <div class="input">
+                    <p><i class="far fa-calendar-alt"></i> Fecha de Arribo <span class="obligatorio">*</span></p>
+                    <input type="date" id="fecha_regreso_transfer_in"/>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-plane-arrival"></i> Origen (Puerto o Aeropuerto) <span class="obligatorio">*</span></p>
+                    <input list="Aeropuertos" id="aeropuerto_transfer_in">
+                      <datalist id="Aeropuertos">
+                        <option value="Aeropuerto Internacional de Carrasco Gral. Cesáreo L. Berisso">
+                        <option value="Aeropuerto Internacional C/C Carlos A. Curbelo de Laguna del Sauce">
+                        <option value="Puerto de Montevideo">
+                        <option value="Puerto de Colonia">
+                      </datalist>
+                  </div>
+
+
+                  <div class="input">
+                    <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros <span class="obligatorio">*</span></p>
+                    <input type="number" id="cant_pasajeros_transfer_in"/>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fa fa-ticket"></i> N° de Vuelo / Barco <span class="obligatorio">*</span></p>
+                    <input type="text" id="nro_vuelo_barco_in"/>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas <span class="obligatorio">*</span></p>
+                  <select name="mascota" id="mascotas_transfer_in">
+                  <option vlaue="1">Con mascota</option>
+                   <option value="2" selected>Sin mascota</option>
+                  </select>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-suitcase-rolling"></i> Equipaje (Cant. Maletas) <span class="obligatorio">*</span></p>
+                    <input type="number" id="equipaje_transfer_in"/>
+                  </div>
+
+                </div>
+
+                <div class="column">
+
+                  <div class="input">
+                    <p><i class="far fa-calendar-alt"></i> Hora <span class="obligatorio">*</span></p>
+                    <input type="time" id="hora_transfer_in"/>
+                  </div>
+
+                  <div class="sub-section">
+
+                    <h3><i class="fas fa-route"></i> Destino</h3>
+                    <hr>
+
+                    <div class="input">
+                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes <span class="obligatorio">*</span></p>
+                      <input type="text" id="direccion_transfer_in" value="<?php echo $_SESSION['datos_usuario']['DIRECCION']; ?>"/>
+                    </div>
+
+                    <div class="input">
+                      <p><i class="fa fa-map-location-dot"></i> Barrio <span class="obligatorio">*</span></p>
+                      <input list="Barrio" id="barrio_transfer_in" value="<?php echo $_SESSION['datos_usuario']['BARRIO']; ?>">
+                      <datalist id="Barrio">
+                        <option value="Barrio 1">
+                        <option value="Barrio 2">
+                        <option value="Barrio 3">
+                        <option value="Barrio 4">
+                        <option value="Barrio 5">
+                      </datalist>
+                    </div>
+
+                    <div class="input">
+                      <p><i class="fa-solid fa-globe"></i> Localidad <span class="obligatorio">*</span></p>
+                      <input list="Localidad" id="localidad_transfer_in" value="<?php echo $_SESSION['datos_usuario']['DEPARTAMENTO']; ?>">
+                      <datalist id="Localidad">
+                        <option value="Localidad 1">
+                        <option value="Localidad 2">
+                        <option value="Localidad 3">
+                        <option value="Localidad 4">
+                        <option value="Localidad 5">
+                      </datalist>
+                    </div>
+
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-comment-dots"></i> Observaciones</p>
+                    <textarea class="Observaciones" id="observaciones_transfer_in"></textarea>
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="formulario-grid" id="transfer_out">
+                <div class="column">
+
+                  <div class="input">
+                    <p><i class="far fa-calendar-alt"></i> Fecha de Partida <span class="obligatorio">*</span></p>
+                    <input type="date" id="fecha_salida_transfer_out"/>
+                  </div>
+
+                  <div class="sub-section">
+
+                    <h3><i class="fas fa-map"></i> Origen</h3>
+                    <hr>
+
+                    <div class="input">
+                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes <span class="obligatorio">*</span></p>
+                      <input type="text" id="direccion_transfer_out" value="<?php echo $_SESSION['datos_usuario']['DIRECCION']; ?>"/>
+                    </div>
+
+                    <div class="input">
+                      <p><i class="fa fa-map-location-dot"></i> Barrio <span class="obligatorio">*</span></p>
+                      <input list="Barrio" id="barrio_transfer_out" value="<?php echo $_SESSION['datos_usuario']['BARRIO']; ?>">
+                      <datalist id="Barrio">
+                        <option value="Barrio 1">
+                        <option value="Barrio 2">
+                        <option value="Barrio 3">
+                        <option value="Barrio 4">
+                        <option value="Barrio 5">
+                      </datalist>
+                    </div>
+
+                    <div class="input">
+                      <p><i class="fa-solid fa-globe"></i> Localidad <span class="obligatorio">*</span></p>
+                      <input list="Localidad" id="localidad_transfer_out" value="<?php echo $_SESSION['datos_usuario']['DEPARTAMENTO']; ?>">
+                      <datalist id="Localidad">
+                        <option value="Localidad 1">
+                        <option value="Localidad 2">
+                        <option value="Localidad 3">
+                        <option value="Localidad 4">
+                        <option value="Localidad 5">
+                      </datalist>
+                    </div>
+
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros <span class="obligatorio">*</span></p>
+                    <input type="number" id="cant_pasajeros_transfer_out"/>
+                  </div>
+
+                </div>
+
+                <div class="column">
+
+                  <div class="input">
+                    <p><i class="far fa-calendar-alt"></i> Hora que pasan a buscar <span class="obligatorio">*</span></p>
+                    <input type="time" id="hora_transfer_out"/>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-plane-departure"></i> Destino (Puerto o Aeropuerto) <span class="obligatorio">*</span></p>
+                    <input list="Aeropuertos" id="aeropuerto_transfer_out">
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-suitcase-rolling"></i> Equipaje (Cant. Maletas) <span class="obligatorio">*</span></p>
+                    <input type="number" id="equipaje_transfer_out"/>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fa fa-ticket"></i> N° de Vuelo / Barco <span class="obligatorio">*</span></p>
+                    <input type="text" id="nro_vuelo_barco_out"/>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas <span class="obligatorio">*</span></p>
+                    <select name="mascota" id="mascotas_transfer_out">
+                    <option vlaue="1">Con mascota</option>
+                   <option value="2" selected>Sin mascota</option>
+                  </select>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-comment-dots"></i> Observaciones</p>
+                    <textarea class="Observaciones" id="observaciones_transfer_out"></textarea>
+                  </div>
+
+                </div>
+
+              </div>
+
+              <p class="mensaje-error">Debe completar todos los campos.</p>
+
+            </div>
       
               <div class="step_2_fiestas">
-      
-                <h3 class="title"><i class="fas fa-glass-cheers"></i> Fiestas o Eventos</h3>
-      
-                <div class="input">
-                  <i class="fas fa-exchange-alt" id="icon"></i>
-                  <select name="" id="select_fiesta" onchange="select_fiesta()">
-                    <option value="0" selected disabled hidden >Seleccione un Tramo</option>
-                    <option value="1">Solo Ida</option>
-                    <option value="2">Solo Vuelta</option>
-                    <option value="3">Ida y Vuelta</option>
-                  </select>
-                </div>
-      
-                <div class="formulario-grid" id="fiesta_ida">
-                  <div class="column">
-      
-                    <div class="input">
-                      <p><i class="far fa-calendar-alt"></i> Fecha de Salida</p>
-                      <input type="date" id="fecha_salida_fiestas_ida"/>
-                    </div>
-      
-                    <div class="sub-section">
-      
-                      <h3><i class="fas fa-map"></i> Origen</h3>
-                      <hr>
-      
-                      <div class="input">
-                        <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
-                        <input type="text" id="direccion_fiestas_ida" value="<?php echo $_SESSION['datos_usuario']['DIRECCION']; ?>"/>
-                      </div>
-      
-                      <div class="input">
-                        <p><i class="fa fa-map-location-dot"></i> Barrio</p>
-                        <input list="Barrio" id="barrio_fiestas_ida" value="<?php echo $_SESSION['datos_usuario']['BARRIO']; ?>">
-                        <datalist id="Barrio">
-                          <option value="Barrio 1">
-                          <option value="Barrio 2">
-                          <option value="Barrio 3">
-                          <option value="Barrio 4">
-                          <option value="Barrio 5">
-                        </datalist>
-                      </div>
-      
-                      <div class="input">
-                        <p><i class="fa-solid fa-globe"></i> Localidad</p>
-                        <input list="Localidad" id="localidad_fiestas_ida" value="<?php echo $_SESSION['datos_usuario']['DEPARTAMENTO']; ?>">
-                        <datalist id="Localidad">
-                          <option value="Localidad 1">
-                          <option value="Localidad 2">
-                          <option value="Localidad 3">
-                          <option value="Localidad 4">
-                          <option value="Localidad 5">
-                        </datalist>
-                      </div>
-      
-                    </div>
-      
-                    <div class="input">
-                      <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p>
-                      <input type="number" id="cant_pasajeros_fiesta_ida"/>
-                    </div>
-      
-                  </div>
-      
-                  <div class="column">
-      
-                    <div class="input">
-                      <p><i class="far fa-calendar-alt"></i> Hora</p>
-                      <input type="time" id="hora_fiesta_ida"/>
-                    </div>
-      
-                    <div class="input">
-                      <p><i class="fas fa-route"></i> Destino o Punto de Interés</p>
-                      <input type="text" id="destino_fiesta_ida">
-                    </div>
-      
-                    <div class="input">
-                      <p><i class="fa fa-map-location-dot"></i> Barrio</p>
-                      <input list="Barrio" id="fiestasida_origen_barrios">
-                      <datalist id="Barrio">
-                        <option value="Barrio 1">
-                        <option value="Barrio 2">
-                        <option value="Barrio 3">
-                        <option value="Barrio 4">
-                        <option value="Barrio 5">
-                      </datalist>
-                    </div>
-      
-                    <div class="input">
-                      <p><i class="fa-solid fa-globe"></i> Localidad</p>
-                      <input list="Localidad" id="fiestasida_origen_localidad">
-                      <datalist id="Localidad">
-                        <option value="Localidad 1">
-                        <option value="Localidad 2">
-                        <option value="Localidad 3">
-                        <option value="Localidad 4">
-                        <option value="Localidad 5">
-                      </datalist>
-                    </div>
-      
-                    <div class="input">
-                      <p><i class="fas fa-comment-dots"></i> Observaciones</p>
-                      <textarea class="Observaciones" id="observaciones_fiesta_ida"></textarea>
-                    </div>
-      
-                    <div class="input">
-                      <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas</p>
-                      <select name="mascota" id="mascotas_fiestas_ida">
-                      <option vlaue="1">Con mascota</option>
-                     <option value="2" selected>Sin mascota</option>
-                    </select>
-                    </div>
-      
-                  </div>
-      
-                </div>
-      
-                <div class="formulario-grid" id="fiesta_vuelta">
-                  <div class="column">
-      
-                    <div class="input">
-                      <p><i class="far fa-calendar-alt"></i> Fecha de Regreso</p>
-                      <input type="date" id="fecha_regreso_fiestas_vuelta"/>
-                    </div>
-      
-                    <div class="input">
-                      <p><i class="fas fa-map-marker-alt"></i> Origen o Punto de Interés</p>
-                      <input type="text" id="origen_fiestas_vuelta">
-                    </div>
-      
-                    <div class="input">
-                      <p><i class="fa fa-map-location-dot"></i> Barrio</p>
-                      <input list="Barrio" id="fiestasvuelta_origen_barrios">
-                      <datalist id="Barrio">
-                        <option value="Barrio 1">
-                        <option value="Barrio 2">
-                        <option value="Barrio 3">
-                        <option value="Barrio 4">
-                        <option value="Barrio 5">
-                      </datalist>
-                    </div>
-      
-                    <div class="input">
-                      <p><i class="fa-solid fa-globe"></i> Localidad</p>
-                      <input list="Localidad" id="fiestasvuelta_origen_localidad">
-                      <datalist id="Localidad">
-                        <option value="Localidad 1">
-                        <option value="Localidad 2">
-                        <option value="Localidad 3">
-                        <option value="Localidad 4">
-                        <option value="Localidad 5">
-                      </datalist>
-                    </div>
-      
-                    <div class="input">
-                      <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p>
-                      <input type="number" id="cant_pasajeros_fiesta_vuelta"/>
-                    </div>
-      
-                    <div class="input">
-                      <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas</p>
-                      <select name="mascota" id="mascotas_fiestas_vuelta">
-                      <option vlaue="1">Con mascota</option>
-                     <option value="2" selected>Sin mascota</option>
-                    </select>
-                    </div>
-      
-                    <div class="input">
-                      <p><i class="fas fa-comment-dots"></i> Observaciones</p>
-                      <textarea class="Observaciones" id="observaciones_fiesta_vuelta"></textarea>
-                    </div>
-      
-                  </div>
-      
-                  <div class="column">
-      
-                    <div class="input">
-                      <p><i class="far fa-calendar-alt"></i> Hora</p>
-                      <input type="time" id="hora_fiesta_vuelta"/>
-                    </div>
-      
-                    <div class="sub-section">
-      
-                      <h3><i class="fas fa-map"></i> Destino</h3>
-                      <hr>
-      
-                      <div class="input">
-                        <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
-                        <input type="text" id="direccion_fiesta_vuelta" value="<?php echo $_SESSION['datos_usuario']['DIRECCION']; ?>"/>
-                      </div>
-      
-                      <div class="input">
-                        <p><i class="fa fa-map-location-dot"></i> Barrio</p>
-                        <input list="Barrio" id="barrio_fiesta_vuelta" value="<?php echo $_SESSION['datos_usuario']['BARRIO']; ?>">
-                        <datalist id="Barrio">
-                          <option value="Barrio 1">
-                          <option value="Barrio 2">
-                          <option value="Barrio 3">
-                          <option value="Barrio 4">
-                          <option value="Barrio 5">
-                        </datalist>
-                      </div>
-      
-                      <div class="input">
-                        <p><i class="fa-solid fa-globe"></i> Localidad</p>
-                        <input list="Localidad" id="localidad_fiesta_vuelta" value="<?php echo $_SESSION['datos_usuario']['DEPARTAMENTO']; ?>">
-                        <datalist id="Localidad">
-                          <option value="Localidad 1">
-                          <option value="Localidad 2">
-                          <option value="Localidad 3">
-                          <option value="Localidad 4">
-                          <option value="Localidad 5">
-                        </datalist>
-                      </div>
-                    </div>
-      
-                  </div>
-      
-                </div>
-      
-                <div class="formulario-grid" id="fiesta_idavuelta">
-                  <div class="column">
-      
-                    <h3><i class="fas fa-arrow-circle-up"></i> Ida</h3>
-      
-                    <div class="input">
-                      <p><i class="far fa-calendar-alt"></i> Fecha de Salida</p>
-                      <input type="date" id="fecha_salida_fiestas_idavuelta"/>
-                    </div>
-      
-                    <div class="sub-section">
-      
-                      <h3><i class="fas fa-map"></i> Origen</h3>
-                      <hr>
-      
-                      <div class="input">
-                        <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
-                        <input type="text" id="direccion_ida_origen_fiestas_idavuelta" onchange="rellenar('Direccion_Origen')" value="<?php echo $_SESSION['datos_usuario']['DIRECCION']; ?>"/>
-                      </div>
-      
-                      <div class="input">
-                        <p><i class="fa fa-map-location-dot"></i> Barrio</p>
-                        <input list="Barrio" id="barrio_ida_origen_fiestas_idavuelta" onchange="rellenar('Barrio_Origen')" value="<?php echo $_SESSION['datos_usuario']['BARRIO']; ?>">
-                        <datalist id="Barrio">
-                          <option value="Barrio 1">
-                          <option value="Barrio 2">
-                          <option value="Barrio 3">
-                          <option value="Barrio 4">
-                          <option value="Barrio 5">
-                        </datalist>
-                      </div>
-      
-                      <div class="input">
-                        <p><i class="fa-solid fa-globe"></i> Localidad</p>
-                        <input list="Localidad" id="localidad_ida_origen_fiestas_idavuelta" onchange="rellenar('Localidad_Origen')" value="<?php echo $_SESSION['datos_usuario']['DEPARTAMENTO']; ?>">
-                        <datalist id="Localidad">
-                          <option value="Localidad 1">
-                          <option value="Localidad 2">
-                          <option value="Localidad 3">
-                          <option value="Localidad 4">
-                          <option value="Localidad 5">
-                        </datalist>
-                      </div>
-      
-                    </div>
-      
-                    <div class="sub-section">
-      
-                      <h3><i class="fas fa-route"></i> Destino</h3>
-                      <hr>
-      
-                      <div class="input">
-                        <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
-                        <input type="text" id="direccion_ida_destino_fiestas_idavuelta" onchange="rellenar('Direccion_Destino')"/>
-                      </div>
-      
-                      <div class="input">
-                        <p><i class="fa fa-map-location-dot"></i> Barrio</p>
-                        <input list="Barrio" id="barrio_ida_destino_fiestas_idavuelta" onchange="rellenar('Barrio_Destino')">
-                        <datalist id="Barrio">
-                          <option value="Barrio 1">
-                          <option value="Barrio 2">
-                          <option value="Barrio 3">
-                          <option value="Barrio 4">
-                          <option value="Barrio 5">
-                        </datalist>
-                      </div>
-      
-                      <div class="input">
-                        <p><i class="fa-solid fa-globe"></i> Localidad</p>
-                        <input list="Localidad" id="localidad_ida_destino_fiestas_idavuelta" onchange="rellenar('Localidad_Destino')">
-                        <datalist id="Localidad">
-                          <option value="Localidad 1">
-                          <option value="Localidad 2">
-                          <option value="Localidad 3">
-                          <option value="Localidad 4">
-                          <option value="Localidad 5">
-                        </datalist>
-                      </div>
-                      
-                    </div>
-      
-                    <div class="input">
-                      <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p>
-                      <input type="number" id="cant_pasajeros_ida_fiestas_idavuelta" onchange="rellenar('Cantidad_Pasajeros')"/>
-                    </div>
-      
-                    <div class="input">
-                      <p><i class="far fa-calendar-alt"></i> Hora</p>
-                      <input type="time" id="hora_ida_fiestas_idavuelta" onchange="verificar_largo_fiesta()"/>
-                    </div>
-      
-                    <div class="input">
-                      <p><i class="fas fa-comment-dots"></i> Observaciones</p>
-                      <textarea  id="observaciones_fiesta_idavuelta"></textarea>
-                    </div>
-      
-                  </div>
-      
-                  <div class="column">
-      
-                    <h3><i class="fas fa-arrow-circle-down"></i> Vuelta</h3>
-      
-                    <div class="input">
-                      <p><i class="far fa-calendar-alt"></i> Fecha de Regreso</p>
-                      <input type="date" id="fecha_regreso_fiestas_idavuelta"/>
-                    </div>
-      
-                    <div class="sub-section">
-      
-                      <h3><i class="fas fa-map"></i> Origen</h3>
-                      <hr>
-      
-                      <div class="input">
-                        <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
-                        <input type="text" id="direccion_vuelta_origen_fiestas_idavuelta"/>
-                      </div>
-      
-                      <div class="input">
-                        <p><i class="fa fa-map-location-dot"></i> Barrio</p>
-                        <input list="Barrio" id="barrio_vuelta_origen_fiestas_idavuelta">
-                        <datalist id="Barrio">
-                          <option value="Barrio 1">
-                          <option value="Barrio 2">
-                          <option value="Barrio 3">
-                          <option value="Barrio 4">
-                          <option value="Barrio 5">
-                        </datalist>
-                      </div>
-      
-                      <div class="input">
-                        <p><i class="fa-solid fa-globe"></i> Localidad</p>
-                        <input list="Localidad" id="localidad_vuelta_origen_fiestas_idavuelta">
-                        <datalist id="Localidad">
-                          <option value="Localidad 1">
-                          <option value="Localidad 2">
-                          <option value="Localidad 3">
-                          <option value="Localidad 4">
-                          <option value="Localidad 5">
-                        </datalist>
-                      </div>
-      
-                    </div>
-      
-                    <div class="sub-section">
-      
-                      <h3><i class="fas fa-route"></i> Destino</h3>
-                      <hr>
-      
-                      <div class="input">
-                        <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
-                        <input type="text" id="direccion_vuelta_destino_fiestas_idavuelta" value="<?php echo $_SESSION['datos_usuario']['DIRECCION']; ?>"/>
-                      </div>
-      
-                      <div class="input">
-                        <p><i class="fa fa-map-location-dot"></i> Barrio</p>
-                        <input list="Barrio" id="barrio_vuelta_destino_fiestas_idavuelta" value="<?php echo $_SESSION['datos_usuario']['BARRIO']; ?>">
-                        <datalist id="Barrio">
-                          <option value="Barrio 1">
-                          <option value="Barrio 2">
-                          <option value="Barrio 3">
-                          <option value="Barrio 4">
-                          <option value="Barrio 5">
-                        </datalist>
-                      </div>
-      
-                      <div class="input">
-                        <p><i class="fa-solid fa-globe"></i> Localidad</p>
-                        <input list="Localidad" id="localidad_vuelta_destino_fiestas_idavuelta" value="<?php echo $_SESSION['datos_usuario']['DEPARTAMENTO']; ?>">
-                        <datalist id="Localidad">
-                          <option value="Localidad 1">
-                          <option value="Localidad 2">
-                          <option value="Localidad 3">
-                          <option value="Localidad 4">
-                          <option value="Localidad 5">
-                        </datalist>
-                      </div>
-                      
-                    </div>
-      
-                    <div class="input">
-                      <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p>
-                      <input type="number" id="cant_pasajeros_vuelta_fiestas_idavuelta"/>
-                    </div>
-      
-                    <div class="input">
-                      <p><i class="far fa-calendar-alt"></i> Hora</p>
-                      <input type="time" id="hora_vuelta_fiestas_idavuelta" onchange="verificar_largo_fiesta()"/>
-                    </div>
-      
-                    <div class="input">
-                      <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas</p>
-                      <select name="mascota" id="mascotas_fiestas_idavuelta">
-                      <option vlaue="1">Con mascota</option>
-                     <option value="2" selected>Sin mascota</option>
-                    </select>
-                    </div>
-      
-                  </div>
-      
-                </div>
-      
-                <p class="mensaje-error">Debe completar todos los campos.</p>
-      
-                <button class="button-viajar" onclick="volver()"><i class="fas fa-arrow-circle-left"></i> Volver</button>
-                <button class="button-viajar" onclick="finalizar()">Siguiente <i class="fas fa-arrow-circle-right"></i></button>
-      
+
+              <h3 class="title"><i class="fas fa-glass-cheers"></i> Fiestas o Eventos</h3>
+
+              <div class="input">
+                <i class="fas fa-exchange-alt" id="icon"></i>
+                <select name="" id="select_fiesta" onchange="select_fiesta()">
+                  <option value="0" selected disabled hidden >Seleccione un Tramo</option>
+                  <option value="1">Solo Ida</option>
+                  <option value="2">Solo Vuelta</option>
+                  <option value="3">Ida y Vuelta</option>
+                </select>
               </div>
+
+              <p class="info"><i class="fas fa-info-circle"></i> Seleccione un tipo de tramo a realizar.</p>
+
+              <div class="formulario-grid" id="fiesta_ida">
+                <div class="column">
+
+                  <div class="input">
+                    <p><i class="far fa-calendar-alt"></i> Fecha de Salida <span class="obligatorio">*</span></p>
+                    <input type="date" id="fecha_salida_fiestas_ida"/>
+                  </div>
+
+                  <div class="sub-section">
+
+                    <h3><i class="fas fa-map"></i> Origen</h3>
+                    <hr>
+
+                    <div class="input">
+                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes <span class="obligatorio">*</span></p>
+                      <input type="text" id="direccion_fiestas_ida" value="<?php echo $_SESSION['datos_usuario']['DIRECCION']; ?>"/>
+                    </div>
+
+                    <div class="input">
+                      <p><i class="fa fa-map-location-dot"></i> Barrio <span class="obligatorio">*</span></p>
+                      <input list="Barrio" id="barrio_fiestas_ida" value="<?php echo $_SESSION['datos_usuario']['BARRIO']; ?>">
+                      <datalist id="Barrio">
+                        <option value="Barrio 1">
+                        <option value="Barrio 2">
+                        <option value="Barrio 3">
+                        <option value="Barrio 4">
+                        <option value="Barrio 5">
+                      </datalist>
+                    </div>
+
+                    <div class="input">
+                      <p><i class="fa-solid fa-globe"></i> Localidad <span class="obligatorio">*</span></p>
+                      <input list="Localidad" id="localidad_fiestas_ida" value="<?php echo $_SESSION['datos_usuario']['DEPARTAMENTO']; ?>">
+                      <datalist id="Localidad">
+                        <option value="Localidad 1">
+                        <option value="Localidad 2">
+                        <option value="Localidad 3">
+                        <option value="Localidad 4">
+                        <option value="Localidad 5">
+                      </datalist>
+                    </div>
+
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros <span class="obligatorio">*</span></p>
+                    <input type="number" id="cant_pasajeros_fiesta_ida"/>
+                  </div>
+
+                </div>
+
+                <div class="column">
+
+                  <div class="input">
+                    <p><i class="far fa-calendar-alt"></i> Hora <span class="obligatorio">*</span></p>
+                    <input type="time" id="hora_fiesta_ida"/>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-route"></i> Destino o Punto de Interés <span class="obligatorio">*</span></p>
+                    <input type="text" id="destino_fiesta_ida">
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fa fa-map-location-dot"></i> Barrio</p>
+                    <input list="Barrio" id="fiestasida_origen_barrios">
+                    <datalist id="Barrio">
+                      <option value="Barrio 1">
+                      <option value="Barrio 2">
+                      <option value="Barrio 3">
+                      <option value="Barrio 4">
+                      <option value="Barrio 5">
+                    </datalist>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fa-solid fa-globe"></i> Localidad</p>
+                    <input list="Localidad" id="fiestasida_origen_localidad">
+                    <datalist id="Localidad">
+                      <option value="Localidad 1">
+                      <option value="Localidad 2">
+                      <option value="Localidad 3">
+                      <option value="Localidad 4">
+                      <option value="Localidad 5">
+                    </datalist>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-comment-dots"></i> Observaciones</p>
+                    <textarea class="Observaciones" id="observaciones_fiesta_ida"></textarea>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas <span class="obligatorio">*</span></p>
+                    <select name="mascota" id="mascotas_fiestas_ida">
+                    <option vlaue="1">Con mascota</option>
+                   <option value="2" selected>Sin mascota</option>
+                  </select>
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="formulario-grid" id="fiesta_vuelta">
+                <div class="column">
+
+                  <div class="input">
+                    <p><i class="far fa-calendar-alt"></i> Fecha de Regreso <span class="obligatorio">*</span></p>
+                    <input type="date" id="fecha_regreso_fiestas_vuelta"/>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-map-marker-alt"></i> Origen o Punto de Interés <span class="obligatorio">*</span></p>
+                    <input type="text" id="origen_fiestas_vuelta">
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fa fa-map-location-dot"></i> Barrio</p>
+                    <input list="Barrio" id="fiestasvuelta_origen_barrios">
+                    <datalist id="Barrio">
+                      <option value="Barrio 1">
+                      <option value="Barrio 2">
+                      <option value="Barrio 3">
+                      <option value="Barrio 4">
+                      <option value="Barrio 5">
+                    </datalist>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fa-solid fa-globe"></i> Localidad</p>
+                    <input list="Localidad" id="fiestasvuelta_origen_localidad">
+                    <datalist id="Localidad">
+                      <option value="Localidad 1">
+                      <option value="Localidad 2">
+                      <option value="Localidad 3">
+                      <option value="Localidad 4">
+                      <option value="Localidad 5">
+                    </datalist>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros <span class="obligatorio">*</span></p>
+                    <input type="number" id="cant_pasajeros_fiesta_vuelta"/>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas <span class="obligatorio">*</span></p>
+                    <select name="mascota" id="mascotas_fiestas_vuelta">
+                    <option vlaue="1">Con mascota</option>
+                   <option value="2" selected>Sin mascota</option>
+                  </select>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-comment-dots"></i> Observaciones</p>
+                    <textarea class="Observaciones" id="observaciones_fiesta_vuelta"></textarea>
+                  </div>
+
+                </div>
+
+                <div class="column">
+
+                  <div class="input">
+                    <p><i class="far fa-calendar-alt"></i> Hora <span class="obligatorio">*</span></p>
+                    <input type="time" id="hora_fiesta_vuelta"/>
+                  </div>
+
+                  <div class="sub-section">
+
+                    <h3><i class="fas fa-map"></i> Destino</h3>
+                    <hr>
+
+                    <div class="input">
+                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes <span class="obligatorio">*</span></p>
+                      <input type="text" id="direccion_fiesta_vuelta" value="<?php echo $_SESSION['datos_usuario']['DIRECCION']; ?>"/>
+                    </div>
+
+                    <div class="input">
+                      <p><i class="fa fa-map-location-dot"></i> Barrio <span class="obligatorio">*</span></p>
+                      <input list="Barrio" id="barrio_fiesta_vuelta" value="<?php echo $_SESSION['datos_usuario']['BARRIO']; ?>">
+                      <datalist id="Barrio">
+                        <option value="Barrio 1">
+                        <option value="Barrio 2">
+                        <option value="Barrio 3">
+                        <option value="Barrio 4">
+                        <option value="Barrio 5">
+                      </datalist>
+                    </div>
+
+                    <div class="input">
+                      <p><i class="fa-solid fa-globe"></i> Localidad <span class="obligatorio">*</span></p>
+                      <input list="Localidad" id="localidad_fiesta_vuelta" value="<?php echo $_SESSION['datos_usuario']['DEPARTAMENTO']; ?>">
+                      <datalist id="Localidad">
+                        <option value="Localidad 1">
+                        <option value="Localidad 2">
+                        <option value="Localidad 3">
+                        <option value="Localidad 4">
+                        <option value="Localidad 5">
+                      </datalist>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="formulario-grid" id="fiesta_idavuelta">
+                <div class="column">
+
+                  <h3><i class="fas fa-arrow-circle-up"></i> Ida</h3>
+
+                  <div class="input">
+                    <p><i class="far fa-calendar-alt"></i> Fecha de Salida <span class="obligatorio">*</span></p>
+                    <input type="date" id="fecha_salida_fiestas_idavuelta"/>
+                  </div>
+
+                  <div class="sub-section">
+
+                    <h3><i class="fas fa-map"></i> Origen</h3>
+                    <hr>
+
+                    <div class="input">
+                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes <span class="obligatorio">*</span></p>
+                      <input type="text" id="direccion_ida_origen_fiestas_idavuelta" onchange="rellenar('Direccion_Origen')" value="<?php echo $_SESSION['datos_usuario']['DIRECCION']; ?>"/>
+                    </div>
+
+                    <div class="input">
+                      <p><i class="fa fa-map-location-dot"></i> Barrio <span class="obligatorio">*</span></p>
+                      <input list="Barrio" id="barrio_ida_origen_fiestas_idavuelta" onchange="rellenar('Barrio_Origen')" value="<?php echo $_SESSION['datos_usuario']['BARRIO']; ?>">
+                      <datalist id="Barrio">
+                        <option value="Barrio 1">
+                        <option value="Barrio 2">
+                        <option value="Barrio 3">
+                        <option value="Barrio 4">
+                        <option value="Barrio 5">
+                      </datalist>
+                    </div>
+
+                    <div class="input">
+                      <p><i class="fa-solid fa-globe"></i> Localidad <span class="obligatorio">*</span></p>
+                      <input list="Localidad" id="localidad_ida_origen_fiestas_idavuelta" onchange="rellenar('Localidad_Origen')" value="<?php echo $_SESSION['datos_usuario']['DEPARTAMENTO']; ?>">
+                      <datalist id="Localidad">
+                        <option value="Localidad 1">
+                        <option value="Localidad 2">
+                        <option value="Localidad 3">
+                        <option value="Localidad 4">
+                        <option value="Localidad 5">
+                      </datalist>
+                    </div>
+
+                  </div>
+
+                  <div class="sub-section">
+
+                    <h3><i class="fas fa-route"></i> Destino</h3>
+                    <hr>
+
+                    <div class="input">
+                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes <span class="obligatorio">*</span></p>
+                      <input type="text" id="direccion_ida_destino_fiestas_idavuelta" onchange="rellenar('Direccion_Destino')"/>
+                    </div>
+
+                    <div class="input">
+                      <p><i class="fa fa-map-location-dot"></i> Barrio</p>
+                      <input list="Barrio" id="barrio_ida_destino_fiestas_idavuelta" onchange="rellenar('Barrio_Destino')">
+                      <datalist id="Barrio">
+                        <option value="Barrio 1">
+                        <option value="Barrio 2">
+                        <option value="Barrio 3">
+                        <option value="Barrio 4">
+                        <option value="Barrio 5">
+                      </datalist>
+                    </div>
+
+                    <div class="input">
+                      <p><i class="fa-solid fa-globe"></i> Localidad</p>
+                      <input list="Localidad" id="localidad_ida_destino_fiestas_idavuelta" onchange="rellenar('Localidad_Destino')">
+                      <datalist id="Localidad">
+                        <option value="Localidad 1">
+                        <option value="Localidad 2">
+                        <option value="Localidad 3">
+                        <option value="Localidad 4">
+                        <option value="Localidad 5">
+                      </datalist>
+                    </div>
+                    
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros <span class="obligatorio">*</span></p>
+                    <input type="number" id="cant_pasajeros_ida_fiestas_idavuelta" onchange="rellenar('Cantidad_Pasajeros')"/>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="far fa-calendar-alt"></i> Hora <span class="obligatorio">*</span></p>
+                    <input type="time" id="hora_ida_fiestas_idavuelta" onchange="verificar_largo_fiesta()"/>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-comment-dots"></i> Observaciones</p>
+                    <textarea  id="observaciones_fiesta_idavuelta"></textarea>
+                  </div>
+
+                </div>
+
+                <div class="column">
+
+                  <h3><i class="fas fa-arrow-circle-down"></i> Vuelta</h3>
+
+                  <div class="input">
+                    <p><i class="far fa-calendar-alt"></i> Fecha de Regreso <span class="obligatorio">*</span></p>
+                    <input type="date" id="fecha_regreso_fiestas_idavuelta"/>
+                  </div>
+
+                  <div class="sub-section">
+
+                    <h3><i class="fas fa-map"></i> Origen</h3>
+                    <hr>
+
+                    <div class="input">
+                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes <span class="obligatorio">*</span></p>
+                      <input type="text" id="direccion_vuelta_origen_fiestas_idavuelta"/>
+                    </div>
+
+                    <div class="input">
+                      <p><i class="fa fa-map-location-dot"></i> Barrio</p>
+                      <input list="Barrio" id="barrio_vuelta_origen_fiestas_idavuelta">
+                      <datalist id="Barrio">
+                        <option value="Barrio 1">
+                        <option value="Barrio 2">
+                        <option value="Barrio 3">
+                        <option value="Barrio 4">
+                        <option value="Barrio 5">
+                      </datalist>
+                    </div>
+
+                    <div class="input">
+                      <p><i class="fa-solid fa-globe"></i> Localidad</p>
+                      <input list="Localidad" id="localidad_vuelta_origen_fiestas_idavuelta">
+                      <datalist id="Localidad">
+                        <option value="Localidad 1">
+                        <option value="Localidad 2">
+                        <option value="Localidad 3">
+                        <option value="Localidad 4">
+                        <option value="Localidad 5">
+                      </datalist>
+                    </div>
+
+                  </div>
+
+                  <div class="sub-section">
+
+                    <h3><i class="fas fa-route"></i> Destino</h3>
+                    <hr>
+
+                    <div class="input">
+                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes <span class="obligatorio">*</span></p>
+                      <input type="text" id="direccion_vuelta_destino_fiestas_idavuelta" value="<?php echo $_SESSION['datos_usuario']['DIRECCION']; ?>"/>
+                    </div>
+
+                    <div class="input">
+                      <p><i class="fa fa-map-location-dot"></i> Barrio <span class="obligatorio">*</span></p>
+                      <input list="Barrio" id="barrio_vuelta_destino_fiestas_idavuelta" value="<?php echo $_SESSION['datos_usuario']['BARRIO']; ?>">
+                      <datalist id="Barrio">
+                        <option value="Barrio 1">
+                        <option value="Barrio 2">
+                        <option value="Barrio 3">
+                        <option value="Barrio 4">
+                        <option value="Barrio 5">
+                      </datalist>
+                    </div>
+
+                    <div class="input">
+                      <p><i class="fa-solid fa-globe"></i> Localidad <span class="obligatorio">*</span></p>
+                      <input list="Localidad" id="localidad_vuelta_destino_fiestas_idavuelta" value="<?php echo $_SESSION['datos_usuario']['DEPARTAMENTO']; ?>">
+                      <datalist id="Localidad">
+                        <option value="Localidad 1">
+                        <option value="Localidad 2">
+                        <option value="Localidad 3">
+                        <option value="Localidad 4">
+                        <option value="Localidad 5">
+                      </datalist>
+                    </div>
+                    
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros <span class="obligatorio">*</span></p>
+                    <input type="number" id="cant_pasajeros_vuelta_fiestas_idavuelta"/>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="far fa-calendar-alt"></i> Hora <span class="obligatorio">*</span></p>
+                    <input type="time" id="hora_vuelta_fiestas_idavuelta" onchange="verificar_largo_fiesta()"/>
+                  </div>
+
+                  <div class="input">
+                    <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas <span class="obligatorio">*</span></p>
+                    <select name="mascota" id="mascotas_fiestas_idavuelta">
+                    <option vlaue="1">Con mascota</option>
+                   <option value="2" selected>Sin mascota</option>
+                  </select>
+                  </div>
+
+                </div>
+
+              </div>
+
+              <p class="mensaje-error">Debe completar todos los camposs.</p>
+
+            </div>
       
               <div class="step_3" id="Paradas">
       

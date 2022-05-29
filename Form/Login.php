@@ -105,7 +105,7 @@
         <div class="login-wrapper">
             <h1>Salió<span>Viaje</span></h1>
 
-            <div id="login">
+            <form method="post" id="login" action="javascript:void(0);">
                 <div class="inputs-wrapper">
                     <div class="input">
                         <i class="fas fa-user" id="icon"></i>
@@ -114,7 +114,7 @@
                     <div class="input">
                         <i class="fas fa-key" id="icon"></i>
                         <input type="password" id="passwd" name="pin" placeholder="PIN" maxlength="4" pattern="[0-9]{4}">
-                        <button onclick="passwd(1)" class="password-eye"><i id="passeye" class="fas fa-eye-slash"></i></button>
+                        <span onclick="passwd(1)" class="password-eye"><i id="passeye" class="fas fa-eye-slash"></i></span>
                     </div>
                 </div>
 
@@ -126,7 +126,7 @@
                     <p><a href="https://www.salioviaje.com.uy/Form/CambiarContraseña.html">¿Olvidaste tu contraseña?</a></p>
                     <p>¿Aún no tienes una cuenta? <a href="https://www.salioviaje.com.uy/Register">Registrate</a>.</p>
                 </div>
-            </div>
+            </form>
 
             
 

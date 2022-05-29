@@ -72,6 +72,11 @@ session_set_cookie_params($ttl);
                                     <p><i class="fas fa-bus"></i> '.$_SESSION['tipo_usuario'].'</p>
                                 </div>';
                     }
+                    if(isset($_SESSION['usuario'])){
+                        echo '  <button onclick="cerrarsesion()"><i class="fas fa-sign-in-alt"></i> Cerrar Sesión</button>';
+                    }else{
+                        echo '<a href="https://www.salioviaje.com.uy/Login"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a>';
+                    }
 
                     echo '  <a href="https://www.salioviaje.com.uy/"><i class="fas fa-home"></i> Home</a>
                             <a href="https://www.salioviaje.com.uy/Central"><i class="fas fa-list-ul"></i> Central</a>
@@ -82,13 +87,6 @@ session_set_cookie_params($ttl);
                             if(isset($_SESSION['tipo_usuario'])){
                                 echo '<a href="https://www.salioviaje.com.uy/Dashboard"><i class="fas fa-users-cog"></i> Panel</a>';
                             }
-
-
-                    if(isset($_SESSION['usuario'])){
-                        echo '  <button onclick="cerrarsesion()"><i class="fas fa-sign-in-alt"></i> Cerrar Sesión</button>';
-                    }else{
-                        echo '<a href="https://www.salioviaje.com.uy/Login"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a>';
-                    }
                     ?>
 
                 </div>

@@ -2,6 +2,7 @@
 let NOMBRE_USUARIO;
 
 $(document).ready(function () {
+    $('#panel-navbar').load('/web/panel-navbar.php');
     let list = document.querySelectorAll('#panel-navbar li');
 
     function activateLink() {
@@ -10,12 +11,18 @@ $(document).ready(function () {
         this.classList.add('hovered');
     }
 
+    list.forEach((item) =>
+        item.addEventListener('mouseover', activateLink));
+
     traigoVisitas();
+
+
 
     $("#ID").on('click', function () {
         console.log(cambiarOrden(orden))
         ordenarId(orden)
     });
+
 
     $("#actualizar_panel").on('click', function () {
         actualizar_panel()
@@ -26,6 +33,8 @@ $(document).ready(function () {
         actualizar_vista_previa(matricula);
     });
 
+
+
     $("#cerrar_session_dashboard").on('click', function () {
         $.ajax({
             url: "/PHP/cerrarSession.php",
@@ -34,11 +43,6 @@ $(document).ready(function () {
             }
         });
     });
-
-    list.forEach((item) =>
-        item.addEventListener('mouseover', activateLink));
-    $('#panel-navbar').load('/web/panel-navbar.php');
-
 
     $('#select_actualizar').change(function () {
         actualizar_panel($(this).children('option:selected').val());

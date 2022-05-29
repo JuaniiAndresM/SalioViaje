@@ -292,7 +292,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                 <div class="column">
 
                   <div class="input">
-                    <p><i class="far fa-calendar-alt"></i> Fecha de Salida</p>
+                    <p><i class="far fa-calendar-alt"></i> Fecha de Salida <span class="obligatorio">*</span></p> 
                     <input type="date" id="fecha_salida"/>
                   </div>
 
@@ -302,12 +302,12 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                     <hr>
 
                     <div class="input">
-                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
+                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes <span class="obligatorio">*</span></p>
                       <input type="text" id="direccion_traslado_origen" value="<?php echo $_SESSION['datos_usuario']['DIRECCION']; ?>"/>
                     </div>
 
                     <div class="input">
-                      <p><i class="fa fa-map-location-dot"></i> Barrio</p>
+                      <p><i class="fa fa-map-location-dot"></i> Barrio <span class="obligatorio">*</span></p>
                       <input list="Barrio" id="barrio_traslado_origen" value="<?php echo $_SESSION['datos_usuario']['BARRIO']; ?>">
                       <datalist id="Barrio">
                         <?php
@@ -323,7 +323,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                     </div>
 
                     <div class="input">
-                      <p><i class="fa-solid fa-globe"></i> Localidad</p>
+                      <p><i class="fa-solid fa-globe"></i> Localidad <span class="obligatorio">*</span></p>
                       <input list="Localidad" id="localidad_traslado_origen" value="<?php echo $_SESSION['datos_usuario']['DEPARTAMENTO']; ?>">
                       <datalist id="Localidad">
                       <option value="ARTIGAS">
@@ -354,7 +354,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                   
 
                   <div class="input">
-                    <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p>
+                    <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros <span class="obligatorio">*</span></p>
                     <input type="number" id="cant_pasajeros"/>
                   </div>
 
@@ -368,7 +368,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                 <div class="column">
 
                   <div class="input">
-                    <p><i class="far fa-calendar-alt"></i> Hora</p>
+                    <p><i class="far fa-calendar-alt"></i> Hora <span class="obligatorio">*</span></p>
                     <input type="time" id="hora"/>
                   </div>
 
@@ -378,7 +378,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                     <hr>
 
                     <div class="input">
-                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
+                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes <span class="obligatorio">*</span></p>
                       <input type="text" id="direccion_traslado_destino"/>
                     </div>
 
@@ -409,7 +409,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas</p>
+                    <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas <span class="obligatorio">*</span></p>
                   <select name="mascota" id="mascotas_traslado">
                   <option vlaue="1">Con mascota</option>
                    <option value="2" selected>Sin mascota</option>
@@ -432,7 +432,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                 <div class="column">
 
                   <div class="input">
-                    <p><i class="far fa-calendar-alt"></i> Fecha de Salida</p>
+                    <p><i class="far fa-calendar-alt"></i> Fecha de Salida<span class="obligatorio">*</span></p>
                     <input type="date" id="fecha_salida_tour"/>
                   </div>
 
@@ -442,12 +442,12 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                     <hr>
 
                     <div class="input">
-                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
+                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes <span class="obligatorio">*</span></p>
                       <input type="text" id="direccion_salida_tour" value="<?php echo $_SESSION['datos_usuario']['DIRECCION']; ?>"/>
                     </div>
 
                     <div class="input">
-                      <p><i class="fa fa-map-location-dot"></i> Barrio</p>
+                      <p><i class="fa fa-map-location-dot"></i> Barrio <span class="obligatorio">*</span></p>
                       <input list="Barrio" id="barrio_barrios" value="<?php echo $_SESSION['datos_usuario']['BARRIO']; ?>">
                       <datalist id="Barrio">
                         <option value="Barrio 1">
@@ -459,7 +459,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                     </div>
 
                     <div class="input">
-                      <p><i class="fa-solid fa-globe"></i> Localidad</p>
+                      <p><i class="fa-solid fa-globe"></i> Localidad <span class="obligatorio">*</span></p>
                       <input list="Localidad" id="localidad_tour" value="<?php echo $_SESSION['datos_usuario']['DEPARTAMENTO']; ?>">
                       <datalist id="Localidad">
                         <option value="Localidad 1">
@@ -474,7 +474,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
 
                   <div class="input">
-                    <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p>
+                    <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros <span class="obligatorio">*</span></p>
                     <input type="number" id="cant_pasajeros_tour"/>
                   </div>
 
@@ -483,12 +483,12 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                 <div class="column">
 
                   <div class="input">
-                    <p><i class="far fa-calendar-alt"></i> Hora</p>
+                    <p><i class="far fa-calendar-alt"></i> Hora <span class="obligatorio">*</span></p>
                     <input type="time" id="hora_tour"/>
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-city"></i> Ciudad</p>
+                    <p><i class="fas fa-city"></i> Ciudad <span class="obligatorio">*</span></p>
 
                     <input list="Destino" id="destino_tour">
                     <datalist id="Destino">
@@ -501,12 +501,12 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-clock"></i> Duración (Horas)</p>
+                    <p><i class="fas fa-clock"></i> Duración (Horas) <span class="obligatorio">*</span></p>
                     <input type="number" id="duracion_tour"/>
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas</p>
+                    <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas <span class="obligatorio">*</span></p>
                   <select name="mascota" id="mascota_tour">
                   <option vlaue="1">Con mascota</option>
                    <option value="2" selected>Sin mascota</option>
@@ -539,17 +539,19 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                 </select>
               </div>
 
+              <p class="info"><i class="fas fa-info-circle"></i> Seleccione un tipo de transfer a realizar.</p>
+
 
               <div class="formulario-grid" id="transfer_in">
                 <div class="column">
 
                   <div class="input">
-                    <p><i class="far fa-calendar-alt"></i> Fecha de Arribo</p>
+                    <p><i class="far fa-calendar-alt"></i> Fecha de Arribo <span class="obligatorio">*</span></p>
                     <input type="date" id="fecha_regreso_transfer_in"/>
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-plane-arrival"></i> Origen (Puerto o Aeropuerto)</p>
+                    <p><i class="fas fa-plane-arrival"></i> Origen (Puerto o Aeropuerto) <span class="obligatorio">*</span></p>
                     <input list="Aeropuertos" id="aeropuerto_transfer_in">
                       <datalist id="Aeropuertos">
                         <option value="Aeropuerto Internacional de Carrasco Gral. Cesáreo L. Berisso">
@@ -561,17 +563,17 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
 
                   <div class="input">
-                    <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p>
+                    <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros <span class="obligatorio">*</span></p>
                     <input type="number" id="cant_pasajeros_transfer_in"/>
                   </div>
 
                   <div class="input">
-                    <p><i class="fa fa-ticket"></i> N° de Vuelo / Barco</p>
+                    <p><i class="fa fa-ticket"></i> N° de Vuelo / Barco <span class="obligatorio">*</span></p>
                     <input type="text" id="nro_vuelo_barco_in"/>
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas</p>
+                    <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas <span class="obligatorio">*</span></p>
                   <select name="mascota" id="mascotas_transfer_in">
                   <option vlaue="1">Con mascota</option>
                    <option value="2" selected>Sin mascota</option>
@@ -579,7 +581,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-suitcase-rolling"></i> Equipaje (Cant. Maletas)</p>
+                    <p><i class="fas fa-suitcase-rolling"></i> Equipaje (Cant. Maletas) <span class="obligatorio">*</span></p>
                     <input type="number" id="equipaje_transfer_in"/>
                   </div>
 
@@ -588,7 +590,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                 <div class="column">
 
                   <div class="input">
-                    <p><i class="far fa-calendar-alt"></i> Hora</p>
+                    <p><i class="far fa-calendar-alt"></i> Hora <span class="obligatorio">*</span></p>
                     <input type="time" id="hora_transfer_in"/>
                   </div>
 
@@ -598,12 +600,12 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                     <hr>
 
                     <div class="input">
-                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
+                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes <span class="obligatorio">*</span></p>
                       <input type="text" id="direccion_transfer_in" value="<?php echo $_SESSION['datos_usuario']['DIRECCION']; ?>"/>
                     </div>
 
                     <div class="input">
-                      <p><i class="fa fa-map-location-dot"></i> Barrio</p>
+                      <p><i class="fa fa-map-location-dot"></i> Barrio <span class="obligatorio">*</span></p>
                       <input list="Barrio" id="barrio_transfer_in" value="<?php echo $_SESSION['datos_usuario']['BARRIO']; ?>">
                       <datalist id="Barrio">
                         <option value="Barrio 1">
@@ -615,7 +617,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                     </div>
 
                     <div class="input">
-                      <p><i class="fa-solid fa-globe"></i> Localidad</p>
+                      <p><i class="fa-solid fa-globe"></i> Localidad <span class="obligatorio">*</span></p>
                       <input list="Localidad" id="localidad_transfer_in" value="<?php echo $_SESSION['datos_usuario']['DEPARTAMENTO']; ?>">
                       <datalist id="Localidad">
                         <option value="Localidad 1">
@@ -641,7 +643,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                 <div class="column">
 
                   <div class="input">
-                    <p><i class="far fa-calendar-alt"></i> Fecha de Partida</p>
+                    <p><i class="far fa-calendar-alt"></i> Fecha de Partida <span class="obligatorio">*</span></p>
                     <input type="date" id="fecha_salida_transfer_out"/>
                   </div>
 
@@ -651,12 +653,12 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                     <hr>
 
                     <div class="input">
-                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
+                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes <span class="obligatorio">*</span></p>
                       <input type="text" id="direccion_transfer_out" value="<?php echo $_SESSION['datos_usuario']['DIRECCION']; ?>"/>
                     </div>
 
                     <div class="input">
-                      <p><i class="fa fa-map-location-dot"></i> Barrio</p>
+                      <p><i class="fa fa-map-location-dot"></i> Barrio <span class="obligatorio">*</span></p>
                       <input list="Barrio" id="barrio_transfer_out" value="<?php echo $_SESSION['datos_usuario']['BARRIO']; ?>">
                       <datalist id="Barrio">
                         <option value="Barrio 1">
@@ -668,7 +670,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                     </div>
 
                     <div class="input">
-                      <p><i class="fa-solid fa-globe"></i> Localidad</p>
+                      <p><i class="fa-solid fa-globe"></i> Localidad <span class="obligatorio">*</span></p>
                       <input list="Localidad" id="localidad_transfer_out" value="<?php echo $_SESSION['datos_usuario']['DEPARTAMENTO']; ?>">
                       <datalist id="Localidad">
                         <option value="Localidad 1">
@@ -682,7 +684,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p>
+                    <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros <span class="obligatorio">*</span></p>
                     <input type="number" id="cant_pasajeros_transfer_out"/>
                   </div>
 
@@ -691,27 +693,27 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                 <div class="column">
 
                   <div class="input">
-                    <p><i class="far fa-calendar-alt"></i> Hora que pasan a buscar</p>
+                    <p><i class="far fa-calendar-alt"></i> Hora que pasan a buscar <span class="obligatorio">*</span></p>
                     <input type="time" id="hora_transfer_out"/>
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-plane-departure"></i> Destino (Puerto o Aeropuerto)</p>
+                    <p><i class="fas fa-plane-departure"></i> Destino (Puerto o Aeropuerto) <span class="obligatorio">*</span></p>
                     <input list="Aeropuertos" id="aeropuerto_transfer_out">
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-suitcase-rolling"></i> Equipaje (Cant. Maletas)</p>
+                    <p><i class="fas fa-suitcase-rolling"></i> Equipaje (Cant. Maletas) <span class="obligatorio">*</span></p>
                     <input type="number" id="equipaje_transfer_out"/>
                   </div>
 
                   <div class="input">
-                    <p><i class="fa fa-ticket"></i> N° de Vuelo / Barco</p>
+                    <p><i class="fa fa-ticket"></i> N° de Vuelo / Barco <span class="obligatorio">*</span></p>
                     <input type="text" id="nro_vuelo_barco_out"/>
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas</p>
+                    <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas <span class="obligatorio">*</span></p>
                     <select name="mascota" id="mascotas_transfer_out">
                     <option vlaue="1">Con mascota</option>
                    <option value="2" selected>Sin mascota</option>
@@ -745,11 +747,13 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                 </select>
               </div>
 
+              <p class="info"><i class="fas fa-info-circle"></i> Seleccione un tipo de tramo a realizar.</p>
+
               <div class="formulario-grid" id="fiesta_ida">
                 <div class="column">
 
                   <div class="input">
-                    <p><i class="far fa-calendar-alt"></i> Fecha de Salida</p>
+                    <p><i class="far fa-calendar-alt"></i> Fecha de Salida <span class="obligatorio">*</span></p>
                     <input type="date" id="fecha_salida_fiestas_ida"/>
                   </div>
 
@@ -759,12 +763,12 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                     <hr>
 
                     <div class="input">
-                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
+                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes <span class="obligatorio">*</span></p>
                       <input type="text" id="direccion_fiestas_ida" value="<?php echo $_SESSION['datos_usuario']['DIRECCION']; ?>"/>
                     </div>
 
                     <div class="input">
-                      <p><i class="fa fa-map-location-dot"></i> Barrio</p>
+                      <p><i class="fa fa-map-location-dot"></i> Barrio <span class="obligatorio">*</span></p>
                       <input list="Barrio" id="barrio_fiestas_ida" value="<?php echo $_SESSION['datos_usuario']['BARRIO']; ?>">
                       <datalist id="Barrio">
                         <option value="Barrio 1">
@@ -776,7 +780,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                     </div>
 
                     <div class="input">
-                      <p><i class="fa-solid fa-globe"></i> Localidad</p>
+                      <p><i class="fa-solid fa-globe"></i> Localidad <span class="obligatorio">*</span></p>
                       <input list="Localidad" id="localidad_fiestas_ida" value="<?php echo $_SESSION['datos_usuario']['DEPARTAMENTO']; ?>">
                       <datalist id="Localidad">
                         <option value="Localidad 1">
@@ -790,7 +794,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p>
+                    <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros <span class="obligatorio">*</span></p>
                     <input type="number" id="cant_pasajeros_fiesta_ida"/>
                   </div>
 
@@ -799,12 +803,12 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                 <div class="column">
 
                   <div class="input">
-                    <p><i class="far fa-calendar-alt"></i> Hora</p>
+                    <p><i class="far fa-calendar-alt"></i> Hora <span class="obligatorio">*</span></p>
                     <input type="time" id="hora_fiesta_ida"/>
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-route"></i> Destino o Punto de Interés</p>
+                    <p><i class="fas fa-route"></i> Destino o Punto de Interés <span class="obligatorio">*</span></p>
                     <input type="text" id="destino_fiesta_ida">
                   </div>
 
@@ -838,7 +842,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas</p>
+                    <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas <span class="obligatorio">*</span></p>
                     <select name="mascota" id="mascotas_fiestas_ida">
                     <option vlaue="1">Con mascota</option>
                    <option value="2" selected>Sin mascota</option>
@@ -853,12 +857,12 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                 <div class="column">
 
                   <div class="input">
-                    <p><i class="far fa-calendar-alt"></i> Fecha de Regreso</p>
+                    <p><i class="far fa-calendar-alt"></i> Fecha de Regreso <span class="obligatorio">*</span></p>
                     <input type="date" id="fecha_regreso_fiestas_vuelta"/>
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-map-marker-alt"></i> Origen o Punto de Interés</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Origen o Punto de Interés <span class="obligatorio">*</span></p>
                     <input type="text" id="origen_fiestas_vuelta">
                   </div>
 
@@ -887,12 +891,12 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p>
+                    <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros <span class="obligatorio">*</span></p>
                     <input type="number" id="cant_pasajeros_fiesta_vuelta"/>
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas</p>
+                    <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas <span class="obligatorio">*</span></p>
                     <select name="mascota" id="mascotas_fiestas_vuelta">
                     <option vlaue="1">Con mascota</option>
                    <option value="2" selected>Sin mascota</option>
@@ -909,7 +913,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                 <div class="column">
 
                   <div class="input">
-                    <p><i class="far fa-calendar-alt"></i> Hora</p>
+                    <p><i class="far fa-calendar-alt"></i> Hora <span class="obligatorio">*</span></p>
                     <input type="time" id="hora_fiesta_vuelta"/>
                   </div>
 
@@ -919,12 +923,12 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                     <hr>
 
                     <div class="input">
-                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
+                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes <span class="obligatorio">*</span></p>
                       <input type="text" id="direccion_fiesta_vuelta" value="<?php echo $_SESSION['datos_usuario']['DIRECCION']; ?>"/>
                     </div>
 
                     <div class="input">
-                      <p><i class="fa fa-map-location-dot"></i> Barrio</p>
+                      <p><i class="fa fa-map-location-dot"></i> Barrio <span class="obligatorio">*</span></p>
                       <input list="Barrio" id="barrio_fiesta_vuelta" value="<?php echo $_SESSION['datos_usuario']['BARRIO']; ?>">
                       <datalist id="Barrio">
                         <option value="Barrio 1">
@@ -936,7 +940,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                     </div>
 
                     <div class="input">
-                      <p><i class="fa-solid fa-globe"></i> Localidad</p>
+                      <p><i class="fa-solid fa-globe"></i> Localidad <span class="obligatorio">*</span></p>
                       <input list="Localidad" id="localidad_fiesta_vuelta" value="<?php echo $_SESSION['datos_usuario']['DEPARTAMENTO']; ?>">
                       <datalist id="Localidad">
                         <option value="Localidad 1">
@@ -958,7 +962,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                   <h3><i class="fas fa-arrow-circle-up"></i> Ida</h3>
 
                   <div class="input">
-                    <p><i class="far fa-calendar-alt"></i> Fecha de Salida</p>
+                    <p><i class="far fa-calendar-alt"></i> Fecha de Salida <span class="obligatorio">*</span></p>
                     <input type="date" id="fecha_salida_fiestas_idavuelta"/>
                   </div>
 
@@ -968,12 +972,12 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                     <hr>
 
                     <div class="input">
-                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
+                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes <span class="obligatorio">*</span></p>
                       <input type="text" id="direccion_ida_origen_fiestas_idavuelta" onchange="rellenar('Direccion_Origen')" value="<?php echo $_SESSION['datos_usuario']['DIRECCION']; ?>"/>
                     </div>
 
                     <div class="input">
-                      <p><i class="fa fa-map-location-dot"></i> Barrio</p>
+                      <p><i class="fa fa-map-location-dot"></i> Barrio <span class="obligatorio">*</span></p>
                       <input list="Barrio" id="barrio_ida_origen_fiestas_idavuelta" onchange="rellenar('Barrio_Origen')" value="<?php echo $_SESSION['datos_usuario']['BARRIO']; ?>">
                       <datalist id="Barrio">
                         <option value="Barrio 1">
@@ -985,7 +989,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                     </div>
 
                     <div class="input">
-                      <p><i class="fa-solid fa-globe"></i> Localidad</p>
+                      <p><i class="fa-solid fa-globe"></i> Localidad <span class="obligatorio">*</span></p>
                       <input list="Localidad" id="localidad_ida_origen_fiestas_idavuelta" onchange="rellenar('Localidad_Origen')" value="<?php echo $_SESSION['datos_usuario']['DEPARTAMENTO']; ?>">
                       <datalist id="Localidad">
                         <option value="Localidad 1">
@@ -1004,7 +1008,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                     <hr>
 
                     <div class="input">
-                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
+                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes <span class="obligatorio">*</span></p>
                       <input type="text" id="direccion_ida_destino_fiestas_idavuelta" onchange="rellenar('Direccion_Destino')"/>
                     </div>
 
@@ -1035,12 +1039,12 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p>
+                    <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros <span class="obligatorio">*</span></p>
                     <input type="number" id="cant_pasajeros_ida_fiestas_idavuelta" onchange="rellenar('Cantidad_Pasajeros')"/>
                   </div>
 
                   <div class="input">
-                    <p><i class="far fa-calendar-alt"></i> Hora</p>
+                    <p><i class="far fa-calendar-alt"></i> Hora <span class="obligatorio">*</span></p>
                     <input type="time" id="hora_ida_fiestas_idavuelta" onchange="verificar_largo_fiesta()"/>
                   </div>
 
@@ -1056,7 +1060,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                   <h3><i class="fas fa-arrow-circle-down"></i> Vuelta</h3>
 
                   <div class="input">
-                    <p><i class="far fa-calendar-alt"></i> Fecha de Regreso</p>
+                    <p><i class="far fa-calendar-alt"></i> Fecha de Regreso <span class="obligatorio">*</span></p>
                     <input type="date" id="fecha_regreso_fiestas_idavuelta"/>
                   </div>
 
@@ -1066,7 +1070,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                     <hr>
 
                     <div class="input">
-                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
+                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes <span class="obligatorio">*</span></p>
                       <input type="text" id="direccion_vuelta_origen_fiestas_idavuelta"/>
                     </div>
 
@@ -1102,12 +1106,12 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                     <hr>
 
                     <div class="input">
-                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes</p>
+                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes <span class="obligatorio">*</span></p>
                       <input type="text" id="direccion_vuelta_destino_fiestas_idavuelta" value="<?php echo $_SESSION['datos_usuario']['DIRECCION']; ?>"/>
                     </div>
 
                     <div class="input">
-                      <p><i class="fa fa-map-location-dot"></i> Barrio</p>
+                      <p><i class="fa fa-map-location-dot"></i> Barrio <span class="obligatorio">*</span></p>
                       <input list="Barrio" id="barrio_vuelta_destino_fiestas_idavuelta" value="<?php echo $_SESSION['datos_usuario']['BARRIO']; ?>">
                       <datalist id="Barrio">
                         <option value="Barrio 1">
@@ -1119,7 +1123,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                     </div>
 
                     <div class="input">
-                      <p><i class="fa-solid fa-globe"></i> Localidad</p>
+                      <p><i class="fa-solid fa-globe"></i> Localidad <span class="obligatorio">*</span></p>
                       <input list="Localidad" id="localidad_vuelta_destino_fiestas_idavuelta" value="<?php echo $_SESSION['datos_usuario']['DEPARTAMENTO']; ?>">
                       <datalist id="Localidad">
                         <option value="Localidad 1">
@@ -1133,17 +1137,17 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros</p>
+                    <p><i class="fas fa-user-friends"></i> Cantidad de Pasajeros <span class="obligatorio">*</span></p>
                     <input type="number" id="cant_pasajeros_vuelta_fiestas_idavuelta"/>
                   </div>
 
                   <div class="input">
-                    <p><i class="far fa-calendar-alt"></i> Hora</p>
+                    <p><i class="far fa-calendar-alt"></i> Hora <span class="obligatorio">*</span></p>
                     <input type="time" id="hora_vuelta_fiestas_idavuelta" onchange="verificar_largo_fiesta()"/>
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas</p>
+                    <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas <span class="obligatorio">*</span></p>
                     <select name="mascota" id="mascotas_fiestas_idavuelta">
                     <option vlaue="1">Con mascota</option>
                    <option value="2" selected>Sin mascota</option>
@@ -1167,7 +1171,10 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
               <div class="paradas-wrapper" id="paradas_ida">
                 <div class="input">
                   <p><i class="fas fa-stopwatch"></i> Paradas - <i class="fas fa-arrow-circle-up"></i> (Ida)</p>
-                  <input id="paradas_1" onchange="paradas(1)">
+                  <form action="javascript:void(0)" method="post">
+                    <input id="paradas_1" onchange="paradas(1)">
+                  </form>
+                  
                 </div>
                 <div class="tags" id="tags_paradas_1">
                 </div>
@@ -1176,7 +1183,9 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
               <div class="paradas-wrapper" id="paradas_vuelta">
                 <div class="input">
                   <p><i class="fas fa-stopwatch"></i> Paradas - <i class="fas fa-arrow-circle-down"></i> (Vuelta)</p>
-                  <input id="paradas_2" onchange="paradas(2)">
+                  <form action="javascript:void(0)" method="post">
+                    <input id="paradas_2" onchange="paradas(2)">
+                  </form>
                 </div>
                 <div class="tags" id="tags_paradas_2">
                 </div>
@@ -1228,6 +1237,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
             desplegar(document.getElementById("agendar"), <?php if (!isset($_SESSION['usuario'])) {echo 1;} else {echo 2;}?>)
             select_usuario()
           }
+
     </script>
 
     <div id="footer"></div>

@@ -488,7 +488,7 @@
 .oportunidades .oportunidades-wrapper {
   max-width: 1300px;
   width: 100%;
-  padding: 20px;
+  padding: 20px 30px;
   margin-top: 30px;
   border-radius: 3em 0 3em 3em;
   background-color: #ffffff;
@@ -1239,9 +1239,9 @@ header .header-wrapper .header-right #links-mobile .links-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -1249,7 +1249,7 @@ header .header-wrapper .header-right #links-mobile .links-wrapper {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 header .header-wrapper .header-right #links-mobile .links-wrapper img {
@@ -1301,13 +1301,13 @@ header .header-wrapper .header-right #links-mobile .links-wrapper button {
       -ms-flex-align: center;
           align-items: center;
   width: 80%;
-  height: 40px;
+  height: 33px;
   margin: 5px 20px;
   text-align: center;
   background: -webkit-gradient(linear, left top, right top, from(#3844bc), to(#2b3179));
   background: linear-gradient(to right, #3844bc, #2b3179);
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   text-decoration: none;
   border-radius: 1em;
   border: none;
@@ -4415,6 +4415,175 @@ footer .totum p a:hover {
   top: 10px;
   left: 0;
   color: #555;
+}
+
+.login .login-wrapper #login .inputs-wrapper .input .obligatorio,
+.login .login-wrapper #login .inputs-wrapper-register .input .obligatorio,
+.login .login-wrapper #login .inputs-wrapper-register-hotel .input .obligatorio,
+.login .login-wrapper #step_1 .inputs-wrapper .input .obligatorio,
+.login .login-wrapper #step_1 .inputs-wrapper-register .input .obligatorio,
+.login .login-wrapper #step_1 .inputs-wrapper-register-hotel .input .obligatorio,
+.login .login-wrapper #step_2 .inputs-wrapper .input .obligatorio,
+.login .login-wrapper #step_2 .inputs-wrapper-register .input .obligatorio,
+.login .login-wrapper #step_2 .inputs-wrapper-register-hotel .input .obligatorio,
+.login .login-wrapper #step_3 .inputs-wrapper .input .obligatorio,
+.login .login-wrapper #step_3 .inputs-wrapper-register .input .obligatorio,
+.login .login-wrapper #step_3 .inputs-wrapper-register-hotel .input .obligatorio,
+.login .login-wrapper #step_4 .inputs-wrapper .input .obligatorio,
+.login .login-wrapper #step_4 .inputs-wrapper-register .input .obligatorio,
+.login .login-wrapper #step_4 .inputs-wrapper-register-hotel .input .obligatorio,
+.login .login-wrapper #step_5 .inputs-wrapper .input .obligatorio,
+.login .login-wrapper #step_5 .inputs-wrapper-register .input .obligatorio,
+.login .login-wrapper #step_5 .inputs-wrapper-register-hotel .input .obligatorio,
+.login .login-wrapper #step_hotel .inputs-wrapper .input .obligatorio,
+.login .login-wrapper #step_hotel .inputs-wrapper-register .input .obligatorio,
+.login .login-wrapper #step_hotel .inputs-wrapper-register-hotel .input .obligatorio,
+.login .login-wrapper #step_hotel_si .inputs-wrapper .input .obligatorio,
+.login .login-wrapper #step_hotel_si .inputs-wrapper-register .input .obligatorio,
+.login .login-wrapper #step_hotel_si .inputs-wrapper-register-hotel .input .obligatorio,
+.login .login-wrapper #step_hotel_no .inputs-wrapper .input .obligatorio,
+.login .login-wrapper #step_hotel_no .inputs-wrapper-register .input .obligatorio,
+.login .login-wrapper #step_hotel_no .inputs-wrapper-register-hotel .input .obligatorio,
+.login .register-wrapper #login .inputs-wrapper .input .obligatorio,
+.login .register-wrapper #login .inputs-wrapper-register .input .obligatorio,
+.login .register-wrapper #login .inputs-wrapper-register-hotel .input .obligatorio,
+.login .register-wrapper #step_1 .inputs-wrapper .input .obligatorio,
+.login .register-wrapper #step_1 .inputs-wrapper-register .input .obligatorio,
+.login .register-wrapper #step_1 .inputs-wrapper-register-hotel .input .obligatorio,
+.login .register-wrapper #step_2 .inputs-wrapper .input .obligatorio,
+.login .register-wrapper #step_2 .inputs-wrapper-register .input .obligatorio,
+.login .register-wrapper #step_2 .inputs-wrapper-register-hotel .input .obligatorio,
+.login .register-wrapper #step_3 .inputs-wrapper .input .obligatorio,
+.login .register-wrapper #step_3 .inputs-wrapper-register .input .obligatorio,
+.login .register-wrapper #step_3 .inputs-wrapper-register-hotel .input .obligatorio,
+.login .register-wrapper #step_4 .inputs-wrapper .input .obligatorio,
+.login .register-wrapper #step_4 .inputs-wrapper-register .input .obligatorio,
+.login .register-wrapper #step_4 .inputs-wrapper-register-hotel .input .obligatorio,
+.login .register-wrapper #step_5 .inputs-wrapper .input .obligatorio,
+.login .register-wrapper #step_5 .inputs-wrapper-register .input .obligatorio,
+.login .register-wrapper #step_5 .inputs-wrapper-register-hotel .input .obligatorio,
+.login .register-wrapper #step_hotel .inputs-wrapper .input .obligatorio,
+.login .register-wrapper #step_hotel .inputs-wrapper-register .input .obligatorio,
+.login .register-wrapper #step_hotel .inputs-wrapper-register-hotel .input .obligatorio,
+.login .register-wrapper #step_hotel_si .inputs-wrapper .input .obligatorio,
+.login .register-wrapper #step_hotel_si .inputs-wrapper-register .input .obligatorio,
+.login .register-wrapper #step_hotel_si .inputs-wrapper-register-hotel .input .obligatorio,
+.login .register-wrapper #step_hotel_no .inputs-wrapper .input .obligatorio,
+.login .register-wrapper #step_hotel_no .inputs-wrapper-register .input .obligatorio,
+.login .register-wrapper #step_hotel_no .inputs-wrapper-register-hotel .input .obligatorio,
+.register .login-wrapper #login .inputs-wrapper .input .obligatorio,
+.register .login-wrapper #login .inputs-wrapper-register .input .obligatorio,
+.register .login-wrapper #login .inputs-wrapper-register-hotel .input .obligatorio,
+.register .login-wrapper #step_1 .inputs-wrapper .input .obligatorio,
+.register .login-wrapper #step_1 .inputs-wrapper-register .input .obligatorio,
+.register .login-wrapper #step_1 .inputs-wrapper-register-hotel .input .obligatorio,
+.register .login-wrapper #step_2 .inputs-wrapper .input .obligatorio,
+.register .login-wrapper #step_2 .inputs-wrapper-register .input .obligatorio,
+.register .login-wrapper #step_2 .inputs-wrapper-register-hotel .input .obligatorio,
+.register .login-wrapper #step_3 .inputs-wrapper .input .obligatorio,
+.register .login-wrapper #step_3 .inputs-wrapper-register .input .obligatorio,
+.register .login-wrapper #step_3 .inputs-wrapper-register-hotel .input .obligatorio,
+.register .login-wrapper #step_4 .inputs-wrapper .input .obligatorio,
+.register .login-wrapper #step_4 .inputs-wrapper-register .input .obligatorio,
+.register .login-wrapper #step_4 .inputs-wrapper-register-hotel .input .obligatorio,
+.register .login-wrapper #step_5 .inputs-wrapper .input .obligatorio,
+.register .login-wrapper #step_5 .inputs-wrapper-register .input .obligatorio,
+.register .login-wrapper #step_5 .inputs-wrapper-register-hotel .input .obligatorio,
+.register .login-wrapper #step_hotel .inputs-wrapper .input .obligatorio,
+.register .login-wrapper #step_hotel .inputs-wrapper-register .input .obligatorio,
+.register .login-wrapper #step_hotel .inputs-wrapper-register-hotel .input .obligatorio,
+.register .login-wrapper #step_hotel_si .inputs-wrapper .input .obligatorio,
+.register .login-wrapper #step_hotel_si .inputs-wrapper-register .input .obligatorio,
+.register .login-wrapper #step_hotel_si .inputs-wrapper-register-hotel .input .obligatorio,
+.register .login-wrapper #step_hotel_no .inputs-wrapper .input .obligatorio,
+.register .login-wrapper #step_hotel_no .inputs-wrapper-register .input .obligatorio,
+.register .login-wrapper #step_hotel_no .inputs-wrapper-register-hotel .input .obligatorio,
+.register .register-wrapper #login .inputs-wrapper .input .obligatorio,
+.register .register-wrapper #login .inputs-wrapper-register .input .obligatorio,
+.register .register-wrapper #login .inputs-wrapper-register-hotel .input .obligatorio,
+.register .register-wrapper #step_1 .inputs-wrapper .input .obligatorio,
+.register .register-wrapper #step_1 .inputs-wrapper-register .input .obligatorio,
+.register .register-wrapper #step_1 .inputs-wrapper-register-hotel .input .obligatorio,
+.register .register-wrapper #step_2 .inputs-wrapper .input .obligatorio,
+.register .register-wrapper #step_2 .inputs-wrapper-register .input .obligatorio,
+.register .register-wrapper #step_2 .inputs-wrapper-register-hotel .input .obligatorio,
+.register .register-wrapper #step_3 .inputs-wrapper .input .obligatorio,
+.register .register-wrapper #step_3 .inputs-wrapper-register .input .obligatorio,
+.register .register-wrapper #step_3 .inputs-wrapper-register-hotel .input .obligatorio,
+.register .register-wrapper #step_4 .inputs-wrapper .input .obligatorio,
+.register .register-wrapper #step_4 .inputs-wrapper-register .input .obligatorio,
+.register .register-wrapper #step_4 .inputs-wrapper-register-hotel .input .obligatorio,
+.register .register-wrapper #step_5 .inputs-wrapper .input .obligatorio,
+.register .register-wrapper #step_5 .inputs-wrapper-register .input .obligatorio,
+.register .register-wrapper #step_5 .inputs-wrapper-register-hotel .input .obligatorio,
+.register .register-wrapper #step_hotel .inputs-wrapper .input .obligatorio,
+.register .register-wrapper #step_hotel .inputs-wrapper-register .input .obligatorio,
+.register .register-wrapper #step_hotel .inputs-wrapper-register-hotel .input .obligatorio,
+.register .register-wrapper #step_hotel_si .inputs-wrapper .input .obligatorio,
+.register .register-wrapper #step_hotel_si .inputs-wrapper-register .input .obligatorio,
+.register .register-wrapper #step_hotel_si .inputs-wrapper-register-hotel .input .obligatorio,
+.register .register-wrapper #step_hotel_no .inputs-wrapper .input .obligatorio,
+.register .register-wrapper #step_hotel_no .inputs-wrapper-register .input .obligatorio,
+.register .register-wrapper #step_hotel_no .inputs-wrapper-register-hotel .input .obligatorio,
+.success .login-wrapper #login .inputs-wrapper .input .obligatorio,
+.success .login-wrapper #login .inputs-wrapper-register .input .obligatorio,
+.success .login-wrapper #login .inputs-wrapper-register-hotel .input .obligatorio,
+.success .login-wrapper #step_1 .inputs-wrapper .input .obligatorio,
+.success .login-wrapper #step_1 .inputs-wrapper-register .input .obligatorio,
+.success .login-wrapper #step_1 .inputs-wrapper-register-hotel .input .obligatorio,
+.success .login-wrapper #step_2 .inputs-wrapper .input .obligatorio,
+.success .login-wrapper #step_2 .inputs-wrapper-register .input .obligatorio,
+.success .login-wrapper #step_2 .inputs-wrapper-register-hotel .input .obligatorio,
+.success .login-wrapper #step_3 .inputs-wrapper .input .obligatorio,
+.success .login-wrapper #step_3 .inputs-wrapper-register .input .obligatorio,
+.success .login-wrapper #step_3 .inputs-wrapper-register-hotel .input .obligatorio,
+.success .login-wrapper #step_4 .inputs-wrapper .input .obligatorio,
+.success .login-wrapper #step_4 .inputs-wrapper-register .input .obligatorio,
+.success .login-wrapper #step_4 .inputs-wrapper-register-hotel .input .obligatorio,
+.success .login-wrapper #step_5 .inputs-wrapper .input .obligatorio,
+.success .login-wrapper #step_5 .inputs-wrapper-register .input .obligatorio,
+.success .login-wrapper #step_5 .inputs-wrapper-register-hotel .input .obligatorio,
+.success .login-wrapper #step_hotel .inputs-wrapper .input .obligatorio,
+.success .login-wrapper #step_hotel .inputs-wrapper-register .input .obligatorio,
+.success .login-wrapper #step_hotel .inputs-wrapper-register-hotel .input .obligatorio,
+.success .login-wrapper #step_hotel_si .inputs-wrapper .input .obligatorio,
+.success .login-wrapper #step_hotel_si .inputs-wrapper-register .input .obligatorio,
+.success .login-wrapper #step_hotel_si .inputs-wrapper-register-hotel .input .obligatorio,
+.success .login-wrapper #step_hotel_no .inputs-wrapper .input .obligatorio,
+.success .login-wrapper #step_hotel_no .inputs-wrapper-register .input .obligatorio,
+.success .login-wrapper #step_hotel_no .inputs-wrapper-register-hotel .input .obligatorio,
+.success .register-wrapper #login .inputs-wrapper .input .obligatorio,
+.success .register-wrapper #login .inputs-wrapper-register .input .obligatorio,
+.success .register-wrapper #login .inputs-wrapper-register-hotel .input .obligatorio,
+.success .register-wrapper #step_1 .inputs-wrapper .input .obligatorio,
+.success .register-wrapper #step_1 .inputs-wrapper-register .input .obligatorio,
+.success .register-wrapper #step_1 .inputs-wrapper-register-hotel .input .obligatorio,
+.success .register-wrapper #step_2 .inputs-wrapper .input .obligatorio,
+.success .register-wrapper #step_2 .inputs-wrapper-register .input .obligatorio,
+.success .register-wrapper #step_2 .inputs-wrapper-register-hotel .input .obligatorio,
+.success .register-wrapper #step_3 .inputs-wrapper .input .obligatorio,
+.success .register-wrapper #step_3 .inputs-wrapper-register .input .obligatorio,
+.success .register-wrapper #step_3 .inputs-wrapper-register-hotel .input .obligatorio,
+.success .register-wrapper #step_4 .inputs-wrapper .input .obligatorio,
+.success .register-wrapper #step_4 .inputs-wrapper-register .input .obligatorio,
+.success .register-wrapper #step_4 .inputs-wrapper-register-hotel .input .obligatorio,
+.success .register-wrapper #step_5 .inputs-wrapper .input .obligatorio,
+.success .register-wrapper #step_5 .inputs-wrapper-register .input .obligatorio,
+.success .register-wrapper #step_5 .inputs-wrapper-register-hotel .input .obligatorio,
+.success .register-wrapper #step_hotel .inputs-wrapper .input .obligatorio,
+.success .register-wrapper #step_hotel .inputs-wrapper-register .input .obligatorio,
+.success .register-wrapper #step_hotel .inputs-wrapper-register-hotel .input .obligatorio,
+.success .register-wrapper #step_hotel_si .inputs-wrapper .input .obligatorio,
+.success .register-wrapper #step_hotel_si .inputs-wrapper-register .input .obligatorio,
+.success .register-wrapper #step_hotel_si .inputs-wrapper-register-hotel .input .obligatorio,
+.success .register-wrapper #step_hotel_no .inputs-wrapper .input .obligatorio,
+.success .register-wrapper #step_hotel_no .inputs-wrapper-register .input .obligatorio,
+.success .register-wrapper #step_hotel_no .inputs-wrapper-register-hotel .input .obligatorio {
+  color: #ff5353;
+  font-size: 20px;
+  position: absolute;
+  right: 0;
+  top: 5px;
 }
 
 .login .login-wrapper #login .inputs-wrapper .input .password-eye,
@@ -8908,7 +9077,7 @@ footer .totum p a:hover {
 .Cotizaciones-section .Cotizaciones-wrapper {
   max-width: 1300px;
   width: 100%;
-  padding: 20px;
+  padding: 20px 30px;
   margin-top: 30px;
   border-radius: 3em 0 3em 3em;
   background-color: #ffffff;
@@ -9338,6 +9507,7 @@ footer .totum p a:hover {
 .viajar-wrapper-index .salioviaje {
   margin: 20px auto;
   margin-bottom: 40px;
+  padding: 0 20px;
   max-width: 1300px;
   width: 100%;
   text-align: center;
@@ -9375,7 +9545,7 @@ footer .totum p a:hover {
 .viajar-wrapper-index .salioviaje .ofertas-wrapper {
   max-width: 1300px;
   width: 100%;
-  padding: 20px;
+  padding: 20px 30px;
   margin-top: 30px;
   border-radius: 3em 0 3em 3em;
   background-color: #ffffff;
@@ -11264,6 +11434,39 @@ footer .totum p a:hover {
   margin: 0;
   text-align: left;
   color: #3844bc;
+}
+
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .formulario-grid .input p .obligatorio, .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .paradas-wrapper .input p .obligatorio,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .formulario-grid .input p .obligatorio,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .paradas-wrapper .input p .obligatorio,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .formulario-grid .input p .obligatorio,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .paradas-wrapper .input p .obligatorio,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .formulario-grid .input p .obligatorio,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .paradas-wrapper .input p .obligatorio,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .formulario-grid .input p .obligatorio,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .paradas-wrapper .input p .obligatorio,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .formulario-grid .input p .obligatorio,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .paradas-wrapper .input p .obligatorio,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .formulario-grid .input p .obligatorio,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .paradas-wrapper .input p .obligatorio,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_5 .formulario-grid .input p .obligatorio,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_5 .paradas-wrapper .input p .obligatorio, .viajar-wrapper-index .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .formulario-grid .input p .obligatorio, .viajar-wrapper-index .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .paradas-wrapper .input p .obligatorio,
+.viajar-wrapper-index .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .formulario-grid .input p .obligatorio,
+.viajar-wrapper-index .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .paradas-wrapper .input p .obligatorio,
+.viajar-wrapper-index .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .formulario-grid .input p .obligatorio,
+.viajar-wrapper-index .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .paradas-wrapper .input p .obligatorio,
+.viajar-wrapper-index .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .formulario-grid .input p .obligatorio,
+.viajar-wrapper-index .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .paradas-wrapper .input p .obligatorio,
+.viajar-wrapper-index .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .formulario-grid .input p .obligatorio,
+.viajar-wrapper-index .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .paradas-wrapper .input p .obligatorio,
+.viajar-wrapper-index .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .formulario-grid .input p .obligatorio,
+.viajar-wrapper-index .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .paradas-wrapper .input p .obligatorio,
+.viajar-wrapper-index .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .formulario-grid .input p .obligatorio,
+.viajar-wrapper-index .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .paradas-wrapper .input p .obligatorio,
+.viajar-wrapper-index .salioviaje .salioviaje-desplegable .formulario-viaje .step_5 .formulario-grid .input p .obligatorio,
+.viajar-wrapper-index .salioviaje .salioviaje-desplegable .formulario-viaje .step_5 .paradas-wrapper .input p .obligatorio {
+  color: #ff5353;
+  font-size: 20px;
 }
 
 .viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .formulario-grid .input input,

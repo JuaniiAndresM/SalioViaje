@@ -159,26 +159,31 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
               <div class="input" id="ci">
                 <i class="fas fa-user" id="icon"></i>
                 <input type="number" id="CI" maxlength="8" placeholder="C.I" />
+                <span class="obligatorio">*</span>
               </div>
 
               <div class="input">
                 <i class="fas fa-envelope" id="icon"></i>
                 <input type="email" id="correo" placeholder="Correo Electronico" />
+                <span class="obligatorio">*</span>
               </div>
 
               <div class="input">
                 <i class="fas fa-signature" id="icon"></i>
                 <input type="text" id="nombre" placeholder="Nombre" />
+                <span class="obligatorio">*</span>
               </div>
 
               <div class="input">
                 <i class="fas fa-signature" id="icon"></i>
                 <input type="text" id="apellido" placeholder="Apellido" />
+                <span class="obligatorio">*</span>
               </div>
 
               <div class="input" id="direccion-input">
                 <i class="fas fa-map-marker-alt" id="icon"></i>
                 <input type="text" id="direccion" placeholder="Dirección" />
+                <span class="obligatorio">*</span>
               </div>
             </div>
             <div class="column">
@@ -191,6 +196,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
               <div class="input">
                 <i class="fas fa-map-marked-alt" id="icon"></i>
                 <input list="Barrio" id="barrio" placeholder="Barrio">
+                <span class="obligatorio">*</span>
                 <datalist id="Barrio">
                   <?php
                     if (isset($barrios)) {
@@ -233,11 +239,13 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
                    <option value="MALDONADO"> 
                    <option value="LAVALLEJA">
                 </datalist>
+                <span class="obligatorio">*</span>
               </div>
 
               <div class="input" id="telefono-input">
                 <i class="fas fa-phone" id="icon"></i>
                 <input type="number" id="numero_telefono" placeholder="Teléfono" />
+                <span class="obligatorio">*</span>
               </div>
 
               <div class="input">
@@ -292,6 +300,8 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
                 <option value="1">Si</option>
                 <option value="2">No</option>
               </select>
+              <span class="obligatorio">*</span>
+
             </div>
 
           </div>
@@ -314,11 +324,13 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
               <div class="input" id="ruthotel">
                 <i class="fas fa-id-card-clip" id="icon"></i>
                 <input type="number" id="rut-hotel" placeholder="RUT" />
+                <span class="obligatorio">*</span>
               </div>
 
               <div class="input" id="nombrehotel">
                 <i class="fas fa-building" id="icon"></i>
                 <input type="text" id="nombre-hotel" placeholder="Nombre del Hotel" />
+                <span class="obligatorio">*</span>
               </div>
 
             </div>
@@ -326,11 +338,13 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
               <div class="input" id="razonhotel">
                 <i class="fas fa-building" id="icon"></i>
                 <input type="text" id="razon-hotel" placeholder="Razón Social" />
+                <span class="obligatorio">*</span>
               </div>
               
               <div class="input" id="direccionhotel">
                 <i class="fas fa-map-marked-alt" id="icon"></i>
                 <input type="text" id="direccion-hotel" placeholder="Dirección del Hotel" />
+                <span class="obligatorio">*</span>
               </div>
             </div>
           </div>
@@ -356,6 +370,8 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
                 <option value="1">Hotel 1</option>
                 <option value="2">Hotel 2</option>
               </select>
+              <span class="obligatorio">*</span>
+
             </div>
 
           </div>
@@ -377,16 +393,19 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
               <div class="input">
                 <i class="fas fa-address-card" id="icon"></i>
                 <input type="number" id="rutt" maxlength="12" placeholder="RUT" />
+                <span class="obligatorio">*</span>
               </div>
 
               <div class="input">
                 <i class="fas fa-signature" id="icon"></i>
                 <input type="text" id="nombre_comercial" placeholder="Nombre Comercial" />
+                <span class="obligatorio">*</span>
               </div>
 
               <div class="input">
                 <i class="fas fa-building" id="icon"></i>
                 <input type="text" id="razon_social" placeholder="Razón Social" />
+                <span class="obligatorio">*</span>
               </div>
             </div>
             <div class="column">
@@ -394,6 +413,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
                 <i class="fas fa-building" id="icon"></i>
                 <select name="" id="empresas">
                 </select>
+                <span class="obligatorio">*</span>
               </div>
               <div class="input" id="choferes_sub">
                 <i class="fas fa-user-friends" id="icon"></i>
@@ -402,6 +422,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
                   <option value="1">Si</option>
                   <option value="2">No</option>
                 </select>
+                <span class="obligatorio">*</span>
               </div>
               <div class="input" id="nro_mtop_rgt">
                 <i class="fas fa-user-lock" id="icon"></i>
@@ -444,16 +465,19 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
               <div class="input">
                 <i class="fas fa-font" id="icon"></i>
                 <input type="text" id="matricula" maxlength="7" placeholder="Matrícula"/>
+                <span class="obligatorio">*</span>
               </div>
 
               <div class="input">
                 <i class="fas fa-car" id="icon"></i>
                 <input type="text" id="marca" placeholder="Marca" />
+                <span class="obligatorio">*</span>
               </div>
 
               <div class="input">
                 <i class="fas fa-list" id="icon"></i>
                 <input type="text" id="modelo" placeholder="Modelo" />
+                <span class="obligatorio">*</span>
               </div>
 
               <div class="input">
@@ -465,6 +489,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
                   <option value="Electrico">Electrico</option>
                   <option value="Hibrido">Híbrido</option>
                 </select>
+                <span class="obligatorio">*</span>
               </div>
 
             </div>
@@ -473,11 +498,13 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
               <div class="input">
                 <i class="fas fa-users" id="icon"></i>
                 <input type="number" id="capacidad_pasajeros" placeholder="Capacidad Pasajeros" />
+                <span class="obligatorio">*</span>
               </div>
 
               <div class="input">
                 <i class="fas fa-luggage-cart" id="icon"></i>
                 <input type="text" id="capacidad_equipaje" placeholder="Capacidad Equipaje" />
+                <span class="obligatorio">*</span>
               </div>
 
               <div class="input">
@@ -487,6 +514,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
                   <option value="1">No</option>
                   <option value="2">Si</option>
                 </select>
+                <span class="obligatorio">*</span>
               </div>
             </div>
           </div>
