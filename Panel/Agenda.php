@@ -228,9 +228,15 @@ session_set_cookie_params($ttl);
                             <div class="button-wrapper"> ';
 
                           if($_SESSION['datos_usuario']['TIPO_USUARIO'] != "PAX" && $vehiculos[$i]['MODALIDAD'] == "Oportunidad"){
-                            echo '<button class="button" onclick="mtop_oportunidad('.$vehiculos[$i]['ID'].')"><i class="fas fa-file-contract"></i></button>
-                                  <button class="button" onclick="abrir_editar_oportunidad('.$vehiculos[$i]['ID'].')"><i class="fas fa-edit"></i></button>
-                                  <button class="button" onclick="eliminar_viajes('.$vehiculos[$i]['ID'].',1)"><i class="fas fa-trash-alt"></i></button>';
+                            if($vehiculos[$i]['ESTADO'] != "Cancelado" && $vehiculos[$i]['ESTADO'] != "Reconfirmado" && $vehiculos[$i]['ESTADO'] != "Vencido" && $vehiculos[$i]['ESTADO'] != "Vencida"){
+                              echo '<button class="button" onclick="mtop_oportunidad('.$vehiculos[$i]['ID'].')"><i class="fas fa-file-contract"></i></button>
+                                    <button class="button" onclick="abrir_editar_oportunidad('.$vehiculos[$i]['ID'].')"><i class="fas fa-edit"></i></button>
+                                    <button class="button" onclick="eliminar_viajes('.$vehiculos[$i]['ID'].',1)"><i class="fas fa-trash-alt"></i></button>';
+                            }else{
+                              echo '<button class="button" onclick="mtop_oportunidad('.$vehiculos[$i]['ID'].')"><i class="fas fa-file-contract"></i></button>
+                                    <button class="button" onclick="eliminar_viajes('.$vehiculos[$i]['ID'].',1)"><i class="fas fa-trash-alt"></i></button>';
+                            }
+                            
                           }else if($_SESSION['datos_usuario']['TIPO_USUARIO'] != "PAX" && $vehiculos[$i]['MODALIDAD'] == "Agendado"){
                             echo '<button class="button" onclick="mtop_oportunidad(' . $vehiculos[$i]['ID'] . ')"><i class="fas fa-file-contract"></i></button>
                                   <button class="button" onclick="eliminar_viajes(' . $vehiculos[$i]['ID'] . ',1)"><i class="fas fa-trash-alt"></i></button>';

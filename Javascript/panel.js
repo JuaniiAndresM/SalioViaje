@@ -1150,3 +1150,22 @@ function verificar_fecha(fecha) {
         return true
     } else { return false }
 }
+
+function preferenciasVehiculos(id, step, matricula){
+    let data = [id, matricula];
+    console.log(data);
+    switch (step) {
+        case 1:
+            $.ajax({
+                type: "POST",
+                url: "https://www.salioviaje.com.uy/Panel/modal.php",
+                data: { opcion: 2, data: data},
+                success: function (response) {
+                    console.log(response);
+                    $('#modal').css('display','flex');
+                    $('#modal').html(response);        
+                }
+            });
+            break;
+    }
+}

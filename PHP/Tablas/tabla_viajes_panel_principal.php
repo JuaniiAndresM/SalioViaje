@@ -25,7 +25,7 @@ for ($i = 0; $i < count($oportunidades); $i++) {
 
     if ($i == 0) {
         if ($_SESSION['datos_usuario']['TIPO_USUARIO'] != "PAX" && $oportunidades[$i]['MODALIDAD'] == "Oportunidad") {
-            if($oportunidades[$i]['ESTADO'] != "Vencida" && $oportunidades[$i]['ESTADO'] != "Vencido" && $oportunidades[$i]['ESTADO'] != "Cancelada" && $oportunidades[$i]['ESTADO'] != "Reconfirmado"){
+            if($oportunidades[$i]['ESTADO'] != "Vencida" && $oportunidades[$i]['ESTADO'] != "Vencido" && $oportunidades[$i]['ESTADO'] != "Cancelada" && $oportunidades[$i]['ESTADO'] != "Cancelado" && $oportunidades[$i]['ESTADO'] != "Reconfirmado"){
                 $oportunidades_dashboard = '
                 <tr>
                     <td data-title="ID">' . $oportunidades[$i]['ID'] . '</td>
@@ -81,7 +81,7 @@ for ($i = 0; $i < count($oportunidades); $i++) {
 
     } else {
         if ($_SESSION['datos_usuario']['TIPO_USUARIO'] != "PAX" && $oportunidades[$i]['MODALIDAD'] == "Oportunidad") {
-            if($oportunidades[$i]['ESTADO'] != "Vencida" && $oportunidades[$i]['ESTADO'] != "Vencido" && $oportunidades[$i]['ESTADO'] != "Cancelada" && $oportunidades[$i]['ESTADO'] != "Reconfirmado"){
+            if($oportunidades[$i]['ESTADO'] != "Vencida" && $oportunidades[$i]['ESTADO'] != "Vencido" && $oportunidades[$i]['ESTADO'] != "Cancelada"  && $oportunidades[$i]['ESTADO'] != "Cancelado" && $oportunidades[$i]['ESTADO'] != "Reconfirmado"){
                 $oportunidades_dashboard = $oportunidades_dashboard . '
                 <tr>
                     <td data-title="ID">' . $oportunidades[$i]['ID'] . '</td>

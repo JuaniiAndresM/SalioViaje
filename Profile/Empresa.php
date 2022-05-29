@@ -131,6 +131,8 @@ session_set_cookie_params($ttl);
       </div>
     </div>
 
+    <div id="modal"></div>
+
     <header class="panel-header" id="header">
       <div class="header-left">
         <div class="header-menu">
@@ -226,7 +228,18 @@ session_set_cookie_params($ttl);
                                   <td>'.$vehiculos[$i]['CAPACIDAD'].'</td>
                                   <td>'.$vehiculos[$i]['EQUIPAJE'].'</td>
                                   <td>'.$vehiculos[$i]['RUT_EM'].'</td>
-                                  <td>'.$vehiculos[$i]['PET_FRIENDLY'].'</td>
+                                  <td>'.$vehiculos[$i]['PET_FRIENDLY'].'</td>';
+
+                                  if($_SESSION['datos_usuario']['TIPO_USUARIO'] == "ADM" || $usuario[0]['ID_USUARIO'] == $_SESSION['datos_usuario']['ID']){
+                                    echo '<td>
+                                            <div class="button-wrapper">
+                                              <button class="button" onclick="preferenciasVehiculos('.$vehiculos[$i]['ID'].',1,\''.$vehiculos[$i]['MATRICULA'].'\')"><i class="fa-solid fa-gear"></i></button>
+                                            </div>
+                                          </td>';
+                                  }
+                                  
+
+                                  echo '
                               </tbody>';
                   }
                 }

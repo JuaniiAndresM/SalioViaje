@@ -116,6 +116,8 @@ if (!isset($_SESSION['usuario'])) {
       </div>
     </div>
 
+    <div id="modal"></div>
+
     <header class="panel-header" id="header">
       <div class="header-left">
         <div class="header-menu">
@@ -170,6 +172,7 @@ if (!isset($_SESSION['usuario'])) {
                   <th>RUT Empresa <i class="fas fa-angle-down"></i></th>
                   <th>RUT Empresa Contratista <i class="fas fa-angle-down"></i></th>
                   <th>Pet Friendly <i class="fas fa-angle-down"></i></th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody id="tbody">
@@ -237,6 +240,11 @@ if ($_SESSION['tipo_usuario'] != "Administrador" && $_SESSION['tipo_usuario'] !=
                     <td>' . $vehiculos[$a]['RUT_EM'] . '</td>
                     <td>-</td>
                     <td>' . $pet_friendly . '</td>
+                    <td>
+                      <div class="button-wrapper">
+                        <button class="button" onclick="preferenciasVehiculos('.$vehiculos[$a]['ID'].',1,\''.$vehiculos[$a]['MATRICULA'].'\')"><i class="fa-solid fa-gear"></i></button>
+                      </div>
+                    </td>
                   </tr>';
 
       }
@@ -261,6 +269,11 @@ if ($_SESSION['tipo_usuario'] != "Administrador" && $_SESSION['tipo_usuario'] !=
                   <td>' . $vehiculos_chofer[$a]['RUT_EM'] . '</td>
                   <td>' . $vehiculos_chofer[$a]['RUT_EC'] . '</td>
                   <td>' . $pet_friendly . '</td>
+                  <td>
+                    <div class="button-wrapper">
+                      <button class="button" onclick="preferenciasVehiculos('.$vehiculos_chofer[$a]['ID'].',1,\''.$vehiculos_chofer[$a]['MATRICULA'].'\')"><i class="fa-solid fa-gear"></i></button>
+                    </div>
+                  </td>
                 </tr>';
 
     }

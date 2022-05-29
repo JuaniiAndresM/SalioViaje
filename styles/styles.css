@@ -17244,6 +17244,11 @@ footer .totum p a:hover {
   text-align: center;
 }
 
+#modal .modal-container .modal-body .title {
+  font-size: 1.5em;
+  color: #3844bc;
+}
+
 #modal .modal-container .modal-body .msg1 {
   color: #3844bc;
 }
@@ -17251,6 +17256,45 @@ footer .totum p a:hover {
 #modal .modal-container .modal-body .msg2 {
   color: #444;
   font-size: 1.2em;
+}
+
+#modal .modal-container .modal-body .input {
+  width: 100%;
+  max-width: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 10px 20px;
+  text-align: left;
+}
+
+#modal .modal-container .modal-body .input .input-title {
+  color: #3844bc;
+  font-size: 18px;
+}
+
+#modal .modal-container .modal-body .input .input-desc {
+  color: #777;
+  font-size: 14px;
+}
+
+#modal .modal-container .modal-body .input select, #modal .modal-container .modal-body .input input {
+  width: 100%;
+  height: 30px;
+  border: none;
+  color: #777;
+  border-bottom: 1px solid #999;
+  margin: 5px 0;
 }
 
 #modal .modal-container .modal-body .button-wrapper {
