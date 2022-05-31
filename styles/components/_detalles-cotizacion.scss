@@ -69,7 +69,7 @@
             }
         }
         .cotizacion-content{
-            .cotizacion-info{
+            .cotizacion-info,.cotizacion-info-grid{
                 width: 100%;
                 margin: 20px auto;
                 margin-top: 10px;
@@ -103,11 +103,63 @@
                     }
                 }
 
+                .cotizar-container {
+                    h2{
+                        margin: 20px 0;
+                        margin-top: 40px;
+                        font-size: 1.6em;
+                        color: $main_1;
+                    }
+                    .input {
+                        position: relative;
+                        max-width: 300px;
+                        width: 100%;
+                        margin: 30px 0;
+                  
+                        p {
+                          text-align: left;
+                          color: $main_1;
+                          margin: 0;
+                          font-size: 14px
+                        }
+                        input,
+                        select {
+                          width: 100%;
+                          height: 40px;
 
-            }            
+                          border: none;
+                          border-bottom: 1px solid $main_1;
+                          outline: none;
+                  
+                          color: $main_1;
+                          background-color: #fff;
+                        }
+                      }
+                }
+
+
+            }    
+            .cotizacion-info-grid      {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 40px
+            }  
         }
         
     }
+}
+
+@media screen and(max-width: 850px) {
+    .cotizacion-detalles-wrapper{
+        .cotizacion{
+            .cotizacion-content{
+                .cotizacion-info-grid{
+                    grid-template-columns: 1fr;
+                }
+            }
+        }
+    }
+    
 }
 
 @media screen and(max-width: 618px) {

@@ -1,17 +1,16 @@
 <?php 
   
-  session_start(); 
-  /*
+  session_start();
+
   if(!isset($_SESSION['usuario'])){
       header('Location: https://www.salioviaje.com.uy/Login');
   }else{
     
-    if($_SESSION['tipo_usuario'] == "Chofer"){
+    if($_SESSION['tipo_usuario'] != "Transportista" && $_SESSION['tipo_usuario'] != "Administrador"){
       header('Location: https://www.salioviaje.com.uy/');
     }
     
   }
-  */
   require_once "../PHP/procedimientosBD.php";
 
   $cotizacion = new procedimientosBD();
@@ -66,7 +65,7 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <title>SalióViaje | Cotizacion #<?php echo $_GET['ID']; ?></title>
+    <title>SalióViaje | Cotizar #<?php echo $_GET['ID']; ?></title>
 
     <!-- // Meta Etiquetas -->
 
@@ -167,22 +166,13 @@
               </div>
             </div>
             <div class="cotizacion-buttons">
-              <?php 
-                
-                if (isset($_SESSION["usuario"])) {
-                    if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "TTA" || $_SESSION['datos_usuario']['TIPO_USUARIO'] == "ADM") {
-                        echo "<button class='cotizar-button' onclick='location.href= \"https://www.salioviaje.com.uy/Cotizar/" . $_GET['ID'] . "\"'><i class='fas fa-chart-line'></i> Cotizar</button>";                     
-                    }
-                }else{
-                  echo "<button class='cotizar-button' onclick='location.href= \"https://www.salioviaje.com.uy/Login\"'><i class='fas fa-chart-line'></i> Cotizar</button>";                     
-                }
-
-               ?>
+                <button class='cotizar-button'><i class='fas fa-chart-line'></i> Cotizar</button>
             </div>
           </div>
           <div class="cotizacion-content">
 
-            <div class="cotizacion-info">
+            <div class="cotizacion-info-grid">
+                <div>
               <?php
               echo '<p><i class="fas fa-address-card"></i> <b>N° de Viaje: </b>'.$cotizaciones[0]['ID'].'</p>
                     <p><i class="fas fa-list-ol"></i> <b>Tipo de Viaje: </b>'.$TIPO_VIAJE.'</p>';
@@ -391,6 +381,41 @@
                   <p><i class="fas fa-map-location-dot"></i> <b>Dirección: </b>'.$solicitante[0]['DEPARTAMENTO'].', '.$solicitante[0]['BARRIO'].'</p>';  
                 }
                 ?>
+                </div>
+                <div class="cotizar-container">
+                    <h2>Cotizar:</h2>
+                    <div class="input">
+                        <p><i class="fa-solid fa-van-shuttle"></i> Vehiculo</p>
+                        
+                        <select id="vehiculosCotizar" onchange="showMatricula()">
+                            <option value="0" selected hidden disabled>Seleccione un Vehiculo</option>
+                            <optgroup label="Vehiculos Transportista">
+                                <option value="STU1520">STU1520 - 8 TTA - Pedro Ruedas</option>
+                            </optgroup>
+                        
+                            <optgroup label="Vehiculos Choferes">
+                                <option value="STU4567">STU4567 - 17 PAX - Jorge Volante</option>
+                            </optgroup>
+                        </select>
+                    </div>
+
+                    <div class="input">
+                        <p><i class="fa-solid fa-money-bill"></i> Precio</p>
+                        <input type="number" min="1" oninput="this.value = Math.abs(this.value)">
+                    </div>
+                    
+                    <div class="input">
+                        <p><i class="fa-solid fa-hand-holding-dollar"></i> Seña Requerida</p>
+                        <input type="number" min="1" oninput="this.value = Math.abs(this.value)">
+                    </div>
+                    
+                    <script>
+                        function showMatricula() {
+                            var vehiculos = document.getElementById("vehiculosCotizar");
+                            vehiculos.options[vehiculos.selectedIndex].text = vehiculos.value;
+                        }
+                    </script>
+                </div>
             </div>
           </div>
         </div>
