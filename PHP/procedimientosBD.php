@@ -100,9 +100,9 @@ class procedimientosBD
         $stmt->bind_param("s", $usuario);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($id, $pin_bd, $passwd, $nombre, $apellido, $tipo_usuario, $ci, $telefono, $direccion, $barrio, $departamento, $mail);
+            $stmt->bind_result($id, $pin_bd, $nombre, $apellido, $tipo_usuario, $ci, $telefono, $direccion, $barrio, $departamento, $mail);
             while ($stmt->fetch()) {
-                if (password_verify($pin, $pin_bd) || password_verify($pin, $passwd)) {
+                if (password_verify($pin, $pin_bd)) {
                     $datos_usuarios = array('TIPO_USUARIO' => $tipo_usuario, 'ID' => $id, 'CI' => $ci, 'TELEFONO' => $telefono, 'DIRECCION' => $direccion, 'BARRIO' => $barrio, 'DEPARTAMENTO' => $departamento, 'MAIL' => $mail);
                     $usuario = $nombre . " " . $apellido;
                     session_start();
@@ -145,13 +145,13 @@ class procedimientosBD
     {
         $usuarios = array();
         $conn = $this->conexion();
-        $query = "SELECT ID,Tipo_Usuario,CI,Email,Nombre,Apellido,Direccion,Barrio,Departamento,Telefono,Agencia_C,RUT,Supervisor FROM salioviajeuy_salioviajeuy.usuarios";
+        $query = "SELECT ID,Tipo_Usuario,CI,Email,Nombre,Apellido,Direccion,Barrio,Departamento,Telefono,Agencia_C,RUT FROM salioviajeuy_salioviajeuy.usuarios WHERE visibilidad = 1;";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($id_usuario, $tipo_usuario, $ci, $mail, $nombre, $apellido, $direccion, $barrio, $departamento, $telefono, $agencia_contratista, $rut, $supervisor);
+            $stmt->bind_result($id_usuario, $tipo_usuario, $ci, $mail, $nombre, $apellido, $direccion, $barrio, $departamento, $telefono, $agencia_contratista, $rut);
             while ($stmt->fetch()) {
-                $result = array('ID' => $id_usuario, 'TIPO_USUARIO' => $tipo_usuario, 'CI' => $ci, 'EMAIL' => $mail, 'NOMBRE' => $nombre, 'APELLIDO' => $apellido, 'DIRECCION' => $direccion, 'BARRIO' => $barrio, 'DEPARTAMENTO' => $departamento, 'TELEFONO' => $telefono, 'AGENCIA_CONTRATISTA' => $agencia_contratista, 'SUPERVISOR' => $supervisor, 'RUT' => $rut);
+                $result = array('ID' => $id_usuario, 'TIPO_USUARIO' => $tipo_usuario, 'CI' => $ci, 'EMAIL' => $mail, 'NOMBRE' => $nombre, 'APELLIDO' => $apellido, 'DIRECCION' => $direccion, 'BARRIO' => $barrio, 'DEPARTAMENTO' => $departamento, 'TELEFONO' => $telefono, 'AGENCIA_CONTRATISTA' => $agencia_contratista, 'RUT' => $rut);
                 $usuarios[] = $result;
             }
         }
@@ -182,7 +182,7 @@ class procedimientosBD
     {
         $ci = array();
         $conn = $this->conexion();
-        $query = "SELECT CI FROM salioviajeuy_salioviajeuy.usuarios";
+        $query = "SELECT CI FROM salioviajeuy_salioviajeuy.usuarios where visibilidad = 1;";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
@@ -199,7 +199,7 @@ class procedimientosBD
     {
         $mail = array();
         $conn = $this->conexion();
-        $query = "SELECT Email FROM salioviajeuy_salioviajeuy.usuarios";
+        $query = "SELECT Email FROM salioviajeuy_salioviajeuy.usuarios where visibilidad = 1;";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
@@ -233,7 +233,7 @@ class procedimientosBD
     {
         $id_empresas = array();
         $conn = $this->conexion();
-        $query = "SELECT id FROM empresas WHERE Usuario_ID = $id";
+        $query = "SELECT id FROM empresas WHERE Usuario_ID = $id and visibilidad = 1;";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
@@ -555,13 +555,13 @@ class procedimientosBD
     {
         $usuarios = array();
         $conn = $this->conexion();
-        $query = "SELECT ID,Tipo_Usuario,CI,Email,Nombre,Apellido,Direccion,Barrio,Departamento,Telefono,Agencia_C,RUT,Supervisor,Nombre_Hotel,Direccion_Hotel FROM salioviajeuy_salioviajeuy.usuarios where ID = $id";
+        $query = "SELECT ID,Tipo_Usuario,CI,Email,Nombre,Apellido,Direccion,Barrio,Departamento,Telefono,Agencia_C,RUT FROM salioviajeuy_salioviajeuy.usuarios where ID = $id and visibilidad = 1;";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($id_usuario, $tipo_usuario, $ci, $mail, $nombre, $apellido, $direccion, $barrio, $departamento, $telefono, $agencia_contratista, $rut, $supervisor, $nombre_hotel, $direccion_hotel);
+            $stmt->bind_result($id_usuario, $tipo_usuario, $ci, $mail, $nombre, $apellido, $direccion, $barrio, $departamento, $telefono, $agencia_contratista, $rut);
             while ($stmt->fetch()) {
-                $result = array('ID' => $id_usuario, 'TIPO_USUARIO' => $tipo_usuario, 'CI' => $ci, 'EMAIL' => $mail, 'NOMBRE' => $nombre, 'APELLIDO' => $apellido, 'DIRECCION' => $direccion, 'BARRIO' => $barrio, 'DEPARTAMENTO' => $departamento, 'TELEFONO' => $telefono, 'AGENCIA_CONTRATISTA' => $agencia_contratista, 'NOMBRE_HOTEL' => $nombre_hotel, 'DIRECCION_HOTEL' => $direccion_hotel, 'SUPERVISOR' => $supervisor, 'RUT' => $rut);
+                $result = array('ID' => $id_usuario, 'TIPO_USUARIO' => $tipo_usuario, 'CI' => $ci, 'EMAIL' => $mail, 'NOMBRE' => $nombre, 'APELLIDO' => $apellido, 'DIRECCION' => $direccion, 'BARRIO' => $barrio, 'DEPARTAMENTO' => $departamento, 'TELEFONO' => $telefono, 'AGENCIA_CONTRATISTA' => $agencia_contratista, 'RUT' => $rut);
                 $usuarios[] = $result;
             }
         }
@@ -573,7 +573,7 @@ class procedimientosBD
     {
         $usuarios = array();
         $conn = $this->conexion();
-        $query = "SELECT ID,Tipo_Usuario,CI,Email,Nombre,Apellido,Direccion,Barrio,Departamento,Telefono,Agencia_C,RUT,Supervisor FROM salioviajeuy_salioviajeuy.usuarios where Agencia_C IN (SELECT RUT FROM empresas where ID = $id)";
+        $query = "SELECT ID,Tipo_Usuario,CI,Email,Nombre,Apellido,Direccion,Barrio,Departamento,Telefono,Agencia_C,RUT,Supervisor FROM salioviajeuy_salioviajeuy.usuarios where Agencia_C IN (SELECT RUT FROM empresas where ID = $id) and visibilidad = 1;";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
@@ -953,7 +953,7 @@ class procedimientosBD
     {
         $vehiculos_choferes = array();
         $conn = $this->conexion();
-        $query = "SELECT * from vehiculos where RUT_EM IN(SELECT RUT FROM `empresas` WHERE Usuario_ID IN (SELECT ID FROM usuarios WHERE Agencia_C IN (SELECT RUT FROM empresas where Usuario_ID = $id)));";
+        $query = "SELECT * from vehiculos where RUT_EM IN(SELECT RUT FROM `empresas` WHERE Usuario_ID IN (SELECT ID FROM usuarios WHERE Agencia_C IN (SELECT RUT FROM empresas where Usuario_ID = $id) and visibilidad = 1));";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
