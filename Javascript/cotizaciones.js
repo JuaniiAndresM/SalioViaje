@@ -239,3 +239,74 @@ function eliminar_filtros() {
 
    filtrar();
 }
+
+function presentarCotizacion(id_viaje_cotizado, id_tta) {
+   let matricula = $("#vehiculosCotizar").val();
+   let precio = $("#precio").val();
+   let senia = $("#senia").val();
+
+   $.ajax({
+      type: "POST",
+      url: "/PHP/procedimientosForm.php",
+      data: { tipo: 'presentarCotizacion', matricula: matricula, precio: precio, senia: senia, id_viaje_cotizado: id_viaje_cotizado, id_tta: id_tta },
+      success: function (response) {
+         console.log(response)
+      },
+   });
+}
+
+function mostrar_cotizaciones_presentadas_dashboard_tta(){
+   $.ajax({
+      type: "POST",
+      url: "/PHP/Tablas/tabla_cotizaciones_presentadas_dashboard.php",
+      success: function (response) {
+         if(response != null){
+            $("#empty-cotiz-pres").hide()
+            $("#tbody-cotizaciones-dashboard").html(response)
+            $(".usuarios-table").show()
+         }else{
+            $("#empty-cotiz-pres").show()
+         }
+      },
+   });
+}
+
+function mostrar_cotizaciones_recibidas_dashboard(){
+   $.ajax({
+      type: "POST",
+      url: "/PHP/Tablas/tabla_cotizaciones_recibidas_dashboard.php",
+      success: function (response) {
+         if(response != null){
+            $("#empty-cotiz-reci").hide()
+            $(".cotizaciones_recibidas").html(response)
+            $(".usuarios-table").show()
+         }else{
+            $("#empty-cotiz-reci").show()
+         }
+      },
+   });
+}
+
+function aceptarCotizacion(id, id_viaje_cotizado) {
+   $.ajax({
+      type: "POST",
+      url: "/PHP/procedimientosForm.php",
+      data: { tipo: 'aceptar_cotizacion', idCotizacion: id , id_viaje_cotizado:id_viaje_cotizado},
+      success: function (response) {
+         console.log(response)
+         location.reload()
+      },
+   });
+}
+
+function rechazarCotizacion(id) {
+   $.ajax({
+      type: "POST",
+      url: "/PHP/procedimientosForm.php",
+      data: { tipo: 'rechazar_cotizacion', idCotizacion: id },
+      success: function (response) {
+         console.log(response)
+      },
+   });
+   location.reload()
+}

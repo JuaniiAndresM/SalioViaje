@@ -316,3 +316,24 @@ function filtrar_divs(tipo) {
  
     filtrar_divs(tipo);
  }
+
+
+ function obtenerDiaSemana(fecha){
+
+    const nombreDelDiaSegunFecha = fecha => [
+        'DOM',
+        'LUN',
+        'MAR',
+        'MIE',
+        'JUE',
+        'VIE',
+        'SAB',
+        'DOM',
+      ][new Date(fecha).getDay()];
+      
+      let fecha_split = fecha.split("-");
+
+      fecha = fecha_split[2]+"-"+fecha_split[1]+"-"+fecha_split[0];
+      
+      console.log(nombreDelDiaSegunFecha(fecha+" 00:00:00"))
+ }

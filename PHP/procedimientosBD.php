@@ -1280,4 +1280,87 @@ class procedimientosBD
         $stmt->close();
         return json_encode($comprador);
     }
+
+    public function guardarPreferencias($datos)
+    {
+        $datos = json_decode($datos,true);
+        $conn = $this->conexion();
+        $query = "CALL setPreferenciasVehiculos(?,?,?,?,?)";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("sisii", $datos['MATRICULA'], $datos['FIESTAS'], $datos['DIA_LIBRE'], $datos['PRECIO'], $datos['NOCTURNO']);
+        $stmt->execute();
+        echo $stmt->error;
+        $stmt->close();
+    }
+
+    public function presentarCotizacion($matricula, $precio, $senia, $id_viaje_cotizado,$id_tta)
+    {
+        $conn = $this->conexion();
+        $query = "call presentar_cotizacion(?,?,?,?,?)";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("siiii", $matricula, $precio, $senia, $id_viaje_cotizado,$id_tta);
+        $stmt->execute();
+        echo $stmt->error;
+        $stmt->close();
+    }
+
+    public function traer_cotizaciones_presentadas_por_id_tta($id){
+        $cotizaciones = array();
+        $conn = $this->conexion();
+        $query = "SELECT `cotizaciones_presentadas`.ID,MATRICULA,DIRECCION_ORIGEN,BARRIO_ORIGEN,LOCALIDAD_ORIGEN,DIRECCION_DESTINO,BARRIO_DESTINO,LOCALIDAD_DESTINO,ESTADO,FECHA_SALIDA FROM `cotizaciones_presentadas`,`cotizaciones` where id_tta = $id and visibilidad = 1 and `cotizaciones_presentadas`.ID_VIAJE_COTIZADO = `cotizaciones`.ID;";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($id,$matricula, $direccion_origen, $barrio_origen, $localidad_origen, $direccion_destino, $barrio_destino, $localidad_destino, $estado, $fecha_salida);
+            while ($stmt->fetch()) {
+                $result = array("ID" => $id, "MATRICULA" => $matricula, "DIRECCION_ORIGEN" => $direccion_origen, "BARRIO_ORIGEN" => $barrio_origen, "LOCALIDAD_ORIGEN" => $localidad_origen, "DIRECCION_DESTINO" => $direccion_destino, "BARRIO_DESTINO" => $barrio_destino, "LOCALIDAD_DESTINO" => $localidad_destino, "ESTADO" => $estado, "FECHA_SALIDA" => $fecha_salida);
+                $fecha = $result["FECHA_SALIDA"];
+                $timestamp = strtotime($fecha);
+                $newDate = date("d-m-Y", $timestamp);
+                $result["FECHA_SALIDA"] = $newDate;
+                $cotizaciones[] = $result;
+            }
+        }
+        $stmt->close();
+        return json_encode($cotizaciones);
+    }
+
+    public function traer_cotizaciones_recibidas_por_id_solicitante($id){
+        $cotizaciones = array();
+        $conn = $this->conexion();
+        $query = "SELECT `cotizaciones_presentadas`.ID,Marca,Modelo,Capacidad,PRECIO,ID_VIAJE_COTIZADO FROM `cotizaciones_presentadas`,`vehiculos` where `cotizaciones_presentadas`.MATRICULA = `vehiculos`.Matricula AND ID_VIAJE_COTIZADO in (select ID from `cotizaciones` where ID_SOLICITANTE = $id and ESTADO = 1) and `cotizaciones_presentadas`.visibilidad = 1;";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($id,$marca, $modelo, $capacidad, $precio, $id_viaje_cotizado);
+            while ($stmt->fetch()) {
+                $result = array("ID" => $id, "MARCA" => $marca, "MODELO" => $modelo, "CAPACIDAD" => $capacidad, "PRECIO" => $precio, "ID_VIAJE_COTIZADO" => $id_viaje_cotizado);
+                $cotizaciones[] = $result;
+            }
+        }
+        $stmt->close();
+        return json_encode($cotizaciones);
+    }
+
+    public function aceptarCotizacion($id, $id_viaje_cot)
+    {
+        $conn = $this->conexion();
+        $query = "call aprobar_cotizacion(?,?)";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("ii", $id, $id_viaje_cot);
+        $stmt->execute();
+        echo $stmt->error;
+        $stmt->close();
+    }
+
+    public function rechazarCotizacion($id)
+    {
+        $conn = $this->conexion();
+        $query = "call rechazar_cotizacion(?)";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        echo $stmt->error;
+        $stmt->close();
+    }
 }

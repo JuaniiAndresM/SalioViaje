@@ -125,11 +125,14 @@ session_set_cookie_params($ttl);
         <script src="https://www.salioviaje.com.uy/Javascript/panel.js"></script>
         <script src="https://www.salioviaje.com.uy/Javascript/settings.js"></script>
         <script src="https://www.salioviaje.com.uy/Javascript/loader.js"></script>
+        <script src="https://www.salioviaje.com.uy/Javascript/cotizaciones.js"></script>
         <script type="text/javascript">
             window.onload = function(){
               tabla_usuarios_dashboard()
               tabla_empresas_dashboard() 
               tabla_oportunidades_dashboard()
+              mostrar_cotizaciones_presentadas_dashboard_tta();
+              mostrar_cotizaciones_recibidas_dashboard();
             }
         </script>
       </head>
@@ -358,6 +361,7 @@ session_set_cookie_params($ttl);
                                 <a href="Cotizaciones"><i class="fas fa-list-ul"></i></a>
                               </div>
                             </div>
+
                             <table class="usuarios-table" id="cotz-pres" style="display: none;">
                               <thead>
                                 <tr>
@@ -372,19 +376,10 @@ session_set_cookie_params($ttl);
                                 </tr>
                               </thead>
                               <tbody id="tbody-cotizaciones-dashboard">
-                                <tr>
-                                  <td data-title="ID">000</td>
-                                  <td data-title="Origen">Example, Example 2</td>
-                                  <td data-title="Destino">Example 3, Example 4</td>
-                                  <td data-title="Fecha">dd/mm/aaaa</td>
-                                  <td data-title="Estado">Cotizando</td>
-                                  <td>
-                                    <div class="button-wrapper">
-                                      <button class="button"><i class="fas fa-ban"></i></button>
-                                  </td>
-                                </tr>
+
                               </tbody>
                             </table>
+
                             <div class="empty-table" id="empty-cotiz-pres">
                               <p><i class="fas fa-info-circle"></i> No hay cotizaciones presentadas.</p>
                             </div>
@@ -406,26 +401,7 @@ session_set_cookie_params($ttl);
                                 </tr>
                               </thead>
                               <tbody id="tbody-cotizaciones-dashboard">
-                                <tr>
-                                  <td data-title="ID">000</td>
-                                  <td data-title="Reputación">
-                                    <div class="reputacion">
-                                      <i class="fas fa-star"></i>
-                                      <i class="fas fa-star"></i>
-                                      <i class="fas fa-star"></i>
-                                      <i class="fas fa-star"></i>
-                                      <i class="fas fa-star-half"></i>
-                                    </div>
-                                  </td>
-                                  <td data-title="Marca / Modelo">Example 3, Example 4</td>
-                                  <td data-title="Capacidad">00</td>
-                                  <td data-title="Precio">$0.000</td>
-                                  <td>
-                                    <div class="button-wrapper">
-                                      <button class="button"><i class="fas fa-dollar-sign"></i></button>
-                                      <button class="button"><i class="fas fa-ban"></i></button>
-                                  </td>
-                                </tr>
+
                               </tbody>
                             </table>
                             <div class="empty-table" id="empty-cotiz-reci">
@@ -762,7 +738,8 @@ session_set_cookie_params($ttl);
                                 <th></th>
                               </tr>
                             </thead>
-                            <tbody id="tbody-viajes-dashboard">
+                            <tbody class="cotizaciones_recibidas" id="tbody-viajes-dashboard">
+
                             </tbody>
                           </table>
                           <div class="empty-table" id="empty-cotiz-reci">

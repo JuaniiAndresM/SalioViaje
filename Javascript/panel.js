@@ -1154,6 +1154,17 @@ function verificar_fecha(fecha) {
 function preferenciasVehiculos(id, step, matricula){
     let data = [id, matricula];
     console.log(data);
+
+    let preferencias = {
+        "MATRICULA" : matricula,
+        "NOCTURNO" : $("#preferenciaNocturno").val(),
+        "FIESTAS" : $("#preferenciaFiestas").val(),
+        "DIA_LIBRE" : $("#preferenciaDiaLibre").val(),
+        "PRECIO" : $("#preferenciaPrecioCoche").val()
+    }
+
+    console.log(preferencias)
+
     switch (step) {
         case 1:
             $.ajax({
@@ -1164,6 +1175,16 @@ function preferenciasVehiculos(id, step, matricula){
                     console.log(response);
                     $('#modal').css('display','flex');
                     $('#modal').html(response);        
+                }
+            });
+            break;
+        case 2:
+            $.ajax({
+                type: "POST",
+                url: "https://www.salioviaje.com.uy/PHP/procedimientosForm.php",
+                data: { tipo: "guardarPreferencias", preferencias: JSON.stringify(preferencias) },
+                success: function (response) {
+                    console.log(response);  
                 }
             });
             break;
