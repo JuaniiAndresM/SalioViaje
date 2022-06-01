@@ -2,6 +2,7 @@
 
 $opcion = $_POST['opcion'];
 $data = $_POST['data'];
+$matricula = "'".$data[1]."'";
 
 switch($opcion){
     case "1":
@@ -40,8 +41,8 @@ switch($opcion){
                     <h5 class="input-title"><i class="fa-solid fa-cloud-moon"></i> Nocturno</h5>
                     <p class="input-desc">¿Trabaja de 22:00hs a 06:00hs?</p>
                     <select id="preferenciaNocturno">
-                        <option value="0" selected>Si</option>
-                        <option value="1">No</option>
+                        <option value="1" selected>Si</option>
+                        <option value="0">No</option>
                     </select>
                 </div>
 
@@ -49,8 +50,8 @@ switch($opcion){
                     <h5 class="input-title"><i class="fa-solid fa-champagne-glasses"></i> Fiestas</h5>
                     <p class="input-desc">¿Hace fiestas?</p>
                     <select id="preferenciaFiestas">
-                        <option value="0" selected>Si</option>
-                        <option value="1">No</option>
+                        <option value="1" selected>Si</option>
+                        <option value="0">No</option>
                     </select>
                 </div>
 
@@ -59,13 +60,13 @@ switch($opcion){
                     <p class="input-desc">¿Qué día descansa?</p>
                     <select id="preferenciaDiaLibre">
                         <option value="0" selected>Ninguno</option>
-                        <option value="1">Domingo</option>
-                        <option value="2">Lunes</option>
-                        <option value="3">Martes</option>
-                        <option value="4">Miércoles</option>
-                        <option value="5">Jueves</option>
-                        <option value="6">Viernes</option>
-                        <option value="7">Sábado</option>
+                        <option value="DOM">Domingo</option>
+                        <option value="LUN">Lunes</option>
+                        <option value="MAR">Martes</option>
+                        <option value="MIE">Miércoles</option>
+                        <option value="JUE">Jueves</option>
+                        <option value="VIE">Viernes</option>
+                        <option value="SAB">Sábado</option>
                     </select>
                 </div>
 
@@ -73,13 +74,13 @@ switch($opcion){
                     <h5 class="input-title"><i class="fa-solid fa-hand-holding-dollar"></i> Precio de Coche</h5>
                     <p class="input-desc">¿Quiere cotizar para viajes de hasta 4 pasajeros?</p>
                     <select id="preferenciaPrecioCoche">
-                        <option value="0" selected>Si</option>
-                        <option value="1">No</option>
+                        <option value="1" selected>Si</option>
+                        <option value="0">No</option>
                     </select>
                 </div>
 
                 <div class="button-wrapper">
-                    <button class="modal-button" onclick="preferenciasVehiculos('.$data[0].',2)">
+                    <button class="modal-button" onclick="preferenciasVehiculos('.$data[0].',2,'.$matricula.')">
                         <i class="fa-solid fa-floppy-disk"></i> Guardar
                     </button>
                     <button class="modal-button" onclick="closeModal()">

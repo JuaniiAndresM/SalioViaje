@@ -134,6 +134,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://www.salioviaje.com.uy/Javascript/web.js"></script>
     <script src="https://www.salioviaje.com.uy/t2voice/functionsJS.js"></script>
+    <script src="https://www.salioviaje.com.uy/Javascript/cotizaciones.js"></script>
+
+    <script>
+      obtenerDiaSemana("<?php echo $fecha_salida; ?>")
+    </script>
   </head>
   <body>
     <div id="header"></div>
@@ -166,7 +171,7 @@
               </div>
             </div>
             <div class="cotizacion-buttons">
-                <button class='cotizar-button'><i class='fas fa-chart-line'></i> Cotizar</button>
+                <button class='cotizar-button' onclick="presentarCotizacion(<?php echo $_GET['ID'];?>, <?php echo $_SESSION['datos_usuario']['ID']; ?>)"><i class='fas fa-chart-line'></i> Cotizar</button>
             </div>
           </div>
           <div class="cotizacion-content">
@@ -401,12 +406,12 @@
 
                     <div class="input">
                         <p><i class="fa-solid fa-money-bill"></i> Precio</p>
-                        <input type="number" min="1" oninput="this.value = Math.abs(this.value)">
+                        <input type="number" id="precio" min="1" oninput="this.value = Math.abs(this.value)">
                     </div>
                     
                     <div class="input">
                         <p><i class="fa-solid fa-hand-holding-dollar"></i> Seña Requerida</p>
-                        <input type="number" min="1" oninput="this.value = Math.abs(this.value)">
+                        <input type="number" id="senia" min="1" oninput="this.value = Math.abs(this.value)">
                     </div>
                     
                     <script>

@@ -198,6 +198,18 @@ if ($_POST['tipo'] == 1) {
         case 'cambiarIdComprador':
             echo $procedimientosForm->cambiarIdComprador($_POST['id_oportunidad']);
         break;
+        case 'guardarPreferencias':
+            echo $procedimientosForm->guardarPreferencias($_POST['preferencias']);
+        break;
+        case 'presentarCotizacion':
+            echo $procedimientosForm->presentarCotizacion($_POST['matricula'], $_POST['precio'], $_POST['senia'], $_POST['id_viaje_cotizado'], $_POST['id_tta']);
+        break;
+        case 'aceptar_cotizacion':
+            echo $procedimientosForm->aceptarCotizacion($_POST['idCotizacion'],$_POST['id_viaje_cotizado']);
+        break;
+        case 'rechazar_cotizacion':
+            echo $procedimientosForm->rechazarCotizacion($_POST['idCotizacion']);
+        break;
     }
 
 }
