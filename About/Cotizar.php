@@ -2,21 +2,37 @@
   
   session_start();
 
+
+  require_once "../PHP/procedimientosBD.php";
+
+
+  $dias = array('LUN','MAR','MIE','JUE','VIE','SAB','DOM');
+
+  $cotizacion = new procedimientosBD();
+
+
   if(!isset($_SESSION['usuario'])){
       header('Location: https://www.salioviaje.com.uy/Login');
   }else{
     
     if($_SESSION['tipo_usuario'] != "Transportista" && $_SESSION['tipo_usuario'] != "Administrador"){
       header('Location: https://www.salioviaje.com.uy/');
+    }else{
+      $vehiculos = json_decode($cotizacion->traer_datos_vehiculo($_SESSION['datos_usuario']['ID']), true);
+      $vehiculos_chofer = json_decode($cotizacion->traer_vehiculos_empresas_choferes_por_tta_id($_SESSION['datos_usuario']['ID']), true);
+      $preferencias_vehiculos = $cotizacion->obtener_nombre_chofer_tta_por_id($_SESSION['datos_usuario']['ID']);
     }
     
   }
-  require_once "../PHP/procedimientosBD.php";
-
-  $cotizacion = new procedimientosBD();
+  
   $cotizaciones = json_decode($cotizacion->traer_viajes_cotizando_por_id($_GET['ID']), true);
   $paradas = json_decode($cotizacion->traer_paradas_viajes_cotizando_por_id($_GET['ID']), true);
   $solicitante = $cotizacion->info_usuario_profile($cotizaciones[0]['ID_SOLICITANTE']);
+
+
+  //traer_preferencias_vehiculos()
+
+ 
 
   switch($cotizaciones[0]['TIPO']){
     case "Traslados":
@@ -50,16 +66,36 @@
 
   if(isset($cotizaciones[0]['FECHA_SALIDA'])){
     $fecha_salida = date("d-m-Y", strtotime($cotizaciones[0]['FECHA_SALIDA']));  
+    $dia = $dias[(date('N', strtotime($fecha_salida))) - 1];
   }
   if(isset($cotizaciones[0]['FECHA_ARRIBO'])){
     $fecha_arribo = date("d-m-Y", strtotime($cotizaciones[0]['FECHA_ARRIBO']));  
+    $dia = $dias[(date('N', strtotime($fecha_arribo))) - 1];
   }
   if(isset($cotizaciones[0]['FECHA_REGRESO'])){
     $fecha_regreso = date("d-m-Y", strtotime($cotizaciones[0]['FECHA_REGRESO']));  
+    $dia = $dias[(date('N', strtotime($fecha_regreso))) - 1];
   }
   if(isset($cotizaciones[0]['FECHA_PARTIDA'])){
     $fecha_partida = date("d-m-Y", strtotime($cotizaciones[0]['FECHA_PARTIDA']));  
+    $dia = $dias[(date('N', strtotime($fecha_partida))) - 1];
   }
+
+  $hora = strtotime($cotizaciones[0]["HORA"]);
+  $hora1 = strtotime( "22:00" );
+  $hora2 = strtotime( "06:00" );
+
+  if (strpos($TIPO_VIAJE, "Fiesta o Evento")) {
+    $fiesta = 0;
+  }else{ $fiesta = 1; }
+
+  if ($cotizaciones[0]["CANTIDAD_PASAJEROS"] <= 4) {
+    $hasta_4_pax = 0;
+  }else{ $hasta_4_pax = 1; }
+
+  if ($hora > $hora1 || $hora < $hora2) {
+    $nocturno = 1;
+  }else{ $nocturno = 0; }
 ?>
 
 <!DOCTYPE html>
@@ -395,11 +431,60 @@
                         <select id="vehiculosCotizar" onchange="showMatricula()">
                             <option value="0" selected hidden disabled>Seleccione un Vehiculo</option>
                             <optgroup label="Vehiculos Transportista">
-                                <option value="STU1520">STU1520 - 8 TTA - Pedro Ruedas</option>
+                              <?php
+                                for ($i=0; $i < count($vehiculos); $i++) { 
+                                  $MATRICULA = '"'.$vehiculos[$i]['MATRICULA'].'"';
+                                  echo $MATRICULA;
+                                  $RAW_PREFERENCIAS = $cotizacion->traer_preferencias_vehiculos($MATRICULA);
+                                  $PREFERENCIAS = json_decode($RAW_PREFERENCIAS,true);
+
+                                  echo "Nocturno: ".$PREFERENCIAS[0]["NOCTURNO"]." ".$nocturno."      Fiestas: ".$PREFERENCIAS[0]["FIESTAS"]." ".$fiesta."      Dia: ".$PREFERENCIAS[0]["DIA_LIBRE"]." ".$dia."      precio: ".$PREFERENCIAS[0]["PRECIO_DE_COCHE"]." ".$hasta_4_pax."\n";
+  
+                                  if ($RAW_PREFERENCIAS != "[]" && $PREFERENCIAS[0]["NOCTURNO"] == $nocturno && $PREFERENCIAS[0]["FIESTAS"] == $fiesta && $PREFERENCIAS[0]["DIA_LIBRE"] != $dia && $PREFERENCIAS[0]["PRECIO_DE_COCHE"] == $hasta_4_pax) {
+                                    //encaja
+                                    $encaja_en_preferencias = 1;
+                                  }else if($RAW_PREFERENCIAS != "[]" && $PREFERENCIAS[0]["NOCTURNO"] == 1 &&  $PREFERENCIAS[0]["FIESTAS"] == 1 && $PREFERENCIAS[0]["DIA_LIBRE"] != $dia && $PREFERENCIAS[0]["PRECIO_DE_COCHE"] == 1){
+                                    //encaja
+                                    $encaja_en_preferencias = 1;
+                                  }else{
+                                    //no encaja
+                                    $encaja_en_preferencias = 0;
+                                  }
+
+                                  if ($RAW_PREFERENCIAS == "[]" || $encaja_en_preferencias == 1) {
+                                  ?>
+                                  <option value="<?php echo $vehiculos[$i]['MATRICULA']; ?>"><?php echo $vehiculos[$i]['MATRICULA']; ?> - <?php echo $vehiculos[$i]['CAPACIDAD']; ?> PAX - <?php echo $cotizacion->obtener_nombre_chofer_tta_por_id($vehiculos[$i]['ID_EMPRESA']); ?></option>
+                                  <?php 
+                                  }
+                                }
+                              ?>
                             </optgroup>
                         
                             <optgroup label="Vehiculos Choferes">
-                                <option value="STU4567">STU4567 - 17 PAX - Jorge Volante</option>
+                            <?php
+                                for ($i=0; $i < count($vehiculos_chofer); $i++) { 
+                                  $MATRICULA = '"'.$vehiculos_chofer[$i]['MATRICULA'].'"';
+                                  $RAW_PREFERENCIAS = $cotizacion->traer_preferencias_vehiculos($MATRICULA);
+                                  $PREFERENCIAS = json_decode($RAW_PREFERENCIAS,true);
+
+                                  if ($RAW_PREFERENCIAS != "[]" && $PREFERENCIAS[0]["NOCTURNO"] == $nocturno && $PREFERENCIAS[0]["FIESTAS"] == $fiesta && $PREFERENCIAS[0]["DIA_LIBRE"] != $dia && $PREFERENCIAS[0]["PRECIO_DE_COCHE"] == $hasta_4_pax) {
+                                    //encaja
+                                    $encaja_en_preferencias = 1;
+                                  }else if($RAW_PREFERENCIAS != "[]" && $PREFERENCIAS[0]["NOCTURNO"] == 1 &&  $PREFERENCIAS[0]["FIESTAS"] == 1 && $PREFERENCIAS[0]["DIA_LIBRE"] != $dia && $PREFERENCIAS[0]["PRECIO_DE_COCHE"] == 1){
+                                    //encaja
+                                    $encaja_en_preferencias = 1;
+                                  }else{
+                                    //no encaja
+                                    $encaja_en_preferencias = 0;
+                                  }
+
+                                  if ($RAW_PREFERENCIAS == "[]" || $encaja_en_preferencias == 1) {
+                                  ?>
+                                  <option value="<?php echo $vehiculos_chofer[$i]['MATRICULA']; ?>"><?php echo $vehiculos_chofer[$i]['MATRICULA']; ?> - <?php echo $vehiculos_chofer[$i]['CAPACIDAD']; ?> PAX - <?php echo $cotizacion->obtener_nombre_chofer_tta_por_id($vehiculos_chofer[$i]['ID_EMPRESA']); ?></option>
+                                  <?php 
+                                  }
+                                }
+                              ?>
                             </optgroup>
                         </select>
                     </div>

@@ -215,7 +215,7 @@ class procedimientosBD
     public function datos_vehiculos()
     {
         $conn = $this->conexion();
-        $query = "SELECT * FROM salioviajeuy_salioviajeuy.vehiculos";
+        $query = "SELECT ID,Matricula,Marca,Modelo,Combustible,Capacidad,Equipaje,PetFriendly,RUT_EM,RUT_EC,ID_EMPRESA FROM salioviajeuy_salioviajeuy.vehiculos where visibilidad = 1;";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
@@ -252,7 +252,7 @@ class procedimientosBD
 
         $vehiculo = array();
         $conn = $this->conexion();
-        $query = "SELECT * FROM salioviajeuy_salioviajeuy.vehiculos WHERE ID_EMPRESA = $id or RUT_EC = (SELECT RUT FROM empresas where ID = $id) ";
+        $query = "SELECT ID,Matricula,Marca,Modelo,Combustible,Capacidad,Equipaje,PetFriendly,RUT_EM,RUT_EC,ID_EMPRESA FROM salioviajeuy_salioviajeuy.vehiculos WHERE ID_EMPRESA = $id or RUT_EC = (SELECT RUT FROM empresas where ID = $id) and visibilidad = 1; ";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
@@ -663,7 +663,7 @@ class procedimientosBD
         $return = null;
         $size = 0;
         $conn = $this->conexion();
-        $query = "SELECT * FROM vehiculos WHERE ID_EMPRESA IN (SELECT ID FROM empresas WHERE Usuario_ID = $id)";
+        $query = "SELECT ID,Matricula,Marca,Modelo,Combustible,Capacidad,Equipaje,PetFriendly,RUT_EM,RUT_EC,ID_EMPRESA FROM vehiculos WHERE ID_EMPRESA IN (SELECT ID FROM empresas WHERE Usuario_ID = $id) and visibilidad = 1;";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
@@ -684,7 +684,7 @@ class procedimientosBD
         $return = null;
         $size = 0;
         $conn = $this->conexion();
-        $query = "SELECT * FROM `vehiculos` WHERE RUT_EM = $rut and ID_EMPRESA = $id";
+        $query = "SELECT ID,Matricula,Marca,Modelo,Combustible,Capacidad,Equipaje,PetFriendly,RUT_EM,RUT_EC,ID_EMPRESA FROM `vehiculos` WHERE RUT_EM = $rut and ID_EMPRESA = $id and visibilidad = 1;";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
@@ -953,7 +953,7 @@ class procedimientosBD
     {
         $vehiculos_choferes = array();
         $conn = $this->conexion();
-        $query = "SELECT * from vehiculos where RUT_EM IN(SELECT RUT FROM `empresas` WHERE Usuario_ID IN (SELECT ID FROM usuarios WHERE Agencia_C IN (SELECT RUT FROM empresas where Usuario_ID = $id) and visibilidad = 1));";
+        $query = "SELECT ID,Matricula,Marca,Modelo,Combustible,Capacidad,Equipaje,PetFriendly,RUT_EM,RUT_EC,ID_EMPRESA from vehiculos where RUT_EM IN(SELECT RUT FROM `empresas` WHERE Usuario_ID IN (SELECT ID FROM usuarios WHERE Agencia_C IN (SELECT RUT FROM empresas where Usuario_ID = $id) and visibilidad = 1)) and visibilidad = 1;";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
@@ -1363,4 +1363,47 @@ class procedimientosBD
         echo $stmt->error;
         $stmt->close();
     }
+
+    public function obtener_nombre_chofer_tta_por_id($id){
+        $conn = $this->conexion();
+        $query = "SELECT NOMBRE,APELLIDO FROM `usuarios` where ID in (select Usuario_ID from empresas where ID = $id);";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($nombre,$apellido);
+            while ($stmt->fetch()) {
+                $nombre = $nombre." ".$apellido;
+            }
+        }
+        $stmt->close();
+        return $nombre;
+    }
+
+
+    //SELECT NOCTURNO,FIESTAS,DIA_LIBRE,PRECIO_DE_COCHE FROM prefecrenciasVehiculos where MATRICULA = $mat;
+
+    public function traer_preferencias_vehiculos($mat){
+        $preferencias = array();
+        $conn = $this->conexion();
+        $query = "SELECT NOCTURNO,FIESTAS,DIA_LIBRE,PRECIO_DE_COCHE FROM `prefecrenciasVehiculos` where `prefecrenciasVehiculos`.MATRICULA = $mat;";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($nocturno,$fiestas,$dia_libre,$precio_coche);
+            while ($stmt->fetch()) {
+                $result = array(
+                    "NOCTURNO" => $nocturno, 
+                    "FIESTAS" => $fiestas, 
+                    "DIA_LIBRE" => $dia_libre, 
+                    "PRECIO_DE_COCHE" => $precio_coche
+                );
+                $preferencias[] = $result;
+            }
+        }
+        echo $stmt->error;
+        $stmt->close();
+
+        return json_encode($preferencias);
+    }
+
 }

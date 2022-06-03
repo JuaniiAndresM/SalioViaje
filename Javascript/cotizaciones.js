@@ -294,8 +294,10 @@ function aceptarCotizacion(id, id_viaje_cotizado) {
       data: { tipo: 'aceptar_cotizacion', idCotizacion: id , id_viaje_cotizado:id_viaje_cotizado},
       success: function (response) {
          console.log(response)
-         location.reload()
       },
+      complete: function (){
+         location.reload()
+      }
    });
 }
 
@@ -307,6 +309,8 @@ function rechazarCotizacion(id) {
       success: function (response) {
          console.log(response)
       },
+      complete: function (){
+         location.reload()
+      }
    });
-   location.reload()
 }
