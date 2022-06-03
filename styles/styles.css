@@ -17109,9 +17109,23 @@ footer .totum p a:hover {
   margin-right: 5px;
 }
 
+.cotizacion-detalles-wrapper .cotizacion .cotizacion-content .cotizacion-info .cotizar-container, .cotizacion-detalles-wrapper .cotizacion .cotizacion-content .cotizacion-info-grid .cotizar-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 .cotizacion-detalles-wrapper .cotizacion .cotizacion-content .cotizacion-info .cotizar-container h2, .cotizacion-detalles-wrapper .cotizacion .cotizacion-content .cotizacion-info-grid .cotizar-container h2 {
-  margin: 20px 0;
-  margin-top: 40px;
   font-size: 1.6em;
   color: #3844bc;
 }
@@ -17120,7 +17134,7 @@ footer .totum p a:hover {
   position: relative;
   max-width: 300px;
   width: 100%;
-  margin: 30px 0;
+  margin: 15px 0;
 }
 
 .cotizacion-detalles-wrapper .cotizacion .cotizacion-content .cotizacion-info .cotizar-container .input p, .cotizacion-detalles-wrapper .cotizacion .cotizacion-content .cotizacion-info-grid .cotizar-container .input p {
@@ -17142,6 +17156,47 @@ footer .totum p a:hover {
   background-color: #fff;
 }
 
+.cotizacion-detalles-wrapper .cotizacion .cotizacion-content .cotizacion-info .cotizar-container .cotizacion-buttons, .cotizacion-detalles-wrapper .cotizacion .cotizacion-content .cotizacion-info-grid .cotizar-container .cotizacion-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.cotizacion-detalles-wrapper .cotizacion .cotizacion-content .cotizacion-info .cotizar-container .cotizacion-buttons button, .cotizacion-detalles-wrapper .cotizacion .cotizacion-content .cotizacion-info-grid .cotizar-container .cotizacion-buttons button {
+  background: -webkit-gradient(linear, left top, right top, from(#3844bc), to(#2b3179));
+  background: linear-gradient(to right, #3844bc, #2b3179);
+  color: #ffffff;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 2em;
+  margin-top: 10px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+  width: 150px;
+  background: #70ff7c;
+  color: #333333;
+}
+
+.cotizacion-detalles-wrapper .cotizacion .cotizacion-content .cotizacion-info .cotizar-container .cotizacion-buttons button i, .cotizacion-detalles-wrapper .cotizacion .cotizacion-content .cotizacion-info-grid .cotizar-container .cotizacion-buttons button i {
+  margin-right: 5px;
+}
+
+.cotizacion-detalles-wrapper .cotizacion .cotizacion-content .cotizacion-info .cotizar-container .cotizacion-buttons button:hover, .cotizacion-detalles-wrapper .cotizacion .cotizacion-content .cotizacion-info-grid .cotizar-container .cotizacion-buttons button:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
 .cotizacion-detalles-wrapper .cotizacion .cotizacion-content .cotizacion-info-grid {
   display: -ms-grid;
   display: grid;
@@ -17154,6 +17209,9 @@ footer .totum p a:hover {
   .cotizacion-detalles-wrapper .cotizacion .cotizacion-content .cotizacion-info-grid {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
+  }
+  .cotizacion-detalles-wrapper .cotizacion .cotizacion-content .cotizacion-info-grid .cotizar-container h2 {
+    margin-top: 40px;
   }
 }
 
