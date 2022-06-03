@@ -206,9 +206,6 @@
                 <img src="https://www.salioviaje.com.uy/media/svg/Logo-SalioViaje-White.svg" alt="Logo SalióViaje">
               </div>
             </div>
-            <div class="cotizacion-buttons">
-                <button class='cotizar-button' onclick="presentarCotizacion(<?php echo $_GET['ID'];?>, <?php echo $_SESSION['datos_usuario']['ID']; ?>)"><i class='fas fa-chart-line'></i> Cotizar</button>
-            </div>
           </div>
           <div class="cotizacion-content">
 
@@ -498,7 +495,9 @@
                         <p><i class="fa-solid fa-hand-holding-dollar"></i> Seña Requerida</p>
                         <input type="number" id="senia" min="1" oninput="this.value = Math.abs(this.value)">
                     </div>
-                    
+                    <div class="cotizacion-buttons">
+                        <button class='cotizar-button' onclick="presentarCotizacion(<?php echo $_GET['ID'];?>, <?php echo $_SESSION['datos_usuario']['ID']; ?>)"><i class='fas fa-chart-line'></i> Cotizar</button>
+                    </div>
                     <script>
                         function showMatricula() {
                             var vehiculos = document.getElementById("vehiculosCotizar");

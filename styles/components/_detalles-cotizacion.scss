@@ -104,9 +104,12 @@
                 }
 
                 .cotizar-container {
-                    h2{
-                        margin: 20px 0;
-                        margin-top: 40px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+
+                    h2{                        
                         font-size: 1.6em;
                         color: $main_1;
                     }
@@ -114,7 +117,7 @@
                         position: relative;
                         max-width: 300px;
                         width: 100%;
-                        margin: 30px 0;
+                        margin: 15px 0;
                   
                         p {
                           text-align: left;
@@ -135,6 +138,21 @@
                           background-color: #fff;
                         }
                       }
+                      .cotizacion-buttons{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        flex-direction: column;
+                        button{
+                             @include button();
+                             width: 150px;
+                             background: #70ff7c;
+                             color: $contraste_1;
+                        }
+                        button:hover{
+                            @include button-hover();
+                        }
+                    }
                 }
 
 
@@ -155,6 +173,11 @@
             .cotizacion-content{
                 .cotizacion-info-grid{
                     grid-template-columns: 1fr;
+                    .cotizar-container {
+                        h2{                        
+                            margin-top: 40px;
+                        }
+                    }
                 }
             }
         }
