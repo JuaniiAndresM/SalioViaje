@@ -82,11 +82,13 @@ $mail->Body    = '    <div class="mail" style="max-width: 600px; background: whi
             <tr>
                 <td>
                     <div class="mail-content" style="width: 500px; margin: 20px auto; background: #fff; font-family: Montserrat; color: #3844bc;">
-                        <h1 style="font-size: 20px;">Información del Transportista</h1>
-                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Nombre: </b>'.$datos_oportunidad[0]['NOMBRE'].'</p>
-                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Apellido: </b>'.$datos_oportunidad[0]['APELLIDO'].'</p>
-                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Teléfono: </b><a href="tel:0'.$datos_oportunidad[0]['TELEFONO'].'" style="text-decoration: none; color: #3844bc;">0'.$datos_oportunidad[0]['TELEFONO'].'</a></p>
-                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Correo Electrónico: </b>'.$mail_tta.'</p>
+                        <h1 style="font-size: 20px;">Contactesé con el Transportista</h1>
+                        <p style="font-size: 14px;">La oportunidad elegida por usted #'$id' fue reconfirmada por el transportista.</p>
+                        <p style="font-size: 14px;">Diríjase a su Dashboard para contactar con el mismo.</p>
+
+                        <a href="https://www.salioviaje.com.uy/Dashboard" target="_blank" style="padding: 12px 18px; margin: 15px 5px; background-color: #3844bc; color: #ffffff; text-decoration: none;
+                            font-family: Montserrat; font-size: 15px; border-radius: 10px;">Dashboard
+                        </a>
                     </div>
                 </td>
             </tr>
