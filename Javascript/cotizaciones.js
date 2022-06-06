@@ -298,7 +298,7 @@ function aceptarCotizacion(id, id_viaje_cotizado) {
       },
       complete: function () {
          setTimeout(() => {
-            //location.reload()
+            location.reload()
          }, 1000);
       }
    });

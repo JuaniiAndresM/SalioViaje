@@ -549,13 +549,9 @@ function tabla_oportunidades_dashboard() {
                     $('table[id=search-table-agenda]').css('display', 'none');
                     $('#empty-viajes').css('display', 'flex');
                 }, 100);
-                
-                
             }
-           
         }
     });
-
 }
 
 /*-------------------------------------------------------------------------------------------*/

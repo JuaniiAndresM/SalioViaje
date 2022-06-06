@@ -1372,6 +1372,7 @@ class procedimientosBD
 
     public function rechazarCotizacion($id, $id_viaje_cot)
     {
+        echo $id."     ".$id_viaje_cot;
         $conn = $this->conexion();
         $query = "call rechazar_cotizacion(?,?)";
         $stmt = $conn->prepare($query);
@@ -1434,6 +1435,28 @@ class procedimientosBD
         $stmt->close();
 
         return json_encode($preferencias);
+    }
+
+    public function traer_cotizaciones_por_id_comprador($id){
+        $cotizaciones = array();
+        $conn = $this->conexion();
+        $query = "SELECT ID,DIRECCION_ORIGEN,BARRIO_ORIGEN,LOCALIDAD_ORIGEN,DIRECCION_DESTINO,BARRIO_DESTINO,LOCALIDAD_DESTINO,FECHA_SALIDA,ESTADO,TIPO FROM cotizaciones WHERE ID_SOLICITANTE = $id;";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($id,$dir_origen,$bar_origen,$loc_origen,$dir_destino,$bar_destino,$loc_destino,$fecha,$estado,$tipo);
+            while ($stmt->fetch()) {
+                $origen = $dir_origen.",".$bar_origen.",".$loc_origen;
+                $destino = $dir_destino.",".$bar_destino.",".$loc_destino;
+                if ($estado == 1 || $estado == 4) {
+                    $estado = ($estado == 1) ? "Cotizando" : "Cotizado" ;
+                    $result = array("ID" => $id,"ORIGEN" => $origen,"DESTINO" => $destino,"FECHA" => $fecha,"ESTADO" => $estado,"MODALIDAD" => $tipo);
+                    $cotizaciones[] = $result;
+                }
+            }
+        }
+        $stmt->close();
+        return json_encode($cotizaciones);
     }
 
 }

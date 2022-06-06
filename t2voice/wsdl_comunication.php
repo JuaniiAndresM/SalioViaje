@@ -73,13 +73,13 @@ class notifyMeActions
                         $bd->reconfirmarCotizacion($id_viaje, $id_viaje_cotizado);
                     }
 
-                } else if (strpos($estado, "Opci\\u00f3n 3") !== false) {
+                } elseif (strpos($estado, "Opci\\u00f3n 3") !== false) {
+                    $bd = new procedimientosBD();
                     if ($tipo_viaje == 0) {
                         $bd->cambio_estado_oportunidad("Cancelado", $id_viaje, $_SESSION['datos_usuario']['ID']);
                     }else{
-                        $bd->rechazarCotizacion($id_viaje);
+                        $bd->rechazarCotizacion($id_viaje, $id_viaje_cotizado);
                     }
-
                 }
             }
         }

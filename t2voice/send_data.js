@@ -74,7 +74,6 @@ class llamadas_PHP {
                 //aca mandarias la info necesaria para el xml de llamada
                 data: { tipe:5, dialogo:dialago, datenHoure:dateNhoure, id:id, tel:tel, name:nombre, SMS:msj, ID_COT:id_cotizacion_presentada, id_viaje_cotizado:id_viaje_cotizado },
                 success: function (response) {
-                    console.log("hola")
                     console.log(response);
                 }
             });
