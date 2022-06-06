@@ -1172,8 +1172,8 @@ $main_3: #6d76db;
     }
     .table-overflow{
       width: 100%;
-      overflow: hidden;
-      overflow-x: auto;
+      overflow: auto;
+      max-height: calc(100vh - 250px);
       .usuarios-table {
         border-collapse: collapse;
         width: 100%;

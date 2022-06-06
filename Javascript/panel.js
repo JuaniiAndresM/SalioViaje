@@ -231,7 +231,7 @@ function tabla_seccion_usuarios(usuario) {
 
         for (const property in usuario) {
             let td = document.createElement("td");
-            if (contador != 12) {
+            if (contador != 13) {
                 if (usuario[property] == null || usuario[property] == '' || usuario[property] == undefined) {
                     td.innerHTML = "-"
                 } else if (property == "ID") {
@@ -251,7 +251,6 @@ function tabla_seccion_usuarios(usuario) {
             }
             contador++
         }
-
         let td = document.createElement("td");
         td.innerHTML += '<div class="button-wrapper"><button id="' + ID_USUARIO + '" class="button"  onclick="ver_usuario(' + ID_USUARIO + ')"><i class="far fa-eye"></i></button><button id="' + ID_USUARIO + '" class="button" onclick="editarUsuario(' + ID_USUARIO + ')"><i class="fas fa-edit"></i></button><button id="' + ID_USUARIO + '" class="button" onclick="eliminar_usuario(' + ID_USUARIO + ')"><i class="fas fa-trash-alt"></i></button></div>'
         row.appendChild(td);
@@ -277,7 +276,7 @@ function tabla_seccion_usuarios_especificos(usuario) {
 
         for (const property in usuario[0]) {
             let td = document.createElement("td");
-            if (contador != 12) {
+            if (contador != 13) {
                 if (usuario[0][property] == null || usuario[0][property] == '' || usuario[0][property] == undefined) {
                     td.innerHTML = "-"
                 } else if (property == "ID") {
