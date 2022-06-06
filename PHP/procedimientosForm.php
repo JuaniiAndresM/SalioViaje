@@ -207,9 +207,14 @@ if ($_POST['tipo'] == 1) {
         case 'aceptar_cotizacion':
             echo $procedimientosForm->aceptarCotizacion($_POST['idCotizacion'],$_POST['id_viaje_cotizado']);
         break;
+        /*
         case 'rechazar_cotizacion':
             echo $procedimientosForm->rechazarCotizacion($_POST['idCotizacion']);
         break;
+        case 'reconfirmar_cotizacion':
+            echo $procedimientosForm->reconfirmarCotizacion($_POST['idCotizacion'],$_POST['id_viaje_cotizado']);
+        break;
+        */
     }
 
 }

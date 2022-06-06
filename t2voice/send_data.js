@@ -5,7 +5,7 @@ class llamadas_PHP {
                 type: "POST",
                 url: "../t2voice/comunication_js_php.php",
                 //aca mandarias la info necesaria para el xml de llamada
-                data: {tipe:0, dialogo:dialago, datenHoure:dateNhoure, id:id, tel:tel, name:nombre, SMS:msj,ID_OPORTUNIDAD:id_oportunidad},
+                data: {tipe:0, dialogo:dialago, datenHoure:dateNhoure, id:id, tel:tel, name:nombre, SMS:msj, ID_OPORTUNIDAD:id_oportunidad},
                 success: function (response) {
                     console.log(response);
                 }
@@ -58,6 +58,35 @@ class llamadas_PHP {
                 url: "../t2voice/comunication_js_php.php",
                 //aca mandarias la info necesaria para el xml de llamada
                 data: {tipe:4,id:uniqueId},
+                success: function (response) {
+                    console.log(response);
+                }
+            });
+        }
+
+        realizarLlamadaReconfirmarCotizacion(dialago,dateNhoure,id,tel,nombre,msj,id_cotizacion_presentada,id_viaje_cotizado) {
+
+            console.log(dialago+"   "+dateNhoure+"   "+id+"   "+tel+"   "+nombre+"   "+msj+"   "+id_cotizacion_presentada+"   "+id_viaje_cotizado)
+
+            $.ajax({
+                type: "POST",
+                url: "/t2voice/comunication_js_php.php",
+                //aca mandarias la info necesaria para el xml de llamada
+                data: { tipe:5, dialogo:dialago, datenHoure:dateNhoure, id:id, tel:tel, name:nombre, SMS:msj, ID_COT:id_cotizacion_presentada, id_viaje_cotizado:id_viaje_cotizado },
+                success: function (response) {
+                    console.log("hola")
+                    console.log(response);
+                }
+            });
+
+        }
+
+        enviarSMSReconfirmarCotizacion(phone,schedule,text,uniqueId){
+            $.ajax({
+                type: "POST",
+                url: "../t2voice/comunication_js_php.php",
+                //aca mandarias la info necesaria para el xml de llamada
+                data: {tipe:2, phone:phone, schedule:schedule, text:text, id:uniqueId},
                 success: function (response) {
                     console.log(response);
                 }

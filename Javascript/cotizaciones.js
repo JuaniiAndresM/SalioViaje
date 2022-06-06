@@ -31,7 +31,7 @@ function cambiar_estado_cotizacion_panel_admin(id_cotizacion) {
          console.log(response)
          var estado = "";
 
-         switch($("#estado-cotizacion-" + id_cotizacion).val()){
+         switch ($("#estado-cotizacion-" + id_cotizacion).val()) {
             case "1":
                estado = "Cotizando";
                break;
@@ -50,7 +50,7 @@ function cambiar_estado_cotizacion_panel_admin(id_cotizacion) {
    });
 }
 
-function update_responsable(id_cotizacion){
+function update_responsable(id_cotizacion) {
    var responsable_text = $("select#tta-responsable-" + id_cotizacion + " option").filter(":selected").text();
    var responsable = $("#tta-responsable-" + id_cotizacion).val();
 
@@ -82,7 +82,7 @@ function filtrar() {
 
    //var cards = document.getElementsByClassName("Cotizaciones").length;
 
-   if(origen != "" || destino != "" || fecha != ""){
+   if (origen != "" || destino != "" || fecha != "") {
 
       var encontrado_origen = [];
       var encontrado_destino = [];
@@ -94,136 +94,136 @@ function filtrar() {
 
       for (let i = 0; i < atributos.length; i++) {
          datos = atributos[i].split(',')
-   
+
          function dateFormat(inputDate, format) {
             const date = new Date(inputDate);
-   
+
             const day = date.getDate() + 1;
             const month = date.getMonth() + 1;
-            const year = date.getFullYear();    
-        
-            format = format.replace("MM", month.toString().padStart(2,"0"));        
-   
+            const year = date.getFullYear();
+
+            format = format.replace("MM", month.toString().padStart(2, "0"));
+
             if (format.indexOf("yyyy") > -1) {
-                format = format.replace("yyyy", year.toString());
+               format = format.replace("yyyy", year.toString());
             } else if (format.indexOf("yy") > -1) {
-                format = format.replace("yy", year.toString().substr(2,2));
+               format = format.replace("yy", year.toString().substr(2, 2));
             }
-   
-            format = format.replace("dd", day.toString().padStart(2,"0"));
-        
+
+            format = format.replace("dd", day.toString().padStart(2, "0"));
+
             return format;
-        }
-   
+         }
+
          var encontrado = false;
-   
+
          for (let x = 0; x < 2; x++) {
-            if(datos[x].toLowerCase().includes(origen.toLowerCase()) && origen != ""){
+            if (datos[x].toLowerCase().includes(origen.toLowerCase()) && origen != "") {
                encontrado_origen.push(datos[6]);
             }
          }
-   
+
          for (let x = 2; x < 5; x++) {
-            if(datos[x].toLowerCase().includes(destino.toLowerCase()) && destino != ""){
+            if (datos[x].toLowerCase().includes(destino.toLowerCase()) && destino != "") {
                encontrado_destino.push(datos[6]);
             }
          }
-   
-         if(datos[5] == dateFormat(fecha, 'dd-MM-yyyy')){
+
+         if (datos[5] == dateFormat(fecha, 'dd-MM-yyyy')) {
             encontrado_fecha.push(datos[6]);
          }
 
       }
 
 
-      if(encontrado_origen.length != 0 && encontrado_destino.length != 0){
-         for(let x = 0; x < encontrado_origen.length; x++){
-            for(let a = 0; a < encontrado_destino.length; a++){
-               if(encontrado_origen[x] == encontrado_destino[a]){
+      if (encontrado_origen.length != 0 && encontrado_destino.length != 0) {
+         for (let x = 0; x < encontrado_origen.length; x++) {
+            for (let a = 0; a < encontrado_destino.length; a++) {
+               if (encontrado_origen[x] == encontrado_destino[a]) {
                   comparacion_1.push(encontrado_destino[a]);
                }
             }
          }
-      }else if(encontrado_origen.length == 0 && encontrado_destino.length != 0 && origen == ""){
+      } else if (encontrado_origen.length == 0 && encontrado_destino.length != 0 && origen == "") {
          comparacion_1 = encontrado_destino;
-      }else if(encontrado_origen.length != 0 && encontrado_destino.length == 0 && destino == ""){
+      } else if (encontrado_origen.length != 0 && encontrado_destino.length == 0 && destino == "") {
          comparacion_1 = encontrado_origen;
       }
 
-      if(encontrado_origen.length != 0 && encontrado_fecha.length != 0){
-         for(let x = 0; x < encontrado_origen.length; x++){
-            for(let a = 0; a < encontrado_fecha.length; a++){
-               if(encontrado_origen[x] == encontrado_fecha[a]){
+      if (encontrado_origen.length != 0 && encontrado_fecha.length != 0) {
+         for (let x = 0; x < encontrado_origen.length; x++) {
+            for (let a = 0; a < encontrado_fecha.length; a++) {
+               if (encontrado_origen[x] == encontrado_fecha[a]) {
                   comparacion_2.push(encontrado_fecha[a]);
                }
             }
          }
-      }else if(encontrado_origen.length == 0 && encontrado_fecha.length != 0 && origen == ""){
+      } else if (encontrado_origen.length == 0 && encontrado_fecha.length != 0 && origen == "") {
          comparacion_2 = encontrado_fecha;
-      }else if(encontrado_origen.length != 0 && encontrado_fecha.length == 0 && fecha == ""){
+      } else if (encontrado_origen.length != 0 && encontrado_fecha.length == 0 && fecha == "") {
          comparacion_2 = encontrado_origen;
       }
 
 
 
-      if(comparacion_1.length != 0 && comparacion_2.length != 0){
-         for(let x = 0; x < comparacion_1.length; x++){
-            for(let a = 0; a < comparacion_2.length; a++){
-               if(comparacion_1[x] == comparacion_2[a]){
+      if (comparacion_1.length != 0 && comparacion_2.length != 0) {
+         for (let x = 0; x < comparacion_1.length; x++) {
+            for (let a = 0; a < comparacion_2.length; a++) {
+               if (comparacion_1[x] == comparacion_2[a]) {
                   comparacion_3.push(comparacion_2[a]);
                }
             }
          }
-      }else if(comparacion_1.length == 0 && comparacion_2.length != 0 && origen == "" && destino == ""){
+      } else if (comparacion_1.length == 0 && comparacion_2.length != 0 && origen == "" && destino == "") {
          comparacion_3 = comparacion_2;
-      }else if(comparacion_1.length != 0 && comparacion_2.length == 0 && origen == "" && fecha == ""){
+      } else if (comparacion_1.length != 0 && comparacion_2.length == 0 && origen == "" && fecha == "") {
          comparacion_3 = comparacion_1;
       }
 
       for (let i = 0; i < atributos.length; i++) {
          datos = atributos[i].split(',');
 
-         if(comparacion_3.length != 0){
+         if (comparacion_3.length != 0) {
             $(".Cotizaciones-list").show();
-            $(".list-empty-cotizacion").css('display','none');
+            $(".list-empty-cotizacion").css('display', 'none');
             encontrado_final = false;
 
-            for(let x = 0; x < comparacion_3.length; x++){
+            for (let x = 0; x < comparacion_3.length; x++) {
 
-               if(datos[6] == comparacion_3[x]){
+               if (datos[6] == comparacion_3[x]) {
                   $("#" + datos[6]).show();
                   encontrado_final = true;
-               }else{
-                  if(encontrado_final != true){
+               } else {
+                  if (encontrado_final != true) {
                      $("#" + datos[6]).hide();
                   }
-                  
+
                }
             }
-         }else{
+         } else {
             for (let i = 0; i < atributos.length; i++) {
                $("#" + datos[6]).hide();
 
                $(".Cotizaciones-list").hide();
-               $(".list-empty-cotizacion").css('display','flex');
+               $(".list-empty-cotizacion").css('display', 'flex');
             }
          }
-         
+
       }
 
-      
 
-   }else{
+
+   } else {
       for (let i = 0; i < atributos.length; i++) {
          datos = atributos[i].split(',');
          $("#" + datos[6]).show();
 
          $(".Cotizaciones-list").show();
-         $(".list-empty-cotizacion").css('display','none');
+         $(".list-empty-cotizacion").css('display', 'none');
       }
    }
 
-   
+
 
    /*
    for(var a = 0; a < (cards - 1); a++){
@@ -255,32 +255,32 @@ function presentarCotizacion(id_viaje_cotizado, id_tta) {
    });
 }
 
-function mostrar_cotizaciones_presentadas_dashboard_tta(){
+function mostrar_cotizaciones_presentadas_dashboard_tta() {
    $.ajax({
       type: "POST",
       url: "/PHP/Tablas/tabla_cotizaciones_presentadas_dashboard.php",
       success: function (response) {
-         if(response != null){
+         if (response != null) {
             $("#empty-cotiz-pres").hide()
             $("#tbody-cotizaciones-dashboard").html(response)
             $(".usuarios-table").show()
-         }else{
+         } else {
             $("#empty-cotiz-pres").show()
          }
       },
    });
 }
 
-function mostrar_cotizaciones_recibidas_dashboard(){
+function mostrar_cotizaciones_recibidas_dashboard() {
    $.ajax({
       type: "POST",
       url: "/PHP/Tablas/tabla_cotizaciones_recibidas_dashboard.php",
       success: function (response) {
-         if(response != null){
+         if (response != null) {
             $("#empty-cotiz-reci").hide()
             $(".cotizaciones_recibidas").html(response)
             $(".usuarios-table").show()
-         }else{
+         } else {
             $("#empty-cotiz-reci").show()
          }
       },
@@ -291,12 +291,14 @@ function aceptarCotizacion(id, id_viaje_cotizado) {
    $.ajax({
       type: "POST",
       url: "/PHP/procedimientosForm.php",
-      data: { tipo: 'aceptar_cotizacion', idCotizacion: id , id_viaje_cotizado:id_viaje_cotizado},
+      data: { tipo: 'aceptar_cotizacion', idCotizacion: id, id_viaje_cotizado: id_viaje_cotizado },
       success: function (response) {
-         console.log(response)
+         reconfirmar_cotizacion_llamada(id, id_viaje_cotizado, response)
       },
-      complete: function (){
-         location.reload()
+      complete: function () {
+         setTimeout(() => {
+            //location.reload()
+         }, 1000);
       }
    });
 }
@@ -309,8 +311,44 @@ function rechazarCotizacion(id) {
       success: function (response) {
          console.log(response)
       },
-      complete: function (){
+      complete: function () {
          location.reload()
       }
    });
 }
+
+
+function reconfirmarCotizacion(id) {
+   $.ajax({
+      type: "POST",
+      url: "/PHP/procedimientosForm.php",
+      data: { tipo: 'reconfirmar_cotizacion', idCotizacion: id },
+      success: function (response) {
+         console.log(response)
+      },
+      complete: function () {
+         location.reload()
+      }
+   });
+}
+
+
+function reconfirmar_cotizacion_llamada(id, id_viaje_cotizado, telefono_tta) {
+   let send = new llamadas_PHP();
+   console.log(id+"   "+id_viaje_cotizado+"   "+telefono_tta)
+   let id_llamada = Math.floor(Math.random() * 100000);
+   //let mensaje = `Han escogido tu cotizacion para el viaje numero #${id}!  Aceptar:  https://www.salioviaje.com.uy/Solicitud/${id}A Rechazar: https://www.salioviaje.com.uy/Solicitud/${id}R`;
+   send.realizarLlamadaReconfirmarCotizacion("tpc_notificacion_opciones", "2022-02-07T15:00:00+03:00", id_llamada, telefono_tta, "Transportista", "Han escogido tu cotizacion para el viaje numero #" + id + ". Presione 1 para aceptar, 3 para rechazar", id, id_viaje_cotizado);
+   //send.enviarSMSReconfirmarCotizacion(telefono_tta, "2022-02-04T15:00:00+03:00", mensaje, id_llamada);
+   //mail_aprobar_rechazar_cotizacion(id)
+}
+
+/*
+
+1) moroso (no paga)
+2) capacidad de asientos
+3) que una pataq este en el recorrido
+4) que no este ocupado
+5) es pet friendly
+
+*/

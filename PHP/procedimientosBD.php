@@ -1307,13 +1307,13 @@ class procedimientosBD
     public function traer_cotizaciones_presentadas_por_id_tta($id){
         $cotizaciones = array();
         $conn = $this->conexion();
-        $query = "SELECT `cotizaciones_presentadas`.ID,MATRICULA,DIRECCION_ORIGEN,BARRIO_ORIGEN,LOCALIDAD_ORIGEN,DIRECCION_DESTINO,BARRIO_DESTINO,LOCALIDAD_DESTINO,ESTADO,FECHA_SALIDA FROM `cotizaciones_presentadas`,`cotizaciones` where id_tta = $id and visibilidad = 1 and `cotizaciones_presentadas`.ID_VIAJE_COTIZADO = `cotizaciones`.ID;";
+        $query = "SELECT `cotizaciones_presentadas`.ID,MATRICULA,DIRECCION_ORIGEN,BARRIO_ORIGEN,LOCALIDAD_ORIGEN,DIRECCION_DESTINO,BARRIO_DESTINO,LOCALIDAD_DESTINO,ESTADO,FECHA_SALIDA,COMPRADA FROM `cotizaciones_presentadas`,`cotizaciones` where id_tta = $id and visibilidad = 1 and `cotizaciones_presentadas`.ID_VIAJE_COTIZADO = `cotizaciones`.ID;";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($id,$matricula, $direccion_origen, $barrio_origen, $localidad_origen, $direccion_destino, $barrio_destino, $localidad_destino, $estado, $fecha_salida);
+            $stmt->bind_result($id,$matricula, $direccion_origen, $barrio_origen, $localidad_origen, $direccion_destino, $barrio_destino, $localidad_destino, $estado, $fecha_salida, $comprada);
             while ($stmt->fetch()) {
-                $result = array("ID" => $id, "MATRICULA" => $matricula, "DIRECCION_ORIGEN" => $direccion_origen, "BARRIO_ORIGEN" => $barrio_origen, "LOCALIDAD_ORIGEN" => $localidad_origen, "DIRECCION_DESTINO" => $direccion_destino, "BARRIO_DESTINO" => $barrio_destino, "LOCALIDAD_DESTINO" => $localidad_destino, "ESTADO" => $estado, "FECHA_SALIDA" => $fecha_salida);
+                $result = array("ID" => $id, "MATRICULA" => $matricula, "DIRECCION_ORIGEN" => $direccion_origen, "BARRIO_ORIGEN" => $barrio_origen, "LOCALIDAD_ORIGEN" => $localidad_origen, "DIRECCION_DESTINO" => $direccion_destino, "BARRIO_DESTINO" => $barrio_destino, "LOCALIDAD_DESTINO" => $localidad_destino, "ESTADO" => $estado, "FECHA_SALIDA" => $fecha_salida, "COMPRADA" => $comprada);
                 $fecha = $result["FECHA_SALIDA"];
                 $timestamp = strtotime($fecha);
                 $newDate = date("d-m-Y", $timestamp);
@@ -1348,15 +1348,45 @@ class procedimientosBD
         $query = "call aprobar_cotizacion(?,?)";
         $stmt = $conn->prepare($query);
         $stmt->bind_param("ii", $id, $id_viaje_cot);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($TELEFONO_TTA);
+            while ($stmt->fetch()) {
+                $result = $TELEFONO_TTA;
+            }
+        }
+        echo $stmt->error;
+        $stmt->close();
+        return $result;
+    }
+
+    public function reconfirmarCotizacion($id, $id_viaje_cot){
+        $conn = $this->conexion();
+        $query = "call reconfirmar_cotiazcion(?,?)";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("ii", $id, $id_viaje_cot);
         $stmt->execute();
         echo $stmt->error;
         $stmt->close();
     }
 
-    public function rechazarCotizacion($id)
+    public function rechazarCotizacion($id, $id_viaje_cot)
     {
         $conn = $this->conexion();
-        $query = "call rechazar_cotizacion(?)";
+        $query = "call rechazar_cotizacion(?,?)";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("ii", $id, $id_viaje_cot);
+        $stmt->execute();
+        echo $stmt->error;
+        $stmt->close();
+    }
+    /*
+    TODO: hacer el eliminar cotizacion que reemplaza al rechazar cotizacion anterior
+    */
+    public function eliminarCotizacion($id)
+    {
+        $conn = $this->conexion();
+        $query = "call eliminar_cotizacion(?)";
         $stmt = $conn->prepare($query);
         $stmt->bind_param("i", $id);
         $stmt->execute();
