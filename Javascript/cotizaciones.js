@@ -251,6 +251,7 @@ function presentarCotizacion(id_viaje_cotizado, id_tta) {
       data: { tipo: 'presentarCotizacion', matricula: matricula, precio: precio, senia: senia, id_viaje_cotizado: id_viaje_cotizado, id_tta: id_tta },
       success: function (response) {
          console.log(response)
+         location.href = "https://www.salioviaje.com.uy/Central";
       },
    });
 }

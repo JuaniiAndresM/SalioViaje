@@ -335,20 +335,6 @@ session_set_cookie_params($ttl);
                                 </tr>
                               </thead>
                               <tbody id="tbody-viajes-dashboard">
-                                <tr>
-                                  <td data-title="ID">000</td>
-                                  <td data-title="Origen">Example, Example 2</td>
-                                  <td data-title="Destino">Example 3, Example 4</td>
-                                  <td data-title="Fecha">dd/mm/aaaa</td>
-                                  <td data-title="Estado">En Venta</td>
-                                  <td data-title="Modalidad">Oportunidad</td>
-                                  <td>
-                                    <div class="button-wrapper">
-                                      <button class="button"><i class="fas fa-file-contract"></i></button>
-                                      <button class="button"><i class="fas fa-edit"></i></button>
-                                      <button class="button"><i class="fas fa-ban"></i></button>
-                                  </td>
-                                </tr>
                               </tbody>
                             </table>
                             <div class="empty-table" id="empty-viajes">

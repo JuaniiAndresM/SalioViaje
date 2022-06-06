@@ -8385,8 +8385,8 @@ footer .totum p a:hover {
 
 .section-usuarios .usuarios-recientes .table-overflow {
   width: 100%;
-  overflow: hidden;
-  overflow-x: auto;
+  overflow: auto;
+  max-height: calc(100vh - 250px);
 }
 
 .section-usuarios .usuarios-recientes .table-overflow .usuarios-table {

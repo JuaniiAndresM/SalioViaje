@@ -195,6 +195,7 @@ session_set_cookie_params($ttl);
                   <th>Teléfono <i class="fas fa-angle-down"></i></th>
                   <th class="CHO">Agencia <i class="fas fa-angle-down"></i></th>
                   <th class="HTL">Supervisor (Coming Soon)<i class="fas fa-angle-down"></i></th>
+                  <th>Moroso (Coming Soon)<i class="fas fa-angle-down"></i></th>
                   <th></th>
                 </tr>
               </thead>
