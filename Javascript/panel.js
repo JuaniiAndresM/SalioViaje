@@ -545,8 +545,13 @@ function tabla_oportunidades_dashboard() {
                 $('#empty-viajes').hide();
                 $('#tbody-viajes-dashboard').html(response)
             }else{
-                $('#search-table-agenda').hide();
-                $('#empty-viajes').css('display', 'flex');
+                console.log($('table[id=search-table-agenda]'));
+                setTimeout(() => {
+                    $('table[id=search-table-agenda]').css('display', 'none');
+                    $('#empty-viajes').css('display', 'flex');
+                }, 100);
+                
+                
             }
            
         }
