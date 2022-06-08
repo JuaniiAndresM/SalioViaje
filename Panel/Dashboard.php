@@ -355,7 +355,7 @@ session_set_cookie_params($ttl);
                             </div>
                             <div class="search">
                               <i class="fas fa-search"></i>
-                              <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarUsuarios(9)"/>
+                              <input type="text" placeholder="Buscar" id="searchbar-2" onkeyup="buscarUsuarios(9,-2)"/>
                             </div>
                             <table class="usuarios-table" id="cotz-pres" style="display: none;">
                               <thead>
@@ -387,7 +387,7 @@ session_set_cookie_params($ttl);
                             </div>
                             <div class="search">
                               <i class="fas fa-search"></i>
-                              <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarUsuarios(10)"/>
+                              <input type="text" placeholder="Buscar" id="searchbar-3" onkeyup="buscarUsuarios(10,-3)"/>
                             </div>
                             <table class="usuarios-table" id="cotz-reci" style="display: none;">
                               <thead>
@@ -748,7 +748,7 @@ session_set_cookie_params($ttl);
                           </div>
                           <div class="search">
                             <i class="fas fa-search"></i>
-                            <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarUsuarios(10)"/>
+                            <input type="text" placeholder="Buscar" id="searchbar-2" onkeyup="buscarUsuarios(10,-2)"/>
                           </div>
                           <table class="usuarios-table" id="cotz-reci" style="display: none;">
                             <thead>

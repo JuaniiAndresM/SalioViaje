@@ -59,9 +59,13 @@ function navbar() {
     panel.classList.toggle('active');
 }
 
-function buscarUsuarios(buscador) {
+function buscarUsuarios(buscador, filter) {
     var input, filter, table, tr, td, i, txtValue, tdlength;
-    input = document.getElementById("searchbar");
+    if(filter != null){
+        input = document.getElementById("searchbar" + filter);
+    }else{
+        input = document.getElementById("searchbar");
+    }
     filter = input.value.toUpperCase();
 
     switch (buscador) {
@@ -120,6 +124,10 @@ function buscarUsuarios(buscador) {
 
             if (td) {
                 txtValue = td.textContent || td.innerText;
+
+                console.log(txtValue.toUpperCase());
+                console.log(filter);
+                console.log(txtValue.toUpperCase().indexOf(filter));
 
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
                     tr[i].style.display = "";
