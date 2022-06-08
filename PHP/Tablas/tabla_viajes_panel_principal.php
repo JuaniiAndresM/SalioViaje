@@ -11,21 +11,19 @@ $datos2 = new procedimientosBD();
 
 $oportunidades = json_decode($datos->traer_oportunidades_por_id_usuario($_SESSION['datos_usuario']['ID']), true);
 
-
-
 if ($_SESSION['tipo_usuario'] == "Transportista" || $_SESSION['tipo_usuario'] == "Chofer") {
     $oportunidades = json_decode($datos2->traer_oportunidades_por_id_tta($_SESSION['datos_usuario']['ID']), true);
 }
 
 $datos2 = $datos2->traer_agenda_usuario($_SESSION['datos_usuario']['ID']);
-$cotizaciones = json_decode($datos->traer_cotizaciones_por_id_comprador($_SESSION['datos_usuario']['ID']),true);
+$cotizaciones = json_decode($datos->traer_cotizaciones_por_id_comprador($_SESSION['datos_usuario']['ID']), true);
 
 echo json_encode($datos2);
 
 $oportunidades_dashboard = '';
 
 /**
- * 
+ *
  * tta y cho
  */
 for ($i = 0; $i < count($oportunidades); $i++) {
@@ -33,7 +31,7 @@ for ($i = 0; $i < count($oportunidades); $i++) {
 
     if ($i == 0) {
         if ($_SESSION['datos_usuario']['TIPO_USUARIO'] != "PAX" && $oportunidades[$i]['MODALIDAD'] == "Oportunidad") {
-            if($oportunidades[$i]['ESTADO'] != "Vencida" && $oportunidades[$i]['ESTADO'] != "Vencido" && $oportunidades[$i]['ESTADO'] != "Cancelada" && $oportunidades[$i]['ESTADO'] != "Cancelado" && $oportunidades[$i]['ESTADO'] != "Reconfirmado"){
+            if ($oportunidades[$i]['ESTADO'] != "Vencida" && $oportunidades[$i]['ESTADO'] != "Vencido" && $oportunidades[$i]['ESTADO'] != "Cancelada" && $oportunidades[$i]['ESTADO'] != "Cancelado" && $oportunidades[$i]['ESTADO'] != "Reconfirmado") {
                 $oportunidades_dashboard = '
                 <tr>
                     <td data-title="ID">' . $oportunidades[$i]['ID'] . '</td>
@@ -51,7 +49,7 @@ for ($i = 0; $i < count($oportunidades); $i++) {
                       </td>
                 </tr>
                 ';
-            }else{
+            } else {
                 $oportunidades_dashboard = '
                 <tr>
                     <td data-title="ID">' . $oportunidades[$i]['ID'] . '</td>
@@ -69,8 +67,8 @@ for ($i = 0; $i < count($oportunidades); $i++) {
                 </tr>
                 ';
             }
-            
-        }else if($oportunidades[$i]['MODALIDAD'] == "Oportunidad"){
+
+        } else if ($oportunidades[$i]['MODALIDAD'] == "Oportunidad") {
             $oportunidades_dashboard = '
             <tr>
                 <td data-title="ID">' . $oportunidades[$i]['ID'] . '</td>
@@ -89,7 +87,7 @@ for ($i = 0; $i < count($oportunidades); $i++) {
 
     } else {
         if ($_SESSION['datos_usuario']['TIPO_USUARIO'] != "PAX" && $oportunidades[$i]['MODALIDAD'] == "Oportunidad") {
-            if($oportunidades[$i]['ESTADO'] != "Vencida" && $oportunidades[$i]['ESTADO'] != "Vencido" && $oportunidades[$i]['ESTADO'] != "Cancelada"  && $oportunidades[$i]['ESTADO'] != "Cancelado" && $oportunidades[$i]['ESTADO'] != "Reconfirmado"){
+            if ($oportunidades[$i]['ESTADO'] != "Vencida" && $oportunidades[$i]['ESTADO'] != "Vencido" && $oportunidades[$i]['ESTADO'] != "Cancelada" && $oportunidades[$i]['ESTADO'] != "Cancelado" && $oportunidades[$i]['ESTADO'] != "Reconfirmado") {
                 $oportunidades_dashboard = $oportunidades_dashboard . '
                 <tr>
                     <td data-title="ID">' . $oportunidades[$i]['ID'] . '</td>
@@ -107,7 +105,7 @@ for ($i = 0; $i < count($oportunidades); $i++) {
                       </td>
                 </tr>
                 ';
-            }else{
+            } else {
                 $oportunidades_dashboard = $oportunidades_dashboard . '
             <tr>
                 <td data-title="ID">' . $oportunidades[$i]['ID'] . '</td>
@@ -125,7 +123,7 @@ for ($i = 0; $i < count($oportunidades); $i++) {
             </tr>
             ';
             }
-            
+
         } elseif ($oportunidades[$i]['MODALIDAD'] == "Oportunidad") {
             $oportunidades_dashboard = $oportunidades_dashboard . '
             <tr>
@@ -148,7 +146,7 @@ for ($i = 0; $i < count($oportunidades); $i++) {
 
 for ($i = 0; $i < count($oportunidades); $i++) {
     $fecha = explode(' ', $oportunidades[$i]['FECHA']);
-    if ($oportunidades[$i]['MODALIDAD'] == "Agendado" && $oportunidades_dashboard == null && $_SESSION['datos_usuario']['TIPO_USUARIO'] != "PAX") {
+    if ($oportunidades[$i]['MODALIDAD'] != "Oportunidad" && $oportunidades_dashboard == null && $_SESSION['datos_usuario']['TIPO_USUARIO'] != "PAX") {
         $oportunidades_dashboard = '
               <tr>
                   <td data-title="ID">' . $oportunidades[$i]['ID'] . '</td>
@@ -165,7 +163,7 @@ for ($i = 0; $i < count($oportunidades); $i++) {
                     </td>
               </tr>
       ';
-    } elseif ($oportunidades[$i]['MODALIDAD'] == "Agendado") {
+    } elseif ($oportunidades[$i]['MODALIDAD'] != "Oportunidad") {
         $oportunidades_dashboard = $oportunidades_dashboard . '
               <tr>
                   <td data-title="ID">' . $oportunidades[$i]['ID'] . '</td>
@@ -187,13 +185,13 @@ for ($i = 0; $i < count($oportunidades); $i++) {
 }
 /*
 pax
-*/
+ */
 if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "PAX") {
     /*
      * agendados
      */
     if ($datos2 != null) {
-        for ($i=0; $i < count($datos2); $i++) { 
+        for ($i = 0; $i < count($datos2); $i++) {
             $fecha = explode(' ', $datos2[$i]['FECHA']);
             if ($i == 0) {
                 $oportunidades_dashboard = '
@@ -207,7 +205,7 @@ if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "PAX") {
                 </tr>
                 ';
             } else {
-                $oportunidades_dashboard = $oportunidades_dashboard.'
+                $oportunidades_dashboard = $oportunidades_dashboard . '
                 <tr>
                     <td data-title="ID">' . $datos2[$i]['ID'] . '</td>
                     <td data-title="Origen">' . $datos2[$i]['ORIGEN'] . '</td>
@@ -218,14 +216,14 @@ if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "PAX") {
                 </tr>
                 ';
             }
-            
+
         }
     }
 
     /*
      * oportunidades compradas
      */
-    for ($i=0; $i < count($oportunidades); $i++) { 
+    for ($i = 0; $i < count($oportunidades); $i++) {
         $fecha = explode(' ', $oportunidades[$i]['FECHA']);
         if ($i == 0 && $oportunidades_dashboard != " ") {
             $oportunidades_dashboard = '
@@ -239,7 +237,7 @@ if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "PAX") {
             </tr>
             ';
         } else {
-            $oportunidades_dashboard = $oportunidades_dashboard.'
+            $oportunidades_dashboard = $oportunidades_dashboard . '
             <tr>
                 <td data-title="ID">' . $oportunidades[$i]['ID'] . '</td>
                 <td data-title="Origen">' . $oportunidades[$i]['ORIGEN'] . '</td>
@@ -250,39 +248,37 @@ if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "PAX") {
             </tr>
             ';
         }
-        
+
     }
     /*
      * cotizaciones
      */
-    for ($i=0; $i < count($cotizaciones); $i++) { 
-        echo $i;
-        /*
-        if ($i == 0 && $oportunidades_dashboard != " ") {
-            $oportunidades_dashboard = '
-            <tr>
-                <td data-title="ID">' . $cotizaciones[$i]['ID'] . '</td>
-                <td data-title="Origen">' . $cotizaciones[$i]['ORIGEN'] . '</td>
-                <td data-title="Destino">' . $cotizaciones[$i]['DESTINO'] . '</td>
-                <td data-title="Fecha">' . $cotizaciones[$i]['FECHA'] . '</td>
-                <td data-title="Estado">' . $cotizaciones[$i]['ESTADO'] . '</td>
-                <td data-title="Modalidad">' . $cotizaciones[$i]['MODALIDAD'] . '</td>
-            </tr>
-            ';
-        } else {
-            */
-            $oportunidades_dashboard = $oportunidades_dashboard.'
-            <tr>
-                <td data-title="ID">' . $cotizaciones[$i]['ID'] . '</td>
-                <td data-title="Origen">' . $cotizaciones[$i]['ORIGEN'] . '</td>
-                <td data-title="Destino">' . $cotizaciones[$i]['DESTINO'] . '</td>
-                <td data-title="Fecha">' . $cotizaciones[$i]['FECHA'] . '</td>
-                <td data-title="Estado">' . $cotizaciones[$i]['ESTADO'] . '</td>
-                <td data-title="Modalidad">' . $cotizaciones[$i]['MODALIDAD'] . '</td>
-            </tr>
-            ';
-        //}
-        
+    for ($i = 0; $i < count($cotizaciones); $i++) {
+        $oportunidades_dashboard = $oportunidades_dashboard . '
+    <tr>
+        <td data-title="ID">' . $cotizaciones[$i]['ID'] . '</td>
+        <td data-title="Origen">' . $cotizaciones[$i]['ORIGEN'] . '</td>
+        <td data-title="Destino">' . $cotizaciones[$i]['DESTINO'] . '</td>
+        <td data-title="Fecha">' . $cotizaciones[$i]['FECHA'] . '</td>
+        <td data-title="Estado">' . $cotizaciones[$i]['ESTADO'] . '</td>
+        <td data-title="Modalidad">' . $cotizaciones[$i]['MODALIDAD'] . '</td>
+    </tr>
+    ';
+    }
+}
+
+if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "TTA") {
+    for ($i = 0; $i < count($cotizaciones); $i++) {
+        $oportunidades_dashboard = $oportunidades_dashboard . '
+        <tr>
+            <td data-title="ID">' . $cotizaciones[$i]['ID'] . '</td>
+            <td data-title="Origen">' . $cotizaciones[$i]['ORIGEN'] . '</td>
+            <td data-title="Destino">' . $cotizaciones[$i]['DESTINO'] . '</td>
+            <td data-title="Fecha">' . $cotizaciones[$i]['FECHA'] . '</td>
+            <td data-title="Estado">' . $cotizaciones[$i]['ESTADO'] . '</td>
+            <td data-title="Modalidad">' . $cotizaciones[$i]['MODALIDAD'] . '</td>
+        </tr>
+        ';
     }
 }
 

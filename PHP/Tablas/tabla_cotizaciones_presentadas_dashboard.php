@@ -20,6 +20,7 @@ for ($i = 0; $i < count($datos); $i++) {
 <td data-title="Origen">'.$datos[$i]["BARRIO_ORIGEN"].','.$datos[$i]["LOCALIDAD_ORIGEN"].'.</td>
 <td data-title="Destino">'.$datos[$i]["DIRECCION_DESTINO"].','.$datos[$i]["BARRIO_DESTINO"].','.$datos[$i]["LOCALIDAD_DESTINO"].'.</td>
 <td data-title="Fecha">'.$datos[$i]["FECHA_SALIDA"].'</td>
+<td data-title="ID_VIAJE_COTIZADO">'.$datos[$i]["ID_VIAJE_COTIZADO"].'</td>
 <td data-title="Estado">Cotizando</td>
     <td>
         <div class="button-wrapper">
@@ -34,6 +35,7 @@ for ($i = 0; $i < count($datos); $i++) {
 <td data-title="Origen">'.$datos[$i]["BARRIO_ORIGEN"].','.$datos[$i]["LOCALIDAD_ORIGEN"].'.</td>
 <td data-title="Destino">'.$datos[$i]["DIRECCION_DESTINO"].','.$datos[$i]["BARRIO_DESTINO"].','.$datos[$i]["LOCALIDAD_DESTINO"].'.</td>
 <td data-title="Fecha">'.$datos[$i]["FECHA_SALIDA"].'</td>
+<td data-title="ID_VIAJE_COTIZADO">'.$datos[$i]["ID_VIAJE_COTIZADO"].'</td>
 <td data-title="Estado">Cotizando</td>
     <td>
         <div class="button-wrapper">
@@ -48,6 +50,7 @@ for ($i = 0; $i < count($datos); $i++) {
 <td data-title="Origen">'.$datos[$i]["DIRECCION_ORIGEN"].','.$datos[$i]["BARRIO_ORIGEN"].','.$datos[$i]["LOCALIDAD_ORIGEN"].'.</td>
 <td data-title="Destino">'.$datos[$i]["DIRECCION_DESTINO"].','.$datos[$i]["BARRIO_DESTINO"].','.$datos[$i]["LOCALIDAD_DESTINO"].'.</td>
 <td data-title="Fecha">'.$datos[$i]["FECHA_SALIDA"].'</td>
+<td data-title="ID_VIAJE_COTIZADO">'.$datos[$i]["ID_VIAJE_COTIZADO"].'</td>
 <td data-title="Estado">Cotizando</td>
     <td>
         <div class="button-wrapper">
@@ -63,6 +66,7 @@ for ($i = 0; $i < count($datos); $i++) {
 <td data-title="Origen">'.$datos[$i]["DIRECCION_ORIGEN"].','.$datos[$i]["BARRIO_ORIGEN"].','.$datos[$i]["LOCALIDAD_ORIGEN"].'.</td>
 <td data-title="Destino">'.$datos[$i]["DIRECCION_DESTINO"].','.$datos[$i]["BARRIO_DESTINO"].','.$datos[$i]["LOCALIDAD_DESTINO"].'.</td>
 <td data-title="Fecha">'.$datos[$i]["FECHA_SALIDA"].'</td>
+<td data-title="ID_VIAJE_COTIZADO">'.$datos[$i]["ID_VIAJE_COTIZADO"].'</td>
 <td data-title="Estado">Cotizando</td>
     <td>
         <div class="button-wrapper">
