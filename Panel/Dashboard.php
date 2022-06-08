@@ -320,6 +320,10 @@ session_set_cookie_params($ttl);
                                 <a href="Viajes"><i class="fas fa-list-ul"></i></a>
                               </div>
                             </div>
+                            <div class="search">
+                              <i class="fas fa-search"></i>
+                              <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarUsuarios(5)"/>
+                            </div>
                             <table class="usuarios-table" id="search-table-agenda">
                               <thead>
                                 <tr>
@@ -349,7 +353,10 @@ session_set_cookie_params($ttl);
                                 <a href="Cotizaciones"><i class="fas fa-list-ul"></i></a>
                               </div>
                             </div>
-
+                            <div class="search">
+                              <i class="fas fa-search"></i>
+                              <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarUsuarios(9)"/>
+                            </div>
                             <table class="usuarios-table" id="cotz-pres" style="display: none;">
                               <thead>
                                 <tr>
@@ -359,6 +366,7 @@ session_set_cookie_params($ttl);
                                   </th>
                                   <th>Destino <i class="fas fa-angle-down"></i></th>
                                   <th>Fecha <i class="fas fa-angle-down"></i></th>
+                                  <th>ID Viaje <i class="fas fa-angle-down"></i></th>
                                   <th>Estado <i class="fas fa-angle-down"></i></th>
                                   <th></th>
                                 </tr>
@@ -376,6 +384,10 @@ session_set_cookie_params($ttl);
                           <div class="usuarios-recientes">
                             <div class="usuarios-info">
                               <h2><i class="fas fa-hand-holding-dollar"></i> Cotizaciones Recibidas ( <i class="fas fa-hammer"></i> )</h2>
+                            </div>
+                            <div class="search">
+                              <i class="fas fa-search"></i>
+                              <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarUsuarios(10)"/>
                             </div>
                             <table class="usuarios-table" id="cotz-reci" style="display: none;">
                               <thead>
@@ -457,6 +469,10 @@ session_set_cookie_params($ttl);
                       <a href="Viajes"><i class="fas fa-list-ul"></i></a>
                     </div>
                   </div>
+                  <div class="search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarUsuarios(5)"/>
+                  </div>
                   <table class="usuarios-table" id="search-table-agenda">
                     <thead>
                       <tr>
@@ -536,7 +552,11 @@ session_set_cookie_params($ttl);
                                 <a href="Cotizaciones"><i class="fas fa-list-ul"></i></a>
                               </div>
                             </div>
-                            <table class="usuarios-table" style="display: none;">
+                            <div class="search">
+                              <i class="fas fa-search"></i>
+                              <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarUsuarios(10)"/>
+                            </div>
+                            <table class="usuarios-table" id="cotz-reci" style="display: none;">
                               <thead>
                                 <tr>
                                   <th>ID <i class="fas fa-angle-down"></i></th>
@@ -611,7 +631,11 @@ session_set_cookie_params($ttl);
                                 <a href="Cotizaciones"><i class="fas fa-list-ul"></i></a>
                               </div>
                             </div>
-                            <table class="usuarios-table" style="display: none;">
+                            <div class="search">
+                              <i class="fas fa-search"></i>
+                              <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarUsuarios(10)"/>
+                            </div>
+                            <table class="usuarios-table" id="cotz-reci" style="display: none;">
                               <thead>
                                 <tr>
                                   <th>ID <i class="fas fa-angle-down"></i></th>
@@ -687,6 +711,10 @@ session_set_cookie_params($ttl);
                               <a href="Viajes"><i class="fas fa-list-ul"></i></a>
                             </div>
                           </div>
+                          <div class="search">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarUsuarios(5)"/>
+                          </div>
                           <table class="viajes-table" id="search-table-agenda">
                             <thead>
                               <tr>
@@ -715,7 +743,11 @@ session_set_cookie_params($ttl);
                               <a href="Cotizaciones"><i class="fas fa-list-ul"></i></a>
                             </div>
                           </div>
-                          <table class="usuarios-table" style="display: none;">
+                          <div class="search">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarUsuarios(10)"/>
+                          </div>
+                          <table class="usuarios-table" id="cotz-reci" style="display: none;">
                             <thead>
                               <tr>
                                 <th>ID <i class="fas fa-angle-down"></i></th>

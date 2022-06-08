@@ -83,7 +83,7 @@ function buscarUsuarios(buscador) {
             break;
         case 5:
             table = document.getElementById("search-table-agenda");
-            tdlength = 5;
+            tdlength = 6;
             break;
         case 6:
             table = document.getElementById("search-agendar-table");
@@ -96,6 +96,14 @@ function buscarUsuarios(buscador) {
         case 8:
             table = document.getElementById("search-facturacion-table");
             tdlength = 8;
+            break;
+        case 9:
+            table = document.getElementById("cotz-pres");
+            tdlength = 7;
+            break;
+        case 10:
+            table = document.getElementById("cotz-reci");
+            tdlength = 5;
             break;
     }
 
