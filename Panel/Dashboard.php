@@ -366,7 +366,7 @@ session_set_cookie_params($ttl);
                                   </th>
                                   <th>Destino <i class="fas fa-angle-down"></i></th>
                                   <th>Fecha <i class="fas fa-angle-down"></i></th>
-                                  <th>ID Viaje <i class="fas fa-angle-down"></i></th>
+                                  <th>Viaje <i class="fas fa-angle-down"></i></th>
                                   <th>Estado <i class="fas fa-angle-down"></i></th>
                                   <th></th>
                                 </tr>
@@ -397,6 +397,7 @@ session_set_cookie_params($ttl);
                                   <th>Marca / Modelo <i class="fas fa-angle-down"></i></th>
                                   <th>Capacidad <i class="fas fa-angle-down"></i></th>
                                   <th>Precio <i class="fas fa-angle-down"></i></th>
+                                  <th>Viaje <i class="fas fa-angle-down"></i></th>
                                   <th></th>
                                 </tr>
                               </thead>
@@ -564,6 +565,7 @@ session_set_cookie_params($ttl);
                                   <th>Marca / Modelo <i class="fas fa-angle-down"></i></th>
                                   <th>Capacidad <i class="fas fa-angle-down"></i></th>
                                   <th>Precio <i class="fas fa-angle-down"></i></th>
+                                  <th>Viaje <i class="fas fa-angle-down"></i></th>
                                   <th></th>
                                 </tr>
                               </thead>
@@ -643,6 +645,7 @@ session_set_cookie_params($ttl);
                                   <th>Marca / Modelo <i class="fas fa-angle-down"></i></th>
                                   <th>Capacidad <i class="fas fa-angle-down"></i></th>
                                   <th>Precio <i class="fas fa-angle-down"></i></th>
+                                  <th>Viaje <i class="fas fa-angle-down"></i></th>
                                   <th></th>
                                 </tr>
                               </thead>
@@ -755,6 +758,7 @@ session_set_cookie_params($ttl);
                                 <th>Marca / Modelo <i class="fas fa-angle-down"></i></th>
                                 <th>Capacidad <i class="fas fa-angle-down"></i></th>
                                 <th>Precio <i class="fas fa-angle-down"></i></th>
+                                <th>Viaje <i class="fas fa-angle-down"></i></th>
                                 <th></th>
                               </tr>
                             </thead>

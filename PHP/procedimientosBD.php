@@ -1307,13 +1307,13 @@ class procedimientosBD
     public function traer_cotizaciones_presentadas_por_id_tta($id){
         $cotizaciones = array();
         $conn = $this->conexion();
-        $query = "SELECT `cotizaciones_presentadas`.ID,MATRICULA,DIRECCION_ORIGEN,BARRIO_ORIGEN,LOCALIDAD_ORIGEN,DIRECCION_DESTINO,BARRIO_DESTINO,LOCALIDAD_DESTINO,ESTADO,FECHA_SALIDA,COMPRADA FROM `cotizaciones_presentadas`,`cotizaciones` where id_tta = $id and visibilidad = 1 and `cotizaciones_presentadas`.ID_VIAJE_COTIZADO = `cotizaciones`.ID;";
+        $query = "SELECT `cotizaciones_presentadas`.ID,MATRICULA,DIRECCION_ORIGEN,BARRIO_ORIGEN,LOCALIDAD_ORIGEN,DIRECCION_DESTINO,BARRIO_DESTINO,LOCALIDAD_DESTINO,ESTADO,FECHA_SALIDA,COMPRADA,ID_VIAJE_COTIZADO FROM `cotizaciones_presentadas`,`cotizaciones` where id_tta = $id and visibilidad = 1 and `cotizaciones_presentadas`.ID_VIAJE_COTIZADO = `cotizaciones`.ID;";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($id,$matricula, $direccion_origen, $barrio_origen, $localidad_origen, $direccion_destino, $barrio_destino, $localidad_destino, $estado, $fecha_salida, $comprada);
+            $stmt->bind_result($id,$matricula, $direccion_origen, $barrio_origen, $localidad_origen, $direccion_destino, $barrio_destino, $localidad_destino, $estado, $fecha_salida, $comprada, $id_viaje_cotizado);
             while ($stmt->fetch()) {
-                $result = array("ID" => $id, "MATRICULA" => $matricula, "DIRECCION_ORIGEN" => $direccion_origen, "BARRIO_ORIGEN" => $barrio_origen, "LOCALIDAD_ORIGEN" => $localidad_origen, "DIRECCION_DESTINO" => $direccion_destino, "BARRIO_DESTINO" => $barrio_destino, "LOCALIDAD_DESTINO" => $localidad_destino, "ESTADO" => $estado, "FECHA_SALIDA" => $fecha_salida, "COMPRADA" => $comprada);
+                $result = array("ID" => $id, "MATRICULA" => $matricula, "DIRECCION_ORIGEN" => $direccion_origen, "BARRIO_ORIGEN" => $barrio_origen, "LOCALIDAD_ORIGEN" => $localidad_origen, "DIRECCION_DESTINO" => $direccion_destino, "BARRIO_DESTINO" => $barrio_destino, "LOCALIDAD_DESTINO" => $localidad_destino, "ESTADO" => $estado, "FECHA_SALIDA" => $fecha_salida, "COMPRADA" => $comprada, "ID_VIAJE_COTIZADO" => $id_viaje_cotizado);
                 $fecha = $result["FECHA_SALIDA"];
                 $timestamp = strtotime($fecha);
                 $newDate = date("d-m-Y", $timestamp);
@@ -1451,6 +1451,10 @@ class procedimientosBD
                 if ($estado == 1 || $estado == 4) {
                     $estado = ($estado == 1) ? "Cotizando" : "Cotizado" ;
                     $result = array("ID" => $id,"ORIGEN" => $origen,"DESTINO" => $destino,"FECHA" => $fecha,"ESTADO" => $estado,"MODALIDAD" => $tipo);
+                    $fecha = $result["FECHA"];
+                    $timestamp = strtotime($fecha);
+                    $newDate = date("d-m-Y", $timestamp);
+                    $result["FECHA"] = $newDate;
                     $cotizaciones[] = $result;
                 }
             }

@@ -28,6 +28,7 @@ for ($i = 0; $i < count($datos); $i++) {
         <td data-title="Marca / Modelo">'.$datos[$i]["MARCA"].', '.$datos[$i]["MODELO"].'</td>
         <td data-title="Capacidad">'.$datos[$i]["CAPACIDAD"].'</td>
         <td data-title="Precio">$'.$datos[$i]["PRECIO"].'</td>
+        <td data-title="ID_VIAJE_COTIZADO">'.$datos[$i]["ID_VIAJE_COTIZADO"].'</td>
         <td>
           <div class="button-wrapper">
             <button class="button" onclick="aceptarCotizacion('.$datos[$i]["ID"].','.$datos[$i]["ID_VIAJE_COTIZADO"].')"><i class="fas fa-dollar-sign"></i></button>
@@ -51,6 +52,7 @@ for ($i = 0; $i < count($datos); $i++) {
         <td data-title="Marca / Modelo">'.$datos[$i]["MARCA"].', '.$datos[$i]["MODELO"].'</td>
         <td data-title="Capacidad">'.$datos[$i]["CAPACIDAD"].'</td>
         <td data-title="Precio">$'.$datos[$i]["PRECIO"].'</td>
+        <td data-title="ID_VIAJE_COTIZADO">'.$datos[$i]["ID_VIAJE_COTIZADO"].'</td>
         <td>
           <div class="button-wrapper">
           <button class="button" onclick="aceptarCotizacion('.$datos[$i]["ID"].','.$datos[$i]["ID_VIAJE_COTIZADO"].')"><i class="fas fa-dollar-sign"></i></button>
