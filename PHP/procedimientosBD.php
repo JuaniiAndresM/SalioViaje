@@ -1451,6 +1451,10 @@ class procedimientosBD
                 if ($estado == 1 || $estado == 4) {
                     $estado = ($estado == 1) ? "Cotizando" : "Cotizado" ;
                     $result = array("ID" => $id,"ORIGEN" => $origen,"DESTINO" => $destino,"FECHA" => $fecha,"ESTADO" => $estado,"MODALIDAD" => $tipo);
+                    $fecha = $result["FECHA"];
+                    $timestamp = strtotime($fecha);
+                    $newDate = date("d-m-Y", $timestamp);
+                    $result["FECHA"] = $newDate;
                     $cotizaciones[] = $result;
                 }
             }
