@@ -7308,7 +7308,7 @@ footer .totum p a:hover {
           align-items: center;
 }
 
-.panel .panel-tables {
+.panel .panel-tables, .panel .panel-tables-2 {
   width: calc(100% - 40px);
   margin: 20px 0;
   display: -ms-grid;
@@ -7319,7 +7319,8 @@ footer .totum p a:hover {
 }
 
 .panel .panel-tables .usuarios-recientes,
-.panel .panel-tables .usuarios-propietarios {
+.panel .panel-tables .usuarios-propietarios, .panel .panel-tables-2 .usuarios-recientes,
+.panel .panel-tables-2 .usuarios-propietarios {
   background-color: white;
   -webkit-box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.2);
           box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.2);
@@ -7329,7 +7330,8 @@ footer .totum p a:hover {
 }
 
 .panel .panel-tables .usuarios-recientes .usuarios-info,
-.panel .panel-tables .usuarios-propietarios .usuarios-info {
+.panel .panel-tables .usuarios-propietarios .usuarios-info, .panel .panel-tables-2 .usuarios-recientes .usuarios-info,
+.panel .panel-tables-2 .usuarios-propietarios .usuarios-info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7342,13 +7344,15 @@ footer .totum p a:hover {
 }
 
 .panel .panel-tables .usuarios-recientes .usuarios-info h2,
-.panel .panel-tables .usuarios-propietarios .usuarios-info h2 {
+.panel .panel-tables .usuarios-propietarios .usuarios-info h2, .panel .panel-tables-2 .usuarios-recientes .usuarios-info h2,
+.panel .panel-tables-2 .usuarios-propietarios .usuarios-info h2 {
   font-size: 1.4em;
   color: #2b3179;
 }
 
 .panel .panel-tables .usuarios-recientes .usuarios-info .button-wrapper a,
-.panel .panel-tables .usuarios-propietarios .usuarios-info .button-wrapper a {
+.panel .panel-tables .usuarios-propietarios .usuarios-info .button-wrapper a, .panel .panel-tables-2 .usuarios-recientes .usuarios-info .button-wrapper a,
+.panel .panel-tables-2 .usuarios-propietarios .usuarios-info .button-wrapper a {
   width: 150px;
   text-align: center;
   border: none;
@@ -7364,25 +7368,30 @@ footer .totum p a:hover {
 }
 
 .panel .panel-tables .usuarios-recientes .usuarios-info .button-wrapper a:hover,
-.panel .panel-tables .usuarios-propietarios .usuarios-info .button-wrapper a:hover {
+.panel .panel-tables .usuarios-propietarios .usuarios-info .button-wrapper a:hover, .panel .panel-tables-2 .usuarios-recientes .usuarios-info .button-wrapper a:hover,
+.panel .panel-tables-2 .usuarios-propietarios .usuarios-info .button-wrapper a:hover {
   background-color: #2b3179;
 }
 
 .panel .panel-tables .usuarios-recientes .usuarios-info .button-wrapper a[disabled], .panel .panel-tables .usuarios-recientes .usuarios-info .button-wrapper a:disabled,
 .panel .panel-tables .usuarios-propietarios .usuarios-info .button-wrapper a[disabled],
-.panel .panel-tables .usuarios-propietarios .usuarios-info .button-wrapper a:disabled {
+.panel .panel-tables .usuarios-propietarios .usuarios-info .button-wrapper a:disabled, .panel .panel-tables-2 .usuarios-recientes .usuarios-info .button-wrapper a[disabled], .panel .panel-tables-2 .usuarios-recientes .usuarios-info .button-wrapper a:disabled,
+.panel .panel-tables-2 .usuarios-propietarios .usuarios-info .button-wrapper a[disabled],
+.panel .panel-tables-2 .usuarios-propietarios .usuarios-info .button-wrapper a:disabled {
   background: #999;
   color: #333333;
 }
 
 .panel .panel-tables .usuarios-recientes .search,
-.panel .panel-tables .usuarios-propietarios .search {
+.panel .panel-tables .usuarios-propietarios .search, .panel .panel-tables-2 .usuarios-recientes .search,
+.panel .panel-tables-2 .usuarios-propietarios .search {
   margin-top: 20px;
   position: relative;
 }
 
 .panel .panel-tables .usuarios-recientes .search i,
-.panel .panel-tables .usuarios-propietarios .search i {
+.panel .panel-tables .usuarios-propietarios .search i, .panel .panel-tables-2 .usuarios-recientes .search i,
+.panel .panel-tables-2 .usuarios-propietarios .search i {
   position: absolute;
   left: 6px;
   top: 6px;
@@ -7390,7 +7399,8 @@ footer .totum p a:hover {
 }
 
 .panel .panel-tables .usuarios-recientes .search input,
-.panel .panel-tables .usuarios-propietarios .search input {
+.panel .panel-tables .usuarios-propietarios .search input, .panel .panel-tables-2 .usuarios-recientes .search input,
+.panel .panel-tables-2 .usuarios-propietarios .search input {
   max-width: 200px;
   width: 100%;
   height: 30px;
@@ -7403,13 +7413,24 @@ footer .totum p a:hover {
 }
 
 .panel .panel-tables .usuarios-recientes .search input:focus,
-.panel .panel-tables .usuarios-propietarios .search input:focus {
+.panel .panel-tables .usuarios-propietarios .search input:focus, .panel .panel-tables-2 .usuarios-recientes .search input:focus,
+.panel .panel-tables-2 .usuarios-propietarios .search input:focus {
   outline: 1px solid rgba(43, 49, 121, 0.3);
+}
+
+.panel .panel-tables .usuarios-recientes .table-container,
+.panel .panel-tables .usuarios-propietarios .table-container, .panel .panel-tables-2 .usuarios-recientes .table-container,
+.panel .panel-tables-2 .usuarios-propietarios .table-container {
+  overflow-x: auto;
+  width: 100%;
 }
 
 .panel .panel-tables .usuarios-recientes .usuarios-table, .panel .panel-tables .usuarios-recientes .viajes-table,
 .panel .panel-tables .usuarios-propietarios .usuarios-table,
-.panel .panel-tables .usuarios-propietarios .viajes-table {
+.panel .panel-tables .usuarios-propietarios .viajes-table, .panel .panel-tables-2 .usuarios-recientes .usuarios-table, .panel .panel-tables-2 .usuarios-recientes .viajes-table,
+.panel .panel-tables-2 .usuarios-propietarios .usuarios-table,
+.panel .panel-tables-2 .usuarios-propietarios .viajes-table {
+  min-width: 1000px;
   border-collapse: collapse;
   width: 100%;
   font-size: 0.9em;
@@ -7418,7 +7439,9 @@ footer .totum p a:hover {
 
 .panel .panel-tables .usuarios-recientes .usuarios-table tr th, .panel .panel-tables .usuarios-recientes .viajes-table tr th,
 .panel .panel-tables .usuarios-propietarios .usuarios-table tr th,
-.panel .panel-tables .usuarios-propietarios .viajes-table tr th {
+.panel .panel-tables .usuarios-propietarios .viajes-table tr th, .panel .panel-tables-2 .usuarios-recientes .usuarios-table tr th, .panel .panel-tables-2 .usuarios-recientes .viajes-table tr th,
+.panel .panel-tables-2 .usuarios-propietarios .usuarios-table tr th,
+.panel .panel-tables-2 .usuarios-propietarios .viajes-table tr th {
   text-align: left;
   color: #2b3179;
   height: 30px;
@@ -7428,14 +7451,18 @@ footer .totum p a:hover {
 
 .panel .panel-tables .usuarios-recientes .usuarios-table tr td, .panel .panel-tables .usuarios-recientes .viajes-table tr td,
 .panel .panel-tables .usuarios-propietarios .usuarios-table tr td,
-.panel .panel-tables .usuarios-propietarios .viajes-table tr td {
+.panel .panel-tables .usuarios-propietarios .viajes-table tr td, .panel .panel-tables-2 .usuarios-recientes .usuarios-table tr td, .panel .panel-tables-2 .usuarios-recientes .viajes-table tr td,
+.panel .panel-tables-2 .usuarios-propietarios .usuarios-table tr td,
+.panel .panel-tables-2 .usuarios-propietarios .viajes-table tr td {
   padding: 5px;
   color: #2b3179;
 }
 
 .panel .panel-tables .usuarios-recientes .usuarios-table tr td .estado, .panel .panel-tables .usuarios-recientes .viajes-table tr td .estado,
 .panel .panel-tables .usuarios-propietarios .usuarios-table tr td .estado,
-.panel .panel-tables .usuarios-propietarios .viajes-table tr td .estado {
+.panel .panel-tables .usuarios-propietarios .viajes-table tr td .estado, .panel .panel-tables-2 .usuarios-recientes .usuarios-table tr td .estado, .panel .panel-tables-2 .usuarios-recientes .viajes-table tr td .estado,
+.panel .panel-tables-2 .usuarios-propietarios .usuarios-table tr td .estado,
+.panel .panel-tables-2 .usuarios-propietarios .viajes-table tr td .estado {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7449,14 +7476,18 @@ footer .totum p a:hover {
 
 .panel .panel-tables .usuarios-recientes .usuarios-table tr td .estado i, .panel .panel-tables .usuarios-recientes .viajes-table tr td .estado i,
 .panel .panel-tables .usuarios-propietarios .usuarios-table tr td .estado i,
-.panel .panel-tables .usuarios-propietarios .viajes-table tr td .estado i {
+.panel .panel-tables .usuarios-propietarios .viajes-table tr td .estado i, .panel .panel-tables-2 .usuarios-recientes .usuarios-table tr td .estado i, .panel .panel-tables-2 .usuarios-recientes .viajes-table tr td .estado i,
+.panel .panel-tables-2 .usuarios-propietarios .usuarios-table tr td .estado i,
+.panel .panel-tables-2 .usuarios-propietarios .viajes-table tr td .estado i {
   font-size: 8px;
   margin-right: 10px;
 }
 
 .panel .panel-tables .usuarios-recientes .usuarios-table tr td select, .panel .panel-tables .usuarios-recientes .viajes-table tr td select,
 .panel .panel-tables .usuarios-propietarios .usuarios-table tr td select,
-.panel .panel-tables .usuarios-propietarios .viajes-table tr td select {
+.panel .panel-tables .usuarios-propietarios .viajes-table tr td select, .panel .panel-tables-2 .usuarios-recientes .usuarios-table tr td select, .panel .panel-tables-2 .usuarios-recientes .viajes-table tr td select,
+.panel .panel-tables-2 .usuarios-propietarios .usuarios-table tr td select,
+.panel .panel-tables-2 .usuarios-propietarios .viajes-table tr td select {
   height: 40px;
   background-color: transparent;
   border: none;
@@ -7468,7 +7499,9 @@ footer .totum p a:hover {
 
 .panel .panel-tables .usuarios-recientes .usuarios-table tr td .button-wrapper, .panel .panel-tables .usuarios-recientes .viajes-table tr td .button-wrapper,
 .panel .panel-tables .usuarios-propietarios .usuarios-table tr td .button-wrapper,
-.panel .panel-tables .usuarios-propietarios .viajes-table tr td .button-wrapper {
+.panel .panel-tables .usuarios-propietarios .viajes-table tr td .button-wrapper, .panel .panel-tables-2 .usuarios-recientes .usuarios-table tr td .button-wrapper, .panel .panel-tables-2 .usuarios-recientes .viajes-table tr td .button-wrapper,
+.panel .panel-tables-2 .usuarios-propietarios .usuarios-table tr td .button-wrapper,
+.panel .panel-tables-2 .usuarios-propietarios .viajes-table tr td .button-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7482,7 +7515,9 @@ footer .totum p a:hover {
 
 .panel .panel-tables .usuarios-recientes .usuarios-table tr td .button-wrapper button, .panel .panel-tables .usuarios-recientes .viajes-table tr td .button-wrapper button,
 .panel .panel-tables .usuarios-propietarios .usuarios-table tr td .button-wrapper button,
-.panel .panel-tables .usuarios-propietarios .viajes-table tr td .button-wrapper button {
+.panel .panel-tables .usuarios-propietarios .viajes-table tr td .button-wrapper button, .panel .panel-tables-2 .usuarios-recientes .usuarios-table tr td .button-wrapper button, .panel .panel-tables-2 .usuarios-recientes .viajes-table tr td .button-wrapper button,
+.panel .panel-tables-2 .usuarios-propietarios .usuarios-table tr td .button-wrapper button,
+.panel .panel-tables-2 .usuarios-propietarios .viajes-table tr td .button-wrapper button {
   background-color: #3844bc;
   width: 40px;
   height: 40px;
@@ -7497,7 +7532,9 @@ footer .totum p a:hover {
 
 .panel .panel-tables .usuarios-recientes .usuarios-table tr td .button-wrapper button:hover, .panel .panel-tables .usuarios-recientes .viajes-table tr td .button-wrapper button:hover,
 .panel .panel-tables .usuarios-propietarios .usuarios-table tr td .button-wrapper button:hover,
-.panel .panel-tables .usuarios-propietarios .viajes-table tr td .button-wrapper button:hover {
+.panel .panel-tables .usuarios-propietarios .viajes-table tr td .button-wrapper button:hover, .panel .panel-tables-2 .usuarios-recientes .usuarios-table tr td .button-wrapper button:hover, .panel .panel-tables-2 .usuarios-recientes .viajes-table tr td .button-wrapper button:hover,
+.panel .panel-tables-2 .usuarios-propietarios .usuarios-table tr td .button-wrapper button:hover,
+.panel .panel-tables-2 .usuarios-propietarios .viajes-table tr td .button-wrapper button:hover {
   background-color: #2b3179;
 }
 
@@ -7505,19 +7542,26 @@ footer .totum p a:hover {
 .panel .panel-tables .usuarios-propietarios .usuarios-table tr td .button-wrapper button[disabled],
 .panel .panel-tables .usuarios-propietarios .usuarios-table tr td .button-wrapper button:disabled,
 .panel .panel-tables .usuarios-propietarios .viajes-table tr td .button-wrapper button[disabled],
-.panel .panel-tables .usuarios-propietarios .viajes-table tr td .button-wrapper button:disabled {
+.panel .panel-tables .usuarios-propietarios .viajes-table tr td .button-wrapper button:disabled, .panel .panel-tables-2 .usuarios-recientes .usuarios-table tr td .button-wrapper button[disabled], .panel .panel-tables-2 .usuarios-recientes .usuarios-table tr td .button-wrapper button:disabled, .panel .panel-tables-2 .usuarios-recientes .viajes-table tr td .button-wrapper button[disabled], .panel .panel-tables-2 .usuarios-recientes .viajes-table tr td .button-wrapper button:disabled,
+.panel .panel-tables-2 .usuarios-propietarios .usuarios-table tr td .button-wrapper button[disabled],
+.panel .panel-tables-2 .usuarios-propietarios .usuarios-table tr td .button-wrapper button:disabled,
+.panel .panel-tables-2 .usuarios-propietarios .viajes-table tr td .button-wrapper button[disabled],
+.panel .panel-tables-2 .usuarios-propietarios .viajes-table tr td .button-wrapper button:disabled {
   background-color: #999;
   color: #333333;
 }
 
 .panel .panel-tables .usuarios-recientes .usuarios-table tr:hover, .panel .panel-tables .usuarios-recientes .viajes-table tr:hover,
 .panel .panel-tables .usuarios-propietarios .usuarios-table tr:hover,
-.panel .panel-tables .usuarios-propietarios .viajes-table tr:hover {
+.panel .panel-tables .usuarios-propietarios .viajes-table tr:hover, .panel .panel-tables-2 .usuarios-recientes .usuarios-table tr:hover, .panel .panel-tables-2 .usuarios-recientes .viajes-table tr:hover,
+.panel .panel-tables-2 .usuarios-propietarios .usuarios-table tr:hover,
+.panel .panel-tables-2 .usuarios-propietarios .viajes-table tr:hover {
   background-color: #eee;
 }
 
 .panel .panel-tables .usuarios-recientes .empty-table,
-.panel .panel-tables .usuarios-propietarios .empty-table {
+.panel .panel-tables .usuarios-propietarios .empty-table, .panel .panel-tables-2 .usuarios-recientes .empty-table,
+.panel .panel-tables-2 .usuarios-propietarios .empty-table {
   height: 100px;
   text-align: center;
   color: #3844bc;
@@ -7532,12 +7576,12 @@ footer .totum p a:hover {
           align-items: center;
 }
 
-.panel .panel-tables .usuarios-propietarios .propietarios {
+.panel .panel-tables .usuarios-propietarios .propietarios, .panel .panel-tables-2 .usuarios-propietarios .propietarios {
   width: 100%;
   margin: 10px 0;
 }
 
-.panel .panel-tables .usuarios-propietarios .propietarios .propietario {
+.panel .panel-tables .usuarios-propietarios .propietarios .propietario, .panel .panel-tables-2 .usuarios-propietarios .propietarios .propietario {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7553,7 +7597,7 @@ footer .totum p a:hover {
   margin: 5px 0;
 }
 
-.panel .panel-tables .usuarios-propietarios .propietarios .propietario .propietario-left {
+.panel .panel-tables .usuarios-propietarios .propietarios .propietario .propietario-left, .panel .panel-tables-2 .usuarios-propietarios .propietarios .propietario .propietario-left {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7565,7 +7609,7 @@ footer .totum p a:hover {
           align-items: center;
 }
 
-.panel .panel-tables .usuarios-propietarios .propietarios .propietario .propietario-left .propietario-icon {
+.panel .panel-tables .usuarios-propietarios .propietarios .propietario .propietario-left .propietario-icon, .panel .panel-tables-2 .usuarios-propietarios .propietarios .propietario .propietario-left .propietario-icon {
   width: 40px;
   height: 40px;
   background-color: #2b3179;
@@ -7583,7 +7627,7 @@ footer .totum p a:hover {
           align-items: center;
 }
 
-.panel .panel-tables .usuarios-propietarios .propietarios .propietario .propietario-left .propietario-info {
+.panel .panel-tables .usuarios-propietarios .propietarios .propietario .propietario-left .propietario-info, .panel .panel-tables-2 .usuarios-propietarios .propietarios .propietario .propietario-left .propietario-info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7599,17 +7643,17 @@ footer .totum p a:hover {
           flex-direction: column;
 }
 
-.panel .panel-tables .usuarios-propietarios .propietarios .propietario .propietario-left .propietario-info h3 {
+.panel .panel-tables .usuarios-propietarios .propietarios .propietario .propietario-left .propietario-info h3, .panel .panel-tables-2 .usuarios-propietarios .propietarios .propietario .propietario-left .propietario-info h3 {
   color: #2b3179;
   line-height: 20px;
 }
 
-.panel .panel-tables .usuarios-propietarios .propietarios .propietario .propietario-left .propietario-info p {
+.panel .panel-tables .usuarios-propietarios .propietarios .propietario .propietario-left .propietario-info p, .panel .panel-tables-2 .usuarios-propietarios .propietarios .propietario .propietario-left .propietario-info p {
   color: #444;
   margin: 0;
 }
 
-.panel .panel-tables .usuarios-propietarios .propietarios .propietario .propietario-button {
+.panel .panel-tables .usuarios-propietarios .propietarios .propietario .propietario-button, .panel .panel-tables-2 .usuarios-propietarios .propietarios .propietario .propietario-button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7623,7 +7667,7 @@ footer .totum p a:hover {
       flex-wrap: wrap;
 }
 
-.panel .panel-tables .usuarios-propietarios .propietarios .propietario .propietario-button button {
+.panel .panel-tables .usuarios-propietarios .propietarios .propietario .propietario-button button, .panel .panel-tables-2 .usuarios-propietarios .propietarios .propietario .propietario-button button {
   background-color: #3844bc;
   border: none;
   width: 40px;
@@ -7637,17 +7681,22 @@ footer .totum p a:hover {
   transition: 0.3s;
 }
 
-.panel .panel-tables .usuarios-propietarios .propietarios .propietario .propietario-button button:hover {
+.panel .panel-tables .usuarios-propietarios .propietarios .propietario .propietario-button button:hover, .panel .panel-tables-2 .usuarios-propietarios .propietarios .propietario .propietario-button button:hover {
   background-color: #2b3179;
 }
 
-.panel .panel-tables .usuarios-propietarios .propietarios .propietario .propietario-button button[disabled], .panel .panel-tables .usuarios-propietarios .propietarios .propietario .propietario-button button:disabled {
+.panel .panel-tables .usuarios-propietarios .propietarios .propietario .propietario-button button[disabled], .panel .panel-tables .usuarios-propietarios .propietarios .propietario .propietario-button button:disabled, .panel .panel-tables-2 .usuarios-propietarios .propietarios .propietario .propietario-button button[disabled], .panel .panel-tables-2 .usuarios-propietarios .propietarios .propietario .propietario-button button:disabled {
   background-color: #999;
   color: #333333;
 }
 
-.panel .panel-tables .usuarios-propietarios .propietarios .propietario:hover {
+.panel .panel-tables .usuarios-propietarios .propietarios .propietario:hover, .panel .panel-tables-2 .usuarios-propietarios .propietarios .propietario:hover {
   background-color: #eee;
+}
+
+.panel .panel-tables-2 {
+  -ms-grid-columns: 100%;
+      grid-template-columns: 100%;
 }
 
 .panel .panel-settings-header {
@@ -8488,8 +8537,8 @@ footer .totum p a:hover {
         grid-template-columns: repeat(2, 1fr);
   }
   .panel .panel-tables {
-    -ms-grid-columns: 1fr;
-        grid-template-columns: 1fr;
+    -ms-grid-columns: 100%;
+        grid-template-columns: 100%;
   }
 }
 
@@ -17451,6 +17500,7 @@ footer .totum p a:hover {
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
+  height: 10px;
 }
 
 /* Track */
