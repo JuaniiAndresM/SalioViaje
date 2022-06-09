@@ -1190,3 +1190,12 @@ function preferenciasVehiculos(id, step, matricula){
             break;
     }
 }
+
+/*
+    MTOP VIAJES
+*/
+
+function mtop_viaje(id_viaje, id_viaje_vinculado) {
+    console.log(id_viaje)
+    console.log(id_viaje_vinculado)
+}

@@ -463,13 +463,13 @@ class procedimientosBD
         // ORIGEN DESTINO FECHA HORA PASAJEROS MARCA Y MODELO DEL VEHICULO nombre de transportista
         $oportunidades = array();
         $conn = $this->conexion();
-        $query = "SELECT idViaje,Origen,Destino,Fecha,Estado,Modalidad FROM viajes where idTransportista = $id and visivilidad != 0 ORDER BY Fecha;";
+        $query = "SELECT idViaje,Origen,Destino,Fecha,Estado,Modalidad,id_viaje_vinculado,Distancia,Vechiculo FROM viajes where idTransportista = $id and visivilidad != 0 ORDER BY Fecha;";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($idOportunidad, $origen, $destino, $fecha, $estado, $modalidad);
+            $stmt->bind_result($idOportunidad, $origen, $destino, $fecha, $estado, $modalidad, $id_viaje_vinculado,$distancia,$vehiculo);
             while ($stmt->fetch()) {
-                $result = array('ID' => $idOportunidad, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'FECHA' => $fecha, 'ESTADO' => $estado, 'MODALIDAD' => $modalidad);
+                $result = array('ID' => $idOportunidad, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'FECHA' => $fecha, 'ESTADO' => $estado, 'MODALIDAD' => $modalidad, 'ID_VIAJE_VINCULADO' => $id_viaje_vinculado, "DISTANCIA" => $distancia, "VECHICULO" => $vehiculo);
                 $fecha = $result["FECHA"];
                 $timestamp = strtotime($fecha);
                 $newDate = date("d-m-Y H:i", $timestamp);
