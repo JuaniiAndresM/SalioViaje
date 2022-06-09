@@ -17304,7 +17304,7 @@ footer .totum p a:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  z-index: 30;
+  z-index: 50;
 }
 
 #modal .modal-container {
@@ -17348,8 +17348,8 @@ footer .totum p a:hover {
   cursor: pointer;
   background-color: transparent;
   border: none;
-  -webkit-transition: .2s;
-  transition: .2s;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
 }
 
 #modal .modal-container .close-modal i {
@@ -17442,7 +17442,8 @@ footer .totum p a:hover {
   font-size: 14px;
 }
 
-#modal .modal-container .modal-body .input select, #modal .modal-container .modal-body .input input {
+#modal .modal-container .modal-body .input select,
+#modal .modal-container .modal-body .input input {
   width: 100%;
   height: 30px;
   border: none;

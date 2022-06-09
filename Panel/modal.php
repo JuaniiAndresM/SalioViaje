@@ -103,10 +103,10 @@ switch($opcion){
                 <p class="msg1">'.$mensaje_1.'</p>
                 <p class="msg2">'.$mensaje_2.'</p>
                 <div class="button-wrapper">
-                    <button class="modal-button" onclick="finalizar(1,2)">
+                    <button class="modal-button" onclick="finalizar(1,2,1)">
                     <i class="fa-solid fa-check"></i> Si
                     </button>
-                    <button class="modal-button" onclick="finalizar(1,2)">
+                    <button class="modal-button" onclick="finalizar(1,2,0)">
                         <i class="fa-solid fa-xmark"></i> No
                     </button>
                 </div>

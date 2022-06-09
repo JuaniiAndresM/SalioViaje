@@ -1195,7 +1195,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
               <button class="button-viajar" onclick="volver()"><i class="fas fa-arrow-circle-left"></i> Volver</button>
               <?php
-              if($_SESSION['datos_usuario']['DIRECCION'] == ""){
+              if($_SESSION['datos_usuario']['DIRECCION'] != ""){
                 echo '<button class="button-viajar" onclick="finalizar(1,1)">Enviar Solicitud <i class="fas fa-paper-plane"></i></button>';
               }else{
                 echo '<button class="button-viajar" onclick="finalizar(1,2)">Enviar Solicitud <i class="fas fa-paper-plane"></i></button>';
