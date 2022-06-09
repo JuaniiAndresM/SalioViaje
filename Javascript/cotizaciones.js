@@ -261,12 +261,15 @@ function mostrar_cotizaciones_presentadas_dashboard_tta() {
       type: "POST",
       url: "/PHP/Tablas/tabla_cotizaciones_presentadas_dashboard.php",
       success: function (response) {
-         if (response != null) {
+         if (response != null && response != '') {
             $("#empty-cotiz-pres").hide()
             $("#tbody-cotizaciones-dashboard").html(response)
             $(".usuarios-table").show()
          } else {
-            $("#empty-cotiz-pres").show()
+            setTimeout(() => {
+               $("#cotz-pres").hide()
+               $("#empty-cotiz-pres").show()
+               }, 100);
          }
       },
    });
@@ -277,12 +280,16 @@ function mostrar_cotizaciones_recibidas_dashboard() {
       type: "POST",
       url: "/PHP/Tablas/tabla_cotizaciones_recibidas_dashboard.php",
       success: function (response) {
-         if (response != null) {
+         if (response != null && response != '') {
             $("#empty-cotiz-reci").hide()
             $(".cotizaciones_recibidas").html(response)
             $(".usuarios-table").show()
          } else {
+            
+            setTimeout(() => {
+            $("#cotz-reci").hide()
             $("#empty-cotiz-reci").show()
+            }, 100);
          }
       },
    });
