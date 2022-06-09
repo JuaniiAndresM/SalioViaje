@@ -18,8 +18,7 @@ if ($_SESSION['tipo_usuario'] == "Transportista" || $_SESSION['tipo_usuario'] ==
 $datos2 = $datos2->traer_agenda_usuario($_SESSION['datos_usuario']['ID']);
 $cotizaciones = json_decode($datos->traer_cotizaciones_por_id_comprador($_SESSION['datos_usuario']['ID']), true);
 
-echo json_encode($datos2);
-
+$fechaActual = new DateTime(date('Y-m-d h:i:s', time()));
 $oportunidades_dashboard = '';
 
 /**
@@ -27,6 +26,34 @@ $oportunidades_dashboard = '';
  * tta y cho
  */
 for ($i = 0; $i < count($oportunidades); $i++) {
+
+    $datos_mtop = array();
+
+    if ($oportunidades[$i]['ID'] > $oportunidades[$i]['ID_VIAJE_VINCULADO']) {
+        $fechaTramo1 = new DateTime($oportunidades[$i-1]['FECHA']);
+        $datos_mtop["FECHA_SALIDA"] = $oportunidades[$i-1]['FECHA'];
+        $datos_mtop["FECHA_LLEGADA"] = $oportunidades[$i]['FECHA'];
+    }else{
+        $fechaTramo1 = new DateTime($oportunidades[$i]['FECHA']);
+        $datos_mtop["FECHA_SALIDA"] = $oportunidades[$i]['FECHA'];
+        $datos_mtop["FECHA_LLEGADA"] = $oportunidades[$i+1]['FECHA'];
+    }
+
+    $datos_mtop["ORIGEN"] = $oportunidades[$i]['ORIGEN'];
+    $datos_mtop["DESTINO"] = $oportunidades[$i]['DESTINO'];
+    $datos_mtop["DISTANCIA"] = $oportunidades[$i]['DISTANCIA'];
+    $datos_mtop["MATRICULA"] = $oportunidades[$i]['VECHICULO'];
+
+    echo  "           ".json_encode($datos_mtop); 
+
+    $intervalo = $fechaTramo1->diff($fechaActual);
+
+    if ((int) $intervalo->format('%d') >= 1 && $oportunidades[$i]['ID'] < $oportunidades[$i]['ID_VIAJE_VINCULADO'] || $oportunidades[$i]['ID'] > $oportunidades[$i]['ID_VIAJE_VINCULADO']) {
+        $button_mtop = '<button class="button" onclick="mtop_viaje(' . $oportunidades[$i]['ID'] . ',' . $oportunidades[$i]['ID_VIAJE_VINCULADO'] . ')"><i class="fas fa-file-contract"></i></button>';
+    } else{
+        $button_mtop = '';
+    }
+
     $fecha = explode(' ', $oportunidades[$i]['FECHA']);
 
     if ($i == 0) {
@@ -42,7 +69,7 @@ for ($i = 0; $i < count($oportunidades); $i++) {
                     <td data-title="Modalidad">' . $oportunidades[$i]['MODALIDAD'] . '</td>
                     <td>
                         <div class="button-wrapper">
-                          <button class="button" onclick="mtop_oportunidad(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-file-contract"></i></button>
+                          ' . $button_mtop . '
                           <button class="button" onclick="abrir_editar_oportunidad(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-edit"></i></button>
                           <button class="button" onclick="eliminar_viajes(' . $oportunidades[$i]['ID'] . ',1)"><i class="fas fa-trash-alt"></i></button>
                         </div>
@@ -60,7 +87,7 @@ for ($i = 0; $i < count($oportunidades); $i++) {
                     <td data-title="Modalidad">' . $oportunidades[$i]['MODALIDAD'] . '</td>
                     <td>
                         <div class="button-wrapper">
-                          <button class="button" onclick="mtop_oportunidad(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-file-contract"></i></button>
+                        ' . $button_mtop . '
                           <button class="button" onclick="eliminar_viajes(' . $oportunidades[$i]['ID'] . ',1)"><i class="fas fa-trash-alt"></i></button>
                         </div>
                       </td>
@@ -98,7 +125,7 @@ for ($i = 0; $i < count($oportunidades); $i++) {
                     <td data-title="Modalidad">' . $oportunidades[$i]['MODALIDAD'] . '</td>
                     <td>
                         <div class="button-wrapper">
-                          <button class="button" onclick="mtop_oportunidad(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-file-contract"></i></button>
+                        ' . $button_mtop . '
                           <button class="button" onclick="abrir_editar_oportunidad(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-edit"></i></button>
                           <button class="button" onclick="eliminar_viajes(' . $oportunidades[$i]['ID'] . ',1)"><i class="fas fa-trash-alt"></i></button>
                         </div>
@@ -116,7 +143,7 @@ for ($i = 0; $i < count($oportunidades); $i++) {
                 <td data-title="Modalidad">' . $oportunidades[$i]['MODALIDAD'] . '</td>
                 <td>
                     <div class="button-wrapper">
-                      <button class="button" onclick="mtop_oportunidad(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-file-contract"></i></button>
+                    ' . $button_mtop . '
                       <button class="button" onclick="eliminar_viajes(' . $oportunidades[$i]['ID'] . ',1)"><i class="fas fa-trash-alt"></i></button>
                     </div>
                   </td>
@@ -145,6 +172,21 @@ for ($i = 0; $i < count($oportunidades); $i++) {
 }
 
 for ($i = 0; $i < count($oportunidades); $i++) {
+
+    if ($oportunidades[$i]['ID'] > $oportunidades[$i]['ID_VIAJE_VINCULADO']) {
+        $fechaTramo1 = new DateTime($oportunidades[$i-1]['FECHA']);
+    }else{
+        $fechaTramo1 = new DateTime($oportunidades[$i]['FECHA']);
+    }
+
+    $intervalo = $fechaTramo1->diff($fechaActual);
+
+    if ((int) $intervalo->format('%d') >= 1 && $oportunidades[$i]['ID'] < $oportunidades[$i]['ID_VIAJE_VINCULADO'] || $oportunidades[$i]['ID'] > $oportunidades[$i]['ID_VIAJE_VINCULADO']) {
+        $button_mtop = '<button class="button" onclick="mtop_viaje(' . $oportunidades[$i]['ID'] . ',' . $oportunidades[$i]['ID_VIAJE_VINCULADO'] . ')"><i class="fas fa-file-contract"></i></button>';
+    } else{
+        $button_mtop = '';
+    }
+
     $fecha = explode(' ', $oportunidades[$i]['FECHA']);
     if ($oportunidades[$i]['MODALIDAD'] != "Oportunidad" && $oportunidades_dashboard == null && $_SESSION['datos_usuario']['TIPO_USUARIO'] != "PAX") {
         $oportunidades_dashboard = '
@@ -157,7 +199,7 @@ for ($i = 0; $i < count($oportunidades); $i++) {
                   <td data-title="Modalidad">' . $oportunidades[$i]['MODALIDAD'] . '</td>
                   <td>
                       <div class="button-wrapper">
-                          <button class="button" onclick="mtop_oportunidad(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-file-contract"></i></button>
+                      ' . $button_mtop . '
                           <button class="button" onclick="eliminar_viajes(' . $oportunidades[$i]['ID'] . ',1)"><i class="fas fa-trash-alt"></i></button>
                       </div>
                     </td>
@@ -174,7 +216,7 @@ for ($i = 0; $i < count($oportunidades); $i++) {
                   <td data-title="Modalidad">' . $oportunidades[$i]['MODALIDAD'] . '</td>
                   <td>
                       <div class="button-wrapper">
-                          <button class="button" onclick="mtop_oportunidad(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-file-contract"></i></button>
+                      ' . $button_mtop . '
                           <button class="button" onclick="eliminar_viajes(' . $oportunidades[$i]['ID'] . ',1)"><i class="fas fa-trash-alt"></i></button>
                       </div>
                     </td>

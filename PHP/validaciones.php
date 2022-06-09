@@ -1255,7 +1255,7 @@ class validaciones
         $regiones_mtop = json_decode($regiones_mtop->traer_regiones_mtop(), true);
         if (isset($regiones_mtop)) {
             for ($i=0; $i < count($regiones_mtop); $i++) { 
-                if ($regiones_mtop[$i]['REGION'] == $dato) {
+                if ($regiones_mtop[$i]['REGION'].",".$regiones_mtop[$i]['DPTO'] == $dato) {
                     $existe[] = 1;
                 }else{
                     $existe[] = 0; 
