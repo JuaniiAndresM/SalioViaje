@@ -7421,8 +7421,9 @@ footer .totum p a:hover {
 .panel .panel-tables .usuarios-recientes .table-container,
 .panel .panel-tables .usuarios-propietarios .table-container, .panel .panel-tables-2 .usuarios-recientes .table-container,
 .panel .panel-tables-2 .usuarios-propietarios .table-container {
-  overflow-x: auto;
+  overflow: auto;
   width: 100%;
+  max-height: calc(100vh - 430px);
 }
 
 .panel .panel-tables .usuarios-recientes .usuarios-table, .panel .panel-tables .usuarios-recientes .viajes-table,
@@ -7430,7 +7431,7 @@ footer .totum p a:hover {
 .panel .panel-tables .usuarios-propietarios .viajes-table, .panel .panel-tables-2 .usuarios-recientes .usuarios-table, .panel .panel-tables-2 .usuarios-recientes .viajes-table,
 .panel .panel-tables-2 .usuarios-propietarios .usuarios-table,
 .panel .panel-tables-2 .usuarios-propietarios .viajes-table {
-  min-width: 1000px;
+  white-space: nowrap;
   border-collapse: collapse;
   width: 100%;
   font-size: 0.9em;
@@ -7578,7 +7579,9 @@ footer .totum p a:hover {
 
 .panel .panel-tables .usuarios-propietarios .propietarios, .panel .panel-tables-2 .usuarios-propietarios .propietarios {
   width: 100%;
-  margin: 10px 0;
+  max-height: calc(100vh - 400px);
+  overflow: auto;
+  margin-top: 20px;
 }
 
 .panel .panel-tables .usuarios-propietarios .propietarios .propietario, .panel .panel-tables-2 .usuarios-propietarios .propietarios .propietario {

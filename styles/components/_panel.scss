@@ -502,11 +502,12 @@ $main_3: #6d76db;
         }
       }
       .table-container{
-        overflow-x: auto;
+        overflow: auto;
         width: 100%;
+        max-height: calc(100vh - 430px);
       }
       .usuarios-table, .viajes-table {
-        min-width: 1000px;
+        white-space: nowrap;
         border-collapse: collapse;
         width: 100%;
         font-size: 0.9em;
@@ -589,7 +590,9 @@ $main_3: #6d76db;
     .usuarios-propietarios {
       .propietarios {
         width: 100%;
-        margin: 10px 0;
+        max-height: calc(100vh - 400px);
+        overflow: auto;
+        margin-top: 20px;
         .propietario {
           width: 100%;
           display: flex;
