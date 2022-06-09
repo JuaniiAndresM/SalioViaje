@@ -421,7 +421,7 @@ $main_3: #6d76db;
       }
     }
   }
-  .panel-tables {
+  .panel-tables, .panel-tables-2 {
     width: calc(100% - 40px);
     margin: 20px 0;
 
@@ -501,7 +501,13 @@ $main_3: #6d76db;
           outline: 1px solid rgba($color: $main_2, $alpha: 0.3);
         }
       }
+      .table-container{
+        overflow: auto;
+        width: 100%;
+        max-height: calc(100vh - 430px);
+      }
       .usuarios-table, .viajes-table {
+        white-space: nowrap;
         border-collapse: collapse;
         width: 100%;
         font-size: 0.9em;
@@ -584,7 +590,9 @@ $main_3: #6d76db;
     .usuarios-propietarios {
       .propietarios {
         width: 100%;
-        margin: 10px 0;
+        max-height: calc(100vh - 400px);
+        overflow: auto;
+        margin-top: 20px;
         .propietario {
           width: 100%;
           display: flex;
@@ -660,7 +668,9 @@ $main_3: #6d76db;
       }
     }
   }
-
+  .panel-tables-2{
+    grid-template-columns: 100%;
+  }
   .panel-settings-header {
     width: 100%;
     padding: 20px;
@@ -1261,7 +1271,7 @@ $main_3: #6d76db;
       grid-template-columns: repeat(2, 1fr);
     }
     .panel-tables {
-      grid-template-columns: 1fr;
+      grid-template-columns: 100%;
     }
   }
 }

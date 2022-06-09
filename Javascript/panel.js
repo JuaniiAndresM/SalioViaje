@@ -59,9 +59,13 @@ function navbar() {
     panel.classList.toggle('active');
 }
 
-function buscarUsuarios(buscador) {
+function buscarUsuarios(buscador, filter) {
     var input, filter, table, tr, td, i, txtValue, tdlength;
-    input = document.getElementById("searchbar");
+    if(filter != null){
+        input = document.getElementById("searchbar" + filter);
+    }else{
+        input = document.getElementById("searchbar");
+    }
     filter = input.value.toUpperCase();
 
     switch (buscador) {
@@ -83,7 +87,7 @@ function buscarUsuarios(buscador) {
             break;
         case 5:
             table = document.getElementById("search-table-agenda");
-            tdlength = 5;
+            tdlength = 6;
             break;
         case 6:
             table = document.getElementById("search-agendar-table");
@@ -97,10 +101,17 @@ function buscarUsuarios(buscador) {
             table = document.getElementById("search-facturacion-table");
             tdlength = 8;
             break;
+        case 9:
+            table = document.getElementById("cotz-pres");
+            tdlength = 7;
+            break;
+        case 10:
+            table = document.getElementById("cotz-reci");
+            tdlength = 5;
+            break;
     }
 
     tr = table.getElementsByTagName("tr");
-    console.log(tr);
 
 
     for (i = 0; i < tr.length; i++) {
@@ -113,6 +124,10 @@ function buscarUsuarios(buscador) {
 
             if (td) {
                 txtValue = td.textContent || td.innerText;
+
+                console.log(txtValue.toUpperCase());
+                console.log(filter);
+                console.log(txtValue.toUpperCase().indexOf(filter));
 
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
                     tr[i].style.display = "";
@@ -540,7 +555,7 @@ function tabla_oportunidades_dashboard() {
         url: "/PHP/Tablas/tabla_viajes_panel_principal.php",
         success: function (response) {
             console.log(response)
-            if(response != ""){
+            if(response != 'null'){
                 $('#empty-viajes').hide();
                 $('#tbody-viajes-dashboard').html(response)
             }else{

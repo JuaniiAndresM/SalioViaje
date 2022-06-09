@@ -105,6 +105,8 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
       </div>
     </div>
 
+    <div id="modal"></div>
+    
     <a href="https://www.salioviaje.com.uy/FAQ" target="_BLANK" id="faq-float">
       <i class="fas fa-question"></i>
     </a>
@@ -1192,7 +1194,14 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
               </div>
 
               <button class="button-viajar" onclick="volver()"><i class="fas fa-arrow-circle-left"></i> Volver</button>
-              <button class="button-viajar" onclick="finalizar(1)">Enviar Solicitud <i class="fas fa-paper-plane"></i></button>
+              <?php
+              if($_SESSION['datos_usuario']['DIRECCION'] == ""){
+                echo '<button class="button-viajar" onclick="finalizar(1,1)">Enviar Solicitud <i class="fas fa-paper-plane"></i></button>';
+              }else{
+                echo '<button class="button-viajar" onclick="finalizar(1,2)">Enviar Solicitud <i class="fas fa-paper-plane"></i></button>';
+              }
+              ?>
+              
 
             </div>
 

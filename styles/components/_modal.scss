@@ -1,152 +1,153 @@
-#modal{
-    width: 100%;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: rgba($color: #000000, $alpha: .2);
+#modal {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba($color: #000000, $alpha: 0.2);
 
-    display: none;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  z-index: 50;
+
+  .modal-container {
+    max-width: 400px;
+    width: calc(100% - 40px);
+
+    margin: 20px;
+    padding: 20px;
+
+    position: relative;
+
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 
-    z-index: 30;
+    border-radius: 10px;
+    background-color: #fff;
 
-    .modal-container{
-        max-width: 400px;
-        width: calc(100% - 40px);
+    .close-modal {
+      position: absolute;
+      top: 15px;
+      right: 15px;
 
-        margin: 20px;
-        padding: 20px;
+      width: 30px;
+      height: 30px;
 
-        position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      cursor: pointer;
+      background-color: transparent;
+      border: none;
+
+      transition: 0.2s;
+
+      i {
+        font-size: 1.2em;
+      }
+    }
+    .close-modal:hover {
+      transform: scale(1.1);
+    }
+
+    .modal-img-logo {
+      width: 100%;
+      max-width: 80px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      margin: 10px 20px;
+
+      img {
+        width: 100%;
+      }
+    }
+    .modal-body {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      .title {
+        font-size: 1.5em;
+        color: $main_1;
+      }
+      .msg1 {
+        color: $main_1;
+      }
+      .msg2 {
+        color: #444;
+        font-size: 1.2em;
+      }
+
+      .input {
+        width: 100%;
+        max-width: 300px;
 
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
         flex-direction: column;
+        margin: 10px 20px;
 
-        border-radius: 10px;
-        background-color: #fff;
+        text-align: left;
 
-        .close-modal{
-            position: absolute;
-            top: 15px;
-            right: 15px;
-
-            width: 30px;
-            height: 30px;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            cursor: pointer;
-            background-color: transparent;
-            border: none;
-
-            transition: .2s;
-
-            i{
-                font-size: 1.2em;
-            }
+        .input-title {
+          color: $main_1;
+          font-size: 18px;
         }
-        .close-modal:hover{
-            transform: scale(1.1);
+        .input-desc {
+          color: #777;
+          font-size: 14px;
         }
-
-        .modal-img-logo{
-            width: 100%;
-            max-width: 80px;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            margin: 10px 20px;
-
-            img{
-                width: 100%;
-            }
+        select,
+        input {
+          width: 100%;
+          height: 30px;
+          border: none;
+          color: #777;
+          border-bottom: 1px solid #999;
+          margin: 5px 0;
         }
-        .modal-body{
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            text-align: center;
-            .title{
-                font-size: 1.5em;
-                color: $main_1;
-            }
-            .msg1{
-                color: $main_1;
-            }
-            .msg2{
-                color: #444;
-                font-size: 1.2em;
-            }
+      }
 
-            .input{
-                width: 100%;
-                max-width: 300px;
+      .button-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
 
-                display: flex;
-                justify-content: center;
-                align-items: flex-start;
-                flex-direction: column;
-                margin: 10px 20px;
+        .modal-button {
+          width: 120px;
+          height: 35px;
 
-                text-align: left;
+          display: flex;
+          justify-content: center;
+          align-items: center;
 
-                .input-title{
-                    color: $main_1;
-                    font-size: 18px;
-                }
-                .input-desc{
-                    color: #777;
-                    font-size: 14px;
-                }
-                select,input{
-                    width: 100%;
-                    height: 30px;
-                    border: none;
-                    color: #777;
-                    border-bottom: 1px solid #999;
-                    margin: 5px 0;
-                }
-            }
+          border-radius: 10px;
 
-            .button-wrapper{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-wrap: wrap;
+          margin: 10px;
 
-                .modal-button{
-                    width: 120px;
-                    height: 35px;
+          cursor: pointer;
+          border: none;
+          color: #fff;
+          background-color: $main_1;
 
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-
-                    border-radius: 10px;
-
-                    margin: 10px;
-
-                    cursor: pointer;
-                    border: none;
-                    color: #fff;
-                    background-color: $main_1;
-
-                    i{
-                        margin-right: 10px;
-                    }
-                }
-            }
+          i {
+            margin-right: 10px;
+          }
         }
+      }
     }
+  }
 }

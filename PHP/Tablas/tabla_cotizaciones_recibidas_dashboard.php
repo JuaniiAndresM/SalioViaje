@@ -15,6 +15,7 @@ for ($i = 0; $i < count($datos); $i++) {
         
         $tr = '
         <tr>
+        <td data-title="ID_VIAJE_COTIZADO">'.$datos[$i]["ID_VIAJE_COTIZADO"].'</td>
         <td data-title="ID">'.$datos[$i]["ID"].'</td>
         <td data-title="Reputación">
           <div class="reputacion">
@@ -27,8 +28,8 @@ for ($i = 0; $i < count($datos); $i++) {
         </td>
         <td data-title="Marca / Modelo">'.$datos[$i]["MARCA"].', '.$datos[$i]["MODELO"].'</td>
         <td data-title="Capacidad">'.$datos[$i]["CAPACIDAD"].'</td>
-        <td data-title="Precio">$'.$datos[$i]["PRECIO"].'</td>
-        <td data-title="ID_VIAJE_COTIZADO">'.$datos[$i]["ID_VIAJE_COTIZADO"].'</td>
+        <td data-title="Precio">$'.number_format( $datos[$i]["SENIA"], 0,'','.').'</td>
+        <td data-title="Precio">$'.number_format( $datos[$i]["PRECIO"], 0,'','.').'</td>
         <td>
           <div class="button-wrapper">
             <button class="button" onclick="aceptarCotizacion('.$datos[$i]["ID"].','.$datos[$i]["ID_VIAJE_COTIZADO"].')"><i class="fas fa-dollar-sign"></i></button>
@@ -39,6 +40,7 @@ for ($i = 0; $i < count($datos); $i++) {
     } else {
         $tr = $tr . '
         <tr>
+        <td data-title="ID_VIAJE_COTIZADO">'.$datos[$i]["ID_VIAJE_COTIZADO"].'</td>
         <td data-title="ID">'.$datos[$i]["ID"].'</td>
         <td data-title="Reputación">
           <div class="reputacion">
@@ -51,8 +53,8 @@ for ($i = 0; $i < count($datos); $i++) {
         </td>
         <td data-title="Marca / Modelo">'.$datos[$i]["MARCA"].', '.$datos[$i]["MODELO"].'</td>
         <td data-title="Capacidad">'.$datos[$i]["CAPACIDAD"].'</td>
-        <td data-title="Precio">$'.$datos[$i]["PRECIO"].'</td>
-        <td data-title="ID_VIAJE_COTIZADO">'.$datos[$i]["ID_VIAJE_COTIZADO"].'</td>
+        <td data-title="Precio">$'.number_format( $datos[$i]["SENIA"], 0,'','.').'</td>
+        <td data-title="Precio">$'.number_format( $datos[$i]["PRECIO"], 0,'','.').'</td>
         <td>
           <div class="button-wrapper">
           <button class="button" onclick="aceptarCotizacion('.$datos[$i]["ID"].','.$datos[$i]["ID_VIAJE_COTIZADO"].')"><i class="fas fa-dollar-sign"></i></button>

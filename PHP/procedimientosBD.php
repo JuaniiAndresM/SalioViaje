@@ -1328,13 +1328,13 @@ class procedimientosBD
     public function traer_cotizaciones_recibidas_por_id_solicitante($id){
         $cotizaciones = array();
         $conn = $this->conexion();
-        $query = "SELECT `cotizaciones_presentadas`.ID,Marca,Modelo,Capacidad,PRECIO,ID_VIAJE_COTIZADO FROM `cotizaciones_presentadas`,`vehiculos` where `cotizaciones_presentadas`.MATRICULA = `vehiculos`.Matricula AND ID_VIAJE_COTIZADO in (select ID from `cotizaciones` where ID_SOLICITANTE = $id and ESTADO = 1) and `cotizaciones_presentadas`.visibilidad = 1;";
+        $query = "SELECT `cotizaciones_presentadas`.ID,Marca,Modelo,Capacidad,PRECIO,ID_VIAJE_COTIZADO,SENIA FROM `cotizaciones_presentadas`,`vehiculos` where `cotizaciones_presentadas`.MATRICULA = `vehiculos`.Matricula AND ID_VIAJE_COTIZADO in (select ID from `cotizaciones` where ID_SOLICITANTE = $id and ESTADO = 1) and `cotizaciones_presentadas`.visibilidad = 1;";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($id,$marca, $modelo, $capacidad, $precio, $id_viaje_cotizado);
+            $stmt->bind_result($id,$marca, $modelo, $capacidad, $precio, $id_viaje_cotizado,$senia);
             while ($stmt->fetch()) {
-                $result = array("ID" => $id, "MARCA" => $marca, "MODELO" => $modelo, "CAPACIDAD" => $capacidad, "PRECIO" => $precio, "ID_VIAJE_COTIZADO" => $id_viaje_cotizado);
+                $result = array("ID" => $id, "MARCA" => $marca, "MODELO" => $modelo, "CAPACIDAD" => $capacidad, "PRECIO" => $precio, "ID_VIAJE_COTIZADO" => $id_viaje_cotizado, "SENIA" => $senia);
                 $cotizaciones[] = $result;
             }
         }

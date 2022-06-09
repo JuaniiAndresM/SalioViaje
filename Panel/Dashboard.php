@@ -232,34 +232,36 @@ session_set_cookie_params($ttl);
                           <i class="fas fa-search"></i>
                           <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarUsuarios(1)"/>
                         </div>
-                        <table class="usuarios-table" id="search-table">
-                          <!-- antes:
-                            <tr>
-                              <th>
-                                Nombre <i class="fas fa-angle-down"></i>
-                              </th>
-                              <th>Apellido <i class="fas fa-angle-down"></i></th>
-                              <th>Tipo <i class="fas fa-angle-down"></i></th>
-                              <th>Departamento <i class="fas fa-angle-down"></i></th>
-                              <th>Teléfono <i class="fas fa-angle-down"></i></th>
-                              <th></th>
-                            </tr>
-                          -->
-                          <thead>
-                            <tr>
-                              <th>Tipo <i class="fas fa-angle-down"></i></th>
-                              <th>
-                                Nombre <i class="fas fa-angle-down"></i>
-                              </th>
-                              <th>Apellido <i class="fas fa-angle-down"></i></th>
-                              <th>Departamento <i class="fas fa-angle-down"></i></th>
-                              <th>Teléfono <i class="fas fa-angle-down"></i></th>
-                              <th></th>
-                            </tr>
-                          </thead>
-                          <tbody id="tbody-usuarios" class="act">
-                          </tbody>
-                        </table>
+                        <div class="table-container">
+                          <table class="usuarios-table" id="search-table">
+                            <!-- antes:
+                              <tr>
+                                <th>
+                                  Nombre <i class="fas fa-angle-down"></i>
+                                </th>
+                                <th>Apellido <i class="fas fa-angle-down"></i></th>
+                                <th>Tipo <i class="fas fa-angle-down"></i></th>
+                                <th>Departamento <i class="fas fa-angle-down"></i></th>
+                                <th>Teléfono <i class="fas fa-angle-down"></i></th>
+                                <th></th>
+                              </tr>
+                            -->
+                            <thead>
+                              <tr>
+                                <th>Tipo <i class="fas fa-angle-down"></i></th>
+                                <th>
+                                  Nombre <i class="fas fa-angle-down"></i>
+                                </th>
+                                <th>Apellido <i class="fas fa-angle-down"></i></th>
+                                <th>Departamento <i class="fas fa-angle-down"></i></th>
+                                <th>Teléfono <i class="fas fa-angle-down"></i></th>
+                                <th></th>
+                              </tr>
+                            </thead>
+                            <tbody id="tbody-usuarios" class="act">
+                            </tbody>
+                          </table>
+                        </div>
                       </div>
 
                     </div>
@@ -320,23 +322,29 @@ session_set_cookie_params($ttl);
                                 <a href="Viajes"><i class="fas fa-list-ul"></i></a>
                               </div>
                             </div>
-                            <table class="usuarios-table" id="search-table-agenda">
-                              <thead>
-                                <tr>
-                                  <th>ID <i class="fas fa-angle-down"></i></th>
-                                  <th>
-                                    Origen <i class="fas fa-angle-down"></i>
-                                  </th>
-                                  <th>Destino <i class="fas fa-angle-down"></i></th>
-                                  <th>Fecha <i class="fas fa-angle-down"></i></th>
-                                  <th>Estado <i class="fas fa-angle-down"></i></th>
-                                  <th>Modalidad <i class="fas fa-angle-down"></i></th>
-                                  <th></th>
-                                </tr>
-                              </thead>
-                              <tbody id="tbody-viajes-dashboard">
-                              </tbody>
-                            </table>
+                            <div class="search">
+                              <i class="fas fa-search"></i>
+                              <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarUsuarios(5)"/>
+                            </div>
+                            <div class="table-container">
+                              <table class="usuarios-table" id="search-table-agenda">
+                                <thead>
+                                  <tr>
+                                    <th>ID <i class="fas fa-angle-down"></i></th>
+                                    <th>
+                                      Origen <i class="fas fa-angle-down"></i>
+                                    </th>
+                                    <th>Destino <i class="fas fa-angle-down"></i></th>
+                                    <th>Fecha <i class="fas fa-angle-down"></i></th>
+                                    <th>Estado <i class="fas fa-angle-down"></i></th>
+                                    <th>Modalidad <i class="fas fa-angle-down"></i></th>
+                                    <th></th>
+                                  </tr>
+                                </thead>
+                                <tbody id="tbody-viajes-dashboard">
+                                </tbody>
+                              </table>
+                            </div>
                             <div class="empty-table" id="empty-viajes">
                               <p><i class="fas fa-info-circle"></i> No hay viajes pendientes.</p>
                             </div>
@@ -349,26 +357,30 @@ session_set_cookie_params($ttl);
                                 <a href="Cotizaciones"><i class="fas fa-list-ul"></i></a>
                               </div>
                             </div>
+                            <div class="search">
+                              <i class="fas fa-search"></i>
+                              <input type="text" placeholder="Buscar" id="searchbar-2" onkeyup="buscarUsuarios(9,-2)"/>
+                            </div>
+                            <div class="table-container">
+                              <table class="usuarios-table" id="cotz-pres" style="display: none;">
+                                <thead>
+                                  <tr>
+                                    <th>ID <i class="fas fa-angle-down"></i></th>
+                                    <th>
+                                      Origen <i class="fas fa-angle-down"></i>
+                                    </th>
+                                    <th>Destino <i class="fas fa-angle-down"></i></th>
+                                    <th>Fecha <i class="fas fa-angle-down"></i></th>
+                                    <th>Viaje <i class="fas fa-angle-down"></i></th>
+                                    <th>Estado <i class="fas fa-angle-down"></i></th>
+                                    <th></th>
+                                  </tr>
+                                </thead>
+                                <tbody id="tbody-cotizaciones-dashboard">
 
-                            <table class="usuarios-table" id="cotz-pres" style="display: none;">
-                              <thead>
-                                <tr>
-                                  <th>ID <i class="fas fa-angle-down"></i></th>
-                                  <th>
-                                    Origen <i class="fas fa-angle-down"></i>
-                                  </th>
-                                  <th>Destino <i class="fas fa-angle-down"></i></th>
-                                  <th>Fecha <i class="fas fa-angle-down"></i></th>
-                                  <th>Viaje <i class="fas fa-angle-down"></i></th>
-                                  <th>Estado <i class="fas fa-angle-down"></i></th>
-                                  <th></th>
-                                </tr>
-                              </thead>
-                              <tbody id="tbody-cotizaciones-dashboard">
-
-                              </tbody>
-                            </table>
-
+                                </tbody>
+                              </table>
+                            </div>
                             <div class="empty-table" id="empty-cotiz-pres">
                               <p><i class="fas fa-info-circle"></i> No hay cotizaciones presentadas.</p>
                             </div>
@@ -378,22 +390,29 @@ session_set_cookie_params($ttl);
                             <div class="usuarios-info">
                               <h2><i class="fas fa-hand-holding-dollar"></i> Cotizaciones Recibidas ( <i class="fas fa-hammer"></i> )</h2>
                             </div>
-                            <table class="usuarios-table" id="cotz-reci" style="display: none;">
-                              <thead>
-                                <tr>
-                                  <th>ID <i class="fas fa-angle-down"></i></th>
-                                  <th>Reputación <i class="fas fa-angle-down"></i></th>
-                                  <th>Marca / Modelo <i class="fas fa-angle-down"></i></th>
-                                  <th>Capacidad <i class="fas fa-angle-down"></i></th>
-                                  <th>Precio <i class="fas fa-angle-down"></i></th>
-                                  <th>Viaje <i class="fas fa-angle-down"></i></th>
-                                  <th></th>
-                                </tr>
-                              </thead>
-                              <tbody id="tbody-cotizaciones-dashboard">
+                            <div class="search">
+                              <i class="fas fa-search"></i>
+                              <input type="text" placeholder="Buscar" id="searchbar-3" onkeyup="buscarUsuarios(10,-3)"/>
+                            </div>
+                            <div class="table-container">
+                              <table class="usuarios-table" id="cotz-reci" style="display: none;">
+                                <thead>
+                                  <tr>
+                                    <th>ID Viaje<i class="fas fa-angle-down"></i></th>
+                                    <th>ID Cotización<i class="fas fa-angle-down"></i></th>
+                                    <th>Reputación <i class="fas fa-angle-down"></i></th>
+                                    <th>Marca / Modelo <i class="fas fa-angle-down"></i></th>
+                                    <th>Capacidad <i class="fas fa-angle-down"></i></th>
+                                    <th>Seña <i class="fas fa-angle-down"></i></th>
+                                    <th>Precio <i class="fas fa-angle-down"></i></th>
+                                    <th></th>
+                                  </tr>
+                                </thead>
+                                <tbody id="tbody-cotizaciones-dashboard">
 
-                              </tbody>
-                            </table>
+                                </tbody>
+                              </table>
+                            </div>
                             <div class="empty-table" id="empty-cotiz-reci">
                               <p><i class="fas fa-info-circle"></i> No hay cotizaciones recibidas.</p>
                             </div>
@@ -459,23 +478,29 @@ session_set_cookie_params($ttl);
                       <a href="Viajes"><i class="fas fa-list-ul"></i></a>
                     </div>
                   </div>
-                  <table class="usuarios-table" id="search-table-agenda">
-                    <thead>
-                      <tr>
-                        <th>ID <i class="fas fa-angle-down"></i></th>
-                        <th>
-                          Origen <i class="fas fa-angle-down"></i>
-                        </th>
-                        <th>Destino <i class="fas fa-angle-down"></i></th>
-                        <th>Fecha <i class="fas fa-angle-down"></i></th>
-                        <th>Estado <i class="fas fa-angle-down"></i></th>
-                        <th>Modalidad <i class="fas fa-angle-down"></i></th>
-                        <th></th>
-                      </tr>
-                    </thead>
-                    <tbody id="tbody-viajes-dashboard">
-                    </tbody>
-                  </table>
+                  <div class="search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarUsuarios(5)"/>
+                  </div>
+                  <div class="table-container">
+                    <table class="usuarios-table" id="search-table-agenda">
+                      <thead>
+                        <tr>
+                          <th>ID <i class="fas fa-angle-down"></i></th>
+                          <th>
+                            Origen <i class="fas fa-angle-down"></i>
+                          </th>
+                          <th>Destino <i class="fas fa-angle-down"></i></th>
+                          <th>Fecha <i class="fas fa-angle-down"></i></th>
+                          <th>Estado <i class="fas fa-angle-down"></i></th>
+                          <th>Modalidad <i class="fas fa-angle-down"></i></th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody id="tbody-viajes-dashboard">
+                      </tbody>
+                    </table>
+                  </div>
                   <div class="empty-table" id="empty-viajes">
                     <p><i class="fas fa-info-circle"></i> No hay viajes pendientes.</p>
                   </div>
@@ -538,21 +563,28 @@ session_set_cookie_params($ttl);
                                 <a href="Cotizaciones"><i class="fas fa-list-ul"></i></a>
                               </div>
                             </div>
-                            <table class="usuarios-table" style="display: none;">
-                              <thead>
-                                <tr>
-                                  <th>ID <i class="fas fa-angle-down"></i></th>
-                                  <th>Reputación <i class="fas fa-angle-down"></i></th>
-                                  <th>Marca / Modelo <i class="fas fa-angle-down"></i></th>
-                                  <th>Capacidad <i class="fas fa-angle-down"></i></th>
-                                  <th>Precio <i class="fas fa-angle-down"></i></th>
-                                  <th>Viaje <i class="fas fa-angle-down"></i></th>
-                                  <th></th>
-                                </tr>
-                              </thead>
-                              <tbody id="tbody-viajes-dashboard">
-                              </tbody>
-                            </table>
+                            <div class="search">
+                              <i class="fas fa-search"></i>
+                              <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarUsuarios(10)"/>
+                            </div>
+                            <div class="table-container">
+                              <table class="usuarios-table" id="cotz-reci" style="display: none;">
+                                <thead>
+                                  <tr>
+                                    <th>ID Viaje<i class="fas fa-angle-down"></i></th>
+                                    <th>ID Cotización<i class="fas fa-angle-down"></i></th>
+                                    <th>Reputación <i class="fas fa-angle-down"></i></th>
+                                    <th>Marca / Modelo <i class="fas fa-angle-down"></i></th>
+                                    <th>Capacidad <i class="fas fa-angle-down"></i></th>
+                                    <th>Seña <i class="fas fa-angle-down"></i></th>
+                                    <th>Precio <i class="fas fa-angle-down"></i></th>
+                                    <th></th>
+                                  </tr>
+                                </thead>
+                                <tbody id="tbody-viajes-dashboard">
+                                </tbody>
+                              </table>
+                            </div>
                             <div class="empty-table" id="empty-cotiz-reci">
                               <p><i class="fas fa-info-circle"></i> No hay cotizaciones recibidas.</p>
                             </div>
@@ -614,21 +646,28 @@ session_set_cookie_params($ttl);
                                 <a href="Cotizaciones"><i class="fas fa-list-ul"></i></a>
                               </div>
                             </div>
-                            <table class="usuarios-table" style="display: none;">
-                              <thead>
-                                <tr>
-                                  <th>ID <i class="fas fa-angle-down"></i></th>
-                                  <th>Reputación <i class="fas fa-angle-down"></i></th>
-                                  <th>Marca / Modelo <i class="fas fa-angle-down"></i></th>
-                                  <th>Capacidad <i class="fas fa-angle-down"></i></th>
-                                  <th>Precio <i class="fas fa-angle-down"></i></th>
-                                  <th>Viaje <i class="fas fa-angle-down"></i></th>
-                                  <th></th>
-                                </tr>
-                              </thead>
-                              <tbody id="tbody-viajes-dashboard">
-                              </tbody>
-                            </table>
+                            <div class="search">
+                              <i class="fas fa-search"></i>
+                              <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarUsuarios(10)"/>
+                            </div>
+                            <div class="table-container">
+                              <table class="usuarios-table" id="cotz-reci" style="display: none;">
+                                <thead>
+                                  <tr>
+                                    <th>ID Viaje<i class="fas fa-angle-down"></i></th>
+                                    <th>ID Cotización<i class="fas fa-angle-down"></i></th>
+                                    <th>Reputación <i class="fas fa-angle-down"></i></th>
+                                    <th>Marca / Modelo <i class="fas fa-angle-down"></i></th>
+                                    <th>Capacidad <i class="fas fa-angle-down"></i></th>
+                                    <th>Seña <i class="fas fa-angle-down"></i></th>
+                                    <th>Precio <i class="fas fa-angle-down"></i></th>
+                                    <th></th>
+                                  </tr>
+                                </thead>
+                                <tbody id="tbody-viajes-dashboard">
+                                </tbody>
+                              </table>
+                            </div>
                             <div class="empty-table" id="empty-cotiz-reci">
                               <p><i class="fas fa-info-circle"></i> No hay cotizaciones recibidas.</p>
                             </div>
@@ -680,17 +719,20 @@ session_set_cookie_params($ttl);
                         <p>Ofertas Compradas</p>
                       </div>
                     </div>
-                    <div class="panel-tables">
-                      <div>
-
-                        <div class="usuarios-recientes">
-                          <div class="usuarios-info">
-                            <h2><i class="fas fa-bus"></i> Mis Viajes</h2>
-                            <div class="button-wrapper">
-                              <a href="https://www.salioviaje.com.uy/Viajar/?opcion=5" class="add"><i class="fas fa-plus"></i></a>
-                              <a href="Viajes"><i class="fas fa-list-ul"></i></a>
-                            </div>
+                    <div class="panel-tables-2">
+                      <div class="usuarios-recientes">
+                        <div class="usuarios-info">
+                          <h2><i class="fas fa-bus"></i> Mis Viajes</h2>
+                          <div class="button-wrapper">
+                            <a href="https://www.salioviaje.com.uy/Viajar/?opcion=5" class="add"><i class="fas fa-plus"></i></a>
+                            <a href="Viajes"><i class="fas fa-list-ul"></i></a>
                           </div>
+                        </div>
+                        <div class="search">
+                          <i class="fas fa-search"></i>
+                          <input type="text" placeholder="Buscar" id="searchbar" onkeyup="buscarUsuarios(5)"/>
+                        </div>
+                        <div class="table-container">
                           <table class="viajes-table" id="search-table-agenda">
                             <thead>
                               <tr>
@@ -700,34 +742,45 @@ session_set_cookie_params($ttl);
                                 </th>
                                 <th>Destino <i class="fas fa-angle-down"></i></th>
                                 <th>Fecha <i class="fas fa-angle-down"></i></th>
-                                <th>Estado <i class="fas fa-angle-down"></i></th>
+                                <th>Hora <i class="fas fa-angle-down"></i></th>
+                                <th>Cantidad Pasajeros <i class="fas fa-angle-down"></i></th>
                                 <th>Modalidad <i class="fas fa-angle-down"></i></th>
-                                <th></th>
+                                <th>Estado <i class="fas fa-angle-down"></i></th>
+                                <th>Precio <i class="fas fa-angle-down"></i></th>
+                                <th>Nombre <i class="fas fa-angle-down"></i></th>
+                                <th>Contacto <i class="fas fa-angle-down"></i></th>
                               </tr>
                             </thead>
                             <tbody id="tbody-viajes-dashboard"></tbody>
                           </table>
-                          <div class="empty-table" id="empty-viajes">
-                              <p><i class="fas fa-info-circle"></i> No hay viajes pendientes.</p>
+                        </div>
+                        <div class="empty-table" id="empty-viajes">
+                            <p><i class="fas fa-info-circle"></i> No hay viajes pendientes.</p>
+                        </div>
+                      </div>
+
+                      <div class="usuarios-recientes">
+                        <div class="usuarios-info">
+                          <h2><i class="fas fa-hand-holding-dollar"></i> Cotizaciones Recibidas ( <i class="fas fa-hammer"></i> )</h2>
+                          <div class="button-wrapper">
+                            <a href="Cotizaciones"><i class="fas fa-list-ul"></i></a>
                           </div>
                         </div>
-
-                        <div class="usuarios-recientes">
-                          <div class="usuarios-info">
-                            <h2><i class="fas fa-hand-holding-dollar"></i> Cotizaciones Recibidas ( <i class="fas fa-hammer"></i> )</h2>
-                            <div class="button-wrapper">
-                              <a href="Cotizaciones"><i class="fas fa-list-ul"></i></a>
-                            </div>
-                          </div>
-                          <table class="usuarios-table" style="display: none;">
+                        <div class="search">
+                          <i class="fas fa-search"></i>
+                          <input type="text" placeholder="Buscar" id="searchbar-2" onkeyup="buscarUsuarios(10,-2)"/>
+                        </div>
+                        <div class="table-container">
+                          <table class="usuarios-table" id="cotz-reci" style="display: none;">
                             <thead>
                               <tr>
-                                <th>ID <i class="fas fa-angle-down"></i></th>
+                                <th>ID Viaje<i class="fas fa-angle-down"></i></th>
+                                <th>ID Cotización<i class="fas fa-angle-down"></i></th>
                                 <th>Reputación <i class="fas fa-angle-down"></i></th>
                                 <th>Marca / Modelo <i class="fas fa-angle-down"></i></th>
                                 <th>Capacidad <i class="fas fa-angle-down"></i></th>
+                                <th>Seña <i class="fas fa-angle-down"></i></th>
                                 <th>Precio <i class="fas fa-angle-down"></i></th>
-                                <th>Viaje <i class="fas fa-angle-down"></i></th>
                                 <th></th>
                               </tr>
                             </thead>
@@ -735,11 +788,10 @@ session_set_cookie_params($ttl);
 
                             </tbody>
                           </table>
-                          <div class="empty-table" id="empty-cotiz-reci">
-                              <p><i class="fas fa-info-circle"></i> No hay cotizaciones recibidas.</p>
-                          </div>
                         </div>
-
+                        <div class="empty-table" id="empty-cotiz-reci">
+                            <p><i class="fas fa-info-circle"></i> No hay cotizaciones recibidas.</p>
+                        </div>
                       </div>
                     </div>
                   </section>'; 
