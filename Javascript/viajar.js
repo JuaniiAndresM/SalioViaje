@@ -752,6 +752,8 @@ function vaciar_paradas() {
 function volver() {
     step--;
     steps(step);
+
+    $('#select_users').val(0)
 }
 
 function steps(step) {
