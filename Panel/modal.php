@@ -89,6 +89,30 @@ switch($opcion){
                 </div>
             </div>
         </div>';
+        break;
+    case 3:
+        $mensaje_1 = "¿Son estos los datos de su domicilio?";
+        $mensaje_2 = $data[0].', '.$data[1].', '.$data[2];
+        $modal_body = '
+        <div class="modal-container">
+            <button class="close-modal" onclick="closeModal()"><i class="fas fa-xmark"></i></button>
+            <div class="modal-img-logo">
+                <img src="https://www.salioviaje.com.uy/media/svg/Logo-SalioViaje.svg" alt="Logo SalióViaje">
+            </div>
+            <div class="modal-body">
+                <p class="msg1">'.$mensaje_1.'</p>
+                <p class="msg2">'.$mensaje_2.'</p>
+                <div class="button-wrapper">
+                    <button class="modal-button" onclick="finalizar(1,2)">
+                    <i class="fa-solid fa-check"></i> Si
+                    </button>
+                    <button class="modal-button" onclick="finalizar(1,2)">
+                        <i class="fa-solid fa-xmark"></i> No
+                    </button>
+                </div>
+            </div>
+        </div>';
+        break;
 }
 
 

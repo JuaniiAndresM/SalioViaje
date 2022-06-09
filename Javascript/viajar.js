@@ -94,269 +94,56 @@ function next() {
     steps(step);
 }
 
-function finalizar(enviar_solicitud) {
-    tipo = $('#select_users').val();
-    switch (tipo) {
-        /* 
-        Traslado        
-        */
-        case "1": default:
-            datos_traslado = {
-                "FECHA_SALIDA": $('#fecha_salida').val(),
-                "DIRECCION_ORIGEN": $('#direccion_traslado_origen').val(),
-                "BARRIO_ORIGEN": $('#barrio_traslado_origen').val(),
-                "LOCALIDAD_ORIGEN": $('#localidad_traslado_origen').val(),
-                "DIRECCION_DESTINO": $('#direccion_traslado_destino').val(),
-                "BARRIO_DESTINO": $('#barrio_traslado_destino').val(),
-                "LOCALIDAD_DESTINO": $('#localidad_traslado_destino').val(),
-                "MASCOTAS": $('#mascotas_traslado').val(),
-                "CANTIDAD_PASAJEROS": $('#cant_pasajeros').val(),
-                "HORA": $('#hora').val(),
-                "OBSERVACIONES": $('#observaciones_traslado').val()
-            };
-
-            if (validacion('Translado', datos_traslado)) {
-                if (verificar_fechas(datos_traslado['FECHA_SALIDA'], null, 0, datos_traslado['HORA'])) {
-                    if (enviar_solicitud == 1) {
-                        guardar_cotizacion(datos_traslado, array_paradas_1, 0, "traslados");
-                        next();
-
-                        setTimeout(() => {
-                            $.ajax({
-                                type: "POST",
-                                url: "/Mail/mail-SalioViaje.php",
-                                data: { COTIZACION: id_cotizacion, TIPO: "Traslado", DATA: JSON.stringify(datos_traslado), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
-                                success: function () {
-                                    console.log("se ejecuta")
-                                },
-                                complete: function (response) {
-                                    if (response.responseText == 1) {
-                                        step++;
-                                        steps(step);
-                                        vaciar_paradas()
-                                    } else {
-                                        console.log(response);
-                                    }
-                                }
-                            });
-                        }, 1000);
-
-
-                    }
-                } else {
-                    $(".mensaje-error").show();
-                    $(".mensaje-error").text("No puedes poner una fecha anterior a la actual.");
+function finalizar(enviar_solicitud,modal) {
+    switch (modal) {
+        case 1:
+            $.ajax({
+                type: "POST",
+                url: "https://www.salioviaje.com.uy/Panel/modal.php",
+                data: { opcion: 3, data: data},
+                success: function (response) {
+                    console.log(response);
+                    $('#modal').css('display','flex');
+                    $('#modal').html(response);        
                 }
-            } else { console.log("No valido") }
-
+            });
             break;
-
-        /* 
-        Tour        
-        */
-        case "2":
-            datos_tour = {
-                "FECHA_SALIDA": $('#fecha_salida_tour').val(),
-                "DIRECCION_SALIDA_TOUR": $('#direccion_salida_tour').val(),
-                "BARRIO_TOUR": $('#barrio_barrios').val(),
-                "LOCALIDAD_TOUR": $('#localidad_tour').val(),
-                "CANTIDAD_PASAJEROS": $('#cant_pasajeros_tour').val(),
-                "HORA": $('#hora_tour').val(),
-                "CIUDAD": $('#destino_tour').val(),
-                "DURACION": $('#duracion_tour').val(),
-                "MASCOTA": $('#mascota_tour').val(),
-                "OBSERVACIONES": $('#observaciones_tour').val()
-            };
-
-            if (validacion('Tour', datos_tour)) {
-                if (verificar_fechas(datos_tour['FECHA_SALIDA'], null, 0, datos_tour['HORA'])) {
-                    if (enviar_solicitud == 1) {
-                        guardar_cotizacion(datos_tour, array_paradas_1, 0, "tour");
-                        next();
-                        setTimeout(() => {
-                            $.ajax({
-                                type: "POST",
-                                url: "/Mail/mail-SalioViaje.php",
-                                data: { COTIZACION: id_cotizacion, TIPO: "Tour o Servicio por Hora", DATA: JSON.stringify(datos_tour), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
-                                success: function (response) {
-
-                                },
-                                complete: function (response) {
-                                    if (response.responseText == 1) {
-                                        step++;
-                                        steps(step);
-                                        vaciar_paradas();
-                                    } else {
-                                        console.log(response);
-                                    }
-                                }
-                            });
-                        }, 1000);
-
-
-                    }
-                } else {
-                    $(".mensaje-error").show();
-                    $(".mensaje-error").text("No puedes poner una fecha anterior a la actual.");
-                }
-            } else {
-                console.log("No valido");
-            }
-            break;
-
-        /* 
-        Transfer        
-        */
-        case "3":
-            var tipo_transfer = $('#select_transfer').val();
-            var transfer;
-
-            switch (tipo_transfer) {
-                case "1":
-                    transfer = "Transfer In";
-                    datos_transfer_in = {
-                        "TIPO_TRANSFER": transfer,
-                        "FECHA_ARRIBO": $('#fecha_regreso_transfer_in').val(),
-                        "CANTIDAD_PASAJEROS": $('#cant_pasajeros_transfer_in').val(),
-                        "HORA": $('#hora_transfer_in').val(),
-                        "DIRECCION_DESTINO": $('#direccion_transfer_in').val(),
-                        "BARRIO_DESTINO": $('#barrio_transfer_in').val(),
-                        "LOCALIDAD_DESTINO": $('#localidad_transfer_in').val(),
-                        "PUNTO_ORIGEN": $('#aeropuerto_transfer_in').val(),
-                        "EQUIPAJE": $('#equipaje_transfer_in').val(),
-                        "MASCOTAS": $('#mascotas_transfer_in').val(),
-                        "OBSERVACIONES": $('#observaciones_transfer_in').val(),
-                        "NRO_VUELO_BARCO": $('#nro_vuelo_barco_in').val()
-                    };
-
-                    if (validacion('Transfer_in', datos_transfer_in)) {
-                        if (verificar_fechas(datos_transfer_in['FECHA_ARRIBO'], null, 0, datos_transfer_in['HORA'])) {
-                            if (enviar_solicitud == 1) {
-                                guardar_cotizacion(datos_transfer_in, array_paradas_1, 0, "transferIn");
-                                next();
-                                setTimeout(() => {
-                                    $.ajax({
-                                        type: "POST",
-                                        url: "/Mail/mail-SalioViaje.php",
-                                        data: { COTIZACION: id_cotizacion, TIPO: "Transfer de Arribo", DATA: JSON.stringify(datos_transfer_in), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
-                                        success: function (response) {
-
-                                        },
-                                        complete: function (response) {
-                                            if (response.responseText == 1) {
-                                                step++;
-                                                steps(step);
-                                                vaciar_paradas()
-                                            } else {
-                                                console.log(response);
-                                            }
-                                        }
-                                    });
-                                }, 1000);
-
-
-                            }
-                        } else {
-                            $(".mensaje-error").show();
-                            $(".mensaje-error").text("No puedes poner una fecha anterior a la actual.");
-                        }
-                    } else {
-                        console.log("No valido");
-                    }
-                    break;
-
-                case "2":
-                    transfer = "Transfer Out";
-                    datos_transfer_out = {
-                        "TIPO_TRANSFER": transfer,
-                        "FECHA_PARTIDA": $('#fecha_salida_transfer_out').val(),
-                        "CANTIDAD_PASAJEROS": $('#cant_pasajeros_transfer_out').val(),
-                        "HORA": $('#hora_transfer_out').val(),
-                        "DIRECCION_ORIGEN": $('#direccion_transfer_out').val(),
-                        "BARRIO_ORIGEN": $('#barrio_transfer_out').val(),
-                        "LOCALIDAD_ORIGEN": $('#localidad_transfer_out').val(),
-                        "PUNTO_DESTINO": $('#aeropuerto_transfer_out').val(),
-                        "EQUIPAJE": $('#equipaje_transfer_out').val(),
-                        "MASCOTAS": $('#mascotas_transfer_out').val(),
-                        "OBSERVACIONES": $('#observaciones_transfer_out').val(),
-                        "NRO_VUELO_BARCO": $('#nro_vuelo_barco_out').val()
-                    };
-
-                    if (validacion('Transfer_out', datos_transfer_out)) {
-                        if (verificar_fechas(datos_transfer_out['FECHA_PARTIDA'], null, 0, datos_transfer_out['HORA'])) {
-                            if (enviar_solicitud == 1) {
-                                guardar_cotizacion(datos_transfer_out, array_paradas_1, 0, "transferOut");
-                                next();
-                                setTimeout(() => {
-                                    $.ajax({
-                                        type: "POST",
-                                        url: "/Mail/mail-SalioViaje.php",
-                                        data: { COTIZACION: id_cotizacion, TIPO: "Transfer de Partida", DATA: JSON.stringify(datos_transfer_out), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
-                                        success: function (response) {
-
-                                        },
-                                        complete: function (response) {
-                                            if (response.responseText == 1) {
-                                                step++;
-                                                steps(step);
-                                                vaciar_paradas()
-                                            } else {
-                                                console.log(response);
-                                            }
-                                        }
-                                    });
-                                }, 1000);
-
-
-                            }
-                        } else {
-                            $(".mensaje-error").show();
-                            $(".mensaje-error").text("No puedes poner una fecha anterior a la actual.");
-                        }
-                    } else {
-                        console.log("No valido");
-                    }
-                    break;
-            }
-            break;
-
-        /* 
-        Fiestas y Eventos        
-        */
-        case "4":
-            var tramos = $('#select_fiesta').val();
-            var fiestas;
-            console.log(array_paradas_1)
-            console.log(array_paradas_2)
-            switch (tramos) {
+        case 2:
+            $('#modal').hide();
+            $('#modal').html("");
+            tipo = $('#select_users').val();
+            switch (tipo) {
+                /* 
+                Traslado        
+                */
                 case "1": default:
-                    fiestas = "Solo Ida";
-                    datos_fiestaseventos_ida = {
-                        "TRAMOS_FIESTA": fiestas,
-                        "FECHA_SALIDA": $('#fecha_salida_fiestas_ida').val(),
-                        "DIRECCION_ORIGEN": $('#direccion_fiestas_ida').val(),
-                        "BARRIO_ORIGEN": $('#barrio_fiestas_ida').val(),
-                        "LOCALIDAD_ORIGEN": $('#localidad_fiestas_ida').val(),
-                        "PUNTO_DESTINO": $('#destino_fiesta_ida').val(),
-                        "BARRIO_DESTINO": $('#fiestasida_origen_barrios').val(),
-                        "CANTIDAD_PASAJEROS_IDA": $('#cant_pasajeros_fiesta_ida').val(),
-                        "HORA": $('#hora_fiesta_ida').val(),
-                        "MASCOTAS": $('#mascotas_fiestas_ida').val(),
-                        "OBSERVACIONES": $('#observaciones_fiesta_ida').val()
+                    datos_traslado = {
+                        "FECHA_SALIDA": $('#fecha_salida').val(),
+                        "DIRECCION_ORIGEN": $('#direccion_traslado_origen').val(),
+                        "BARRIO_ORIGEN": $('#barrio_traslado_origen').val(),
+                        "LOCALIDAD_ORIGEN": $('#localidad_traslado_origen').val(),
+                        "DIRECCION_DESTINO": $('#direccion_traslado_destino').val(),
+                        "BARRIO_DESTINO": $('#barrio_traslado_destino').val(),
+                        "LOCALIDAD_DESTINO": $('#localidad_traslado_destino').val(),
+                        "MASCOTAS": $('#mascotas_traslado').val(),
+                        "CANTIDAD_PASAJEROS": $('#cant_pasajeros').val(),
+                        "HORA": $('#hora').val(),
+                        "OBSERVACIONES": $('#observaciones_traslado').val()
                     };
 
-                    if (validacion('FIESTA-IDA', datos_fiestaseventos_ida)) {
-                        if (verificar_fechas(datos_fiestaseventos_ida['FECHA_SALIDA'], null, 0, datos_fiestaseventos_ida["HORA"])) {
+                    if (validacion('Translado', datos_traslado)) {
+                        if (verificar_fechas(datos_traslado['FECHA_SALIDA'], null, 0, datos_traslado['HORA'])) {
                             if (enviar_solicitud == 1) {
-                                guardar_cotizacion(datos_fiestaseventos_ida, array_paradas_1, 0, "fiestasIda");
+                                guardar_cotizacion(datos_traslado, array_paradas_1, 0, "traslados");
                                 next();
+
                                 setTimeout(() => {
                                     $.ajax({
                                         type: "POST",
                                         url: "/Mail/mail-SalioViaje.php",
-                                        data: { COTIZACION: id_cotizacion, TIPO: "Fiesta o Evento - Ida", DATA: JSON.stringify(datos_fiestaseventos_ida), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
-                                        success: function (response) {
-
+                                        data: { COTIZACION: id_cotizacion, TIPO: "Traslado", DATA: JSON.stringify(datos_traslado), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
+                                        success: function () {
+                                            console.log("se ejecuta")
                                         },
                                         complete: function (response) {
                                             if (response.responseText == 1) {
@@ -370,43 +157,43 @@ function finalizar(enviar_solicitud) {
                                     });
                                 }, 1000);
 
-                                console.log(datos_fiestaseventos_ida)
 
                             }
                         } else {
                             $(".mensaje-error").show();
                             $(".mensaje-error").text("No puedes poner una fecha anterior a la actual.");
                         }
-                    } else {
-                        console.log("No valido")
-                    }
+                    } else { console.log("No valido") }
+
                     break;
+
+                /* 
+                Tour        
+                */
                 case "2":
-                    fiestas = "Solo Vuelta";
-                    datos_fiestaseventos_vuelta = {
-                        "TRAMOS_FIESTA": fiestas,
-                        "FECHA_REGRESO": $('#fecha_regreso_fiestas_vuelta').val(),
-                        "DIRECCION_DESTINO": $('#direccion_fiesta_vuelta').val(),
-                        "BARRIO_DESTINO": $('#barrio_fiesta_vuelta').val(),
-                        "LOCALIDAD_DESTINO": $('#localidad_fiesta_vuelta').val(),
-                        "PUNTO_ORIGEN": $('#origen_fiestas_vuelta').val(),
-                        "BARRIO_ORIGEN": $('#fiestasvuelta_origen_barrios').val(),
-                        "CANTIDAD_PASAJEROS_VUELTA": $('#cant_pasajeros_fiesta_vuelta').val(),
-                        "HORA": $('#hora_fiesta_vuelta').val(),
-                        "MASCOTAS": $('#mascotas_fiestas_vuelta').val(),
-                        "OBSERVACIONES": $('#observaciones_fiesta_vuelta').val()
+                    datos_tour = {
+                        "FECHA_SALIDA": $('#fecha_salida_tour').val(),
+                        "DIRECCION_SALIDA_TOUR": $('#direccion_salida_tour').val(),
+                        "BARRIO_TOUR": $('#barrio_barrios').val(),
+                        "LOCALIDAD_TOUR": $('#localidad_tour').val(),
+                        "CANTIDAD_PASAJEROS": $('#cant_pasajeros_tour').val(),
+                        "HORA": $('#hora_tour').val(),
+                        "CIUDAD": $('#destino_tour').val(),
+                        "DURACION": $('#duracion_tour').val(),
+                        "MASCOTA": $('#mascota_tour').val(),
+                        "OBSERVACIONES": $('#observaciones_tour').val()
                     };
 
-                    if (validacion('FIESTA-VUELTA', datos_fiestaseventos_vuelta)) {
-                        if (verificar_fechas(datos_fiestaseventos_vuelta['FECHA_REGRESO'], null, 0, datos_fiestaseventos_vuelta['HORA'])) {
+                    if (validacion('Tour', datos_tour)) {
+                        if (verificar_fechas(datos_tour['FECHA_SALIDA'], null, 0, datos_tour['HORA'])) {
                             if (enviar_solicitud == 1) {
-                                guardar_cotizacion(datos_fiestaseventos_vuelta, 0, array_paradas_2, "fiestasVuelta");
+                                guardar_cotizacion(datos_tour, array_paradas_1, 0, "tour");
                                 next();
                                 setTimeout(() => {
                                     $.ajax({
                                         type: "POST",
                                         url: "/Mail/mail-SalioViaje.php",
-                                        data: { COTIZACION: id_cotizacion, TIPO: "Fiesta o Evento - Vuelta", DATA: JSON.stringify(datos_fiestaseventos_vuelta), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
+                                        data: { COTIZACION: id_cotizacion, TIPO: "Tour o Servicio por Hora", DATA: JSON.stringify(datos_tour), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
                                         success: function (response) {
 
                                         },
@@ -414,16 +201,14 @@ function finalizar(enviar_solicitud) {
                                             if (response.responseText == 1) {
                                                 step++;
                                                 steps(step);
-                                                vaciar_paradas()
+                                                vaciar_paradas();
                                             } else {
-                                                console.log(response.responseText);
+                                                console.log(response);
                                             }
                                         }
                                     });
                                 }, 1000);
 
-                                console.log(datos_fiestaseventos_ida)
-                                console.log(array_paradas_2)
 
                             }
                         } else {
@@ -434,81 +219,316 @@ function finalizar(enviar_solicitud) {
                         console.log("No valido");
                     }
                     break;
+
+                /* 
+                Transfer        
+                */
                 case "3":
-                    fiestas = "Ida y Vuelta";
-                    datos_fiestaseventos_idavuelta = {
-                        "TRAMOS_FIESTA": fiestas,
+                    var tipo_transfer = $('#select_transfer').val();
+                    var transfer;
 
-                        "FECHA_SALIDA": $('#fecha_salida_fiestas_idavuelta').val(),
+                    switch (tipo_transfer) {
+                        case "1":
+                            transfer = "Transfer In";
+                            datos_transfer_in = {
+                                "TIPO_TRANSFER": transfer,
+                                "FECHA_ARRIBO": $('#fecha_regreso_transfer_in').val(),
+                                "CANTIDAD_PASAJEROS": $('#cant_pasajeros_transfer_in').val(),
+                                "HORA": $('#hora_transfer_in').val(),
+                                "DIRECCION_DESTINO": $('#direccion_transfer_in').val(),
+                                "BARRIO_DESTINO": $('#barrio_transfer_in').val(),
+                                "LOCALIDAD_DESTINO": $('#localidad_transfer_in').val(),
+                                "PUNTO_ORIGEN": $('#aeropuerto_transfer_in').val(),
+                                "EQUIPAJE": $('#equipaje_transfer_in').val(),
+                                "MASCOTAS": $('#mascotas_transfer_in').val(),
+                                "OBSERVACIONES": $('#observaciones_transfer_in').val(),
+                                "NRO_VUELO_BARCO": $('#nro_vuelo_barco_in').val()
+                            };
 
-                        "DIRECCION_ORIGEN": $('#direccion_ida_origen_fiestas_idavuelta').val(),
-                        "BARRIO_ORIGEN": $('#barrio_ida_origen_fiestas_idavuelta').val(),
-                        "LOCALIDAD_ORIGEN": $('#localidad_ida_origen_fiestas_idavuelta').val(),
+                            if (validacion('Transfer_in', datos_transfer_in)) {
+                                if (verificar_fechas(datos_transfer_in['FECHA_ARRIBO'], null, 0, datos_transfer_in['HORA'])) {
+                                    if (enviar_solicitud == 1) {
+                                        guardar_cotizacion(datos_transfer_in, array_paradas_1, 0, "transferIn");
+                                        next();
+                                        setTimeout(() => {
+                                            $.ajax({
+                                                type: "POST",
+                                                url: "/Mail/mail-SalioViaje.php",
+                                                data: { COTIZACION: id_cotizacion, TIPO: "Transfer de Arribo", DATA: JSON.stringify(datos_transfer_in), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
+                                                success: function (response) {
 
-                        "DIRECCION_DESTINO": $('#direccion_ida_destino_fiestas_idavuelta').val(),
-                        "BARRIO_DESTINO": $('#barrio_ida_destino_fiestas_idavuelta').val(),
-                        "LOCALIDAD_DESTINO": $('#localidad_ida_destino_fiestas_idavuelta').val(),
-
-                        "HORA_SALIDA": $('#hora_ida_fiestas_idavuelta').val(),
-                        "CANTIDAD_PASAJEROS_IDA": $('#cant_pasajeros_ida_fiestas_idavuelta').val(),
-
-
-
-                        "FECHA_REGRESO": $('#fecha_regreso_fiestas_idavuelta').val(),
-
-                        "DIRECCION_ORIGEN_VUELTA": $('#direccion_vuelta_origen_fiestas_idavuelta').val(),
-                        "BARRIO_ORIGEN_VUELTA": $('#barrio_vuelta_origen_fiestas_idavuelta').val(),
-                        "LOCALIDAD_ORIGEN_VUELTA": $('#localidad_vuelta_origen_fiestas_idavuelta').val(),
-
-                        "DIRECCION_DESTINO_VUELTA": $('#direccion_vuelta_destino_fiestas_idavuelta').val(),
-                        "BARRIO_DESTINO_VUELTA": $('#barrio_vuelta_destino_fiestas_idavuelta').val(),
-                        "LOCALIDAD_DESTINO_VUELTA": $('#localidad_vuelta_destino_fiestas_idavuelta').val(),
-
-                        "HORA_REGRESO": $('#hora_vuelta_fiestas_idavuelta').val(),
-                        "CANTIDAD_PASAJEROS_VUELTA": $('#cant_pasajeros_vuelta_fiestas_idavuelta').val(),
-
-                        "MASCOTAS": $('#mascotas_fiestas_idavuelta').val(),
-                        "OBSERVACIONES": $('#observaciones_fiesta_idavuelta').val()
-                    };
-
-                    if (validacion('FIESTA-IDA-VUELTA', datos_fiestaseventos_idavuelta)) {
-                        if (verificar_fechas(datos_fiestaseventos_idavuelta['FECHA_SALIDA'], datos_fiestaseventos_idavuelta['FECHA_REGRESO'], 1, datos_fiestaseventos_idavuelta['HORA_SALIDA'], datos_fiestaseventos_idavuelta['HORA_REGRESO'])) {
-                            if (enviar_solicitud == 1) {
-                                guardar_cotizacion(datos_fiestaseventos_idavuelta, array_paradas_1, array_paradas_2, "fiestasIdaVuelta");
-                                next();
-                                setTimeout(() => {
-                                    $.ajax({
-                                        type: "POST",
-                                        url: "/Mail/mail-SalioViaje.php",
-                                        data: { COTIZACION: id_cotizacion, TIPO: "Fiesta o Evento - Ida y Vuelta", DATA: JSON.stringify(datos_fiestaseventos_idavuelta), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
-                                        success: function (response) {
-
-                                        },
-                                        complete: function (response) {
-                                            if (response.responseText == 1) {
-                                                step++;
-                                                steps(step);
-                                                vaciar_paradas()
-                                            } else {
-                                                console.log(response.responseText);
-                                            }
-                                        }
-                                    });
-                                }, 1000);
+                                                },
+                                                complete: function (response) {
+                                                    if (response.responseText == 1) {
+                                                        step++;
+                                                        steps(step);
+                                                        vaciar_paradas()
+                                                    } else {
+                                                        console.log(response);
+                                                    }
+                                                }
+                                            });
+                                        }, 1000);
 
 
+                                    }
+                                } else {
+                                    $(".mensaje-error").show();
+                                    $(".mensaje-error").text("No puedes poner una fecha anterior a la actual.");
+                                }
+                            } else {
+                                console.log("No valido");
                             }
-                        } else {
-                            $(".mensaje-error").show();
-                            $(".mensaje-error").text("No puedes poner una fecha anterior a la actual.");
-                        }
-                    } else {
-                        console.log("No valido");
+                            break;
+
+                        case "2":
+                            transfer = "Transfer Out";
+                            datos_transfer_out = {
+                                "TIPO_TRANSFER": transfer,
+                                "FECHA_PARTIDA": $('#fecha_salida_transfer_out').val(),
+                                "CANTIDAD_PASAJEROS": $('#cant_pasajeros_transfer_out').val(),
+                                "HORA": $('#hora_transfer_out').val(),
+                                "DIRECCION_ORIGEN": $('#direccion_transfer_out').val(),
+                                "BARRIO_ORIGEN": $('#barrio_transfer_out').val(),
+                                "LOCALIDAD_ORIGEN": $('#localidad_transfer_out').val(),
+                                "PUNTO_DESTINO": $('#aeropuerto_transfer_out').val(),
+                                "EQUIPAJE": $('#equipaje_transfer_out').val(),
+                                "MASCOTAS": $('#mascotas_transfer_out').val(),
+                                "OBSERVACIONES": $('#observaciones_transfer_out').val(),
+                                "NRO_VUELO_BARCO": $('#nro_vuelo_barco_out').val()
+                            };
+
+                            if (validacion('Transfer_out', datos_transfer_out)) {
+                                if (verificar_fechas(datos_transfer_out['FECHA_PARTIDA'], null, 0, datos_transfer_out['HORA'])) {
+                                    if (enviar_solicitud == 1) {
+                                        guardar_cotizacion(datos_transfer_out, array_paradas_1, 0, "transferOut");
+                                        next();
+                                        setTimeout(() => {
+                                            $.ajax({
+                                                type: "POST",
+                                                url: "/Mail/mail-SalioViaje.php",
+                                                data: { COTIZACION: id_cotizacion, TIPO: "Transfer de Partida", DATA: JSON.stringify(datos_transfer_out), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
+                                                success: function (response) {
+
+                                                },
+                                                complete: function (response) {
+                                                    if (response.responseText == 1) {
+                                                        step++;
+                                                        steps(step);
+                                                        vaciar_paradas()
+                                                    } else {
+                                                        console.log(response);
+                                                    }
+                                                }
+                                            });
+                                        }, 1000);
+
+
+                                    }
+                                } else {
+                                    $(".mensaje-error").show();
+                                    $(".mensaje-error").text("No puedes poner una fecha anterior a la actual.");
+                                }
+                            } else {
+                                console.log("No valido");
+                            }
+                            break;
+                    }
+                    break;
+
+                /* 
+                Fiestas y Eventos        
+                */
+                case "4":
+                    var tramos = $('#select_fiesta').val();
+                    var fiestas;
+                    console.log(array_paradas_1)
+                    console.log(array_paradas_2)
+                    switch (tramos) {
+                        case "1": default:
+                            fiestas = "Solo Ida";
+                            datos_fiestaseventos_ida = {
+                                "TRAMOS_FIESTA": fiestas,
+                                "FECHA_SALIDA": $('#fecha_salida_fiestas_ida').val(),
+                                "DIRECCION_ORIGEN": $('#direccion_fiestas_ida').val(),
+                                "BARRIO_ORIGEN": $('#barrio_fiestas_ida').val(),
+                                "LOCALIDAD_ORIGEN": $('#localidad_fiestas_ida').val(),
+                                "PUNTO_DESTINO": $('#destino_fiesta_ida').val(),
+                                "BARRIO_DESTINO": $('#fiestasida_origen_barrios').val(),
+                                "CANTIDAD_PASAJEROS_IDA": $('#cant_pasajeros_fiesta_ida').val(),
+                                "HORA": $('#hora_fiesta_ida').val(),
+                                "MASCOTAS": $('#mascotas_fiestas_ida').val(),
+                                "OBSERVACIONES": $('#observaciones_fiesta_ida').val()
+                            };
+
+                            if (validacion('FIESTA-IDA', datos_fiestaseventos_ida)) {
+                                if (verificar_fechas(datos_fiestaseventos_ida['FECHA_SALIDA'], null, 0, datos_fiestaseventos_ida["HORA"])) {
+                                    if (enviar_solicitud == 1) {
+                                        guardar_cotizacion(datos_fiestaseventos_ida, array_paradas_1, 0, "fiestasIda");
+                                        next();
+                                        setTimeout(() => {
+                                            $.ajax({
+                                                type: "POST",
+                                                url: "/Mail/mail-SalioViaje.php",
+                                                data: { COTIZACION: id_cotizacion, TIPO: "Fiesta o Evento - Ida", DATA: JSON.stringify(datos_fiestaseventos_ida), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
+                                                success: function (response) {
+
+                                                },
+                                                complete: function (response) {
+                                                    if (response.responseText == 1) {
+                                                        step++;
+                                                        steps(step);
+                                                        vaciar_paradas()
+                                                    } else {
+                                                        console.log(response);
+                                                    }
+                                                }
+                                            });
+                                        }, 1000);
+
+                                        console.log(datos_fiestaseventos_ida)
+
+                                    }
+                                } else {
+                                    $(".mensaje-error").show();
+                                    $(".mensaje-error").text("No puedes poner una fecha anterior a la actual.");
+                                }
+                            } else {
+                                console.log("No valido")
+                            }
+                            break;
+                        case "2":
+                            fiestas = "Solo Vuelta";
+                            datos_fiestaseventos_vuelta = {
+                                "TRAMOS_FIESTA": fiestas,
+                                "FECHA_REGRESO": $('#fecha_regreso_fiestas_vuelta').val(),
+                                "DIRECCION_DESTINO": $('#direccion_fiesta_vuelta').val(),
+                                "BARRIO_DESTINO": $('#barrio_fiesta_vuelta').val(),
+                                "LOCALIDAD_DESTINO": $('#localidad_fiesta_vuelta').val(),
+                                "PUNTO_ORIGEN": $('#origen_fiestas_vuelta').val(),
+                                "BARRIO_ORIGEN": $('#fiestasvuelta_origen_barrios').val(),
+                                "CANTIDAD_PASAJEROS_VUELTA": $('#cant_pasajeros_fiesta_vuelta').val(),
+                                "HORA": $('#hora_fiesta_vuelta').val(),
+                                "MASCOTAS": $('#mascotas_fiestas_vuelta').val(),
+                                "OBSERVACIONES": $('#observaciones_fiesta_vuelta').val()
+                            };
+
+                            if (validacion('FIESTA-VUELTA', datos_fiestaseventos_vuelta)) {
+                                if (verificar_fechas(datos_fiestaseventos_vuelta['FECHA_REGRESO'], null, 0, datos_fiestaseventos_vuelta['HORA'])) {
+                                    if (enviar_solicitud == 1) {
+                                        guardar_cotizacion(datos_fiestaseventos_vuelta, 0, array_paradas_2, "fiestasVuelta");
+                                        next();
+                                        setTimeout(() => {
+                                            $.ajax({
+                                                type: "POST",
+                                                url: "/Mail/mail-SalioViaje.php",
+                                                data: { COTIZACION: id_cotizacion, TIPO: "Fiesta o Evento - Vuelta", DATA: JSON.stringify(datos_fiestaseventos_vuelta), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
+                                                success: function (response) {
+
+                                                },
+                                                complete: function (response) {
+                                                    if (response.responseText == 1) {
+                                                        step++;
+                                                        steps(step);
+                                                        vaciar_paradas()
+                                                    } else {
+                                                        console.log(response.responseText);
+                                                    }
+                                                }
+                                            });
+                                        }, 1000);
+
+                                        console.log(datos_fiestaseventos_ida)
+                                        console.log(array_paradas_2)
+
+                                    }
+                                } else {
+                                    $(".mensaje-error").show();
+                                    $(".mensaje-error").text("No puedes poner una fecha anterior a la actual.");
+                                }
+                            } else {
+                                console.log("No valido");
+                            }
+                            break;
+                        case "3":
+                            fiestas = "Ida y Vuelta";
+                            datos_fiestaseventos_idavuelta = {
+                                "TRAMOS_FIESTA": fiestas,
+
+                                "FECHA_SALIDA": $('#fecha_salida_fiestas_idavuelta').val(),
+
+                                "DIRECCION_ORIGEN": $('#direccion_ida_origen_fiestas_idavuelta').val(),
+                                "BARRIO_ORIGEN": $('#barrio_ida_origen_fiestas_idavuelta').val(),
+                                "LOCALIDAD_ORIGEN": $('#localidad_ida_origen_fiestas_idavuelta').val(),
+
+                                "DIRECCION_DESTINO": $('#direccion_ida_destino_fiestas_idavuelta').val(),
+                                "BARRIO_DESTINO": $('#barrio_ida_destino_fiestas_idavuelta').val(),
+                                "LOCALIDAD_DESTINO": $('#localidad_ida_destino_fiestas_idavuelta').val(),
+
+                                "HORA_SALIDA": $('#hora_ida_fiestas_idavuelta').val(),
+                                "CANTIDAD_PASAJEROS_IDA": $('#cant_pasajeros_ida_fiestas_idavuelta').val(),
+
+
+
+                                "FECHA_REGRESO": $('#fecha_regreso_fiestas_idavuelta').val(),
+
+                                "DIRECCION_ORIGEN_VUELTA": $('#direccion_vuelta_origen_fiestas_idavuelta').val(),
+                                "BARRIO_ORIGEN_VUELTA": $('#barrio_vuelta_origen_fiestas_idavuelta').val(),
+                                "LOCALIDAD_ORIGEN_VUELTA": $('#localidad_vuelta_origen_fiestas_idavuelta').val(),
+
+                                "DIRECCION_DESTINO_VUELTA": $('#direccion_vuelta_destino_fiestas_idavuelta').val(),
+                                "BARRIO_DESTINO_VUELTA": $('#barrio_vuelta_destino_fiestas_idavuelta').val(),
+                                "LOCALIDAD_DESTINO_VUELTA": $('#localidad_vuelta_destino_fiestas_idavuelta').val(),
+
+                                "HORA_REGRESO": $('#hora_vuelta_fiestas_idavuelta').val(),
+                                "CANTIDAD_PASAJEROS_VUELTA": $('#cant_pasajeros_vuelta_fiestas_idavuelta').val(),
+
+                                "MASCOTAS": $('#mascotas_fiestas_idavuelta').val(),
+                                "OBSERVACIONES": $('#observaciones_fiesta_idavuelta').val()
+                            };
+
+                            if (validacion('FIESTA-IDA-VUELTA', datos_fiestaseventos_idavuelta)) {
+                                if (verificar_fechas(datos_fiestaseventos_idavuelta['FECHA_SALIDA'], datos_fiestaseventos_idavuelta['FECHA_REGRESO'], 1, datos_fiestaseventos_idavuelta['HORA_SALIDA'], datos_fiestaseventos_idavuelta['HORA_REGRESO'])) {
+                                    if (enviar_solicitud == 1) {
+                                        guardar_cotizacion(datos_fiestaseventos_idavuelta, array_paradas_1, array_paradas_2, "fiestasIdaVuelta");
+                                        next();
+                                        setTimeout(() => {
+                                            $.ajax({
+                                                type: "POST",
+                                                url: "/Mail/mail-SalioViaje.php",
+                                                data: { COTIZACION: id_cotizacion, TIPO: "Fiesta o Evento - Ida y Vuelta", DATA: JSON.stringify(datos_fiestaseventos_idavuelta), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
+                                                success: function (response) {
+
+                                                },
+                                                complete: function (response) {
+                                                    if (response.responseText == 1) {
+                                                        step++;
+                                                        steps(step);
+                                                        vaciar_paradas()
+                                                    } else {
+                                                        console.log(response.responseText);
+                                                    }
+                                                }
+                                            });
+                                        }, 1000);
+
+
+                                    }
+                                } else {
+                                    $(".mensaje-error").show();
+                                    $(".mensaje-error").text("No puedes poner una fecha anterior a la actual.");
+                                }
+                            } else {
+                                console.log("No valido");
+                            }
+                            break;
                     }
                     break;
             }
             break;
-    }
+
+        }
+    
 }
 
 function guardar_cotizacion(datos_cotizacion, paradas_ida, paradas_vuelta, tipo) {
@@ -1243,4 +1263,9 @@ function eliminar_filtros(tipo) {
     }
 
     filtrar_divs(tipo);
+}
+
+function closeModal(){
+    $('#modal').hide();
+    $('#modal').html("");
 }
