@@ -555,7 +555,7 @@ function tabla_oportunidades_dashboard() {
         url: "/PHP/Tablas/tabla_viajes_panel_principal.php",
         success: function (response) {
             console.log(response)
-            if(response != 'null'){
+            if(response != 'null' && response != ''){
                 $('#empty-viajes').hide();
                 $('#tbody-viajes-dashboard').html(response)
             }else{
