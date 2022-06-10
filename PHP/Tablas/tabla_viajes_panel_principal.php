@@ -22,35 +22,47 @@ $fechaActual = new DateTime(date('Y-m-d h:i:s', time()));
 $oportunidades_dashboard = '';
 
 /**
- *
  * tta y cho
  */
 for ($i = 0; $i < count($oportunidades); $i++) {
 
     $datos_mtop = array();
 
+    $id_tramo_vinculado = $oportunidades[$i]['ID_VIAJE_VINCULADO'];
+
+    $viaje_vinculado = array_filter(
+        $oportunidades,
+        function ($e) use (&$id_tramo_vinculado) {
+            return $e['ID'] == $id_tramo_vinculado;
+        }
+    );
+
     if ($oportunidades[$i]['ID'] > $oportunidades[$i]['ID_VIAJE_VINCULADO']) {
-        $fechaTramo1 = new DateTime($oportunidades[$i-1]['FECHA']);
-        $datos_mtop["FECHA_SALIDA"] = $oportunidades[$i-1]['FECHA'];
+        $fechaTramo1 = new DateTime($viaje_vinculado[1]['FECHA']);
+        $datos_mtop["FECHA_SALIDA"] = $viaje_vinculado[1]['FECHA'];
         $datos_mtop["FECHA_LLEGADA"] = $oportunidades[$i]['FECHA'];
-    }else{
+    } else {
         $fechaTramo1 = new DateTime($oportunidades[$i]['FECHA']);
         $datos_mtop["FECHA_SALIDA"] = $oportunidades[$i]['FECHA'];
-        $datos_mtop["FECHA_LLEGADA"] = $oportunidades[$i+1]['FECHA'];
+        $datos_mtop["FECHA_LLEGADA"] = $viaje_vinculado[0]['FECHA'];
     }
 
+    $datos_mtop["NOMBRE"] = $oportunidades[$i]['NOMBRE'];
+    $datos_mtop["APELLIDO"] = $oportunidades[$i]['APELLIDO'];
+    $datos_mtop["NRO_MTOP"] = $oportunidades[$i]['NRO_MTOP'];
+    $datos_mtop["PASS_MTOP"] = $oportunidades[$i]['PASS_MTOP'];
     $datos_mtop["ORIGEN"] = $oportunidades[$i]['ORIGEN'];
     $datos_mtop["DESTINO"] = $oportunidades[$i]['DESTINO'];
     $datos_mtop["DISTANCIA"] = $oportunidades[$i]['DISTANCIA'];
     $datos_mtop["MATRICULA"] = $oportunidades[$i]['VECHICULO'];
 
-    echo  "           ".json_encode($datos_mtop); 
+    $datos_mtop = json_encode($datos_mtop);
 
     $intervalo = $fechaTramo1->diff($fechaActual);
 
     if ((int) $intervalo->format('%d') >= 1 && $oportunidades[$i]['ID'] < $oportunidades[$i]['ID_VIAJE_VINCULADO'] || $oportunidades[$i]['ID'] > $oportunidades[$i]['ID_VIAJE_VINCULADO']) {
-        $button_mtop = '<button class="button" onclick="mtop_viaje(' . $oportunidades[$i]['ID'] . ',' . $oportunidades[$i]['ID_VIAJE_VINCULADO'] . ')"><i class="fas fa-file-contract"></i></button>';
-    } else{
+        $button_mtop = "<button class='button' onclick='mtop_viaje(" . $datos_mtop . ")'><i class='fas fa-file-contract'></i></button>";
+    } else {
         $button_mtop = '';
     }
 
@@ -173,17 +185,43 @@ for ($i = 0; $i < count($oportunidades); $i++) {
 
 for ($i = 0; $i < count($oportunidades); $i++) {
 
+    $datos_mtop = array();
+
+    $id_tramo_vinculado = $oportunidades[$i]['ID_VIAJE_VINCULADO'];
+
+    $viaje_vinculado = array_filter(
+        $oportunidades,
+        function ($e) use (&$id_tramo_vinculado) {
+            return $e['ID'] == $id_tramo_vinculado;
+        }
+    );
+
     if ($oportunidades[$i]['ID'] > $oportunidades[$i]['ID_VIAJE_VINCULADO']) {
-        $fechaTramo1 = new DateTime($oportunidades[$i-1]['FECHA']);
-    }else{
+        $fechaTramo1 = new DateTime($viaje_vinculado[1]['FECHA']);
+        $datos_mtop["FECHA_SALIDA"] = $viaje_vinculado[1]['FECHA'];
+        $datos_mtop["FECHA_LLEGADA"] = $oportunidades[$i]['FECHA'];
+    } else {
         $fechaTramo1 = new DateTime($oportunidades[$i]['FECHA']);
+        $datos_mtop["FECHA_SALIDA"] = $oportunidades[$i]['FECHA'];
+        $datos_mtop["FECHA_LLEGADA"] = $viaje_vinculado[0]['FECHA'];
     }
+
+    $datos_mtop["NOMBRE"] = $oportunidades[$i]['NOMBRE'];
+    $datos_mtop["APELLIDO"] = $oportunidades[$i]['APELLIDO'];
+    $datos_mtop["NRO_MTOP"] = $oportunidades[$i]['NRO_MTOP'];
+    $datos_mtop["PASS_MTOP"] = $oportunidades[$i]['PASS_MTOP'];
+    $datos_mtop["ORIGEN"] = $oportunidades[$i]['ORIGEN'];
+    $datos_mtop["DESTINO"] = $oportunidades[$i]['DESTINO'];
+    $datos_mtop["DISTANCIA"] = $oportunidades[$i]['DISTANCIA'];
+    $datos_mtop["MATRICULA"] = $oportunidades[$i]['VECHICULO'];
+
+    $datos_mtop = json_encode($datos_mtop);
 
     $intervalo = $fechaTramo1->diff($fechaActual);
 
     if ((int) $intervalo->format('%d') >= 1 && $oportunidades[$i]['ID'] < $oportunidades[$i]['ID_VIAJE_VINCULADO'] || $oportunidades[$i]['ID'] > $oportunidades[$i]['ID_VIAJE_VINCULADO']) {
-        $button_mtop = '<button class="button" onclick="mtop_viaje(' . $oportunidades[$i]['ID'] . ',' . $oportunidades[$i]['ID_VIAJE_VINCULADO'] . ')"><i class="fas fa-file-contract"></i></button>';
-    } else{
+        $button_mtop = "<button class='button' onclick='mtop_viaje(" . $datos_mtop . ")'><i class='fas fa-file-contract'></i></button>";
+    } else {
         $button_mtop = '';
     }
 
@@ -242,19 +280,29 @@ if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "PAX") {
                     <td data-title="Origen">' . $datos2[$i]['ORIGEN'] . '</td>
                     <td data-title="Destino">' . $datos2[$i]['DESTINO'] . '</td>
                     <td data-title="Fecha">' . $fecha[0] . '</td>
-                    <td data-title="Estado">' . $datos2[$i]['ESTADO'] . '</td>
+                    <td data-title="Hora">' . $fecha[1] . '</td>
+                    <td data-title="CantidadPasajeros">' . $datos2[$i]['CANTIDAD_PASAJERO'] . '</td>
                     <td data-title="Modalidad">' . $datos2[$i]['MODALIDAD'] . '</td>
+                    <td data-title="Estado">' . $datos2[$i]['ESTADO'] . '</td>
+                    <td data-title="Precio">' . $datos2[$i]['PRECIO'] . '</td>
+                    <td data-title="Nombre">' . $datos2[$i]['NOMBRE'] . '</td>
+                    <td data-title="Contacto">-</td>
                 </tr>
                 ';
             } else {
                 $oportunidades_dashboard = $oportunidades_dashboard . '
                 <tr>
-                    <td data-title="ID">' . $datos2[$i]['ID'] . '</td>
-                    <td data-title="Origen">' . $datos2[$i]['ORIGEN'] . '</td>
-                    <td data-title="Destino">' . $datos2[$i]['DESTINO'] . '</td>
-                    <td data-title="Fecha">' . $fecha[0] . '</td>
-                    <td data-title="Estado">' . $datos2[$i]['ESTADO'] . '</td>
-                    <td data-title="Modalidad">' . $datos2[$i]['MODALIDAD'] . '</td>
+                <td data-title="ID">' . $datos2[$i]['ID'] . '</td>
+                <td data-title="Origen">' . $datos2[$i]['ORIGEN'] . '</td>
+                <td data-title="Destino">' . $datos2[$i]['DESTINO'] . '</td>
+                <td data-title="Fecha">' . $fecha[0] . '</td>
+                <td data-title="Hora">' . $fecha[1] . '</td>
+                <td data-title="CantidadPasajeros">' . $datos2[$i]['CANTIDAD_PASAJERO'] . '</td>
+                <td data-title="Modalidad">' . $datos2[$i]['MODALIDAD'] . '</td>
+                <td data-title="Estado">' . $datos2[$i]['ESTADO'] . '</td>
+                <td data-title="Precio">' . $datos2[$i]['PRECIO'] . '</td>
+                <td data-title="Nombre">' . $datos2[$i]['NOMBRE'] . '</td>
+                <td data-title="Contacto">-</td>
                 </tr>
                 ';
             }
@@ -270,23 +318,33 @@ if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "PAX") {
         if ($i == 0 && $oportunidades_dashboard != " ") {
             $oportunidades_dashboard = '
             <tr>
-                <td data-title="ID">' . $oportunidades[$i]['ID'] . '</td>
-                <td data-title="Origen">' . $oportunidades[$i]['ORIGEN'] . '</td>
-                <td data-title="Destino">' . $oportunidades[$i]['DESTINO'] . '</td>
-                <td data-title="Fecha">' . $fecha[0] . '</td>
-                <td data-title="Estado">' . $oportunidades[$i]['ESTADO'] . '</td>
-                <td data-title="Modalidad">' . $oportunidades[$i]['MODALIDAD'] . '</td>
+            <td data-title="ID">' . $oportunidades[$i]['ID'] . '</td>
+            <td data-title="Origen">' . $oportunidades[$i]['ORIGEN'] . '</td>
+            <td data-title="Destino">' . $oportunidades[$i]['DESTINO'] . '</td>
+            <td data-title="Fecha">' . $fecha[0] . '</td>
+            <td data-title="Hora">' . $fecha[1] . '</td>
+            <td data-title="CantidadPasajeros">' . $oportunidades[$i]['CANTIDAD_PASAJERO'] . '</td>
+            <td data-title="Modalidad">' . $oportunidades[$i]['MODALIDAD'] . '</td>
+            <td data-title="Estado">' . $oportunidades[$i]['ESTADO'] . '</td>
+            <td data-title="Precio">' . $oportunidades[$i]['PRECIO'] . '</td>
+            <td data-title="Nombre">' . $datos2[$i]['NOMBRE'] . '</td>
+            <td data-title="Contacto">-</td>
             </tr>
             ';
         } else {
             $oportunidades_dashboard = $oportunidades_dashboard . '
             <tr>
-                <td data-title="ID">' . $oportunidades[$i]['ID'] . '</td>
-                <td data-title="Origen">' . $oportunidades[$i]['ORIGEN'] . '</td>
-                <td data-title="Destino">' . $oportunidades[$i]['DESTINO'] . '</td>
-                <td data-title="Fecha">' . $fecha[0] . '</td>
-                <td data-title="Estado">' . $oportunidades[$i]['ESTADO'] . '</td>
-                <td data-title="Modalidad">' . $oportunidades[$i]['MODALIDAD'] . '</td>
+            <td data-title="ID">' . $oportunidades[$i]['ID'] . '</td>
+            <td data-title="Origen">' . $oportunidades[$i]['ORIGEN'] . '</td>
+            <td data-title="Destino">' . $oportunidades[$i]['DESTINO'] . '</td>
+            <td data-title="Fecha">' . $fecha[0] . '</td>
+            <td data-title="Hora">' . $fecha[1] . '</td>
+            <td data-title="CantidadPasajeros">' . $oportunidades[$i]['CANTIDAD_PASAJERO'] . '</td>
+            <td data-title="Modalidad">' . $oportunidades[$i]['MODALIDAD'] . '</td>
+            <td data-title="Estado">' . $oportunidades[$i]['ESTADO'] . '</td>
+            <td data-title="Precio">' . $oportunidades[$i]['PRECIO'] . '</td>
+            <td data-title="Nombre">' . $datos2[$i]['NOMBRE'] . '</td>
+            <td data-title="Contacto">-</td>
             </tr>
             ';
         }
@@ -296,14 +354,20 @@ if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "PAX") {
      * cotizaciones
      */
     for ($i = 0; $i < count($cotizaciones); $i++) {
+        $fecha = explode(' ', $cotizaciones[$i]['FECHA']);
         $oportunidades_dashboard = $oportunidades_dashboard . '
     <tr>
-        <td data-title="ID">' . $cotizaciones[$i]['ID'] . '</td>
-        <td data-title="Origen">' . $cotizaciones[$i]['ORIGEN'] . '</td>
-        <td data-title="Destino">' . $cotizaciones[$i]['DESTINO'] . '</td>
-        <td data-title="Fecha">' . $cotizaciones[$i]['FECHA'] . '</td>
-        <td data-title="Estado">' . $cotizaciones[$i]['ESTADO'] . '</td>
-        <td data-title="Modalidad">' . $cotizaciones[$i]['MODALIDAD'] . '</td>
+    <td data-title="ID">' . $cotizaciones[$i]['ID'] . '</td>
+    <td data-title="Origen">' . $cotizaciones[$i]['ORIGEN'] . '</td>
+    <td data-title="Destino">' . $cotizaciones[$i]['DESTINO'] . '</td>
+    <td data-title="Fecha">' . $cotizaciones[$i]['FECHA'] . '</td>
+    <td data-title="Hora">' . $cotizaciones[$i]['HORA'] . '</td>
+    <td data-title="CantidadPasajeros">' . $cotizaciones[$i]['CANTIDAD_PASAJEROS'] . '</td>
+    <td data-title="Modalidad">' . $cotizaciones[$i]['MODALIDAD'] . '</td>
+    <td data-title="Estado">' . $cotizaciones[$i]['ESTADO'] . '</td>
+    <td data-title="Precio">-</td>
+    <td data-title="Nombre">-</td>
+    <td data-title="Contacto">-</td>
     </tr>
     ';
     }

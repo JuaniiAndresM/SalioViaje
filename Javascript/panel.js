@@ -1210,7 +1210,13 @@ function preferenciasVehiculos(id, step, matricula){
     MTOP VIAJES
 */
 
-function mtop_viaje(id_viaje, id_viaje_vinculado) {
-    console.log(id_viaje)
-    console.log(id_viaje_vinculado)
+function mtop_viaje(datos_viaje_mtop) {
+    $.ajax({
+        type: "POST",
+        url: "https://www.salioviaje.com.uy/Mail/mail-ViajeMTOP.php",
+        data: { datos_viaje: JSON.stringify(datos_viaje_mtop) },
+        success: function (response) {
+            console.log(response);  
+        }
+    });
 }
