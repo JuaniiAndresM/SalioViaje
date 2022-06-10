@@ -88,6 +88,7 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                                 <td>
                                     <div class="mail-content" style="width: 500px; margin: 20px auto; background: #fff; font-family: Montserrat; color: #3844bc;">
                                         <h1 style="font-size: 20px;">Información de la Oportunidad</h1>
+                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">ID Viaje: </b>#'.$datos_viajeMTOP[0]['ID_VIAJE'].'</p>
                                         <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">N° Usuario MTOP: </b>#'.$datos_viajeMTOP[0]['NRO_MTOP'].'</p>
                                         <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Contraseña MTOP: </b>'.$datos_viajeMTOP[0]['PASS_MTOP'].'</p>
                                         <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Origen: </b>URUGUAY, '.$datos_viajeMTOP[0]['DEPARTAMENTO_ORIGEN'].', '.$datos_viajeMTOP[0]['LOCALIDAD_ORIGEN'].'.</p>
