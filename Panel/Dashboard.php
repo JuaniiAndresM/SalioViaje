@@ -128,6 +128,7 @@ session_set_cookie_params($ttl);
         <script src="https://www.salioviaje.com.uy/Javascript/cotizaciones.js"></script>
         <script src="https://www.salioviaje.com.uy/t2voice/functionsJS.js"></script>
         <script src="https://www.salioviaje.com.uy/t2voice/send_data.js"></script>
+        </script>
         <script type="text/javascript">
             window.onload = function(){
               tabla_usuarios_dashboard()

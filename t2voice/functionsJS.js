@@ -33,24 +33,6 @@ $(document).ready(function () {
 
 let mail_tta;
 
-
-/*
-require_once '../PHP/procedimientosBD.php';
-
-                    if(strpos($estado, "Opci\\u00f3n 1") !== false){
-
-                        $bd = new procedimientosBD();
-                        $bd->cambio_estado_oportunidad("Aprobada",$id_oportunidad);
-
-                    }else if(strpos($estado, "Opci\\u00f3n 3") !== false){
-
-                        $bd = new procedimientosBD();
-                        $bd->cambio_estado_oportunidad("Rechazada",$id_oportunidad);
-
-                    }
-*/
-
-
 function comprar_oportunidad_function(id){
 
        let id_llamada = Math.floor(Math.random() * 100000);

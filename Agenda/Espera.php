@@ -147,8 +147,8 @@ session_set_cookie_params($ttl);
           <h2>Petición Aprobada</h2>
           <h3><i class="far fa-address-card"></i> Viaje N° <?php echo $_GET['ID']; ?></h3>
           <p>
-            Contáctate con el transporista para coordinar el pago de la
-            oportunidad.
+            Contáctate con el transporista para coordinar el pago del
+            viaje.
           </p>
           <div class="info">
             <p id="espera-nombre"><b>Nombre:</b> Juan Morena</p>

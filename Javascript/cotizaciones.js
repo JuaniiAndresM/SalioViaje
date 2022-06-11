@@ -304,9 +304,6 @@ function aceptarCotizacion(id, id_viaje_cotizado) {
          reconfirmar_cotizacion_llamada(id, id_viaje_cotizado, response)
       },
       complete: function () {
-         setTimeout(() => {
-            location.reload()
-         }, 1000);
       }
    });
 }
@@ -356,12 +353,18 @@ function reconfirmarCotizacion(id) {
 
 function reconfirmar_cotizacion_llamada(id, id_viaje_cotizado, telefono_tta) {
    let send = new llamadas_PHP();
-   console.log(id+"   "+id_viaje_cotizado+"   "+telefono_tta)
    let id_llamada = Math.floor(Math.random() * 100000);
-   let mensaje = `Han escogido tu cotizacion para el viaje numero #${id}!  Aceptar:  https://www.salioviaje.com.uy/Solicitud/${id}A Rechazar: https://www.salioviaje.com.uy/Solicitud/${id}R`;
-   send.realizarLlamadaReconfirmarCotizacion("tpc_notificacion_opciones", "2022-02-07T15:00:00+03:00", id_llamada, telefono_tta, "Transportista", "Han escogido tu cotizacion para el viaje numero #" + id + ". Presione 1 para aceptar, 3 para rechazar", id, id_viaje_cotizado);
-   send.enviarSMSReconfirmarCotizacion(telefono_tta, "2022-02-04T15:00:00+03:00", mensaje, id_llamada);
+   let mensaje = 'Han escogido tu cotizacion para el viaje numero #'+id_viaje_cotizado+'!  Aceptar:  https://www.salioviaje.com.uy/Solicitud/'+id_viaje_cotizado+'A Rechazar: https://www.salioviaje.com.uy/Solicitud/'+id_viaje_cotizado+'R';
+   //send.realizarLlamadaReconfirmarCotizacion("tpc_notificacion_opciones", "2022-02-07T15:00:00+03:00", id_llamada, telefono_tta, "Transportista", "Han escogido tu cotizacion para el viaje numero #" + id_viaje_cotizado + ". Presione 1 para aceptar, 3 para rechazar", id_viaje_cotizado, id_viaje_cotizado);
+   send.enviarSMS("091446483","2022-02-04T15:00:00+03:00","mensaje",id_llamada);
+   
+   setTimeout(() => {
+      send.verEstadoSMS(id_llamada)
+   }, 5000);
    //mail_aprobar_rechazar_cotizacion(id)
+
+   var features = 'directories=no,menubar=no,status=no,titlebar=no,toolbar=no,width=550,height=700';
+   window.open("https://www.salioviaje.com.uy/Espera/"+id_viaje_cotizado, 'mypopup', features);
 }
 
 function mail_aprobar_rechazar_cotizacion() {
