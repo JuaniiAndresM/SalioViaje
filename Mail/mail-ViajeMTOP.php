@@ -16,20 +16,22 @@ $bd = new procedimientosBD();
 session_start();
 
 
-$datos_viajeMTOP = $_POST['datos_viaje'];
+$datos_viajeMTOP = json_decode($_POST['datos_viaje'],true);
 $datos_transportista =  $_POST['datos_tta'];
 
-$fecha_salida = $datos_viajeMTOP['FECHA_SALIDA'].split(' ');
-$fecha_llegada = $datos_viajeMTOP['FECHA_LLEGADA'].split(' ');
+$fecha_salida = explode(" ", $datos_viajeMTOP['FECHA_SALIDA']);
+$fecha_llegada = explode(" ", $datos_viajeMTOP['FECHA_LLEGADA']);
 
-$origen = $datos_viajeMTOP['ORIGEN'];
+$origen = explode(",", $datos_viajeMTOP['ORIGEN']);
 $datos_viajeMTOP['DEPARTAMENTO_ORIGEN'] = $origen[1];
-$datos_viajeMTOP['LOCALIDAD_ORIGEN'] = $origen[1];
+$datos_viajeMTOP['LOCALIDAD_ORIGEN'] = $origen[0];
 
-$destino = $datos_viajeMTOP['DESTINO'];
+$destino = explode(",", $datos_viajeMTOP['DESTINO']);
 $datos_viajeMTOP['DEPARTAMENTO_DESTINO'] = $destino[1];
-$datos_viajeMTOP['LOCALIDAD_DESTINO'] = $destino[1];
+$datos_viajeMTOP['LOCALIDAD_DESTINO'] = $destino[0];
 
+
+echo json_encode($datos_viajeMTOP);
 
 //
 /*------------------------------------------------------------------------------------------*/
@@ -88,17 +90,16 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                                 <td>
                                     <div class="mail-content" style="width: 500px; margin: 20px auto; background: #fff; font-family: Montserrat; color: #3844bc;">
                                         <h1 style="font-size: 20px;">Información de la Oportunidad</h1>
-                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">ID Viaje: </b>#'.$datos_viajeMTOP[0]['ID_VIAJE'].'</p>
-                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">N° Usuario MTOP: </b>#'.$datos_viajeMTOP[0]['NRO_MTOP'].'</p>
-                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Contraseña MTOP: </b>'.$datos_viajeMTOP[0]['PASS_MTOP'].'</p>
-                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Origen: </b>URUGUAY, '.$datos_viajeMTOP[0]['DEPARTAMENTO_ORIGEN'].', '.$datos_viajeMTOP[0]['LOCALIDAD_ORIGEN'].'.</p>
-                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Destino: </b>URUGUAY, '.$datos_viajeMTOP[0]['DEPARTAMENTO_DESTINO'].', '.$datos_viajeMTOP[0]['LOCALIDAD_DESTINO'].'.</p>
-                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Kilometros: </b>'.$datos_viajeMTOP[0]['DISTANCIA'].'</p>
+                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">N° Usuario MTOP: </b>#'.$datos_viajeMTOP['NRO_MTOP'].'</p>
+                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Contraseña MTOP: </b>'.$datos_viajeMTOP['PASS_MTOP'].'</p>
+                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Origen: </b>URUGUAY, '.$datos_viajeMTOP['DEPARTAMENTO_ORIGEN'].', '.$datos_viajeMTOP['LOCALIDAD_ORIGEN'].'.</p>
+                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Destino: </b>URUGUAY, '.$datos_viajeMTOP['DEPARTAMENTO_DESTINO'].', '.$datos_viajeMTOP['LOCALIDAD_DESTINO'].'.</p>
+                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Kilometros: </b>'.$datos_viajeMTOP['DISTANCIA'].'</p>
                                         <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Fecha de Salida: </b>'.$fecha_salida[0].'</p>
                                         <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Hora de Salida: </b>'.$fecha_salida[1].'</p>
                                         <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Fecha de Llegada: </b>'.$fecha_llegada[0].'</p>
                                         <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Hora de Llegada: </b>'.$fecha_llegada[1].'</p>
-                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Matrícula: </b>'.$datos_viajeMTOP[0]['MATRICULA'].'</p>';
+                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Matrícula: </b>'.$datos_viajeMTOP['MATRICULA'].'</p>';
 
                                         if(isset($rutas_viajeMTOP)){
                                             if(count($rutas_viajeMTOP,true) > 0){

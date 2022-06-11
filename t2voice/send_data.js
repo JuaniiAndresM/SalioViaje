@@ -66,8 +66,6 @@ class llamadas_PHP {
 
         realizarLlamadaReconfirmarCotizacion(dialago,dateNhoure,id,tel,nombre,msj,id_cotizacion_presentada,id_viaje_cotizado) {
 
-            console.log(dialago+"   "+dateNhoure+"   "+id+"   "+tel+"   "+nombre+"   "+msj+"   "+id_cotizacion_presentada+"   "+id_viaje_cotizado)
-
             $.ajax({
                 type: "POST",
                 url: "/t2voice/comunication_js_php.php",

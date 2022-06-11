@@ -325,6 +325,19 @@ function rechazarCotizacion(id) {
    });
 }
 
+function eliminarCotizacion(id) {
+   $.ajax({
+      type: "POST",
+      url: "/PHP/procedimientosForm.php",
+      data: { tipo: 'eliminar_cotizacion', idCotizacion: id },
+      success: function (response) {
+         console.log(response)
+      },
+      complete: function () {
+         location.reload()
+      }
+   });
+}
 
 function reconfirmarCotizacion(id) {
    $.ajax({
@@ -345,10 +358,21 @@ function reconfirmar_cotizacion_llamada(id, id_viaje_cotizado, telefono_tta) {
    let send = new llamadas_PHP();
    console.log(id+"   "+id_viaje_cotizado+"   "+telefono_tta)
    let id_llamada = Math.floor(Math.random() * 100000);
-   //let mensaje = `Han escogido tu cotizacion para el viaje numero #${id}!  Aceptar:  https://www.salioviaje.com.uy/Solicitud/${id}A Rechazar: https://www.salioviaje.com.uy/Solicitud/${id}R`;
+   let mensaje = `Han escogido tu cotizacion para el viaje numero #${id}!  Aceptar:  https://www.salioviaje.com.uy/Solicitud/${id}A Rechazar: https://www.salioviaje.com.uy/Solicitud/${id}R`;
    send.realizarLlamadaReconfirmarCotizacion("tpc_notificacion_opciones", "2022-02-07T15:00:00+03:00", id_llamada, telefono_tta, "Transportista", "Han escogido tu cotizacion para el viaje numero #" + id + ". Presione 1 para aceptar, 3 para rechazar", id, id_viaje_cotizado);
-   //send.enviarSMSReconfirmarCotizacion(telefono_tta, "2022-02-04T15:00:00+03:00", mensaje, id_llamada);
+   send.enviarSMSReconfirmarCotizacion(telefono_tta, "2022-02-04T15:00:00+03:00", mensaje, id_llamada);
    //mail_aprobar_rechazar_cotizacion(id)
+}
+
+function mail_aprobar_rechazar_cotizacion() {
+   $.ajax({
+      type: "POST",
+      url: "/Mail/mail-Oportunidades-Aceptado.php",
+      data: { mail_tta:JSON.parse(mail_tta)['MAIL'], id_viaje: id},
+      success: function (response) {
+         console.log(response)
+      }
+  });
 }
 
 /*

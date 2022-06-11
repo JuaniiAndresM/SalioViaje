@@ -463,13 +463,13 @@ class procedimientosBD
         // ORIGEN DESTINO FECHA HORA PASAJEROS MARCA Y MODELO DEL VEHICULO nombre de transportista
         $oportunidades = array();
         $conn = $this->conexion();
-        $query = "SELECT idViaje,Origen,Destino,Fecha,Estado,Modalidad,id_viaje_vinculado,Distancia,Vechiculo FROM viajes where idTransportista = $id and visivilidad != 0 ORDER BY Fecha;";
+        $query = "SELECT idViaje,Origen,Destino,Fecha,Estado,Modalidad,id_viaje_vinculado,Distancia,Vehiculo,Nombre,Apellido FROM viajes,usuarios where idTransportista = $id and usuarios.ID = $id and visivilidad != 0 ORDER BY Fecha";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($idOportunidad, $origen, $destino, $fecha, $estado, $modalidad, $id_viaje_vinculado,$distancia,$vehiculo);
+        $stmt->bind_result($idOportunidad, $origen, $destino, $fecha, $estado, $modalidad, $id_viaje_vinculado,$distancia,$vehiculo,$nombre,$apellido/*,$nro_mtop, $pass_mtop*/);
             while ($stmt->fetch()) {
-                $result = array('ID' => $idOportunidad, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'FECHA' => $fecha, 'ESTADO' => $estado, 'MODALIDAD' => $modalidad, 'ID_VIAJE_VINCULADO' => $id_viaje_vinculado, "DISTANCIA" => $distancia, "VECHICULO" => $vehiculo);
+                $result = array('ID' => $idOportunidad, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'FECHA' => $fecha, 'ESTADO' => $estado, 'MODALIDAD' => $modalidad, 'ID_VIAJE_VINCULADO' => $id_viaje_vinculado, "DISTANCIA" => $distancia, "VECHICULO" => $vehiculo, "NOMBRE" => $nombre, "APELLIDO" => $apellido, "NRO_MTOP" => $nro_mtop, "PASS_MTOP" => $pass_mtop);
                 $fecha = $result["FECHA"];
                 $timestamp = strtotime($fecha);
                 $newDate = date("d-m-Y H:i", $timestamp);
@@ -757,9 +757,9 @@ class procedimientosBD
         $stmt->bind_param("s", $id);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($id, $vehiculo, $distancia, $cantidad_pasajeros, $fecha, $origen, $destino, $precio, $estado, $modalidad, $id_transportista,$id_tramo_vinculado);
+            $stmt->bind_result($id, $vehiculo, $distancia, $cantidad_pasajeros, $fecha, $origen, $destino, $precio, $estado, $modalidad, $id_transportista,$id_tramo_vinculado,$nombre,$apellido);
             while ($stmt->fetch()) {
-                $result = array('ID' => $id, 'VEHICULO' => $vehiculo, 'DISTANCIA' => $distancia, 'CANTIDAD_PASAJERO' => $cantidad_pasajeros, 'FECHA' => $fecha, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'PRECIO' => $precio, 'RUTAS' => $rutas, 'ESTADO' => $estado, 'MODALIDAD' => $modalidad, 'ID_TRANSPORTISTA' => $id_transportista);
+                $result = array('ID' => $id, 'VEHICULO' => $vehiculo, 'DISTANCIA' => $distancia, 'CANTIDAD_PASAJERO' => $cantidad_pasajeros, 'FECHA' => $fecha, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'PRECIO' => $precio, 'RUTAS' => $rutas, 'ESTADO' => $estado, 'MODALIDAD' => $modalidad, 'ID_TRANSPORTISTA' => $id_transportista,"NOMBRE" => $nombre." ".$apellido);
                 $fecha = $result["FECHA"];
                 $timestamp = strtotime($fecha);
                 $newDate = date("d-m-Y H:i A", $timestamp);
@@ -1381,6 +1381,7 @@ class procedimientosBD
         echo $stmt->error;
         $stmt->close();
     }
+
     /*
     TODO: hacer el eliminar cotizacion que reemplaza al rechazar cotizacion anterior
     */
@@ -1440,17 +1441,17 @@ class procedimientosBD
     public function traer_cotizaciones_por_id_comprador($id){
         $cotizaciones = array();
         $conn = $this->conexion();
-        $query = "SELECT ID,DIRECCION_ORIGEN,BARRIO_ORIGEN,LOCALIDAD_ORIGEN,DIRECCION_DESTINO,BARRIO_DESTINO,LOCALIDAD_DESTINO,FECHA_SALIDA,ESTADO,TIPO FROM cotizaciones WHERE ID_SOLICITANTE = $id;";
+        $query = "SELECT ID,DIRECCION_ORIGEN,BARRIO_ORIGEN,LOCALIDAD_ORIGEN,DIRECCION_DESTINO,BARRIO_DESTINO,LOCALIDAD_DESTINO,FECHA_SALIDA,ESTADO,TIPO,HORA,CANTIDAD_PASAJEROS FROM cotizaciones WHERE ID_SOLICITANTE = $id;";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($id,$dir_origen,$bar_origen,$loc_origen,$dir_destino,$bar_destino,$loc_destino,$fecha,$estado,$tipo);
+            $stmt->bind_result($id,$dir_origen,$bar_origen,$loc_origen,$dir_destino,$bar_destino,$loc_destino,$fecha,$estado,$tipo,$hora,$cantidad_pasajeros);
             while ($stmt->fetch()) {
                 $origen = $dir_origen.",".$bar_origen.",".$loc_origen;
                 $destino = $dir_destino.",".$bar_destino.",".$loc_destino;
                 if ($estado == 1 || $estado == 4) {
                     $estado = ($estado == 1) ? "Cotizando" : "Cotizado" ;
-                    $result = array("ID" => $id,"ORIGEN" => $origen,"DESTINO" => $destino,"FECHA" => $fecha,"ESTADO" => $estado,"MODALIDAD" => $tipo);
+                    $result = array("ID" => $id,"ORIGEN" => $origen,"DESTINO" => $destino,"FECHA" => $fecha,"ESTADO" => $estado,"MODALIDAD" => $tipo,"HORA" => $hora, "CANTIDAD_PASAJEROS" => $cantidad_pasajeros);
                     $fecha = $result["FECHA"];
                     $timestamp = strtotime($fecha);
                     $newDate = date("d-m-Y", $timestamp);
