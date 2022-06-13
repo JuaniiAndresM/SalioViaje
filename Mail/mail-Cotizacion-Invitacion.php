@@ -6,28 +6,13 @@ use PHPMailer\PHPMailer\Exception;
 require '../Plugins/PHPMailer/src/Exception.php';
 require '../Plugins/PHPMailer/src/PHPMailer.php';
 require '../Plugins/PHPMailer/src/SMTP.php';
-require_once '../PHP/procedimientosBD.php';
 
 /*------------------------------------------------------------------------------------------*/
 // ? Importar Variables (Opcional)
 //
 
-$bd = new procedimientosBD();
-
 $id = $_POST['id_viaje'];
-
-session_start();
-
-
-$datos_oportunidad = $bd->traer_oportunidades_por_id($id);
-
-$datos_comprador =  $bd->info_usuario_profile($_SESSION['datos_usuario']['ID']);
-$datos_transportista =  $bd->info_usuario_profile($datos_oportunidad[0]['ID_TRANSPORTISTA']);
-
-$fecha = explode(' ', $datos_oportunidad[0]['FECHA']);
-
-$descuento = $datos_oportunidad[0]['DESCUENTO']/100;
-$PRECIO_CON_DESCUENTO_APLICADO =  round($datos_oportunidad[0]['PRECIO'] - $datos_oportunidad[0]['PRECIO'] * $descuento);
+$mail_TTA = $_POST['mail'];
 
 //
 /*------------------------------------------------------------------------------------------*/
@@ -59,7 +44,7 @@ $mail->Port = 587;
 $mail->CharSet = 'UTF-8';
 $mail->From = 'promouruguay010@gmail.com';
 $mail->FromName = 'SalióViaje';
-$mail->addAddress($datos_transportista[0]['EMAIL']);
+$mail->addAddress($mail_TTA);
 $mail->isHTML(true);
 $mail->Subject = "Te invitamos a cotizar el viaje N° ".$id.". - SalióViaje";
 
@@ -101,7 +86,7 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                             <tr>
                                 <td>
                                     <div class="mail-content" style="width: 95%; margin: 20px auto; background: #fff; font-family: Montserrat; color: #555; font-size: 13px;">
-                                        <p>Este mensaje se envió a <span style="color: #3844bc; font-weight: bold;">'.$datos_transportista[0]['EMAIL'].'</span>.</p>
+                                        <p>Este mensaje se envió a <span style="color: #3844bc; font-weight: bold;">'.$mail_TTA.'</span>.</p>
                                         <p>Si no quieres recibir estos emails de SalióViaje en el futuro, puedes darte de baja de la lista de correo.</p>
                                     </div>
                                 </td>

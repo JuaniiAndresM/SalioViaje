@@ -1450,9 +1450,7 @@ function notificarTransportistas() {
         transportistasAptos(datos, true)
     }
 
-
 }
-
 
 const transportistasAptos = (datos_filtros, fiesta_ida_vuelta) => {
     $.ajax({
@@ -1460,11 +1458,25 @@ const transportistasAptos = (datos_filtros, fiesta_ida_vuelta) => {
         url: "/PHP/topTransportistas.php",
         data: { data: JSON.stringify(datos_filtros) , fiesta_ida_vuelta: fiesta_ida_vuelta},
         success: function (response) {
-            response = JSON.parse(response)
-            console.log(response)
+            var transportistas = JSON.parse(response)
+            enviarMailsTransportistas(transportistas)
         }
     });
 }
+
+function enviarMailsTransportistas(transportistas) {
+    for (let index = 0; index < transportistas.length; index++) {
+        $.ajax({
+            type: "POST",
+            url: "/Mail/mail-Cotizacion-Invitacion.php",
+            data: { id_viaje: id_cotizacion , mail: transportistas[index]['MAIL']},
+            success: function (response) {
+                console.log(response)
+            }
+        });
+    }
+}
+
 
 function tipoViaje(tipo) {
     switch (tipo) {
