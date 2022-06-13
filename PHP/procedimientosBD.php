@@ -1440,6 +1440,56 @@ class procedimientosBD
         return json_encode($preferencias);
     }
 
+    public function traer_preferencias(){
+        $preferencias = array();
+        $conn = $this->conexion();
+        $query = "SELECT NOCTURNO,FIESTAS,DIA_LIBRE,PRECIO_DE_COCHE,id_tta FROM `prefecrenciasVehiculos`;";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($nocturno,$fiestas,$dia_libre,$precio_coche,$idtta);
+            while ($stmt->fetch()) {
+                $result = array(
+                    "NOCTURNO" => $nocturno, 
+                    "FIESTAS" => $fiestas, 
+                    "DIA_LIBRE" => $dia_libre, 
+                    "PRECIO_DE_COCHE" => $precio_coche,
+                    "TRANSPORTISTA" => $idtta
+                );
+                $preferencias[] = $result;
+            }
+        }
+        echo $stmt->error;
+        $stmt->close();
+
+        return json_encode($preferencias);
+    }
+
+    public function traer_tranportistas(){
+        $transportistas = array();
+        $conn = $this->conexion();
+        $query = "SELECT ID,Email,Departamento,moroso FROM `usuarios` where Tipo_Usuario = 'TTA';";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($id,$email,$departamento,$moroso);
+            while ($stmt->fetch()) {
+                $result = array(
+                    "ID" => $id, 
+                    "MAIL" => $email, 
+                    "DEPARTAMENTO" => $departamento,
+                    "MOROSO" => $moroso
+                );
+                $transportistas[] = $result;
+            }
+        }
+        echo $stmt->error;
+        $stmt->close();
+
+        return json_encode($transportistas);
+    }
+
+
     public function traer_cotizaciones_por_id_comprador($id){
         $cotizaciones = array();
         $conn = $this->conexion();

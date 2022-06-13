@@ -1423,12 +1423,14 @@ function notificarTransportistas() {
     let datos
     console.log(id_inputs)
 
-    if (id_inputs.length == 4) {
+    if (id_inputs.length == 6) {
         datos = {
             "fecha": document.getElementById(id_inputs[0]).value,
             "hora": document.getElementById(id_inputs[1]).value,
             "cantidad_pasajeros": document.getElementById(id_inputs[2]).value,
-            "mascotas": document.getElementById(id_inputs[3]).value
+            "mascotas": document.getElementById(id_inputs[3]).value,
+            "origen": document.getElementById(id_inputs[4]).value,
+            "destino": document.getElementById(id_inputs[5]).value
         }
         transportistasAptos(datos, false)
     } else {
@@ -1439,7 +1441,11 @@ function notificarTransportistas() {
             "fecha_vuelta": document.getElementById(id_inputs[3]).value,
             "hora_vuelta": document.getElementById(id_inputs[4]).value,
             "cantidad_pasajeros_vuelta": document.getElementById(id_inputs[5]).value,
-            "mascotas": document.getElementById(id_inputs[6]).value
+            "mascotas": document.getElementById(id_inputs[6]).value,
+            "origen": document.getElementById(id_inputs[4]).value,
+            "destino": document.getElementById(id_inputs[5]).value,
+            "origen_vuelta": document.getElementById(id_inputs[4]).value,
+            "destino_vuelta": document.getElementById(id_inputs[5]).value
         }
         transportistasAptos(datos, true)
     }
@@ -1454,7 +1460,8 @@ const transportistasAptos = (datos_filtros, fiesta_ida_vuelta) => {
         url: "/PHP/topTransportistas.php",
         data: { data: JSON.stringify(datos_filtros) , fiesta_ida_vuelta: fiesta_ida_vuelta},
         success: function (response) {
-            console.log(response);
+            response = JSON.parse(response)
+            console.log(response)
         }
     });
 }
@@ -1462,25 +1469,25 @@ const transportistasAptos = (datos_filtros, fiesta_ida_vuelta) => {
 function tipoViaje(tipo) {
     switch (tipo) {
         case "1":
-            inputs = ['fecha_salida', 'hora', 'cant_pasajeros', 'mascotas_traslado']
+            inputs = ['fecha_salida', 'hora', 'cant_pasajeros', 'mascotas_traslado','localidad_traslado_origen','localidad_traslado_destino']
             break;
         case "2":
-            inputs = ['fecha_salida_tour', 'hora_tour', 'cant_pasajeros_tour', 'mascota_tour']
+            inputs = ['fecha_salida_tour', 'hora_tour', 'cant_pasajeros_tour', 'mascota_tour', 'localidad_tour', 'destino_tour']
             break;
         case "3":
             if (document.getElementById("select_transfer").value == 1) {
-                inputs = ['fecha_regreso_transfer_in', 'hora_transfer_in', 'cant_pasajeros_transfer_in', 'mascotas_transfer_in']
+                inputs = ['fecha_regreso_transfer_in', 'hora_transfer_in', 'cant_pasajeros_transfer_in', 'mascotas_transfer_in', 'aeropuerto_transfer_in', 'localidad_transfer_in']
             } else {
-                inputs = ['fecha_regreso_transfer_out', 'hora_transfer_out', 'cant_pasajeros_transfer_out', 'mascotas_transfer_out']
+                inputs = ['fecha_regreso_transfer_out', 'hora_transfer_out', 'cant_pasajeros_transfer_out', 'mascotas_transfer_out', 'localidad_transfer_out','aeropuerto_transfer_out']
             }
             break;
         default:
             if (document.getElementById("select_fiesta").value == 1) {
-                inputs = ['fecha_salida_fiestas_ida', 'hora_fiesta_ida', 'cant_pasajeros_fiesta_ida', 'mascotas_fiestas_ida']
+                inputs = ['fecha_salida_fiestas_ida', 'hora_fiesta_ida', 'cant_pasajeros_fiesta_ida', 'mascotas_fiestas_ida', 'localidad_fiestas_ida', 'fiestasida_origen_localidad']
             } else if (document.getElementById("select_fiesta").value == 2) {
-                inputs = ['fecha_regreso_fiestas_vuelta', 'hora_fiesta_vuelta', 'cant_pasajeros_fiesta_vuelta', 'mascotas_fiestas_vuelta']
+                inputs = ['fecha_regreso_fiestas_vuelta', 'hora_fiesta_vuelta', 'cant_pasajeros_fiesta_vuelta', 'mascotas_fiestas_vuelta', 'fiestasvuelta_origen_localidad', 'localidad_fiesta_vuelta']
             } else {
-                inputs = ['fecha_salida_fiestas_idavuelta', 'hora_ida_fiestas_idavuelta', 'cant_pasajeros_ida_fiestas_idavuelta', 'fecha_regreso_fiestas_idavuelta', 'hora_vuelta_fiestas_idavuelta', 'cant_pasajeros_vuelta_fiestas_idavuelta', 'mascotas_fiestas_idavuelta']
+                inputs = ['fecha_salida_fiestas_idavuelta', 'hora_ida_fiestas_idavuelta', 'cant_pasajeros_ida_fiestas_idavuelta', 'fecha_regreso_fiestas_idavuelta', 'hora_vuelta_fiestas_idavuelta', 'cant_pasajeros_vuelta_fiestas_idavuelta', 'mascotas_fiestas_idavuelta', 'localidad_ida_origen_fiestas_idavuelta', 'localidad_ida_destino_fiestas_idavuelta', 'localidad_vuelta_origen_fiestas_idavuelta', 'localidad_vuelta_destino_fiestas_idavuelta']
             }
             break;
     }
