@@ -11,7 +11,7 @@ $(document).ready(function () {
         datavalue_oportunidades();
     }, 1000);
 
-    
+
     $('.mensaje-error').hide();
 
     $("#fiestas").on('click', function () {
@@ -94,7 +94,7 @@ function next() {
     steps(step);
 }
 
-function finalizar(enviar_solicitud,modal,domicilio) {
+function finalizar(enviar_solicitud, modal, domicilio) {
     $('#modal').hide();
     $('#modal').html("");
     tipo = $('#select_users').val();
@@ -121,13 +121,14 @@ function finalizar(enviar_solicitud,modal,domicilio) {
                 if (verificar_fechas(datos_traslado['FECHA_SALIDA'], null, 0, datos_traslado['HORA'])) {
                     if (enviar_solicitud == 1) {
 
-                        if(modal == 2){
+                        if (modal == 2) {
 
-                            if(domicilio == 1){
+                            if (domicilio == 1) {
                                 // Guardar Domicilio en el Usuario
                             }
 
                             guardar_cotizacion(datos_traslado, array_paradas_1, 0, "traslados");
+                            notificarTransportistas()
                             next();
 
                             setTimeout(() => {
@@ -149,20 +150,20 @@ function finalizar(enviar_solicitud,modal,domicilio) {
                                     }
                                 });
                             }, 1000);
-                        }else{
-                            var info = [datos_traslado['DIRECCION_ORIGEN'],datos_traslado['BARRIO_ORIGEN'],datos_traslado['LOCALIDAD_ORIGEN']]
+                        } else {
+                            var info = [datos_traslado['DIRECCION_ORIGEN'], datos_traslado['BARRIO_ORIGEN'], datos_traslado['LOCALIDAD_ORIGEN']]
                             $.ajax({
                                 type: "POST",
                                 url: "https://www.salioviaje.com.uy/Panel/modal.php",
-                                data: { opcion: 3, data: info},
+                                data: { opcion: 3, data: info },
                                 success: function (response) {
                                     console.log(response);
-                                    $('#modal').css('display','flex');
-                                    $('#modal').html(response);        
+                                    $('#modal').css('display', 'flex');
+                                    $('#modal').html(response);
                                 }
                             });
                         }
-                        
+
 
 
                     }
@@ -194,13 +195,14 @@ function finalizar(enviar_solicitud,modal,domicilio) {
             if (validacion('Tour', datos_tour)) {
                 if (verificar_fechas(datos_tour['FECHA_SALIDA'], null, 0, datos_tour['HORA'])) {
                     if (enviar_solicitud == 1) {
-                        if(modal == 2){
-                                                        
-                            if(domicilio == 1){
+                        if (modal == 2) {
+
+                            if (domicilio == 1) {
                                 // Guardar Domicilio en el Usuario
                             }
 
                             guardar_cotizacion(datos_tour, array_paradas_1, 0, "tour");
+                            notificarTransportistas()
                             next();
                             setTimeout(() => {
                                 $.ajax({
@@ -208,7 +210,7 @@ function finalizar(enviar_solicitud,modal,domicilio) {
                                     url: "/Mail/mail-SalioViaje.php",
                                     data: { COTIZACION: id_cotizacion, TIPO: "Tour o Servicio por Hora", DATA: JSON.stringify(datos_tour), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
                                     success: function (response) {
-    
+
                                     },
                                     complete: function (response) {
                                         if (response.responseText == 1) {
@@ -221,20 +223,20 @@ function finalizar(enviar_solicitud,modal,domicilio) {
                                     }
                                 });
                             }, 1000);
-                        }else{
-                            var info = [datos_tour['DIRECCION_SALIDA_TOUR'],datos_tour['BARRIO_TOUR'],datos_tour['LOCALIDAD_TOUR']]
+                        } else {
+                            var info = [datos_tour['DIRECCION_SALIDA_TOUR'], datos_tour['BARRIO_TOUR'], datos_tour['LOCALIDAD_TOUR']]
                             $.ajax({
                                 type: "POST",
                                 url: "https://www.salioviaje.com.uy/Panel/modal.php",
-                                data: { opcion: 3, data: info},
+                                data: { opcion: 3, data: info },
                                 success: function (response) {
                                     console.log(response);
-                                    $('#modal').css('display','flex');
-                                    $('#modal').html(response);        
+                                    $('#modal').css('display', 'flex');
+                                    $('#modal').html(response);
                                 }
                             });
                         }
-                        
+
 
 
                     }
@@ -275,13 +277,14 @@ function finalizar(enviar_solicitud,modal,domicilio) {
                     if (validacion('Transfer_in', datos_transfer_in)) {
                         if (verificar_fechas(datos_transfer_in['FECHA_ARRIBO'], null, 0, datos_transfer_in['HORA'])) {
                             if (enviar_solicitud == 1) {
-                                if(modal == 2){
-                                                                
-                                    if(domicilio == 1){
+                                if (modal == 2) {
+
+                                    if (domicilio == 1) {
                                         // Guardar Domicilio en el Usuario
                                     }
 
                                     guardar_cotizacion(datos_transfer_in, array_paradas_1, 0, "transferIn");
+                                    notificarTransportistas()
                                     next();
                                     setTimeout(() => {
                                         $.ajax({
@@ -289,7 +292,7 @@ function finalizar(enviar_solicitud,modal,domicilio) {
                                             url: "/Mail/mail-SalioViaje.php",
                                             data: { COTIZACION: id_cotizacion, TIPO: "Transfer de Arribo", DATA: JSON.stringify(datos_transfer_in), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
                                             success: function (response) {
-    
+
                                             },
                                             complete: function (response) {
                                                 if (response.responseText == 1) {
@@ -302,20 +305,20 @@ function finalizar(enviar_solicitud,modal,domicilio) {
                                             }
                                         });
                                     }, 1000);
-                                }else{
-                                    var info = [datos_transfer_in['DIRECCION_DESTINO'],datos_transfer_in['BARRIO_DESTINO'],datos_transfer_in['LOCALIDAD_DESTINO']]
+                                } else {
+                                    var info = [datos_transfer_in['DIRECCION_DESTINO'], datos_transfer_in['BARRIO_DESTINO'], datos_transfer_in['LOCALIDAD_DESTINO']]
                                     $.ajax({
                                         type: "POST",
                                         url: "https://www.salioviaje.com.uy/Panel/modal.php",
-                                        data: { opcion: 3, data: info},
+                                        data: { opcion: 3, data: info },
                                         success: function (response) {
                                             console.log(response);
-                                            $('#modal').css('display','flex');
-                                            $('#modal').html(response);        
+                                            $('#modal').css('display', 'flex');
+                                            $('#modal').html(response);
                                         }
                                     });
                                 }
-                                
+
 
 
                             }
@@ -348,13 +351,14 @@ function finalizar(enviar_solicitud,modal,domicilio) {
                     if (validacion('Transfer_out', datos_transfer_out)) {
                         if (verificar_fechas(datos_transfer_out['FECHA_PARTIDA'], null, 0, datos_transfer_out['HORA'])) {
                             if (enviar_solicitud == 1) {
-                                if(modal == 2){
-                                                                
-                                    if(domicilio == 1){
+                                if (modal == 2) {
+
+                                    if (domicilio == 1) {
                                         // Guardar Domicilio en el Usuario
                                     }
 
                                     guardar_cotizacion(datos_transfer_out, array_paradas_1, 0, "transferOut");
+                                    notificarTransportistas()
                                     next();
                                     setTimeout(() => {
                                         $.ajax({
@@ -362,7 +366,7 @@ function finalizar(enviar_solicitud,modal,domicilio) {
                                             url: "/Mail/mail-SalioViaje.php",
                                             data: { COTIZACION: id_cotizacion, TIPO: "Transfer de Partida", DATA: JSON.stringify(datos_transfer_out), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
                                             success: function (response) {
-    
+
                                             },
                                             complete: function (response) {
                                                 if (response.responseText == 1) {
@@ -375,20 +379,20 @@ function finalizar(enviar_solicitud,modal,domicilio) {
                                             }
                                         });
                                     }, 1000);
-                                }else{
-                                    var info = [datos_transfer_out['DIRECCION_ORIGEN'],datos_transfer_out['BARRIO_ORIGEN'],datos_transfer_out['LOCALIDAD_ORIGEN']]
+                                } else {
+                                    var info = [datos_transfer_out['DIRECCION_ORIGEN'], datos_transfer_out['BARRIO_ORIGEN'], datos_transfer_out['LOCALIDAD_ORIGEN']]
                                     $.ajax({
                                         type: "POST",
                                         url: "https://www.salioviaje.com.uy/Panel/modal.php",
-                                        data: { opcion: 3, data: info},
+                                        data: { opcion: 3, data: info },
                                         success: function (response) {
                                             console.log(response);
-                                            $('#modal').css('display','flex');
-                                            $('#modal').html(response);        
+                                            $('#modal').css('display', 'flex');
+                                            $('#modal').html(response);
                                         }
                                     });
                                 }
-                                
+
 
 
                             }
@@ -431,13 +435,14 @@ function finalizar(enviar_solicitud,modal,domicilio) {
                     if (validacion('FIESTA-IDA', datos_fiestaseventos_ida)) {
                         if (verificar_fechas(datos_fiestaseventos_ida['FECHA_SALIDA'], null, 0, datos_fiestaseventos_ida["HORA"])) {
                             if (enviar_solicitud == 1) {
-                                if(modal == 2){
-                                                                
-                                    if(domicilio == 1){
+                                if (modal == 2) {
+
+                                    if (domicilio == 1) {
                                         // Guardar Domicilio en el Usuario
                                     }
 
                                     guardar_cotizacion(datos_fiestaseventos_ida, array_paradas_1, 0, "fiestasIda");
+                                    notificarTransportistas()
                                     next();
                                     setTimeout(() => {
                                         $.ajax({
@@ -445,7 +450,7 @@ function finalizar(enviar_solicitud,modal,domicilio) {
                                             url: "/Mail/mail-SalioViaje.php",
                                             data: { COTIZACION: id_cotizacion, TIPO: "Fiesta o Evento - Ida", DATA: JSON.stringify(datos_fiestaseventos_ida), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
                                             success: function (response) {
-    
+
                                             },
                                             complete: function (response) {
                                                 if (response.responseText == 1) {
@@ -459,20 +464,20 @@ function finalizar(enviar_solicitud,modal,domicilio) {
                                         });
                                     }, 1000);
 
-                                }else{
-                                    var info = [datos_fiestaseventos_ida['DIRECCION_ORIGEN'],datos_fiestaseventos_ida['BARRIO_ORIGEN'],datos_fiestaseventos_ida['LOCALIDAD_ORIGEN']]
+                                } else {
+                                    var info = [datos_fiestaseventos_ida['DIRECCION_ORIGEN'], datos_fiestaseventos_ida['BARRIO_ORIGEN'], datos_fiestaseventos_ida['LOCALIDAD_ORIGEN']]
                                     $.ajax({
                                         type: "POST",
                                         url: "https://www.salioviaje.com.uy/Panel/modal.php",
-                                        data: { opcion: 3, data: info},
+                                        data: { opcion: 3, data: info },
                                         success: function (response) {
                                             console.log(response);
-                                            $('#modal').css('display','flex');
-                                            $('#modal').html(response);        
+                                            $('#modal').css('display', 'flex');
+                                            $('#modal').html(response);
                                         }
                                     });
                                 }
-                                
+
 
                             }
                         } else {
@@ -502,13 +507,14 @@ function finalizar(enviar_solicitud,modal,domicilio) {
                     if (validacion('FIESTA-VUELTA', datos_fiestaseventos_vuelta)) {
                         if (verificar_fechas(datos_fiestaseventos_vuelta['FECHA_REGRESO'], null, 0, datos_fiestaseventos_vuelta['HORA'])) {
                             if (enviar_solicitud == 1) {
-                                if(modal == 2){
-                                                                
-                                    if(domicilio == 1){
+                                if (modal == 2) {
+
+                                    if (domicilio == 1) {
                                         // Guardar Domicilio en el Usuario
                                     }
 
                                     guardar_cotizacion(datos_fiestaseventos_vuelta, 0, array_paradas_2, "fiestasVuelta");
+                                    notificarTransportistas()
                                     next();
                                     setTimeout(() => {
                                         $.ajax({
@@ -516,7 +522,7 @@ function finalizar(enviar_solicitud,modal,domicilio) {
                                             url: "/Mail/mail-SalioViaje.php",
                                             data: { COTIZACION: id_cotizacion, TIPO: "Fiesta o Evento - Vuelta", DATA: JSON.stringify(datos_fiestaseventos_vuelta), PARADAS_IDA: JSON.stringify(array_paradas_1), PARADAS_VUELTA: JSON.stringify(array_paradas_2) },
                                             success: function (response) {
-    
+
                                             },
                                             complete: function (response) {
                                                 if (response.responseText == 1) {
@@ -529,23 +535,23 @@ function finalizar(enviar_solicitud,modal,domicilio) {
                                             }
                                         });
                                     }, 1000);
-    
+
                                     console.log(datos_fiestaseventos_ida)
                                     console.log(array_paradas_2)
-                                }else{
-                                    var info = [datos_fiestaseventos_vuelta['DIRECCION_DESTINO'],datos_fiestaseventos_vuelta['BARRIO_DESTINO'],datos_fiestaseventos_vuelta['LOCALIDAD_DESTINO']]
+                                } else {
+                                    var info = [datos_fiestaseventos_vuelta['DIRECCION_DESTINO'], datos_fiestaseventos_vuelta['BARRIO_DESTINO'], datos_fiestaseventos_vuelta['LOCALIDAD_DESTINO']]
                                     $.ajax({
                                         type: "POST",
                                         url: "https://www.salioviaje.com.uy/Panel/modal.php",
-                                        data: { opcion: 3, data: info},
+                                        data: { opcion: 3, data: info },
                                         success: function (response) {
                                             console.log(response);
-                                            $('#modal').css('display','flex');
-                                            $('#modal').html(response);        
+                                            $('#modal').css('display', 'flex');
+                                            $('#modal').html(response);
                                         }
                                     });
                                 }
-                                
+
 
                             }
                         } else {
@@ -596,13 +602,14 @@ function finalizar(enviar_solicitud,modal,domicilio) {
                     if (validacion('FIESTA-IDA-VUELTA', datos_fiestaseventos_idavuelta)) {
                         if (verificar_fechas(datos_fiestaseventos_idavuelta['FECHA_SALIDA'], datos_fiestaseventos_idavuelta['FECHA_REGRESO'], 1, datos_fiestaseventos_idavuelta['HORA_SALIDA'], datos_fiestaseventos_idavuelta['HORA_REGRESO'])) {
                             if (enviar_solicitud == 1) {
-                                if(modal == 2){
-                                                                
-                                    if(domicilio == 1){
+                                if (modal == 2) {
+
+                                    if (domicilio == 1) {
                                         // Guardar Domicilio en el Usuario
                                     }
 
                                     guardar_cotizacion(datos_fiestaseventos_idavuelta, array_paradas_1, array_paradas_2, "fiestasIdaVuelta");
+                                    notificarTransportistas()
                                     next();
                                     setTimeout(() => {
                                         $.ajax({
@@ -623,20 +630,20 @@ function finalizar(enviar_solicitud,modal,domicilio) {
                                             }
                                         });
                                     }, 1000);
-                                }else{
-                                    var info = [datos_fiestaseventos_idavuelta['DIRECCION_DESTINO'],datos_fiestaseventos_idavuelta['BARRIO_DESTINO'],datos_fiestaseventos_idavuelta['LOCALIDAD_DESTINO']]
+                                } else {
+                                    var info = [datos_fiestaseventos_idavuelta['DIRECCION_DESTINO'], datos_fiestaseventos_idavuelta['BARRIO_DESTINO'], datos_fiestaseventos_idavuelta['LOCALIDAD_DESTINO']]
                                     $.ajax({
                                         type: "POST",
                                         url: "https://www.salioviaje.com.uy/Panel/modal.php",
-                                        data: { opcion: 3, data: info},
+                                        data: { opcion: 3, data: info },
                                         success: function (response) {
                                             console.log(response);
-                                            $('#modal').css('display','flex');
-                                            $('#modal').html(response);        
+                                            $('#modal').css('display', 'flex');
+                                            $('#modal').html(response);
                                         }
                                     });
                                 }
-                                
+
 
 
                             }
@@ -651,7 +658,7 @@ function finalizar(enviar_solicitud,modal,domicilio) {
             }
             break;
     }
-    
+
 }
 
 function guardar_cotizacion(datos_cotizacion, paradas_ida, paradas_vuelta, tipo) {
@@ -1390,7 +1397,92 @@ function eliminar_filtros(tipo) {
     filtrar_divs(tipo);
 }
 
-function closeModal(){
+function closeModal() {
     $('#modal').hide();
     $('#modal').html("");
+}
+
+/**
+ * 
+ * 
+ * 
+ * 
+ * NOTIFICAR TRANSPORTISTAS
+ * 
+ * 
+ * 
+ * 
+ */
+
+
+
+
+function notificarTransportistas() {
+
+    const id_inputs = tipoViaje(document.getElementById("select_users").value)
+    let datos
+    console.log(id_inputs)
+
+    if (id_inputs.length == 4) {
+        datos = {
+            "fecha": document.getElementById(id_inputs[0]).value,
+            "hora": document.getElementById(id_inputs[1]).value,
+            "cantidad_pasajeros": document.getElementById(id_inputs[2]).value,
+            "mascotas": document.getElementById(id_inputs[3]).value
+        }
+        transportistasAptos(datos, false)
+    } else {
+        datos = {
+            "fecha": document.getElementById(id_inputs[0]).value,
+            "hora": document.getElementById(id_inputs[1]).value,
+            "cantidad_pasajeros": document.getElementById(id_inputs[2]).value,
+            "fecha_vuelta": document.getElementById(id_inputs[3]).value,
+            "hora_vuelta": document.getElementById(id_inputs[4]).value,
+            "cantidad_pasajeros_vuelta": document.getElementById(id_inputs[5]).value,
+            "mascotas": document.getElementById(id_inputs[6]).value
+        }
+        transportistasAptos(datos, true)
+    }
+
+
+}
+
+
+const transportistasAptos = (datos_filtros, fiesta_ida_vuelta) => {
+    $.ajax({
+        type: "POST",
+        url: "/PHP/topTransportistas.php",
+        data: { data: JSON.stringify(datos_filtros) , fiesta_ida_vuelta: fiesta_ida_vuelta},
+        success: function (response) {
+            console.log(response);
+        }
+    });
+}
+
+function tipoViaje(tipo) {
+    switch (tipo) {
+        case "1":
+            inputs = ['fecha_salida', 'hora', 'cant_pasajeros', 'mascotas_traslado']
+            break;
+        case "2":
+            inputs = ['fecha_salida_tour', 'hora_tour', 'cant_pasajeros_tour', 'mascota_tour']
+            break;
+        case "3":
+            if (document.getElementById("select_transfer").value == 1) {
+                inputs = ['fecha_regreso_transfer_in', 'hora_transfer_in', 'cant_pasajeros_transfer_in', 'mascotas_transfer_in']
+            } else {
+                inputs = ['fecha_regreso_transfer_out', 'hora_transfer_out', 'cant_pasajeros_transfer_out', 'mascotas_transfer_out']
+            }
+            break;
+        default:
+            if (document.getElementById("select_fiesta").value == 1) {
+                inputs = ['fecha_salida_fiestas_ida', 'hora_fiesta_ida', 'cant_pasajeros_fiesta_ida', 'mascotas_fiestas_ida']
+            } else if (document.getElementById("select_fiesta").value == 2) {
+                inputs = ['fecha_regreso_fiestas_vuelta', 'hora_fiesta_vuelta', 'cant_pasajeros_fiesta_vuelta', 'mascotas_fiestas_vuelta']
+            } else {
+                inputs = ['fecha_salida_fiestas_idavuelta', 'hora_ida_fiestas_idavuelta', 'cant_pasajeros_ida_fiestas_idavuelta', 'fecha_regreso_fiestas_idavuelta', 'hora_vuelta_fiestas_idavuelta', 'cant_pasajeros_vuelta_fiestas_idavuelta', 'mascotas_fiestas_idavuelta']
+            }
+            break;
+    }
+    return inputs
 }

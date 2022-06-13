@@ -75,6 +75,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
     <link rel="stylesheet" href="https://www.salioviaje.com.uy/styles/styles.css" />
 
     <!-- Scripts -->
+
     <script
       src="https://kit.fontawesome.com/1e193e3a23.js"
       crossorigin="anonymous"
@@ -1196,13 +1197,11 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
               <button class="button-viajar" onclick="volver()"><i class="fas fa-arrow-circle-left"></i> Volver</button>
               <?php
               if($_SESSION['datos_usuario']['DIRECCION'] == ""){
-                echo '<button class="button-viajar" onclick="finalizar(1,1)">Enviar Solicitud <i class="fas fa-paper-plane"></i></button>';
+                echo '<button class="button-viajar" onclick="finalizar(1,1)" id="submit">Enviar Solicitud <i class="fas fa-paper-plane"></i></button>';
               }else{
-                echo '<button class="button-viajar" onclick="finalizar(1,2)">Enviar Solicitud <i class="fas fa-paper-plane"></i></button>';
+                echo '<button class="button-viajar" onclick="finalizar(1,2)" id="submit">Enviar Solicitud <i class="fas fa-paper-plane"></i></button>';
               }
               ?>
-              
-
             </div>
 
             <div class="step_4">
@@ -1228,6 +1227,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                   <h2>¡Solicitud Enviada!</h2>
                   <p>En breve te llegaran cotizaciones a tu correo electrónico.</p>
                   <button class="button-viajar" onclick="nueva_cotizacion()"><i class="fas fa-plus-circle"></i> Nueva Cotización</button>
+                  
                 </div>
 
               </div>
@@ -1238,7 +1238,6 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
         </div>
       </section>
     </div>
-    
     <script>
           if (localStorage.getItem("origen") == 1) {
             console.log("Desplegar Function")

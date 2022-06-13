@@ -1283,11 +1283,13 @@ class procedimientosBD
 
     public function guardarPreferencias($datos)
     {
+        session_start();
+        $id = $_SESSION['datos_usuario']['ID'];
         $datos = json_decode($datos,true);
         $conn = $this->conexion();
-        $query = "CALL setPreferenciasVehiculos(?,?,?,?,?)";
+        $query = "CALL setPreferenciasVehiculos(?,?,?,?,?,?)";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("sisii", $datos['MATRICULA'], $datos['FIESTAS'], $datos['DIA_LIBRE'], $datos['PRECIO'], $datos['NOCTURNO']);
+        $stmt->bind_param("sisiii", $datos['MATRICULA'], $datos['FIESTAS'], $datos['DIA_LIBRE'], $datos['PRECIO'], $datos['NOCTURNO'], $id);
         $stmt->execute();
         echo $stmt->error;
         $stmt->close();
