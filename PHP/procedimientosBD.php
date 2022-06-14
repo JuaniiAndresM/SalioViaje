@@ -757,9 +757,9 @@ class procedimientosBD
         $stmt->bind_param("s", $id);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($id, $vehiculo, $distancia, $cantidad_pasajeros, $fecha, $origen, $destino, $precio, $estado, $modalidad, $id_transportista,$id_tramo_vinculado,$nombre,$apellido);
+            $stmt->bind_result($id, $vehiculo, $distancia, $cantidad_pasajeros, $fecha, $origen, $destino, $precio, $estado, $modalidad, $id_transportista,$id_tramo_vinculado,$nombre,$apellido,$telefono);
             while ($stmt->fetch()) {
-                $result = array('ID' => $id, 'VEHICULO' => $vehiculo, 'DISTANCIA' => $distancia, 'CANTIDAD_PASAJERO' => $cantidad_pasajeros, 'FECHA' => $fecha, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'PRECIO' => $precio, 'RUTAS' => $rutas, 'ESTADO' => $estado, 'MODALIDAD' => $modalidad, 'ID_TRANSPORTISTA' => $id_transportista,"NOMBRE" => $nombre." ".$apellido);
+                $result = array('ID' => $id, 'VEHICULO' => $vehiculo, 'DISTANCIA' => $distancia, 'CANTIDAD_PASAJERO' => $cantidad_pasajeros, 'FECHA' => $fecha, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'PRECIO' => $precio, 'RUTAS' => $rutas, 'ESTADO' => $estado, 'MODALIDAD' => $modalidad, 'ID_TRANSPORTISTA' => $id_transportista,"NOMBRE" => $nombre, "TELEFONO" => $telefono);
                 $fecha = $result["FECHA"];
                 $timestamp = strtotime($fecha);
                 $newDate = date("d-m-Y H:i A", $timestamp);
