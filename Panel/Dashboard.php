@@ -409,7 +409,7 @@ session_set_cookie_params($ttl);
                                     <th></th>
                                   </tr>
                                 </thead>
-                                <tbody id="tbody-cotizaciones-dashboard">
+                                <tbody class="cotizaciones_recibidas" id="tbody-cotizaciones-dashboard">
 
                                 </tbody>
                               </table>
