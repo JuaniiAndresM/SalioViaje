@@ -113,6 +113,27 @@ switch($opcion){
             </div>
         </div>';
         break;
+    case 4:
+        $modal_body = '
+        <div class="modal-container">
+            <button class="close-modal" onclick="closeModal()"><i class="fas fa-xmark"></i></button>
+            <div class="modal-img-logo">
+                <img src="https://www.salioviaje.com.uy/media/svg/Logo-SalioViaje.svg" alt="Logo SalióViaje">
+            </div>
+            <div class="modal-body">
+                <p class="msg1">Nombre del Transportista:</p>
+                <p class="msg2">John Doe</p>
+                <div class="button-wrapper">
+                    <a class="modal-button-phone" href="tel:+59898234717">
+                        <i class="fa-solid fa-phone"></i>
+                    </a>
+                    <a class="modal-button-phone" href="https://wa.me/+59898234717" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>';
+        break;
 }
 
 

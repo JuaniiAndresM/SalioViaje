@@ -1220,3 +1220,16 @@ function mtop_viaje(datos_viaje_mtop) {
         }
     });
 }
+
+function modal_contacto(id_transportista){
+    $.ajax({
+        type: "POST",
+        url: "https://www.salioviaje.com.uy/Panel/modal.php",
+        data: { opcion: 4, data: id_transportista },
+        success: function (response) {
+            console.log(response);
+            $('#modal').css('display','flex');
+            $('#modal').html(response);        
+        }
+    });
+}
