@@ -14,7 +14,9 @@ session_set_cookie_params($ttl);
       //traer_viajes
       $oportunidades = json_decode($info_usuario->traer_oportunidades(), true);
       $vehiculos = json_decode($info_usuario->traer_viajes(), true);
-    } else {
+    } else if($_SESSION['datos_usuario']['TIPO_USUARIO'] != "TTA"){
+      $vehiculos = $info_usuario->traer_agenda_usuario_no_tta($_SESSION['datos_usuario']["ID"]);
+    } else{
       $vehiculos = $info_usuario->traer_agenda_usuario($_SESSION['datos_usuario']["ID"]);
       // $oportunidades = $info_usuario->traer_oportunidades_usuario($_SESSION['datos_usuario']["ID"]);
     }

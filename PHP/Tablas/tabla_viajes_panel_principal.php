@@ -285,7 +285,6 @@ if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "PAX") {
                     <td data-title="Modalidad">' . $datos2[$i]['MODALIDAD'] . '</td>
                     <td data-title="Estado">' . $datos2[$i]['ESTADO'] . '</td>
                     <td data-title="Precio">' . $datos2[$i]['PRECIO'] . '</td>
-                    <td data-title="Nombre">' . $datos2[$i]['NOMBRE'] . '</td>
                     <td data-title="Contacto">-</td>
                 </tr>
                 ';
@@ -301,7 +300,6 @@ if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "PAX") {
                 <td data-title="Modalidad">' . $datos2[$i]['MODALIDAD'] . '</td>
                 <td data-title="Estado">' . $datos2[$i]['ESTADO'] . '</td>
                 <td data-title="Precio">' . $datos2[$i]['PRECIO'] . '</td>
-                <td data-title="Nombre">' . $datos2[$i]['NOMBRE'] . '</td>
                 <td data-title="Contacto">-</td>
                 </tr>
                 ';
@@ -327,7 +325,6 @@ if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "PAX") {
             <td data-title="Modalidad">' . $oportunidades[$i]['MODALIDAD'] . '</td>
             <td data-title="Estado">' . $oportunidades[$i]['ESTADO'] . '</td>
             <td data-title="Precio">' . $oportunidades[$i]['PRECIO'] . '</td>
-            <td data-title="Nombre">' . $datos2[$i]['NOMBRE'] . '</td>
             <td data-title="Contacto">-</td>
             </tr>
             ';
@@ -343,7 +340,6 @@ if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "PAX") {
             <td data-title="Modalidad">' . $oportunidades[$i]['MODALIDAD'] . '</td>
             <td data-title="Estado">' . $oportunidades[$i]['ESTADO'] . '</td>
             <td data-title="Precio">' . $oportunidades[$i]['PRECIO'] . '</td>
-            <td data-title="Nombre">' . $datos2[$i]['NOMBRE'] . '</td>
             <td data-title="Contacto">-</td>
             </tr>
             ';
@@ -366,7 +362,6 @@ if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "PAX") {
     <td data-title="Modalidad">' . $cotizaciones[$i]['MODALIDAD'] . '</td>
     <td data-title="Estado">' . $cotizaciones[$i]['ESTADO'] . '</td>
     <td data-title="Precio">-</td>
-    <td data-title="Nombre">-</td>
     <td data-title="Contacto">-</td>
     </tr>
     ';

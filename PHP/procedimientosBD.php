@@ -773,6 +773,32 @@ class procedimientosBD
         return $return;
     }
 
+//
+
+    public function traer_agenda_usuario_no_tta($id){
+        $return = null;
+        $size = 0;
+        $conn = $this->conexion();
+        $query = "SELECT idViaje,Vehiculo,Distancia,CantidadPasajeros,Fecha,Origen,Destino,Precio,Estado,Modalidad,idTransportista,id_viaje_vinculado FROM viajes WHERE $id = idTransportista OR $id = idComprador and visivilidad = 1 ORDER BY Fecha;";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($id, $vehiculo, $distancia, $cantidad_pasajeros, $fecha, $origen, $destino, $precio, $estado, $modalidad, $id_transportista,$id_tramo_vinculado);
+            while ($stmt->fetch()) {
+                $result = array('ID' => $id, 'VEHICULO' => $vehiculo, 'DISTANCIA' => $distancia, 'CANTIDAD_PASAJERO' => $cantidad_pasajeros, 'FECHA' => $fecha, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'PRECIO' => $precio, 'RUTAS' => $rutas, 'ESTADO' => $estado, 'MODALIDAD' => $modalidad, 'ID_TRANSPORTISTA' => $id_transportista);
+                $fecha = $result["FECHA"];
+                $timestamp = strtotime($fecha);
+                $newDate = date("d-m-Y H:i A", $timestamp);
+                $result["FECHA"] = $newDate;
+                $agenda[$size] = $result;
+                $return = $agenda;
+                $size++;
+            }
+        }
+        $stmt->close();
+        return $return;
+    }
+
     public function traer_oportunidades_usuario($id)
     {
         $return = null;
