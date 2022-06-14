@@ -379,9 +379,7 @@ if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "PAX") {
     <td data-title="Estado">' . $cotizaciones[$i]['ESTADO'] . '</td>
     <td data-title="Precio">-</td>
         <td data-title="Contacto">
-            <div class="button-wrapper">
-                <button class="button" onclick="modal_contacto(' . $cotizaciones[$i]['ID'] . ')"><i class="fa-solid fa-address-card"></i></button>
-            </div>
+        -
         </td>
     </tr>
     ';
