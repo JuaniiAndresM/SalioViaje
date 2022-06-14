@@ -1221,11 +1221,12 @@ function mtop_viaje(datos_viaje_mtop) {
     });
 }
 
-function modal_contacto(id_transportista){
+function modal_contacto(nombre_tta, telefono_tta) {
+    var data = [nombre_tta, telefono_tta]
     $.ajax({
         type: "POST",
         url: "https://www.salioviaje.com.uy/Panel/modal.php",
-        data: { opcion: 4, data: id_transportista },
+        data: { opcion: 4, data: data },
         success: function (response) {
             console.log(response);
             $('#modal').css('display','flex');

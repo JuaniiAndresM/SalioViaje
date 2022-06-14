@@ -287,7 +287,7 @@ if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "PAX") {
                     <td data-title="Precio">' . $datos2[$i]['PRECIO'] . '</td>
                     <td data-title="Contacto">
                         <div class="button-wrapper">
-                            <button class="button" onclick="modal_contacto(' . $datos2[$i]['ID'] . ')"><i class="fa-solid fa-address-card"></i></button>
+                            <button class="button" onclick="modal_contacto(\'' . $datos2[$i]['NOMBRE'] . '\',' . $datos2[$i]['TELEFONO'] . ')"><i class="fa-solid fa-address-card"></i></button>
                         </div>
                     </td>
                 </tr>
@@ -306,7 +306,7 @@ if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "PAX") {
                     <td data-title="Precio">' . $datos2[$i]['PRECIO'] . '</td>
                     <td data-title="Contacto">
                         <div class="button-wrapper">
-                            <button class="button" onclick="modal_contacto(' . $datos2[$i]['ID'] . ')"><i class="fa-solid fa-address-card"></i></button>
+                            <button class="button" onclick="modal_contacto(\'' . $datos2[$i]['NOMBRE'] . '\',' . $datos2[$i]['TELEFONO'] . ')"><i class="fa-solid fa-address-card"></i></button>
                         </div>
                     </td>
                 </tr>
@@ -335,7 +335,7 @@ if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "PAX") {
                 <td data-title="Precio">' . $oportunidades[$i]['PRECIO'] . '</td>
                 <td data-title="Contacto">
                     <div class="button-wrapper">
-                        <button class="button" onclick="modal_contacto(' . $oportunidades[$i]['ID'] . ')"><i class="fa-solid fa-address-card"></i></button>
+                        <button class="button" onclick="modal_contacto(\'' . $oportunidades[$i]['NOMBRE'] . '\',' . $oportunidades[$i]['TELEFONO'] . ')"><i class="fa-solid fa-address-card"></i></button>
                     </div>
                 </td>
             </tr>
@@ -354,7 +354,7 @@ if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "PAX") {
                 <td data-title="Precio">' . $oportunidades[$i]['PRECIO'] . '</td>
                 <td data-title="Contacto">
                     <div class="button-wrapper">
-                        <button class="button" onclick="modal_contacto(' . $oportunidades[$i]['ID'] . ')"><i class="fa-solid fa-address-card"></i></button>
+                        <button class="button" onclick="modal_contacto(\'' . $oportunidades[$i]['NOMBRE'] . '\',' . $oportunidades[$i]['TELEFONO'] . ')"><i class="fa-solid fa-address-card"></i></button>
                     </div>
                 </td>
             </tr>
