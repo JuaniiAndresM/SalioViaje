@@ -122,12 +122,12 @@ switch($opcion){
             </div>
             <div class="modal-body">
                 <p class="msg1">Nombre del Transportista:</p>
-                <p class="msg2">John Doe</p>
+                <p class="msg2">'.$data[0].'</p>
                 <div class="button-wrapper">
-                    <a class="modal-button-phone" href="tel:+59898234717">
+                    <a class="modal-button-phone" href="tel:'.$data[1].'">
                         <i class="fa-solid fa-phone"></i>
                     </a>
-                    <a class="modal-button-phone" href="https://wa.me/+59898234717" target="_blank">
+                    <a class="modal-button-phone" href="https://wa.me/'.$data[1].'" target="_blank">
                         <i class="fa-brands fa-whatsapp"></i>
                     </a>
                 </div>
