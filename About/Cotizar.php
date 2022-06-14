@@ -171,7 +171,6 @@
     <script src="https://www.salioviaje.com.uy/Javascript/web.js"></script>
     <script src="https://www.salioviaje.com.uy/t2voice/functionsJS.js"></script>
     <script src="https://www.salioviaje.com.uy/Javascript/cotizaciones.js"></script>
-
     <script>
       obtenerDiaSemana("<?php echo $fecha_salida; ?>")
     </script>

@@ -251,8 +251,10 @@ function presentarCotizacion(id_viaje_cotizado, id_tta) {
       data: { tipo: 'presentarCotizacion', matricula: matricula, precio: precio, senia: senia, id_viaje_cotizado: id_viaje_cotizado, id_tta: id_tta },
       success: function (response) {
          console.log(response)
-         location.href = "https://www.salioviaje.com.uy/Central";
       },
+      complete: function () {
+         location.href = "https://www.salioviaje.com.uy/Panel/Success.html";
+      }
    });
 }
 
@@ -294,9 +296,6 @@ function mostrar_cotizaciones_recibidas_dashboard() {
       },
    });
 }
-
-let send
-let id_llamada
 
 function aceptarCotizacion(id, id_viaje_cotizado) {
    send = new llamadas_PHP();
