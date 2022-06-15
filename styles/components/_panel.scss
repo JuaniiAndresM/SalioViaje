@@ -442,6 +442,7 @@ $main_3: #6d76db;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        flex-wrap: wrap;
 
         h2 {
           font-size: 1.4em;
@@ -449,7 +450,8 @@ $main_3: #6d76db;
         }
         .button-wrapper{
           a {
-            width: 150px;
+            display: inline-block;
+            width: 45px;
             text-align: center;
             border: none;
             cursor: pointer;

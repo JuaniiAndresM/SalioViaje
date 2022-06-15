@@ -7341,6 +7341,8 @@ footer .totum p a:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .panel .panel-tables .usuarios-recientes .usuarios-info h2,
@@ -7353,7 +7355,8 @@ footer .totum p a:hover {
 .panel .panel-tables .usuarios-recientes .usuarios-info .button-wrapper a,
 .panel .panel-tables .usuarios-propietarios .usuarios-info .button-wrapper a, .panel .panel-tables-2 .usuarios-recientes .usuarios-info .button-wrapper a,
 .panel .panel-tables-2 .usuarios-propietarios .usuarios-info .button-wrapper a {
-  width: 150px;
+  display: inline-block;
+  width: 45px;
   text-align: center;
   border: none;
   cursor: pointer;
