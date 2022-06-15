@@ -8629,6 +8629,7 @@ footer .totum p a:hover {
     max-width: none !important;
   }
   .panel-tables .usuarios-recientes .usuarios-table, .panel-tables .usuarios-recientes .viajes-table {
+    white-space: unset !important;
     width: calc(100% - 20px) !important;
     margin: 0 auto;
   }
@@ -9019,7 +9020,7 @@ footer .totum p a:hover {
   text-align: center;
 }
 
-.titulo-experiencias h2 {
+.titulo-experiencias h2, .titulo-experiencias h1 {
   color: #3844bc;
   font-size: 2.3em;
 }

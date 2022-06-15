@@ -1368,6 +1368,7 @@ $main_3: #6d76db;
         }
       }
       .usuarios-table, .viajes-table {
+        white-space: unset !important;
         width: calc(100% - 20px) !important;
         margin: 0 auto;
         tr {
