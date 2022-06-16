@@ -61,7 +61,7 @@ for ($i = 0; $i < count($oportunidades); $i++) {
     $intervalo = $fechaTramo1->diff($fechaActual);
 
     if ((int) $intervalo->format('%d') >= 1 && $oportunidades[$i]['ID'] < $oportunidades[$i]['ID_VIAJE_VINCULADO'] || $oportunidades[$i]['ID'] > $oportunidades[$i]['ID_VIAJE_VINCULADO']) {
-        $button_mtop = "<button class='button' onclick='mtop_viaje(" . $datos_mtop . ")'><i class='fas fa-file-contract'></i></button>";
+        $button_mtop = "<div class='tooltip'><button class='button' onclick='mtop_viaje(" . $datos_mtop . ")'><i class='fas fa-file-contract'></i></button><span class='tooltiptext'>Permiso MTOP</span></div>";
     } else {
         $button_mtop = '';
     }
@@ -220,7 +220,7 @@ for ($i = 0; $i < count($oportunidades); $i++) {
     $intervalo = $fechaTramo1->diff($fechaActual);
 
     if ((int) $intervalo->format('%d') >= 1 && $oportunidades[$i]['ID'] < $oportunidades[$i]['ID_VIAJE_VINCULADO'] || $oportunidades[$i]['ID'] > $oportunidades[$i]['ID_VIAJE_VINCULADO']) {
-        $button_mtop = "<button class='button' onclick='mtop_viaje(" . $datos_mtop . ")'><i class='fas fa-file-contract'></i></button>";
+        $button_mtop = "<div class='tooltip'><button class='button' onclick='mtop_viaje(" . $datos_mtop . ")'><i class='fas fa-file-contract'></i></button><span class='tooltiptext'>Permiso MTOP</span></div>";
     } else {
         $button_mtop = '';
     }
