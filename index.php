@@ -25,7 +25,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
     />
 
     <meta name="author" content="Daniel Schlebinger" />
-
+    <meta name="theme-color" content="#3844bc"/>
     <meta
       name="description"
       content="Plataforma que optimiza el traslado ocasional de personas."
