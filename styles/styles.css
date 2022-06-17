@@ -7341,6 +7341,8 @@ footer .totum p a:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .panel .panel-tables .usuarios-recientes .usuarios-info h2,
@@ -7353,7 +7355,8 @@ footer .totum p a:hover {
 .panel .panel-tables .usuarios-recientes .usuarios-info .button-wrapper a,
 .panel .panel-tables .usuarios-propietarios .usuarios-info .button-wrapper a, .panel .panel-tables-2 .usuarios-recientes .usuarios-info .button-wrapper a,
 .panel .panel-tables-2 .usuarios-propietarios .usuarios-info .button-wrapper a {
-  width: 150px;
+  display: inline-block;
+  width: 45px;
   text-align: center;
   border: none;
   cursor: pointer;
@@ -7529,6 +7532,31 @@ footer .totum p a:hover {
   border-radius: 50%;
   -webkit-transition: 0.3s;
   transition: 0.3s;
+}
+
+.panel .panel-tables .usuarios-recientes .usuarios-table tr td .button-wrapper button.verde, .panel .panel-tables .usuarios-recientes .viajes-table tr td .button-wrapper button.verde,
+.panel .panel-tables .usuarios-propietarios .usuarios-table tr td .button-wrapper button.verde,
+.panel .panel-tables .usuarios-propietarios .viajes-table tr td .button-wrapper button.verde, .panel .panel-tables-2 .usuarios-recientes .usuarios-table tr td .button-wrapper button.verde, .panel .panel-tables-2 .usuarios-recientes .viajes-table tr td .button-wrapper button.verde,
+.panel .panel-tables-2 .usuarios-propietarios .usuarios-table tr td .button-wrapper button.verde,
+.panel .panel-tables-2 .usuarios-propietarios .viajes-table tr td .button-wrapper button.verde {
+  background-color: #5bbc38;
+}
+
+.panel .panel-tables .usuarios-recientes .usuarios-table tr td .button-wrapper button.amarillo, .panel .panel-tables .usuarios-recientes .viajes-table tr td .button-wrapper button.amarillo,
+.panel .panel-tables .usuarios-propietarios .usuarios-table tr td .button-wrapper button.amarillo,
+.panel .panel-tables .usuarios-propietarios .viajes-table tr td .button-wrapper button.amarillo, .panel .panel-tables-2 .usuarios-recientes .usuarios-table tr td .button-wrapper button.amarillo, .panel .panel-tables-2 .usuarios-recientes .viajes-table tr td .button-wrapper button.amarillo,
+.panel .panel-tables-2 .usuarios-propietarios .usuarios-table tr td .button-wrapper button.amarillo,
+.panel .panel-tables-2 .usuarios-propietarios .viajes-table tr td .button-wrapper button.amarillo {
+  background-color: #ffce00;
+  color: #333;
+}
+
+.panel .panel-tables .usuarios-recientes .usuarios-table tr td .button-wrapper button.rojo, .panel .panel-tables .usuarios-recientes .viajes-table tr td .button-wrapper button.rojo,
+.panel .panel-tables .usuarios-propietarios .usuarios-table tr td .button-wrapper button.rojo,
+.panel .panel-tables .usuarios-propietarios .viajes-table tr td .button-wrapper button.rojo, .panel .panel-tables-2 .usuarios-recientes .usuarios-table tr td .button-wrapper button.rojo, .panel .panel-tables-2 .usuarios-recientes .viajes-table tr td .button-wrapper button.rojo,
+.panel .panel-tables-2 .usuarios-propietarios .usuarios-table tr td .button-wrapper button.rojo,
+.panel .panel-tables-2 .usuarios-propietarios .viajes-table tr td .button-wrapper button.rojo {
+  background-color: #ff0000;
 }
 
 .panel .panel-tables .usuarios-recientes .usuarios-table tr td .button-wrapper button:hover, .panel .panel-tables .usuarios-recientes .viajes-table tr td .button-wrapper button:hover,
@@ -8513,6 +8541,19 @@ footer .totum p a:hover {
   transition: 0.3s;
 }
 
+.section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td .button-wrapper button.verde {
+  background-color: #5bbc38;
+}
+
+.section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td .button-wrapper button.amarillo {
+  background-color: #ffce00;
+  color: #333;
+}
+
+.section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td .button-wrapper button.rojo {
+  background-color: #ff0000;
+}
+
 .section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td .button-wrapper button:hover {
   background-color: #2b3179;
 }
@@ -8628,7 +8669,11 @@ footer .totum p a:hover {
     width: 100%;
     max-width: none !important;
   }
+  .panel-tables .usuarios-recientes .table-container {
+    max-height: calc(100vh - 200px) !important;
+  }
   .panel-tables .usuarios-recientes .usuarios-table, .panel-tables .usuarios-recientes .viajes-table {
+    white-space: unset !important;
     width: calc(100% - 20px) !important;
     margin: 0 auto;
   }
@@ -9019,7 +9064,7 @@ footer .totum p a:hover {
   text-align: center;
 }
 
-.titulo-experiencias h2 {
+.titulo-experiencias h2, .titulo-experiencias h1 {
   color: #3844bc;
   font-size: 2.3em;
 }
@@ -17502,6 +17547,41 @@ footer .totum p a:hover {
 
 #modal .modal-container .modal-body .button-wrapper .modal-button-phone i {
   margin-right: 0;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 110%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
 
 * {

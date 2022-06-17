@@ -442,6 +442,7 @@ $main_3: #6d76db;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        flex-wrap: wrap;
 
         h2 {
           font-size: 1.4em;
@@ -449,7 +450,8 @@ $main_3: #6d76db;
         }
         .button-wrapper{
           a {
-            width: 150px;
+            display: inline-block;
+            width: 45px;
             text-align: center;
             border: none;
             cursor: pointer;
@@ -562,6 +564,18 @@ $main_3: #6d76db;
     
                 transition: 0.3s;
               }
+
+              button.verde{
+                background-color: #5bbc38;
+              }
+              button.amarillo{
+                background-color: #ffce00;
+                color: #333;
+              }
+              button.rojo{
+                background-color: #ff0000;
+              }
+
               button:hover {
                 background-color: $main_2;
               }
@@ -1239,6 +1253,18 @@ $main_3: #6d76db;
     
                 transition: 0.3s;
               }
+                            
+              button.verde{
+                background-color: #5bbc38;
+              }
+              button.amarillo{
+                background-color: #ffce00;
+                color: #333;
+              }
+              button.rojo{
+                background-color: #ff0000;
+              }
+
               button:hover {
                 background-color: $main_2;
               }
@@ -1367,7 +1393,11 @@ $main_3: #6d76db;
           max-width: none !important;
         }
       }
+      .table-container{
+        max-height: calc(100vh - 200px) !important;
+      }
       .usuarios-table, .viajes-table {
+        white-space: unset !important;
         width: calc(100% - 20px) !important;
         margin: 0 auto;
         tr {
