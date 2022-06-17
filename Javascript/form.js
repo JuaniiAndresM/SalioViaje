@@ -441,7 +441,10 @@ function register_form(opcion) {
 
    switch (opcion) {
       case "1":
+         
+         datos_Usuario["PAX"] = 1;
          if (validacion("USUARIO", datos_Usuario) == true) {
+            datos_Usuario["PAX"] = undefined;
             btn_finalizar_carga()
             setTimeout(function () {
                registrar_usuario("PAX");
@@ -650,7 +653,6 @@ function crear_empresa(choferes_sub) {
          "VEHICULOS": vehiculos
       };
    } else {
-      console.log("hollandfa")
       datos_Empresa = {
          "RUT": document.getElementById('rutt').value,
          "NOMBRE_COMERCIAL": document.getElementById('nombre_comercial').value,

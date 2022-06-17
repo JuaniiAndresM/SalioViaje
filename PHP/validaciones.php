@@ -169,7 +169,9 @@ class validaciones
                 }
             }
         } else {
-            if (count($VALIDACION) != 10) {
+            if ($datos["PAX"] == 1 && count($VALIDACION) != 3) {
+
+            } else if (count($VALIDACION) != 10) {
                 $DATOS_VACIOS = "Err-1";
             }
         }

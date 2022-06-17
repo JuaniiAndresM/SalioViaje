@@ -1525,8 +1525,8 @@ class procedimientosBD
             $stmt->store_result();
             $stmt->bind_result($id,$dir_origen,$bar_origen,$loc_origen,$dir_destino,$bar_destino,$loc_destino,$fecha,$estado,$tipo,$hora,$cantidad_pasajeros);
             while ($stmt->fetch()) {
-                $origen = $dir_origen.",".$bar_origen.",".$loc_origen;
-                $destino = $dir_destino.",".$bar_destino.",".$loc_destino;
+                $origen = $dir_origen.", ".$bar_origen.", ".$loc_origen;
+                $destino = $dir_destino.", ".$bar_destino.", ".$loc_destino;
                 if ($estado == 1 || $estado == 4) {
                     $estado = ($estado == 1) ? "Cotizando" : "Cotizado" ;
                     $result = array("ID" => $id,"ORIGEN" => $origen,"DESTINO" => $destino,"FECHA" => $fecha,"ESTADO" => $estado,"MODALIDAD" => $tipo,"HORA" => $hora, "CANTIDAD_PASAJEROS" => $cantidad_pasajeros);
