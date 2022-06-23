@@ -573,13 +573,13 @@ class procedimientosBD
     {
         $usuarios = array();
         $conn = $this->conexion();
-        $query = "SELECT ID,Tipo_Usuario,CI,Email,Nombre,Apellido,Direccion,Barrio,Departamento,Telefono,Agencia_C,RUT,Supervisor FROM salioviajeuy_salioviajeuy.usuarios where Agencia_C IN (SELECT RUT FROM empresas where ID = $id) and visibilidad = 1;";
+        $query = "SELECT ID,Tipo_Usuario,CI,Email,Nombre,Apellido,Direccion,Barrio,Departamento,Telefono,Agencia_C,RUT FROM salioviajeuy_salioviajeuy.usuarios where Agencia_C IN (SELECT RUT FROM empresas where ID = $id) and visibilidad = 1;";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($id_usuario, $tipo_usuario, $ci, $mail, $nombre, $apellido, $direccion, $barrio, $departamento, $telefono, $agencia_contratista, $rut, $supervisor);
+            $stmt->bind_result($id_usuario, $tipo_usuario, $ci, $mail, $nombre, $apellido, $direccion, $barrio, $departamento, $telefono, $agencia_contratista, $rut);
             while ($stmt->fetch()) {
-                $result = array('ID' => $id_usuario, 'TIPO_USUARIO' => $tipo_usuario, 'CI' => $ci, 'EMAIL' => $mail, 'NOMBRE' => $nombre, 'APELLIDO' => $apellido, 'DIRECCION' => $direccion, 'BARRIO' => $barrio, 'DEPARTAMENTO' => $departamento, 'TELEFONO' => $telefono, 'AGENCIA_CONTRATISTA' => $agencia_contratista, 'SUPERVISOR' => $supervisor, 'RUT' => $rut);
+                $result = array('ID' => $id_usuario, 'TIPO_USUARIO' => $tipo_usuario, 'CI' => $ci, 'EMAIL' => $mail, 'NOMBRE' => $nombre, 'APELLIDO' => $apellido, 'DIRECCION' => $direccion, 'BARRIO' => $barrio, 'DEPARTAMENTO' => $departamento, 'TELEFONO' => $telefono, 'AGENCIA_CONTRATISTA' => $agencia_contratista, 'RUT' => $rut);
                 $usuarios[] = $result;
             }
         }
@@ -757,9 +757,9 @@ class procedimientosBD
         $stmt->bind_param("s", $id);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($id, $vehiculo, $distancia, $cantidad_pasajeros, $fecha, $origen, $destino, $precio, $estado, $modalidad, $id_transportista,$id_tramo_vinculado,$nombre,$apellido,$telefono);
+            $stmt->bind_result($id, $vehiculo, $distancia, $cantidad_pasajeros, $fecha, $origen, $destino, $precio, $estado, $modalidad, $id_transportista,$id_tramo_vinculado,$nombre,$apellido,$telefono,$id_solicitud);
             while ($stmt->fetch()) {
-                $result = array('ID' => $id, 'VEHICULO' => $vehiculo, 'DISTANCIA' => $distancia, 'CANTIDAD_PASAJERO' => $cantidad_pasajeros, 'FECHA' => $fecha, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'PRECIO' => $precio, 'RUTAS' => $rutas, 'ESTADO' => $estado, 'MODALIDAD' => $modalidad, 'ID_TRANSPORTISTA' => $id_transportista,"NOMBRE" => $nombre, "TELEFONO" => $telefono);
+                $result = array('ID' => $id, 'VEHICULO' => $vehiculo, 'DISTANCIA' => $distancia, 'CANTIDAD_PASAJERO' => $cantidad_pasajeros, 'FECHA' => $fecha, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'PRECIO' => $precio, 'RUTAS' => $rutas, 'ESTADO' => $estado, 'MODALIDAD' => $modalidad, 'ID_TRANSPORTISTA' => $id_transportista,"NOMBRE" => $nombre, "TELEFONO" => $telefono, "ID_SOLICITUD" => $id_solicitud);
                 $fecha = $result["FECHA"];
                 $timestamp = strtotime($fecha);
                 $newDate = date("d-m-Y H:i A", $timestamp);
@@ -1525,8 +1525,8 @@ class procedimientosBD
             $stmt->store_result();
             $stmt->bind_result($id,$dir_origen,$bar_origen,$loc_origen,$dir_destino,$bar_destino,$loc_destino,$fecha,$estado,$tipo,$hora,$cantidad_pasajeros);
             while ($stmt->fetch()) {
-                $origen = $dir_origen.",".$bar_origen.",".$loc_origen;
-                $destino = $dir_destino.",".$bar_destino.",".$loc_destino;
+                $origen = $dir_origen.", ".$bar_origen.", ".$loc_origen;
+                $destino = $dir_destino.", ".$bar_destino.", ".$loc_destino;
                 if ($estado == 1 || $estado == 4) {
                     $estado = ($estado == 1) ? "Cotizando" : "Cotizado" ;
                     $result = array("ID" => $id,"ORIGEN" => $origen,"DESTINO" => $destino,"FECHA" => $fecha,"ESTADO" => $estado,"MODALIDAD" => $tipo,"HORA" => $hora, "CANTIDAD_PASAJEROS" => $cantidad_pasajeros);

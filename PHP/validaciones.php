@@ -100,8 +100,9 @@ class validaciones
         $VALIDACION = array();
         $DATOS_VACIOS = null;
         $errores = 0;
+        $array_datos = json_decode($datos, true);
 
-        foreach (json_decode($datos) as $clave => $valor) {
+        foreach ($array_datos as $clave => $valor) {
             if ($valor != null || $valor != '') {
                 switch ($clave) {
                     case 'CI':
@@ -169,7 +170,9 @@ class validaciones
                 }
             }
         } else {
-            if (count($VALIDACION) != 10) {
+            if ($array_datos["PAX"] == 1 && count($VALIDACION) != 7) {
+                $DATOS_VACIOS = "Err-1"; 
+            } else if (count($VALIDACION) != 10 && $array_datos["PAX"] != 1) {
                 $DATOS_VACIOS = "Err-1";
             }
         }

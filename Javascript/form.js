@@ -436,17 +436,18 @@ function register_form(opcion) {
       "DEPARTAMENTO": document.getElementById('departamento').value,
       "TELEFONO": document.getElementById('numero_telefono').value,
       "PIN": document.getElementById('password').value,
-      "RE-PIN": document.getElementById('re-password').value
+      "RE-PIN": document.getElementById('re-password').value,
+      "PAX" : 0
    };
 
    switch (opcion) {
       case "1":
+         
+         datos_Usuario["PAX"] = 1;
          if (validacion("USUARIO", datos_Usuario) == true) {
             btn_finalizar_carga()
             setTimeout(function () {
                registrar_usuario("PAX");
-
-
                setTimeout(function () {
                   window.location = "https://www.salioviaje.com.uy/Success";
                }, 500);
@@ -582,7 +583,6 @@ function register_form(opcion) {
 }
 
 function registrar_usuario(tipoUsuario) {
-   console.log(datos_Usuario)
    $.ajax({
       type: "POST",
       url: "/PHP/procedimientosForm.php",
@@ -650,7 +650,6 @@ function crear_empresa(choferes_sub) {
          "VEHICULOS": vehiculos
       };
    } else {
-      console.log("hollandfa")
       datos_Empresa = {
          "RUT": document.getElementById('rutt').value,
          "NOMBRE_COMERCIAL": document.getElementById('nombre_comercial').value,

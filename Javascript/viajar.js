@@ -1465,16 +1465,18 @@ const transportistasAptos = (datos_filtros, fiesta_ida_vuelta) => {
 }
 
 function enviarMailsTransportistas(transportistas) {
-    for (let index = 0; index < transportistas.length; index++) {
-        $.ajax({
-            type: "POST",
-            url: "/Mail/mail-Cotizacion-Invitacion.php",
-            data: { id_viaje: id_cotizacion , mail: transportistas[index]['MAIL']},
-            success: function (response) {
-                console.log(response)
-            }
-        });
-    }
+    setTimeout(() => {
+        for (let index = 0; index < transportistas.length; index++) {
+            $.ajax({
+                type: "POST",
+                url: "/Mail/mail-Cotizacion-Invitacion.php",
+                data: { id_viaje: id_cotizacion , mail: transportistas[index]['MAIL']},
+                success: function (response) {
+                    console.log(response)
+                }
+            });
+        }
+    }, 1000);
 }
 
 

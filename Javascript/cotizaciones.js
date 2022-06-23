@@ -298,7 +298,6 @@ function mostrar_cotizaciones_recibidas_dashboard() {
 }
 
 function aceptarCotizacion(id, id_viaje_cotizado) {
-   send = new llamadas_PHP();
    id_llamada = Math.floor(Math.random() * 100000);
    $.ajax({
       type: "POST",
@@ -356,6 +355,7 @@ function reconfirmarCotizacion(id) {
 
 
 function reconfirmar_cotizacion_llamada(id, id_viaje_cotizado, telefono_tta) {
+   let send = new llamadas_PHP();
    let mensaje = `Han escogido tu cotizacion!  Aceptar:  https://www.salioviaje.com.uy/Solicitud/${id_viaje_cotizado}A Rechazar: https://www.salioviaje.com.uy/Solicitud/${id_viaje_cotizado}R`;
    send.realizarLlamadaReconfirmarCotizacion("tpc_notificacion_opciones", "2022-02-07T15:00:00+03:00", id_llamada, telefono_tta, "Transportista", "Han escogido tu cotizacion para el viaje numero #" + id_viaje_cotizado + ". Presione 1 para aceptar, 3 para rechazar", id_viaje_cotizado, id_viaje_cotizado);
    console.log(mensaje)
