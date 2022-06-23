@@ -170,7 +170,7 @@
 .servicios .servicios-wrapper .card {
   max-width: 280px;
   width: 100%;
-  min-height: 470px;
+  min-height: 500px;
   background: linear-gradient(45deg, #3844bc, #2b3179);
   -webkit-box-shadow: 10px 0px 20px 0 rgba(0, 0, 0, 0.3);
           box-shadow: 10px 0px 20px 0 rgba(0, 0, 0, 0.3);
@@ -211,6 +211,7 @@
   color: #ffffff;
   margin: 20px 0;
   font-size: 1em;
+  height: 70px;
 }
 
 .servicios .servicios-wrapper .card .click-here {

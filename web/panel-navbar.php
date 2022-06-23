@@ -151,7 +151,7 @@ session_set_cookie_params($ttl);
     }
 
     echo '<li>
-        <a class href="https://www.salioviaje.com.uy/FAQ">
+        <a class href="https://www.salioviaje.com.uy/FAQ_Dashboard">
           <span class="icon"><i class="fa-solid fa-circle-question"></i></span>
           <span class="title">FAQ\'s</span>
         </a>
