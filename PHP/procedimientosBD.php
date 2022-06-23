@@ -1530,10 +1530,12 @@ class procedimientosBD
                 if ($estado == 1 || $estado == 4) {
                     $estado = ($estado == 1) ? "Cotizando" : "Cotizado" ;
                     $result = array("ID" => $id,"ORIGEN" => $origen,"DESTINO" => $destino,"FECHA" => $fecha,"ESTADO" => $estado,"MODALIDAD" => $tipo,"HORA" => $hora, "CANTIDAD_PASAJEROS" => $cantidad_pasajeros);
-                    $fecha = $result["FECHA"];
-                    $timestamp = strtotime($fecha);
-                    $newDate = date("d-m-Y", $timestamp);
-                    $result["FECHA"] = $newDate;
+                    if($result["FECHA"] != null){
+                        $fecha = $result["FECHA"];
+                        $timestamp = strtotime($fecha);
+                        $newDate = date("d-m-Y", $timestamp);
+                        $result["FECHA"] = $newDate;
+                    }
                     $cotizaciones[] = $result;
                 }
             }
@@ -1542,4 +1544,13 @@ class procedimientosBD
         return json_encode($cotizaciones);
     }
 
+    public function copiar_solicitud_viaje($id){
+        $conn = $this->conexion();
+        $query = "call copiar_solicitud_cotizacion(?)";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        echo $stmt->error;
+        $stmt->close();
+    }
 }
