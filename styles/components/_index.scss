@@ -200,9 +200,10 @@ $contraste_2: #ffffff;
 
         cursor: pointer;
         text-align: center;
-        display: none;
+        display: flex;
         justify-content: center;
         align-items: center;
+        border: 1px solid #fff;
 
         transition: .3s;
 
@@ -216,6 +217,7 @@ $contraste_2: #ffffff;
       }
       .click-here:hover{
         background-color: $main_3;
+        border: 1px solid $main_3;
       }
 
       .card-bottom {
@@ -293,6 +295,7 @@ $contraste_2: #ffffff;
         .info_2,
         .info_3 {
           color: $main_1;
+          border-radius: $main_1;
 
           a {
             color: #444;

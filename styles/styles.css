@@ -221,13 +221,16 @@
   background-color: #3844bc;
   cursor: pointer;
   text-align: center;
-  display: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  border: 1px solid #fff;
   -webkit-transition: .3s;
   transition: .3s;
 }
@@ -242,6 +245,7 @@
 
 .servicios .servicios-wrapper .card .click-here:hover {
   background-color: #6d76db;
+  border: 1px solid #6d76db;
 }
 
 .servicios .servicios-wrapper .card .card-bottom .info_2,
@@ -334,6 +338,7 @@
 .servicios .servicios-wrapper .card:hover .card-bottom .info_2,
 .servicios .servicios-wrapper .card:hover .card-bottom .info_3 {
   color: #3844bc;
+  border-radius: #3844bc;
 }
 
 .servicios .servicios-wrapper .card:hover .card-bottom .info_2 a,
