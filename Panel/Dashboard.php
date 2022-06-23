@@ -748,7 +748,7 @@ session_set_cookie_params($ttl);
                                 <th>Modalidad <i class="fas fa-angle-down"></i></th>
                                 <th>Estado <i class="fas fa-angle-down"></i></th>
                                 <th>Precio <i class="fas fa-angle-down"></i></th>
-                                <th>Contacto <i class="fas fa-angle-down"></i></th>
+                                <th></th>
                               </tr>
                             </thead>
                             <tbody id="tbody-viajes-dashboard"></tbody>

@@ -491,7 +491,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-city"></i> Ciudad <span class="obligatorio">*</span></p>
+                    <p><i class="fas fa-city"></i> Ciudad a visitar<span class="obligatorio">*</span></p>
 
                     <input list="Destino" id="destino_tour">
                     <datalist id="Destino">

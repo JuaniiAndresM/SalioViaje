@@ -270,48 +270,95 @@ if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "PAX") {
     /*
      * agendados
      */
+    //
     if ($datos2 != null) {
         for ($i = 0; $i < count($datos2); $i++) {
             $fecha = explode(' ', $datos2[$i]['FECHA']);
-            if ($i == 0) {
-                $oportunidades_dashboard = '
-                <tr>
-                    <td data-title="ID">' . $datos2[$i]['ID'] . '</td>
-                    <td data-title="Origen">' . $datos2[$i]['ORIGEN'] . '</td>
-                    <td data-title="Destino">' . $datos2[$i]['DESTINO'] . '</td>
-                    <td data-title="Fecha">' . $fecha[0] . '</td>
-                    <td data-title="Hora">' . $fecha[1] . '</td>
-                    <td data-title="CantidadPasajeros">' . $datos2[$i]['CANTIDAD_PASAJERO'] . '</td>
-                    <td data-title="Modalidad">' . $datos2[$i]['MODALIDAD'] . '</td>
-                    <td data-title="Estado">' . $datos2[$i]['ESTADO'] . '</td>
-                    <td data-title="Precio">' . $datos2[$i]['PRECIO'] . '</td>
-                    <td data-title="Contacto">
-                        <div class="button-wrapper">
-                            <button class="button" onclick="modal_contacto(\'' . $datos2[$i]['NOMBRE'] . '\',' . $datos2[$i]['TELEFONO'] . ')"><i class="fa-solid fa-address-card"></i></button>
-                        </div>
-                    </td>
-                </tr>
-                ';
+            if ($datos2[$i]['MODALIDAD'] != "Agendado") {
+                if ($i == 0) {
+                    $oportunidades_dashboard = '
+                    <tr>
+                        <td data-title="ID">' . $datos2[$i]['ID_SOLICITUD'] . '</td>
+                        <td data-title="Origen">' . $datos2[$i]['ORIGEN'] . '</td>
+                        <td data-title="Destino">' . $datos2[$i]['DESTINO'] . '</td>
+                        <td data-title="Fecha">' . $fecha[0] . '</td>
+                        <td data-title="Hora">' . $fecha[1] . '</td>
+                        <td data-title="CantidadPasajeros">' . $datos2[$i]['CANTIDAD_PASAJERO'] . '</td>
+                        <td data-title="Modalidad">' . $datos2[$i]['MODALIDAD'] . '</td>
+                        <td data-title="Estado">' . $datos2[$i]['ESTADO'] . '</td>
+                        <td data-title="Precio">' . $datos2[$i]['PRECIO'] . '</td>
+                        <td data-title="Contacto">
+                            <div class="button-wrapper">
+                                <button class="button" onclick="modal_contacto(\'' . $datos2[$i]['NOMBRE'] . '\',' . $datos2[$i]['TELEFONO'] . ')"><i class="fa-solid fa-address-card"></i></button>
+                                <button class="button" onclick="copiar_solicitud('. $datos2[$i]['ID_SOLICITUD'] .')"><i class="fa-solid fa-copy"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                    ';
+                } else {
+                    $oportunidades_dashboard = $oportunidades_dashboard . '
+                    <tr>
+                        <td data-title="ID">' . $datos2[$i]['ID_SOLICITUD'] . '</td>
+                        <td data-title="Origen">' . $datos2[$i]['ORIGEN'] . '</td>
+                        <td data-title="Destino">' . $datos2[$i]['DESTINO'] . '</td>
+                        <td data-title="Fecha">' . $fecha[0] . '</td>
+                        <td data-title="Hora">' . $fecha[1] . '</td>
+                        <td data-title="CantidadPasajeros">' . $datos2[$i]['CANTIDAD_PASAJERO'] . '</td>
+                        <td data-title="Modalidad">' . $datos2[$i]['MODALIDAD'] . '</td>
+                        <td data-title="Estado">' . $datos2[$i]['ESTADO'] . '</td>
+                        <td data-title="Precio">' . $datos2[$i]['PRECIO'] . '</td>
+                        <td data-title="Contacto">
+                            <div class="button-wrapper">
+                                <button class="button" onclick="modal_contacto(\'' . $datos2[$i]['NOMBRE'] . '\',' . $datos2[$i]['TELEFONO'] . ')"><i class="fa-solid fa-address-card"></i></button>
+                                <button class="button" onclick="copiar_solicitud('. $datos2[$i]['ID_SOLICITUD'] .')"><i class="fa-solid fa-copy"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                    ';
+                }
             } else {
-                $oportunidades_dashboard = $oportunidades_dashboard . '
-                <tr>
-                    <td data-title="ID">' . $datos2[$i]['ID'] . '</td>
-                    <td data-title="Origen">' . $datos2[$i]['ORIGEN'] . '</td>
-                    <td data-title="Destino">' . $datos2[$i]['DESTINO'] . '</td>
-                    <td data-title="Fecha">' . $fecha[0] . '</td>
-                    <td data-title="Hora">' . $fecha[1] . '</td>
-                    <td data-title="CantidadPasajeros">' . $datos2[$i]['CANTIDAD_PASAJERO'] . '</td>
-                    <td data-title="Modalidad">' . $datos2[$i]['MODALIDAD'] . '</td>
-                    <td data-title="Estado">' . $datos2[$i]['ESTADO'] . '</td>
-                    <td data-title="Precio">' . $datos2[$i]['PRECIO'] . '</td>
-                    <td data-title="Contacto">
-                        <div class="button-wrapper">
-                            <button class="button" onclick="modal_contacto(\'' . $datos2[$i]['NOMBRE'] . '\',' . $datos2[$i]['TELEFONO'] . ')"><i class="fa-solid fa-address-card"></i></button>
-                        </div>
-                    </td>
-                </tr>
-                ';
+                if ($i == 0) {
+                    $oportunidades_dashboard = '
+                    <tr>
+                        <td data-title="ID">' . $datos2[$i]['ID'] . '</td>
+                        <td data-title="Origen">' . $datos2[$i]['ORIGEN'] . '</td>
+                        <td data-title="Destino">' . $datos2[$i]['DESTINO'] . '</td>
+                        <td data-title="Fecha">' . $fecha[0] . '</td>
+                        <td data-title="Hora">' . $fecha[1] . '</td>
+                        <td data-title="CantidadPasajeros">' . $datos2[$i]['CANTIDAD_PASAJERO'] . '</td>
+                        <td data-title="Modalidad">' . $datos2[$i]['MODALIDAD'] . '</td>
+                        <td data-title="Estado">' . $datos2[$i]['ESTADO'] . '</td>
+                        <td data-title="Precio">' . $datos2[$i]['PRECIO'] . '</td>
+                        <td data-title="Contacto">
+                            <div class="button-wrapper">
+                                <button class="button" onclick="modal_contacto(\'' . $datos2[$i]['NOMBRE'] . '\',' . $datos2[$i]['TELEFONO'] . ')"><i class="fa-solid fa-address-card"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                    ';
+                } else {
+                    $oportunidades_dashboard = $oportunidades_dashboard . '
+                    <tr>
+                        <td data-title="ID">' . $datos2[$i]['ID'] . '</td>
+                        <td data-title="Origen">' . $datos2[$i]['ORIGEN'] . '</td>
+                        <td data-title="Destino">' . $datos2[$i]['DESTINO'] . '</td>
+                        <td data-title="Fecha">' . $fecha[0] . '</td>
+                        <td data-title="Hora">' . $fecha[1] . '</td>
+                        <td data-title="CantidadPasajeros">' . $datos2[$i]['CANTIDAD_PASAJERO'] . '</td>
+                        <td data-title="Modalidad">' . $datos2[$i]['MODALIDAD'] . '</td>
+                        <td data-title="Estado">' . $datos2[$i]['ESTADO'] . '</td>
+                        <td data-title="Precio">' . $datos2[$i]['PRECIO'] . '</td>
+                        <td data-title="Contacto">
+                            <div class="button-wrapper">
+                                <button class="button" onclick="modal_contacto(\'' . $datos2[$i]['NOMBRE'] . '\',' . $datos2[$i]['TELEFONO'] . ')"><i class="fa-solid fa-address-card"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                    ';
+                }
             }
+            
+
 
         }
     }
@@ -367,22 +414,26 @@ if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "PAX") {
      */
     for ($i = 0; $i < count($cotizaciones); $i++) {
         $fecha = explode(' ', $cotizaciones[$i]['FECHA']);
-        $oportunidades_dashboard = $oportunidades_dashboard . '
-    <tr>
-    <td data-title="ID">' . $cotizaciones[$i]['ID'] . '</td>
-    <td data-title="Origen">' . $cotizaciones[$i]['ORIGEN'] . '</td>
-    <td data-title="Destino">' . $cotizaciones[$i]['DESTINO'] . '</td>
-    <td data-title="Fecha">' . $cotizaciones[$i]['FECHA'] . '</td>
-    <td data-title="Hora">' . $cotizaciones[$i]['HORA'] . '</td>
-    <td data-title="CantidadPasajeros">' . $cotizaciones[$i]['CANTIDAD_PASAJEROS'] . '</td>
-    <td data-title="Modalidad">' . $cotizaciones[$i]['MODALIDAD'] . '</td>
-    <td data-title="Estado">' . $cotizaciones[$i]['ESTADO'] . '</td>
-    <td data-title="Precio">-</td>
-        <td data-title="Contacto">
-        -
-        </td>
-    </tr>
-    ';
+        if ($cotizaciones[$i]['ESTADO'] == "Cotizando") {
+            $oportunidades_dashboard = $oportunidades_dashboard . '
+            <tr>
+            <td data-title="ID">' . $cotizaciones[$i]['ID'] . '</td>
+            <td data-title="Origen">' . $cotizaciones[$i]['ORIGEN'] . '</td>
+            <td data-title="Destino">' . $cotizaciones[$i]['DESTINO'] . '</td>
+            <td data-title="Fecha">' . $cotizaciones[$i]['FECHA'] . '</td>
+            <td data-title="Hora">' . $cotizaciones[$i]['HORA'] . '</td>
+            <td data-title="CantidadPasajeros">' . $cotizaciones[$i]['CANTIDAD_PASAJEROS'] . '</td>
+            <td data-title="Modalidad">' . $cotizaciones[$i]['MODALIDAD'] . '</td>
+            <td data-title="Estado">' . $cotizaciones[$i]['ESTADO'] . '</td>
+            <td data-title="Precio">-</td>
+                <td data-title="Contacto">
+                <div class="button-wrapper">
+                <button class="button" onclick="copiar_solicitud('. $cotizaciones[$i]['ID'] .')"><i class="fa-solid fa-copy"></i></button>
+                </div>
+                </td>
+            </tr>
+            ';
+        }
     }
 }
 

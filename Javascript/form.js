@@ -436,7 +436,8 @@ function register_form(opcion) {
       "DEPARTAMENTO": document.getElementById('departamento').value,
       "TELEFONO": document.getElementById('numero_telefono').value,
       "PIN": document.getElementById('password').value,
-      "RE-PIN": document.getElementById('re-password').value
+      "RE-PIN": document.getElementById('re-password').value,
+      "PAX" : 0
    };
 
    switch (opcion) {
@@ -444,12 +445,9 @@ function register_form(opcion) {
          
          datos_Usuario["PAX"] = 1;
          if (validacion("USUARIO", datos_Usuario) == true) {
-            datos_Usuario["PAX"] = undefined;
             btn_finalizar_carga()
             setTimeout(function () {
                registrar_usuario("PAX");
-
-
                setTimeout(function () {
                   window.location = "https://www.salioviaje.com.uy/Success";
                }, 500);
@@ -585,7 +583,6 @@ function register_form(opcion) {
 }
 
 function registrar_usuario(tipoUsuario) {
-   console.log(datos_Usuario)
    $.ajax({
       type: "POST",
       url: "/PHP/procedimientosForm.php",
