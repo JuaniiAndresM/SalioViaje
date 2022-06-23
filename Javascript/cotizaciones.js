@@ -377,6 +377,19 @@ function mail_aprobar_rechazar_cotizacion() {
   });
 }
 
+function copiar_solicitud(id_solicitud) {
+   $.ajax({
+      type: "POST",
+      url: "/PHP/procedimientosForm.php",
+      data: { tipo:"copiar_solicitud_viaje", id_solicitud : id_solicitud },
+      success: function (response) {
+         console.log(response)
+      },
+      complete: function () {
+         location.reload()
+      }
+  });
+}
 /*
 
 1) moroso (no paga)
