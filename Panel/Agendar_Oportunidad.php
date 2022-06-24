@@ -14,6 +14,7 @@ session_set_cookie_params($ttl);
   }
 
   require_once '../PHP/procedimientosBD.php';
+  $ID_Cotizacion = $_GET['ID'];
   $regiones_mtop = new procedimientosBD();
   $regiones_mtop = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
