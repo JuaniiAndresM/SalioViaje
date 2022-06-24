@@ -183,7 +183,6 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
               <div class="input" id="direccion-input">
                 <i class="fas fa-map-marker-alt" id="icon"></i>
                 <input type="text" id="direccion" placeholder="Dirección" />
-                <span class="obligatorio">*</span>
               </div>
             </div>
             <div class="column">
@@ -196,7 +195,6 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
               <div class="input">
                 <i class="fas fa-map-marked-alt" id="icon"></i>
                 <input list="Barrio" id="barrio" placeholder="Barrio">
-                <span class="obligatorio">*</span>
                 <datalist id="Barrio">
                   <?php
                     if (isset($barrios)) {
@@ -239,7 +237,6 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
                    <option value="MALDONADO"> 
                    <option value="LAVALLEJA">
                 </datalist>
-                <span class="obligatorio">*</span>
               </div>
 
               <div class="input" id="telefono-input">
