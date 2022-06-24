@@ -14181,6 +14181,26 @@ footer .totum p a:hover {
           transform: scale(1.1);
 }
 
+.agendarViaje #step_1 .inputs-wrapper-agendar.oportunidad,
+.agendarViaje #step_2 .inputs-wrapper-agendar.oportunidad,
+.agendarViaje #step_3 .inputs-wrapper-agendar.oportunidad,
+.agendarViaje #step_4 .inputs-wrapper-agendar.oportunidad,
+.agendarViaje #step_5 .inputs-wrapper-agendar.oportunidad,
+.agendarViaje #step_hotel .inputs-wrapper-agendar.oportunidad {
+  -ms-grid-columns: 100%;
+      grid-template-columns: 100%;
+}
+
+.agendarViaje #step_1 .inputs-wrapper-agendar.oportunidad .vehicle,
+.agendarViaje #step_2 .inputs-wrapper-agendar.oportunidad .vehicle,
+.agendarViaje #step_3 .inputs-wrapper-agendar.oportunidad .vehicle,
+.agendarViaje #step_4 .inputs-wrapper-agendar.oportunidad .vehicle,
+.agendarViaje #step_5 .inputs-wrapper-agendar.oportunidad .vehicle,
+.agendarViaje #step_hotel .inputs-wrapper-agendar.oportunidad .vehicle {
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+}
+
 .agendarViaje #step_1 .inputs-wrapper-agendar-editar,
 .agendarViaje #step_2 .inputs-wrapper-agendar-editar,
 .agendarViaje #step_3 .inputs-wrapper-agendar-editar,
