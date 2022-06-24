@@ -1210,13 +1210,16 @@ function preferenciasVehiculos(id, step, matricula){
     MTOP VIAJES
 */
 
-function mtop_viaje(datos_viaje_mtop) {
+function mtop_viaje(datos_viaje_mtop, id_viaje) {
     $.ajax({
         type: "POST",
         url: "https://www.salioviaje.com.uy/Mail/mail-ViajeMTOP.php",
         data: { datos_viaje: JSON.stringify(datos_viaje_mtop) },
         success: function (response) {
             console.log(response);  
+        },
+        complete: function (){
+            actualizar_mtop(1, id_viaje)
         }
     });
 }
@@ -1244,4 +1247,9 @@ function modal_contacto(nombre_tta, telefono_tta) {
             $('#modal').html(response);        
         }
     });
+}
+
+function generar_oportunidad(id){
+    ///AddOportunidad/{Id cotizacion}
+    window.location.href = "";
 }

@@ -280,7 +280,7 @@ for ($i = 0; $i < count($oportunidades); $i++) {
                 break;
             //azul
             default:
-                $button_mtop = "<div class='tooltip'><button class='button' onclick='mtop_viaje(" . $datos_mtop . ")'><i class='fas fa-file-contract'></i></button><span class='tooltiptext'>Permiso MTOP</span></div>";
+                $button_mtop = "<div class='tooltip'><button class='button' onclick='mtop_viaje(" . $datos_mtop . ",". $oportunidades[$i]['ID'] .")'><i class='fas fa-file-contract'></i></button><span class='tooltiptext'>Permiso MTOP</span></div>";
                 break;
         }
     } else {

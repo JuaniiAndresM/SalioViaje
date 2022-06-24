@@ -1143,7 +1143,7 @@ class procedimientosBD
     public function traer_regiones_mtop()
     {
         $conn = $this->conexion();
-        $query = "SELECT * FROM `regiones-mtop`";
+        $query = "SELECT pais,dpto,localidad FROM `regiones-mtop`";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
