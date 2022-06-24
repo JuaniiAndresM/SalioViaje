@@ -213,11 +213,9 @@ if ($_POST['tipo'] == 1) {
         case 'copiar_solicitud_viaje':
             echo $procedimientosForm->copiar_solicitud_viaje($_POST['id_solicitud']);
         break;
-        /*
-        case 'reconfirmar_cotizacion':
-            echo $procedimientosForm->reconfirmarCotizacion($_POST['idCotizacion'],$_POST['id_viaje_cotizado']);
+        case 'actualizar_mtop':
+            echo $procedimientosForm->actualizar_estado_mtop($_POST['estado'],$_POST['id']);
         break;
-        */
     }
 
 }

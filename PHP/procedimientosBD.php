@@ -1581,4 +1581,30 @@ class procedimientosBD
         $stmt->close();
         return json_encode($datos_mtop);
     }
+
+    public function estado_mtop($id)
+    {
+        $estado;
+        $conn = $this->conexion();
+        $query = "SELECT ESTADO_MTOP FROM viajes WHERE idViaje = $id";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($estado_mtop);
+            while ($stmt->fetch()) {
+                $estado = $estado_mtop;
+            }
+        }
+        $stmt->close();
+        return $estado;
+    }
+
+    public function actualizar_estado_mtop($estado,$id)
+    {
+        $conn = $this->conexion();
+        $query = "UPDATE `viajes` SET `ESTADO_MTOP` = $estado WHERE idViaje = $id or id_viaje_vinculado = $id";
+        $stmt = $conn->prepare($query);
+        $stmt->execute();
+        $stmt->close();
+    }
 }

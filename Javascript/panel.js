@@ -1221,6 +1221,17 @@ function mtop_viaje(datos_viaje_mtop) {
     });
 }
 
+function actualizar_mtop(estado,id) {
+    $.ajax({
+        type: "POST",
+        url: "https://www.salioviaje.com.uy/PHP/procedimientosForm.php",
+        data: { tipo: "actualizar_mtop", estado: estado, id: id },
+        success: function (response) {
+            console.log(response);  
+        }
+    });
+}
+
 function modal_contacto(nombre_tta, telefono_tta) {
     var data = [nombre_tta, telefono_tta]
     $.ajax({
