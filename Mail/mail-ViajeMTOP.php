@@ -30,6 +30,10 @@ $destino = explode(",", $datos_viajeMTOP['DESTINO']);
 $datos_viajeMTOP['DEPARTAMENTO_DESTINO'] = $destino[1];
 $datos_viajeMTOP['LOCALIDAD_DESTINO'] = $destino[0];
 
+/**
+ * guardar datos de la paticion de permiso
+ */
+
 
 echo json_encode($datos_viajeMTOP);
 

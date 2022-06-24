@@ -664,7 +664,7 @@ function finalizar() {
                             },
                         });
                         break;
-                        break;
+                    break;
                 }
         }
     }
@@ -672,13 +672,8 @@ function finalizar() {
     /*
     registro los tramos vinculados 
     */
-
-
-
-
     setTimeout(function () {
         registro_tramos_vinculados()
-        window.location = "https://www.salioviaje.com.uy/Panel/Success_Agenda";
     }, 1000);
 }
 
@@ -705,6 +700,9 @@ function registro_tramos_vinculados() {
         success: function (response) {
             console.log(response)
         },
+        complete: function () {
+            window.location = "https://www.salioviaje.com.uy/Panel/Success_Agenda";
+        }
     });
 
 }

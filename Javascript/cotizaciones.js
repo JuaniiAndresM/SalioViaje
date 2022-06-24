@@ -353,7 +353,6 @@ function reconfirmarCotizacion(id) {
    });
 }
 
-
 function reconfirmar_cotizacion_llamada(id, id_viaje_cotizado, telefono_tta) {
    let send = new llamadas_PHP();
    let mensaje = `Han escogido tu cotizacion!  Aceptar:  https://www.salioviaje.com.uy/Solicitud/${id_viaje_cotizado}A Rechazar: https://www.salioviaje.com.uy/Solicitud/${id_viaje_cotizado}R`;
