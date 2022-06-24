@@ -376,6 +376,13 @@
         }
       }
     }
+    .inputs-wrapper-agendar.oportunidad{
+      grid-template-columns: 100%;
+
+      .vehicle{
+        grid-template-columns: 1fr;
+      }
+    }
     .inputs-wrapper-agendar-editar{
       grid-template-columns: 1fr;
       max-width: 400px;

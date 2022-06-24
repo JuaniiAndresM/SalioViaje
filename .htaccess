@@ -27,6 +27,7 @@ RewriteRule ^Empresas /Panel/Empresas.php
 RewriteRule ^Vehiculos /Panel/Vehiculos.php
 RewriteRule ^Settings /Panel/Settings.php
 RewriteRule ^Agendar /Panel/Agendar.php
+RewriteRule ^AddOportunidad/([a-zA-Z0-9_\.]+)$ /Panel/Agendar_Oportunidad.php?ID=$1
 RewriteRule ^Viajes /Panel/Agenda.php
 RewriteRule ^FAQ_Edit /Panel/FAQ.php
 RewriteRule ^FAQ_Dashboard /Panel/FAQs.php
