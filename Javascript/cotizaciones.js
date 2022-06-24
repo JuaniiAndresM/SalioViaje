@@ -353,7 +353,6 @@ function reconfirmarCotizacion(id) {
    });
 }
 
-
 function reconfirmar_cotizacion_llamada(id, id_viaje_cotizado, telefono_tta) {
    let send = new llamadas_PHP();
    let mensaje = `Han escogido tu cotizacion!  Aceptar:  https://www.salioviaje.com.uy/Solicitud/${id_viaje_cotizado}A Rechazar: https://www.salioviaje.com.uy/Solicitud/${id_viaje_cotizado}R`;
@@ -369,8 +368,8 @@ function reconfirmar_cotizacion_llamada(id, id_viaje_cotizado, telefono_tta) {
 function mail_aprobar_rechazar_cotizacion() {
    $.ajax({
       type: "POST",
-      url: "/Mail/mail-Oportunidades-Aceptado.php",
-      data: { mail_tta:JSON.parse(mail_tta)['MAIL'], id_viaje: id},
+      url: "/Mail/mail-Cotizacion-Aceptada.php",
+      data: {},
       success: function (response) {
          console.log(response)
       }

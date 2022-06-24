@@ -170,7 +170,7 @@ class validaciones
                 }
             }
         } else {
-            if ($array_datos["PAX"] == 1 && count($VALIDACION) != 7) {
+            if ($array_datos["PAX"] == 1 && count($VALIDACION) != 7 || count($VALIDACION) != 10) {
                 $DATOS_VACIOS = "Err-1"; 
             } else if (count($VALIDACION) != 10 && $array_datos["PAX"] != 1) {
                 $DATOS_VACIOS = "Err-1";

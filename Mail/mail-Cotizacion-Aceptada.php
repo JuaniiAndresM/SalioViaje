@@ -14,21 +14,6 @@ require_once '../PHP/procedimientosBD.php';
 
 $bd = new procedimientosBD();
 
-$id = $_POST['id_viaje'];
-
-session_start();
-
-
-$datos_oportunidad = $bd->traer_oportunidades_por_id($id);
-
-$datos_comprador =  $bd->info_usuario_profile($_SESSION['datos_usuario']['ID']);
-$datos_transportista =  $bd->info_usuario_profile($datos_oportunidad[0]['ID_TRANSPORTISTA']);
-
-$fecha = explode(' ', $datos_oportunidad[0]['FECHA']);
-
-$descuento = $datos_oportunidad[0]['DESCUENTO']/100;
-$PRECIO_CON_DESCUENTO_APLICADO =  round($datos_oportunidad[0]['PRECIO'] - $datos_oportunidad[0]['PRECIO'] * $descuento);
-
 //
 /*------------------------------------------------------------------------------------------*/
 
