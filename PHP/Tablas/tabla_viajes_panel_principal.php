@@ -49,14 +49,24 @@ for ($i = 0; $i < count($oportunidades); $i++) {
 
     $datos_mtop["NOMBRE"] = $oportunidades[$i]['NOMBRE'];
     $datos_mtop["APELLIDO"] = $oportunidades[$i]['APELLIDO'];
-    $datos_mtop["NRO_MTOP"] = $oportunidades[$i]['NRO_MTOP'];
-    $datos_mtop["PASS_MTOP"] = $oportunidades[$i]['PASS_MTOP'];
     $datos_mtop["ORIGEN"] = $oportunidades[$i]['ORIGEN'];
     $datos_mtop["DESTINO"] = $oportunidades[$i]['DESTINO'];
     $datos_mtop["DISTANCIA"] = $oportunidades[$i]['DISTANCIA'];
     $datos_mtop["MATRICULA"] = $oportunidades[$i]['VECHICULO'];
 
+    /**
+     * TRAIGO CREDENCIALES DEL MINISTERIO.
+     */
+    $datos_ministerio_tta = json_decode($datos->datos_mtop_tta($datos_mtop["MATRICULA"]), true);
+
+    $datos_mtop["NRO_MTOP"] = $datos_ministerio_tta[0]['NUMERO_MTOP'];
+    $datos_mtop["PASS_MTOP"] = $datos_ministerio_tta[0]['PASS_MTOP'];
+
     $datos_mtop = json_encode($datos_mtop);
+
+
+
+
 
     $intervalo = $fechaTramo1->diff($fechaActual);
 
@@ -64,6 +74,12 @@ for ($i = 0; $i < count($oportunidades); $i++) {
         $button_mtop = "<div class='tooltip'><button class='button' onclick='mtop_viaje(" . $datos_mtop . ")'><i class='fas fa-file-contract'></i></button><span class='tooltiptext'>Permiso MTOP</span></div>";
     } else {
         $button_mtop = '';
+    }
+
+    if ($id_tramo_vinculado == ""){
+        $button_crear_oportunidad = "<div class='tooltip'><button class='button' onclick='crear_oportunidad(".$oportunidades[$i]['ID'].")'><i class='fas fa-plus' aria-hidden='true'></i></button><span class='tooltiptext'>Crear una oportunidad para este viaje.</span></div>";
+    }else{
+        $button_crear_oportunidad = " ";
     }
 
     $fecha = explode(' ', $oportunidades[$i]['FECHA']);
@@ -81,7 +97,7 @@ for ($i = 0; $i < count($oportunidades); $i++) {
                     <td data-title="Modalidad">' . $oportunidades[$i]['MODALIDAD'] . '</td>
                     <td>
                         <div class="button-wrapper">
-                          ' . $button_mtop . '
+                        ' . $button_crear_oportunidad . $button_mtop .'
                           <button class="button" onclick="abrir_editar_oportunidad(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-edit"></i></button>
                           <button class="button" onclick="eliminar_viajes(' . $oportunidades[$i]['ID'] . ',1)"><i class="fas fa-trash-alt"></i></button>
                         </div>
@@ -99,7 +115,7 @@ for ($i = 0; $i < count($oportunidades); $i++) {
                     <td data-title="Modalidad">' . $oportunidades[$i]['MODALIDAD'] . '</td>
                     <td>
                         <div class="button-wrapper">
-                        ' . $button_mtop . '
+                        ' . $button_crear_oportunidad . $button_mtop .'
                           <button class="button" onclick="eliminar_viajes(' . $oportunidades[$i]['ID'] . ',1)"><i class="fas fa-trash-alt"></i></button>
                         </div>
                       </td>
@@ -137,7 +153,7 @@ for ($i = 0; $i < count($oportunidades); $i++) {
                     <td data-title="Modalidad">' . $oportunidades[$i]['MODALIDAD'] . '</td>
                     <td>
                         <div class="button-wrapper">
-                        ' . $button_mtop . '
+                        ' . $button_crear_oportunidad . $button_mtop .'
                           <button class="button" onclick="abrir_editar_oportunidad(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-edit"></i></button>
                           <button class="button" onclick="eliminar_viajes(' . $oportunidades[$i]['ID'] . ',1)"><i class="fas fa-trash-alt"></i></button>
                         </div>
@@ -155,7 +171,7 @@ for ($i = 0; $i < count($oportunidades); $i++) {
                 <td data-title="Modalidad">' . $oportunidades[$i]['MODALIDAD'] . '</td>
                 <td>
                     <div class="button-wrapper">
-                    ' . $button_mtop . '
+                    ' . $button_crear_oportunidad . $button_mtop .'
                       <button class="button" onclick="eliminar_viajes(' . $oportunidades[$i]['ID'] . ',1)"><i class="fas fa-trash-alt"></i></button>
                     </div>
                   </td>
@@ -206,14 +222,27 @@ for ($i = 0; $i < count($oportunidades); $i++) {
         $datos_mtop["FECHA_LLEGADA"] = $viaje_vinculado[0]['FECHA'];
     }
 
+    if ($id_tramo_vinculado == ""){
+        $button_crear_oportunidad = "<div class='tooltip'><button class='button' onclick='crear_oportunidad(".$oportunidades[$i]['ID'].")'><i class='fas fa-plus' aria-hidden='true'></i></button><span class='tooltiptext'>Crear una oportunidad para este viaje.</span></div>";
+    }else{
+        $button_crear_oportunidad = " ";
+    }
+
+
     $datos_mtop["NOMBRE"] = $oportunidades[$i]['NOMBRE'];
     $datos_mtop["APELLIDO"] = $oportunidades[$i]['APELLIDO'];
-    $datos_mtop["NRO_MTOP"] = $oportunidades[$i]['NRO_MTOP'];
-    $datos_mtop["PASS_MTOP"] = $oportunidades[$i]['PASS_MTOP'];
     $datos_mtop["ORIGEN"] = $oportunidades[$i]['ORIGEN'];
     $datos_mtop["DESTINO"] = $oportunidades[$i]['DESTINO'];
     $datos_mtop["DISTANCIA"] = $oportunidades[$i]['DISTANCIA'];
     $datos_mtop["MATRICULA"] = $oportunidades[$i]['VECHICULO'];
+
+    /**
+     * TRAIGO CREDENCIALES DEL MINISTERIO.
+     */
+    $datos_ministerio_tta = json_decode($datos->datos_mtop_tta($datos_mtop["MATRICULA"]), true);
+
+    $datos_mtop["NRO_MTOP"] = $datos_ministerio_tta[0]['NUMERO_MTOP'];
+    $datos_mtop["PASS_MTOP"] = $datos_ministerio_tta[0]['PASS_MTOP'];
 
     $datos_mtop = json_encode($datos_mtop);
 
@@ -237,7 +266,7 @@ for ($i = 0; $i < count($oportunidades); $i++) {
                   <td data-title="Modalidad">' . $oportunidades[$i]['MODALIDAD'] . '</td>
                   <td>
                       <div class="button-wrapper">
-                      ' . $button_mtop . '
+                      ' . $button_crear_oportunidad . $button_mtop .'
                           <button class="button" onclick="eliminar_viajes(' . $oportunidades[$i]['ID'] . ',1)"><i class="fas fa-trash-alt"></i></button>
                       </div>
                     </td>
@@ -254,7 +283,7 @@ for ($i = 0; $i < count($oportunidades); $i++) {
                   <td data-title="Modalidad">' . $oportunidades[$i]['MODALIDAD'] . '</td>
                   <td>
                       <div class="button-wrapper">
-                      ' . $button_mtop . '
+                      ' . $button_crear_oportunidad . $button_mtop .'
                           <button class="button" onclick="eliminar_viajes(' . $oportunidades[$i]['ID'] . ',1)"><i class="fas fa-trash-alt"></i></button>
                       </div>
                     </td>

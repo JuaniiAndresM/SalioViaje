@@ -421,7 +421,7 @@ class procedimientosBD
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($idOportunidad, $descuento, $origen, $destino, $fecha, $nombre, $apellido, $marca, $modelo, $capacidad_vehiculo, $estado, $matricula, $distancia, $precio,$cantidad_pasajeros);
+            $stmt->bind_result($idOportunidad, $descuento, $origen, $destino, $fecha, $nombre, $apellido, $marca, $modelo, $capacidad_vehiculo, $estado, $matricula, $distancia, $precio, $cantidad_pasajeros);
             while ($stmt->fetch()) {
                 $result = array('ID' => $idOportunidad, 'DESCUENTO' => $descuento, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'FECHA' => $fecha, 'NOMBRE' => $nombre, 'APELLIDO' => $apellido, 'MARCA' => $marca, 'MODELO' => $modelo, 'CAPACIDAD_VEHICULO' => $capacidad_vehiculo, 'ESTADO' => $estado, 'MATRICULA' => $matricula, 'DISTANCIA' => $distancia, 'PRECIO' => $precio, "CANTIDAD_PASAJERO" => $cantidad_pasajeros);
                 $fecha = $result["FECHA"];
@@ -446,7 +446,7 @@ class procedimientosBD
             $stmt->store_result();
             $stmt->bind_result($idOportunidad, $origen, $destino, $fecha, $estado, $precio, $cantidad_pasajeros, $modalidad, $id_tta, $nombre, $telefono);
             while ($stmt->fetch()) {
-                $result = array('ID' => $idOportunidad, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'FECHA' => $fecha, 'ESTADO' => $estado, 'MODALIDAD' => $modalidad, "PRECIO" => $precio , "CANTIDAD_PASAJERO" => $cantidad_pasajeros,"NOMBRE" => $nombre, "TELEFONO" => $telefono);
+                $result = array('ID' => $idOportunidad, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'FECHA' => $fecha, 'ESTADO' => $estado, 'MODALIDAD' => $modalidad, "PRECIO" => $precio, "CANTIDAD_PASAJERO" => $cantidad_pasajeros, "NOMBRE" => $nombre, "TELEFONO" => $telefono);
                 $fecha = $result["FECHA"];
                 $timestamp = strtotime($fecha);
                 $newDate = date("d-m-Y H:i", $timestamp);
@@ -467,7 +467,7 @@ class procedimientosBD
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
-        $stmt->bind_result($idOportunidad, $origen, $destino, $fecha, $estado, $modalidad, $id_viaje_vinculado,$distancia,$vehiculo,$nombre,$apellido/*,$nro_mtop, $pass_mtop*/);
+            $stmt->bind_result($idOportunidad, $origen, $destino, $fecha, $estado, $modalidad, $id_viaje_vinculado, $distancia, $vehiculo, $nombre, $apellido/*,$nro_mtop, $pass_mtop*/);
             while ($stmt->fetch()) {
                 $result = array('ID' => $idOportunidad, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'FECHA' => $fecha, 'ESTADO' => $estado, 'MODALIDAD' => $modalidad, 'ID_VIAJE_VINCULADO' => $id_viaje_vinculado, "DISTANCIA" => $distancia, "VECHICULO" => $vehiculo, "NOMBRE" => $nombre, "APELLIDO" => $apellido, "NRO_MTOP" => $nro_mtop, "PASS_MTOP" => $pass_mtop);
                 $fecha = $result["FECHA"];
@@ -513,7 +513,7 @@ class procedimientosBD
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($idOportunidad, $descuento, $origen, $destino, $fecha, $nombre, $apellido, $marca, $modelo, $capacidad_vehiculo, $estado, $matricula, $distancia, $precio, $idTransportista, $tipo_usuario,$telefono,$id_comprador);
+            $stmt->bind_result($idOportunidad, $descuento, $origen, $destino, $fecha, $nombre, $apellido, $marca, $modelo, $capacidad_vehiculo, $estado, $matricula, $distancia, $precio, $idTransportista, $tipo_usuario, $telefono, $id_comprador);
             while ($stmt->fetch()) {
                 $result = array('ID' => $idOportunidad, 'DESCUENTO' => $descuento, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'FECHA' => $fecha, 'NOMBRE' => $nombre, 'APELLIDO' => $apellido, 'MARCA' => $marca, 'MODELO' => $modelo, 'CAPACIDAD_VEHICULO' => $capacidad_vehiculo, 'ESTADO' => $estado, 'MATRICULA' => $matricula, 'DISTANCIA' => $distancia, 'PRECIO' => $precio, 'ID_TRANSPORTISTA' => $idTransportista, 'TIPO_USUARIO' => $tipo_usuario, 'TELEFONO' => $telefono, 'ID_COMPRADOR' => $id_comprador);
                 $fecha = $result["FECHA"];
@@ -626,7 +626,7 @@ class procedimientosBD
         $stmt->bind_param("s", $RUT);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($id, $rut, $nombre_c, $razon_social, $nro_mtop, $pass_mtop, $id_usuario, $tipo_usuario, $choferes_sub, $direccion_hotel,$visivilidad);
+            $stmt->bind_result($id, $rut, $nombre_c, $razon_social, $nro_mtop, $pass_mtop, $id_usuario, $tipo_usuario, $choferes_sub, $direccion_hotel, $visivilidad);
             while ($stmt->fetch()) {
                 $result = array('ID' => $id, 'RUT' => $rut, 'NOMBRE_COMERCIAL' => $nombre_c, 'RAZON_SOCIAL' => $razon_social, 'NRO_MTOP' => $nro_mtop, 'PASS_MTOP' => $pass_mtop, 'ID_USUARIO' => $id_usuario, 'TIPO_USUARIO' => $tipo_usuario, 'CHOFERES_SUB' => $choferes_sub, 'DIRECCION_HOTEL' => $direccion_hotel);
                 $empresa[] = $result;
@@ -646,7 +646,7 @@ class procedimientosBD
         $stmt->bind_param("i", $ID);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($id, $rut, $nombre_c, $razon_social, $nro_mtop, $pass_mtop, $usuario_id, $id_usuario, $choferes_sub, $direccion_hotel,$visivilidad);
+            $stmt->bind_result($id, $rut, $nombre_c, $razon_social, $nro_mtop, $pass_mtop, $usuario_id, $id_usuario, $choferes_sub, $direccion_hotel, $visivilidad);
             while ($stmt->fetch()) {
                 $result = array('ID' => $id, 'RUT' => $rut, 'NOMBRE_COMERCIAL' => $nombre_c, 'RAZON_SOCIAL' => $razon_social, 'NRO_MTOP' => $nro_mtop, 'PASS_MTOP' => $pass_mtop, 'ID_USUARIO' => $usuario_id, 'TIPO_USUARIO' => $id_usuario, 'CHOFERES_SUB' => $choferes_sub, 'DIRECCION_HOTEL' => $direccion_hotel);
                 $empresa[$size] = $result;
@@ -757,9 +757,9 @@ class procedimientosBD
         $stmt->bind_param("s", $id);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($id, $vehiculo, $distancia, $cantidad_pasajeros, $fecha, $origen, $destino, $precio, $estado, $modalidad, $id_transportista,$id_tramo_vinculado,$nombre,$apellido,$telefono,$id_solicitud);
+            $stmt->bind_result($id, $vehiculo, $distancia, $cantidad_pasajeros, $fecha, $origen, $destino, $precio, $estado, $modalidad, $id_transportista, $id_tramo_vinculado, $nombre, $apellido, $telefono, $id_solicitud);
             while ($stmt->fetch()) {
-                $result = array('ID' => $id, 'VEHICULO' => $vehiculo, 'DISTANCIA' => $distancia, 'CANTIDAD_PASAJERO' => $cantidad_pasajeros, 'FECHA' => $fecha, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'PRECIO' => $precio, 'RUTAS' => $rutas, 'ESTADO' => $estado, 'MODALIDAD' => $modalidad, 'ID_TRANSPORTISTA' => $id_transportista,"NOMBRE" => $nombre, "TELEFONO" => $telefono, "ID_SOLICITUD" => $id_solicitud);
+                $result = array('ID' => $id, 'VEHICULO' => $vehiculo, 'DISTANCIA' => $distancia, 'CANTIDAD_PASAJERO' => $cantidad_pasajeros, 'FECHA' => $fecha, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'PRECIO' => $precio, 'RUTAS' => $rutas, 'ESTADO' => $estado, 'MODALIDAD' => $modalidad, 'ID_TRANSPORTISTA' => $id_transportista, "NOMBRE" => $nombre, "TELEFONO" => $telefono, "ID_SOLICITUD" => $id_solicitud);
                 $fecha = $result["FECHA"];
                 $timestamp = strtotime($fecha);
                 $newDate = date("d-m-Y H:i A", $timestamp);
@@ -775,7 +775,8 @@ class procedimientosBD
 
 //
 
-    public function traer_agenda_usuario_no_tta($id){
+    public function traer_agenda_usuario_no_tta($id)
+    {
         $return = null;
         $size = 0;
         $conn = $this->conexion();
@@ -783,7 +784,7 @@ class procedimientosBD
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($id, $vehiculo, $distancia, $cantidad_pasajeros, $fecha, $origen, $destino, $precio, $estado, $modalidad, $id_transportista,$id_tramo_vinculado);
+            $stmt->bind_result($id, $vehiculo, $distancia, $cantidad_pasajeros, $fecha, $origen, $destino, $precio, $estado, $modalidad, $id_transportista, $id_tramo_vinculado);
             while ($stmt->fetch()) {
                 $result = array('ID' => $id, 'VEHICULO' => $vehiculo, 'DISTANCIA' => $distancia, 'CANTIDAD_PASAJERO' => $cantidad_pasajeros, 'FECHA' => $fecha, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'PRECIO' => $precio, 'RUTAS' => $rutas, 'ESTADO' => $estado, 'MODALIDAD' => $modalidad, 'ID_TRANSPORTISTA' => $id_transportista);
                 $fecha = $result["FECHA"];
@@ -963,7 +964,7 @@ class procedimientosBD
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($id, $rut, $nombre_c, $razon_social, $nro_mtop, $pass_mtop, $id_usuario, $tipo_usuario, $choferes_sub, $direccion_hotel,$visivilidad);
+            $stmt->bind_result($id, $rut, $nombre_c, $razon_social, $nro_mtop, $pass_mtop, $id_usuario, $tipo_usuario, $choferes_sub, $direccion_hotel, $visivilidad);
             while ($stmt->fetch()) {
                 $result = array('ID' => $id, 'RUT' => $rut, 'NOMBRE_COMERCIAL' => $nombre_c, 'RAZON_SOCIAL' => $razon_social, 'NRO_MTOP' => $nro_mtop, 'PASS_MTOP' => $pass_mtop, 'ID_USUARIO' => $id_usuario, 'TIPO_USUARIO' => $tipo_usuario, 'CHOFERES_SUB' => $choferes_sub, 'DIRECCION_HOTEL' => $direccion_hotel);
                 $empresas_choferes[] = $result;
@@ -1054,7 +1055,7 @@ class procedimientosBD
         $conn = $this->conexion();
         $query = "SELECT ID,DIRECCION_ORIGEN,BARRIO_ORIGEN,LOCALIDAD_ORIGEN,DIRECCION_DESTINO,BARRIO_DESTINO,LOCALIDAD_DESTINO,FECHA_SALIDA,ESTADO,HORA,CANTIDAD_PASAJEROS,MASCOTAS,TIPO,ID_TTA_RESPONSABLE FROM `cotizaciones` ORDER BY FECHA_SALIDA, HORA";
         $query2 = "UPDATE cotizaciones SET ESTADO = 5 WHERE FECHA_SALIDA < CURRENT_DATE or (FECHA_SALIDA = CURRENT_DATE and HORA < CURRENT_TIME) and ESTADO = 1;";
-        
+
         $stmt = $conn->prepare($query);
         $update_cotizaciones_vencidas = $conn->prepare($query2);
         $update_cotizaciones_vencidas->execute();
@@ -1267,21 +1268,22 @@ class procedimientosBD
         $stmt->close();
     }
 
-    public function editar_oportunidades($id,$datos)
+    public function editar_oportunidades($id, $datos)
     {
-        $datos = json_decode($datos,true);
-        $datos['FECHA'] = str_replace("T", " ",$datos['FECHA']);
+        $datos = json_decode($datos, true);
+        $datos['FECHA'] = str_replace("T", " ", $datos['FECHA']);
 
         $conn = $this->conexion();
         $query = "CALL editar_oportunidad(?,?,?,?,?,?)";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("iisssi", $id , $datos['DESCUENTO'], $datos['ORIGEN'], $datos['DESTINO'], $datos['FECHA'], $datos['PRECIO']);
+        $stmt->bind_param("iisssi", $id, $datos['DESCUENTO'], $datos['ORIGEN'], $datos['DESTINO'], $datos['FECHA'], $datos['PRECIO']);
         $stmt->execute();
         echo $stmt->error;
         $stmt->close();
     }
-    
-    public function cambiarIdComprador($id_oportunidad){
+
+    public function cambiarIdComprador($id_oportunidad)
+    {
         session_start();
         $id_usuario = $_SESSION['datos_usuario']['ID'];
         $conn = $this->conexion();
@@ -1291,8 +1293,9 @@ class procedimientosBD
         echo $stmt->error;
         $stmt->close();
     }
-    
-    public function obtener_id_comprador($id){
+
+    public function obtener_id_comprador($id)
+    {
         $conn = $this->conexion();
         $query = "SELECT idComprador FROM `viajes` where idViaje = $id;";
         $stmt = $conn->prepare($query);
@@ -1311,7 +1314,7 @@ class procedimientosBD
     {
         session_start();
         $id = $_SESSION['datos_usuario']['ID'];
-        $datos = json_decode($datos,true);
+        $datos = json_decode($datos, true);
         $conn = $this->conexion();
         $query = "CALL setPreferenciasVehiculos(?,?,?,?,?,?)";
         $stmt = $conn->prepare($query);
@@ -1321,25 +1324,26 @@ class procedimientosBD
         $stmt->close();
     }
 
-    public function presentarCotizacion($matricula, $precio, $senia, $id_viaje_cotizado,$id_tta)
+    public function presentarCotizacion($matricula, $precio, $senia, $id_viaje_cotizado, $id_tta)
     {
         $conn = $this->conexion();
         $query = "call presentar_cotizacion(?,?,?,?,?)";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("siiii", $matricula, $precio, $senia, $id_viaje_cotizado,$id_tta);
+        $stmt->bind_param("siiii", $matricula, $precio, $senia, $id_viaje_cotizado, $id_tta);
         $stmt->execute();
         echo $stmt->error;
         $stmt->close();
     }
 
-    public function traer_cotizaciones_presentadas_por_id_tta($id){
+    public function traer_cotizaciones_presentadas_por_id_tta($id)
+    {
         $cotizaciones = array();
         $conn = $this->conexion();
         $query = "SELECT `cotizaciones_presentadas`.ID,MATRICULA,DIRECCION_ORIGEN,BARRIO_ORIGEN,LOCALIDAD_ORIGEN,DIRECCION_DESTINO,BARRIO_DESTINO,LOCALIDAD_DESTINO,ESTADO,FECHA_SALIDA,COMPRADA,ID_VIAJE_COTIZADO FROM `cotizaciones_presentadas`,`cotizaciones` where id_tta = $id and visibilidad = 1 and `cotizaciones_presentadas`.ID_VIAJE_COTIZADO = `cotizaciones`.ID;";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($id,$matricula, $direccion_origen, $barrio_origen, $localidad_origen, $direccion_destino, $barrio_destino, $localidad_destino, $estado, $fecha_salida, $comprada, $id_viaje_cotizado);
+            $stmt->bind_result($id, $matricula, $direccion_origen, $barrio_origen, $localidad_origen, $direccion_destino, $barrio_destino, $localidad_destino, $estado, $fecha_salida, $comprada, $id_viaje_cotizado);
             while ($stmt->fetch()) {
                 $result = array("ID" => $id, "MATRICULA" => $matricula, "DIRECCION_ORIGEN" => $direccion_origen, "BARRIO_ORIGEN" => $barrio_origen, "LOCALIDAD_ORIGEN" => $localidad_origen, "DIRECCION_DESTINO" => $direccion_destino, "BARRIO_DESTINO" => $barrio_destino, "LOCALIDAD_DESTINO" => $localidad_destino, "ESTADO" => $estado, "FECHA_SALIDA" => $fecha_salida, "COMPRADA" => $comprada, "ID_VIAJE_COTIZADO" => $id_viaje_cotizado);
                 $fecha = $result["FECHA_SALIDA"];
@@ -1353,14 +1357,15 @@ class procedimientosBD
         return json_encode($cotizaciones);
     }
 
-    public function traer_cotizaciones_recibidas_por_id_solicitante($id){
+    public function traer_cotizaciones_recibidas_por_id_solicitante($id)
+    {
         $cotizaciones = array();
         $conn = $this->conexion();
         $query = "SELECT `cotizaciones_presentadas`.ID,Marca,Modelo,Capacidad,PRECIO,ID_VIAJE_COTIZADO,SENIA FROM `cotizaciones_presentadas`,`vehiculos` where `cotizaciones_presentadas`.MATRICULA = `vehiculos`.Matricula AND ID_VIAJE_COTIZADO in (select ID from `cotizaciones` where ID_SOLICITANTE = $id and ESTADO = 1) and `cotizaciones_presentadas`.visibilidad = 1;";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($id,$marca, $modelo, $capacidad, $precio, $id_viaje_cotizado,$senia);
+            $stmt->bind_result($id, $marca, $modelo, $capacidad, $precio, $id_viaje_cotizado, $senia);
             while ($stmt->fetch()) {
                 $result = array("ID" => $id, "MARCA" => $marca, "MODELO" => $modelo, "CAPACIDAD" => $capacidad, "PRECIO" => $precio, "ID_VIAJE_COTIZADO" => $id_viaje_cotizado, "SENIA" => $senia);
                 $cotizaciones[] = $result;
@@ -1388,7 +1393,8 @@ class procedimientosBD
         return $result;
     }
 
-    public function reconfirmarCotizacion($id, $id_viaje_cot){
+    public function reconfirmarCotizacion($id, $id_viaje_cot)
+    {
         $conn = $this->conexion();
         $query = "call reconfirmar_cotiazcion(?,?)";
         $stmt = $conn->prepare($query);
@@ -1400,7 +1406,7 @@ class procedimientosBD
 
     public function rechazarCotizacion($id, $id_viaje_cot)
     {
-        echo $id."     ".$id_viaje_cot;
+        echo $id . "     " . $id_viaje_cot;
         $conn = $this->conexion();
         $query = "call rechazar_cotizacion(?,?)";
         $stmt = $conn->prepare($query);
@@ -1412,7 +1418,7 @@ class procedimientosBD
 
     /*
     TODO: hacer el eliminar cotizacion que reemplaza al rechazar cotizacion anterior
-    */
+     */
     public function eliminarCotizacion($id)
     {
         $conn = $this->conexion();
@@ -1424,38 +1430,39 @@ class procedimientosBD
         $stmt->close();
     }
 
-    public function obtener_nombre_chofer_tta_por_id($id){
+    public function obtener_nombre_chofer_tta_por_id($id)
+    {
         $conn = $this->conexion();
         $query = "SELECT NOMBRE,APELLIDO FROM `usuarios` where ID in (select Usuario_ID from empresas where ID = $id);";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($nombre,$apellido);
+            $stmt->bind_result($nombre, $apellido);
             while ($stmt->fetch()) {
-                $nombre = $nombre." ".$apellido;
+                $nombre = $nombre . " " . $apellido;
             }
         }
         $stmt->close();
         return $nombre;
     }
 
-
     //SELECT NOCTURNO,FIESTAS,DIA_LIBRE,PRECIO_DE_COCHE FROM prefecrenciasVehiculos where MATRICULA = $mat;
 
-    public function traer_preferencias_vehiculos($mat){
+    public function traer_preferencias_vehiculos($mat)
+    {
         $preferencias = array();
         $conn = $this->conexion();
         $query = "SELECT NOCTURNO,FIESTAS,DIA_LIBRE,PRECIO_DE_COCHE FROM `prefecrenciasVehiculos` where `prefecrenciasVehiculos`.MATRICULA = $mat;";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($nocturno,$fiestas,$dia_libre,$precio_coche);
+            $stmt->bind_result($nocturno, $fiestas, $dia_libre, $precio_coche);
             while ($stmt->fetch()) {
                 $result = array(
-                    "NOCTURNO" => $nocturno, 
-                    "FIESTAS" => $fiestas, 
-                    "DIA_LIBRE" => $dia_libre, 
-                    "PRECIO_DE_COCHE" => $precio_coche
+                    "NOCTURNO" => $nocturno,
+                    "FIESTAS" => $fiestas,
+                    "DIA_LIBRE" => $dia_libre,
+                    "PRECIO_DE_COCHE" => $precio_coche,
                 );
                 $preferencias[] = $result;
             }
@@ -1466,21 +1473,22 @@ class procedimientosBD
         return json_encode($preferencias);
     }
 
-    public function traer_preferencias(){
+    public function traer_preferencias()
+    {
         $preferencias = array();
         $conn = $this->conexion();
         $query = "SELECT NOCTURNO,FIESTAS,DIA_LIBRE,PRECIO_DE_COCHE,id_tta FROM `prefecrenciasVehiculos`;";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($nocturno,$fiestas,$dia_libre,$precio_coche,$idtta);
+            $stmt->bind_result($nocturno, $fiestas, $dia_libre, $precio_coche, $idtta);
             while ($stmt->fetch()) {
                 $result = array(
-                    "NOCTURNO" => $nocturno, 
-                    "FIESTAS" => $fiestas, 
-                    "DIA_LIBRE" => $dia_libre, 
+                    "NOCTURNO" => $nocturno,
+                    "FIESTAS" => $fiestas,
+                    "DIA_LIBRE" => $dia_libre,
                     "PRECIO_DE_COCHE" => $precio_coche,
-                    "TRANSPORTISTA" => $idtta
+                    "TRANSPORTISTA" => $idtta,
                 );
                 $preferencias[] = $result;
             }
@@ -1491,20 +1499,21 @@ class procedimientosBD
         return json_encode($preferencias);
     }
 
-    public function traer_tranportistas(){
+    public function traer_tranportistas()
+    {
         $transportistas = array();
         $conn = $this->conexion();
         $query = "SELECT ID,Email,Departamento,moroso FROM `usuarios` where Tipo_Usuario = 'TTA';";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($id,$email,$departamento,$moroso);
+            $stmt->bind_result($id, $email, $departamento, $moroso);
             while ($stmt->fetch()) {
                 $result = array(
-                    "ID" => $id, 
-                    "MAIL" => $email, 
+                    "ID" => $id,
+                    "MAIL" => $email,
                     "DEPARTAMENTO" => $departamento,
-                    "MOROSO" => $moroso
+                    "MOROSO" => $moroso,
                 );
                 $transportistas[] = $result;
             }
@@ -1515,22 +1524,22 @@ class procedimientosBD
         return json_encode($transportistas);
     }
 
-
-    public function traer_cotizaciones_por_id_comprador($id){
+    public function traer_cotizaciones_por_id_comprador($id)
+    {
         $cotizaciones = array();
         $conn = $this->conexion();
         $query = "SELECT ID,DIRECCION_ORIGEN,BARRIO_ORIGEN,LOCALIDAD_ORIGEN,DIRECCION_DESTINO,BARRIO_DESTINO,LOCALIDAD_DESTINO,FECHA_SALIDA,ESTADO,TIPO,HORA,CANTIDAD_PASAJEROS FROM cotizaciones WHERE ID_SOLICITANTE = $id;";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($id,$dir_origen,$bar_origen,$loc_origen,$dir_destino,$bar_destino,$loc_destino,$fecha,$estado,$tipo,$hora,$cantidad_pasajeros);
+            $stmt->bind_result($id, $dir_origen, $bar_origen, $loc_origen, $dir_destino, $bar_destino, $loc_destino, $fecha, $estado, $tipo, $hora, $cantidad_pasajeros);
             while ($stmt->fetch()) {
-                $origen = $dir_origen.", ".$bar_origen.", ".$loc_origen;
-                $destino = $dir_destino.", ".$bar_destino.", ".$loc_destino;
+                $origen = $dir_origen . ", " . $bar_origen . ", " . $loc_origen;
+                $destino = $dir_destino . ", " . $bar_destino . ", " . $loc_destino;
                 if ($estado == 1 || $estado == 4) {
-                    $estado = ($estado == 1) ? "Cotizando" : "Cotizado" ;
-                    $result = array("ID" => $id,"ORIGEN" => $origen,"DESTINO" => $destino,"FECHA" => $fecha,"ESTADO" => $estado,"MODALIDAD" => $tipo,"HORA" => $hora, "CANTIDAD_PASAJEROS" => $cantidad_pasajeros);
-                    if($result["FECHA"] != null){
+                    $estado = ($estado == 1) ? "Cotizando" : "Cotizado";
+                    $result = array("ID" => $id, "ORIGEN" => $origen, "DESTINO" => $destino, "FECHA" => $fecha, "ESTADO" => $estado, "MODALIDAD" => $tipo, "HORA" => $hora, "CANTIDAD_PASAJEROS" => $cantidad_pasajeros);
+                    if ($result["FECHA"] != null) {
                         $fecha = $result["FECHA"];
                         $timestamp = strtotime($fecha);
                         $newDate = date("d-m-Y", $timestamp);
@@ -1544,7 +1553,8 @@ class procedimientosBD
         return json_encode($cotizaciones);
     }
 
-    public function copiar_solicitud_viaje($id){
+    public function copiar_solicitud_viaje($id)
+    {
         $conn = $this->conexion();
         $query = "call copiar_solicitud_cotizacion(?)";
         $stmt = $conn->prepare($query);
@@ -1552,5 +1562,23 @@ class procedimientosBD
         $stmt->execute();
         echo $stmt->error;
         $stmt->close();
+    }
+
+    public function datos_mtop_tta($matricula)
+    {
+        $datos_mtop = array();
+        $conn = $this->conexion();
+        $query = "SELECT Nro_MTOP,Pass_MTOP FROM empresas WHERE RUT = (select RUT_EM from vehiculos where Matricula = '$matricula')";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($numero_mtop, $pass_mtop);
+            while ($stmt->fetch()) {
+                $result = array("NUMERO_MTOP" => $numero_mtop, "PASS_MTOP" => $pass_mtop);
+                $datos_mtop[] = $result;
+            }
+        }
+        $stmt->close();
+        return json_encode($datos_mtop);
     }
 }
