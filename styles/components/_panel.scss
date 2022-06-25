@@ -390,6 +390,21 @@ $main_3: #6d76db;
     .card:hover {
       transform: scale(1.05);
     }
+    .card.button{
+      background-color: $main_1;
+
+      .number {
+        h2 {
+          color: white;
+        }
+        i {
+          color: white;
+        }
+      }
+      p {
+        color: white;
+      }
+    }
     .card:nth-child(1) {
       background-color: $main_1;
 

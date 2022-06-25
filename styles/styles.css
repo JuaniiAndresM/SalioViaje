@@ -7272,6 +7272,22 @@ footer .totum p a:hover {
           transform: scale(1.05);
 }
 
+.panel .panel-cards .card.button {
+  background-color: #3844bc;
+}
+
+.panel .panel-cards .card.button .number h2 {
+  color: white;
+}
+
+.panel .panel-cards .card.button .number i {
+  color: white;
+}
+
+.panel .panel-cards .card.button p {
+  color: white;
+}
+
 .panel .panel-cards .card:nth-child(1) {
   background-color: #3844bc;
 }
