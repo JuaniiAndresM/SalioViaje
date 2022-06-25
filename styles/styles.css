@@ -17626,6 +17626,246 @@ footer .totum p a:hover {
   visibility: visible;
 }
 
+.panel .form-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 20px;
+}
+
+.panel .form-container .input {
+  position: relative;
+  width: 100%;
+}
+
+.panel .form-container .input i {
+  position: absolute;
+  top: 20px;
+  left: 5px;
+  color: #3844bc;
+}
+
+.panel .form-container .input input,
+.panel .form-container .input select {
+  width: 100%;
+  height: 40px;
+  margin: 10px 0;
+  border: none;
+  outline: none;
+  padding: 10px;
+  padding-left: 30px;
+  border-bottom: 1px solid #ccc;
+  color: #3844bc;
+  background-color: #fff;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.panel .form-container .input input:focus, .panel .form-container .input select:focus {
+  border-bottom: 1px solid #3844bc;
+}
+
+.panel .form-container .input #end-text {
+  position: absolute;
+  top: 16px;
+  right: 0;
+  color: #555;
+  font-size: 0.9em;
+}
+
+.panel .form-container .input input.right-i,
+.panel .form-container .input select.right-i {
+  padding-right: 30px;
+  text-align: right;
+}
+
+.panel .form-container .input input::-webkit-input-placeholder,
+.panel .form-container .input select::-webkit-input-placeholder {
+  text-align: left;
+}
+
+.panel .form-container .input input:-ms-input-placeholder,
+.panel .form-container .input select:-ms-input-placeholder {
+  text-align: left;
+}
+
+.panel .form-container .input input::-ms-input-placeholder,
+.panel .form-container .input select::-ms-input-placeholder {
+  text-align: left;
+}
+
+.panel .form-container .input input::placeholder,
+.panel .form-container .input select::placeholder {
+  text-align: left;
+}
+
+.panel .form-container .select-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+}
+
+.panel .form-container .select-container h2 {
+  font-size: 2em;
+  color: #3844bc;
+}
+
+.panel .form-container .select-container h3 {
+  font-size: .8em;
+  color: #888;
+  font-weight: normal;
+}
+
+.panel .form-container .main-form-container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.panel .form-container .main-form-container h3 {
+  color: #3844bc;
+}
+
+.panel .form-container .main-form-container hr {
+  margin: 10px auto;
+  border: none;
+  border-bottom: 1px solid #3844bc;
+  width: 100px;
+}
+
+.panel .form-container .main-form-container .columns-divider {
+  width: 100%;
+  gap: 30px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+.panel .form-container .main-form-container .columns-divider .date-container {
+  background-color: #efefef;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.panel .form-container .main-form-container .columns-divider .date-container .label {
+  padding: 5px;
+  background-color: #fff;
+  border-radius: 5px;
+  color: #3844bc;
+  margin: 5px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.panel .form-container .main-form-container .columns-divider .date-container .label button {
+  background-color: #3844bc;
+  color: #fff;
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  border: none;
+  -webkit-transition: .2s;
+  transition: .2s;
+  cursor: pointer;
+}
+
+.panel .form-container .main-form-container .columns-divider .date-container .label button:hover {
+  background-color: #2b3179;
+}
+
+.panel .form-container .main-form-container .columns-divider .date-container .empty p {
+  color: #3844bc;
+  text-align: center;
+  font-size: 13px;
+  margin: 0 10px;
+}
+
+.panel .form-container .main-form-container .main-bottom-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.panel .form-container .main-form-container .main-bottom-container button, .panel .form-container .main-form-container .main-bottom-container a {
+  display: inline-block;
+  margin: 10px;
+  padding: 1em 2em;
+  text-align: center;
+  text-decoration: none;
+  background-color: #3844bc;
+  color: #fff;
+  -webkit-transition: .2s;
+  transition: .2s;
+  border: none;
+  border-radius: 10px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.panel .form-container .main-form-container .main-bottom-container button:hover, .panel .form-container .main-form-container .main-bottom-container a:hover {
+  background-color: #2b3179;
+}
+
+@media screen and (max-width: 550px) {
+  .panel .form-container .main-form-container .columns-divider {
+    -ms-grid-columns: 100%;
+        grid-template-columns: 100%;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;

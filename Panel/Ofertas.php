@@ -139,7 +139,7 @@ session_set_cookie_params($ttl);
         <nav class="nav-hidden active" id="panel-navbar"></nav>
             <section class="panel" id="panel">
                 <div class="panel-cards">
-                    <a class="card" href="">
+                    <a class="card" href="https://www.salioviaje.com.uy/Cargar_Oferta">
                         <div class="number">
                             <h2>+</h2>
                             <i class="fa-solid fa-file-circle-plus"></i>

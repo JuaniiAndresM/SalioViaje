@@ -155,6 +155,12 @@ session_set_cookie_params($ttl);
           <span class="icon"><i class="fa-solid fa-circle-question"></i></span>
           <span class="title">FAQ\'s</span>
         </a>
+      </li>
+      <li>
+        <a class href="https://www.salioviaje.com.uy/Ofertas_Dashboard">
+          <span class="icon"><i class="fa-solid fa-percent"></i></span>
+          <span class="title">Ofertas</span>
+        </a>
       </li>';
 
     

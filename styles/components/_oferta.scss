@@ -1,0 +1,183 @@
+// Cargar Oferta
+
+.panel .form-container{
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+
+    .input {
+        position: relative;
+        width: 100%;
+  
+        i {
+          position: absolute;
+          top: 20px;
+          left: 5px;
+          color: $main_1;
+        }
+        input,
+        select {
+          width: 100%;
+          height: 40px;
+  
+          margin: 10px 0;
+  
+          border: none;
+          outline: none;
+          padding: 10px;
+          padding-left: 30px;
+          border-bottom: 1px solid #ccc;
+  
+          color: $main_1;
+          background-color: #fff;
+          transition: .2s;
+        }
+        input:focus,select:focus{
+            border-bottom: 1px solid $main_1;
+        }
+        #end-text {
+            position: absolute;
+            top: 16px;
+            right: 0;
+            color: #555;
+            font-size: 0.9em;
+        }
+
+        input.right-i,
+        select.right-i{
+            padding-right: 30px;
+            text-align: right;
+        }
+        input::placeholder,
+        select::placeholder{
+            text-align: left;
+        }
+    }
+
+    .select-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        text-align: center;
+        h2{
+            font-size: 2em;
+            color: $main_1;
+        }
+        h3{
+            font-size: .8em;
+            color: #888;
+            font-weight: normal;
+        }
+
+    }
+
+    .main-form-container{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        margin: 20px 0;
+        text-align: center;
+
+        h3{
+            color: $main_1;
+        }
+        hr{
+            margin: 10px auto;
+            border: none;
+            border-bottom: 1px solid $main_1;
+            width: 100px;
+        }
+        .columns-divider{
+            width: 100%;
+            gap: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            .date-container{
+                background-color: #efefef;
+                border-radius: 10px;
+                padding: 10px;
+
+                .label{
+                    padding: 5px;
+                    background-color: #fff;
+                    border-radius: 5px;
+                    color: $main_1;
+                    margin: 5px 0;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    button{
+                        background-color: $main_1;
+                        color: #fff;
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 4px;
+                        border: none;
+                        transition: .2s;
+                        cursor: pointer;
+                    }
+                    button:hover{
+                        background-color: $main_2;
+                    }
+                }
+                .empty{
+                    p{
+                        color: $main_1;
+                        text-align: center;
+                        font-size: 13px;
+                        margin: 0 10px;
+                    }
+                }
+
+            }
+        }
+
+        .main-bottom-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+
+            button,a{
+                display: inline-block;
+                margin: 10px;
+                padding: 1em 2em;
+                text-align: center;
+                text-decoration: none;
+                background-color: $main_1;
+                color: #fff;
+                transition: .2s;
+                border: none;
+                border-radius: 10px;
+                font-size: 13px;
+                cursor: pointer;
+            }
+            button:hover,a:hover{
+                background-color: $main_2;
+            }
+        }
+    }
+}
+
+@media screen and(max-width:550px) {
+    .panel .form-container{
+        .main-form-container{
+            .columns-divider{
+                grid-template-columns: 100%;
+            }
+        }
+    }
+}

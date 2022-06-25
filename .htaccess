@@ -38,6 +38,8 @@ RewriteRule ^Facturacion /Panel/Facturacion.php
 RewriteRule ^Editar_Oportunidad/([a-zA-Z0-9_\.]+)$ /Panel/Editar_Oportunidad.php?ID=$1
 RewriteRule ^Editar_Viaje/([a-zA-Z0-9_\.]+)$ /Panel/Editar_Viaje.php?ID=$1
 RewriteRule ^Ofertas_Dashboard /Panel/Ofertas.php
+RewriteRule ^Cargar_Oferta /Panel/Cargar_Oferta.php
+RewriteRule ^Nueva_Promo /Panel/Nueva_Promo.php
 
 RewriteRule ^Success /Form/Success.html
 RewriteRule ^Failed /Form/Failed.html
