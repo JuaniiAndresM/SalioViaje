@@ -52,7 +52,10 @@ RewriteRule ^Cotizacion/([a-zA-Z0-9_\.]+)$ /About/Detalles_Cotizacion.php?ID=$1
 RewriteRule ^Cotizar/([a-zA-Z0-9_\.]+)$ /About/Cotizar.php?ID=$1
 RewriteRule ^Nosotros /About/Nosotros.html
 RewriteRule ^FAQ /About/FAQ.html
-
+RewriteRule ^Experiencias /00_Experiencias.html
+RewriteRule ^Arequita /00_Arequita.html
+RewriteRule ^Gruta_del_Palacio /00_Gruta_del_Palacio.html
+RewriteRule ^Penitente /00_Penitente.html
 
 ErrorDocument 404 /Error/404.html
 ErrorDocument 403 /Error/403.html
