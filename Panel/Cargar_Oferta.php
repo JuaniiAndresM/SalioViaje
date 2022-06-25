@@ -203,11 +203,20 @@ session_set_cookie_params($ttl);
 
                         <div class="input">
                             <i class="fa-solid fa-arrow-down-up-across-line"></i>
-                            <select name="ofertaType">
+                            <select name="tramoType">
                                 <option value="0" disabled hidden selected>Seleccione un Tramo</option>
                                 <option value="1">Ida</option>
                                 <option value="2">Vuelta</option>
                                 <option value="3">Ida y Vuelta</option>
+                            </select>
+                        </div>
+
+                        <div class="input">
+                            <i class="fa-solid fa-clock"></i>
+                            <select name="horarioType">
+                                <option value="0" selected>Todo el Día</option>
+                                <option value="1">Mañana (00:00 - 12:00)</option>
+                                <option value="2">Tarde (12:00 - 24:00)</option>
                             </select>
                         </div>
 
@@ -247,13 +256,7 @@ session_set_cookie_params($ttl);
                         </div>
 
                         <div class="date-container">
-                            <div class="empty">
-                                <p>No hay fechas de promoción agregadas.</p>
-                            </div>
-                            <!-- <div class="label">
-                                <p>14/05/22</p>
-                                <button><i class="fa-solid fa-xmark"></i></button>
-                            </div> -->
+                            
                         </div>
 
                     </div>

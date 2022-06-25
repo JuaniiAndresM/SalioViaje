@@ -156,12 +156,15 @@ session_set_cookie_params($ttl);
           <span class="title">FAQ\'s</span>
         </a>
       </li>
-      <li>
-        <a class href="https://www.salioviaje.com.uy/Ofertas_Dashboard">
-          <span class="icon"><i class="fa-solid fa-percent"></i></span>
-          <span class="title">Ofertas</span>
-        </a>
-      </li>';
+      <li>';
+    if($tipo == 1 || $tipo == 2){
+      echo '<li>
+              <a class href="https://www.salioviaje.com.uy/Ofertas_Dashboard">
+                <span class="icon"><i class="fa-solid fa-percent"></i></span>
+                <span class="title">Ofertas</span>
+              </a>
+            </li>';
+    }
 
     
 

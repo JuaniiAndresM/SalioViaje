@@ -696,7 +696,7 @@
 
 .oportunidades .oportunidades-list .oportunidad {
   width: calc(100% - 20px);
-  border-radius: 3em 0 3em 3em;
+  border-radius: 20px;
   background-color: #3844bc;
   margin: 15px auto;
   display: -webkit-box;
@@ -735,13 +735,13 @@
       -ms-flex-align: center;
           align-items: center;
   margin: 10px;
-  background-color: #ffffff;
-  border-radius: 2em;
+  background-color: #2b3179;
+  border-radius: 20px;
 }
 
 .oportunidades .oportunidades-list .oportunidad .oportunidad-left .discount h3 {
-  color: #3844bc;
-  font-size: 1.8em;
+  color: #fff;
+  font-size: 2em;
 }
 
 .oportunidades .oportunidades-list .oportunidad .oportunidad-left .discount .precio {
@@ -773,7 +773,7 @@
 }
 
 .oportunidades .oportunidades-list .oportunidad .oportunidad-left .discount .precio .precio_desc {
-  color: #329e3b;
+  color: #00ff15;
 }
 
 .oportunidades .oportunidades-list .oportunidad .oportunidad-left .travel {
@@ -10374,7 +10374,7 @@ footer .totum p a:hover {
 .viajar-wrapper-index .salioviaje .oportunidades-wrapper .oportunidades-list .oportunidad,
 .viajar-wrapper-index .salioviaje .ofertas-wrapper .oportunidades-list .oportunidad {
   width: calc(100% - 20px);
-  border-radius: 3em 0 3em 3em;
+  border-radius: 20px;
   background-color: #3844bc;
   margin: 15px auto;
   display: -webkit-box;
@@ -10433,8 +10433,8 @@ footer .totum p a:hover {
       -ms-flex-align: center;
           align-items: center;
   margin: 10px;
-  background-color: #ffffff;
-  border-radius: 2em;
+  background-color: #2b3179;
+  border-radius: 20px;
 }
 
 .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount h3,
@@ -10448,8 +10448,8 @@ footer .totum p a:hover {
 .viajar-wrapper-index .ofertas-viajar .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount h3,
 .viajar-wrapper-index .salioviaje .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount h3,
 .viajar-wrapper-index .salioviaje .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount h3 {
-  color: #3844bc;
-  font-size: 1.8em;
+  color: #ffffff;
+  font-size: 2em;
 }
 
 .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount .precio,
@@ -10521,7 +10521,7 @@ footer .totum p a:hover {
 .viajar-wrapper-index .ofertas-viajar .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount .precio .precio_desc,
 .viajar-wrapper-index .salioviaje .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount .precio .precio_desc,
 .viajar-wrapper-index .salioviaje .ofertas-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount .precio .precio_desc {
-  color: #329e3b;
+  color: #00ff15;
 }
 
 .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel,
@@ -17680,7 +17680,7 @@ footer .totum p a:hover {
 
 .panel .form-container .input #end-text {
   position: absolute;
-  top: 16px;
+  top: 20px;
   right: 0;
   color: #555;
   font-size: 0.9em;

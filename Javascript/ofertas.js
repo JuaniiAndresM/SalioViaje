@@ -2,6 +2,7 @@ let fechasArray = [];
 
 window.addEventListener(`load`, () =>{
     hideForm();
+    updateFechaList();
 });
 
 let hideForm = () => {
