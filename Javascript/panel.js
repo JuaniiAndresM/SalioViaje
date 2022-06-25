@@ -1249,7 +1249,40 @@ function modal_contacto(nombre_tta, telefono_tta) {
     });
 }
 
-function generar_oportunidad(id){
-    ///AddOportunidad/{Id cotizacion}
-    window.location.href = "";
+function crear_oportunidad(id){
+    window.location.href = "https://www.salioviaje.com.uy/AddOportunidad/"+id;
+}
+
+function agregar_oportunidad_a_viaje(matricula, idviaje_de_solicitud){
+    let datos = {
+        "DESCUENTO_OPORTUNIDAD" : $("#desc_oport2").val(),
+        "FECHA" : $("#fecha_2").val().replace("T", " "),
+        "ORIGEN" : $("#origen_2").val(),
+        "DESTINO" : $("#destino_2").val(),
+        "PRECIO_REFERENCIA" : $("#precioref_2").val(),
+        "DISTANCIA" : $("#distancia_2").val(),
+        "CANTIDAD_DE_PASAJEROS" : $("#cantidad_pasajeros_2").val(),
+        "MATRICULA" : matricula
+    }
+
+    $.ajax({
+        type: "POST",
+        url: "https://www.salioviaje.com.uy/PHP/procedimientosForm.php",
+        data: { tipo: "agregar_oportunidad_a_viaje", datos: JSON.stringify(datos)},
+        success: function (response) {
+            vincular_tramos_agregar_oportunidad(idviaje_de_solicitud,response)
+            vincular_tramos_agregar_oportunidad(response, idviaje_de_solicitud)
+        }
+    });
+}
+
+function vincular_tramos_agregar_oportunidad(tramo_vinculado, id){
+    $.ajax({
+        type: "POST",
+        url: "https://www.salioviaje.com.uy/PHP/procedimientosForm.php",
+        data: { tipo: "registrar_tramos_vinculados", id: id, id_tramo_vinculado: tramo_vinculado},
+        success: function (response) {
+            console.log(response);
+        }
+    });
 }

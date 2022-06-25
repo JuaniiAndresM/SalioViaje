@@ -14,12 +14,21 @@ session_set_cookie_params($ttl);
   }
 
   require_once '../PHP/procedimientosBD.php';
-  $ID_Cotizacion = $_GET['ID'];
+  $ID_Viaje = $_GET['ID'];
   $regiones_mtop = new procedimientosBD();
   $regiones_mtop = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
   $rutas = new procedimientosBD();
   $rutas = json_decode($rutas->traer_rutas_mtop(), true);
+
+  $bd = new procedimientosBD();
+  $datos_viaje = $bd->traer_viajes_por_id($ID_Viaje);
+
+  $datos_vehiculo = $bd->datos_vehiculo_por_matricula($datos_viaje[0]['MATRICULA']);
+
+  //$datos_vehiculo[0]
+
+  //$datos_viaje[0]
 ?>
 
 <!DOCTYPE html>
@@ -176,11 +185,11 @@ session_set_cookie_params($ttl);
                   </div>
                   <div class="vehicle-info">
                     <h3><i class="fas fa-info"></i> Información del Vehículo</h3>
-                    <p class="matricula"><i class="fas fa-address-card"></i></p>
-                    <p class="marca"><i class="fas fa-car"></i></p>
-                    <p class="modelo"><i class="fas fa-list"></i></p>
-                    <p class="capacidad"><i class="fas fa-users"></i></p>
-                    <p class="combustible"><i class="fas fa-gas-pump"></i></p>
+                    <p class="matricula"><i class="fas fa-address-card"></i> <?php echo $datos_vehiculo[0]['MATRICULA'] ?></p>
+                    <p class="marca"><i class="fas fa-car"></i> <?php echo $datos_vehiculo[0]['MARCA'] ?></p>
+                    <p class="modelo"><i class="fas fa-list"></i> <?php echo $datos_vehiculo[0]['MODELO'] ?></p>
+                    <p class="capacidad"><i class="fas fa-users"></i> <?php echo $datos_vehiculo[0]['CAPACIDAD'] ?></p>
+                    <p class="combustible"><i class="fas fa-gas-pump"></i> <?php echo $datos_vehiculo[0]['COMBUSTIBLE'] ?></p>
                   </div>
                 </div>
 
@@ -214,17 +223,27 @@ session_set_cookie_params($ttl);
 
                 <div class="input" id="origen">
                   <i class="fas fa-map-marker-alt" id="icon"></i>
-                  <input list="RegionesMTOP" id="origen_2" placeholder="Origen" onchange="select_origen_destino(3)">
+                  <input list="RegionesMTOP" id="origen_2" value="<?php echo $datos_viaje[0]['DESTINO'] ?>" placeholder="Origen" onchange="select_origen_destino(3)">
                 </div>
 
                 <div class="input" id="destino">
                   <i class="fas fa-route" id="icon"></i>
-                  <input list="RegionesMTOP" id="destino_2" placeholder="Destino" onchange="select_origen_destino(4)">
+                  <input list="RegionesMTOP" id="destino_2" value="<?php echo $datos_viaje[0]['ORIGEN'] ?>" placeholder="Destino" onchange="select_origen_destino(4)">
                 </div>
 
                 <div class="input" id="precioref">
                   <i class="fas fa-dollar-sign" id="icon"></i>
-                  <input type="number" id="precioref_2" placeholder="Precio de Referencia" onchange="checkInput(2)"  oninput="this.value = Math.abs(this.value)" />
+                  <input type="number" id="distancia_2" placeholder="Distancia" oninput="this.value = Math.abs(this.value)" />
+                </div>
+
+                <div class="input" id="precioref">
+                  <i class="fas fa-dollar-sign" id="icon"></i>
+                  <input type="number" id="cantidad_pasajeros_2" placeholder="Cantidad de Pasajeros" oninput="this.value = Math.abs(this.value)" />
+                </div>
+
+                <div class="input" id="precioref">
+                  <i class="fas fa-dollar-sign" id="icon"></i>
+                  <input type="number" id="precioref_2" placeholder="Precio de Referencia" value="<?php echo $datos_viaje[0]['PRECIO'] ?>" onchange="checkInput(2)"  oninput="this.value = Math.abs(this.value)" />
                 </div>
 
               </div>
@@ -233,7 +252,7 @@ session_set_cookie_params($ttl);
           </div>
 
           <div id="step_3">
-            <button class="button-agendar" id="step-agendar" onclick="cargar_vista_previa()">
+            <button class="button-agendar" id="step-agendar" onclick="agregar_oportunidad_a_viaje('<?php echo $datos_vehiculo[0]['MATRICULA'] ?>', <?php echo $ID_Viaje ?>)">
               <i class="fas fa-book"></i> Agendar Oportunidad
             </button>
           </div>
