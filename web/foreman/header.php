@@ -21,7 +21,7 @@ session_set_cookie_params($ttl);
 
 
                     <a href="https://www.salioviaje.com.uy/Viajar">Oportunidades</a>
-                    <a href="https://www.salioviaje.com.uy/00_Experiencias.html">Experiencias</a>
+                    <a href="https://www.salioviaje.com.uy/Experiencias">Experiencias</a>
                     <a href="https://www.salioviaje.com.uy/FAQs">FAQs</a>
                     <?php   
                     if(isset($_SESSION['tipo_usuario'])){
@@ -82,7 +82,7 @@ session_set_cookie_params($ttl);
                             <a href="https://www.salioviaje.com.uy/Central"><i class="fas fa-list-ul"></i> Central</a>
                             <a href="https://www.salioviaje.com.uy/Nosotros"><i class="fas fa-info"></i> Sobre Nosotros</a>
                             <a href="https://www.salioviaje.com.uy/Viajar"><i class="fas fa-book"></i> Oportunidades</a>
-                            <a href="https://www.salioviaje.com.uy/00_Experiencias.html"><i class="fas fa-star"></i>     Experiencias</a>                          
+                            <a href="https://www.salioviaje.com.uy/Experiencias"><i class="fas fa-star"></i>     Experiencias</a>                          
                             <a href="https://www.salioviaje.com.uy/FAQ"><i class="fas fa-question"></i> FAQ</a>';
                             if(isset($_SESSION['tipo_usuario'])){
                                 echo '<a href="https://www.salioviaje.com.uy/Dashboard"><i class="fas fa-users-cog"></i> Panel</a>';
