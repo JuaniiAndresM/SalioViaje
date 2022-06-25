@@ -267,6 +267,26 @@ class procedimientosBD
 
     }
 
+    public function datos_vehiculo_por_matricula($matricula)
+    {
+
+        $vehiculo = array();
+        $conn = $this->conexion();
+        $query = "SELECT ID,Matricula,Marca,Modelo,Combustible,Capacidad,Equipaje,PetFriendly,RUT_EM,RUT_EC,ID_EMPRESA FROM salioviajeuy_salioviajeuy.vehiculos WHERE Matricula = '$matricula' and visibilidad = 1; ";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($id, $matricula, $marca, $modelo, $combustible, $capacidad, $equipaje, $pet_friendly, $rut_em, $rut_e, $id_empresa);
+            while ($stmt->fetch()) {
+                $result = array('ID' => $id, 'MATRICULA' => $matricula, 'MARCA' => $marca, 'MODELO' => $modelo, 'COMBUSTIBLE' => $combustible, 'CAPACIDAD' => $capacidad, 'EQUIPAJE' => $equipaje, 'RUT_E' => $rut_e, 'PET_FRIENDLY' => $pet_friendly, 'RUT_EM' => $rut_em, 'ID_EMPRESA' => $id_empresa);
+                $vehiculo[] = $result;
+            }
+        }
+        $stmt->close();
+        return $vehiculo;
+
+    }
+
     public function agrego_visita()
     {
         $vehiculos = array();
@@ -510,6 +530,31 @@ class procedimientosBD
         $size = 0;
         $conn = $this->conexion();
         $query = "SELECT idViaje,Descuento,Origen,Destino,Fecha,Nombre,Apellido,Marca,Modelo,Capacidad,Estado,Matricula,Distancia,Precio,idTransportista,Tipo_Usuario,Telefono,idComprador FROM viajes,usuarios,vehiculos where idTransportista = usuarios.ID and Vehiculo = Matricula and idViaje = $id and Modalidad = 'Oportunidad' and visivilidad != 0;";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($idOportunidad, $descuento, $origen, $destino, $fecha, $nombre, $apellido, $marca, $modelo, $capacidad_vehiculo, $estado, $matricula, $distancia, $precio, $idTransportista, $tipo_usuario, $telefono, $id_comprador);
+            while ($stmt->fetch()) {
+                $result = array('ID' => $idOportunidad, 'DESCUENTO' => $descuento, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'FECHA' => $fecha, 'NOMBRE' => $nombre, 'APELLIDO' => $apellido, 'MARCA' => $marca, 'MODELO' => $modelo, 'CAPACIDAD_VEHICULO' => $capacidad_vehiculo, 'ESTADO' => $estado, 'MATRICULA' => $matricula, 'DISTANCIA' => $distancia, 'PRECIO' => $precio, 'ID_TRANSPORTISTA' => $idTransportista, 'TIPO_USUARIO' => $tipo_usuario, 'TELEFONO' => $telefono, 'ID_COMPRADOR' => $id_comprador);
+                $fecha = $result["FECHA"];
+                $timestamp = strtotime($fecha);
+                $newDate = date("d-m-Y H:i", $timestamp);
+                $result["FECHA"] = $newDate;
+                $oportunidades[$size] = $result;
+                $return = $oportunidades;
+                $size++;
+            }
+        }
+        $stmt->close();
+        return $return;
+    }
+
+    public function traer_viajes_por_id($id)
+    {
+        $return = null;
+        $size = 0;
+        $conn = $this->conexion();
+        $query = "SELECT idViaje,Descuento,Origen,Destino,Fecha,Nombre,Apellido,Marca,Modelo,Capacidad,Estado,Matricula,Distancia,Precio,idTransportista,Tipo_Usuario,Telefono,idComprador FROM viajes,usuarios,vehiculos where idTransportista = usuarios.ID and Vehiculo = Matricula and idViaje = $id and visivilidad != 0;";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();

@@ -144,9 +144,9 @@ if ($_POST['tipo'] == 1) {
             break;
         case 'editar-vehiculos':
             $datos = json_decode($_POST["datos"], true);
-            if ($procedimientosForm->existencia_matricula_por_id($datos['MATRICULA'],$_POST['id_vehiculo']) != 1) {
+            if ($procedimientosForm->existencia_matricula_por_id($datos['MATRICULA'], $_POST['id_vehiculo']) != 1) {
                 echo $procedimientosForm->editar_vehiculos($_POST['id_vehiculo'], $datos);
-            }else{
+            } else {
                 echo $procedimientosForm->existencia_matricula($datos['MATRICULA']);
             }
             break;
@@ -194,28 +194,34 @@ if ($_POST['tipo'] == 1) {
             break;
         case 'traer_id_cotizaciones':
             echo $procedimientosForm->traer_id_viajes_cotizando();
-        break;
+            break;
         case 'cambiarIdComprador':
             echo $procedimientosForm->cambiarIdComprador($_POST['id_oportunidad']);
-        break;
+            break;
         case 'guardarPreferencias':
             echo $procedimientosForm->guardarPreferencias($_POST['preferencias']);
-        break;
+            break;
         case 'presentarCotizacion':
             echo $procedimientosForm->presentarCotizacion($_POST['matricula'], $_POST['precio'], $_POST['senia'], $_POST['id_viaje_cotizado'], $_POST['id_tta']);
-        break;
+            break;
         case 'aceptar_cotizacion':
-            echo $procedimientosForm->aceptarCotizacion($_POST['idCotizacion'],$_POST['id_viaje_cotizado']);
-        break;
+            echo $procedimientosForm->aceptarCotizacion($_POST['idCotizacion'], $_POST['id_viaje_cotizado']);
+            break;
         case 'eliminar_cotizacion':
             echo $procedimientosForm->eliminarCotizacion($_POST['idCotizacion']);
-        break;
+            break;
         case 'copiar_solicitud_viaje':
             echo $procedimientosForm->copiar_solicitud_viaje($_POST['id_solicitud']);
-        break;
+            break;
         case 'actualizar_mtop':
-            echo $procedimientosForm->actualizar_estado_mtop($_POST['estado'],$_POST['id']);
-        break;
+            echo $procedimientosForm->actualizar_estado_mtop($_POST['estado'], $_POST['id']);
+            break;
+        case 'agregar_oportunidad_a_viaje':
+            echo $procedimientosForm->agregar_oportunidad($_POST['datos']);
+            break;
+        case 'registrar_tramos_vinculados':
+            echo $procedimientosForm->registrar_tramos_vinculados($_POST['id_tramo_vinculado'], $_POST['id']);
+            break;
     }
 
 }

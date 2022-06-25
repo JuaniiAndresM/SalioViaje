@@ -98,7 +98,7 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                                         <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">N° Usuario MTOP: </b>'.$datos_viajeMTOP['NRO_MTOP'].'</p>
                                         <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Contraseña MTOP: </b>'.$datos_viajeMTOP['PASS_MTOP'].'</p>
                                         <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Origen: </b>URUGUAY, '.$datos_viajeMTOP['DEPARTAMENTO_ORIGEN'].', '.$datos_viajeMTOP['LOCALIDAD_ORIGEN'].'.</p>
-                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Destino: </b>URUGUAY, '.$datos_viajeMTOP['DEPARTAMENTO_DESTINO'].', '.$datos_viajeMTOP['LOCALIDAD_DESTINO'].'.</p>
+                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Destino: </b> 7 - URUGUAY, '.$datos_viajeMTOP['DEPARTAMENTO_DESTINO'].', '.$datos_viajeMTOP['LOCALIDAD_DESTINO'].'.</p>
                                         <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Kilometros: </b>'.$datos_viajeMTOP['DISTANCIA'].'</p>
                                         <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Fecha de Salida: </b>'.$fecha_salida[0].'</p>
                                         <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Hora de Salida: </b>'.$fecha_salida[1].'</p>
