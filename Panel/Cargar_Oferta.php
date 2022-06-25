@@ -262,6 +262,8 @@ session_set_cookie_params($ttl);
                     </div>
                 </div>
 
+                <p class="info-msg error"><i class="fa-solid fa-triangle-exclamation"></i> Debe completar todos los campos.</p>
+
                 <div class="main-bottom-container">
                     <a href="https://www.salioviaje.com.uy/Ofertas_Dashboard"><i class="fa-solid fa-chevron-left"></i> Volver</a>
                     <button><i class="fa-solid fa-file-circle-plus"></i> Cargar Oferta</button>

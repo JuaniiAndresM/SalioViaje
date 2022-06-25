@@ -17630,12 +17630,13 @@ footer .totum p a:hover {
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
+  min-height: calc(100vh - 80px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -17823,6 +17824,18 @@ footer .totum p a:hover {
   text-align: center;
   font-size: 13px;
   margin: 0 10px;
+}
+
+.panel .form-container .main-form-container .info-msg {
+  margin: 10px 0;
+}
+
+.panel .form-container .main-form-container .info-msg.error {
+  color: #ff5e5e;
+}
+
+.panel .form-container .main-form-container .info-msg.info {
+  color: #3844bc;
 }
 
 .panel .form-container .main-form-container .main-bottom-container {

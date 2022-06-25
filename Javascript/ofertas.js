@@ -21,13 +21,29 @@ let selectType = () => {
 }
 
 let addFecha = () => {
-    let fecha = document.getElementById(`fechaPromocion`).value;
-    fechasArray.push(fecha);
-    updateFechaList();
+    let fechaIn = document.getElementById(`fechaPromocion`).value;
+    let find = false;
+    if(fechasArray.length > 0){
+        for(fecha of fechasArray){
+            if(fecha == fechaIn){
+                find = true;
+            }
+        }
+    }
+
+    if(find == false){
+        fechasArray.push(fechaIn);
+        updateFechaList();
+    }else{
+        document.querySelector(`.info-msg`).classList.replace(`error`,`info`)
+        document.querySelector(`.info-msg`).innerHTML = `<i class="fa-solid fa-circle-info"></i> La fecha ya ha sido añadida.`;
+    }
+    
 
 }
 
 let updateFechaList = () => {
+    document.querySelector(`.info-msg`).innerHTML = ``;
     let fragment = document.createDocumentFragment();
     let container = document.querySelector(`.date-container`);
     if(fechasArray.length > 0){

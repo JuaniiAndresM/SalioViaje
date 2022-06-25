@@ -221,11 +221,12 @@ session_set_cookie_params($ttl);
   const menuItem = $('#panel-navbar a');
   const menuLength = menuItem.length;
 
+  let locationhrefItem = currentLocation.split('/');
+
 
   for(let i = 1; i < menuLength; i++){
-    hrefItem = menuItem[i].href.split('/');
     
-    if(location.href.includes(hrefItem[3])){
+    if(menuItem[i].href.includes(locationhrefItem[3])){
       menuItem[i].className = "active-page"
       document.querySelector('.active-page').closest('li').className = "hovered"
     }
