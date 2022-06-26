@@ -6921,8 +6921,8 @@ footer .totum p a:hover {
 .panel-header .header-right .header-user .icon {
   width: 50px;
   height: 50px;
-  background-color: #2b3179;
-  border-radius: 50%;
+  background-color: #3844bc;
+  border-radius: 15px;
   margin-right: 10px;
   padding: 10px;
   display: -webkit-box;
@@ -6966,7 +6966,7 @@ footer .totum p a:hover {
 }
 
 .panel-header .header-right .header-user .user h2 {
-  font-size: 1em;
+  font-size: .9em;
   margin: 0;
   line-height: 20px;
   color: #2b3179;
@@ -6979,6 +6979,7 @@ footer .totum p a:hover {
 .panel-header .header-right .header-user .user p {
   margin: 0;
   color: #888;
+  font-size: 12px;
 }
 
 .panel-header .header-right .header-user button {
@@ -9394,7 +9395,7 @@ footer .totum p a:hover {
 
 .Cotizaciones-section .Cotizaciones-list .Cotizaciones {
   width: calc(100% - 20px);
-  border-radius: 3em 0 3em 3em;
+  border-radius: 20px;
   background-color: #3844bc;
   margin: 15px auto;
   display: -webkit-box;
@@ -9434,12 +9435,12 @@ footer .totum p a:hover {
       -ms-flex-align: center;
           align-items: center;
   margin: 10px;
-  background-color: #ffffff;
-  border-radius: 50%;
+  background-color: #2b3179;
+  border-radius: 20px;
 }
 
 .Cotizaciones-section .Cotizaciones-list .Cotizaciones .Cotizaciones-left .discount h3 {
-  color: #3844bc;
+  color: #ffffff;
   font-size: 1.8em;
 }
 

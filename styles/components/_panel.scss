@@ -89,8 +89,8 @@ $main_3: #6d76db;
       .icon {
         width: 50px;
         height: 50px;
-        background-color: $main_2;
-        border-radius: 50%;
+        background-color: $main_1;
+        border-radius: 15px;
         margin-right: 10px;
         padding: 10px;
 
@@ -115,7 +115,7 @@ $main_3: #6d76db;
         align-items: flex-start;
         flex-direction: column;
         h2 {
-          font-size: 1em;
+          font-size: .9em;
           margin: 0;
           line-height: 20px;
           color: $main_2;
@@ -128,6 +128,7 @@ $main_3: #6d76db;
         p {
           margin: 0;
           color: #888;
+          font-size: 12px;
         }
       }
       button {
