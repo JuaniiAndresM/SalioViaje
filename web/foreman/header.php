@@ -4,25 +4,24 @@ session_set_cookie_params($ttl);
     session_start();
 ?>
 
-
+ 
 <header>
     <div class="header-wrapper">
         <div class="header-logo">
-            <a href="https://www.salioviaje.com.uy/">
-                <img src="https://www.salioviaje.com.uy/media/svg/Logo-SalioViaje.svg" alt="Logo SalióViaje">
-            </a>
+            <a href="https://www.salioviaje.com.uy/" title="Home | Salió Viaje">
+                <img src="https://www.salioviaje.com.uy/media/svg/Logo-SalioViaje.svg" alt="Logo SalióViaje" title="Home | Salió Viaje" /></a>
         </div>
         <div class="header-right">
             <div class="header-links">
                 <div class="links">
-                    <a href="https://www.salioviaje.com.uy/">Home</a>
-                    <a href="https://www.salioviaje.com.uy/Central">Central</a>
-                    <a href="https://www.salioviaje.com.uy/Nosotros">Nosotros</a>
+                    <a href="https://www.salioviaje.com.uy/" title="Home">Home</a>
+                    <a href="https://www.salioviaje.com.uy/Central" title="Central De Cotizaciones">Central</a>
+                    <a href="https://www.salioviaje.com.uy/Nosotros" title="Nosotros">Nosotros</a>
 
 
-                    <a href="https://www.salioviaje.com.uy/Viajar">Oportunidades</a>
-                    <a href="https://www.salioviaje.com.uy/Experiencias">Experiencias</a>
-                    <a href="https://www.salioviaje.com.uy/FAQs">FAQs</a>
+                    <a href="https://www.salioviaje.com.uy/Viajar" title="Oportunidades, Ofertas y Promociones">Oportunidades</a>
+                    <a href="https://www.salioviaje.com.uy/Experiencias" title="Experiencias y Promociones">Experiencias</a>
+                    <a href="https://www.salioviaje.com.uy/FAQs" title="Frequently Asked Questions">FAQs</a>
                     <?php   
                     if(isset($_SESSION['tipo_usuario'])){
                         echo '<a href="https://www.salioviaje.com.uy/Dashboard">Panel</a>';
@@ -44,7 +43,7 @@ session_set_cookie_params($ttl);
                             </div>';
                 }else{
                     echo '  <div class="links-session">
-                                <a class="login_button" id="button" href="https://www.salioviaje.com.uy/Login"><i class="fas fa-user"></i> Iniciar Sesión</a>
+                                <a class="login_button" id="button" href="https://www.salioviaje.com.uy/Login" title="Login"><i class="fas fa-user"></i> Iniciar Sesión</a>
                             </div>';
                 }
                 ?>
@@ -62,7 +61,7 @@ session_set_cookie_params($ttl);
 
                 <div class="links-wrapper">
 
-                    <img src="https://www.salioviaje.com.uy/media/svg/Logo-SalioViaje.svg" alt="">
+                    <img src="https://www.salioviaje.com.uy/media/svg/Logo-SalioViaje.svg" alt="Logo | SalióViaje" title="Home | SalióViaje"/>
 
                     <?php
 
@@ -75,15 +74,15 @@ session_set_cookie_params($ttl);
                     if(isset($_SESSION['usuario'])){
                         echo '  <button onclick="cerrarsesion()"><i class="fas fa-sign-in-alt"></i> Cerrar Sesión</button>';
                     }else{
-                        echo '<a href="https://www.salioviaje.com.uy/Login"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a>';
+                        echo '<a href="https://www.salioviaje.com.uy/Login" title="Login"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a>';
                     }
 
-                    echo '  <a href="https://www.salioviaje.com.uy/"><i class="fas fa-home"></i> Home</a>
-                            <a href="https://www.salioviaje.com.uy/Central"><i class="fas fa-list-ul"></i> Central</a>
-                            <a href="https://www.salioviaje.com.uy/Nosotros"><i class="fas fa-info"></i> Sobre Nosotros</a>
-                            <a href="https://www.salioviaje.com.uy/Viajar"><i class="fas fa-book"></i> Oportunidades</a>
-                            <a href="https://www.salioviaje.com.uy/Experiencias"><i class="fas fa-star"></i>     Experiencias</a>                          
-                            <a href="https://www.salioviaje.com.uy/FAQ"><i class="fas fa-question"></i> FAQ</a>';
+                    echo '  <a href="https://www.salioviaje.com.uy/" title="Home"><i class="fas fa-home"></i> Home</a>
+                            <a href="https://www.salioviaje.com.uy/Central" title="Central De Cotizaciones"><i class="fas fa-list-ul"></i> Central</a>
+                            <a href="https://www.salioviaje.com.uy/Nosotros" title="Nosotros"><i class="fas fa-info"></i> Sobre Nosotros</a>
+                            <a href="https://www.salioviaje.com.uy/Viajar" title="Oportunidades, Ofertas y Promociones"><i class="fas fa-book"></i> Oportunidades</a>
+                            <a href="https://www.salioviaje.com.uy/Experiencias" title="Experiencias y Promociones"><i class="fas fa-star"></i>     Experiencias</a>                          
+                            <a href="https://www.salioviaje.com.uy/FAQ" title="Frequently Asked Questions"><i class="fas fa-question"></i> FAQ</a>';
                             if(isset($_SESSION['tipo_usuario'])){
                                 echo '<a href="https://www.salioviaje.com.uy/Dashboard"><i class="fas fa-users-cog"></i> Panel</a>';
                             }

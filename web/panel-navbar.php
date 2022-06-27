@@ -157,7 +157,7 @@ session_set_cookie_params($ttl);
         </a>
       </li>
       <li>';
-    if($tipo == 1 || $tipo == 2){
+    if($tipo == 2){
       echo '<li>
               <a class href="https://www.salioviaje.com.uy/Ofertas_Dashboard">
                 <span class="icon"><i class="fa-solid fa-percent"></i></span>
@@ -186,6 +186,12 @@ session_set_cookie_params($ttl);
               <a class href="https://www.salioviaje.com.uy/Editar_Cotizacion">
                 <span class="icon"><i class="fas fa-chart-line"></i></span>
                 <span class="title">Editar Cotizaciones</span>
+              </a>
+            </li>
+            <li>
+              <a class href="https://www.salioviaje.com.uy/Permisos_MTOP">
+                <span class="icon"><i class="fa-solid fa-file-signature"></i></span>
+                <span class="title">Permisos MTOP</span>
               </a>
             </li>';
     }
