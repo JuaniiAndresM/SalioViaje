@@ -582,7 +582,7 @@ session_set_cookie_params($ttl);
                                     <th></th>
                                   </tr>
                                 </thead>
-                                <tbody id="tbody-viajes-dashboard">
+                                <tbody class="cotizaciones_recibidas" id="tbody-viajes-dashboard">
                                 </tbody>
                               </table>
                             </div>
@@ -665,7 +665,7 @@ session_set_cookie_params($ttl);
                                     <th></th>
                                   </tr>
                                 </thead>
-                                <tbody id="tbody-viajes-dashboard">
+                                <tbody class="cotizaciones_recibidas" id="tbody-viajes-dashboard">
                                 </tbody>
                               </table>
                             </div>
