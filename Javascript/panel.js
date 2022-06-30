@@ -109,6 +109,10 @@ function buscarUsuarios(buscador, filter) {
             table = document.getElementById("cotz-reci");
             tdlength = 5;
             break;
+        case 11:
+            table = document.getElementById("search-table-permisosmtop");
+            tdlength = 4;
+            break;
     }
 
     tr = table.getElementsByTagName("tr");

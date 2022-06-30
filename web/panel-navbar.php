@@ -155,7 +155,16 @@ session_set_cookie_params($ttl);
           <span class="icon"><i class="fa-solid fa-circle-question"></i></span>
           <span class="title">FAQ\'s</span>
         </a>
-      </li>';
+      </li>
+      <li>';
+    if($tipo == 2){
+      echo '<li>
+              <a class href="https://www.salioviaje.com.uy/Ofertas_Dashboard">
+                <span class="icon"><i class="fa-solid fa-percent"></i></span>
+                <span class="title">Ofertas</span>
+              </a>
+            </li>';
+    }
 
     
 
@@ -177,6 +186,12 @@ session_set_cookie_params($ttl);
               <a class href="https://www.salioviaje.com.uy/Editar_Cotizacion">
                 <span class="icon"><i class="fas fa-chart-line"></i></span>
                 <span class="title">Editar Cotizaciones</span>
+              </a>
+            </li>
+            <li>
+              <a class href="https://www.salioviaje.com.uy/Permisos_MTOP">
+                <span class="icon"><i class="fa-solid fa-file-signature"></i></span>
+                <span class="title">Permisos MTOP</span>
               </a>
             </li>';
     }
@@ -212,11 +227,12 @@ session_set_cookie_params($ttl);
   const menuItem = $('#panel-navbar a');
   const menuLength = menuItem.length;
 
+  let locationhrefItem = currentLocation.split('/');
+
 
   for(let i = 1; i < menuLength; i++){
-    hrefItem = menuItem[i].href.split('/');
     
-    if(location.href.includes(hrefItem[3])){
+    if(menuItem[i].href.includes(locationhrefItem[3])){
       menuItem[i].className = "active-page"
       document.querySelector('.active-page').closest('li').className = "hovered"
     }

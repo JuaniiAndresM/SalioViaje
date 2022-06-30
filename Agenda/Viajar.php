@@ -234,6 +234,44 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
           <div class="list-empty2">
             <p>Lo sentimos, de momento no hay ofertas disponibles.</p>
           </div>
+
+          <div class="ofertas-list">
+
+            <div class="oportunidad">
+              <div class="oportunidad-left">
+                <div class="id">
+                  <h3>#034</h3>
+                </div>
+                <div class="travel">
+                  <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Origen: Montevideo.</p>
+                  <p><i class="fas fa-route" aria-hidden="true"></i> Destino: Maldonado.</p>
+                </div>
+                <div class="travel">
+                <p><i class="fa-solid fa-road"></i> Tramo: Ida.</p>
+                  <p><i class="far fa-calendar-alt" aria-hidden="true"></i> 30/08/2022</p>
+                </div>
+                <div class="travel">
+                  <p class="precio"><i class="fa-solid fa-hand-holding-dollar"></i> $9.000</p>
+                </div>
+              </div>
+
+              <div class="oportunidad-right">
+
+                <div class="travel">
+                  <h2 class="discount">
+                    40%
+                  </h2>
+                  <h4>¡DE DESCUENTO!</h4>
+                </div>
+
+                <div class="button-wrapper">
+                    <button><i class="fas fa-info" aria-hidden="true"></i> Detalles</button>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
         </div>
       </section>
 
