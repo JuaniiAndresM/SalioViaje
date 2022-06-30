@@ -178,16 +178,17 @@ session_set_cookie_params($ttl);
           <div class="exportar-section">
               <button id="button-exportar" onclick="exportarTabla('xlsx')"><i class="fas fa-file-excel"></i> Exportar Tabla</button>
           </div>
-          <div class="table-overflow">
+          <div class="table-overflow-cotizaciones">
             <table class="usuarios-table" id="search-table-cotizaciones">
               <thead>
                 <tr>
-                  <th>ID <i class="fas fa-angle-down"></i></th>
-                  <th>Origen <i class="fas fa-angle-down"></i></th>
-                  <th>Destino <i class="fas fa-angle-down"></i></th>
-                  <th>Fecha <i class="fas fa-angle-down"></i></th>
-                  <th>Estado <i class="fas fa-angle-down"></i></th>
-                  <th>Responsable ( <i class="fas fa-hammer"></i> ) <i class="fas fa-angle-down"></i></th>
+                  <th>ID Viaje <i class="fas fa-angle-down"></i></th>
+                  <th>Fecha Viaje <i class="fas fa-angle-down"></i></th>
+                  <th>ID Cotización <i class="fas fa-angle-down"></i></th>
+                  <th>ID TTA <i class="fas fa-angle-down"></i></th>
+                  <th>ID Solicitante <i class="fas fa-angle-down"></i></th>
+                  <th>Estado Viaje <i class="fas fa-angle-down"></i></th>
+                  <th>Estado Cotizacion <i class="fas fa-angle-down"></i></th>
                 </tr>
               </thead>
               <tbody id="tbody">
@@ -318,12 +319,13 @@ session_set_cookie_params($ttl);
             <table class="usuarios-table" id="search-table-excel" style="display: none">
               <thead>
                 <tr>
-                  <th>ID <i class="fas fa-angle-down"></i></th>
-                  <th>Origen <i class="fas fa-angle-down"></i></th>
-                  <th>Destino <i class="fas fa-angle-down"></i></th>
-                  <th>Fecha <i class="fas fa-angle-down"></i></th>
-                  <th>Estado <i class="fas fa-angle-down"></i></th>
-                  <th>Responsable ( <i class="fas fa-hammer"></i> ) <i class="fas fa-angle-down"></i></th>
+                  <th>ID Viaje <i class="fas fa-angle-down"></i></th>
+                  <th>Fecha Viaje <i class="fas fa-angle-down"></i></th>
+                  <th>ID Cotización <i class="fas fa-angle-down"></i></th>
+                  <th>ID TTA <i class="fas fa-angle-down"></i></th>
+                  <th>ID Solicitante <i class="fas fa-angle-down"></i></th>
+                  <th>Estado Viaje </th>
+                  <th>Estado Cotizacion </th>
                 </tr>
               </thead>
               <tbody id="tbody">

@@ -8486,20 +8486,20 @@ footer .totum p a:hover {
           transform: scale(1.1);
 }
 
-.section-usuarios .usuarios-recientes .table-overflow {
+.section-usuarios .usuarios-recientes .table-overflow, .section-usuarios .usuarios-recientes .table-overflow-cotizaciones {
   width: 100%;
   overflow: auto;
   max-height: calc(100vh - 250px);
 }
 
-.section-usuarios .usuarios-recientes .table-overflow .usuarios-table {
+.section-usuarios .usuarios-recientes .table-overflow .usuarios-table, .section-usuarios .usuarios-recientes .table-overflow-cotizaciones .usuarios-table {
   border-collapse: collapse;
   width: 100%;
   font-size: 0.9em;
   margin-top: 10px;
 }
 
-.section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr th {
+.section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr th, .section-usuarios .usuarios-recientes .table-overflow-cotizaciones .usuarios-table tr th {
   text-align: left;
   color: #2b3179;
   height: 30px;
@@ -8507,12 +8507,12 @@ footer .totum p a:hover {
   padding: 5px;
 }
 
-.section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td {
+.section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td, .section-usuarios .usuarios-recientes .table-overflow-cotizaciones .usuarios-table tr td {
   padding: 5px;
   color: #2b3179;
 }
 
-.section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td .estado {
+.section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td .estado, .section-usuarios .usuarios-recientes .table-overflow-cotizaciones .usuarios-table tr td .estado {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8524,12 +8524,12 @@ footer .totum p a:hover {
           align-items: center;
 }
 
-.section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td .estado i {
+.section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td .estado i, .section-usuarios .usuarios-recientes .table-overflow-cotizaciones .usuarios-table tr td .estado i {
   font-size: 8px;
   margin-right: 10px;
 }
 
-.section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td select {
+.section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td select, .section-usuarios .usuarios-recientes .table-overflow-cotizaciones .usuarios-table tr td select {
   height: 40px;
   background-color: transparent;
   border: none;
@@ -8539,7 +8539,7 @@ footer .totum p a:hover {
   font-size: 0.85em;
 }
 
-.section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td .button-wrapper {
+.section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td .button-wrapper, .section-usuarios .usuarios-recientes .table-overflow-cotizaciones .usuarios-table tr td .button-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8551,7 +8551,7 @@ footer .totum p a:hover {
           align-items: center;
 }
 
-.section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td .button-wrapper button {
+.section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td .button-wrapper button, .section-usuarios .usuarios-recientes .table-overflow-cotizaciones .usuarios-table tr td .button-wrapper button {
   background-color: #3844bc;
   width: 40px;
   height: 40px;
@@ -8564,38 +8564,42 @@ footer .totum p a:hover {
   transition: 0.3s;
 }
 
-.section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td .button-wrapper button.verde {
+.section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td .button-wrapper button.verde, .section-usuarios .usuarios-recientes .table-overflow-cotizaciones .usuarios-table tr td .button-wrapper button.verde {
   background-color: #5bbc38;
 }
 
-.section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td .button-wrapper button.amarillo {
+.section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td .button-wrapper button.amarillo, .section-usuarios .usuarios-recientes .table-overflow-cotizaciones .usuarios-table tr td .button-wrapper button.amarillo {
   background-color: #ffce00;
   color: #333;
 }
 
-.section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td .button-wrapper button.rojo {
+.section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td .button-wrapper button.rojo, .section-usuarios .usuarios-recientes .table-overflow-cotizaciones .usuarios-table tr td .button-wrapper button.rojo {
   background-color: #ff0000;
 }
 
-.section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td .button-wrapper button:hover {
+.section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td .button-wrapper button:hover, .section-usuarios .usuarios-recientes .table-overflow-cotizaciones .usuarios-table tr td .button-wrapper button:hover {
   background-color: #2b3179;
 }
 
-.section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td .button-wrapper button[disabled], .section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td .button-wrapper button:disabled {
+.section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td .button-wrapper button[disabled], .section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td .button-wrapper button:disabled, .section-usuarios .usuarios-recientes .table-overflow-cotizaciones .usuarios-table tr td .button-wrapper button[disabled], .section-usuarios .usuarios-recientes .table-overflow-cotizaciones .usuarios-table tr td .button-wrapper button:disabled {
   background-color: #999;
   color: #333333;
 }
 
-.section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td #supervisor {
+.section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td #supervisor, .section-usuarios .usuarios-recientes .table-overflow-cotizaciones .usuarios-table tr td #supervisor {
   color: #41B883;
 }
 
-.section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td #no-supervisor {
+.section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr td #no-supervisor, .section-usuarios .usuarios-recientes .table-overflow-cotizaciones .usuarios-table tr td #no-supervisor {
   color: #d83030;
 }
 
-.section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr:hover {
+.section-usuarios .usuarios-recientes .table-overflow .usuarios-table tr:hover, .section-usuarios .usuarios-recientes .table-overflow-cotizaciones .usuarios-table tr:hover {
   background-color: #eee;
+}
+
+.section-usuarios .usuarios-recientes .table-overflow-cotizaciones {
+  max-height: calc(100vh - 350px);
 }
 
 @media screen and (max-width: 1100px) {

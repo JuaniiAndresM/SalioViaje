@@ -1210,7 +1210,7 @@ $main_3: #6d76db;
         @include button-hover();
       }
     }
-    .table-overflow{
+    .table-overflow,.table-overflow-cotizaciones{
       width: 100%;
       overflow: auto;
       max-height: calc(100vh - 250px);
@@ -1303,7 +1303,9 @@ $main_3: #6d76db;
         }
       }
     }
-    
+    .table-overflow-cotizaciones{
+      max-height: calc(100vh - 350px);
+    }    
   }
 }
 
