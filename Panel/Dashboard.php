@@ -594,9 +594,6 @@ session_set_cookie_params($ttl);
                           <div class="usuarios-recientes">
                             <div class="usuarios-info">
                               <h2><i class="fas fa-hand-holding-dollar"></i> Cotizaciones Recibidas ( <i class="fas fa-hammer"></i> )</h2>
-                              <div class="button-wrapper">
-                                <a href="Cotizaciones"><i class="fas fa-list-ul"></i></a>
-                              </div>
                             </div>
                             <div class="search">
                               <i class="fas fa-search"></i>
@@ -677,9 +674,6 @@ session_set_cookie_params($ttl);
                           <div class="usuarios-recientes">
                             <div class="usuarios-info">
                               <h2><i class="fas fa-hand-holding-dollar"></i> Cotizaciones Recibidas ( <i class="fas fa-hammer"></i> )</h2>
-                              <div class="button-wrapper">
-                                <a href="Cotizaciones"><i class="fas fa-list-ul"></i></a>
-                              </div>
                             </div>
                             <div class="search">
                               <i class="fas fa-search"></i>
@@ -796,9 +790,6 @@ session_set_cookie_params($ttl);
                       <div class="usuarios-recientes">
                         <div class="usuarios-info">
                           <h2><i class="fas fa-hand-holding-dollar"></i> Cotizaciones Recibidas ( <i class="fas fa-hammer"></i> )</h2>
-                          <div class="button-wrapper">
-                            <a href="Cotizaciones"><i class="fas fa-list-ul"></i></a>
-                          </div>
                         </div>
                         <div class="search">
                           <i class="fas fa-search"></i>
