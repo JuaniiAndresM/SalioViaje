@@ -222,6 +222,15 @@ if ($_POST['tipo'] == 1) {
         case 'registrar_tramos_vinculados':
             echo $procedimientosForm->registrar_tramos_vinculados($_POST['id_tramo_vinculado'], $_POST['id']);
             break;
+        case 'actualizar_direccion_usuario':
+            echo $procedimientosForm->actualizar_direccion_usuario($_POST['direccion'], $_POST['barrio'], $_POST['localidad']);
+            break;
+        case 'reconfirmar_cotizacion':
+            echo $procedimientosForm->reconfirmarCotizacion($_POST['id'], $_POST['id_viaje']);
+            break;
+        case 'reconfirmar_cotizacion':
+            echo $procedimientosForm->rechazarCotizacion($_POST['id'], $_POST['id_viaje']);
+            break;
     }
 
 }

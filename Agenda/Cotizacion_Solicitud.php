@@ -15,13 +15,15 @@ if(!isset($_SESSION['usuario'])){
 }
 */
 
-$ID = $_GET['ID'];
+$GET = explode("_", $_GET['ID']);
+
+$ID = $GET[1];
+echo $ID;
 $ID = substr($ID, 0, -1);
 
 require_once "../PHP/procedimientosBD.php";
 
 $datos = new procedimientosBD();
-$array_oportuidad = $datos->traer_oportunidades_por_id($ID);
 $expired = 0;
 
 /*
@@ -29,6 +31,7 @@ if($array_oportuidad[0]['ID_TRANSPORTISTA'] != $_SESSION['datos_usuario']['ID'])
   header('Location: https://www.salioviaje.com.uy/');
 }
 */
+
 if($array_oportuidad[0]['ESTADO'] != "Comprada"){
   $expired = 1;
 }
@@ -39,7 +42,7 @@ if($array_oportuidad[0]['ESTADO'] != "Comprada"){
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <title>SalióViaje | Oportunidad #<?php echo $ID; ?></title>
+    <title>SalióViaje | Cotizacion #<?php echo $ID; ?></title>
 
     <!-- // Meta Etiquetas -->
 
@@ -134,7 +137,7 @@ if($array_oportuidad[0]['ESTADO'] != "Comprada"){
 
     <input id="id_get" type="hidden" value="<?php echo $_GET['ID']; ?>">
     <input id="session_get" type="hidden" value="<?php if(isset($_SESSION['usuario'])){ echo 1; }else{ echo 0;} ?>">
-    <!-- <input id="expired_get" type="hidden" value="<?php echo $expired; ?>"> -->
+    <input id="expired_get" type="hidden" value="<?php echo $expired; ?>">
 
     <section class="solicitud">
       <div class="solicitud-wrapper">

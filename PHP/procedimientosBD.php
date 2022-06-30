@@ -1384,13 +1384,17 @@ class procedimientosBD
     {
         $cotizaciones = array();
         $conn = $this->conexion();
-        $query = "SELECT `cotizaciones_presentadas`.ID,MATRICULA,DIRECCION_ORIGEN,BARRIO_ORIGEN,LOCALIDAD_ORIGEN,DIRECCION_DESTINO,BARRIO_DESTINO,LOCALIDAD_DESTINO,ESTADO,FECHA_SALIDA,COMPRADA,ID_VIAJE_COTIZADO FROM `cotizaciones_presentadas`,`cotizaciones` where id_tta = $id and visibilidad = 1 and `cotizaciones_presentadas`.ID_VIAJE_COTIZADO = `cotizaciones`.ID;";
+        $query = "SELECT `cotizaciones_presentadas`.ID,MATRICULA,DIRECCION_ORIGEN,BARRIO_ORIGEN,LOCALIDAD_ORIGEN,DIRECCION_DESTINO,BARRIO_DESTINO,LOCALIDAD_DESTINO,ESTADO,FECHA_SALIDA,COMPRADA,ID_VIAJE_COTIZADO,PRECIO,SENIA FROM `cotizaciones_presentadas`,`cotizaciones` where id_tta = $id and visibilidad = 1 and `cotizaciones_presentadas`.ID_VIAJE_COTIZADO = `cotizaciones`.ID;";
+        $query2 = "UPDATE cotizaciones_presentadas SET visibilidad = 0 WHERE (SELECT FECHA_SALIDA FROM cotizaciones WHERE ID = ID_VIAJE_COTIZADO) < CURRENT_DATE or ((SELECT FECHA_SALIDA FROM cotizaciones WHERE ID = ID_VIAJE_COTIZADO) = CURRENT_DATE and (SELECT HORA FROM cotizaciones WHERE ID = ID_VIAJE_COTIZADO) < CURRENT_TIME) and (SELECT ESTADO FROM cotizaciones WHERE ID = ID_VIAJE_COTIZADO) = 1;";
+        
         $stmt = $conn->prepare($query);
+        $stmt2 = $conn->prepare($query2);
+        $stmt2->execute();
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($id, $matricula, $direccion_origen, $barrio_origen, $localidad_origen, $direccion_destino, $barrio_destino, $localidad_destino, $estado, $fecha_salida, $comprada, $id_viaje_cotizado);
+            $stmt->bind_result($id, $matricula, $direccion_origen, $barrio_origen, $localidad_origen, $direccion_destino, $barrio_destino, $localidad_destino, $estado, $fecha_salida, $comprada, $id_viaje_cotizado,$precio, $senia);
             while ($stmt->fetch()) {
-                $result = array("ID" => $id, "MATRICULA" => $matricula, "DIRECCION_ORIGEN" => $direccion_origen, "BARRIO_ORIGEN" => $barrio_origen, "LOCALIDAD_ORIGEN" => $localidad_origen, "DIRECCION_DESTINO" => $direccion_destino, "BARRIO_DESTINO" => $barrio_destino, "LOCALIDAD_DESTINO" => $localidad_destino, "ESTADO" => $estado, "FECHA_SALIDA" => $fecha_salida, "COMPRADA" => $comprada, "ID_VIAJE_COTIZADO" => $id_viaje_cotizado);
+                $result = array("ID" => $id, "MATRICULA" => $matricula, "DIRECCION_ORIGEN" => $direccion_origen, "BARRIO_ORIGEN" => $barrio_origen, "LOCALIDAD_ORIGEN" => $localidad_origen, "DIRECCION_DESTINO" => $direccion_destino, "BARRIO_DESTINO" => $barrio_destino, "LOCALIDAD_DESTINO" => $localidad_destino, "ESTADO" => $estado, "FECHA_SALIDA" => $fecha_salida, "COMPRADA" => $comprada, "ID_VIAJE_COTIZADO" => $id_viaje_cotizado, "PRECIO" => $precio, "SENIA" => $senia);
                 $fecha = $result["FECHA_SALIDA"];
                 $timestamp = strtotime($fecha);
                 $newDate = date("d-m-Y", $timestamp);
@@ -1650,6 +1654,18 @@ class procedimientosBD
         $query = "UPDATE `viajes` SET `ESTADO_MTOP` = $estado WHERE idViaje = $id or id_viaje_vinculado = $id";
         $stmt = $conn->prepare($query);
         $stmt->execute();
+        $stmt->close();
+    }
+
+    public function actualizar_direccion_usuario($direccion, $barrio, $localidad)
+    {
+        session_start();
+        $id_usuario = $_SESSION['datos_usuario']['ID'];
+        $conn = $this->conexion();
+        $query = "UPDATE usuarios SET Direccion = $direccion, Barrio = $barrio, Departamento = $localidad WHERE ID = $id_usuario;";
+        $stmt = $conn->prepare($query);
+        $stmt->execute();
+        echo $stmt->error;
         $stmt->close();
     }
 }

@@ -11,6 +11,10 @@ session_set_cookie_params($ttl);
     header('Location: https://www.salioviaje.com.uy/Login');
   }
 
+$BD = new procedimientosBD();
+
+$COTIZACIONES = json_decode($BD->traer_cotizaciones_presentadas_por_id_tta($_SESSION['datos_usuario']['ID']), true);
+
 ?>
 
 <!DOCTYPE html>
@@ -176,22 +180,30 @@ session_set_cookie_params($ttl);
                   <th>Origen <i class="fas fa-angle-down"></i></th>
                   <th>Destino <i class="fas fa-angle-down"></i></th>
                   <th>Fecha <i class="fas fa-angle-down"></i></th>
-                  <th>Estado <i class="fas fa-angle-down"></i></th>
+                  <th>Precio <i class="fas fa-angle-down"></i></th>
+                  <th>Seña <i class="fas fa-angle-down"></i></th>
                   <th></th>
                 </tr>
               </thead>
               <tbody id="tbody-cotizaciones">
-                <tr>
-                  <td>000</td>
-                  <td>Example, Example 2</td>
-                  <td>Example 3, Example 4</td>
-                  <td>dd/mm/aaaa</td>
-                  <td>Cotizando</td>
+                <?php
+                for ($i=0; $i < count($COTIZACIONES); $i++) { 
+                  ?>
+                  <tr>
+                  <td><?php echo $COTIZACIONES[$i]['ID']; ?></td>
+                  <td><?php echo $COTIZACIONES[$i]['BARRIO_ORIGEN']; ?>, <?php echo $COTIZACIONES[$i]['LOCALIDAD_ORIGEN']; ?></td>
+                  <td><?php echo $COTIZACIONES[$i]['BARRIO_DESTINO']; ?>, <?php echo $COTIZACIONES[$i]['LOCALIDAD_DESTINO']; ?></td>
+                  <td><?php echo $COTIZACIONES[$i]['FECHA_SALIDA']; ?></td>
+                  <td><?php echo $COTIZACIONES[$i]['PRECIO']; ?></td>
+                  <td><?php echo $COTIZACIONES[$i]['SENIA']; ?></td>
                   <td>
                     <div class="button-wrapper">
                       <button class="button"><i class="fas fa-ban"></i></button>
                   </td>
                 </tr>
+                <?php
+                }
+                ?>
               </tbody>
             </table>
           </div>

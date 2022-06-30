@@ -124,7 +124,7 @@ function finalizar(enviar_solicitud, modal, domicilio) {
                         if (modal == 2) {
 
                             if (domicilio == 1) {
-                                // Guardar Domicilio en el Usuario
+                                actualizar_direccion_usuario(datos_traslado['DIRECCION_ORIGEN'],datos_traslado['BARRIO_ORIGEN'],datos_traslado['LOCALIDAD_ORIGEN'])
                             }
 
                             guardar_cotizacion(datos_traslado, array_paradas_1, 0, "traslados");
@@ -198,7 +198,7 @@ function finalizar(enviar_solicitud, modal, domicilio) {
                         if (modal == 2) {
 
                             if (domicilio == 1) {
-                                // Guardar Domicilio en el Usuario
+                                actualizar_direccion_usuario(datos_tour['DIRECCION_SALIDA_TOUR'], datos_tour['BARRIO_TOUR'], datos_tour['LOCALIDAD_TOUR'])
                             }
 
                             guardar_cotizacion(datos_tour, array_paradas_1, 0, "tour");
@@ -280,7 +280,7 @@ function finalizar(enviar_solicitud, modal, domicilio) {
                                 if (modal == 2) {
 
                                     if (domicilio == 1) {
-                                        // Guardar Domicilio en el Usuario
+                                        actualizar_direccion_usuario(datos_transfer_in['DIRECCION_DESTINO'], datos_transfer_in['BARRIO_DESTINO'], datos_transfer_in['LOCALIDAD_DESTINO'])
                                     }
 
                                     guardar_cotizacion(datos_transfer_in, array_paradas_1, 0, "transferIn");
@@ -354,7 +354,7 @@ function finalizar(enviar_solicitud, modal, domicilio) {
                                 if (modal == 2) {
 
                                     if (domicilio == 1) {
-                                        // Guardar Domicilio en el Usuario
+                                        actualizar_direccion_usuario(datos_transfer_out['DIRECCION_ORIGEN'], datos_transfer_out['BARRIO_ORIGEN'], datos_transfer_out['LOCALIDAD_ORIGEN'])
                                     }
 
                                     guardar_cotizacion(datos_transfer_out, array_paradas_1, 0, "transferOut");
@@ -438,7 +438,7 @@ function finalizar(enviar_solicitud, modal, domicilio) {
                                 if (modal == 2) {
 
                                     if (domicilio == 1) {
-                                        // Guardar Domicilio en el Usuario
+                                        actualizar_direccion_usuario(datos_fiestaseventos_ida['DIRECCION_ORIGEN'], datos_fiestaseventos_ida['BARRIO_ORIGEN'], datos_fiestaseventos_ida['LOCALIDAD_ORIGEN'])
                                     }
 
                                     guardar_cotizacion(datos_fiestaseventos_ida, array_paradas_1, 0, "fiestasIda");
@@ -510,7 +510,7 @@ function finalizar(enviar_solicitud, modal, domicilio) {
                                 if (modal == 2) {
 
                                     if (domicilio == 1) {
-                                        // Guardar Domicilio en el Usuario
+                                        actualizar_direccion_usuario(datos_fiestaseventos_vuelta['DIRECCION_DESTINO'], datos_fiestaseventos_vuelta['BARRIO_DESTINO'], datos_fiestaseventos_vuelta['LOCALIDAD_DESTINO'])
                                     }
 
                                     guardar_cotizacion(datos_fiestaseventos_vuelta, 0, array_paradas_2, "fiestasVuelta");
@@ -605,7 +605,7 @@ function finalizar(enviar_solicitud, modal, domicilio) {
                                 if (modal == 2) {
 
                                     if (domicilio == 1) {
-                                        // Guardar Domicilio en el Usuario
+                                        actualizar_direccion_usuario(datos_fiestaseventos_idavuelta['DIRECCION_ORIGEN'], datos_fiestaseventos_idavuelta['BARRIO_ORIGEN'], datos_fiestaseventos_idavuelta['LOCALIDAD_ORIGEN'])
                                     }
 
                                     guardar_cotizacion(datos_fiestaseventos_idavuelta, array_paradas_1, array_paradas_2, "fiestasIdaVuelta");
@@ -659,6 +659,17 @@ function finalizar(enviar_solicitud, modal, domicilio) {
             break;
     }
 
+}
+
+function actualizar_direccion_usuario(direccion,barrio,localidad){
+    $.ajax({
+        type: "POST",
+        url: "/PHP/procedimientosForm.php",
+        data: { tipo: "actualizar_direccion_usuario", direccion: direccion, barrio: barrio, localidad: localidad },
+        success: function (response) {
+            console.log(response)
+        }
+    });
 }
 
 function guardar_cotizacion(datos_cotizacion, paradas_ida, paradas_vuelta, tipo) {

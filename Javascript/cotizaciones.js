@@ -354,10 +354,11 @@ function reconfirmarCotizacion(id) {
 }
 
 function reconfirmar_cotizacion_llamada(id, id_viaje_cotizado, telefono_tta) {
+   console.log(id)
+   let id_llamada = Math.floor(Math.random() * 100000);
    let send = new llamadas_PHP();
-   let mensaje = `Han escogido tu cotizacion!  Aceptar:  https://www.salioviaje.com.uy/Solicitud/${id_viaje_cotizado}A Rechazar: https://www.salioviaje.com.uy/Solicitud/${id_viaje_cotizado}R`;
+   let mensaje = `Han escogido tu cotizacion!  Aceptar:  https://www.salioviaje.com.uy/Solicitud_C/${id}_${id_viaje_cotizado}A Rechazar: https://www.salioviaje.com.uy/Solicitud_C/${id}_${id_viaje_cotizado}R`;
    send.realizarLlamadaReconfirmarCotizacion("tpc_notificacion_opciones", "2022-02-07T15:00:00+03:00", id_llamada, telefono_tta, "Transportista", "Han escogido tu cotizacion para el viaje numero #" + id_viaje_cotizado + ". Presione 1 para aceptar, 3 para rechazar", id_viaje_cotizado, id_viaje_cotizado);
-   console.log(mensaje)
    send.enviarSMS(telefono_tta,"2022-02-04T15:00:00+03:00",mensaje,id_llamada);
    //mail_aprobar_rechazar_cotizacion(id)
 
