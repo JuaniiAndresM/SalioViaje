@@ -123,13 +123,16 @@ session_set_cookie_params($ttl);
 
     <nav class="nav-hidden active" id="panel-navbar"></nav>
     <section class="panel" id="panel">
-        <div class="faq">
-        <h2>Preguntas <span>Frecuentes (FAQs)</span></h2>
-
+      <section class="faq">
+        <h1>Preguntas <span>Frecuentes (FAQs)</span></h1>
+        <h2>
+          Si nos falta su respuesta, no dude en consultarnos, en menos de 24hs
+          tendrá respuesta
+        </h2>
         <div class="accordion-container">
-            <div class="accordion"></div>
+          <div class="accordion"></div>
         </div>
-        </div>
+      </section>
     </section>
   </body>
 </html>
