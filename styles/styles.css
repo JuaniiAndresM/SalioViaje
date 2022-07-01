@@ -9188,7 +9188,7 @@ footer .totum p a:hover {
 
 .Cotizaciones-section h1 {
   color: #3844bc;
-  font-size: 2.6em;
+  font-size: 2em;
 }
 
 .Cotizaciones-section hr {
@@ -9629,6 +9629,13 @@ footer .totum p a:hover {
   margin-top: 85px;
 }
 
+.viajar-wrapper .title, .viajar-wrapper-index .title {
+  text-align: center;
+  margin: 10px 20px;
+  color: #2b3179;
+  font-size: 2.6em;
+}
+
 .viajar-wrapper .oportunidades-viajar,
 .viajar-wrapper .ofertas-viajar,
 .viajar-wrapper .salioviaje, .viajar-wrapper-index .oportunidades-viajar,
@@ -9642,13 +9649,13 @@ footer .totum p a:hover {
   text-align: center;
 }
 
-.viajar-wrapper .oportunidades-viajar h1,
-.viajar-wrapper .ofertas-viajar h1,
-.viajar-wrapper .salioviaje h1, .viajar-wrapper-index .oportunidades-viajar h1,
-.viajar-wrapper-index .ofertas-viajar h1,
-.viajar-wrapper-index .salioviaje h1 {
+.viajar-wrapper .oportunidades-viajar h2,
+.viajar-wrapper .ofertas-viajar h2,
+.viajar-wrapper .salioviaje h2, .viajar-wrapper-index .oportunidades-viajar h2,
+.viajar-wrapper-index .ofertas-viajar h2,
+.viajar-wrapper-index .salioviaje h2 {
   color: #3844bc;
-  font-size: 2.6em;
+  font-size: 2em;
 }
 
 .viajar-wrapper .oportunidades-viajar hr,
@@ -9661,11 +9668,11 @@ footer .totum p a:hover {
   margin: 10px auto;
 }
 
-.viajar-wrapper .oportunidades-viajar h2,
-.viajar-wrapper .ofertas-viajar h2,
-.viajar-wrapper .salioviaje h2, .viajar-wrapper-index .oportunidades-viajar h2,
-.viajar-wrapper-index .ofertas-viajar h2,
-.viajar-wrapper-index .salioviaje h2 {
+.viajar-wrapper .oportunidades-viajar h3,
+.viajar-wrapper .ofertas-viajar h3,
+.viajar-wrapper .salioviaje h3, .viajar-wrapper-index .oportunidades-viajar h3,
+.viajar-wrapper-index .ofertas-viajar h3,
+.viajar-wrapper-index .salioviaje h3 {
   color: #555;
   font-size: 16px;
   font-weight: 500;

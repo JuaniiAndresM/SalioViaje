@@ -48,8 +48,8 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
     <!-- Links -->
     <link rel="shortcut icon" href="https://www.salioviaje.com.uy/media/svg/Favicon-SalioViaje.svg" type="image/x-icon">
     <link rel="stylesheet" href="https://www.salioviaje.com.uy/styles/styles.css">
-    <link rel="publisher" href="https://www.salioviaje.com.uy" />  
-    <link rel="canonical" href="https://www.salioviaje.com.uy"/>  
+    <link rel="publisher" href="https://www.salioviaje.com.uy" />
+    <link rel="canonical" href="https://www.salioviaje.com.uy"/>
     <!-- Scripts -->
     <script src="https://kit.fontawesome.com/1e193e3a23.js" crossorigin="anonymous"></script>    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -102,8 +102,6 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
             >
               <i class="fas fa-hand-holding-usd"></i> Solicitar Cotización
             </button>
-            
-
 
           </div>
         </div>
@@ -377,12 +375,14 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
           <p class="description">
             Es gratis y sin compromiso. ¡No te lo pierdas!
           </p>
-    <!-- ==================================================================== -->         
-          <button id="agendar" class="button-agendar"onclick="desplegar(this, <?php if (!isset($_SESSION['usuario'])) {echo 1;} else {echo 2;}?>)>
-            <i class="" fa-clipboard-list"="" ></i> Formulario
-          </button>
+    <!-- ==================================================================== -->     
+          <input type="hidden" class="session-output" value='<?php if(isset($_SESSION['usuario'])){ echo 0; }else{ echo 1; }; ?>' >  
+          <input type="hidden" class="session-input" value="<?php echo $_GET['opcion']; ?>">  
+          
     <!-- ==================================================================== -->      
-           
+          <button id="agendar" class="button-agendar"onclick="desplegar(this, <?php if (!isset($_SESSION['usuario'])) {echo 1;} else {echo 2;}?>)">
+            <i class="fas fa-clipboard-list"></i> Formulario
+          </button>
           <div class="salioviaje-desplegable">
             <div class="formulario-viaje"> 
       
@@ -1363,7 +1363,11 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
             </div>
             </div>
   </section>
-  
+  <script>
+            if($(`.session-output`).val() == 0){ 
+              desplegar(document.getElementById("agendar"), $(".session-output").val());
+            }
+          </script>
     <div id="footer"></div>
   </body>
 </html>

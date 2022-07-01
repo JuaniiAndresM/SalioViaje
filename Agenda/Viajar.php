@@ -116,14 +116,15 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
     </a>
 
     <div class="viajar-wrapper">
+      <h1 class="title">¡No se pierda nuestras ofertas y oportunidades!</h1>
       <section class="oportunidades-viajar">
-        <h1>
+        <h2>
           Oportunidades (<span id="contador-oportunidades"></span>)
-        </h1>
-        <hr />
-        <h2 class="description">
-          Conseguí las mejores oportunidades con nosotros.
         </h2>
+        <hr />
+        <h3 class="description">
+          Conseguí las mejores oportunidades con nosotros.
+        </h3>
         <div class="oportunidades-wrapper">
           <div class="filter-wrapper">
             <div class="search"></div>
@@ -173,11 +174,11 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
         </div>
       </section>
       <section class="ofertas-viajar">
-        <h1>
+        <h2>
           Ofertas (0)
-        </h1>
+        </h2>
         <hr />
-        <h2 class="description">Conseguí las mejores ofertas con nosotros.</h2>
+        <h3 class="description">Conseguí las mejores ofertas con nosotros.</h3>
         <div class="ofertas-wrapper">
 
           <div class="filter-wrapper">
@@ -276,14 +277,14 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
       </section>
 
       <section class="salioviaje" id="Cotizacion">
-        <h1>
+        <h2>
           Solicitar una Cotización
-        </h1>
-        <hr />
-        <h2 class="description">
-          Es gratis y sin compromiso. ¡No te lo pierdas!
         </h2>
-        <button id="agendar" class="button-agendar" onclick="desplegar(this, <?php if (!isset($_SESSION['usuario'])) {echo 1;} else {echo 2;}?>)">
+        <hr />
+        <h3 class="description">
+          Es gratis y sin compromiso. ¡No te lo pierdas!
+        </h3>
+        <button id="agendar" class="button-agendar" onclick="desplegar(this, <?php if (!isset($_SESSION['usuario'])){echo 1;}else{echo 2;}?>)">
           <i class="fas fa-clipboard-list"></i> Formulario
         </button>
         <div class="salioviaje-desplegable">
