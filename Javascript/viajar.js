@@ -904,8 +904,10 @@ function desplegar(button, session) {
         button.classList.toggle("active");
         button.nextElementSibling.classList.toggle("show");
 
-        var paradas_div = document.getElementById("Cotizacion");
-        paradas_div.scrollIntoView();
+        if($(`.session-input`).val() != ``){
+            var paradas_div = document.getElementById("Cotizacion");
+            paradas_div.scrollIntoView();
+        }
     }
 }
 
