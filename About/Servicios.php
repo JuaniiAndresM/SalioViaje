@@ -187,7 +187,7 @@ if ($cotizaciones != null) {
 
 <div class="Cotizaciones-left">
   <div class="discount">
-    <h3>#<?php echo $cotizaciones[$i]['ID']; ?></h3>
+    <h3><?php echo $cotizaciones[$i]['ID']; ?></h3>
   </div>
 
   <div class="travel">

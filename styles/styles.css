@@ -742,6 +742,7 @@
 .oportunidades .oportunidades-list .oportunidad .oportunidad-left .discount h3 {
   color: #fff;
   font-size: 2em;
+  font-weight: 500;
 }
 
 .oportunidades .oportunidades-list .oportunidad .oportunidad-left .discount .precio {
@@ -1667,13 +1668,12 @@ footer {
 }
 
 footer .footer-wrapper {
-  padding: 40px 30px;
+  padding: 50px 30px;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[3];
       grid-template-columns: repeat(3, 1fr);
   width: 100%;
-  height: 100%;
 }
 
 footer .footer-wrapper .column_1, footer .footer-wrapper .column_2, footer .footer-wrapper .column_3 {
@@ -1690,8 +1690,6 @@ footer .footer-wrapper .column_1 .logo, footer .footer-wrapper .column_2 .logo, 
 footer .footer-wrapper .column_1 .logo img, footer .footer-wrapper .column_2 .logo img, footer .footer-wrapper .column_3 .logo img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
 }
 
 footer .footer-wrapper .column_1 p, footer .footer-wrapper .column_2 p, footer .footer-wrapper .column_3 p {
@@ -9452,6 +9450,7 @@ footer .totum p a:hover {
 .Cotizaciones-section .Cotizaciones-list .Cotizaciones .Cotizaciones-left .discount h3 {
   color: #ffffff;
   font-size: 1.8em;
+  font-weight: 500;
 }
 
 .Cotizaciones-section .Cotizaciones-list .Cotizaciones .Cotizaciones-left .travel {
@@ -10888,6 +10887,7 @@ footer .totum p a:hover {
 .viajar-wrapper-index .salioviaje .ofertas-wrapper .ofertas-list .cotizacion .cotizacion-left .id h3 {
   color: #ffffff;
   font-size: 2em;
+  font-weight: 500;
 }
 
 .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .discount .precio, .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .id .precio, .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .cotizacion-left .discount .precio, .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .oportunidad .cotizacion-left .id .precio, .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .cotizacion .oportunidad-left .discount .precio, .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .cotizacion .oportunidad-left .id .precio, .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .cotizacion .cotizacion-left .discount .precio, .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .oportunidades-list .cotizacion .cotizacion-left .id .precio, .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .ofertas-list .oportunidad .oportunidad-left .discount .precio, .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .ofertas-list .oportunidad .oportunidad-left .id .precio, .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .ofertas-list .oportunidad .cotizacion-left .discount .precio, .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .ofertas-list .oportunidad .cotizacion-left .id .precio, .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .ofertas-list .cotizacion .oportunidad-left .discount .precio, .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .ofertas-list .cotizacion .oportunidad-left .id .precio, .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .ofertas-list .cotizacion .cotizacion-left .discount .precio, .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .ofertas-list .cotizacion .cotizacion-left .id .precio,
