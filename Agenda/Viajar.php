@@ -1252,16 +1252,20 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
       </section>
     </div>
     <script>
-          if (localStorage.getItem("origen") == 1) {
-            console.log("Desplegar Function")
-            localStorage.removeItem("origen")
-            desplegar(document.getElementById("agendar"), <?php if (!isset($_SESSION['usuario'])) {echo 1;} else {echo 2;}?>)
-            select_usuario()
+          if($(`.session-input`).val() == `` && $(`.session-output`).val() == 0){
+                desplegar(document.getElementById("agendar"), $(".session-output").val());
+          }else{
+              if (localStorage.getItem("origen") == 1) {
+              console.log("Desplegar Function")
+              localStorage.removeItem("origen")
+              desplegar(document.getElementById("agendar"), <?php if (!isset($_SESSION['usuario'])) {echo 1;} else {echo 2;}?>)
+              select_usuario()
+            }
           }
+          
 
-          if($(`.session-output`).val() == 0){ 
-            desplegar(document.getElementById("agendar"), $(".session-output").val());
-          }
+          
+
 
     </script>
 
