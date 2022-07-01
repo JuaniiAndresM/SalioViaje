@@ -12,7 +12,7 @@
 
     text-align: center;
 
-    h2 {
+    h1 {
       color: $main_1;
       font-size: 2.6em;
     }
@@ -20,6 +20,11 @@
       width: 100px;
       border: 1px solid $main_1;
       margin: 10px auto;
+    }
+    h2{
+      color: #555;
+      font-size: 16px;
+      font-weight: 500;
     }
 
     .oportunidades-wrapper,
@@ -810,7 +815,7 @@
 @media screen and(max-width: 630px) {
   .viajar-wrapper,.viajar-wrapper-index{
     .oportunidades-viajar, .ofertas-viajar, .salioviaje{
-      h2{
+      h1{
         font-size: 1.9em;
         margin: 0 10px;
       }

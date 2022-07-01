@@ -24,7 +24,7 @@ session_set_cookie_params($ttl);
                     <a href="https://www.salioviaje.com.uy/FAQs" title="Frequently Asked Questions">FAQs</a>
                     <?php   
                     if(isset($_SESSION['tipo_usuario'])){
-                        echo '<a href="https://www.salioviaje.com.uy/Dashboard">Panel</a>';
+                        echo '<a href="https://www.salioviaje.com.uy/Dashboard" title="Panel de control" >Panel</a>';
                     }
                     ?>
                 </div>

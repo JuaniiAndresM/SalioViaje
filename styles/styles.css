@@ -9186,7 +9186,7 @@ footer .totum p a:hover {
   text-align: center;
 }
 
-.Cotizaciones-section h2 {
+.Cotizaciones-section h1 {
   color: #3844bc;
   font-size: 2.6em;
 }
@@ -9195,6 +9195,12 @@ footer .totum p a:hover {
   width: 100px;
   border: 1px solid #3844bc;
   margin: 10px auto;
+}
+
+.Cotizaciones-section h2 {
+  color: #555;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .Cotizaciones-section .Cotizaciones-wrapper {
@@ -9611,10 +9617,10 @@ footer .totum p a:hover {
 }
 
 @media screen and (max-width: 630px) {
-  .Cotizaciones-section h2 {
+  .Cotizaciones-section h1 {
     font-size: 1.9em;
   }
-  .Cotizaciones-section p {
+  .Cotizaciones-section h2 {
     font-size: 14px;
   }
 }
@@ -9636,11 +9642,11 @@ footer .totum p a:hover {
   text-align: center;
 }
 
-.viajar-wrapper .oportunidades-viajar h2,
-.viajar-wrapper .ofertas-viajar h2,
-.viajar-wrapper .salioviaje h2, .viajar-wrapper-index .oportunidades-viajar h2,
-.viajar-wrapper-index .ofertas-viajar h2,
-.viajar-wrapper-index .salioviaje h2 {
+.viajar-wrapper .oportunidades-viajar h1,
+.viajar-wrapper .ofertas-viajar h1,
+.viajar-wrapper .salioviaje h1, .viajar-wrapper-index .oportunidades-viajar h1,
+.viajar-wrapper-index .ofertas-viajar h1,
+.viajar-wrapper-index .salioviaje h1 {
   color: #3844bc;
   font-size: 2.6em;
 }
@@ -9653,6 +9659,16 @@ footer .totum p a:hover {
   width: 100px;
   border: 1px solid #3844bc;
   margin: 10px auto;
+}
+
+.viajar-wrapper .oportunidades-viajar h2,
+.viajar-wrapper .ofertas-viajar h2,
+.viajar-wrapper .salioviaje h2, .viajar-wrapper-index .oportunidades-viajar h2,
+.viajar-wrapper-index .ofertas-viajar h2,
+.viajar-wrapper-index .salioviaje h2 {
+  color: #555;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper,
@@ -14607,7 +14623,7 @@ footer .totum p a:hover {
 }
 
 @media screen and (max-width: 630px) {
-  .viajar-wrapper .oportunidades-viajar h2, .viajar-wrapper .ofertas-viajar h2, .viajar-wrapper .salioviaje h2, .viajar-wrapper-index .oportunidades-viajar h2, .viajar-wrapper-index .ofertas-viajar h2, .viajar-wrapper-index .salioviaje h2 {
+  .viajar-wrapper .oportunidades-viajar h1, .viajar-wrapper .ofertas-viajar h1, .viajar-wrapper .salioviaje h1, .viajar-wrapper-index .oportunidades-viajar h1, .viajar-wrapper-index .ofertas-viajar h1, .viajar-wrapper-index .salioviaje h1 {
     font-size: 1.9em;
     margin: 0 10px;
   }
@@ -17928,14 +17944,20 @@ footer .totum p a:hover {
   margin-top: 110px;
 }
 
-.faq h2 {
+.faq h1 {
   text-align: center;
   margin: 0 20px;
   color: #3844bc;
 }
 
-.faq h2 span {
+.faq h1 span {
   color: #333333;
+}
+
+.faq h2 {
+  color: #555;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .faq .accordion-container {
@@ -18011,7 +18033,7 @@ footer .totum p a:hover {
   transition: .1s;
 }
 
-.faq .accordion-container .accordion-item .accordion-link .faq-left h4 {
+.faq .accordion-container .accordion-item .accordion-link .faq-left h3 {
   color: #333333;
   font-size: 1.1em;
   margin-right: 20px;

@@ -106,13 +106,13 @@ for($a = 0; $a < count($cotizaciones); $a++){
     </a>
 
     <section class="Cotizaciones-section" id="Cotizaciones">
-      <h2>
+      <h1>
         Central de Cotizaciones (<?php echo $contador_cotizaciones; ?>)
-      </h2>
+      </h1>
       <hr />
-      <p class="description">
+      <h2 class="description">
         Estos viajes están esperando cotización.
-      </p>
+      </h2>
 
       <div class="Cotizaciones-wrapper">
 

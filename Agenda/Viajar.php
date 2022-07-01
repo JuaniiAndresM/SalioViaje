@@ -117,13 +117,13 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
     <div class="viajar-wrapper">
       <section class="oportunidades-viajar">
-        <h2>
+        <h1>
           Oportunidades (<span id="contador-oportunidades"></span>)
-        </h2>
+        </h1>
         <hr />
-        <p class="description">
+        <h2 class="description">
           Conseguí las mejores oportunidades con nosotros.
-        </p>
+        </h2>
         <div class="oportunidades-wrapper">
           <div class="filter-wrapper">
             <div class="search"></div>
@@ -173,11 +173,11 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
         </div>
       </section>
       <section class="ofertas-viajar">
-        <h2>
+        <h1>
           Ofertas (0)
-        </h2>
+        </h1>
         <hr />
-        <p class="description">Conseguí las mejores ofertas con nosotros.</p>
+        <h2 class="description">Conseguí las mejores ofertas con nosotros.</h2>
         <div class="ofertas-wrapper">
 
           <div class="filter-wrapper">
@@ -276,13 +276,13 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
       </section>
 
       <section class="salioviaje" id="Cotizacion">
-        <h2>
+        <h1>
           Solicitar una Cotización
-        </h2>
+        </h1>
         <hr />
-        <p class="description">
+        <h2 class="description">
           Es gratis y sin compromiso. ¡No te lo pierdas!
-        </p>
+        </h2>
         <button id="agendar" class="button-agendar" onclick="desplegar(this, <?php if (!isset($_SESSION['usuario'])) {echo 1;} else {echo 2;}?>)">
           <i class="fas fa-clipboard-list"></i> Formulario
         </button>

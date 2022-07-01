@@ -266,7 +266,7 @@ class Backend extends procedimientosBD
                             		<div class="faq-icon">
                                 	<i class="fas fa-question"></i>
                             		</div>
-                            		<h4>'.$datos[$i]["PREGUNTA"].'</h4>
+                            		<h3>'.$datos[$i]["PREGUNTA"].'</h3>
                         		</div>
                         	<div class="faq-right">
                             	<i class="fas fa-angle-down" id="arrow-down"></i>
@@ -286,7 +286,7 @@ class Backend extends procedimientosBD
                             		<div class="faq-icon">
                                 	<i class="fas fa-question"></i>
                             		</div>
-                            		<h4>'.$datos[$i]["PREGUNTA"].'</h4>
+                            		<h3>'.$datos[$i]["PREGUNTA"].'</h3>
                         		</div>
                         	<div class="faq-right">
                             	<i class="fas fa-angle-down" id="arrow-down"></i>
