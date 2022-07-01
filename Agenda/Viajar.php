@@ -10,80 +10,54 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 ?>
 
 
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <title>SalióViaje | ¡Viajá Barato!</title>
+<head> 
+   <!-- ==================================================================== -->
+    <title>Salió Viaje | Cartelera Viajes Rebajados | No Lo Dejes Pasar</title>
+    <meta name="description" content="No te pierdas la Cartelera de Oportunidades con el 50 hasta el 90% OFF ni la de Ofertas con el 10 al 40% OFF se venden rápido, van y vienen."/>
+    <meta name="keywords" content="Salió Viaje | Cartelera Viajes Rebajados | No Dejes Pasar"/>
+    <meta name="robots" content="index,follow"/>
 
+    
+    
+    <!-- ==================================================================== -->   
+    
     <!-- // Meta Etiquetas -->
 
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
     <meta name="author" content="Daniel Schlebinger" />
 
-    <meta
-      name="description"
-      content="Plataforma que optimiza el traslado ocasional de personas."
-    />
-    <meta
-      name="keywords"
-      content="SalióViaje, transporte, transfer, alquiler con chofer, combis para fiestas, Salió Viaje, traslados"
-    />
-
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.salioviaje.com.uy/Viajar" />
-    <meta property="og:title" content="SalióViaje | Viajar" />
-    <meta
-      property="og:description"
-      content="Plataforma que optimiza el traslado ocasional de personas."
-    />
-    <meta
-      property="og:image"
-      content="https://www.salioviaje.com.uy/media/images/MetaImagen.png"
-    />
+    <meta property="og:url" content="https://www.salioviaje.com.uy" />
+    <meta property="og:title" content="Salió Viaje | Plataforma que optimiza el traslado ocasional de personas" />
+    <meta property="og:description" content="Plataforma que optimiza el traslado ocasional de personas."/>
+    <meta property="og:image" content="https://www.salioviaje.com.uy/media/svg/Favicon-SalioViaje.svg" type="image/x-icon"  title="Logo | Salió Viaje" >
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://www.salioviaje.com.uy/Viajar" />
-    <meta
-      property="twitter:title"
-      content="SalióViaje | Viajar"
-    />
-    <meta
-      property="twitter:description"
-      content="Plataforma que optimiza el traslado ocasional de personas."
-    />
-    <meta
-      property="twitter:image"
-      content="https://www.salioviaje.com.uy/media/images/MetaImagen.png"
-    />
+    <meta property="twitter:url" content="https://www.salioviaje.com.uy" />
+    <meta property="twitter:title" content="Salió Viaje | Plataforma que optimiza el traslado ocasional de personas"/>
+    <meta property="twitter:description" content="Plataforma que optimiza el traslado ocasional de personas."/>
+    <meta property="twitter:image" content="https://www.salioviaje.com.uy/media/svg/Favicon-SalioViaje.svg" type="image/x-icon"  title="Logo | Salió Viaje" >
 
     <!-- // Fin de Meta Etiquetas -->
 
     <!-- Links -->
-    <link
-      rel="shortcut icon"
-      href="https://www.salioviaje.com.uy/media/svg/Favicon-SalioViaje.svg"
-      type="image/x-icon"
-    />
-    <link rel="stylesheet" href="https://www.salioviaje.com.uy/styles/styles.css" />
-
+    <link rel="shortcut icon" href="https://www.salioviaje.com.uy/media/svg/Favicon-SalioViaje.svg" type="image/x-icon">
+    <link rel="stylesheet" href="https://www.salioviaje.com.uy/styles/styles.css">
+    <link rel="publisher" href="https://www.salioviaje.com.uy" />  
+    <link rel="canonical" href="https://www.salioviaje.com.uy"/>  
+    
     <!-- Scripts -->
-
-    <script
-      src="https://kit.fontawesome.com/1e193e3a23.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://kit.fontawesome.com/1e193e3a23.js" crossorigin="anonymous"></script>    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+    <script src="https://www.salioviaje.com.uy/Javascript/web.js"></script>
     <script src="https://www.salioviaje.com.uy/Javascript/web.js"></script>
     <script src="https://www.salioviaje.com.uy/Javascript/viajar.js"></script>
+    
   </head>
   <body>
     <input type="text" class="session-output" value='<?php if(isset($_SESSION['usuario'])){ echo 0; }else{ echo 1; }; ?>' >
@@ -107,13 +81,13 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
     </div>
 
     <div id="modal"></div>
-    
-    <a href="https://www.salioviaje.com.uy/FAQ" target="_BLANK" id="faq-float">
-      <i class="fas fa-question"></i>
-    </a>
-    <a href="https://wa.link/mmdp0q" target="_BLANK" id="whatsapp-float">
-      <img src="https://www.salioviaje.com.uy/media/images/whatsapp.png" alt="">
-    </a>
+   
+      <a href="https://www.salioviaje.com.uy/FAQ" title="Frequently Asked Questions"  target="_BLANK" id="faq-float" >
+        <i class="fas fa-question" > </i> </a>
+      
+      <a href="https://wa.link/mmdp0q" title="WhatsApp | Salió Viaje"  target="_BLANK" id="whatsapp-float">
+        <img src="https://www.salioviaje.com.uy/media/images/whatsapp.webp" title="WhatsApp | Salió Viaje" alt="Logo WhatsApp | Salió Viaje" /> 
+      </a>
 
     <div class="viajar-wrapper">
       <h1 class="title">¡No se pierda nuestras ofertas y oportunidades!</h1>
@@ -284,7 +258,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
         <h3 class="description">
           Es gratis y sin compromiso. ¡No te lo pierdas!
         </h3>
-        <button id="agendar" class="button-agendar" onclick="desplegar(this, <?php if (!isset($_SESSION['usuario'])){echo 1;}else{echo 2;}?>)">
+        <button id="agendar" class="button-agendar" onclick="desplegar(this, <?php if (!isset($_SESSION['usuario'])) {echo 1;} else {echo 2;}?>)">
           <i class="fas fa-clipboard-list"></i> Formulario
         </button>
         <div class="salioviaje-desplegable">
@@ -292,7 +266,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
             <div class="user-info">
               <div class="user-icon">
-                <img src="https://www.salioviaje.com.uy/media/svg/Logo-SalioViaje-White.svg" alt="Logo SalióViaje">
+                <img src="https://www.salioviaje.com.uy/media/svg/Logo-SalioViaje-White.svg" title="Logo | Salió Viaje" alt="Logo Salió Viaje">
               </div>
               <div class="info">
                 <h3><?php echo $_SESSION['usuario']; ?></h3>
@@ -1283,6 +1257,10 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
             localStorage.removeItem("origen")
             desplegar(document.getElementById("agendar"), <?php if (!isset($_SESSION['usuario'])) {echo 1;} else {echo 2;}?>)
             select_usuario()
+          }
+
+          if($(`.session-output`).val() == 0){ 
+            desplegar(document.getElementById("agendar"), $(".session-output").val());
           }
 
     </script>

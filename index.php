@@ -15,7 +15,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
     <title>Salió Viaje | Plataforma que optimiza el traslado ocasional</title>
     <meta name="description" content="Solucionamos tus necesidades de traslado. Te ofrecemos opciones para que elijas la mejor. Aprovecha nuestras Ofertas y Promociones"/>
     <meta name="keywords" content="Salió Viaje | Plataforma que optimiza el traslado ocasional"/>
-    <meta name="robots" content="noindex,nofollow"/>
+    <meta name="robots" content="index,follow"/>
 
     
     
