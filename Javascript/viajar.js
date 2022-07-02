@@ -124,7 +124,7 @@ function finalizar(enviar_solicitud, modal, domicilio) {
                         if (modal == 2) {
 
                             if (domicilio == 1) {
-                                actualizar_direccion_usuario(datos_traslado['DIRECCION_ORIGEN'],datos_traslado['BARRIO_ORIGEN'],datos_traslado['LOCALIDAD_ORIGEN'])
+                                actualizar_direccion_usuario(datos_traslado['DIRECCION_ORIGEN'], datos_traslado['BARRIO_ORIGEN'], datos_traslado['LOCALIDAD_ORIGEN'])
                             }
 
                             guardar_cotizacion(datos_traslado, array_paradas_1, 0, "traslados");
@@ -661,7 +661,7 @@ function finalizar(enviar_solicitud, modal, domicilio) {
 
 }
 
-function actualizar_direccion_usuario(direccion,barrio,localidad){
+function actualizar_direccion_usuario(direccion, barrio, localidad) {
     $.ajax({
         type: "POST",
         url: "/PHP/procedimientosForm.php",
@@ -750,7 +750,7 @@ function restarHoras(inicio, fin) {
 
 function verificar_largo_fiesta() {
     if (restarHoras($('#hora_ida_fiestas_idavuelta').val(), $('#hora_vuelta_fiestas_idavuelta').val()) <= -6) {
-        $('.mensaje-error').html("El evento por el que estas consultando tiene una duracion superior a las 6h quieres continuar?");
+        $('.mensaje-error').html("El evento por el que estas consultando tiene una duracion superior a las 4h quieres continuar?");
         $('.mensaje-error').css('color', 'rgb(255, 211, 91)');
         $('.mensaje-error').show();
     } else {
@@ -904,7 +904,7 @@ function desplegar(button, session) {
         button.classList.toggle("active");
         button.nextElementSibling.classList.toggle("show");
 
-        if($(`.session-input`).val() != ``){
+        if ($(`.session-input`).val() != ``) {
             var paradas_div = document.getElementById("Cotizacion");
             paradas_div.scrollIntoView();
         }
@@ -1469,7 +1469,7 @@ const transportistasAptos = (datos_filtros, fiesta_ida_vuelta) => {
     $.ajax({
         type: "POST",
         url: "/PHP/topTransportistas.php",
-        data: { data: JSON.stringify(datos_filtros) , fiesta_ida_vuelta: fiesta_ida_vuelta},
+        data: { data: JSON.stringify(datos_filtros), fiesta_ida_vuelta: fiesta_ida_vuelta },
         success: function (response) {
             var transportistas = JSON.parse(response)
             enviarMailsTransportistas(transportistas)
@@ -1483,7 +1483,7 @@ function enviarMailsTransportistas(transportistas) {
             $.ajax({
                 type: "POST",
                 url: "/Mail/mail-Cotizacion-Invitacion.php",
-                data: { id_viaje: id_cotizacion , mail: transportistas[index]['MAIL']},
+                data: { id_viaje: id_cotizacion, mail: transportistas[index]['MAIL'] },
                 success: function (response) {
                     console.log(response)
                 }
@@ -1496,7 +1496,7 @@ function enviarMailsTransportistas(transportistas) {
 function tipoViaje(tipo) {
     switch (tipo) {
         case "1":
-            inputs = ['fecha_salida', 'hora', 'cant_pasajeros', 'mascotas_traslado','localidad_traslado_origen','localidad_traslado_destino']
+            inputs = ['fecha_salida', 'hora', 'cant_pasajeros', 'mascotas_traslado', 'localidad_traslado_origen', 'localidad_traslado_destino']
             break;
         case "2":
             inputs = ['fecha_salida_tour', 'hora_tour', 'cant_pasajeros_tour', 'mascota_tour', 'localidad_tour', 'destino_tour']
@@ -1505,7 +1505,7 @@ function tipoViaje(tipo) {
             if (document.getElementById("select_transfer").value == 1) {
                 inputs = ['fecha_regreso_transfer_in', 'hora_transfer_in', 'cant_pasajeros_transfer_in', 'mascotas_transfer_in', 'aeropuerto_transfer_in', 'localidad_transfer_in']
             } else {
-                inputs = ['fecha_regreso_transfer_out', 'hora_transfer_out', 'cant_pasajeros_transfer_out', 'mascotas_transfer_out', 'localidad_transfer_out','aeropuerto_transfer_out']
+                inputs = ['fecha_regreso_transfer_out', 'hora_transfer_out', 'cant_pasajeros_transfer_out', 'mascotas_transfer_out', 'localidad_transfer_out', 'aeropuerto_transfer_out']
             }
             break;
         default:
