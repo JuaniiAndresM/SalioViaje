@@ -1432,9 +1432,9 @@ class procedimientosBD
         $stmt->bind_param("ii", $id, $id_viaje_cot);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($TELEFONO_TTA);
+            $stmt->bind_result($TELEFONO_TTA, $MAIL_TTA);
             while ($stmt->fetch()) {
-                $result = $TELEFONO_TTA;
+                $result = $TELEFONO_TTA."-".$MAIL_TTA;
             }
         }
         echo $stmt->error;

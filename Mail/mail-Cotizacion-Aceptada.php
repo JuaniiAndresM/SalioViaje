@@ -12,7 +12,10 @@ require_once '../PHP/procedimientosBD.php';
 // ? Importar Variables (Opcional)
 //
 
-$bd = new procedimientosBD();
+session_start();
+$id_cot_presentada = $_POST['id'];
+$id_viaje = $_POST['id_viaje_cotizado'];
+$mail_tta = $_POST['mail'];
 
 //
 /*------------------------------------------------------------------------------------------*/
@@ -44,7 +47,7 @@ $mail->Port = 587;
 $mail->CharSet = 'UTF-8';
 $mail->From = 'promouruguay010@gmail.com';
 $mail->FromName = 'SalióViaje';
-$mail->addAddress($datos_transportista[0]['EMAIL']);
+$mail->addAddress($mail_tta);
 $mail->isHTML(true);
 $mail->Subject = "¡Felicitaciones! Han elegido tu cotización. - SalióViaje";
 
@@ -70,19 +73,19 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                             <tr>
                                 <td>
                                     <div class="mail-content" style="width: 500px; margin: 20px auto; background: #fff; font-family: Montserrat; color: #3844bc;">
-                                        <p style="font-size: 13px; color: #555;">Han aceptado tu cotizacion para el viaje #'.$id.'!</p>
+                                        <p style="font-size: 13px; color: #555;">Han aceptado tu cotizacion para el viaje #'.$id_viaje.'!</p>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <div style="width: 500px; margin: 20px 0; margin-bottom: 30px; text-align: center;">
-                                        <a href="https://www.salioviaje.com.uy/Solicitud_C/'.$datos_cotizacion[0]['ID'].'A" target="_blank" style="padding: 12px 18px; margin: 15px 5px; background-color: #4db979; color: #ffffff; text-decoration: none;
+                                        <a href="https://www.salioviaje.com.uy/Solicitud_C/'.$id_cot_presentada.'_'.$id_viaje.'A" target="_blank" style="padding: 12px 18px; margin: 15px 5px; background-color: #4db979; color: #ffffff; text-decoration: none;
                                         font-family: Montserrat; font-size: 15px; border-radius: 10px;">
                                             Confirmar
                                         </a>
 
-                                        <a href="https://www.salioviaje.com.uy/Solicitud_C/'.$datos_cotizacion[0]['ID'].'R" target="_blank" style="padding: 12px 28px; margin: 15px 5px; background-color: #ff635a; color: #ffffff; text-decoration: none;
+                                        <a href="https://www.salioviaje.com.uy/Solicitud_C/'.$id_cot_presentada.'_'.$id_viaje.'R" target="_blank" style="padding: 12px 28px; margin: 15px 5px; background-color: #ff635a; color: #ffffff; text-decoration: none;
                                         font-family: Montserrat; font-size: 15px; border-radius: 10px;">
                                             Rechazar
                                         </a>
@@ -92,7 +95,7 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                             <tr>
                                 <td>
                                     <div class="mail-content" style="width: 95%; margin: 20px auto; background: #fff; font-family: Montserrat; color: #555; font-size: 13px;">
-                                        <p>Este mensaje se envió a <span style="color: #3844bc; font-weight: bold;">'.$datos_transportista[0]['EMAIL'].'</span>.</p>
+                                        <p>Este mensaje se envió a <span style="color: #3844bc; font-weight: bold;">'.$mail_tta.'</span>.</p>
                                         <p>Si no quieres recibir estos emails de SalióViaje en el futuro, puedes darte de baja de la lista de correo.</p>
                                     </div>
                                 </td>

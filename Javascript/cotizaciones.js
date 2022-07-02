@@ -304,7 +304,8 @@ function aceptarCotizacion(id, id_viaje_cotizado) {
       url: "/PHP/procedimientosForm.php",
       data: { tipo: 'aceptar_cotizacion', idCotizacion: id, id_viaje_cotizado: id_viaje_cotizado },
       success: function (response) {
-         reconfirmar_cotizacion_llamada(id, id_viaje_cotizado, response)
+         response = response.split("-");
+         reconfirmar_cotizacion_llamada(id, id_viaje_cotizado, response[0], response[1]);
       },
       complete: function () {
       }
@@ -353,24 +354,25 @@ function reconfirmarCotizacion(id) {
    });
 }
 
-function reconfirmar_cotizacion_llamada(id, id_viaje_cotizado, telefono_tta) {
+function reconfirmar_cotizacion_llamada(id, id_viaje_cotizado, telefono_tta, mail_tta) {
    console.log(id)
    let id_llamada = Math.floor(Math.random() * 100000);
    let send = new llamadas_PHP();
    let mensaje = `Han escogido tu cotizacion!  Aceptar:  https://www.salioviaje.com.uy/Solicitud_C/${id}_${id_viaje_cotizado}A Rechazar: https://www.salioviaje.com.uy/Solicitud_C/${id}_${id_viaje_cotizado}R`;
    send.realizarLlamadaReconfirmarCotizacion("tpc_notificacion_opciones", "2022-02-07T15:00:00+03:00", id_llamada, telefono_tta, "Transportista", "Han escogido tu cotizacion para el viaje numero #" + id_viaje_cotizado + ". Presione 1 para aceptar, 3 para rechazar", id_viaje_cotizado, id_viaje_cotizado);
    send.enviarSMS(telefono_tta,"2022-02-04T15:00:00+03:00",mensaje,id_llamada);
-   //mail_aprobar_rechazar_cotizacion(id)
+   console.log(mail_tta)
+   mail_aprobar_rechazar_cotizacion(id, id_viaje_cotizado, mail_tta)
 
    var features = 'directories=no,menubar=no,status=no,titlebar=no,toolbar=no,width=550,height=700';
    window.open("https://www.salioviaje.com.uy/Espera/"+id_viaje_cotizado, 'mypopup', features);
 }
 
-function mail_aprobar_rechazar_cotizacion() {
+function mail_aprobar_rechazar_cotizacion(id, id_viaje_cotizado, mail) {
    $.ajax({
       type: "POST",
       url: "/Mail/mail-Cotizacion-Aceptada.php",
-      data: {},
+      data: { id: id, id_viaje_cotizado: id_viaje_cotizado, mail: mail },
       success: function (response) {
          console.log(response)
       }
