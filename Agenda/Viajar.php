@@ -212,7 +212,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
           <div class="ofertas-list">
 
-            <div class="oportunidad">
+            <div class="oportunidad_oferta">
               <div class="oportunidad-left">
                 <div class="id">
                   <h3>#034</h3>
