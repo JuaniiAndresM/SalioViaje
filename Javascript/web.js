@@ -337,13 +337,3 @@ function filtrar_divs(tipo) {
       
       console.log(nombreDelDiaSegunFecha(fecha+" 00:00:00"))
  }
-
-
-let mensajeSuccess = (messageType) =>{
-    const paragraph = document.querySelector(`.msg-success`);
-    if(messageType = `Cotizacion`){
-        paragraph.textContent = `El viaje ha sido cotizado correctamente.`;
-    }else if(messageType = `Agenda`){
-        paragraph.textContent = `Su viaje ha sido agendado correctamente.`;
-    }
-}
