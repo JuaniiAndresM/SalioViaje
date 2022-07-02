@@ -134,6 +134,32 @@ switch($opcion){
             </div>
         </div>';
         break;
+    case 5:
+        $modal_body = '
+        <div class="modal-container">
+            <button class="close-modal" onclick="closeModal()"><i class="fas fa-xmark"></i></button>
+            <div class="modal-img-logo">
+                <img src="https://www.salioviaje.com.uy/media/svg/Logo-SalioViaje.svg" alt="Logo SalióViaje">
+            </div>
+            <div class="modal-body">
+                <p class="msg1">¿Para cuando deseas copiar el viaje?</p>
+                <div class="input">
+                    <input type="date" id="fecha_copia"/>
+                </div>
+                <div class="input">
+                    <input type="time" id="hora_copia"/>
+                </div>
+                <div class="button-wrapper">
+                    <button class="modal-button" onclick="copiar_cotizacion('.$data.',2)">
+                        <i class="fa-solid fa-check"></i> Copiar Viaje
+                    </button>
+                    <button class="modal-button" onclick="closeModal()">
+                        <i class="fa-solid fa-xmark"></i> Cancelar
+                    </button>
+                </div>
+            </div>
+        </div>';
+        break;
 }
 
 
