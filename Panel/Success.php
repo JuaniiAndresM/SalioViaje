@@ -1,5 +1,5 @@
 <?php
-$type = $_GET[`type`];
+$type = $_GET['type'];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -110,10 +110,12 @@ $type = $_GET[`type`];
         <h3>¡Felicitaciones!</h3>
 
         <?php
-        if($type == `Agenda`){
-          echo `<p class="msg-success">Su viaje ha sido cotizado correctamente.</p>`;
-        }else if($type == `Cotizacion`){
-          echo `<p class="msg-success">Su viaje ha sido agendado correctamente.</p>`;
+        if($type == 'Agenda'){
+          echo '<p class="msg-success">Su viaje ha sido agendado correctamente.</p>';
+        }else if($type == 'Cotizacion'){
+          echo '<p class="msg-success">Su viaje ha sido cotizado correctamente.</p>';
+        }else{
+          echo '<p class="msg-success">Todo funcionó correctamente.</p>';
         }
         
         ?>
