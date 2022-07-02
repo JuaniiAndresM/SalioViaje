@@ -1,4 +1,4 @@
 RewriteEngine on
 
-RewriteRule ^Success_Agenda Success.html
+RewriteRule ^Success/([a-zA-Z0-9_\.]+)$ Success.php?type=$1
 RewriteRule ^Success_Empresa Success2.html
