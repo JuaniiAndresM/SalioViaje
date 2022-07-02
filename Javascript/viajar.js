@@ -750,7 +750,7 @@ function restarHoras(inicio, fin) {
 
 function verificar_largo_fiesta() {
     if (restarHoras($('#hora_ida_fiestas_idavuelta').val(), $('#hora_vuelta_fiestas_idavuelta').val()) <= -6) {
-        $('.mensaje-error').html("El evento por el que estas consultando tiene una duracion superior a las 4h quieres continuar?");
+        $('.mensaje-error').html("El evento por el que estas consultando tiene una duracion superior a las 6h quieres continuar?");
         $('.mensaje-error').css('color', 'rgb(255, 211, 91)');
         $('.mensaje-error').show();
     } else {
