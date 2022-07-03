@@ -47,7 +47,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
     <!-- Links -->
     <link rel="shortcut icon" href="https://www.salioviaje.com.uy/media/svg/Favicon-SalioViaje.svg" type="image/x-icon">
-    <link rel="stylesheet" href="https://www.salioviaje.com.uy/styles/styles.css">
+    <link rel="stylesheet" href="https://www.salioviaje.com.uy/styles/styles.min.css">
     <link rel="publisher" href="https://www.salioviaje.com.uy" />  
     <link rel="canonical" href="https://www.salioviaje.com.uy"/>  
     

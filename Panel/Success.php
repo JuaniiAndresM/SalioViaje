@@ -68,7 +68,7 @@ $type = $_GET['type'];
     />
     <link
       rel="stylesheet"
-      href="https://www.salioviaje.com.uy/styles/styles.css"
+      href="https://www.salioviaje.com.uy/styles/styles.min.css"
     />
 
     <!-- Scripts -->

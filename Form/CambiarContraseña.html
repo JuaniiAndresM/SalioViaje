@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-<head> 
+  <head>
     <title>SalióViaje | Login</title>
 
     <!-- // Meta Etiquetas -->
@@ -11,7 +11,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
-    <meta name="robots" content="noindex,nofollow"/>
+    <meta name="robots" content="noindex,nofollow" />
     <meta name="author" content="Daniel Schlebinger" />
 
     <meta
@@ -38,11 +38,11 @@
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://www.salioviaje.com.uy/Login" />
     <meta
-      property="twitter:title"
-      content="SalióViaje | Login"
+      property="twitter:url"
+      content="https://www.salioviaje.com.uy/Login"
     />
+    <meta property="twitter:title" content="SalióViaje | Login" />
     <meta
       property="twitter:description"
       content="Plataforma que optimiza el traslado ocasional de personas."
@@ -55,131 +55,159 @@
     <!-- // Fin de Meta Etiquetas -->
 
     <!-- Links -->
-    <link rel="shortcut icon" href="https://www.salioviaje.com.uy/media/svg/Favicon-SalioViaje.svg" type="image/x-icon">
-    <link rel="stylesheet" href="https://www.salioviaje.com.uy/styles/styles.css">
+    <link
+      rel="shortcut icon"
+      href="https://www.salioviaje.com.uy/media/svg/Favicon-SalioViaje.svg"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://www.salioviaje.com.uy/styles/styles.min.css"
+    />
 
     <!-- Scripts -->
-    <script src="https://kit.fontawesome.com/1e193e3a23.js" crossorigin="anonymous"></script>    
+    <script
+      src="https://kit.fontawesome.com/1e193e3a23.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script src="https://www.salioviaje.com.uy/Javascript/web.js"></script>
     <script src="https://www.salioviaje.com.uy/Javascript/form.js"></script>
     <script src="https://www.salioviaje.com.uy/Javascript/cambiarPassword.js"></script>
-
-
-
-    
-</head>
-<body>
+  </head>
+  <body>
     <div id="header"></div>
 
     <a href="https://www.salioviaje.com.uy/FAQ" target="_BLANK" id="faq-float">
       <i class="fas fa-question"></i>
     </a>
     <a href="https://wa.link/mmdp0q" target="_BLANK" id="whatsapp-float">
-      <img src="https://www.salioviaje.com.uy/media/images/whatsapp.png" alt="">
+      <img
+        src="https://www.salioviaje.com.uy/media/images/whatsapp.png"
+        alt=""
+      />
     </a>
 
     <div id="pre-loader">
-        <div class="lds-ellipsis">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
+      <div class="lds-ellipsis">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
+    </div>
 
     <section class="change_password">
-        <div class="change_password-wrapper">
-            <h1>Salió<span>Viaje</span></h1>
+      <div class="change_password-wrapper">
+        <h1>Salió<span>Viaje</span></h1>
 
-            <div id="change_password">
-                <div class="inputs-wrapper">
-                    <h2 class="step_title"><i class="fas fa-user-lock"></i> Olvide mi Contraseña</h2>
+        <div id="change_password">
+          <div class="inputs-wrapper">
+            <h2 class="step_title">
+              <i class="fas fa-user-lock"></i> Olvide mi Contraseña
+            </h2>
 
-                    <div class="progress-bar3">
-                        <span class="line"></span>
-                        <span class="progress"></span>
-              
-                        <span class="circle1"></span>
-                        <span class="circle2"></span>
-                        <span class="circle3"></span>
-                    </div>
+            <div class="progress-bar3">
+              <span class="line"></span>
+              <span class="progress"></span>
 
-                    <div class="step_1">
-                        <p class="desc">Le enviaremos un codigo de verificación a su correo electrónico.</p> 
-                        <div class="input">
-                            <i class="fas fa-envelope" id="icon"></i>
-                            <input type="mail" id="correo" name="correo" placeholder="Correo Electrónico">
-                        </div>
-
-                        <p id="mensaje-error" class="mensaje-error"></p>
-                                 
-                        <button class="button-change" onclick="cambiar_password_next(1)"><i class="fas fa-sign-in-alt"></i> Siguiente</button>
-                           
-                    </div>
-
-                    <div class="step_2">
-                        <p class="desc">El código fue enviado correctamente, en caso de no recibirlo verifique la casilla de spam.</p>
-
-                        <div class="input">
-                            <i class="fas fa-key" id="icon"></i>
-                            <input type="text" id="codigo" maxlength="8" placeholder="Código de Verificación">
-                        </div>
-                        
-
-                        <p id="mensaje-error" class="mensaje-error"></p>
-                
-                        <button class="button-change" onclick="cambiar_password_next(2)"><i class="fas fa-sign-in-alt"></i> Siguiente</button>
-
-                        <p>¿No recibiste el mensaje? <a href="">Reenviar</a>.</p>
-                    </div>
-
-                    <div class="step_3">
-
-                      <div class="input">
-                        <i class="fas fa-key" id="icon"></i>
-                        <input
-                          type="password"
-                          id="password"
-                          name="pin"
-                          placeholder="Nuevo PIN"
-                          maxlength="4"
-                          pattern="[0-9]{4}"
-                        />
-                        <button onclick="passwd(2)" class="password-eye"><i id="passeye2" class="fas fa-eye-slash"></i></button>
-                      </div>
-  
-                      <div class="input">
-                        <i class="fas fa-key" id="icon"></i>
-                        <input
-                          type="password"
-                          id="re-password"
-                          name="pin"
-                          placeholder="Confirmar Nuevo PIN"
-                          maxlength="4"
-                          pattern="[0-9]{4}"
-                        />
-                        <button onclick="passwd(3)" class="password-eye"><i id="passeye3" class="fas fa-eye-slash"></i></button>
-                      </div>
-
-                        <p id="mensaje-error" class="mensaje-error"></p>
-                
-                        <button class="button-change" onclick="cambiar_password_finalizar()"><i class="fas fa-check"></i> Finalizar</button>
-                    </div>
-
-                    
-
-                </div>
-
-                
+              <span class="circle1"></span>
+              <span class="circle2"></span>
+              <span class="circle3"></span>
             </div>
 
-            
+            <div class="step_1">
+              <p class="desc">
+                Le enviaremos un codigo de verificación a su correo electrónico.
+              </p>
+              <div class="input">
+                <i class="fas fa-envelope" id="icon"></i>
+                <input
+                  type="mail"
+                  id="correo"
+                  name="correo"
+                  placeholder="Correo Electrónico"
+                />
+              </div>
 
+              <p id="mensaje-error" class="mensaje-error"></p>
+
+              <button class="button-change" onclick="cambiar_password_next(1)">
+                <i class="fas fa-sign-in-alt"></i> Siguiente
+              </button>
+            </div>
+
+            <div class="step_2">
+              <p class="desc">
+                El código fue enviado correctamente, en caso de no recibirlo
+                verifique la casilla de spam.
+              </p>
+
+              <div class="input">
+                <i class="fas fa-key" id="icon"></i>
+                <input
+                  type="text"
+                  id="codigo"
+                  maxlength="8"
+                  placeholder="Código de Verificación"
+                />
+              </div>
+
+              <p id="mensaje-error" class="mensaje-error"></p>
+
+              <button class="button-change" onclick="cambiar_password_next(2)">
+                <i class="fas fa-sign-in-alt"></i> Siguiente
+              </button>
+
+              <p>¿No recibiste el mensaje? <a href="">Reenviar</a>.</p>
+            </div>
+
+            <div class="step_3">
+              <div class="input">
+                <i class="fas fa-key" id="icon"></i>
+                <input
+                  type="password"
+                  id="password"
+                  name="pin"
+                  placeholder="Nuevo PIN"
+                  maxlength="4"
+                  pattern="[0-9]{4}"
+                />
+                <button onclick="passwd(2)" class="password-eye">
+                  <i id="passeye2" class="fas fa-eye-slash"></i>
+                </button>
+              </div>
+
+              <div class="input">
+                <i class="fas fa-key" id="icon"></i>
+                <input
+                  type="password"
+                  id="re-password"
+                  name="pin"
+                  placeholder="Confirmar Nuevo PIN"
+                  maxlength="4"
+                  pattern="[0-9]{4}"
+                />
+                <button onclick="passwd(3)" class="password-eye">
+                  <i id="passeye3" class="fas fa-eye-slash"></i>
+                </button>
+              </div>
+
+              <p id="mensaje-error" class="mensaje-error"></p>
+
+              <button
+                class="button-change"
+                onclick="cambiar_password_finalizar()"
+              >
+                <i class="fas fa-check"></i> Finalizar
+              </button>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <div id="footer"></div>
-</body>
+  </body>
 </html>
