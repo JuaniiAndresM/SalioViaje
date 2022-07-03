@@ -8983,13 +8983,15 @@ footer .totum p a:hover {
 }
 
 .sobre-nosotros .nosotros-wrapper-grid .nosotros-left .nosotros-img-wrapper #dep-inf-img, .sobre-nosotros .nosotros-wrapper-grid .nosotros-left .nosotros-img-wrapper-inf #dep-inf-img, .sobre-nosotros-experiencias .nosotros-wrapper-grid .nosotros-left .nosotros-img-wrapper #dep-inf-img, .sobre-nosotros-experiencias .nosotros-wrapper-grid .nosotros-left .nosotros-img-wrapper-inf #dep-inf-img {
-  padding: 40px;
+  padding: 50px;
+  height: unset;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
 .sobre-nosotros .nosotros-wrapper-grid .nosotros-left .nosotros-img-wrapper-inf, .sobre-nosotros-experiencias .nosotros-wrapper-grid .nosotros-left .nosotros-img-wrapper-inf {
   width: auto;
+  height: auto;
 }
 
 .sobre-nosotros .nosotros-wrapper-grid .nosotros-right, .sobre-nosotros-experiencias .nosotros-wrapper-grid .nosotros-right {
@@ -9102,7 +9104,7 @@ footer .totum p a:hover {
 
 .titulo-experiencias h2, .titulo-experiencias h1 {
   color: #3844bc;
-  font-size: 2.3em;
+  font-size: 2em;
 }
 
 .titulo-experiencias hr {
@@ -9113,7 +9115,7 @@ footer .totum p a:hover {
 
 .titulo-experiencias p {
   color: #666;
-  font-size: 1.2em;
+  font-size: 1em;
   max-width: 630px;
   width: 100%;
   margin-bottom: 20px;

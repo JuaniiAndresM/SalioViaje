@@ -42,12 +42,14 @@
           }
 
           #dep-inf-img{
-            padding: 40px;
+            padding: 50px;
+            height: unset;
             object-fit: cover;
           }
         }
         .nosotros-img-wrapper-inf{
           width: auto;
+          height: auto;
         }
       }
   
@@ -133,7 +135,7 @@
   text-align: center;
   h2,h1 {
     color: $main_1;
-    font-size: 2.3em;
+    font-size: 2em;
   }
   hr {
     width: 100px;
@@ -142,7 +144,7 @@
   }
   p {
     color: #666;
-    font-size: 1.2em;
+    font-size: 1em;
     max-width: 630px;
     width: 100%;
     margin-bottom: 20px;
