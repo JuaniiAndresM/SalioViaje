@@ -32,8 +32,8 @@ for ($i = 0; $i < count($datos); $i++) {
         <td data-title="Precio">$'.number_format( $datos[$i]["PRECIO"], 0,'','.').'</td>
         <td>
           <div class="button-wrapper">
-            <button class="button" onclick="aceptarCotizacion('.$datos[$i]["ID"].','.$datos[$i]["ID_VIAJE_COTIZADO"].')"><i class="fas fa-dollar-sign"></i></button>
-            <button class="button" onclick="eliminarCotizacion('.$datos[$i]["ID"].')"><i class="fas fa-ban"></i></button>
+            <button class="button tooltip left" data-tooltip="Aceptar Cotización" onclick="aceptarCotizacion('.$datos[$i]["ID"].','.$datos[$i]["ID_VIAJE_COTIZADO"].')"><i class="fas fa-dollar-sign"></i></button>
+            <button class="button tooltip left" data-tooltip="Rechazar Cotización" onclick="eliminarCotizacion('.$datos[$i]["ID"].')"><i class="fas fa-ban"></i></button>
         </td>
       </tr>
 ';
@@ -57,8 +57,8 @@ for ($i = 0; $i < count($datos); $i++) {
         <td data-title="Precio">$'.number_format( $datos[$i]["PRECIO"], 0,'','.').'</td>
         <td>
           <div class="button-wrapper">
-          <button class="button" onclick="aceptarCotizacion('.$datos[$i]["ID"].','.$datos[$i]["ID_VIAJE_COTIZADO"].')"><i class="fas fa-dollar-sign"></i></button>
-          <button class="button" onclick="eliminarCotizacion('.$datos[$i]["ID"].')"><i class="fas fa-ban"></i></button>
+          <button class="button tooltip left" data-tooltip="Aceptar Cotización" onclick="aceptarCotizacion('.$datos[$i]["ID"].','.$datos[$i]["ID_VIAJE_COTIZADO"].')"><i class="fas fa-dollar-sign"></i></button>
+          <button class="button tooltip left" data-tooltip="Rechazar Cotización" onclick="eliminarCotizacion('.$datos[$i]["ID"].')"><i class="fas fa-ban"></i></button>
         </td>
       </tr>
 ';
