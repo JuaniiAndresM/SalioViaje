@@ -352,7 +352,7 @@ if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "PAX") {
                         <td data-title="Contacto">
                             <div class="button-wrapper">
                                 <button class="button" onclick="modal_contacto(\'' . $datos2[$i]['NOMBRE'] . '\',' . $datos2[$i]['TELEFONO'] . ')"><i class="fa-solid fa-address-card"></i></button>
-                                <button class="button" onclick="copiar_solicitud(' . $datos2[$i]['ID_SOLICITUD'] . ')"><i class="fa-solid fa-copy"></i></button>
+                                <button class="button" onclick="copiar_solicitud(' . $datos2[$i]['ID_SOLICITUD'] . ',1)"><i class="fa-solid fa-copy"></i></button>
                             </div>
                         </td>
                     </tr>
@@ -372,7 +372,7 @@ if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "PAX") {
                         <td data-title="Contacto">
                             <div class="button-wrapper">
                                 <button class="button" onclick="modal_contacto(\'' . $datos2[$i]['NOMBRE'] . '\',' . $datos2[$i]['TELEFONO'] . ')"><i class="fa-solid fa-address-card"></i></button>
-                                <button class="button" onclick="copiar_solicitud(' . $datos2[$i]['ID_SOLICITUD'] . ')"><i class="fa-solid fa-copy"></i></button>
+                                <button class="button" onclick="copiar_solicitud(' . $datos2[$i]['ID_SOLICITUD'] . ',1)"><i class="fa-solid fa-copy"></i></button>
                             </div>
                         </td>
                     </tr>
@@ -488,7 +488,7 @@ if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "PAX") {
             <td data-title="Precio">-</td>
                 <td data-title="Contacto">
                 <div class="button-wrapper">
-                <button class="button" onclick="copiar_solicitud(' . $cotizaciones[$i]['ID'] . ')"><i class="fa-solid fa-copy"></i></button>
+                <button class="button" onclick="copiar_solicitud(' . $cotizaciones[$i]['ID'] . ',1)"><i class="fa-solid fa-copy"></i></button>
                 </div>
                 </td>
             </tr>

@@ -336,6 +336,7 @@ function filtrar_divs(tipo) {
       fecha = fecha_split[2]+"-"+fecha_split[1]+"-"+fecha_split[0];
       
       console.log(nombreDelDiaSegunFecha(fecha+" 00:00:00"))
+<<<<<<< HEAD
  }
 
 
@@ -347,3 +348,6 @@ let mensajeSuccess = (messageType) => {
         paragraph.textContent = `Su viaje ha sido agendado correctamente.`;
     }
 }
+=======
+ }
+>>>>>>> 85f53d31c9dad8afd203e0bf75e660db4d0775a5

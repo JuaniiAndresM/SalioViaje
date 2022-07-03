@@ -1,3 +1,6 @@
+<?php
+$type = $_GET['type'];
+?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -106,7 +109,18 @@
         </div>
         <h3>¡Felicitaciones!</h3>
 
-        <p class="msg-success">Su viaje ha sido agendado correctamente.</p>
+        <?php
+        if($type == 'Agenda'){
+          echo '<p class="msg-success">Su viaje ha sido agendado correctamente.</p>';
+        }else if($type == 'Cotizacion'){
+          echo '<p class="msg-success">Su viaje ha sido cotizado correctamente.</p>';
+        }else{
+          echo '<p class="msg-success">Todo funcionó correctamente.</p>';
+        }
+        
+        ?>
+
+        
         <div class="success-buttons">
           <a href="https://www.salioviaje.com.uy/Dashboard"
             ><i class="fas fa-home"></i> Volver al Panel</a

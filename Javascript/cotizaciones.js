@@ -379,18 +379,35 @@ function mail_aprobar_rechazar_cotizacion(id, id_viaje_cotizado, mail) {
   });
 }
 
-function copiar_solicitud(id_solicitud) {
-   $.ajax({
-      type: "POST",
-      url: "/PHP/procedimientosForm.php",
-      data: { tipo:"copiar_solicitud_viaje", id_solicitud : id_solicitud },
-      success: function (response) {
-         console.log(response)
-      },
-      complete: function () {
-         location.reload()
-      }
-  });
+function copiar_solicitud(id_solicitud, step) {
+   switch(step){
+      case 1:
+         $.ajax({
+            type: "POST",
+            url: "/Panel/modal.php",
+            data: { data: id_solicitud, opcion: 5},
+            success: function (response) {
+               console.log(response);
+                    $('#modal').css('display','flex');
+                    $('#modal').html(response); 
+            }
+        });
+        break;
+
+      case 2:
+         $.ajax({
+            type: "POST",
+            url: "/PHP/procedimientosForm.php",
+            data: { tipo:"copiar_solicitud_viaje", id_solicitud : id_solicitud },
+            success: function (response) {
+               console.log(response)
+            },
+            complete: function () {
+               location.reload()
+            }
+        });
+        break;
+   }
 }
 
 
