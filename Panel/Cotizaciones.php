@@ -198,7 +198,7 @@ $COTIZACIONES = json_decode($BD->traer_cotizaciones_presentadas_por_id_tta($_SES
                   <td><?php echo $COTIZACIONES[$i]['SENIA']; ?></td>
                   <td>
                     <div class="button-wrapper">
-                      <button class="button"><i class="fas fa-ban"></i></button>
+                      <button class="button tooltip left" data-tooltip="Rechazar Cotización"><i class="fas fa-ban"></i></button>
                   </td>
                 </tr>
                 <?php

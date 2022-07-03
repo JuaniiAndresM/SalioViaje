@@ -242,7 +242,7 @@ if ($_SESSION['tipo_usuario'] != "Administrador" && $_SESSION['tipo_usuario'] !=
                     <td>' . $pet_friendly . '</td>
                     <td>
                       <div class="button-wrapper">
-                        <button class="button" onclick="preferenciasVehiculos('.$vehiculos[$a]['ID'].',1,\''.$vehiculos[$a]['MATRICULA'].'\')"><i class="fa-solid fa-gear"></i></button>
+                        <button class="button tooltip left" data-tooltip="Preferencias" onclick="preferenciasVehiculos('.$vehiculos[$a]['ID'].',1,\''.$vehiculos[$a]['MATRICULA'].'\')"><i class="fa-solid fa-gear"></i></button>
                       </div>
                     </td>
                   </tr>';
@@ -271,7 +271,7 @@ if ($_SESSION['tipo_usuario'] != "Administrador" && $_SESSION['tipo_usuario'] !=
                   <td>' . $pet_friendly . '</td>
                   <td>
                     <div class="button-wrapper">
-                      <button class="button" onclick="preferenciasVehiculos('.$vehiculos_chofer[$a]['ID'].',1,\''.$vehiculos_chofer[$a]['MATRICULA'].'\')"><i class="fa-solid fa-gear"></i></button>
+                      <button class="button tooltip left" data-tooltip="Preferencias" onclick="preferenciasVehiculos('.$vehiculos_chofer[$a]['ID'].',1,\''.$vehiculos_chofer[$a]['MATRICULA'].'\')"><i class="fa-solid fa-gear"></i></button>
                     </div>
                   </td>
                 </tr>';

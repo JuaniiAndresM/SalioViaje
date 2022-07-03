@@ -86,9 +86,9 @@ class Backend extends procedimientosBD
 							<td data-title='Teléfono'>".$datos[$i]['TELEFONO']."</td>
 							<td>
 								<div class='button-wrapper'>
-									<button id=".$datos[$i]['ID']." onclick='ver_usuario(".$datos[$i]['ID'].")'><i class='far fa-eye'></i></button>
-									<button id=".$datos[$i]['ID']." onclick='editarUsuario(".$datos[$i]['ID'].")'><i class='fas fa-edit'></i></button>
-									<button id=".$datos[$i]['ID']." onclick='eliminar_usuario(".$datos[$i]['ID'].")'><i class='fas fa-trash-alt'></i></button>
+									<button id=".$datos[$i]['ID']." class='tooltip left' data-tooltip='Ver Usuario' onclick='ver_usuario(".$datos[$i]['ID'].")'><i class='far fa-eye'></i></button>
+									<button id=".$datos[$i]['ID']." class='tooltip left' data-tooltip='Editar Usuario' onclick='editarUsuario(".$datos[$i]['ID'].")'><i class='fas fa-edit'></i></button>
+									<button id=".$datos[$i]['ID']." class='tooltip left' data-tooltip='Eliminar Usuario' onclick='eliminar_usuario(".$datos[$i]['ID'].")'><i class='fas fa-trash-alt'></i></button>
 								</div>
 							</td>
 						</tr>
@@ -104,9 +104,9 @@ class Backend extends procedimientosBD
 							<td data-title='Teléfono'>".$datos[$i]['TELEFONO']."</td>
 							<td>
 								<div class='button-wrapper'>
-									<button id=".$datos[$i]['ID']." onclick='ver_usuario(".$datos[$i]['ID'].")'><i class='far fa-eye'></i></button>
-									<button id=".$datos[$i]['ID']." onclick='editarUsuario(".$datos[$i]['ID'].")'><i class='fas fa-edit'></i></button>
-									<button id=".$datos[$i]['ID']." onclick='eliminar_usuario(".$datos[$i]['ID'].")'><i class='fas fa-trash-alt'></i></button>
+									<button id=".$datos[$i]['ID']." class='tooltip left' data-tooltip='Ver Usuario' onclick='ver_usuario(".$datos[$i]['ID'].")'><i class='far fa-eye'></i></button>
+									<button id=".$datos[$i]['ID']." class='tooltip left' data-tooltip='Editar Usuario' onclick='editarUsuario(".$datos[$i]['ID'].")'><i class='fas fa-edit'></i></button>
+									<button id=".$datos[$i]['ID']." class='tooltip left' data-tooltip='Eliminar Usuario' onclick='eliminar_usuario(".$datos[$i]['ID'].")'><i class='fas fa-trash-alt'></i></button>
 								</div>
 							</td>
 						</tr>
@@ -185,9 +185,9 @@ class Backend extends procedimientosBD
                     			</div>
                   			</div>
                   			<div class="propietario-button">
-							  	<button id="'.$datos_e[$i]["ID"].'" onclick="verEmpresa('.$datos_e[$i]["ID"].')"><i class="far fa-eye"></i></button>
-								<button id="'.$datos_e[$i]["ID"].'" onclick="editarEmpresa('.$datos_e[$i]["ID"].')"><i class="fas fa-edit"></i></button>
-								<button id="'.$datos_e[$i]["ID"].'" onclick="eliminarEmpresa('.$datos_e[$i]["ID"].')"><i class="fas fa-trash-alt"></i></button>
+							  	<button id="'.$datos_e[$i]["ID"].'" class="tooltip left" data-tooltip="Ver Empresa" onclick="verEmpresa('.$datos_e[$i]["ID"].')"><i class="far fa-eye"></i></button>
+								<button id="'.$datos_e[$i]["ID"].'" class="tooltip left" data-tooltip="Editar Empresa"  onclick="editarEmpresa('.$datos_e[$i]["ID"].')"><i class="fas fa-edit"></i></button>
+								<button id="'.$datos_e[$i]["ID"].'" class="tooltip left" data-tooltip="Eliminar Empresa"  onclick="eliminarEmpresa('.$datos_e[$i]["ID"].')"><i class="fas fa-trash-alt"></i></button>
                   			</div>
                 		</div>
 					';
@@ -210,9 +210,9 @@ class Backend extends procedimientosBD
                     			</div>
                   			</div>
                   			<div class="propietario-button">
-							  	<button id="'.$datos_e[$i]["ID"].'" onclick="verEmpresa('.$datos_e[$i]["ID"].')"><i class="far fa-eye"></i></button>
-								<button id="'.$datos_e[$i]["ID"].'" onclick="editarEmpresa('.$datos_e[$i]["ID"].')"><i class="fas fa-edit"></i></button>
-								<button id="'.$datos_e[$i]["ID"].'" onclick="eliminarEmpresa('.$datos_e[$i]["ID"].')"><i class="fas fa-trash-alt"></i></button>
+							  	<button id="'.$datos_e[$i]["ID"].'" class="tooltip left" data-tooltip="Ver Empresa" onclick="verEmpresa('.$datos_e[$i]["ID"].')"><i class="far fa-eye"></i></button>
+								<button id="'.$datos_e[$i]["ID"].'" class="tooltip left" data-tooltip="Editar Empresa" onclick="editarEmpresa('.$datos_e[$i]["ID"].')"><i class="fas fa-edit"></i></button>
+								<button id="'.$datos_e[$i]["ID"].'" class="tooltip left" data-tooltip="Eliminar Empresa" onclick="eliminarEmpresa('.$datos_e[$i]["ID"].')"><i class="fas fa-trash-alt"></i></button>
                   			</div>
                 		</div>
 					';
