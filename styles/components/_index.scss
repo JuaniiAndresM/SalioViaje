@@ -122,7 +122,7 @@ $contraste_2: #ffffff;
 
   h2 {
     color: $contraste_1;
-    font-size: 2.3em;
+    font-size: 2em;
     text-align: center;
 
     span {
@@ -407,7 +407,11 @@ $contraste_2: #ffffff;
 
   h2 {
     color: $main_1;
-    font-size: 2.6em;
+    font-size: 2em;
+
+    #icon{
+      color: $contraste_1;
+    }
   }
   hr {
     width: 100px;

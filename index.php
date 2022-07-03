@@ -120,7 +120,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
     </div>
 
     <section class="servicios" id="Servicios">
-      <h2>Nuestros <span>Servicios</span></h2>
+      <h2><i class="fa-solid fa-book-atlas"></i> Nuestros <span>Servicios</span></h2>
       <hr id="hr" />
       <div class="servicios-wrapper">
         <div class="card">
@@ -278,7 +278,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
     </div>
 
     <section class="oportunidades" id="Oportunidades">
-      <h2>Oportunidades (<span id="contador-oportunidades"></span>)</h2>
+      <h2><i class="fa-solid fa-tags" id="icon"></i> Oportunidades (<span id="contador-oportunidades"></span>)</h2>
       <hr />
       <p class="description">
         Conseguí las mejores oportunidades con nosotros.
@@ -369,7 +369,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
     <section class="viajar-wrapper-index">
       <div class="salioviaje" id="Cotizacion">
           <h2>
-            Solicitar una Cotización
+          <i class="fa-solid fa-hand-holding-dollar" id="icon"></i> Solicitar una Cotización
           </h2>
           <hr />
           <p class="description">

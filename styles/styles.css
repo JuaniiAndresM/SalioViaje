@@ -133,7 +133,7 @@
 
 .servicios h2 {
   color: #333333;
-  font-size: 2.3em;
+  font-size: 2em;
   text-align: center;
 }
 
@@ -482,7 +482,11 @@
 
 .oportunidades h2 {
   color: #3844bc;
-  font-size: 2.6em;
+  font-size: 2em;
+}
+
+.oportunidades h2 #icon {
+  color: #333333;
 }
 
 .oportunidades hr {
@@ -7409,7 +7413,6 @@ footer .totum p a:hover {
 .panel .panel-tables .usuarios-recientes .search,
 .panel .panel-tables .usuarios-propietarios .search, .panel .panel-tables-2 .usuarios-recientes .search,
 .panel .panel-tables-2 .usuarios-propietarios .search {
-  margin-top: 20px;
   position: relative;
 }
 
@@ -8922,7 +8925,14 @@ footer .totum p a:hover {
 
 .sobre-nosotros, .sobre-nosotros-experiencias {
   margin-bottom: 30px;
-  margin-top: 40px;
+  margin-top: 80px;
+}
+
+.sobre-nosotros .title, .sobre-nosotros-experiencias .title {
+  font-size: 2.6em;
+  margin: 20px 10px;
+  text-align: center;
+  color: #2b3179;
 }
 
 .sobre-nosotros .nosotros-wrapper-grid, .sobre-nosotros-experiencias .nosotros-wrapper-grid {
@@ -9005,7 +9015,7 @@ footer .totum p a:hover {
 
 .sobre-nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info h2, .sobre-nosotros-experiencias .nosotros-wrapper-grid .nosotros-right .nosotros-info h2 {
   color: #333333;
-  font-size: 2.3em;
+  font-size: 2em;
 }
 
 .sobre-nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info h2 span, .sobre-nosotros-experiencias .nosotros-wrapper-grid .nosotros-right .nosotros-info h2 span {
@@ -9018,12 +9028,13 @@ footer .totum p a:hover {
   margin: 10px 0;
 }
 
-.sobre-nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info p, .sobre-nosotros-experiencias .nosotros-wrapper-grid .nosotros-right .nosotros-info p {
+.sobre-nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info h3, .sobre-nosotros-experiencias .nosotros-wrapper-grid .nosotros-right .nosotros-info h3 {
   color: #666;
-  font-size: 1.2em;
+  font-size: 1em;
   max-width: 630px;
   width: 100%;
   margin-bottom: 20px;
+  font-weight: 500;
 }
 
 .sobre-nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info .button-nosotros, .sobre-nosotros-experiencias .nosotros-wrapper-grid .nosotros-right .nosotros-info .button-nosotros {
@@ -9187,6 +9198,10 @@ footer .totum p a:hover {
 .Cotizaciones-section h1 {
   color: #3844bc;
   font-size: 2em;
+}
+
+.Cotizaciones-section h1 #icon {
+  color: #333333;
 }
 
 .Cotizaciones-section hr {
@@ -9655,6 +9670,14 @@ footer .totum p a:hover {
 .viajar-wrapper-index .salioviaje h2 {
   color: #3844bc;
   font-size: 2em;
+}
+
+.viajar-wrapper .oportunidades-viajar h2 #icon,
+.viajar-wrapper .ofertas-viajar h2 #icon,
+.viajar-wrapper .salioviaje h2 #icon, .viajar-wrapper-index .oportunidades-viajar h2 #icon,
+.viajar-wrapper-index .ofertas-viajar h2 #icon,
+.viajar-wrapper-index .salioviaje h2 #icon {
+  color: #333333;
 }
 
 .viajar-wrapper .oportunidades-viajar hr,
@@ -17960,6 +17983,10 @@ footer .totum p a:hover {
 }
 
 .faq h1 span {
+  color: #333333;
+}
+
+.faq h1 #icon {
   color: #333333;
 }
 
