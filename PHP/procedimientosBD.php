@@ -1662,10 +1662,27 @@ class procedimientosBD
         session_start();
         $id_usuario = $_SESSION['datos_usuario']['ID'];
         $conn = $this->conexion();
-        $query = "UPDATE usuarios SET Direccion = $direccion, Barrio = $barrio, Departamento = $localidad WHERE ID = $id_usuario;";
+        $query = "UPDATE `usuarios` SET `Direccion` = '$direccion', `Barrio` = '$barrio', `Departamento` = '$localidad' WHERE ID = $id_usuario;";
         $stmt = $conn->prepare($query);
         $stmt->execute();
         echo $stmt->error;
         $stmt->close();
+    }
+
+    public function tabla_viajes_mtop(){
+        $viajes_mtop = array();
+        $conn = $this->conexion();
+        $query = "SELECT idViaje,idTransportista FROM `viajes` where ESTADO_MTOP != 0 ";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($id_viaje, $idTransportista);
+            while ($stmt->fetch()) {
+                $result = array("ID_VIAJE" => $id_viaje, "ID_TRANSPORTISTA" => $idTransportista);
+                $viajes_mtop[] = $result;
+            }
+        }
+        $stmt->close();
+        return json_encode($viajes_mtop);
     }
 }

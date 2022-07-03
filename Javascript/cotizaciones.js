@@ -253,7 +253,7 @@ function presentarCotizacion(id_viaje_cotizado, id_tta) {
          console.log(response)
       },
       complete: function () {
-         location.href = "https://www.salioviaje.com.uy/Panel/Success.html";
+         location.href = "https://www.salioviaje.com.uy/Panel/Success/Cotizacion";
       }
    });
 }
@@ -392,6 +392,8 @@ function copiar_solicitud(id_solicitud) {
       }
   });
 }
+
+
 /*
 
 1) moroso (no paga)

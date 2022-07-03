@@ -701,7 +701,7 @@ function registro_tramos_vinculados() {
             console.log(response)
         },
         complete: function () {
-            window.location = "https://www.salioviaje.com.uy/Panel/Success_Agenda";
+            window.location = "https://www.salioviaje.com.uy/Panel/Success/Agenda";
         }
     });
 

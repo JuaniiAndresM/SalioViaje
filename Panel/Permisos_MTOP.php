@@ -12,10 +12,8 @@ session_set_cookie_params($ttl);
       }
   }
 
-  $cotizaciones = new procedimientosBD();
-
-  $usuarios = $cotizaciones->datos_usuarios();
-  $cotizaciones = json_decode($cotizaciones->traer_viajes_cotizando_panel_admin(),true);
+  $viajes_mtop = new procedimientosBD();
+  $viajes = json_decode($viajes_mtop->tabla_viajes_mtop(),true);
 
 
 ?>
@@ -176,20 +174,28 @@ session_set_cookie_params($ttl);
                 </tr>
               </thead>
               <tbody id="tbody">
-                <tr>
-                    <td>001</td>
-                    <td>001</td>
-                    <td>
-                        <a href="https://www.salioviaje.com.uy/" target="_blank">https://salioviaje.com.uy/</a>
-                    </td>
-                    <td>
-                    <select class="select-estado" id="estado-mtop-001">
-                        <option value="0" disabled selected>Seleccione un Estado</option> 
-                        <option value="1">Aprobado</option>
-                        <option value="2">Rechazado</option>
-                    </select>
-                    </td>
-                </tr>
+                <?php 
+                if (isset($viajes)) {
+                  for ($i=0; $i < count($viajes); $i++) { 
+                    ?>
+                    <tr>
+                      <td><?php echo $viajes[$i]['ID_VIAJE']; ?></td>
+                      <td><?php echo $viajes[$i]['ID_TRANSPORTISTA']; ?></td>
+                      <td>
+                          <a href="https://www.salioviaje.com.uy/" target="_blank">https://salioviaje.com.uy/</a>
+                      </td>
+                      <td>
+                      <select class="select-estado" onclick="estadoMTOP(<?php echo $viajes[$i]['ID_VIAJE']; ?>)">
+                          <option value="0" disabled selected>Seleccione un Estado</option> 
+                          <option value="1">Aprobado</option>
+                          <option value="2">Rechazado</option>
+                      </select>
+                      </td>
+                    </tr>
+                    <?php
+                  }
+                }
+                ?>
               </tbody>
             </table>
 

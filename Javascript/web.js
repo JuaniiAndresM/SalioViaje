@@ -339,7 +339,7 @@ function filtrar_divs(tipo) {
  }
 
 
-let mensajeSuccess = (messageType) =>{
+let mensajeSuccess = (messageType) => {
     const paragraph = document.querySelector(`.msg-success`);
     if(messageType = `Cotizacion`){
         paragraph.textContent = `El viaje ha sido cotizado correctamente.`;

@@ -631,7 +631,7 @@ function finalizar(enviar_solicitud, modal, domicilio) {
                                         });
                                     }, 1000);
                                 } else {
-                                    var info = [datos_fiestaseventos_idavuelta['DIRECCION_DESTINO'], datos_fiestaseventos_idavuelta['BARRIO_DESTINO'], datos_fiestaseventos_idavuelta['LOCALIDAD_DESTINO']]
+                                    var info = [datos_fiestaseventos_idavuelta['DIRECCION_ORIGEN'], datos_fiestaseventos_idavuelta['BARRIO_ORIGEN'], datos_fiestaseventos_idavuelta['LOCALIDAD_ORIGEN']]
                                     $.ajax({
                                         type: "POST",
                                         url: "https://www.salioviaje.com.uy/Panel/modal.php",
@@ -662,6 +662,7 @@ function finalizar(enviar_solicitud, modal, domicilio) {
 }
 
 function actualizar_direccion_usuario(direccion,barrio,localidad){
+    console.log(direccion+"  "+barrio+"  "+localidad)
     $.ajax({
         type: "POST",
         url: "/PHP/procedimientosForm.php",
@@ -741,15 +742,14 @@ function restarHoras(inicio, fin) {
     if (horas.length < 2) {
         horas = "0" + horas;
     }
-
-    console.log(parseInt(horas));
+    
     return parseInt(horas);
 
 
 }
 
 function verificar_largo_fiesta() {
-    if (restarHoras($('#hora_ida_fiestas_idavuelta').val(), $('#hora_vuelta_fiestas_idavuelta').val()) <= -6) {
+    if (restarHoras($('#hora_ida_fiestas_idavuelta').val(), $('#hora_vuelta_fiestas_idavuelta').val()) <= -6 || restarHoras($('#hora_ida_fiestas_idavuelta').val(), $('#hora_vuelta_fiestas_idavuelta').val()) >= 6) {
         $('.mensaje-error').html("El evento por el que estas consultando tiene una duracion superior a las 6h quieres continuar?");
         $('.mensaje-error').css('color', 'rgb(255, 211, 91)');
         $('.mensaje-error').show();
@@ -1472,6 +1472,7 @@ const transportistasAptos = (datos_filtros, fiesta_ida_vuelta) => {
         data: { data: JSON.stringify(datos_filtros) , fiesta_ida_vuelta: fiesta_ida_vuelta},
         success: function (response) {
             var transportistas = JSON.parse(response)
+            console.log(transportistas)
             enviarMailsTransportistas(transportistas)
         }
     });
