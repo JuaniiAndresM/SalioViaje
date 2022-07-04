@@ -37,8 +37,8 @@ for ($i=0; $i < count($datos); $i++) {
                       <td>'.$datos[$i]['ESTADO'].'</td>
                       <td>
                           <div class="button-wrapper">
-                              <button class="button" onclick="editar_oportunidad('.$datos[$i]['ID'].')"><i class="fas fa-pen"></i></button>
-                              <button class="button" onclick="eliminar_oportunidad('.$datos[$i]['ID'].')"><i class="fas fa-trash-alt"></i></button>
+                              <button class="button tooltip left" data-tooltip="Editar Oportunidad" onclick="editar_oportunidad('.$datos[$i]['ID'].')"><i class="fas fa-pen"></i></button>
+                              <button class="button tooltip left" data-tooltip="Eliminar Oportunidad" onclick="eliminar_oportunidad('.$datos[$i]['ID'].')"><i class="fas fa-trash-alt"></i></button>
                           </div>
                         </td>
                   </tr> 
@@ -65,8 +65,8 @@ for ($i=0; $i < count($datos); $i++) {
                       <td>'.$datos[$i]['ESTADO'].'</td>
                       <td>
                           <div class="button-wrapper">
-                              <button class="button" onclick="editar_oportunidad('.$datos[$i]['ID'].')"><i class="fas fa-pen"></i></button>
-                              <button class="button" onclick="eliminar_oportunidad('.$datos[$i]['ID'].')"><i class="fas fa-trash-alt"></i></button>
+                              <button class="button tooltip left" data-tooltip="Editar Oportunidad" onclick="editar_oportunidad('.$datos[$i]['ID'].')"><i class="fas fa-pen"></i></button>
+                              <button class="button tooltip left" data-tooltip="Eliminar Oportunidad" onclick="eliminar_oportunidad('.$datos[$i]['ID'].')"><i class="fas fa-trash-alt"></i></button>
                           </div>
                         </td>
                   </tr>
@@ -93,8 +93,8 @@ for ($i=0; $i < count($datos2); $i++) {
                       <td>'.$datos2[$i]['ESTADO'].'</td>
                       <td>
                           <div class="button-wrapper">
-                              <button class="button" onclick="editar_oportunidad('.$datos2[$i]['ID'].')"><i class="fas fa-pen"></i></button>
-                              <button class="button" onclick="eliminar_oportunidad('.$datos2[$i]['ID'].')"><i class="fas fa-trash-alt"></i></button>
+                              <button class="button tooltip left" data-tooltip="Editar Oportunidad" onclick="editar_oportunidad('.$datos2[$i]['ID'].')"><i class="fas fa-pen"></i></button>
+                              <button class="button tooltip left" data-tooltip="Eliminar Oportunidad" onclick="eliminar_oportunidad('.$datos2[$i]['ID'].')"><i class="fas fa-trash-alt"></i></button>
                           </div>
                         </td>
                   </tr>
@@ -115,8 +115,8 @@ for ($i=0; $i < count($datos2); $i++) {
                       <td>'.$datos2[$i]['ESTADO'].'</td>
                       <td>
                           <div class="button-wrapper">
-                              <button class="button" onclick="editar_oportunidad('.$datos2[$i]['ID'].')"><i class="fas fa-pen"></i></button>
-                              <button class="button" onclick="eliminar_oportunidad('.$datos2[$i]['ID'].')"><i class="fas fa-trash-alt"></i></button>
+                              <button class="button tooltip left" data-tooltip="Editar Oportunidad" onclick="editar_oportunidad('.$datos2[$i]['ID'].')"><i class="fas fa-pen"></i></button>
+                              <button class="button tooltip left" data-tooltip="Eliminar Oportunidad" onclick="eliminar_oportunidad('.$datos2[$i]['ID'].')"><i class="fas fa-trash-alt"></i></button>
                           </div>
                         </td>
                   </tr>

@@ -12,7 +12,10 @@
       href="media/svg/Favicon-SalioViaje.svg"
       type="image/x-icon"
     />
-    <link rel="stylesheet" href="https://www.salioviaje.com.uy/styles/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://www.salioviaje.com.uy/styles/styles.min.css"
+    />
 
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -25,7 +28,6 @@
     <script src="functionsJS.js"></script>
   </head>
   <body>
-
     <div id="header"></div>
 
     <section class="t2voice">
@@ -35,17 +37,31 @@
         </h2>
         <div class="input">
           <i id="icon" class="fas fa-phone"></i>
-          <input id="user" type="text" maxlength="9" placeholder="Usuario" value="salioviaje"/>
-          <input id="pwd" type="text" maxlength="9" placeholder="Contra" value="salio2021"/>
+          <input
+            id="user"
+            type="text"
+            maxlength="9"
+            placeholder="Usuario"
+            value="salioviaje"
+          />
+          <input
+            id="pwd"
+            type="text"
+            maxlength="9"
+            placeholder="Contra"
+            value="salio2021"
+          />
         </div>
         <button id="send_call"><i class="fas fa-sms"></i> Lllamar</button>
         <button id="watch_call"><i class="fas fa-sms"></i> Ver llamda</button>
         <button id="send_SMS"><i class="fas fa-sms"></i> SMS</button>
-        <button id="response_SMS"><i class="fas fa-sms"></i> Respuesta SMS</button>
+        <button id="response_SMS">
+          <i class="fas fa-sms"></i> Respuesta SMS
+        </button>
         <button id="watch_SMS"><i class="fas fa-sms"></i> Estado SMS</button>
       </div>
     </section>
-    
+
     <div id="footer"></div>
   </body>
 </html>

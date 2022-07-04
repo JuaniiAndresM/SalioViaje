@@ -70,7 +70,7 @@
 
     <!-- Links -->
     <link rel="shortcut icon" href="https://www.salioviaje.com.uy/media/svg/Favicon-SalioViaje.svg" type="image/x-icon">
-    <link rel="stylesheet" href="https://www.salioviaje.com.uy/styles/styles.css">
+    <link rel="stylesheet" href="https://www.salioviaje.com.uy/styles/styles.min.css">
 
     <!-- Scripts -->
     <script src="https://kit.fontawesome.com/1e193e3a23.js" crossorigin="anonymous"></script>    

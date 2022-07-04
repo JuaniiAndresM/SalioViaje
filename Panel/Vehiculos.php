@@ -91,7 +91,7 @@ if (!isset($_SESSION['usuario'])) {
       href="https://www.salioviaje.com.uy/media/svg/Favicon-SalioViaje.svg"
       type="image/x-icon"
     />
-    <link rel="stylesheet" href="https://www.salioviaje.com.uy/styles/styles.css" />
+    <link rel="stylesheet" href="https://www.salioviaje.com.uy/styles/styles.min.css" />
 
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -242,7 +242,7 @@ if ($_SESSION['tipo_usuario'] != "Administrador" && $_SESSION['tipo_usuario'] !=
                     <td>' . $pet_friendly . '</td>
                     <td>
                       <div class="button-wrapper">
-                        <button class="button" onclick="preferenciasVehiculos('.$vehiculos[$a]['ID'].',1,\''.$vehiculos[$a]['MATRICULA'].'\')"><i class="fa-solid fa-gear"></i></button>
+                        <button class="button tooltip left" data-tooltip="Preferencias" onclick="preferenciasVehiculos('.$vehiculos[$a]['ID'].',1,\''.$vehiculos[$a]['MATRICULA'].'\')"><i class="fa-solid fa-gear"></i></button>
                       </div>
                     </td>
                   </tr>';
@@ -271,7 +271,7 @@ if ($_SESSION['tipo_usuario'] != "Administrador" && $_SESSION['tipo_usuario'] !=
                   <td>' . $pet_friendly . '</td>
                   <td>
                     <div class="button-wrapper">
-                      <button class="button" onclick="preferenciasVehiculos('.$vehiculos_chofer[$a]['ID'].',1,\''.$vehiculos_chofer[$a]['MATRICULA'].'\')"><i class="fa-solid fa-gear"></i></button>
+                      <button class="button tooltip left" data-tooltip="Preferencias" onclick="preferenciasVehiculos('.$vehiculos_chofer[$a]['ID'].',1,\''.$vehiculos_chofer[$a]['MATRICULA'].'\')"><i class="fa-solid fa-gear"></i></button>
                     </div>
                   </td>
                 </tr>';

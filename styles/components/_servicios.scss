@@ -13,6 +13,10 @@
   h1 {
     color: $main_1;
     font-size: 2em;
+
+    #icon{
+      color: $contraste_1;
+    }
   }
   hr {
     width: 100px;

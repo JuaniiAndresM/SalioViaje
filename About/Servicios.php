@@ -53,7 +53,7 @@ for($a = 0; $a < count($cotizaciones); $a++){
 
     <!-- Links -->
     <link rel="shortcut icon" href="https://www.salioviaje.com.uy/media/svg/Favicon-SalioViaje.svg" type="image/x-icon">
-    <link rel="stylesheet" href="https://www.salioviaje.com.uy/styles/styles.css">
+    <link rel="stylesheet" href="https://www.salioviaje.com.uy/styles/styles.min.css">
     <link rel="publisher" href="https://www.salioviaje.com.uy" />  
     <link rel="canonical" href="https://www.salioviaje.com.uy"/>  
     
@@ -86,7 +86,7 @@ for($a = 0; $a < count($cotizaciones); $a++){
       
     <section class="Cotizaciones-section" id="Cotizaciones">
       <h1>
-        Central de Cotizaciones (<?php echo $contador_cotizaciones; ?>)
+        <i class="fa-solid fa-hand-holding-dollar" id="icon"></i> Central de Cotizaciones (<?php echo $contador_cotizaciones; ?>)
       </h1>
       <hr />
       <h2 class="description">

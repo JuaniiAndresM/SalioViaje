@@ -79,7 +79,7 @@ $COTIZACIONES = json_decode($BD->traer_cotizaciones_presentadas_por_id_tta($_SES
       href="https://www.salioviaje.com.uy/media/svg/Favicon-SalioViaje.svg"
       type="image/x-icon"
     />
-    <link rel="stylesheet" href="https://www.salioviaje.com.uy/styles/styles.css" />
+    <link rel="stylesheet" href="https://www.salioviaje.com.uy/styles/styles.min.css" />
 
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -198,7 +198,7 @@ $COTIZACIONES = json_decode($BD->traer_cotizaciones_presentadas_por_id_tta($_SES
                   <td><?php echo $COTIZACIONES[$i]['SENIA']; ?></td>
                   <td>
                     <div class="button-wrapper">
-                      <button class="button"><i class="fas fa-ban"></i></button>
+                      <button class="button tooltip left" data-tooltip="Rechazar Cotización"><i class="fas fa-ban"></i></button>
                   </td>
                 </tr>
                 <?php

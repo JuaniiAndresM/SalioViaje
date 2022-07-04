@@ -47,14 +47,13 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
     <!-- Links -->
     <link rel="shortcut icon" href="https://www.salioviaje.com.uy/media/svg/Favicon-SalioViaje.svg" type="image/x-icon">
-    <link rel="stylesheet" href="https://www.salioviaje.com.uy/styles/styles.css">
+    <link rel="stylesheet" href="https://www.salioviaje.com.uy/styles/styles.min.css">
     <link rel="publisher" href="https://www.salioviaje.com.uy" />  
     <link rel="canonical" href="https://www.salioviaje.com.uy"/>  
     
     <!-- Scripts -->
     <script src="https://kit.fontawesome.com/1e193e3a23.js" crossorigin="anonymous"></script>    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://www.salioviaje.com.uy/Javascript/web.js"></script>
     <script src="https://www.salioviaje.com.uy/Javascript/web.js"></script>
     <script src="https://www.salioviaje.com.uy/Javascript/viajar.js"></script>
     
@@ -93,7 +92,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
       <h1 class="title">¡No se pierda nuestras ofertas y oportunidades!</h1>
       <section class="oportunidades-viajar">
         <h2>
-          Oportunidades (<span id="contador-oportunidades"></span>)
+        <i class="fa-solid fa-tags" id="icon"></i> Oportunidades (<span id="contador-oportunidades"></span>)
         </h2>
         <hr />
         <h3 class="description">
@@ -149,7 +148,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
       </section>
       <section class="ofertas-viajar">
         <h2>
-          Ofertas (0)
+          <i class="fa-solid fa-percent" id="icon"></i> Ofertas (0)
         </h2>
         <hr />
         <h3 class="description">Conseguí las mejores ofertas con nosotros.</h3>
@@ -252,7 +251,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
       <section class="salioviaje" id="Cotizacion">
         <h2>
-          Solicitar una Cotización
+        <i class="fa-solid fa-hand-holding-dollar" id="icon"></i> Solicitar una Cotización
         </h2>
         <hr />
         <h3 class="description">

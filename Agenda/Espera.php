@@ -76,7 +76,7 @@ session_set_cookie_params($ttl);
       href="https://www.salioviaje.com.uy/media/svg/Favicon-SalioViaje.svg"
       type="image/x-icon"
     />
-    <link rel="stylesheet" href="https://www.salioviaje.com.uy/styles/styles.css" />
+    <link rel="stylesheet" href="https://www.salioviaje.com.uy/styles/styles.min.css" />
 
     <!-- Scripts -->
     <script

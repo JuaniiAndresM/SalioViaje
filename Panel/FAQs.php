@@ -71,7 +71,7 @@ session_set_cookie_params($ttl);
       href="https://www.salioviaje.com.uy/media/svg/Favicon-SalioViaje.svg"
       type="image/x-icon"
     />
-    <link rel="stylesheet" href="https://www.salioviaje.com.uy/styles/styles.css" />
+    <link rel="stylesheet" href="https://www.salioviaje.com.uy/styles/styles.min.css" />
 
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -124,7 +124,7 @@ session_set_cookie_params($ttl);
     <nav class="nav-hidden active" id="panel-navbar"></nav>
     <section class="panel" id="panel">
       <section class="faq">
-        <h1>Preguntas <span>Frecuentes (FAQs)</span></h1>
+        <h1><i class="fa-solid fa-person-circle-question" id="icon"></i> Preguntas <span>Frecuentes (FAQs)</span></h1>
         <h2>
           Si nos falta su respuesta, no dude en consultarnos, en menos de 24hs
           tendrá respuesta

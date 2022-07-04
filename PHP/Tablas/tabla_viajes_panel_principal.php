@@ -72,19 +72,19 @@ for ($i = 0; $i < count($oportunidades); $i++) {
         switch ($estado_mtop) {
             //amarillo
             case 1:
-                $button_mtop = "<div class='tooltip'><button class='amarillo'><i class='fas fa-file-contract'></i></button><span class='tooltiptext'>Permiso MTOP en proceso.</span></div>";
+                $button_mtop = "<button class='amarillo tooltip left' data-tooltip='Permiso MTOP en Proceso'><i class='fas fa-file-contract'></i></button>";
                 break;
             //rojo
             case 2:
-                $button_mtop = "<div class='tooltip'><button class='rojo'><i class='fas fa-file-contract'></i></button><span class='tooltiptext'>Permiso MTOP rechazado.</span></div>";
+                $button_mtop = "<button class='rojo tooltip left' data-tooltip='Permiso MTOP Rechazado'><i class='fas fa-file-contract'></i></button>";
                 break;
             //verde
             case 3:
-                $button_mtop = "<div class='tooltip'><button class='verde'><i class='fas fa-file-contract'></i></button><span class='tooltiptext'>Permiso MTOP realizado con exito.</span></div>";
+                $button_mtop = "<button class='verde tooltip left' data-tooltip='Permiso MTOP Realizado con Exito'><i class='fas fa-file-contract'></i></button>";
                 break;
             //azul
             default:
-                $button_mtop = "<div class='tooltip'><button class='button' onclick='mtop_viaje(" . $datos_mtop . ")'><i class='fas fa-file-contract'></i></button><span class='tooltiptext'>Permiso MTOP</span></div>";
+                $button_mtop = "<button class='button tooltip left' data-tooltip='Permiso MTOP' onclick='mtop_viaje(" . $datos_mtop . ")'><i class='fas fa-file-contract'></i></button>";
                 break;
         }
     } else {
@@ -92,7 +92,7 @@ for ($i = 0; $i < count($oportunidades); $i++) {
     }
 
     if ($id_tramo_vinculado == "") {
-        $button_crear_oportunidad = "<div class='tooltip'><button class='button' onclick='crear_oportunidad(" . $oportunidades[$i]['ID'] . ")'><i class='fas fa-plus' aria-hidden='true'></i></button><span class='tooltiptext'>Crear una oportunidad para este viaje.</span></div>";
+        $button_crear_oportunidad = "<button class='button tooltip left' data-tooltip='Crear Oportunidad' onclick='crear_oportunidad(" . $oportunidades[$i]['ID'] . ")'><i class='fas fa-plus' aria-hidden='true'></i></button>";
     } else {
         $button_crear_oportunidad = " ";
     }
@@ -113,8 +113,8 @@ for ($i = 0; $i < count($oportunidades); $i++) {
                     <td>
                         <div class="button-wrapper">
                         ' . $button_crear_oportunidad . $button_mtop . '
-                          <button class="button" onclick="abrir_editar_oportunidad(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-edit"></i></button>
-                          <button class="button" onclick="eliminar_viajes(' . $oportunidades[$i]['ID'] . ',1)"><i class="fas fa-trash-alt"></i></button>
+                          <button class="button tooltip left" data-tooltip="Editar Oportunidad" onclick="abrir_editar_oportunidad(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-edit"></i></button>
+                          <button class="button tooltip left" data-tooltip="Eliminar Oportunidad" onclick="eliminar_viajes(' . $oportunidades[$i]['ID'] . ',1)"><i class="fas fa-trash-alt"></i></button>
                         </div>
                       </td>
                 </tr>
@@ -131,7 +131,7 @@ for ($i = 0; $i < count($oportunidades); $i++) {
                     <td>
                         <div class="button-wrapper">
                         ' . $button_crear_oportunidad . $button_mtop . '
-                          <button class="button" onclick="eliminar_viajes(' . $oportunidades[$i]['ID'] . ',1)"><i class="fas fa-trash-alt"></i></button>
+                          <button class="button tooltip left" data-tooltip="Eliminar Oportunidad" onclick="eliminar_viajes(' . $oportunidades[$i]['ID'] . ',1)"><i class="fas fa-trash-alt"></i></button>
                         </div>
                       </td>
                 </tr>
@@ -169,8 +169,8 @@ for ($i = 0; $i < count($oportunidades); $i++) {
                     <td>
                         <div class="button-wrapper">
                         ' . $button_crear_oportunidad . $button_mtop . '
-                          <button class="button" onclick="abrir_editar_oportunidad(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-edit"></i></button>
-                          <button class="button" onclick="eliminar_viajes(' . $oportunidades[$i]['ID'] . ',1)"><i class="fas fa-trash-alt"></i></button>
+                          <button class="button tooltip left" data-tooltip="Editar Oportunidad" onclick="abrir_editar_oportunidad(' . $oportunidades[$i]['ID'] . ')"><i class="fas fa-edit"></i></button>
+                          <button class="button tooltip left" data-tooltip="Eliminar Oportunidad" onclick="eliminar_viajes(' . $oportunidades[$i]['ID'] . ',1)"><i class="fas fa-trash-alt"></i></button>
                         </div>
                       </td>
                 </tr>
@@ -187,7 +187,7 @@ for ($i = 0; $i < count($oportunidades); $i++) {
                 <td>
                     <div class="button-wrapper">
                     ' . $button_crear_oportunidad . $button_mtop . '
-                      <button class="button" onclick="eliminar_viajes(' . $oportunidades[$i]['ID'] . ',1)"><i class="fas fa-trash-alt"></i></button>
+                      <button class="button tooltip left" data-tooltip="Eliminar Oportunidad" onclick="eliminar_viajes(' . $oportunidades[$i]['ID'] . ',1)"><i class="fas fa-trash-alt"></i></button>
                     </div>
                   </td>
             </tr>
@@ -238,7 +238,7 @@ for ($i = 0; $i < count($oportunidades); $i++) {
     }
 
     if ($id_tramo_vinculado == "") {
-        $button_crear_oportunidad = "<div class='tooltip'><button class='button' onclick='crear_oportunidad(" . $oportunidades[$i]['ID'] . ")'><i class='fas fa-plus' aria-hidden='true'></i></button><span class='tooltiptext'>Crear una oportunidad para este viaje.</span></div>";
+        $button_crear_oportunidad = "<button class='button tooltip left' data-tooltip='Cear Oportunidad' onclick='crear_oportunidad(" . $oportunidades[$i]['ID'] . ")'><i class='fas fa-plus' aria-hidden='true'></i></button>";
     } else {
         $button_crear_oportunidad = " ";
     }
@@ -268,19 +268,19 @@ for ($i = 0; $i < count($oportunidades); $i++) {
         switch ($estado_mtop) {
             //amarillo
             case 1:
-                $button_mtop = "<div class='tooltip'><button class='amarillo'><i class='fas fa-file-contract'></i></button><span class='tooltiptext'>Permiso MTOP en proceso.</span></div>";
+                $button_mtop = "<button class='amarillo tooltip left' data-tooltip='Permiso MTOP en Proceso'><i class='fas fa-file-contract'></i></button>";
                 break;
             //rojo
             case 2:
-                $button_mtop = "<div class='tooltip'><button class='rojo'><i class='fas fa-file-contract'></i></button><span class='tooltiptext'>Permiso MTOP rechazado.</span></div>";
+                $button_mtop = "<button class='rojo tooltip left' data-tooltip='Permiso MTOP Rechazado'><i class='fas fa-file-contract'></i></button>";
                 break;
             //verde
             case 3:
-                $button_mtop = "<div class='tooltip'><button class='verde'><i class='fas fa-file-contract'></i></button><span class='tooltiptext'>Permiso MTOP realizado con exito.</span></div>";
+                $button_mtop = "<button class='verde tooltip left' data-tooltip='Permiso MTOP Realizado con Exito'><i class='fas fa-file-contract'></i></button>";
                 break;
             //azul
             default:
-                $button_mtop = "<div class='tooltip'><button class='button' onclick='mtop_viaje(" . $datos_mtop . ",". $oportunidades[$i]['ID'] .")'><i class='fas fa-file-contract'></i></button><span class='tooltiptext'>Permiso MTOP</span></div>";
+                $button_mtop = "<button class='button tooltip left' data-tooltip='Permiso MTOP' onclick='mtop_viaje(" . $datos_mtop . ",". $oportunidades[$i]['ID'] .")'><i class='fas fa-file-contract'></i></button>";
                 break;
         }
     } else {
@@ -300,7 +300,7 @@ for ($i = 0; $i < count($oportunidades); $i++) {
                   <td>
                       <div class="button-wrapper">
                       ' . $button_crear_oportunidad . $button_mtop . '
-                          <button class="button" onclick="eliminar_viajes(' . $oportunidades[$i]['ID'] . ',1)"><i class="fas fa-trash-alt"></i></button>
+                          <button class="button tooltip left" data-tooltip="Eliminar Viaje" onclick="eliminar_viajes(' . $oportunidades[$i]['ID'] . ',1)"><i class="fas fa-trash-alt"></i></button>
                       </div>
                     </td>
               </tr>
@@ -317,7 +317,7 @@ for ($i = 0; $i < count($oportunidades); $i++) {
                   <td>
                       <div class="button-wrapper">
                       ' . $button_crear_oportunidad . $button_mtop . '
-                          <button class="button" onclick="eliminar_viajes(' . $oportunidades[$i]['ID'] . ',1)"><i class="fas fa-trash-alt"></i></button>
+                          <button class="button tooltip left" data-tooltip="Eliminar Viaje" onclick="eliminar_viajes(' . $oportunidades[$i]['ID'] . ',1)"><i class="fas fa-trash-alt"></i></button>
                       </div>
                     </td>
               </tr>
@@ -351,8 +351,8 @@ if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "PAX") {
                         <td data-title="Precio">' . $datos2[$i]['PRECIO'] . '</td>
                         <td data-title="Contacto">
                             <div class="button-wrapper">
-                                <button class="button" onclick="modal_contacto(\'' . $datos2[$i]['NOMBRE'] . '\',' . $datos2[$i]['TELEFONO'] . ')"><i class="fa-solid fa-address-card"></i></button>
-                                <button class="button" onclick="copiar_solicitud(' . $datos2[$i]['ID_SOLICITUD'] . ',1)"><i class="fa-solid fa-copy"></i></button>
+                                <button class="button tooltip left" data-tooltip="Contacto Transportista" onclick="modal_contacto(\'' . $datos2[$i]['NOMBRE'] . '\',' . $datos2[$i]['TELEFONO'] . ')"><i class="fa-solid fa-address-card"></i></button>
+                                <button class="button tooltip left" data-tooltip="Copiar Viaje" onclick="copiar_solicitud(' . $datos2[$i]['ID_SOLICITUD'] . ',1)"><i class="fa-solid fa-copy"></i></button>
                             </div>
                         </td>
                     </tr>
@@ -371,8 +371,8 @@ if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "PAX") {
                         <td data-title="Precio">' . $datos2[$i]['PRECIO'] . '</td>
                         <td data-title="Contacto">
                             <div class="button-wrapper">
-                                <button class="button" onclick="modal_contacto(\'' . $datos2[$i]['NOMBRE'] . '\',' . $datos2[$i]['TELEFONO'] . ')"><i class="fa-solid fa-address-card"></i></button>
-                                <button class="button" onclick="copiar_solicitud(' . $datos2[$i]['ID_SOLICITUD'] . ',1)"><i class="fa-solid fa-copy"></i></button>
+                                <button class="button tooltip left" data-tooltip="Contacto Transportista" onclick="modal_contacto(\'' . $datos2[$i]['NOMBRE'] . '\',' . $datos2[$i]['TELEFONO'] . ')"><i class="fa-solid fa-address-card"></i></button>
+                                <button class="button tooltip left" data-tooltip="Copiar Viaje" onclick="copiar_solicitud(' . $datos2[$i]['ID_SOLICITUD'] . ',1)"><i class="fa-solid fa-copy"></i></button>
                             </div>
                         </td>
                     </tr>
@@ -393,7 +393,7 @@ if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "PAX") {
                         <td data-title="Precio">' . $datos2[$i]['PRECIO'] . '</td>
                         <td data-title="Contacto">
                             <div class="button-wrapper">
-                                <button class="button" onclick="modal_contacto(\'' . $datos2[$i]['NOMBRE'] . '\',' . $datos2[$i]['TELEFONO'] . ')"><i class="fa-solid fa-address-card"></i></button>
+                                <button class="button tooltip left" data-tooltip="Contacto Transportista" onclick="modal_contacto(\'' . $datos2[$i]['NOMBRE'] . '\',' . $datos2[$i]['TELEFONO'] . ')"><i class="fa-solid fa-address-card"></i></button>
                             </div>
                         </td>
                     </tr>
@@ -412,7 +412,7 @@ if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "PAX") {
                         <td data-title="Precio">' . $datos2[$i]['PRECIO'] . '</td>
                         <td data-title="Contacto">
                             <div class="button-wrapper">
-                                <button class="button" onclick="modal_contacto(\'' . $datos2[$i]['NOMBRE'] . '\',' . $datos2[$i]['TELEFONO'] . ')"><i class="fa-solid fa-address-card"></i></button>
+                                <button class="button tooltip left" data-tooltip="Contacto Transportista" onclick="modal_contacto(\'' . $datos2[$i]['NOMBRE'] . '\',' . $datos2[$i]['TELEFONO'] . ')"><i class="fa-solid fa-address-card"></i></button>
                             </div>
                         </td>
                     </tr>
@@ -442,7 +442,7 @@ if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "PAX") {
                 <td data-title="Precio">' . $oportunidades[$i]['PRECIO'] . '</td>
                 <td data-title="Contacto">
                     <div class="button-wrapper">
-                        <button class="button" onclick="modal_contacto(\'' . $oportunidades[$i]['NOMBRE'] . '\',' . $oportunidades[$i]['TELEFONO'] . ')"><i class="fa-solid fa-address-card"></i></button>
+                        <button class="button tooltip left" data-tooltip="Contacto Transportista" onclick="modal_contacto(\'' . $oportunidades[$i]['NOMBRE'] . '\',' . $oportunidades[$i]['TELEFONO'] . ')"><i class="fa-solid fa-address-card"></i></button>
                     </div>
                 </td>
             </tr>
@@ -461,7 +461,7 @@ if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "PAX") {
                 <td data-title="Precio">' . $oportunidades[$i]['PRECIO'] . '</td>
                 <td data-title="Contacto">
                     <div class="button-wrapper">
-                        <button class="button" onclick="modal_contacto(\'' . $oportunidades[$i]['NOMBRE'] . '\',' . $oportunidades[$i]['TELEFONO'] . ')"><i class="fa-solid fa-address-card"></i></button>
+                        <button class="button tooltip left" data-tooltip="Contacto Transportista" onclick="modal_contacto(\'' . $oportunidades[$i]['NOMBRE'] . '\',' . $oportunidades[$i]['TELEFONO'] . ')"><i class="fa-solid fa-address-card"></i></button>
                     </div>
                 </td>
             </tr>
@@ -488,7 +488,7 @@ if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "PAX") {
             <td data-title="Precio">-</td>
                 <td data-title="Contacto">
                 <div class="button-wrapper">
-                <button class="button" onclick="copiar_solicitud(' . $cotizaciones[$i]['ID'] . ',1)"><i class="fa-solid fa-copy"></i></button>
+                <button class="button tooltip left" data-tooltip="Copiar Viaje" onclick="copiar_solicitud(' . $cotizaciones[$i]['ID'] . ',1)"><i class="fa-solid fa-copy"></i></button>
                 </div>
                 </td>
             </tr>
