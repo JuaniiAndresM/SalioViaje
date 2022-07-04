@@ -15,7 +15,7 @@ session_set_cookie_params($ttl);
   $cotizaciones = new procedimientosBD();
 
   $usuarios = $cotizaciones->datos_usuarios();
-  $cotizaciones = json_decode($cotizaciones->traer_viajes_cotizando_panel_admin(),true);
+  $cotizaciones = json_decode($cotizaciones->traer_historial_cotizaciones(),true);
 
 
 ?>
@@ -192,125 +192,52 @@ session_set_cookie_params($ttl);
                 </tr>
               </thead>
               <tbody id="tbody">
-                  <?php
+              <?php
                   if(isset($cotizaciones)){
                     for ($i=0; $i < count($cotizaciones); $i++) {
-                      
-                      echo '<tr class="'.$cotizaciones[$i]['ESTADO'].'">';
+                      if ($cotizaciones[$i]['visibilidad'] == 1 && $cotizaciones[$i]['COMPRADA'] == 0) {
+                        $estado_cotizacion = "En Venta";
+                      } elseif ($cotizaciones[$i]['visibilidad'] == 1 && $cotizaciones[$i]['COMPRADA'] == 1) {
+                        $estado_cotizacion = "Elegida";
+                      } elseif ($cotizaciones[$i]['visibilidad'] == 0 && $cotizaciones[$i]['COMPRADA'] == 0) {
+                        $estado_cotizacion = "Rechazada";
+                      } else {
+                        $estado_cotizacion = "Ganadora";
+                      }
+                      //echo '<tr class="'.$cotizaciones[$i]['ESTADO'].'">';
+
+                      switch ($cotizaciones[$i]['ESTADO']) {
+                        case 1:
+                          $estado = "Cotizando";
+                          break;
+                        case 2:
+                          $estado = "Cotizado";
+                          break;
+                        case 3:
+                          $estado = "Aceptado";
+                          break;
+                        case 3:
+                          $estado = "Vencido";
+                          break;
+
+                        default:
+                        $estado = "Reconfirmado";
+                          break;
+                      }
+
                       ?>
-                        <td><?php echo $cotizaciones[$i]['ID'] ?></td>
-                        <td><?php 
-                          
-                          if ($cotizaciones[$i]['DIRECCION_ORIGEN'] != null && $cotizaciones[$i]['BARRIO_ORIGEN'] != null && $cotizaciones[$i]['LOCALIDAD_ORIGEN'] != null) {
-                            echo $cotizaciones[$i]['DIRECCION_ORIGEN'].", ".$cotizaciones[$i]['BARRIO_ORIGEN'].", ".$cotizaciones[$i]['LOCALIDAD_ORIGEN']."."; 
-                          } elseif ($cotizaciones[$i]['DIRECCION_ORIGEN'] == null && $cotizaciones[$i]['BARRIO_ORIGEN'] == null && $cotizaciones[$i]['LOCALIDAD_ORIGEN'] != null){
-                            echo $cotizaciones[$i]['LOCALIDAD_ORIGEN']."."; 
-                          } else {
-                            echo $cotizaciones[$i]['BARRIO_ORIGEN'].", ".$cotizaciones[$i]['LOCALIDAD_ORIGEN'].".";
-                          }
-                        
-                        ?></td>
-                        <td><?php 
-                          
-                          if ($cotizaciones[$i]['DIRECCION_DESTINO'] != null && $cotizaciones[$i]['BARRIO_DESTINO'] != null && $cotizaciones[$i]['LOCALIDAD_DESTINO'] != null) {
-                            echo $cotizaciones[$i]['DIRECCION_DESTINO'].", ".$cotizaciones[$i]['BARRIO_DESTINO'].", ".$cotizaciones[$i]['LOCALIDAD_DESTINO']."."; 
-                          } elseif ($cotizaciones[$i]['DIRECCION_DESTINO'] == null && $cotizaciones[$i]['BARRIO_DESTINO'] == null && $cotizaciones[$i]['LOCALIDAD_DESTINO'] != null){
-                            echo $cotizaciones[$i]['LOCALIDAD_DESTINO']."."; 
-                          } elseif ($cotizaciones[$i]['DIRECCION_DESTINO'] != null && $cotizaciones[$i]['BARRIO_DESTINO'] == null && $cotizaciones[$i]['LOCALIDAD_DESTINO'] == null){
-                            echo $cotizaciones[$i]['DIRECCION_DESTINO']."."; 
-                          } else {
-                            echo $cotizaciones[$i]['BARRIO_DESTINO'].", ".$cotizaciones[$i]['LOCALIDAD_DESTINO'].".";
-                          }
-                        
-                        ?></td>
-                        <td><?php echo str_replace("-","/",$cotizaciones[$i]['FECHA_SALIDA']); ?></td>
-                        <td>
-                          <?php
-                          switch($cotizaciones[$i]['ESTADO']){
-                            case "1":
-                              ?>
-                              <select class="select-estado" id="estado-cotizacion-<?php echo $cotizaciones[$i]['ID'] ?>" onchange="cambiar_estado_cotizacion_panel_admin(<?php echo $cotizaciones[$i]['ID'] ?>)">
-                                <option value="0" disabled>Seleccione un Estado</option> 
-                                <option value="1" selected>Cotizando</option>
-                                <option value="2">Cotizado</option>
-                                <option value="3">Aceptado</option>
-                                <option value="4">Reconfirmado</option>
-                              </select>
-                              <?php
-                              break;
-                              
-                            case "2":
-                              ?>
-                              <select class="select-estado" id="estado-cotizacion-<?php echo $cotizaciones[$i]['ID'] ?>" onchange="cambiar_estado_cotizacion_panel_admin(<?php echo $cotizaciones[$i]['ID'] ?>)">
-                                <option value="0" disabled>Seleccione un Estado</option> 
-                                <option value="1">Cotizando</option>
-                                <option value="2" selected>Cotizado</option>
-                                <option value="3">Aceptado</option>
-                                <option value="4">Reconfirmado</option>
-                              </select>
-                              <?php
-                              break;
-                              
-                            case "3":
-                              ?>
-                              <select class="select-estado" id="estado-cotizacion-<?php echo $cotizaciones[$i]['ID'] ?>" onchange="cambiar_estado_cotizacion_panel_admin(<?php echo $cotizaciones[$i]['ID'] ?>)">
-                                <option value="0" disabled>Seleccione un Estado</option> 
-                                <option value="1">Cotizando</option>
-                                <option value="2">Cotizado</option>
-                                <option value="3" selected>Aceptado</option>
-                                <option value="4">Reconfirmado</option>
-                              </select>
-                              <?php
-                              break;
-                              
-                            case "4":
-                              ?>
-                              <select class="select-estado" id="estado-cotizacion-<?php echo $cotizaciones[$i]['ID'] ?>" onchange="cambiar_estado_cotizacion_panel_admin(<?php echo $cotizaciones[$i]['ID'] ?>)">
-                                <option value="0" disabled>Seleccione un Estado</option> 
-                                <option value="1">Cotizando</option>
-                                <option value="2">Cotizado</option>
-                                <option value="3">Aceptado</option>
-                                <option value="4" selected>Reconfirmado</option>
-                              </select>
-                              <?php
-                              break;
-                              
-                              case "4":
-                                echo '<p>'.$cotizaciones[$i]['ESTADO'].'</p>';
-                                break;
-                          }
-                          ?>
-
-                        </td>
-                        <td>
-                          <select id="tta-responsable-<?php echo $cotizaciones[$i]['ID'] ?>" onchange="update_responsable(<?php echo $cotizaciones[$i]['ID'] ?>)">
-                          <?php
-                          if($cotizaciones[$i]['ID_RESPONSABLE'] != null){
-                            echo '<option value="0">Sin Asignar</option>';
-                          }else{
-                            echo '<option value="0" selected>Sin Asignar</option>';
-                          }
-                         
-                          for($a = 0; $a < count($usuarios); $a++){
-                            if($usuarios[$a]['TIPO_USUARIO'] == "TTA"){
-                              if($cotizaciones[$i]['ID_RESPONSABLE'] == $usuarios[$a]['ID']){
-                                echo '<option value="'.$usuarios[$a]['ID'].'" selected>'.$usuarios[$a]['ID'].' - '.$usuarios[$a]['NOMBRE'].' '.$usuarios[$a]['APELLIDO'].' - 0'.$usuarios[$a]['TELEFONO'].'</option>';
-                              }else{
-                                echo '<option value="'.$usuarios[$a]['ID'].'">'.$usuarios[$a]['ID'].' - '.$usuarios[$a]['NOMBRE'].' '.$usuarios[$a]['APELLIDO'].' - 0'.$usuarios[$a]['TELEFONO'].'</option>';
-                              }
-                              
-                            }
-                          }
-                            
-                          ?>
-
-                          </select>
-                        </td>
+                      <tr>
+                        <td><?php echo $cotizaciones[$i]['ID_VIAJE']; ?></td>
+                        <td><?php echo $cotizaciones[$i]['FECHA_SALIDA']; ?></td>
+                        <td><?php echo $cotizaciones[$i]['ID_COTIZACION']; ?></td>
+                        <td><?php echo $cotizaciones[$i]['ID_TTA']; ?></td>
+                        <td><?php echo $cotizaciones[$i]['ID_SOLICITANTE']; ?></td>
+                        <td><?php echo $estado; ?></td>
+                        <td><?php echo $estado_cotizacion; ?></td>
                       </tr>
                       <?php
                     }
                   }
-                    
                   ?>
               </tbody>
             </table>
@@ -332,84 +259,29 @@ session_set_cookie_params($ttl);
                   <?php
                   if(isset($cotizaciones)){
                     for ($i=0; $i < count($cotizaciones); $i++) {
-                      
-                      echo '<tr class="'.$cotizaciones[$i]['ESTADO'].'">';
+                      if ($cotizaciones[$i]['visibilidad'] == 1 && $cotizaciones[$i]['COMPRADA'] == 0) {
+                        $estado_cotizacion = "En Venta";
+                      } elseif ($cotizaciones[$i]['visibilidad'] == 1 && $cotizaciones[$i]['COMPRADA'] == 1) {
+                        $estado_cotizacion = "Elegida";
+                      } elseif ($cotizaciones[$i]['visibilidad'] == 0 && $cotizaciones[$i]['COMPRADA'] == 0) {
+                        $estado_cotizacion = "Rechazada";
+                      } else {
+                        $estado_cotizacion = "Ganadora";
+                      }
+                      //echo '<tr class="'.$cotizaciones[$i]['ESTADO'].'">';
                       ?>
-                        <td><?php echo $cotizaciones[$i]['ID'] ?></td>
-                        <td><?php 
-                          
-                          if ($cotizaciones[$i]['DIRECCION_ORIGEN'] != null && $cotizaciones[$i]['BARRIO_ORIGEN'] != null && $cotizaciones[$i]['LOCALIDAD_ORIGEN'] != null) {
-                            echo $cotizaciones[$i]['DIRECCION_ORIGEN'].", ".$cotizaciones[$i]['BARRIO_ORIGEN'].", ".$cotizaciones[$i]['LOCALIDAD_ORIGEN']."."; 
-                          } elseif ($cotizaciones[$i]['DIRECCION_ORIGEN'] == null && $cotizaciones[$i]['BARRIO_ORIGEN'] == null && $cotizaciones[$i]['LOCALIDAD_ORIGEN'] != null){
-                            echo $cotizaciones[$i]['LOCALIDAD_ORIGEN']."."; 
-                          } else {
-                            echo $cotizaciones[$i]['BARRIO_ORIGEN'].", ".$cotizaciones[$i]['LOCALIDAD_ORIGEN'].".";
-                          }
-                        
-                        ?></td>
-                        <td><?php 
-                          
-                          if ($cotizaciones[$i]['DIRECCION_DESTINO'] != null && $cotizaciones[$i]['BARRIO_DESTINO'] != null && $cotizaciones[$i]['LOCALIDAD_DESTINO'] != null) {
-                            echo $cotizaciones[$i]['DIRECCION_DESTINO'].", ".$cotizaciones[$i]['BARRIO_DESTINO'].", ".$cotizaciones[$i]['LOCALIDAD_DESTINO']."."; 
-                          } elseif ($cotizaciones[$i]['DIRECCION_DESTINO'] == null && $cotizaciones[$i]['BARRIO_DESTINO'] == null && $cotizaciones[$i]['LOCALIDAD_DESTINO'] != null){
-                            echo $cotizaciones[$i]['LOCALIDAD_DESTINO']."."; 
-                          } elseif ($cotizaciones[$i]['DIRECCION_DESTINO'] != null && $cotizaciones[$i]['BARRIO_DESTINO'] == null && $cotizaciones[$i]['LOCALIDAD_DESTINO'] == null){
-                            echo $cotizaciones[$i]['DIRECCION_DESTINO']."."; 
-                          } else {
-                            echo $cotizaciones[$i]['BARRIO_DESTINO'].", ".$cotizaciones[$i]['LOCALIDAD_DESTINO'].".";
-                          }
-                        
-                        ?></td>
-                        <td>0- <?php echo $cotizaciones[$i]['FECHA_SALIDA']; ?></td>
-                        <td id="value-estado-<?php echo $cotizaciones[$i]['ID'] ?>">
-                          <?php
-                            switch($cotizaciones[$i]['ESTADO']){
-                              case "1":
-                                ?>
-                                Cotizando
-                                <?php
-                                break;
-                                
-                              case "2":
-                                ?>
-                                Cotizado
-                                <?php
-                                break;
-                                
-                              case "3":
-                                ?>
-                                Aceptado
-                                <?php
-                                break;
-                                
-                              case "4":
-                                ?>
-                                Reconfirmado
-                                <?php
-                                break;
-                            }
-                          ?>
-                        </td>
-                        <td id="value-responsable-<?php echo $cotizaciones[$i]['ID'] ?>">
-                          <?php
-                            if($cotizaciones[$i]['ID_RESPONSABLE'] == null){
-                                echo 'Sin Asignar';
-                            }else{
-                              $id_tta = $cotizaciones[$i]['ID_RESPONSABLE'];
-
-                              for($a = 0; $a < count($usuarios); $a++){
-                                if($usuarios[$a]['ID'] == $id_tta){
-                                  echo $usuarios[$a]['ID'].' - '.$usuarios[$a]['NOMBRE'].' '.$usuarios[$a]['APELLIDO'].' - 0'.$usuarios[$a]['TELEFONO'];
-                                }
-                              }
-                            }
-                          ?>
-                        </td>
+                      <tr>
+                        <td><?php echo $cotizaciones[$i]['ID_VIAJE']; ?></td>
+                        <td><?php echo $cotizaciones[$i]['FECHA_SALIDA']; ?></td>
+                        <td><?php echo $cotizaciones[$i]['ID_COTIZACION']; ?></td>
+                        <td><?php echo $cotizaciones[$i]['ID_TTA']; ?></td>
+                        <td><?php echo $cotizaciones[$i]['ID_SOLICITANTE']; ?></td>
+                        <td><?php echo $cotizaciones[$i]['ESTADO']; ?></td>
+                        <td><?php echo $estado_cotizacion; ?></td>
                       </tr>
                       <?php
                     }
                   }
-                    
                   ?>
               </tbody>
             </table>
