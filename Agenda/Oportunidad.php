@@ -121,7 +121,7 @@
     <a href="https://www.salioviaje.com.uy/FAQ" target="_BLANK" id="faq-float">
       <i class="fas fa-question"></i>
     </a>
-    <a href="https://wa.link/mmdp0q" target="_BLANK" id="whatsapp-float">
+    <a href="https://wa.link/mxnwzm" target="_BLANK" id="whatsapp-float">
       <img src="https://www.salioviaje.com.uy/media/images/whatsapp.png" alt="">
     </a>
 
