@@ -1309,8 +1309,15 @@ class procedimientosBD
         $query = "CALL eliminar_viaje(?)";
         $stmt = $conn->prepare($query);
         $stmt->bind_param("i", $id);
-        $stmt->execute();
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($mail);
+            while ($stmt->fetch()) {
+                $result = $mail;
+            }
+        }
         $stmt->close();
+        return $result;
     }
 
     public function editar_oportunidades($id, $datos)
@@ -1602,12 +1609,12 @@ class procedimientosBD
         return json_encode($cotizaciones);
     }
 
-    public function copiar_solicitud_viaje($id)
+    public function copiar_solicitud_viaje($id, $nueva_fecha, $nueva_hora)
     {
         $conn = $this->conexion();
-        $query = "call copiar_solicitud_cotizacion(?)";
+        $query = "call copiar_solicitud_cotizacion(?,?,?)";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("i", $id);
+        $stmt->bind_param("iss", $id, $nueva_fecha, $nueva_hora);
         $stmt->execute();
         echo $stmt->error;
         $stmt->close();
@@ -1684,5 +1691,28 @@ class procedimientosBD
         }
         $stmt->close();
         return json_encode($viajes_mtop);
+    }
+
+    public function traer_historial_cotizaciones()
+    {
+        //UPDATE cotizaciones SET ESTADO = 5 WHERE FECHA_SALIDA < CURRENT_DATE or (FECHA_SALIDA = CURRENT_DATE and HORA < CURRENT_TIME) and ESTADO = 1;
+        $cotizaciones = array();
+        $conn = $this->conexion();
+        $query = "SELECT cotizaciones_presentadas.ID_VIAJE_COTIZADO,FECHA_SALIDA,cotizaciones_presentadas.ID,cotizaciones_presentadas.id_tta,id_solicitante,ESTADO,cotizaciones_presentadas.visibilidad,COMPRADA FROM `cotizaciones_presentadas`,`cotizaciones` WHERE cotizaciones.ID = ID_VIAJE_COTIZADO";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($id_viaje_cotizado, $fecha_salida, $id, $idtta, $id_solicitante, $estado, $visibilidad, $comprada);
+            while ($stmt->fetch()) {
+                $result = array('ID_VIAJE' => $id_viaje_cotizado, "ID_COTIZACION" => $id, 'FECHA_SALIDA' => $fecha_salida, 'ID_TTA' => $idtta, 'ID_SOLICITANTE' => $id_solicitante, 'ESTADO' => $estado, 'VISIBILIDAD' => $visibilidad, 'COMPRADA' => $comprada);
+                $fecha = $result["FECHA_SALIDA"];
+                $timestamp = strtotime($fecha);
+                $newDate = date("d-m-Y", $timestamp);
+                $result["FECHA_SALIDA"] = $newDate;
+                $cotizaciones[] = $result;
+            }
+        }
+        $stmt->close();
+        return json_encode($cotizaciones);
     }
 }
