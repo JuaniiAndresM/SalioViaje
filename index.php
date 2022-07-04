@@ -146,7 +146,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
             </p>
             <p class="info_3">
               Envíanos un SMS o llamá al <br />
-              <a class="tel" href="tel:+59891833337" title="Teléfono | Salió Viaje">091 833 337</a>.
+              <a class="tel" href="tel:+59899401414" title="Teléfono | Salió Viaje">099 401 414</a>.
             </p>
 
             <div class="button-whatsapp">
@@ -184,7 +184,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
             </p>
             <p class="info_3">
               Envíanos un SMS o llamá al <br />
-              <a class="tel" href="tel:+59891833337" title="Teléfono | Salió Viaje">091 833 337</a>.
+              <a class="tel" href="tel:+59899401414" title="Teléfono | Salió Viaje">099 401 414</a>.
             </p>
 
             <div class="button-whatsapp">
@@ -221,7 +221,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
             </p>
             <p class="info_3">
               Envíanos un SMS o llamá al <br />
-              <a class="tel" href="tel:+59891833337" title="Teléfono | Salió Viaje">091 833 337</a>.
+              <a class="tel" href="tel:+59899401414" title="Teléfono | Salió Viaje">099 401 414</a>.
             </p>
 
             <div class="button-whatsapp">
@@ -256,7 +256,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
             </p>
             <p class="info_3">
               Envíanos un SMS o llamá al <br />
-              <a class="tel" href="tel:+59891833337" title="Teléfono | Salió Viaje">091 833 337</a>.
+              <a class="tel" href="tel:+59899401414" title="Teléfono | Salió Viaje">099 401 414</a>.
             </p>
 
             <div class="button-whatsapp">
