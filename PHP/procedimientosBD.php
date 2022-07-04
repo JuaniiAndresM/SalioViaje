@@ -1309,8 +1309,15 @@ class procedimientosBD
         $query = "CALL eliminar_viaje(?)";
         $stmt = $conn->prepare($query);
         $stmt->bind_param("i", $id);
-        $stmt->execute();
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($mail);
+            while ($stmt->fetch()) {
+                $result = $mail;
+            }
+        }
         $stmt->close();
+        return $result;
     }
 
     public function editar_oportunidades($id, $datos)

@@ -385,7 +385,7 @@ function copiar_solicitud(id_solicitud, step) {
          $.ajax({
             type: "POST",
             url: "/Panel/modal.php",
-            data: { data: id_solicitud, opcion: 5},
+            data: { data: id_solicitud, opcion: 5 },
             success: function (response) {
                console.log(response);
                     $('#modal').css('display','flex');
@@ -404,7 +404,11 @@ function copiar_solicitud(id_solicitud, step) {
             url: "/PHP/procedimientosForm.php",
             data: { tipo:"copiar_solicitud_viaje", id_solicitud : id_solicitud , nueva_fecha : nueva_fecha , hora_copia : hora_copia},
             success: function (response) {
-               console.log(response)
+               if (response.includes("@")) {
+                  enviarMail(response);
+               }else{
+                  console.log(response)
+               }
             },
             complete: function () {
                location.reload()
@@ -414,6 +418,16 @@ function copiar_solicitud(id_solicitud, step) {
    }
 }
 
+function enviarMail(mail) {
+   $.ajax({
+      type: "POST",
+      url: "/Mail/mail-Oportunidades-Rechazado.php",
+      data: { mail: mail },
+      success: function (response) {
+         console.log(response);
+      }
+  });
+}
 
 /*
 
