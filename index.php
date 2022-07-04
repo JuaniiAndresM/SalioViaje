@@ -150,7 +150,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
             </p>
 
             <div class="button-whatsapp">
-              <a class="whatsapp" target="_BLANK" href="https://wa.link/apvlg4" title="WhatsApp | Salió Viaje">
+              <a class="whatsapp" target="_BLANK" href="https://wa.link/5uasp3" title="WhatsApp | Salió Viaje">
                 <img
                   src="https://www.salioviaje.com.uy/media/images/whatsapp.webp" title="WhatsApp | Salió Viaje" alt="Logo WhatsApp | Salió Viaje"
                 
@@ -188,7 +188,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
             </p>
 
             <div class="button-whatsapp">
-              <a class="whatsapp" target="_BLANK" href="https://wa.link/1ukfah" title="WhatsApp | Salió Viaje">
+              <a class="whatsapp" target="_BLANK" href="https://wa.link/gj2v7z" title="WhatsApp | Salió Viaje">
                 <img
                   src="https://www.salioviaje.com.uy/media/images/whatsapp.webp" title="WhatsApp | Salió Viaje" alt="Logo WhatsApp | Salió Viaje"
                 
@@ -225,7 +225,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
             </p>
 
             <div class="button-whatsapp">
-              <a class="whatsapp" target="_BLANK" href="https://wa.link/bnvzov" title="WhatsApp | Salió Viaje">
+              <a class="whatsapp" target="_BLANK" href="https://wa.link/37ske4" title="WhatsApp | Salió Viaje">
                 <img
                   src="https://www.salioviaje.com.uy/media/images/whatsapp.webp" title="WhatsApp | Salió Viaje" alt="Logo WhatsApp | Salió Viaje"
                 
@@ -260,7 +260,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
             </p>
 
             <div class="button-whatsapp">
-              <a class="whatsapp" target="_BLANK" href="https://wa.link/73p3yd" title="WhatsApp | Salió Viaje">
+              <a class="whatsapp" target="_BLANK" href="https://wa.link/oxc8le" title="WhatsApp | Salió Viaje">
                 <img
                   src="https://www.salioviaje.com.uy/media/images/whatsapp.webp" title="WhatsApp | Salió Viaje" alt="Logo WhatsApp | Salió Viaje"
                 
