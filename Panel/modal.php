@@ -150,7 +150,7 @@ switch($opcion){
                     <input type="time" id="hora_copia"/>
                 </div>
                 <div class="button-wrapper">
-                    <button class="modal-button" onclick="copiar_cotizacion('.$data.',2)">
+                    <button class="modal-button" onclick="copiar_solicitud('.$data.',2)">
                         <i class="fa-solid fa-check"></i> Copiar Viaje
                     </button>
                     <button class="modal-button" onclick="closeModal()">
