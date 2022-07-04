@@ -211,7 +211,7 @@ if ($_POST['tipo'] == 1) {
             echo $procedimientosForm->eliminarCotizacion($_POST['idCotizacion']);
             break;
         case 'copiar_solicitud_viaje':
-            echo $procedimientosForm->copiar_solicitud_viaje($_POST['id_solicitud']);
+            echo $procedimientosForm->copiar_solicitud_viaje($_POST['id_solicitud'], $_POST['nueva_fecha'], $_POST['hora_copia']);
             break;
         case 'actualizar_mtop':
             echo $procedimientosForm->actualizar_estado_mtop($_POST['estado'], $_POST['id']);

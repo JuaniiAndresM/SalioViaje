@@ -1602,12 +1602,12 @@ class procedimientosBD
         return json_encode($cotizaciones);
     }
 
-    public function copiar_solicitud_viaje($id)
+    public function copiar_solicitud_viaje($id, $nueva_fecha, $nueva_hora)
     {
         $conn = $this->conexion();
-        $query = "call copiar_solicitud_cotizacion(?)";
+        $query = "call copiar_solicitud_cotizacion(?,?,?)";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("i", $id);
+        $stmt->bind_param("iss", $id, $nueva_fecha, $nueva_hora);
         $stmt->execute();
         echo $stmt->error;
         $stmt->close();

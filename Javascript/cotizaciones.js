@@ -395,10 +395,14 @@ function copiar_solicitud(id_solicitud, step) {
         break;
 
       case 2:
+
+         let nueva_fecha = $('#fecha_copia').val();
+         let hora_copia = $('#hora_copia').val();
+
          $.ajax({
             type: "POST",
             url: "/PHP/procedimientosForm.php",
-            data: { tipo:"copiar_solicitud_viaje", id_solicitud : id_solicitud },
+            data: { tipo:"copiar_solicitud_viaje", id_solicitud : id_solicitud , nueva_fecha : nueva_fecha , hora_copia : hora_copia},
             success: function (response) {
                console.log(response)
             },
