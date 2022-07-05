@@ -24,7 +24,7 @@ for ($i = 0; $i < count($datos); $i++) {
 <td data-title="Estado">Cotizando</td>
     <td>
         <div class="button-wrapper">
-        <button class="button tooltip left" data-tooltip="Rechazar Cotización" onclick="rechazarCotizacion('.$datos[$i]["ID"].')"><i class="fas fa-ban"></i></button>
+        <button class="button tooltip left" data-tooltip="Retirar Cotización" onclick="rechazarCotizacion('.$datos[$i]["ID"].')"><i class="fas fa-ban"></i></button>
     </td>
 </tr>
 ';
@@ -39,7 +39,7 @@ for ($i = 0; $i < count($datos); $i++) {
 <td data-title="Estado">Cotizando</td>
     <td>
         <div class="button-wrapper">
-        <button class="button tooltip left" data-tooltip="Rechazar Cotización" onclick="rechazarCotizacion('.$datos[$i]["ID"].')"><i class="fas fa-ban"></i></button>
+        <button class="button tooltip left" data-tooltip="Retirar Cotización" onclick="rechazarCotizacion('.$datos[$i]["ID"].')"><i class="fas fa-ban"></i></button>
     </td>
 </tr>
 ';
@@ -55,7 +55,7 @@ for ($i = 0; $i < count($datos); $i++) {
     <td>
         <div class="button-wrapper">
         <button class="button tooltip left" data-tooltip="Reconfirmar Cotización" onclick="reconfirmarCotizacion('.$datos[$i]["ID"].')"><i class="fa-solid fa-check"></i></button>
-        <button class="button tooltip left" data-tooltip="Rechazar Cotización" onclick="rechazarCotizacion('.$datos[$i]["ID"].')"><i class="fa-solid fa-xmark"></i></button>
+        <button class="button tooltip left" data-tooltip="Retirar Cotización" onclick="rechazarCotizacion('.$datos[$i]["ID"].')"><i class="fa-solid fa-xmark"></i></button>
     </td>
 </tr>
 ';
@@ -71,7 +71,7 @@ for ($i = 0; $i < count($datos); $i++) {
     <td>
         <div class="button-wrapper">
         <button class="button tooltip left" data-tooltip="Reconfirmar Cotización" onclick="reconfirmarCotizacion('.$datos[$i]["ID"].')"><i class="fa-solid fa-check"></i></button>
-        <button class="button tooltip left" data-tooltip="Rechazar Cotización" onclick="rechazarCotizacion('.$datos[$i]["ID"].')"><i class="fa-solid fa-xmark"></i></button>
+        <button class="button tooltip left" data-tooltip="Retirar Cotización" onclick="rechazarCotizacion('.$datos[$i]["ID"].')"><i class="fa-solid fa-xmark"></i></button>
     </td>
 </tr>
 ';
