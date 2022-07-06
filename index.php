@@ -80,7 +80,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
        <a href="https://www.salioviaje.com.uy/FAQ" title="Frequently Asked Questions"  target="_BLANK" id="faq-float" >
         <i class="fas fa-question" > </i> </a>
       
-      <a href="https://wa.link/mmdp0q" title="WhatsApp | Salió Viaje"  target="_BLANK" id="whatsapp-float">
+      <a href="https://wa.link/mxnwzm" title="WhatsApp | Salió Viaje"  target="_BLANK" id="whatsapp-float">
         <img src="https://www.salioviaje.com.uy/media/images/whatsapp.webp" title="WhatsApp | Salió Viaje" alt="Logo WhatsApp | Salió Viaje" /> 
       </a>
 
@@ -146,11 +146,11 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
             </p>
             <p class="info_3">
               Envíanos un SMS o llamá al <br />
-              <a class="tel" href="tel:+59891833337" title="Teléfono | Salió Viaje">091 833 337</a>.
+              <a class="tel" href="tel:+59899401414" title="Teléfono | Salió Viaje">099 401 414</a>.
             </p>
 
             <div class="button-whatsapp">
-              <a class="whatsapp" target="_BLANK" href="https://wa.link/apvlg4" title="WhatsApp | Salió Viaje">
+              <a class="whatsapp" target="_BLANK" href="https://wa.link/5uasp3" title="WhatsApp | Salió Viaje">
                 <img
                   src="https://www.salioviaje.com.uy/media/images/whatsapp.webp" title="WhatsApp | Salió Viaje" alt="Logo WhatsApp | Salió Viaje"
                 
@@ -184,11 +184,11 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
             </p>
             <p class="info_3">
               Envíanos un SMS o llamá al <br />
-              <a class="tel" href="tel:+59891833337" title="Teléfono | Salió Viaje">091 833 337</a>.
+              <a class="tel" href="tel:+59899401414" title="Teléfono | Salió Viaje">099 401 414</a>.
             </p>
 
             <div class="button-whatsapp">
-              <a class="whatsapp" target="_BLANK" href="https://wa.link/1ukfah" title="WhatsApp | Salió Viaje">
+              <a class="whatsapp" target="_BLANK" href="https://wa.link/gj2v7z" title="WhatsApp | Salió Viaje">
                 <img
                   src="https://www.salioviaje.com.uy/media/images/whatsapp.webp" title="WhatsApp | Salió Viaje" alt="Logo WhatsApp | Salió Viaje"
                 
@@ -221,11 +221,11 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
             </p>
             <p class="info_3">
               Envíanos un SMS o llamá al <br />
-              <a class="tel" href="tel:+59891833337" title="Teléfono | Salió Viaje">091 833 337</a>.
+              <a class="tel" href="tel:+59899401414" title="Teléfono | Salió Viaje">099 401 414</a>.
             </p>
 
             <div class="button-whatsapp">
-              <a class="whatsapp" target="_BLANK" href="https://wa.link/bnvzov" title="WhatsApp | Salió Viaje">
+              <a class="whatsapp" target="_BLANK" href="https://wa.link/37ske4" title="WhatsApp | Salió Viaje">
                 <img
                   src="https://www.salioviaje.com.uy/media/images/whatsapp.webp" title="WhatsApp | Salió Viaje" alt="Logo WhatsApp | Salió Viaje"
                 
@@ -256,11 +256,11 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
             </p>
             <p class="info_3">
               Envíanos un SMS o llamá al <br />
-              <a class="tel" href="tel:+59891833337" title="Teléfono | Salió Viaje">091 833 337</a>.
+              <a class="tel" href="tel:+59899401414" title="Teléfono | Salió Viaje">099 401 414</a>.
             </p>
 
             <div class="button-whatsapp">
-              <a class="whatsapp" target="_BLANK" href="https://wa.link/73p3yd" title="WhatsApp | Salió Viaje">
+              <a class="whatsapp" target="_BLANK" href="https://wa.link/oxc8le" title="WhatsApp | Salió Viaje">
                 <img
                   src="https://www.salioviaje.com.uy/media/images/whatsapp.webp" title="WhatsApp | Salió Viaje" alt="Logo WhatsApp | Salió Viaje"
                 

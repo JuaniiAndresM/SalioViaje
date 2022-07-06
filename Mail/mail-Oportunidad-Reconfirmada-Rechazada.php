@@ -14,7 +14,6 @@ require_once '../PHP/procedimientosBD.php';
 
 $bd = new procedimientosBD();
 
-
 $mail_tta = $_POST['mail_tta'];
 $id = $_POST['id_viaje'];
 
@@ -54,7 +53,7 @@ $mail->From = 'promouruguay010@gmail.com'; //  Editar
 $mail->FromName = 'SalióViaje';  //  Editar
 $mail->addAddress('admin@salioviaje.com.uy');  //  Editar
 $mail->isHTML(true);
-$mail->Subject = "Oops! Una oportunidad ha sido Rechazada - SalióViaje";    //  Editar
+$mail->Subject = "Oops! Una oportunidad Reconfirmada ha sido Rechazada - SalióViaje";    //  Editar
 $mail->Body    = '<div class="mail" style="max-width: 600px; background: white;">
         <table style="width: 100%; background: linear-gradient(120deg, #3844bc, #2b3179); border: none;" cellspacing="0" cellpadding="0">
             <tr>
@@ -70,7 +69,7 @@ $mail->Body    = '<div class="mail" style="max-width: 600px; background: white;"
                     <p style="font-family: Montserrat; font-size: 18px; color: #3844bc"><b>N° Viaje: </b>'.$id.'</p>
                     <div style="background-color: #dfdfdf; width: 500px; margin: 20px auto; text-align: left; font-family: Montserrat; font-size: 13px; border-left: 3px solid #3844bc; padding: 5px 10px; box-sizing: border-box; color: #3844bc;">
                         <p>Lo lamentamos, una oportunidad fue cancelada.</p>
-                        <b>El transportista rechazó la oportunidad o no hubo respuesta luego de 5 minutos.</b>
+                        <b>El transportista canceló la oportunidad luego de haberla reconfirmado.</b>
                         <p></p>
                     </div>
                     
@@ -130,7 +129,7 @@ $mail->Body    = '<div class="mail" style="max-width: 600px; background: white;"
         $mail->addAddress($datos_comprador[0]['EMAIL']);  //  Editar
         $mail->isHTML(true);
         
-        $mail->Subject = "Oportunidad Rechazada - SalióViaje";    //  Editar
+        $mail->Subject = "Oportunidad Reconfirmada Rechazada - SalióViaje";    //  Editar
         $mail->Body    = '    <div class="mail" style="max-width: 600px; background: white;">
                 <table style="width: 100%; background: linear-gradient(120deg, #3844bc, #2b3179); border: none;" cellspacing="0" cellpadding="0">
                     <tr>
@@ -142,11 +141,11 @@ $mail->Body    = '<div class="mail" style="max-width: 600px; background: white;"
                 <table style="width: 100%; margin: 0;" cellspacing="0" cellpadding="0">
                     <tr>
                         <td style="text-align: center;">
-                        <h1 style="font-family: Montserrat; font-size: 25px; color: rgb(255, 91, 91);">Petición Rechazada</h1>
+                        <h1 style="font-family: Montserrat; font-size: 25px; color: rgb(255, 91, 91);">Petición Reconfirmada Rechazada</h1>
                             <p style="font-family: Montserrat; font-size: 18px; color: #3844bc"><b>N° Viaje: </b>'.$id.'</p>
                             <div style="background-color: #dfdfdf; width: 500px; margin: 20px auto; text-align: left; font-family: Montserrat; font-size: 13px; border-left: 3px solid #3844bc; padding: 5px 10px; box-sizing: border-box; color: #3844bc;">
-                                <p>Lo lamentamos, tu petición fue rechazada.</p>
-                                <b>En breve nos comunicaremos para comentarte los motivos.</b>
+                                <p>Lo lamentamos, tu petición fue rechazada por problemas de fuerza mayor.</p>
+                                <b>En breve nos comunicaremos con usted para comentarte los motivos.</b>
                                 <p></p>
                             </div>
                             
@@ -155,7 +154,7 @@ $mail->Body    = '<div class="mail" style="max-width: 600px; background: white;"
                     <tr>
                         <td>
                             <div class="mail-content" style="width: 95%; margin: 20px auto; background: #fff; font-family: Montserrat; color: #555; font-size: 13px;">
-                                <p>Este mensaje se envió a <span style="color: #3844bc; font-weight: bold;">'.$_SESSION['datos_usuario']['MAIL'].'</span>.</p>
+                                <p>Este mensaje se envió a <span style="color: #3844bc; font-weight: bold;">'.$datos_comprador[0]['EMAIL'].'</span>.</p>
                                 <p>Si no quieres recibir estos emails de SalióViaje en el futuro, puedes darte de baja de la lista de correo.</p>
                             </div>
                         </td>
@@ -172,57 +171,5 @@ $mail->Body    = '<div class="mail" style="max-width: 600px; background: white;"
 
             if(!$mail->send()){
                 $returnPAX = "Mailer Error: " . $mail->ErrorInfo;
-            }else{
-                         
-                /* 
-                ? -------- MAIL TRANSPORTISTA --------
-                */
-
-
-                $mail->clearAddresses();
-                $mail->addAddress($mail_tta);
-                $mail->isHTML(true);
-                
-                $mail->Subject = "Rechazaste una Oportunidad - SalióViaje";
-                $mail->Body    = '       <div class="mail" style="max-width: 600px; background: white;">
-                        <table style="width: 100%; background: linear-gradient(120deg, #3844bc, #2b3179); border: none;" cellspacing="0" cellpadding="0">
-                            <tr>
-                                <td style="height: 150px; text-align: center;">
-                                    <img src="https://i.imgur.com/iCfeHtM.png" alt="" style="max-width: 100px;" />
-                                </td>
-                            </tr>
-                        </table>
-                        <table style="width: 100%; margin: 0;" cellspacing="0" cellpadding="0">
-                            <tr>
-                                <td style="text-align: center;">
-                                    <h1 style="font-family: Montserrat; font-size: 25px; color: rgb(255, 91, 91);">Oportunidad Cancelada</h1>
-                                    <p style="font-family: Montserrat; font-size: 18px; color: #3844bc"><b>N° Viaje: </b>'.$id.'</p>
-                                    <div style="background-color: #dfdfdf; width: 500px; margin: 20px auto; text-align: left; font-family: Montserrat; font-size: 13px; border-left: 3px solid #3844bc; padding: 5px 10px; box-sizing: border-box; color: #3844bc;">
-                                        <p>Lo lamentamos, tu oportunidad fue canecelada.</p>
-                                        <b>Esto se puede deber a que usted rechazo la oportunidad, o pasaron 10 minutos sin recibir respuesta de la misma.</b>
-                                        <p>En breve nos comunicaremos con usted.</p>
-                                    </div>
-                                    
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="mail-content" style="width: 95%; margin: 20px auto; background: #fff; font-family: Montserrat; color: #555; font-size: 13px;">
-                                        <p>Este mensaje se envió a <span style="color: #3844bc; font-weight: bold;">'.$mail_tta.'</span>.</p>
-                                        <p>Si no quieres recibir estos emails de SalióViaje en el futuro, puedes darte de baja de la lista de correo.</p>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                <div class="mail-footer" style="width: 100%; display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center; background: #3844bc;">
-                                    <p style="color: #ccc; font-size: 1em; margin: 5px auto; font-family: Montserrat; font-size: 14px;">Copyright © 2022 <b style="font-weight: normal; color: white;">SalióViaje</b>. All Rights Reserved.</p>
-                                </div>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>';
-
-                    $mail->send();
             }
     }
