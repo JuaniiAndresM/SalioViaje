@@ -2611,6 +2611,15 @@ footer .totum p a:hover {
   position: relative;
   width: calc(100% - 60px);
   margin: 30px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .login .login-wrapper #login .inputs-wrapper .input input,
@@ -6263,6 +6272,18 @@ footer .totum p a:hover {
   position: relative;
   width: calc(100% - 60px);
   margin: 30px auto;
+  position: relative;
+  width: calc(100% - 60px);
+  margin: 30px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .login .login-wrapper #step_1 .input select,
@@ -20371,6 +20392,118 @@ footer .totum p a:hover {
   .panel .form-container .main-form-container .columns-divider {
     -ms-grid-columns: 100%;
         grid-template-columns: 100%;
+  }
+}
+
+#gurucuteco {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  -webkit-animation: fadeIn .5s forwards;
+          animation: fadeIn .5s forwards;
+  z-index: 100;
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#gurucuteco .gurucuteco-container {
+  max-width: 500px;
+  width: 100%;
+  border-radius: 1em;
+  padding: 20px;
+  margin: 10px;
+  background-color: #ffffff;
+  position: relative;
+}
+
+#gurucuteco .gurucuteco-container .gurucuteco-body h3 {
+  color: #3844bc;
+  margin-bottom: 10px;
+}
+
+#gurucuteco .gurucuteco-container .gurucuteco-body h3 span {
+  color: #333;
+}
+
+#gurucuteco .gurucuteco-container .gurucuteco-body p {
+  color: #555;
+}
+
+#gurucuteco .gurucuteco-container .gurucuteco-body p a {
+  text-decoration: none;
+  color: #3844bc;
+}
+
+#gurucuteco .gurucuteco-container .button-wrapper {
+  margin-top: 10px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#gurucuteco .gurucuteco-container .button-wrapper button {
+  padding: 15px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #3844bc;
+  border: none;
+  border-radius: 10px;
+}
+
+.gurucuteco-button {
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.gurucuteco-button i {
+  color: #3844bc;
+  font-size: 17px;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 

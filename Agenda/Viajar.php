@@ -80,7 +80,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
     </div>
 
     <div id="modal"></div>
-   
+    <div id="gurucuteco"></div>
       <a href="https://www.salioviaje.com.uy/FAQ" title="Frequently Asked Questions"  target="_BLANK" id="faq-float" >
         <i class="fas fa-question" > </i> </a>
       

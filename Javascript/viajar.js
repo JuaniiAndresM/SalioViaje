@@ -1520,3 +1520,9 @@ function tipoViaje(tipo) {
     }
     return inputs
 }
+
+$('#Cotizacion').waypoint(function() {
+    alert('You have scrolled to an entry.');
+}, {
+    offset: '100%'
+});

@@ -126,6 +126,9 @@
           position: relative;
           width: calc(100% - 60px);
           margin: 30px auto;
+          display: flex;
+          justify-content: center;
+          align-items: center;
 
           input,
           select {
@@ -251,6 +254,12 @@
         position: relative;
         width: calc(100% - 60px);
         margin: 30px auto;
+        position: relative;
+        width: calc(100% - 60px);
+        margin: 30px auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
         select {
           width: 100%;
