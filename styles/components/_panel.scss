@@ -1209,8 +1209,135 @@ $main_3: #6d76db;
         }
 
       }
-
       
+    }
+    .empty-table{
+      height: 200px;
+      text-align: center;
+      color: $main_1;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .vouchers-list{
+      width: 100%;
+      max-height: 500px;
+      display: none;
+      margin-top: 10px;
+      overflow: hidden;
+      overflow-y: auto;
+
+      .voucher{
+        width: calc(100% - 20px);
+        border-radius: 20px;
+
+        margin: 15px auto;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+
+        .col-l,.col-r{
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+
+          .qr{
+            height: 80px;
+            width: 80px;
+            padding: 10px;
+  
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px;
+  
+            background-color: $main_2;
+  
+            border-radius: 20px;
+
+            h3 {
+              i{
+                color: $contraste_2;
+                font-size: 2em;
+              }
+            }
+          }
+          .information{
+            color: $contraste_2;
+          }
+          .button-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-right: 20px;
+
+            button {
+              width: 150px;
+              height: 35px;
+
+              border: none;
+              outline: none;
+              color: $main_1;
+              margin: 5px 10px;
+              background-color: $contraste_2;
+
+              border-radius: 10px;
+
+              transition: 0.3s;
+              cursor: pointer;
+              i{
+                margin-right: 10px;
+              }
+            }
+            button:hover {
+              transform: scale(1.05);
+            }
+          }
+        }
+      }
+      .voucher.active{
+        background-color: $main_1;
+      }
+      .voucher.timedout{
+        background-color: #ffaa00;
+        .col-l,.col-r{
+          .qr{
+            background-color: #ffc249;
+          }
+          .information{
+            color: #333;
+          }
+
+          .button-wrapper{
+            button{
+              background-color: #eee;
+              color: #333;
+            }
+          }
+        }
+      }
+      .voucher.inactive{
+        background-color: #888;
+        .col-l,.col-r{
+          .qr{
+            background-color: #999;
+          }
+
+          .button-wrapper{
+            button{
+              cursor: not-allowed;
+              background-color: #eee;
+            }
+            button:hover{
+              transform: unset;
+            }
+          }
+        }
+      }
     }
     .exportar-section{
       margin: 10px 0;

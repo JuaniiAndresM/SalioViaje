@@ -8472,6 +8472,163 @@ footer .totum p a:hover {
   border: none;
 }
 
+.section-usuarios .usuarios-recientes .empty-table {
+  height: 200px;
+  text-align: center;
+  color: #3844bc;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.section-usuarios .usuarios-recientes .vouchers-list {
+  width: 100%;
+  max-height: 500px;
+  display: none;
+  margin-top: 10px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.section-usuarios .usuarios-recientes .vouchers-list .voucher {
+  width: calc(100% - 20px);
+  border-radius: 20px;
+  margin: 15px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.section-usuarios .usuarios-recientes .vouchers-list .voucher .col-l, .section-usuarios .usuarios-recientes .vouchers-list .voucher .col-r {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.section-usuarios .usuarios-recientes .vouchers-list .voucher .col-l .qr, .section-usuarios .usuarios-recientes .vouchers-list .voucher .col-r .qr {
+  height: 80px;
+  width: 80px;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 10px;
+  background-color: #2b3179;
+  border-radius: 20px;
+}
+
+.section-usuarios .usuarios-recientes .vouchers-list .voucher .col-l .qr h3 i, .section-usuarios .usuarios-recientes .vouchers-list .voucher .col-r .qr h3 i {
+  color: #ffffff;
+  font-size: 2em;
+}
+
+.section-usuarios .usuarios-recientes .vouchers-list .voucher .col-l .information, .section-usuarios .usuarios-recientes .vouchers-list .voucher .col-r .information {
+  color: #ffffff;
+}
+
+.section-usuarios .usuarios-recientes .vouchers-list .voucher .col-l .button-wrapper, .section-usuarios .usuarios-recientes .vouchers-list .voucher .col-r .button-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-right: 20px;
+}
+
+.section-usuarios .usuarios-recientes .vouchers-list .voucher .col-l .button-wrapper button, .section-usuarios .usuarios-recientes .vouchers-list .voucher .col-r .button-wrapper button {
+  width: 150px;
+  height: 35px;
+  border: none;
+  outline: none;
+  color: #3844bc;
+  margin: 5px 10px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.section-usuarios .usuarios-recientes .vouchers-list .voucher .col-l .button-wrapper button i, .section-usuarios .usuarios-recientes .vouchers-list .voucher .col-r .button-wrapper button i {
+  margin-right: 10px;
+}
+
+.section-usuarios .usuarios-recientes .vouchers-list .voucher .col-l .button-wrapper button:hover, .section-usuarios .usuarios-recientes .vouchers-list .voucher .col-r .button-wrapper button:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.section-usuarios .usuarios-recientes .vouchers-list .voucher.active {
+  background-color: #3844bc;
+}
+
+.section-usuarios .usuarios-recientes .vouchers-list .voucher.timedout {
+  background-color: #ffaa00;
+}
+
+.section-usuarios .usuarios-recientes .vouchers-list .voucher.timedout .col-l .qr, .section-usuarios .usuarios-recientes .vouchers-list .voucher.timedout .col-r .qr {
+  background-color: #ffc249;
+}
+
+.section-usuarios .usuarios-recientes .vouchers-list .voucher.timedout .col-l .information, .section-usuarios .usuarios-recientes .vouchers-list .voucher.timedout .col-r .information {
+  color: #333;
+}
+
+.section-usuarios .usuarios-recientes .vouchers-list .voucher.timedout .col-l .button-wrapper button, .section-usuarios .usuarios-recientes .vouchers-list .voucher.timedout .col-r .button-wrapper button {
+  background-color: #eee;
+  color: #333;
+}
+
+.section-usuarios .usuarios-recientes .vouchers-list .voucher.inactive {
+  background-color: #888;
+}
+
+.section-usuarios .usuarios-recientes .vouchers-list .voucher.inactive .col-l .qr, .section-usuarios .usuarios-recientes .vouchers-list .voucher.inactive .col-r .qr {
+  background-color: #999;
+}
+
+.section-usuarios .usuarios-recientes .vouchers-list .voucher.inactive .col-l .button-wrapper button, .section-usuarios .usuarios-recientes .vouchers-list .voucher.inactive .col-r .button-wrapper button {
+  cursor: not-allowed;
+  background-color: #eee;
+}
+
+.section-usuarios .usuarios-recientes .vouchers-list .voucher.inactive .col-l .button-wrapper button:hover, .section-usuarios .usuarios-recientes .vouchers-list .voucher.inactive .col-r .button-wrapper button:hover {
+  -webkit-transform: unset;
+          transform: unset;
+}
+
 .section-usuarios .usuarios-recientes .exportar-section {
   margin: 10px 0;
 }
