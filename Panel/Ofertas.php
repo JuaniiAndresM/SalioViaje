@@ -111,7 +111,7 @@ session_set_cookie_params($ttl);
               <button onclick="navbar()"><i class="fas fa-bars"></i></button>
             </div>
             <div class="header-title">
-              <h2>Ofertas</h2>
+              <h2>Ofertas y Promo</h2>
             </div>
           </div>
           <div class="header-right">

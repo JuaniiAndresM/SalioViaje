@@ -200,23 +200,29 @@ session_set_cookie_params($ttl);
                       <div class="card">
                         <div class="number">
                           <h2>-</h2>
-                          <i class="fas fa-hand-holding-usd"></i>
+                          <i class="fa-solid fa-van-shuttle"></i>
                         </div>
-                        <p>Oportunidades Activas</p>
+                        <p>Vehiculos</p>
                       </div>
                       <div class="card">
                         <div class="number">
-                          <h2 id="visitas_hoy"></h2>
-                          <i class="fas fa-eye"></i>
+                          <div class="double-line">
+                            <h4><span>456</span> del mes.</h4>
+                            <h4><span>2.000</span> Acumuladas.</h4>
+                          </div>
+                          <i class="fa-solid fa-check-double"></i>
                         </div>
-                        <p>Visitas Hoy</p>
+                        <p>Reconfirmaciones</p>
                       </div>
                       <div class="card">
                         <div class="number">
-                          <h2>-</h2>
-                          <i class="fas fa-leaf"></i>
+                          <div class="double-line">
+                            <h4><span>456</span> del mes.</h4>
+                            <h4><span>2.000</span> Acumuladas.</h4>
+                          </div>
+                          <i class="fa-solid fa-hand-holding-dollar"></i>
                         </div>
-                        <p>CO<sub>2</sub> Ahorrados</p>
+                        <p>Solic. Cotizaciones</p>
                       </div>
                     </div>
                     <div class="panel-tables">
@@ -285,39 +291,40 @@ session_set_cookie_params($ttl);
         }elseif($tipo == 2){ // Transportista
           echo '  <section class="panel" id="panel">
                     <div class="panel-cards">
-                        <a href="Agendar" class="card" id="plus">
+                        <a class="card button" href="Agendar">
                           <div class="number">
-                            <i class="fas fa-plus"></i>
+                              <h2>+</h2>
+                              <i class="fa-solid fa-road"></i>
                           </div>
-                          <p>Nuevo Viaje</p>
+                          <p>Agendar Viaje</p>
                         </a>
-                        <div class="card">
+                        <a class="card button" href="https://www.salioviaje.com.uy/Viajar/#Oportunidades">
                           <div class="number">
-                            <h2>-</h2>
-                            <i class="fas fa-busfas fa-bus"></i>
+                              <h2>-</h2>
+                              <i class="fa-solid fa-tags"></i>
                           </div>
-                          <p>Viajes</p>
-                        </div>
-                        <div class="card">
+                          <p>Oportunidades Disponibles</p>
+                        </a>
+                        <a class="card button" href="https://www.salioviaje.com.uy/Viajar/#Ofertas">
                           <div class="number">
-                            <h2>-</h2>
-                            <i class="fas fa-search-dollar"></i>
+                              <h2>-</h2>
+                              <i class="fa-solid fa-percent"></i>
                           </div>
-                          <p>Oportunidades</p>
-                        </div>
-                        <div class="card">
+                          <p>Ofertas Disponibles</p>
+                        </a>
+                        <a class="card button" href="https://www.salioviaje.com.uy/Central">
                           <div class="number">
-                            <h2>-</h2>
-                            <i class="fas fa-tags"></i>
+                              <h2>-</h2>
+                              <i class="fa-solid fa-hand-holding-dollar"></i>
                           </div>
-                          <p>Ofertas</p>
-                        </div>
+                          <p>Viajes para Cotizar</p>
+                        </a>
                       </div>
                       <div class="panel-tables">
                         <div>
                           <div class="usuarios-recientes">
                             <div class="usuarios-info">
-                              <h2><i class="fas fa-bus"></i> Mis Viajes ( <i class="fas fa-hammer"></i> )</h2>
+                              <h2><i class="fas fa-bus"></i> Mis Viajes</h2>
                               <div class="button-wrapper">
                                 <a href="Agendar" class="add"><i class="fas fa-plus"></i></a>
                                 <a href="Viajes"><i class="fas fa-list-ul"></i></a>
@@ -353,7 +360,7 @@ session_set_cookie_params($ttl);
 
                           <div class="usuarios-recientes">
                             <div class="usuarios-info">
-                              <h2><i class="fas fa-hand-holding-dollar"></i> Cotizaciones Presentadas ( <i class="fas fa-hammer"></i> )</h2>
+                              <h2><i class="fas fa-hand-holding-dollar"></i> Cotizaciones Presentadas</h2>
                               <div class="button-wrapper">
                                 <a href="Cotizaciones"><i class="fas fa-list-ul"></i></a>
                               </div>
@@ -389,7 +396,7 @@ session_set_cookie_params($ttl);
 
                           <div class="usuarios-recientes">
                             <div class="usuarios-info">
-                              <h2><i class="fas fa-hand-holding-dollar"></i> Cotizaciones Recibidas ( <i class="fas fa-hammer"></i> )</h2>
+                              <h2><i class="fas fa-hand-holding-dollar"></i> Cotizaciones Recibidas</h2>
                             </div>
                             <div class="search">
                               <i class="fas fa-search"></i>
@@ -439,33 +446,34 @@ session_set_cookie_params($ttl);
         }elseif($tipo == 3){ // Chofer
           echo '  <section class="panel" id="panel">
           <div class="panel-cards">
-              <a href="Agendar" class="card" id="plus">
+              <a class="card button" href="Agendar">
                 <div class="number">
-                  <i class="fas fa-plus"></i>
+                    <h2>+</h2>
+                    <i class="fa-solid fa-road"></i>
                 </div>
-                <p>Nuevo Viaje</p>
+                <p>Agendar Viaje</p>
               </a>
-              <div class="card">
+              <a class="card button" href="https://www.salioviaje.com.uy/Viajar/#Oportunidades">
                 <div class="number">
-                  <h2>-</h2>
-                  <i class="fas fa-busfas fa-bus"></i>
+                    <h2>-</h2>
+                    <i class="fa-solid fa-tags"></i>
                 </div>
-                <p>Viajes</p>
-              </div>
-              <div class="card">
+                <p>Oportunidades Disponibles</p>
+              </a>
+              <a class="card button" href="https://www.salioviaje.com.uy/Viajar/#Ofertas">
                 <div class="number">
-                  <h2>-</h2>
-                  <i class="fas fa-search-dollar"></i>
+                    <h2>-</h2>
+                    <i class="fa-solid fa-percent"></i>
                 </div>
-                <p>Oportunidades</p>
-              </div>
-              <div class="card">
+                <p>Ofertas Disponibles</p>
+              </a>
+              <a class="card button" href="https://www.salioviaje.com.uy/Vouchers">
                 <div class="number">
-                  <h2>-</h2>
-                  <i class="fas fa-tags"></i>
+                    <h2>-</h2>
+                    <i class="fa-solid fa-ticket"></i>
                 </div>
-                <p>Ofertas</p>
-              </div>
+                <p>Vouchers</p>
+              </a>
             </div>
             <div class="panel-tables">
 
@@ -526,34 +534,35 @@ session_set_cookie_params($ttl);
         elseif($tipo == 4 || $tipo == 5){ // Agente & Anfitrión
           echo '  <section class="panel" id="panel">
                     <div class="panel-cards">
-                        <a href="https://www.salioviaje.com.uy/Viajar/?opcion=5" class="card" id="plus">
-                          <div class="number">
-                            <i class="fas fa-plus"></i>
-                          </div>
-                          <p>Solicitar Cotización</p>
-                        </a>
-                        <div class="card">
-                          <div class="number">
-                            <h2>-</h2>
-                            <i class="fas fa-busfas fa-bus"></i>
-                          </div>
-                          <p>Viajes</p>
+                      <a class="card button" href="https://www.salioviaje.com.uy/Viajar/?opcion=5#Cotizacion">
+                        <div class="number">
+                            <h2>+</h2>
+                            <i class="fa-solid fa-road"></i>
                         </div>
-                        <div class="card">
-                          <div class="number">
+                        <p>Solicitar Cotización</p>
+                      </a>
+                      <a class="card button" href="https://www.salioviaje.com.uy/Viajar/#Oportunidades">
+                        <div class="number">
                             <h2>-</h2>
-                            <i class="fas fa-search-dollar"></i>
-                          </div>
-                          <p>Oportunidades</p>
+                            <i class="fa-solid fa-tags"></i>
                         </div>
-                        <div class="card">
-                          <div class="number">
+                        <p>Oportunidades Disponibles</p>
+                      </a>
+                      <a class="card button" href="https://www.salioviaje.com.uy/Viajar/#Ofertas">
+                        <div class="number">
                             <h2>-</h2>
-                            <i class="fas fa-tags"></i>
-                          </div>
-                          <p>Ofertas</p>
+                            <i class="fa-solid fa-percent"></i>
                         </div>
-                      </div>
+                        <p>Ofertas Disponibles</p>
+                      </a>
+                      <a class="card button" href="https://www.salioviaje.com.uy/Central">
+                        <div class="number">
+                            <h2>-</h2>
+                            <i class="fa-solid fa-hand-holding-dollar"></i>
+                        </div>
+                        <p>Viajes para Cotizar</p>
+                      </a>
+                    </div>
                       <div class="panel-tables">
                         <div>
                           <div class="usuarios-recientes">
@@ -593,7 +602,7 @@ session_set_cookie_params($ttl);
                           </div>
                           <div class="usuarios-recientes">
                             <div class="usuarios-info">
-                              <h2><i class="fas fa-hand-holding-dollar"></i> Cotizaciones Recibidas ( <i class="fas fa-hammer"></i> )</h2>
+                              <h2><i class="fas fa-hand-holding-dollar"></i> Cotizaciones Recibidas</h2>
                             </div>
                             <div class="search">
                               <i class="fas fa-search"></i>
@@ -640,40 +649,41 @@ session_set_cookie_params($ttl);
         }elseif($tipo == 8){ // Hotel
           echo '  <section class="panel" id="panel">
                     <div class="panel-cards">
-                        <a href="https://www.salioviaje.com.uy/Viajar/?opcion=5" class="card" id="plus">
-                          <div class="number">
-                            <i class="fas fa-plus"></i>
-                          </div>
-                          <p>Solicitar Cotización</p>
-                        </a>
-                        <div class="card">
-                          <div class="number">
-                            <h2>-</h2>
-                            <i class="fas fa-busfas fa-bus"></i>
-                          </div>
-                          <p>Viajes</p>
+                      <a class="card button" href="https://www.salioviaje.com.uy/Viajar/?opcion=5#Cotizacion">
+                        <div class="number">
+                            <h2>+</h2>
+                            <i class="fa-solid fa-road"></i>
                         </div>
-                        <div class="card">
-                          <div class="number">
+                        <p>Solicitar Cotización</p>
+                      </a>
+                      <a class="card button" href="https://www.salioviaje.com.uy/Viajar/#Oportunidades">
+                        <div class="number">
                             <h2>-</h2>
-                            <i class="fas fa-search-dollar"></i>
-                          </div>
-                          <p>Oportunidades</p>
+                            <i class="fa-solid fa-tags"></i>
                         </div>
-                        <div class="card">
-                          <div class="number">
+                        <p>Oportunidades Disponibles</p>
+                      </a>
+                      <a class="card button" href="https://www.salioviaje.com.uy/Viajar/#Ofertas">
+                        <div class="number">
                             <h2>-</h2>
-                            <i class="fas fa-tags"></i>
-                          </div>
-                          <p>Ofertas</p>
+                            <i class="fa-solid fa-percent"></i>
                         </div>
-                      </div>
+                        <p>Ofertas Disponibles</p>
+                      </a>
+                      <a class="card button" href="https://www.salioviaje.com.uy/Central">
+                        <div class="number">
+                            <h2>-</h2>
+                            <i class="fa-solid fa-hand-holding-dollar"></i>
+                        </div>
+                        <p>Viajes para Cotizar</p>
+                      </a>
+                    </div>
                       <div class="panel-tables">
                         <div>
 
                           <div class="usuarios-recientes">
                             <div class="usuarios-info">
-                              <h2><i class="fas fa-hand-holding-dollar"></i> Cotizaciones Recibidas ( <i class="fas fa-hammer"></i> )</h2>
+                              <h2><i class="fas fa-hand-holding-dollar"></i> Cotizaciones Recibidas</h2>
                             </div>
                             <div class="search">
                               <i class="fas fa-search"></i>
@@ -720,33 +730,34 @@ session_set_cookie_params($ttl);
         }elseif($tipo == 6 || $tipo == 7){ // Pasajero & Asesor
           echo '  <section class="panel" id="panel">
                     <div class="panel-cards">
-                      <a href="https://www.salioviaje.com.uy/Viajar/?opcion=5" class="card" id="plus">
-                          <div class="number">
-                            <i class="fas fa-plus"></i>
-                          </div>
-                          <p>Solicitar Cotización</p>
+                      <a class="card button" href="https://www.salioviaje.com.uy/Viajar/?opcion=5#Cotizacion">
+                        <div class="number">
+                            <h2>+</h2>
+                            <i class="fa-solid fa-road"></i>
+                        </div>
+                        <p>Solicitar Cotización</p>
                       </a>
-                      <div class="card">
+                      <a class="card button" href="https://www.salioviaje.com.uy/Viajar/#Oportunidades">
                         <div class="number">
-                          <h2>-</h2>
-                          <i class="fas fa-bus"></i>
+                            <h2>-</h2>
+                            <i class="fa-solid fa-tags"></i>
                         </div>
-                        <p>Viajes Realizados</p>
-                      </div>
-                      <div class="card">
+                        <p>Oportunidades Disponibles</p>
+                      </a>
+                      <a class="card button" href="https://www.salioviaje.com.uy/Viajar/#Ofertas">
                         <div class="number">
-                          <h2>-</h2>
-                          <i class="fas fa-tags"></i>
+                            <h2>-</h2>
+                            <i class="fa-solid fa-percent"></i>
                         </div>
-                        <p>Oportunidades Compradas</p>
-                      </div>
-                      <div class="card">
+                        <p>Ofertas Disponibles</p>
+                      </a>
+                      <a class="card button" href="https://www.salioviaje.com.uy/Vouchers">
                         <div class="number">
-                          <h2>-</h2>
-                          <i class="fas fa-hand-holding-usd"></i>
+                            <h2>-</h2>
+                            <i class="fa-solid fa-ticket"></i>
                         </div>
-                        <p>Ofertas Compradas</p>
-                      </div>
+                        <p>Vouchers</p>
+                      </a>
                     </div>
                     <div class="panel-tables-2">
                       <div class="usuarios-recientes">
@@ -789,7 +800,7 @@ session_set_cookie_params($ttl);
 
                       <div class="usuarios-recientes">
                         <div class="usuarios-info">
-                          <h2><i class="fas fa-hand-holding-dollar"></i> Cotizaciones Recibidas ( <i class="fas fa-hammer"></i> )</h2>
+                          <h2><i class="fas fa-hand-holding-dollar"></i> Cotizaciones Recibidas</h2>
                         </div>
                         <div class="search">
                           <i class="fas fa-search"></i>

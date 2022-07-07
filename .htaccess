@@ -41,6 +41,7 @@ RewriteRule ^Ofertas_Dashboard /Panel/Ofertas.php
 RewriteRule ^Cargar_Oferta /Panel/Cargar_Oferta.php
 RewriteRule ^Nueva_Promo /Panel/Nueva_Promo.php
 RewriteRule ^Permisos_MTOP /Panel/Permisos_MTOP.php
+RewriteRule ^Vouchers /Panel/Vouchers.php
 
 RewriteRule ^Success /Form/Success.html
 RewriteRule ^Failed /Form/Failed.html

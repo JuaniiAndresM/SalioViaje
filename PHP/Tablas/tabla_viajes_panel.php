@@ -13,6 +13,7 @@ $datos2 = json_decode($datos2->traer_viajes(),true);
 $oportunidades_dashboard = '';
 
 for ($i=0; $i < count($datos); $i++) { 
+ $PRECIO_CON_DESCUENTO_APLICADO = round($datos[$i]['PRECIO'] - $datos[$i]['PRECIO'] * ($datos[$i]['DESCUENTO'] / 100));
  $fecha = explode(' ', $datos[$i]['FECHA']);
 
         if ($i==0) {
@@ -31,7 +32,7 @@ for ($i=0; $i < count($datos); $i++) {
                       <td>'.$datos[$i]['DESTINO'].'</td>
                       <td>'.$datos[$i]['DISTANCIA'].' km</td>
                       <td>'.$datos[$i]['CANTIDAD_PASAJEROS'].'</td>
-                      <td>'.$datos[$i]['PRECIO'].'</td>
+                      <td>'.$PRECIO_CON_DESCUENTO_APLICADO.'</td>
                       <td>'.$datos[$i]['DESCUENTO'].'
                       </td>
                       <td>'.$datos[$i]['ESTADO'].'</td>
@@ -59,7 +60,7 @@ for ($i=0; $i < count($datos); $i++) {
                       <td>'.$datos[$i]['DESTINO'].'</td>
                       <td>'.$datos[$i]['DISTANCIA'].' km</td>
                       <td>'.$datos[$i]['CANTIDAD_PASAJEROS'].'</td>
-                      <td>'.$datos[$i]['PRECIO'].'</td>
+                      <td>'.$PRECIO_CON_DESCUENTO_APLICADO.'</td>
                       <td>'.$datos[$i]['DESCUENTO'].'
                       </td>
                       <td>'.$datos[$i]['ESTADO'].'</td>
@@ -76,6 +77,7 @@ for ($i=0; $i < count($datos); $i++) {
 }
 
 for ($i=0; $i < count($datos2); $i++) { 
+ $PRECIO_CON_DESCUENTO_APLICADO = round($datos2[$i]['PRECIO'] - $datos2[$i]['PRECIO'] * ($datos2[$i]['DESCUENTO'] / 100));
  $fecha = explode(' ', $datos2[$i]['FECHA']);
         if ($i==0 && $oportunidades_dashboard == null) {
           $oportunidades_dashboard = '
@@ -88,7 +90,7 @@ for ($i=0; $i < count($datos2); $i++) {
                       <td>'.$datos2[$i]['DESTINO'].'</td>
                       <td>'.$datos2[$i]['DISTANCIA'].' km</td>
                       <td>'.$datos2[$i]['CANTIDAD_PASAJEROS'].'</td>
-                      <td>'.$datos2[$i]['PRECIO'].'</td>
+                      <td>'.$PRECIO_CON_DESCUENTO_APLICADO.'</td>
                       <td>-</td>
                       <td>'.$datos2[$i]['ESTADO'].'</td>
                       <td>
@@ -110,7 +112,7 @@ for ($i=0; $i < count($datos2); $i++) {
                       <td>'.$datos2[$i]['DESTINO'].'</td>
                       <td>'.$datos2[$i]['DISTANCIA'].' km</td>
                       <td>'.$datos2[$i]['CANTIDAD_PASAJEROS'].'</td>
-                      <td>'.$datos2[$i]['PRECIO'].'</td>
+                      <td>'.$PRECIO_CON_DESCUENTO_APLICADO.'</td>
                       <td>-</td>
                       <td>'.$datos2[$i]['ESTADO'].'</td>
                       <td>

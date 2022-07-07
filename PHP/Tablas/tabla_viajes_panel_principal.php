@@ -335,7 +335,9 @@ if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "PAX") {
     //
     if ($datos2 != null) {
         for ($i = 0; $i < count($datos2); $i++) {
+            $PRECIO_CON_DESCUENTO_APLICADO = round($datos2[$i]['PRECIO'] - $datos2[$i]['PRECIO'] * ($datos2[$i]['DESCUENTO'] / 100));
             $fecha = explode(' ', $datos2[$i]['FECHA']);
+
             if ($datos2[$i]['MODALIDAD'] != "Agendado") {
                 if ($i == 0) {
                     $oportunidades_dashboard = '
@@ -348,7 +350,7 @@ if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "PAX") {
                         <td data-title="CantidadPasajeros">' . $datos2[$i]['CANTIDAD_PASAJERO'] . '</td>
                         <td data-title="Modalidad">' . $datos2[$i]['MODALIDAD'] . '</td>
                         <td data-title="Estado">' . $datos2[$i]['ESTADO'] . '</td>
-                        <td data-title="Precio">' . $datos2[$i]['PRECIO'] . '</td>
+                        <td data-title="Precio">$' . $PRECIO_CON_DESCUENTO_APLICADO . '</td>
                         <td data-title="Contacto">
                             <div class="button-wrapper">
                                 <button class="button tooltip left" data-tooltip="Contacto Transportista" onclick="modal_contacto(\'' . $datos2[$i]['NOMBRE'] . '\',' . $datos2[$i]['TELEFONO'] . ')"><i class="fa-solid fa-address-card"></i></button>
@@ -368,7 +370,7 @@ if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "PAX") {
                         <td data-title="CantidadPasajeros">' . $datos2[$i]['CANTIDAD_PASAJERO'] . '</td>
                         <td data-title="Modalidad">' . $datos2[$i]['MODALIDAD'] . '</td>
                         <td data-title="Estado">' . $datos2[$i]['ESTADO'] . '</td>
-                        <td data-title="Precio">' . $datos2[$i]['PRECIO'] . '</td>
+                        <td data-title="Precio">$' . $PRECIO_CON_DESCUENTO_APLICADO . '</td>
                         <td data-title="Contacto">
                             <div class="button-wrapper">
                                 <button class="button tooltip left" data-tooltip="Contacto Transportista" onclick="modal_contacto(\'' . $datos2[$i]['NOMBRE'] . '\',' . $datos2[$i]['TELEFONO'] . ')"><i class="fa-solid fa-address-card"></i></button>
@@ -390,7 +392,7 @@ if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "PAX") {
                         <td data-title="CantidadPasajeros">' . $datos2[$i]['CANTIDAD_PASAJERO'] . '</td>
                         <td data-title="Modalidad">' . $datos2[$i]['MODALIDAD'] . '</td>
                         <td data-title="Estado">' . $datos2[$i]['ESTADO'] . '</td>
-                        <td data-title="Precio">' . $datos2[$i]['PRECIO'] . '</td>
+                        <td data-title="Precio">$' . $PRECIO_CON_DESCUENTO_APLICADO . '</td>
                         <td data-title="Contacto">
                             <div class="button-wrapper">
                                 <button class="button tooltip left" data-tooltip="Contacto Transportista" onclick="modal_contacto(\'' . $datos2[$i]['NOMBRE'] . '\',' . $datos2[$i]['TELEFONO'] . ')"><i class="fa-solid fa-address-card"></i></button>
@@ -409,7 +411,7 @@ if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "PAX") {
                         <td data-title="CantidadPasajeros">' . $datos2[$i]['CANTIDAD_PASAJERO'] . '</td>
                         <td data-title="Modalidad">' . $datos2[$i]['MODALIDAD'] . '</td>
                         <td data-title="Estado">' . $datos2[$i]['ESTADO'] . '</td>
-                        <td data-title="Precio">' . $datos2[$i]['PRECIO'] . '</td>
+                        <td data-title="Precio">$' . $PRECIO_CON_DESCUENTO_APLICADO . '</td>
                         <td data-title="Contacto">
                             <div class="button-wrapper">
                                 <button class="button tooltip left" data-tooltip="Contacto Transportista" onclick="modal_contacto(\'' . $datos2[$i]['NOMBRE'] . '\',' . $datos2[$i]['TELEFONO'] . ')"><i class="fa-solid fa-address-card"></i></button>
@@ -427,6 +429,7 @@ if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "PAX") {
      * oportunidades compradas
      */
     for ($i = 0; $i < count($oportunidades); $i++) {
+        $PRECIO_CON_DESCUENTO_APLICADO = round($oportunidades[$i]['PRECIO'] - $oportunidades[$i]['PRECIO'] * ($oportunidades[$i]['DESCUENTO'] / 100));
         $fecha = explode(' ', $oportunidades[$i]['FECHA']);
         if ($i == 0 && $oportunidades_dashboard != " ") {
             $oportunidades_dashboard = '
@@ -439,7 +442,7 @@ if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "PAX") {
                 <td data-title="CantidadPasajeros">' . $oportunidades[$i]['CANTIDAD_PASAJERO'] . '</td>
                 <td data-title="Modalidad">' . $oportunidades[$i]['MODALIDAD'] . '</td>
                 <td data-title="Estado">' . $oportunidades[$i]['ESTADO'] . '</td>
-                <td data-title="Precio">' . $oportunidades[$i]['PRECIO'] . '</td>
+                <td data-title="Precio">$' . $PRECIO_CON_DESCUENTO_APLICADO . '</td>
                 <td data-title="Contacto">
                     <div class="button-wrapper">
                         <button class="button tooltip left" data-tooltip="Contacto Transportista" onclick="modal_contacto(\'' . $oportunidades[$i]['NOMBRE'] . '\',' . $oportunidades[$i]['TELEFONO'] . ')"><i class="fa-solid fa-address-card"></i></button>
@@ -458,7 +461,7 @@ if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "PAX") {
                 <td data-title="CantidadPasajeros">' . $oportunidades[$i]['CANTIDAD_PASAJERO'] . '</td>
                 <td data-title="Modalidad">' . $oportunidades[$i]['MODALIDAD'] . '</td>
                 <td data-title="Estado">' . $oportunidades[$i]['ESTADO'] . '</td>
-                <td data-title="Precio">' . $oportunidades[$i]['PRECIO'] . '</td>
+                <td data-title="Precio">$' . $PRECIO_CON_DESCUENTO_APLICADO . '</td>
                 <td data-title="Contacto">
                     <div class="button-wrapper">
                         <button class="button tooltip left" data-tooltip="Contacto Transportista" onclick="modal_contacto(\'' . $oportunidades[$i]['NOMBRE'] . '\',' . $oportunidades[$i]['TELEFONO'] . ')"><i class="fa-solid fa-address-card"></i></button>

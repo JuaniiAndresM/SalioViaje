@@ -12,7 +12,11 @@ session_set_cookie_params($ttl);
   }
 
 $bd = new procedimientosBD();
-$viajes = $bd->traer_oportunidades_por_id_tta_seccion_facturacion($_SESSION['datos_usuario']['ID']);
+if($_SESSION['datos_usuario']['TIPO_USUARIO'] == "ADM"){
+  $viajes = $bd->traer_oportunidades_por_id_tta_seccion_facturacion_admin();
+}else{
+  $viajes = $bd->traer_oportunidades_por_id_tta_seccion_facturacion($_SESSION['datos_usuario']['ID']);
+}
 $viajes = json_decode($viajes, true);
 ?>
 
