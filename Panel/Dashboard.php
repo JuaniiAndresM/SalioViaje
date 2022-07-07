@@ -324,7 +324,7 @@ session_set_cookie_params($ttl);
                         <div>
                           <div class="usuarios-recientes">
                             <div class="usuarios-info">
-                              <h2><i class="fas fa-bus"></i> Mis Viajes ( <i class="fas fa-hammer"></i> )</h2>
+                              <h2><i class="fas fa-bus"></i> Mis Viajes</h2>
                               <div class="button-wrapper">
                                 <a href="Agendar" class="add"><i class="fas fa-plus"></i></a>
                                 <a href="Viajes"><i class="fas fa-list-ul"></i></a>
@@ -360,7 +360,7 @@ session_set_cookie_params($ttl);
 
                           <div class="usuarios-recientes">
                             <div class="usuarios-info">
-                              <h2><i class="fas fa-hand-holding-dollar"></i> Cotizaciones Presentadas ( <i class="fas fa-hammer"></i> )</h2>
+                              <h2><i class="fas fa-hand-holding-dollar"></i> Cotizaciones Presentadas</h2>
                               <div class="button-wrapper">
                                 <a href="Cotizaciones"><i class="fas fa-list-ul"></i></a>
                               </div>
@@ -396,7 +396,7 @@ session_set_cookie_params($ttl);
 
                           <div class="usuarios-recientes">
                             <div class="usuarios-info">
-                              <h2><i class="fas fa-hand-holding-dollar"></i> Cotizaciones Recibidas ( <i class="fas fa-hammer"></i> )</h2>
+                              <h2><i class="fas fa-hand-holding-dollar"></i> Cotizaciones Recibidas</h2>
                             </div>
                             <div class="search">
                               <i class="fas fa-search"></i>
@@ -602,7 +602,7 @@ session_set_cookie_params($ttl);
                           </div>
                           <div class="usuarios-recientes">
                             <div class="usuarios-info">
-                              <h2><i class="fas fa-hand-holding-dollar"></i> Cotizaciones Recibidas ( <i class="fas fa-hammer"></i> )</h2>
+                              <h2><i class="fas fa-hand-holding-dollar"></i> Cotizaciones Recibidas</h2>
                             </div>
                             <div class="search">
                               <i class="fas fa-search"></i>
@@ -683,7 +683,7 @@ session_set_cookie_params($ttl);
 
                           <div class="usuarios-recientes">
                             <div class="usuarios-info">
-                              <h2><i class="fas fa-hand-holding-dollar"></i> Cotizaciones Recibidas ( <i class="fas fa-hammer"></i> )</h2>
+                              <h2><i class="fas fa-hand-holding-dollar"></i> Cotizaciones Recibidas</h2>
                             </div>
                             <div class="search">
                               <i class="fas fa-search"></i>
@@ -800,7 +800,7 @@ session_set_cookie_params($ttl);
 
                       <div class="usuarios-recientes">
                         <div class="usuarios-info">
-                          <h2><i class="fas fa-hand-holding-dollar"></i> Cotizaciones Recibidas ( <i class="fas fa-hammer"></i> )</h2>
+                          <h2><i class="fas fa-hand-holding-dollar"></i> Cotizaciones Recibidas</h2>
                         </div>
                         <div class="search">
                           <i class="fas fa-search"></i>
