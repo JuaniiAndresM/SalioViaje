@@ -16,7 +16,6 @@ session_set_cookie_params($ttl);
   require_once '../PHP/procedimientosBD.php';
   $regiones_mtop = new procedimientosBD();
   $regiones_mtop = json_decode($regiones_mtop->traer_regiones_mtop(), true);
-
   $rutas = new procedimientosBD();
   $rutas = json_decode($rutas->traer_rutas_mtop(), true);
 ?>
@@ -260,7 +259,7 @@ session_set_cookie_params($ttl);
                           if (isset($regiones_mtop)) {
                             for ($i=0; $i < count($regiones_mtop); $i++) { 
                             ?>
-                            <option value="<?php echo $regiones_mtop[$i]['REGION'].",".$regiones_mtop[$i]['DPTO'] ?>">
+                            <option value="<?php echo $regiones_mtop[$i]['REGION'].", ".$regiones_mtop[$i]['DPTO'] ?>">
                             <?php
                             }
                           }
