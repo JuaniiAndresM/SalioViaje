@@ -374,6 +374,19 @@ $main_3: #6d76db;
 
         margin: 0 auto;
 
+        .double-line{
+          h4{
+            font-size: 13px;
+            font-weight: 500;
+            color: $main_2;
+
+            span{
+              font-size: 16px;
+              font-weight: 600;
+            }
+          }
+        }
+
         h2 {
           font-size: 2em;
           color: $main_2;

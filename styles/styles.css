@@ -7255,6 +7255,17 @@ footer .totum p a:hover {
   margin: 0 auto;
 }
 
+.panel .panel-cards .card .number .double-line h4 {
+  font-size: 13px;
+  font-weight: 500;
+  color: #2b3179;
+}
+
+.panel .panel-cards .card .number .double-line h4 span {
+  font-size: 16px;
+  font-weight: 600;
+}
+
 .panel .panel-cards .card .number h2 {
   font-size: 2em;
   color: #2b3179;
