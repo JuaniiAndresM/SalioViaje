@@ -113,15 +113,7 @@ function steps(step) {
          $('.progress-bar').hide();
          $('.progress-bar2').hide();
 
-         $.ajax({
-            type: "POST",
-            url: "https://www.salioviaje.com.uy/Panel/Gurucuteco.php",
-            data: {opcion: 1},
-            success: function (response) {
-               $(`#gurucuteco`).html(response);
-               $(`#gurucuteco`).css(`display`,`flex`);
-            }
-         });
+         openGurucuteco(1);
          break;
 
       case 2:

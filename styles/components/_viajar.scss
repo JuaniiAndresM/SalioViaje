@@ -470,6 +470,17 @@
             font-size: 1.5em;
             margin: 20px 0;
             color: $main_1;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            i{
+              margin-right: 5px;
+            }
+            button{
+              margin-left: 10px;
+            }
           }
 
           .info{
@@ -512,6 +523,11 @@
               left: 0;
               color: #555;
             }
+          }
+          .input.flex{
+            display: flex;
+            justify-content: center;
+            align-items: center;
           }
 
           .formulario-grid, .paradas-wrapper{
