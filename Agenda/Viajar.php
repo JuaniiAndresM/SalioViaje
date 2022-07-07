@@ -56,6 +56,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://www.salioviaje.com.uy/Javascript/web.js"></script>
     <script src="https://www.salioviaje.com.uy/Javascript/viajar.js"></script>
+    <script src="https://www.salioviaje.com.uy/Plugins/waypoints/lib/noframework.waypoints.min.js"></script>
     
   </head>
   <body>
@@ -1262,6 +1263,15 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
             }
           }
           
+
+          var waypoint = new Waypoint({
+            element: document.getElementById('Ofertas'),
+            handler: function(direction) {
+              console.log('I am 20px from the top of the window')
+            },
+            offset: 200 
+          })
+
 
           
 
