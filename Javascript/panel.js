@@ -33,6 +33,12 @@ $(document).ready(function () {
         actualizar_vista_previa(matricula);
     });
 
+    //
+
+    $('#vehiculos-select').on('change', function () {
+        let matricula = document.getElementById('vehiculos-select').value;
+        actualizar_vista_previa(matricula);
+    });
 
 
     $("#cerrar_session_dashboard").on('click', function () {
@@ -61,9 +67,9 @@ function navbar() {
 
 function buscarUsuarios(buscador, filter) {
     var input, filter, table, tr, td, i, txtValue, tdlength;
-    if(filter != null){
+    if (filter != null) {
         input = document.getElementById("searchbar" + filter);
-    }else{
+    } else {
         input = document.getElementById("searchbar");
     }
     filter = input.value.toUpperCase();
@@ -190,18 +196,18 @@ function traerUsuariosESPECIFICOS(seccion, rut) {
 }
 
 function tablas_usuarios(seccion) {
-    for (var i = 0;i < usuarios.length; i++) {
-        switch(seccion){
+    for (var i = 0; i < usuarios.length; i++) {
+        switch (seccion) {
             case "Dashboard":
-                    tabla_usuarios_dashboard(usuarios[i])
+                tabla_usuarios_dashboard(usuarios[i])
                 break;
 
             case "usuarios":
-                    tabla_seccion_usuarios(usuarios[i])
+                tabla_seccion_usuarios(usuarios[i])
                 break;
             case "usuariosESPECIFICOS":
                 tabla_seccion_usuarios_especificos(usuarios[i]);
-            break;
+                break;
         }
     }
 }
@@ -441,7 +447,7 @@ function tabla_seccion_choferes(choferes) {
         var row = document.createElement("tr")
         let td
         for (const property in choferes[i]) {
-             td = document.createElement("td");
+            td = document.createElement("td");
             if (choferes[i][property] == null || choferes[i][property] == '' || choferes[i][property] == undefined) {
                 td.innerHTML = "-"
             } else if (property == "ID") {
@@ -559,10 +565,10 @@ function tabla_oportunidades_dashboard() {
         url: "/PHP/Tablas/tabla_viajes_panel_principal.php",
         success: function (response) {
             console.log(response)
-            if(response != 'null' && response != ''){
+            if (response != 'null' && response != '') {
                 $('#empty-viajes').hide();
                 $('#tbody-viajes-dashboard').html(response)
-            }else{
+            } else {
                 console.log($('table[id=search-table-agenda]'));
                 setTimeout(() => {
                     $('table[id=search-table-agenda]').css('display', 'none');
@@ -801,15 +807,15 @@ function guardarEdicionEmpresa(rut) {
     let data_ajax
 
     if ($("#NmEdicion").val() == undefined && $("#CaEdicion").val() == undefined) {
-        
+
         datos_Empresa = {
             "RUT": document.getElementById("rut_empresa").value,
             "NOMBRE_COMERCIAL": document.getElementById("NcEdicion").value,
             "RAZON_SOCIAL": document.getElementById("RsEdicion").value,
-            "NO_TTA_NO_CHO": 1 
+            "NO_TTA_NO_CHO": 1
         };
         data_ajax = { tipe: 5, RUTANTERIOR: rut, RUT: datos_Empresa['RUT'], NOMBRE: datos_Empresa["NOMBRE_COMERCIAL"], RS: datos_Empresa["RAZON_SOCIAL"], NM: datos_Empresa["NUMERO_MTOP"], CM: datos_Empresa["PASSWORD_MTOP"] };
-    } else if($("#NmEdicion").val() != undefined && $("#CaEdicion").val() == undefined){
+    } else if ($("#NmEdicion").val() != undefined && $("#CaEdicion").val() == undefined) {
         datos_Empresa = {
             "RUT": document.getElementById("rut_empresa").value,
             "NOMBRE_COMERCIAL": document.getElementById("NcEdicion").value,
@@ -820,7 +826,7 @@ function guardarEdicionEmpresa(rut) {
         };
         data_ajax = { tipe: 5, RUTANTERIOR: rut, RUT: datos_Empresa['RUT'], NOMBRE: datos_Empresa["NOMBRE_COMERCIAL"], RS: datos_Empresa["RAZON_SOCIAL"], NM: datos_Empresa["NUMERO_MTOP"], CM: datos_Empresa["PASSWORD_MTOP"] };
 
-    }else{
+    } else {
         datos_Empresa = {
             "RUT": document.getElementById("rut_empresa").value,
             "NOMBRE_COMERCIAL": document.getElementById("NcEdicion").value,
@@ -1073,13 +1079,13 @@ function confirmar_rut(validacion) {
 /*-------------------------------------------------------------------------------------------*/
 //                              Manejo de viajes                                             //
 /*-------------------------------------------------------------------------------------------*/
-function closeModal(){
+function closeModal() {
     $('#modal').hide();
     $('#modal').html("");
 }
 
-function eliminar_viajes(id, step){
-    switch(step){
+function eliminar_viajes(id, step) {
+    switch (step) {
         case 1:
             $.ajax({
                 type: "POST",
@@ -1087,15 +1093,15 @@ function eliminar_viajes(id, step){
                 data: { opcion: 1, data: id },
                 success: function (response) {
                     console.log(response);
-                    $('#modal').css('display','flex');
-                    $('#modal').html(response);        
+                    $('#modal').css('display', 'flex');
+                    $('#modal').html(response);
                 }
             });
             break;
         case 2:
             $.ajax({
                 type: "POST",
-                data: { opcion: "eliminar_viajes", id:id },
+                data: { opcion: "eliminar_viajes", id: id },
                 url: "https://www.salioviaje.com.uy/PHP/Backend.php",
                 success: function (response) {
                     console.log(response);
@@ -1108,16 +1114,16 @@ function eliminar_viajes(id, step){
 
 //https://www.salioviaje.com.uy/Editar_Oportunidad/
 function abrir_editar_oportunidad(id) {
-    window.location = 'https://www.salioviaje.com.uy/Editar_Oportunidad/'+id;
+    window.location = 'https://www.salioviaje.com.uy/Editar_Oportunidad/' + id;
 }
 
 function editar_oportunidad(id) {
     let datos = {
-        'DESCUENTO' : $("#desc_oport2").val(),
-        'FECHA' : $("#fecha_2").val(),
-        'ORIGEN' : $("#origen_2").val(),
-        'DESTINO' : $("#destino_2").val(),
-        'PRECIO' : $("#precioref_2").val()
+        'DESCUENTO': $("#desc_oport2").val(),
+        'FECHA': $("#fecha_2").val(),
+        'ORIGEN': $("#origen_2").val(),
+        'DESTINO': $("#destino_2").val(),
+        'PRECIO': $("#precioref_2").val()
     }
 
     console.log(datos)
@@ -1137,7 +1143,7 @@ function editar_oportunidad(id) {
         if (validacion == "VALIDO") {
             $.ajax({
                 type: "POST",
-                data: { opcion: "editar-oportunidad" ,datos: JSON.stringify(datos),id : id},
+                data: { opcion: "editar-oportunidad", datos: JSON.stringify(datos), id: id },
                 url: "https://www.salioviaje.com.uy/PHP/Backend.php",
                 success: function (response) {
                     window.location = 'https://www.salioviaje.com.uy/Dashboard';
@@ -1162,24 +1168,24 @@ function verificar_fecha(fecha) {
     var yyyy = fecha_actual.getFullYear();
     var hh = String(fecha_actual.getHours());
     var min = String(fecha_actual.getMinutes());
-    var fecha_viaje = new Date(fecha[0],fecha[1],fecha[2],hora_salida[0],hora_salida[1])
-    var fecha_actual = new Date(yyyy,mm,dd,hh,min)
+    var fecha_viaje = new Date(fecha[0], fecha[1], fecha[2], hora_salida[0], hora_salida[1])
+    var fecha_actual = new Date(yyyy, mm, dd, hh, min)
 
     if (fecha_viaje > fecha_actual) {
         return true
     } else { return false }
 }
 
-function preferenciasVehiculos(id, step, matricula){
+function preferenciasVehiculos(id, step, matricula) {
     let data = [id, matricula];
     console.log(data);
 
     let preferencias = {
-        "MATRICULA" : matricula,
-        "NOCTURNO" : $("#preferenciaNocturno").val(),
-        "FIESTAS" : $("#preferenciaFiestas").val(),
-        "DIA_LIBRE" : $("#preferenciaDiaLibre").val(),
-        "PRECIO" : $("#preferenciaPrecioCoche").val()
+        "MATRICULA": matricula,
+        "NOCTURNO": $("#preferenciaNocturno").val(),
+        "FIESTAS": $("#preferenciaFiestas").val(),
+        "DIA_LIBRE": $("#preferenciaDiaLibre").val(),
+        "PRECIO": $("#preferenciaPrecioCoche").val()
     }
 
     console.log(preferencias)
@@ -1189,11 +1195,11 @@ function preferenciasVehiculos(id, step, matricula){
             $.ajax({
                 type: "POST",
                 url: "https://www.salioviaje.com.uy/Panel/modal.php",
-                data: { opcion: 2, data: data},
+                data: { opcion: 2, data: data },
                 success: function (response) {
                     console.log(response);
-                    $('#modal').css('display','flex');
-                    $('#modal').html(response);        
+                    $('#modal').css('display', 'flex');
+                    $('#modal').html(response);
                 }
             });
             break;
@@ -1203,7 +1209,7 @@ function preferenciasVehiculos(id, step, matricula){
                 url: "https://www.salioviaje.com.uy/PHP/procedimientosForm.php",
                 data: { tipo: "guardarPreferencias", preferencias: JSON.stringify(preferencias) },
                 success: function (response) {
-                    console.log(response);  
+                    console.log(response);
                 }
             });
             break;
@@ -1220,21 +1226,29 @@ function mtop_viaje(datos_viaje_mtop, id_viaje) {
         url: "https://www.salioviaje.com.uy/Mail/mail-ViajeMTOP.php",
         data: { datos_viaje: JSON.stringify(datos_viaje_mtop) },
         success: function (response) {
-            console.log(response);  
+            console.log(response);
         },
-        complete: function (){
+        complete: function () {
             actualizar_mtop(1, id_viaje)
         }
     });
 }
 
-function actualizar_mtop(estado,id) {
+function estadoMTOP(id) {
+    if ($(".select-estado-"+id).val() == 1) {
+        actualizar_mtop(3, id)
+    } else {
+        actualizar_mtop(2, id)
+    }
+}
+
+function actualizar_mtop(estado, id) {
     $.ajax({
         type: "POST",
         url: "https://www.salioviaje.com.uy/PHP/procedimientosForm.php",
         data: { tipo: "actualizar_mtop", estado: estado, id: id },
         success: function (response) {
-            console.log(response);  
+            console.log(response);
         }
     });
 }
@@ -1247,44 +1261,44 @@ function modal_contacto(nombre_tta, telefono_tta) {
         data: { opcion: 4, data: data },
         success: function (response) {
             console.log(response);
-            $('#modal').css('display','flex');
-            $('#modal').html(response);        
+            $('#modal').css('display', 'flex');
+            $('#modal').html(response);
         }
     });
 }
 
-function crear_oportunidad(id){
-    window.location.href = "https://www.salioviaje.com.uy/AddOportunidad/"+id;
+function crear_oportunidad(id) {
+    window.location.href = "https://www.salioviaje.com.uy/AddOportunidad/" + id;
 }
 
-function agregar_oportunidad_a_viaje(matricula, idviaje_de_solicitud){
+function agregar_oportunidad_a_viaje(matricula, idviaje_de_solicitud) {
     let datos = {
-        "DESCUENTO_OPORTUNIDAD" : $("#desc_oport2").val(),
-        "FECHA" : $("#fecha_2").val().replace("T", " "),
-        "ORIGEN" : $("#origen_2").val(),
-        "DESTINO" : $("#destino_2").val(),
-        "PRECIO_REFERENCIA" : $("#precioref_2").val(),
-        "DISTANCIA" : $("#distancia_2").val(),
-        "CANTIDAD_DE_PASAJEROS" : $("#cantidad_pasajeros_2").val(),
-        "MATRICULA" : matricula
+        "DESCUENTO_OPORTUNIDAD": $("#desc_oport2").val(),
+        "FECHA": $("#fecha_2").val().replace("T", " "),
+        "ORIGEN": $("#origen_2").val(),
+        "DESTINO": $("#destino_2").val(),
+        "PRECIO_REFERENCIA": $("#precioref_2").val(),
+        "DISTANCIA": $("#distancia_2").val(),
+        "CANTIDAD_DE_PASAJEROS": $("#cantidad_pasajeros_2").val(),
+        "MATRICULA": matricula
     }
 
     $.ajax({
         type: "POST",
         url: "https://www.salioviaje.com.uy/PHP/procedimientosForm.php",
-        data: { tipo: "agregar_oportunidad_a_viaje", datos: JSON.stringify(datos)},
+        data: { tipo: "agregar_oportunidad_a_viaje", datos: JSON.stringify(datos) },
         success: function (response) {
-            vincular_tramos_agregar_oportunidad(idviaje_de_solicitud,response)
+            vincular_tramos_agregar_oportunidad(idviaje_de_solicitud, response)
             vincular_tramos_agregar_oportunidad(response, idviaje_de_solicitud)
         }
     });
 }
 
-function vincular_tramos_agregar_oportunidad(tramo_vinculado, id){
+function vincular_tramos_agregar_oportunidad(tramo_vinculado, id) {
     $.ajax({
         type: "POST",
         url: "https://www.salioviaje.com.uy/PHP/procedimientosForm.php",
-        data: { tipo: "registrar_tramos_vinculados", id: id, id_tramo_vinculado: tramo_vinculado},
+        data: { tipo: "registrar_tramos_vinculados", id: id, id_tramo_vinculado: tramo_vinculado },
         success: function (response) {
             console.log(response);
         }
