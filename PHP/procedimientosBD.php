@@ -1679,13 +1679,13 @@ class procedimientosBD
     public function tabla_viajes_mtop(){
         $viajes_mtop = array();
         $conn = $this->conexion();
-        $query = "SELECT idViaje,idTransportista FROM `viajes` where ESTADO_MTOP != 0 ";
+        $query = "SELECT idViaje,idTransportista,ESTADO_MTOP FROM `viajes` where ESTADO_MTOP != 0 ";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($id_viaje, $idTransportista);
+            $stmt->bind_result($id_viaje, $idTransportista, $estado_mtop);
             while ($stmt->fetch()) {
-                $result = array("ID_VIAJE" => $id_viaje, "ID_TRANSPORTISTA" => $idTransportista);
+                $result = array("ID_VIAJE" => $id_viaje, "ID_TRANSPORTISTA" => $idTransportista, "ESTADO_MTOP" => $estado_mtop);
                 $viajes_mtop[] = $result;
             }
         }

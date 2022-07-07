@@ -185,11 +185,34 @@ session_set_cookie_params($ttl);
                           <a href="https://www.salioviaje.com.uy/" target="_blank">https://salioviaje.com.uy/</a>
                       </td>
                       <td>
-                      <select class="select-estado" onclick="estadoMTOP(<?php echo $viajes[$i]['ID_VIAJE']; ?>)">
-                          <option value="0" disabled selected>Seleccione un Estado</option> 
-                          <option value="1">Aprobado</option>
-                          <option value="2">Rechazado</option>
-                      </select>
+                      <?php 
+                        if($viajes[$i]['ESTADO_MTOP'] == 1){
+                          ?>
+                          <select class="select-estado-<?php echo $viajes[$i]['ID_VIAJE']; ?>" onchange="estadoMTOP(<?php echo $viajes[$i]['ID_VIAJE']; ?>)">
+                            <option value="0" disabled selected>Seleccione un Estado</option> 
+                            <option value="1">Aprobado</option>
+                            <option value="2">Rechazado</option>
+                          </select>
+                          <?php 
+                        }elseif ($viajes[$i]['ESTADO_MTOP'] == 2) {
+                          ?>
+                          <select class="select-estado-<?php echo $viajes[$i]['ID_VIAJE']; ?>" onchange="estadoMTOP(<?php echo $viajes[$i]['ID_VIAJE']; ?>)">
+                            <option value="0" disabled>Seleccione un Estado</option> 
+                            <option value="1">Aprobado</option>
+                            <option value="2" selected>Rechazado</option>
+                          </select>
+                          <?php 
+                        }else{
+                          ?>
+                          <select class="select-estado-<?php echo $viajes[$i]['ID_VIAJE']; ?>" onchange="estadoMTOP(<?php echo $viajes[$i]['ID_VIAJE']; ?>)">
+                            <option value="0" disabled >Seleccione un Estado</option> 
+                            <option value="1" selected>Aprobado</option>
+                            <option value="2">Rechazado</option>
+                          </select>
+                          <?php 
+                        }
+                      ?>
+
                       </td>
                     </tr>
                     <?php

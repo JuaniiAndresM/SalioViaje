@@ -421,7 +421,7 @@ function copiar_solicitud(id_solicitud, step) {
 function enviarMail(mail) {
    $.ajax({
       type: "POST",
-      url: "/Mail/mail-Oportunidades-Rechazado.php",
+      url: "/Mail/mail-Oportunidad-Reconfirmada-Rechazada.php",
       data: { mail: mail },
       success: function (response) {
          console.log(response);
