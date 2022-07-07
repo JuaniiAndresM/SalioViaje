@@ -212,6 +212,8 @@ session_set_cookie_params($ttl);
                     $size = sizeof($vehiculos);
                     for($i = 0; $i< sizeof($vehiculos); $i++){
 
+                      $PRECIO_CON_DESCUENTO_APLICADO = round($vehiculos[$i]['PRECIO'] - $vehiculos[$i]['PRECIO'] * ($vehiculos[$i]['DESCUENTO'] / 100));
+
                       $info = explode(" ", $vehiculos[$i]['FECHA']);
                       $FECHA =$info[0];
                       $HORA = $info[1];
@@ -223,7 +225,7 @@ session_set_cookie_params($ttl);
                           <td>'.$vehiculos[$i]['ORIGEN'].'</td>
                           <td>'.$vehiculos[$i]['DESTINO'].'</td>
                           <td>'.$vehiculos[$i]['CANTIDAD_PASAJERO'].'</td>
-                          <td>$'.number_format( $vehiculos[$i]['PRECIO'], 0,'','.').'</td>
+                          <td>$'.number_format( $PRECIO_CON_DESCUENTO_APLICADO, 0,'','.').'</td>
                           <td>'.$vehiculos[$i]['MODALIDAD'].'</td>
                           <td>'.$vehiculos[$i]['ESTADO'].'</td>
                           <td>
@@ -253,6 +255,7 @@ session_set_cookie_params($ttl);
                   }else{
                     $size = sizeof($oportunidades);
                     for($i = 0; $i< sizeof($oportunidades); $i++){
+                      $PRECIO_CON_DESCUENTO_APLICADO = round($oportunidades[$i]['PRECIO'] - $oportunidades[$i]['PRECIO'] * ($oportunidades[$i]['DESCUENTO'] / 100));
                       $info = explode(" ", $oportunidades[$i]['FECHA']);
                       $FECHA =$info[0];
                       $HORA = $info[1];
@@ -264,7 +267,7 @@ session_set_cookie_params($ttl);
                           <td>'.$oportunidades[$i]['ORIGEN'].'</td>
                           <td>'.$oportunidades[$i]['DESTINO'].'</td>
                           <td>'.$oportunidades[$i]['CANTIDAD_PASAJERO'].'</td>
-                          <td>$'.number_format( $oportunidades[$i]['PRECIO'], 0,'','.').'</td>
+                          <td>$'.number_format( $PRECIO_CON_DESCUENTO_APLICADO, 0,'','.').'</td>
                           <td>'.$oportunidades[$i]['MODALIDAD'].'</td>
                           <td>'.$oportunidades[$i]['ESTADO'].'</td>
                           <td>';
