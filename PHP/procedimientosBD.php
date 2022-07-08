@@ -1738,4 +1738,96 @@ class procedimientosBD
         $stmt->close();
         return json_encode($cotizaciones);
     }
+    //SELECT count(*) FROM viajes where Modalidad = "Oportunidad"
+    public function numero_oportunidades(){
+        $conn = $this->conexion();
+        $query = "SELECT count(*) FROM viajes where Modalidad = 'Oportunidad' and Estado = 'En venta'";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($numero_oportunidades);
+            while ($stmt->fetch()) {
+                $result = $numero_oportunidades;
+            }
+        }
+        $stmt->close();
+        return $result;
+    }
+
+    public function numero_vehiculos(){
+        $conn = $this->conexion();
+        $query = "SELECT count(*) FROM vehiculos where visibilidad = 1";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($numero_vehiculos);
+            while ($stmt->fetch()) {
+                $result = $numero_vehiculos;
+            }
+        }
+        $stmt->close();
+        return $result;
+    }
+
+    //SELECT * FROM viajes WHERE Fecha BETWEEN curdate() and date_add(curdate(), interval 1 month) and Estado = "Reconfirmado" 
+
+    public function numero_reconfirmaciones_mes(){
+        $conn = $this->conexion();
+        $query = "SELECT count(*) FROM viajes WHERE Fecha BETWEEN curdate() and date_add(curdate(), interval 1 month) and Estado = 'Reconfirmado';";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($numero_vehiculos);
+            while ($stmt->fetch()) {
+                $result = $numero_vehiculos;
+            }
+        }
+        $stmt->close();
+        return $result;
+    }
+
+    public function numero_reconfirmaciones_totales(){
+        $conn = $this->conexion();
+        $query = "SELECT count(*) FROM viajes WHERE Estado = 'Reconfirmado';";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($numero_vehiculos);
+            while ($stmt->fetch()) {
+                $result = $numero_vehiculos;
+            }
+        }
+        $stmt->close();
+        return $result;
+    }
+
+    public function numero_solicitudes_de_cotizaciones_mes(){
+        $conn = $this->conexion();
+        $query = "SELECT count(*) FROM cotizaciones WHERE FECHA_SALIDA BETWEEN curdate() and date_add(curdate(), interval 1 month) and Estado = 1 ";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($numero_vehiculos);
+            while ($stmt->fetch()) {
+                $result = $numero_vehiculos;
+            }
+        }
+        $stmt->close();
+        return $result;
+    }
+
+    public function numero_solicitudes_de_cotizaciones_totales(){
+        $conn = $this->conexion();
+        $query = "SELECT count(*) FROM cotizaciones WHERE Estado = 1;";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($numero_vehiculos);
+            while ($stmt->fetch()) {
+                $result = $numero_vehiculos;
+            }
+        }
+        $stmt->close();
+        return $result;
+    }
 }

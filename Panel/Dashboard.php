@@ -188,6 +188,8 @@ session_set_cookie_params($ttl);
 
         <?php 
 
+        $bd = new procedimientosBD();
+
         if($tipo == 1){
           echo '  <section class="panel" id="panel">
                     <div class="panel-cards">
@@ -199,7 +201,7 @@ session_set_cookie_params($ttl);
                       </div>
                       <div class="card">
                         <div class="number">
-                          <h2>-</h2>
+                          <h2>'.$bd->numero_vehiculos().'</h2>
                           <i class="fa-solid fa-van-shuttle"></i>
                         </div>
                         <p>Vehiculos</p>
@@ -207,8 +209,8 @@ session_set_cookie_params($ttl);
                       <div class="card">
                         <div class="number">
                           <div class="double-line">
-                            <h4><span>456</span> del mes.</h4>
-                            <h4><span>2.000</span> Acumuladas.</h4>
+                            <h4><span>'.$bd->numero_reconfirmaciones_mes().'</span> del mes.</h4>
+                            <h4><span>'.$bd->numero_reconfirmaciones_totales().'</span> Acumuladas.</h4>
                           </div>
                           <i class="fa-solid fa-check-double"></i>
                         </div>
@@ -217,8 +219,8 @@ session_set_cookie_params($ttl);
                       <div class="card">
                         <div class="number">
                           <div class="double-line">
-                            <h4><span>456</span> del mes.</h4>
-                            <h4><span>2.000</span> Acumuladas.</h4>
+                            <h4><span>'.$bd->numero_solicitudes_de_cotizaciones_mes().'</span> del mes.</h4>
+                            <h4><span>'.$bd->numero_solicitudes_de_cotizaciones_totales().'</span> Acumuladas.</h4>
                           </div>
                           <i class="fa-solid fa-hand-holding-dollar"></i>
                         </div>
@@ -300,7 +302,7 @@ session_set_cookie_params($ttl);
                         </a>
                         <a class="card button" href="https://www.salioviaje.com.uy/Viajar/#Oportunidades">
                           <div class="number">
-                              <h2>-</h2>
+                              <h2>'.$bd->numero_oportunidades().'</h2>
                               <i class="fa-solid fa-tags"></i>
                           </div>
                           <p>Oportunidades Disponibles</p>
@@ -314,7 +316,7 @@ session_set_cookie_params($ttl);
                         </a>
                         <a class="card button" href="https://www.salioviaje.com.uy/Central">
                           <div class="number">
-                              <h2>-</h2>
+                              <h2>'.$bd->numero_solicitudes_de_cotizaciones_totales().'</h2>
                               <i class="fa-solid fa-hand-holding-dollar"></i>
                           </div>
                           <p>Viajes para Cotizar</p>
@@ -455,7 +457,7 @@ session_set_cookie_params($ttl);
               </a>
               <a class="card button" href="https://www.salioviaje.com.uy/Viajar/#Oportunidades">
                 <div class="number">
-                    <h2>-</h2>
+                    <h2>'.$bd->numero_oportunidades().'</h2>
                     <i class="fa-solid fa-tags"></i>
                 </div>
                 <p>Oportunidades Disponibles</p>
@@ -543,7 +545,7 @@ session_set_cookie_params($ttl);
                       </a>
                       <a class="card button" href="https://www.salioviaje.com.uy/Viajar/#Oportunidades">
                         <div class="number">
-                            <h2>-</h2>
+                            <h2>'.$bd->numero_oportunidades().'</h2>
                             <i class="fa-solid fa-tags"></i>
                         </div>
                         <p>Oportunidades Disponibles</p>
@@ -557,7 +559,7 @@ session_set_cookie_params($ttl);
                       </a>
                       <a class="card button" href="https://www.salioviaje.com.uy/Central">
                         <div class="number">
-                            <h2>-</h2>
+                            <h2>'.$bd->numero_solicitudes_de_cotizaciones_totales().'</h2>
                             <i class="fa-solid fa-hand-holding-dollar"></i>
                         </div>
                         <p>Viajes para Cotizar</p>
@@ -658,7 +660,7 @@ session_set_cookie_params($ttl);
                       </a>
                       <a class="card button" href="https://www.salioviaje.com.uy/Viajar/#Oportunidades">
                         <div class="number">
-                            <h2>-</h2>
+                            <h2>'.$bd->numero_oportunidades().'</h2>
                             <i class="fa-solid fa-tags"></i>
                         </div>
                         <p>Oportunidades Disponibles</p>
@@ -672,7 +674,7 @@ session_set_cookie_params($ttl);
                       </a>
                       <a class="card button" href="https://www.salioviaje.com.uy/Central">
                         <div class="number">
-                            <h2>-</h2>
+                            <h2>'.$bd->numero_solicitudes_de_cotizaciones_totales().'</h2>
                             <i class="fa-solid fa-hand-holding-dollar"></i>
                         </div>
                         <p>Viajes para Cotizar</p>
@@ -739,7 +741,7 @@ session_set_cookie_params($ttl);
                       </a>
                       <a class="card button" href="https://www.salioviaje.com.uy/Viajar/#Oportunidades">
                         <div class="number">
-                            <h2>-</h2>
+                            <h2>'.$bd->numero_oportunidades().'</h2>
                             <i class="fa-solid fa-tags"></i>
                         </div>
                         <p>Oportunidades Disponibles</p>
