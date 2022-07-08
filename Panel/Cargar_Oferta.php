@@ -94,15 +94,11 @@ session_set_cookie_params($ttl);
     <script src="https://www.salioviaje.com.uy/Javascript/agendar.js"></script>
     <script src="https://www.salioviaje.com.uy/Javascript/loader.js"></script>
     <script src="https://www.salioviaje.com.uy/Javascript/ofertas.js"></script>
+    <script src="https://www.salioviaje.com.uy/Javascript/gurucuteco.js"></script>
     <script type="text/javascript">
-        // window.onload = function(){
-        //   $("#step-next-1").on('click', function() {
-        //     etapa_1();
-        //   });
-        //   $("#step-next-2").on('click', function() {
-        //     etapa_2();
-        //   });
-        // }
+        window.onload = function(){
+          openGurucuteco(3);
+        }
     </script>
   </head>
   <body>
@@ -114,6 +110,8 @@ session_set_cookie_params($ttl);
         <div></div>
       </div>
     </div>
+
+    <div id="gurucuteco"></div>
 
     <header class="panel-header" id="header">
       <div class="header-left">
@@ -156,12 +154,13 @@ session_set_cookie_params($ttl);
                 <h2>Tipo de Oferta</h2>
                 <h3>Seleccione el Tipo de Oferta a realizar.</h3>
                 <div class="input">
-                    <i class="fa-solid fa-list-ol" class="icon"></i>
+                    <i class="fa-solid fa-list-ol icon"></i>
                     <select name="ofertaType" id="ofertaType" onchange="selectType()">
                         <option value="0" disabled hidden selected>Seleccione una de las opciones</option>
                         <option value="1">Transporte</option>
                         <option value="2">Paquetes</option>
                     </select>
+                    <button class="gurucuteco-button" onclick="openGurucuteco(3)"><i class="fa-solid fa-circle-question"></i></button>
                 </div>
             </div>
 
@@ -172,7 +171,7 @@ session_set_cookie_params($ttl);
                     <div class="col-l">
                         
                         <div class="input">
-                            <i class="fa-solid fa-van-shuttle"></i>
+                            <i class="fa-solid fa-van-shuttle icon"></i>
                             <select name="ofertaType">
                                 <option value="0" disabled hidden selected>Seleccione una matrícula</option>
                                 <option value="1">AAT 1234</option>
@@ -181,28 +180,28 @@ session_set_cookie_params($ttl);
                         </div>
 
                         <div class="input">
-                            <i class="fa-solid fa-people-group"></i>
+                            <i class="fa-solid fa-people-group icon"></i>
                             <input type="number" id="capacidadVehiculo" placeholder="Capacidad del Vehículo">
                         </div>
 
                         <div class="input" id="km">
-                            <i class="fas fa-road" id="icon"></i>
+                            <i class="fas fa-road icon"></i>
                             <input type="number" pattern="[1-9]" class="right-i" min="0" id="distanciaKm" placeholder="Distancia" oninput="this.value = Math.abs(this.value)"/>
                             <p id="end-text">km</p>
                         </div>
 
                         <div class="input">
-                            <i class="fa-solid fa-location-dot"></i>
+                            <i class="fa-solid fa-location-dot icon"></i>
                             <input list="RegionesMTOP" id="origen" placeholder="Origen">
                         </div>
 
                         <div class="input">
-                            <i class="fa-solid fa-route"></i>
+                            <i class="fa-solid fa-route icon"></i>
                             <input list="RegionesMTOP" id="destino" placeholder="Destino">
                         </div>
 
                         <div class="input">
-                            <i class="fa-solid fa-arrow-down-up-across-line"></i>
+                            <i class="fa-solid fa-arrow-down-up-across-line icon"></i>
                             <select name="tramoType">
                                 <option value="0" disabled hidden selected>Seleccione un Tramo</option>
                                 <option value="1">Ida</option>
@@ -212,7 +211,7 @@ session_set_cookie_params($ttl);
                         </div>
 
                         <div class="input">
-                            <i class="fa-solid fa-clock"></i>
+                            <i class="fa-solid fa-clock icon"></i>
                             <select name="horarioType">
                                 <option value="0" selected>Todo el Día</option>
                                 <option value="1">Mañana (00:00 - 12:00)</option>
@@ -225,22 +224,22 @@ session_set_cookie_params($ttl);
                     <div class="col-r">
                         
                         <div class="input">
-                            <i class="fa-solid fa-hand-holding-dollar"></i>
+                            <i class="fa-solid fa-hand-holding-dollar icon"></i>
                             <input type="number" id="precioViaje" placeholder="Precio del Viaje">
                         </div>
 
                         <div class="input">
-                            <i class="fa-solid fa-hourglass"></i>
+                            <i class="fa-solid fa-hourglass icon"></i>
                             <input type="number" id="precioEspera" placeholder="Precio Hora de Espera">
                         </div>
 
                         <div class="input">
-                            <i class="fa-solid fa-stopwatch"></i>
+                            <i class="fa-solid fa-stopwatch icon"></i>
                             <input type="number" id="precioParada" placeholder="Precio por Parada">
                         </div>
 
                         <div class="input">
-                            <i class="fa-solid fa-percent"></i>
+                            <i class="fa-solid fa-percent icon"></i>
                             <select name="descuentoOferta">
                                 <option value="0" disabled hidden selected>Seleccione un Descuento</option>
                                 <option value="1">10%</option>
@@ -251,7 +250,7 @@ session_set_cookie_params($ttl);
                         </div>
 
                         <div class="input">
-                            <i class="far fa-calendar-alt" id="icon"></i>
+                            <i class="far fa-calendar-alt icon"></i>
                             <input type="date" id="fechaPromocion" placeholder="Fecha de Promoción" onchange="addFecha()"/>
                         </div>
 

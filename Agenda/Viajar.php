@@ -56,6 +56,8 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://www.salioviaje.com.uy/Javascript/web.js"></script>
     <script src="https://www.salioviaje.com.uy/Javascript/viajar.js"></script>
+    <script src="https://www.salioviaje.com.uy/Plugins/waypoints/lib/noframework.waypoints.min.js"></script>
+    <script src="https://www.salioviaje.com.uy/Javascript/gurucuteco.js"></script>
     
   </head>
   <body>
@@ -80,7 +82,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
     </div>
 
     <div id="modal"></div>
-   
+    <div id="gurucuteco"></div>
       <a href="https://www.salioviaje.com.uy/FAQ" title="Frequently Asked Questions"  target="_BLANK" id="faq-float" >
         <i class="fas fa-question" > </i> </a>
       
@@ -284,7 +286,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
             <div class="step_1">
 
-              <div class="input">
+              <div class="input flex">
                 <i class="fas fa-suitcase-rolling" id="icon"></i>
                 <select name="" id="select_users" onchange="select_usuario()">
                   <option value="0" selected disabled hidden >Tipo de Viaje</option>
@@ -293,6 +295,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                   <option value="3">Transfer (Aeropuerto / Puerto)</option>
                   <option value="4">Fiestas o Eventos</option>
                 </select>
+                <button class="gurucuteco-button" onclick="openGurucuteco(2)"><i class="fa-solid fa-circle-question"></i></button>
               </div>
 
               <p class="info"><i class="fas fa-info-circle"></i> Seleccione un tipo de viaje a realizar.</p>
@@ -301,7 +304,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
             <div class="step_2_traslado">
 
-              <h3 class="title"><i class="fas fa-bus"></i> Traslado</h3>
+              <h3 class="title"><i class="fas fa-bus"></i> Traslado <button class="gurucuteco-button" onclick="openGurucuteco(7)"><i class="fa-solid fa-circle-question"></i></button></h3>
 
               <div class="formulario-grid">
                 <div class="column">
@@ -441,7 +444,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
             <div class="step_2_tour">
 
-              <h3 class="title"><i class="fas fa-city"></i> Tour o Servicio por Horas.</h3>
+              <h3 class="title"><i class="fas fa-city"></i> Tour o Servicio por Horas. <button class="gurucuteco-button" onclick="openGurucuteco(6)"><i class="fa-solid fa-circle-question"></i></button></h3>
 
               <div class="formulario-grid">
                 <div class="column">
@@ -545,13 +548,14 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
               <h3 class="title"><i class="fas fa-plane-departure"></i> Transfer (Aeropuerto / Puerto)</h3>
 
-              <div class="input">
+              <div class="input flex">
                 <i class="fas fa-plane" id="icon"></i>
                 <select name="" id="select_transfer" onchange="select_transfer()">
                   <option value="0" selected disabled hidden >Seleccione una Tipo de Transfer</option>
                   <option value="1">Transfer de Arribos</option>
                   <option value="2">Transfer de Partidas</option>
                 </select>
+                <button class="gurucuteco-button" onclick="openGurucuteco(5)"><i class="fa-solid fa-circle-question"></i></button>
               </div>
 
               <p class="info"><i class="fas fa-info-circle"></i> Seleccione un tipo de transfer a realizar.</p>
@@ -752,7 +756,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
               <h3 class="title"><i class="fas fa-glass-cheers"></i> Fiestas o Eventos</h3>
 
-              <div class="input">
+              <div class="input flex">
                 <i class="fas fa-exchange-alt" id="icon"></i>
                 <select name="" id="select_fiesta" onchange="select_fiesta()">
                   <option value="0" selected disabled hidden >Seleccione un Tramo</option>
@@ -760,6 +764,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                   <option value="2">Solo Vuelta</option>
                   <option value="3">Ida y Vuelta</option>
                 </select>
+                <button class="gurucuteco-button" onclick="openGurucuteco(4)"><i class="fa-solid fa-circle-question"></i></button>
               </div>
 
               <p class="info"><i class="fas fa-info-circle"></i> Seleccione un tipo de tramo a realizar.</p>
@@ -1262,6 +1267,17 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
             }
           }
           
+
+          var waypoint = new Waypoint({
+            element: document.getElementById('Cotizacion'),
+            handler: function(direction) {
+              if($(`.session-output`).val() == 0 && $("#select_users").val() == null){
+                openGurucuteco(2);
+              }
+            },
+            offset: 300 
+          })
+
 
           
 

@@ -112,6 +112,8 @@ function steps(step) {
 
          $('.progress-bar').hide();
          $('.progress-bar2').hide();
+
+         openGurucuteco(1);
          break;
 
       case 2:

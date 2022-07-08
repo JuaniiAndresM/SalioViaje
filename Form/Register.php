@@ -80,6 +80,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
 
     <script src="https://www.salioviaje.com.uy/Javascript/web.js"></script>
     <script src="https://www.salioviaje.com.uy/Javascript/form.js"></script>
+    <script src="https://www.salioviaje.com.uy/Javascript/gurucuteco.js"></script>
     <script type="text/javascript">  
       Empresas(); 
       Hoteles_select();
@@ -87,6 +88,8 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
   </head>
   <body>
     <div id="header"></div>
+
+    <div id="gurucuteco"></div>
 
     <a href="https://www.salioviaje.com.uy/FAQ" target="_BLANK" id="faq-float">
       <i class="fas fa-question"></i>
@@ -138,6 +141,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
               <option value="6">Asesor</option>
               <option value="7">Agente</option>
             </select>
+            <button class="gurucuteco-button" onclick="openGurucuteco(1)"><i class="fa-solid fa-circle-question"></i></button>
           </div>
 
           <button class="button-register" id="button_next_step" onclick="next()">

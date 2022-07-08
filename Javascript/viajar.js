@@ -819,12 +819,14 @@ function steps(step) {
                     $(".step_2_traslado").show();
                     $(".session-input").val()
                     $(".session-input").val("");
+                    openGurucuteco(7)
                     break;
 
                 case "2":
                     $(".step_2_tour").show();
                     $(".session-input").val()
                     $(".session-input").val("");
+                    openGurucuteco(6)
                     break;
 
                 case "3":
@@ -832,6 +834,7 @@ function steps(step) {
                     $(".session-input").val()
                     $(".session-input").val("");
                     $('.step_3').hide();
+                    openGurucuteco(5)
                     break;
 
                 case "4":
@@ -839,6 +842,7 @@ function steps(step) {
                     $(".session-input").val()
                     $(".session-input").val("");
                     $('.step_3').hide();
+                    openGurucuteco(4)
                     break;
             }
 
