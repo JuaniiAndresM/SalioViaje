@@ -37,7 +37,7 @@ for ($i = 0; $i < count($oportunidades); $i++) {
         }
     );
 
-    if ($oportunidades[$i]['ID'] > $oportunidades[$i]['ID_VIAJE_VINCULADO']) {
+    if ($oportunidades[$i]['ID'] > $oportunidades[$i]['ID_VIAJE_VINCULADO'] && $oportunidades[$i]['ID_VIAJE_VINCULADO'] != null) {
         $fechaTramo1 = new DateTime($viaje_vinculado[1]['FECHA']);
         $datos_mtop["FECHA_SALIDA"] = $viaje_vinculado[1]['FECHA'];
         $datos_mtop["FECHA_LLEGADA"] = $oportunidades[$i]['FECHA'];

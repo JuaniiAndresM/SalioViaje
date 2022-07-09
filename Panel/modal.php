@@ -1,5 +1,6 @@
 <?php 
 
+require_once '../PHP/procedimientosBD.php';
 $opcion = $_POST['opcion'];
 $data = $_POST['data'];
 $matricula = "'".$data[1]."'";
@@ -30,6 +31,138 @@ switch($opcion){
         break;
 
     case "2":
+
+        $preferencias = new procedimientosBD();
+
+        $preferencias = json_decode($preferencias->obtener_preferencias_vehiculo($data[1]), true);
+
+        if($preferencias != "null"){
+            /**
+             * SELECT NOCTURNO
+             */
+            if ($preferencias['NOCTURNO'] == 1) {
+                $select_nocturno = '<option value="1" selected>Si</option>
+                                    <option value="0">No</option>';
+            }else{
+                $select_nocturno = '<option value="1">Si</option>
+                                    <option value="0" selected>No</option>';
+            }
+            /**
+             * SELECT FIESTAS
+             */
+            if ($preferencias['FIESTAS'] == 1) {
+                $select_fiestas = '<option value="1" selected>Si</option>
+                <option value="0">No</option>';
+            }else{
+                $select_fiestas = '<option value="1">Si</option>
+                <option value="0" selected>No</option>';
+            }
+            /**
+             * SELECT DIA LIBRE
+             */
+            switch ($preferencias['DIA_LIBRE']) {
+                case 'DOM':
+                    $select_dia_libre = '<option value="0" >Ninguno</option>
+                    <option value="DOM" selected>Domingo</option>
+                    <option value="LUN">Lunes</option>
+                    <option value="MAR">Martes</option>
+                    <option value="MIE">Miércoles</option>
+                    <option value="JUE">Jueves</option>
+                    <option value="VIE">Viernes</option>
+                    <option value="SAB">Sábado</option>';
+                    break;
+                case 'LUN':
+                    $select_dia_libre = '<option value="0" >Ninguno</option>
+                    <option value="DOM">Domingo</option>
+                    <option value="LUN" selected>Lunes</option>
+                    <option value="MAR">Martes</option>
+                    <option value="MIE">Miércoles</option>
+                    <option value="JUE">Jueves</option>
+                    <option value="VIE">Viernes</option>
+                    <option value="SAB">Sábado</option>';
+                    break;                
+                case 'MAR':
+                    $select_dia_libre = '<option value="0" >Ninguno</option>
+                    <option value="DOM">Domingo</option>
+                    <option value="LUN">Lunes</option>
+                    <option value="MAR" selected>Martes</option>
+                    <option value="MIE">Miércoles</option>
+                    <option value="JUE">Jueves</option>
+                    <option value="VIE">Viernes</option>
+                    <option value="SAB">Sábado</option>';
+                    break;                
+                case 'MIE':
+                    $select_dia_libre = '<option value="0" >Ninguno</option>
+                    <option value="DOM">Domingo</option>
+                    <option value="LUN">Lunes</option>
+                    <option value="MAR">Martes</option>
+                    <option value="MIE" selected>Miércoles</option>
+                    <option value="JUE">Jueves</option>
+                    <option value="VIE">Viernes</option>
+                    <option value="SAB">Sábado</option>';
+                    break;                
+                case 'JUE':
+                    $select_dia_libre = '<option value="0" >Ninguno</option>
+                    <option value="DOM">Domingo</option>
+                    <option value="LUN">Lunes</option>
+                    <option value="MAR">Martes</option>
+                    <option value="MIE">Miércoles</option>
+                    <option value="JUE" selected>Jueves</option>
+                    <option value="VIE">Viernes</option>
+                    <option value="SAB">Sábado</option>';
+                    break;                
+                case 'VIE':
+                    $select_dia_libre = '<option value="0" >Ninguno</option>
+                    <option value="DOM">Domingo</option>
+                    <option value="LUN">Lunes</option>
+                    <option value="MAR">Martes</option>
+                    <option value="MIE">Miércoles</option>
+                    <option value="JUE">Jueves</option>
+                    <option value="VIE" selected>Viernes</option>
+                    <option value="SAB">Sábado</option>';
+                    break;
+                default:
+                $select_dia_libre = '<option value="0" >Ninguno</option>
+                <option value="DOM">Domingo</option>
+                <option value="LUN">Lunes</option>
+                <option value="MAR">Martes</option>
+                <option value="MIE">Miércoles</option>
+                <option value="JUE">Jueves</option>
+                <option value="VIE">Viernes</option>
+                <option value="SAB" selected>Sábado</option>';
+                    break;
+            }
+            /**
+             * SELECT PRECIO COCHE
+             */
+            if ($preferencias['PRECIO_COCHE'] == 1) {
+                $select_precio_coche = '<option value="1" selected>Si</option>
+                                    <option value="0">No</option>';
+            }else{
+                $select_precio_coche = '<option value="1">Si</option>
+                                    <option value="0" selected>No</option>';
+            }
+
+        }else{
+            $select_nocturno = '<option value="1" selected>Si</option>
+                                <option value="0">No</option>';
+
+            $select_dia_libre = '<option value="0" selected>Ninguno</option>
+                                <option value="DOM">Domingo</option>
+                                <option value="LUN">Lunes</option>
+                                <option value="MAR">Martes</option>
+                                <option value="MIE">Miércoles</option>
+                                <option value="JUE">Jueves</option>
+                                <option value="VIE">Viernes</option>
+                                <option value="SAB">Sábado</option>';
+
+            $select_fiestas = '<option value="1" selected>Si</option>
+                                <option value="0">No</option>';
+
+            $select_precio_coche = '<option value="1" selected>Si</option>
+                                <option value="0">No</option>';
+        }
+
         $modal_body = '
         <div class="modal-container">
             <button class="close-modal" onclick="closeModal()"><i class="fas fa-xmark"></i></button>
@@ -41,8 +174,7 @@ switch($opcion){
                     <h5 class="input-title"><i class="fa-solid fa-cloud-moon"></i> Nocturno</h5>
                     <p class="input-desc">¿Trabaja de 22:00hs a 06:00hs?</p>
                     <select id="preferenciaNocturno">
-                        <option value="1" selected>Si</option>
-                        <option value="0">No</option>
+                        '.$select_nocturno.'
                     </select>
                 </div>
 
@@ -50,8 +182,7 @@ switch($opcion){
                     <h5 class="input-title"><i class="fa-solid fa-champagne-glasses"></i> Fiestas</h5>
                     <p class="input-desc">¿Hace fiestas?</p>
                     <select id="preferenciaFiestas">
-                        <option value="1" selected>Si</option>
-                        <option value="0">No</option>
+                        '.$select_fiestas.'
                     </select>
                 </div>
 
@@ -59,14 +190,7 @@ switch($opcion){
                     <h5 class="input-title"><i class="fa-solid fa-calendar-day"></i> Día Libre</h5>
                     <p class="input-desc">¿Qué día descansa?</p>
                     <select id="preferenciaDiaLibre">
-                        <option value="0" selected>Ninguno</option>
-                        <option value="DOM">Domingo</option>
-                        <option value="LUN">Lunes</option>
-                        <option value="MAR">Martes</option>
-                        <option value="MIE">Miércoles</option>
-                        <option value="JUE">Jueves</option>
-                        <option value="VIE">Viernes</option>
-                        <option value="SAB">Sábado</option>
+                        '.$select_dia_libre.'
                     </select>
                 </div>
 
@@ -74,8 +198,7 @@ switch($opcion){
                     <h5 class="input-title"><i class="fa-solid fa-hand-holding-dollar"></i> Precio de Coche</h5>
                     <p class="input-desc">¿Quiere cotizar para viajes de hasta 4 pasajeros?</p>
                     <select id="preferenciaPrecioCoche">
-                        <option value="1" selected>Si</option>
-                        <option value="0">No</option>
+                        '.$select_precio_coche.'
                     </select>
                 </div>
 

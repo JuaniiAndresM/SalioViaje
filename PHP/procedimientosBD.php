@@ -437,13 +437,13 @@ class procedimientosBD
         // ORIGEN DESTINO FECHA HORA PASAJEROS MARCA Y MODELO DEL VEHICULO nombre de transportista
         $oportunidades = array();
         $conn = $this->conexion();
-        $query = "SELECT idViaje,Descuento,Origen,Destino,Fecha,Nombre,Apellido,Marca,Modelo,Capacidad,Estado,Matricula,Distancia,Precio,CantidadPasajeros FROM viajes,usuarios,vehiculos where idTransportista = usuarios.ID and Vehiculo = Matricula and Modalidad = 'Oportunidad' and visivilidad != 0 ORDER BY Fecha;";
+        $query = "SELECT idViaje,Descuento,Origen,Destino,Fecha,Nombre,Apellido,Marca,Modelo,Capacidad,Estado,Matricula,Distancia,Precio,CantidadPasajeros,ESTADO_MTOP FROM viajes,usuarios,vehiculos where idTransportista = usuarios.ID and Vehiculo = Matricula and Modalidad = 'Oportunidad' and visivilidad != 0 ORDER BY Fecha;";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($idOportunidad, $descuento, $origen, $destino, $fecha, $nombre, $apellido, $marca, $modelo, $capacidad_vehiculo, $estado, $matricula, $distancia, $precio, $cantidad_pasajeros);
+            $stmt->bind_result($idOportunidad, $descuento, $origen, $destino, $fecha, $nombre, $apellido, $marca, $modelo, $capacidad_vehiculo, $estado, $matricula, $distancia, $precio, $cantidad_pasajeros, $mtop);
             while ($stmt->fetch()) {
-                $result = array('ID' => $idOportunidad, 'DESCUENTO' => $descuento, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'FECHA' => $fecha, 'NOMBRE' => $nombre, 'APELLIDO' => $apellido, 'MARCA' => $marca, 'MODELO' => $modelo, 'CAPACIDAD_VEHICULO' => $capacidad_vehiculo, 'ESTADO' => $estado, 'MATRICULA' => $matricula, 'DISTANCIA' => $distancia, 'PRECIO' => $precio, "CANTIDAD_PASAJERO" => $cantidad_pasajeros);
+                $result = array('ID' => $idOportunidad, 'DESCUENTO' => $descuento, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'FECHA' => $fecha, 'NOMBRE' => $nombre, 'APELLIDO' => $apellido, 'MARCA' => $marca, 'MODELO' => $modelo, 'CAPACIDAD_VEHICULO' => $capacidad_vehiculo, 'ESTADO' => $estado, 'MATRICULA' => $matricula, 'DISTANCIA' => $distancia, 'PRECIO' => $precio, "CANTIDAD_PASAJERO" => $cantidad_pasajeros, "MTOP" => $mtop);
                 $fecha = $result["FECHA"];
                 $timestamp = strtotime($fecha);
                 $newDate = date("d-m-Y H:i", $timestamp);
@@ -825,9 +825,9 @@ class procedimientosBD
         $stmt->bind_param("s", $id);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($id, $vehiculo, $distancia, $cantidad_pasajeros, $fecha, $origen, $destino, $precio, $estado, $modalidad, $id_transportista, $id_tramo_vinculado, $nombre, $apellido, $telefono, $id_solicitud);
+            $stmt->bind_result($id, $vehiculo, $distancia, $cantidad_pasajeros, $fecha, $origen, $destino, $precio, $estado, $modalidad, $id_transportista, $id_tramo_vinculado, $nombre, $apellido, $telefono, $id_solicitud, $estado_mtop);
             while ($stmt->fetch()) {
-                $result = array('ID' => $id, 'VEHICULO' => $vehiculo, 'DISTANCIA' => $distancia, 'CANTIDAD_PASAJERO' => $cantidad_pasajeros, 'FECHA' => $fecha, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'PRECIO' => $precio, 'RUTAS' => $rutas, 'ESTADO' => $estado, 'MODALIDAD' => $modalidad, 'ID_TRANSPORTISTA' => $id_transportista, "NOMBRE" => $nombre, "TELEFONO" => $telefono, "ID_SOLICITUD" => $id_solicitud);
+                $result = array('ID' => $id, 'VEHICULO' => $vehiculo, 'DISTANCIA' => $distancia, 'CANTIDAD_PASAJERO' => $cantidad_pasajeros, 'FECHA' => $fecha, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'PRECIO' => $precio, 'RUTAS' => $rutas, 'ESTADO' => $estado, 'MODALIDAD' => $modalidad, 'ID_TRANSPORTISTA' => $id_transportista, "NOMBRE" => $nombre, "TELEFONO" => $telefono, "ID_SOLICITUD" => $id_solicitud, "MTOP" => $estado_mtop);
                 $fecha = $result["FECHA"];
                 $timestamp = strtotime($fecha);
                 $newDate = date("d-m-Y H:i A", $timestamp);
@@ -848,13 +848,13 @@ class procedimientosBD
         $return = null;
         $size = 0;
         $conn = $this->conexion();
-        $query = "SELECT idViaje,Descuento,Vehiculo,Distancia,CantidadPasajeros,Fecha,Origen,Destino,Precio,Estado,Modalidad,idTransportista,id_viaje_vinculado FROM viajes WHERE $id = idTransportista OR $id = idComprador and visivilidad = 1 ORDER BY Fecha;";
+        $query = "SELECT idViaje,Descuento,Vehiculo,Distancia,CantidadPasajeros,Fecha,Origen,Destino,Precio,Estado,Modalidad,idTransportista,id_viaje_vinculado,ESTADO_MTOP FROM viajes WHERE $id = idTransportista OR $id = idComprador and visivilidad = 1 ORDER BY Fecha;";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($id, $descuento, $vehiculo, $distancia, $cantidad_pasajeros, $fecha, $origen, $destino, $precio, $estado, $modalidad, $id_transportista, $id_tramo_vinculado);
+            $stmt->bind_result($id, $descuento, $vehiculo, $distancia, $cantidad_pasajeros, $fecha, $origen, $destino, $precio, $estado, $modalidad, $id_transportista, $id_tramo_vinculado, $mtop);
             while ($stmt->fetch()) {
-                $result = array('ID' => $id, 'DESCUENTO' => $descuento, 'VEHICULO' => $vehiculo, 'DISTANCIA' => $distancia, 'CANTIDAD_PASAJERO' => $cantidad_pasajeros, 'FECHA' => $fecha, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'PRECIO' => $precio, 'RUTAS' => $rutas, 'ESTADO' => $estado, 'MODALIDAD' => $modalidad, 'ID_TRANSPORTISTA' => $id_transportista);
+                $result = array('ID' => $id, 'DESCUENTO' => $descuento, 'VEHICULO' => $vehiculo, 'DISTANCIA' => $distancia, 'CANTIDAD_PASAJERO' => $cantidad_pasajeros, 'FECHA' => $fecha, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'PRECIO' => $precio, 'RUTAS' => $rutas, 'ESTADO' => $estado, 'MODALIDAD' => $modalidad, 'ID_TRANSPORTISTA' => $id_transportista, "MTOP" => $mtop);
                 $fecha = $result["FECHA"];
                 $timestamp = strtotime($fecha);
                 $newDate = date("d-m-Y H:i A", $timestamp);
@@ -1737,5 +1737,113 @@ class procedimientosBD
         }
         $stmt->close();
         return json_encode($cotizaciones);
+    }
+    //SELECT count(*) FROM viajes where Modalidad = "Oportunidad"
+    public function numero_oportunidades(){
+        $conn = $this->conexion();
+        $query = "SELECT count(*) FROM viajes where Modalidad = 'Oportunidad' and Estado = 'En venta'";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($numero_oportunidades);
+            while ($stmt->fetch()) {
+                $result = $numero_oportunidades;
+            }
+        }
+        $stmt->close();
+        return $result;
+    }
+
+    public function numero_vehiculos(){
+        $conn = $this->conexion();
+        $query = "SELECT count(*) FROM vehiculos where visibilidad = 1";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($numero_vehiculos);
+            while ($stmt->fetch()) {
+                $result = $numero_vehiculos;
+            }
+        }
+        $stmt->close();
+        return $result;
+    }
+
+    //SELECT * FROM viajes WHERE Fecha BETWEEN curdate() and date_add(curdate(), interval 1 month) and Estado = "Reconfirmado" 
+
+    public function numero_reconfirmaciones_mes(){
+        $conn = $this->conexion();
+        $query = "SELECT count(*) FROM viajes WHERE Fecha BETWEEN curdate() and date_add(curdate(), interval 1 month) and Estado = 'Reconfirmado';";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($numero_vehiculos);
+            while ($stmt->fetch()) {
+                $result = $numero_vehiculos;
+            }
+        }
+        $stmt->close();
+        return $result;
+    }
+
+    public function numero_reconfirmaciones_totales(){
+        $conn = $this->conexion();
+        $query = "SELECT count(*) FROM viajes WHERE Estado = 'Reconfirmado';";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($numero_vehiculos);
+            while ($stmt->fetch()) {
+                $result = $numero_vehiculos;
+            }
+        }
+        $stmt->close();
+        return $result;
+    }
+
+    public function numero_solicitudes_de_cotizaciones_mes(){
+        $conn = $this->conexion();
+        $query = "SELECT count(*) FROM cotizaciones WHERE FECHA_SALIDA BETWEEN curdate() and date_add(curdate(), interval 1 month) and Estado = 1 ";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($numero_vehiculos);
+            while ($stmt->fetch()) {
+                $result = $numero_vehiculos;
+            }
+        }
+        $stmt->close();
+        return $result;
+    }
+
+    public function numero_solicitudes_de_cotizaciones_totales(){
+        $conn = $this->conexion();
+        $query = "SELECT count(*) FROM cotizaciones WHERE Estado = 1;";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($numero_vehiculos);
+            while ($stmt->fetch()) {
+                $result = $numero_vehiculos;
+            }
+        }
+        $stmt->close();
+        return $result;
+    }
+
+    public function obtener_preferencias_vehiculo($matricula){
+        $preferencias = array();
+        $conn = $this->conexion();
+        $query = "SELECT * FROM `prefecrenciasVehiculos` where MATRICULA = '$matricula'; ";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($matricula, $nocturno, $fiestas, $dia_libre, $precio_coche, $id_tta);
+            while ($stmt->fetch()) {
+                $result = array("NOCTURNO" => $nocturno, "FIESTAS" => $fiestas, "DIA_LIBRE" => $dia_libre, "PRECIO_COCHE" => $precio_coche);
+            }
+        }
+        $stmt->close();
+        return json_encode($result);
     }
 }
