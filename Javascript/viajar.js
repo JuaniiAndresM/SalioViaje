@@ -1408,6 +1408,11 @@ function eliminar_filtros(tipo) {
             $("#destino_oportunidad").val("");
             $("#fecha_oportunidad").val("");
             break;
+        case "Ofertas": case "Promociones":
+            $("#origen_2").val("");
+            $("#destino_2").val("");
+            $("#fecha_2").val("");
+            break;
     }
 
     filtrar_divs(tipo);

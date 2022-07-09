@@ -12,9 +12,9 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
 <head> 
    <!-- ==================================================================== -->
-    <title>Salió Viaje | Cartelera Viajes Rebajados | No Lo Dejes Pasar</title>
+    <title>Salió Viaje | Ofertas</title>
     <meta name="description" content="No te pierdas la Cartelera de Oportunidades con el 50 hasta el 90% OFF ni la de Ofertas con el 10 al 40% OFF se venden rápido, van y vienen."/>
-    <meta name="keywords" content="Salió Viaje | Cartelera Viajes Rebajados | No Dejes Pasar"/>
+    <meta name="keywords" content="Salió Viaje | Ofertas"/>
     <meta name="robots" content="index,follow"/>
 
     
@@ -91,63 +91,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
       </a>
 
     <div class="viajar-wrapper">
-      <h1 class="title">¡No se pierda nuestras ofertas y oportunidades!</h1>
-      <section class="oportunidades-viajar" id="Oportunidades">
-        <h2>
-        <i class="fa-solid fa-tags" id="icon"></i> Oportunidades (<span id="contador-oportunidades"></span>)
-        </h2>
-        <hr />
-        <h3 class="description">
-          Conseguí las mejores oportunidades con nosotros.
-        </h3>
-        <div class="oportunidades-wrapper">
-          <div class="filter-wrapper">
-            <div class="search"></div>
-
-            <div class="button-filtrar">
-              <button onclick="filtros(1)"><i class="fas fa-sort-amount-down"></i> Filtrar</button>
-            </div>
-          </div>
-
-          <div id="filters">
-
-            <div class="input" id="destino">
-              <i class="fas fa-location-dot" id="icon"></i>
-              <input list="RegionesMTOP" id="origen_oportunidad" placeholder="Origen" onkeyup="filtrar_divs('Oportunidad')" />
-              <datalist id="RegionesMTOP">
-                        <?php
-                          if (isset($regiones)) {
-                            for ($i=0; $i < count($regiones); $i++) { 
-                            ?>
-                            <option value="<?php echo $regiones[$i]['REGION'] ?>">
-                            <?php
-                            }
-                          }
-                        ?>
-              </datalist>
-            </div>
-
-            <div class="input" id="destino">
-              <i class="fas fa-route" id="icon"></i>
-              <input list="RegionesMTOP" id="destino_oportunidad" placeholder="Destino" onkeyup="filtrar_divs('Oportunidad')" >
-            </div>
-
-            <div class="input" id="origen">
-              <i class="far fa-calendar-alt" id="icon"></i>
-              <input type="date" id="fecha_oportunidad" placeholder="Fecha y Hora" onchange="filtrar_divs('Oportunidad')" />
-            </div>
-
-            <button onclick="eliminar_filtros('Oportunidad')"><i class="fas fa-arrows-rotate"></i></button>
-
-          </div>
-
-          <div class="list-empty">
-            <p>Lo sentimos, no hay oportunidades disponibles.</p>
-          </div>
-          <div class="oportunidades-list">
-          </div>
-        </div>
-      </section>
+      <h1 class="title">¡No se pierda nuestras ofertas!</h1>
       <section class="ofertas-viajar" id="Ofertas">
         <h2>
           <i class="fa-solid fa-percent" id="icon"></i> Ofertas (0)
@@ -250,7 +194,6 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
           </div>
         </div>
       </section>
-
       <section class="salioviaje" id="Cotizacion">
         <h2>
         <i class="fa-solid fa-hand-holding-dollar" id="icon"></i> Solicitar una Cotización
@@ -1254,8 +1197,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
           </div>
         </div>
       </section>
-    </div>
-    <script>
+      <script>
           if($(`.session-input`).val() == `` && $(`.session-output`).val() == 0){
                 desplegar(document.getElementById("agendar"), $(".session-output").val());
           }else{
@@ -1277,13 +1219,8 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
             },
             offset: 300 
           })
-
-
-          
-
-
     </script>
-
+    </div>
     <div id="footer"></div>
   </body>
 </html>
