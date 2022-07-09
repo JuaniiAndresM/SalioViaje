@@ -20,6 +20,8 @@ session_set_cookie_params($ttl);
 
 
                     <a href="https://www.salioviaje.com.uy/Viajar" title="Oportunidades, Ofertas y Promociones">Oportunidades</a>
+                    <a href="https://www.salioviaje.com.uy/Ofertas" title="Ofertas">Ofertas</a>
+                    <a href="https://www.salioviaje.com.uy/Promociones" title="Promociones">Promociones</a>
                     <a href="https://www.salioviaje.com.uy/Experiencias" title="Experiencias y Promociones">Experiencias</a>
                     <a href="https://www.salioviaje.com.uy/FAQs" title="Frequently Asked Questions">FAQs</a>
                     <?php   
@@ -81,6 +83,8 @@ session_set_cookie_params($ttl);
                             <a href="https://www.salioviaje.com.uy/Central" title="Central De Cotizaciones"><i class="fas fa-list-ul"></i> Central</a>
                             <a href="https://www.salioviaje.com.uy/Nosotros" title="Nosotros"><i class="fas fa-info"></i> Sobre Nosotros</a>
                             <a href="https://www.salioviaje.com.uy/Viajar" title="Oportunidades, Ofertas y Promociones"><i class="fas fa-book"></i> Oportunidades</a>
+                            <a href="https://www.salioviaje.com.uy/Ofertas" title="Ofertas"><i class="fa-solid fa-percent"></i> Ofertas</a>
+                            <a href="https://www.salioviaje.com.uy/Promociones" title="Promociones"><i class="fa-solid fa-bullhorn"></i> Promociones</a>
                             <a href="https://www.salioviaje.com.uy/Experiencias" title="Experiencias y Promociones"><i class="fas fa-star"></i>     Experiencias</a>                          
                             <a href="https://www.salioviaje.com.uy/FAQ" title="Frequently Asked Questions"><i class="fas fa-question"></i> FAQ</a>';
                             if(isset($_SESSION['tipo_usuario'])){
