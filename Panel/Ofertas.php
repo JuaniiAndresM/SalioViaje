@@ -146,9 +146,9 @@ session_set_cookie_params($ttl);
                         </div>
                         <p>Cargar Oferta</p>
                     </a>
-                    <?php 
+                    <?php
                     if($_SESSION['datos_usuario']['TIPO_USUARIO'] == "TTA"){
-                      echo `
+                      echo '
                       <a class="card button" href="">
                         <div class="number">
                             <h2>+</h2>
@@ -162,9 +162,9 @@ session_set_cookie_params($ttl);
                               <i class="fa-solid fa-hotel"></i>
                           </div>
                           <p>Modulos Especiaes:<br>Fiestas y Hoteles</p>
-                      </a>`;
+                      </a>';
                     }else if($_SESSION['datos_usuario']['TIPO_USUARIO'] == "AGT" || $_SESSION['datos_usuario']['TIPO_USUARIO'] == "HTL" || $_SESSION['datos_usuario']['TIPO_USUARIO'] == "ANF" || $_SESSION['datos_usuario']['TIPO_USUARIO'] == "ADM"){
-                      echo `
+                      echo '
                       <a class="card button" href="">
                         <div class="number">
                             <h2>+</h2>
@@ -178,7 +178,7 @@ session_set_cookie_params($ttl);
                               <i class="fa-solid fa-sack-dollar"></i>
                           </div>
                           <p>Incentivos</p>
-                      </a>`;
+                      </a>';
                     }
                     ?>
                     
