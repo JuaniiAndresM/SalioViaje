@@ -20178,6 +20178,7 @@ footer .totum p a:hover {
   -webkit-box-shadow: 5px 5px 50px rgba(0, 0, 0, 0.2);
           box-shadow: 5px 5px 50px rgba(0, 0, 0, 0.2);
   opacity: 0;
+  white-space: normal;
   -webkit-transition: 0.2s ease all;
   transition: 0.2s ease all;
 }
