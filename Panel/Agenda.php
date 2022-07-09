@@ -212,6 +212,27 @@ session_set_cookie_params($ttl);
                     $size = sizeof($vehiculos);
                     for($i = 0; $i< sizeof($vehiculos); $i++){
 
+
+                      switch ($vehiculos[$i]['MTOP']) {
+                        //amarillo
+                        case 1:
+                            $button_mtop = '<button class="amarillo tooltip left" data-tooltip="Permiso MTOP en Proceso"><i class="fas fa-file-contract"></i></button>';
+                            break;
+                        //rojo
+                        case 2:
+                            $button_mtop = '<button class="rojo tooltip left" data-tooltip="Permiso MTOP Rechazado"><i class"fas fa-file-contract"></i></button>';
+                            break;
+                        //verde
+                        case 3:
+                            $button_mtop = '<button class="verde tooltip left" data-tooltip="Permiso MTOP Realizado con Exito"><i class="fas fa-file-contract"></i></button>';
+                            break;
+                        //azul
+                        default:
+                            $button_mtop = '<button class="button tooltip left" data-tooltip="Permiso MTOP" onclick="mtop_viaje(' . $vehiculos[$i]['ID'] . ')"><i class="fas fa-file-contract"></i></button>';
+                            break;
+                    }
+
+
                       $PRECIO_CON_DESCUENTO_APLICADO = round($vehiculos[$i]['PRECIO'] - $vehiculos[$i]['PRECIO'] * ($vehiculos[$i]['DESCUENTO'] / 100));
 
                       $info = explode(" ", $vehiculos[$i]['FECHA']);
@@ -233,16 +254,16 @@ session_set_cookie_params($ttl);
 
                           if($_SESSION['datos_usuario']['TIPO_USUARIO'] != "PAX" && $vehiculos[$i]['MODALIDAD'] == "Oportunidad"){
                             if($vehiculos[$i]['ESTADO'] != "Cancelado" && $vehiculos[$i]['ESTADO'] != "Reconfirmado" && $vehiculos[$i]['ESTADO'] != "Vencido" && $vehiculos[$i]['ESTADO'] != "Vencida"){
-                              echo '<button class="button tooltip left" data-tooltip="Permiso MTOP" onclick="mtop_oportunidad('.$vehiculos[$i]['ID'].')"><i class="fas fa-file-contract"></i></button>
+                              echo $button_mtop.'
                                     <button class="button tooltip left" data-tooltip="Editar Oportunidad" onclick="abrir_editar_oportunidad('.$vehiculos[$i]['ID'].')"><i class="fas fa-edit"></i></button>
                                     <button class="button tooltip left" data-tooltip="Eliminar Oportunidad" onclick="eliminar_viajes('.$vehiculos[$i]['ID'].',1)"><i class="fas fa-trash-alt"></i></button>';
                             }else{
-                              echo '<button class="button tooltip left" data-tooltip="Permiso MTOP" onclick="mtop_oportunidad('.$vehiculos[$i]['ID'].')"><i class="fas fa-file-contract"></i></button>
+                              echo $button_mtop.'
                                     <button class="button tooltip left" data-tooltip="Eliminar Oportunidad" onclick="eliminar_viajes('.$vehiculos[$i]['ID'].',1)"><i class="fas fa-trash-alt"></i></button>';
                             }
                             
                           }else if($_SESSION['datos_usuario']['TIPO_USUARIO'] != "PAX" && $vehiculos[$i]['MODALIDAD'] == "Agendado"){
-                            echo '<button class="button tooltip left" data-tooltip="Permiso MTOP" onclick="mtop_oportunidad('.$vehiculos[$i]['ID'].')"><i class="fas fa-file-contract"></i></button>
+                            echo $button_mtop.'
                                   <button class="button tooltip left" data-tooltip="Eliminar Viaje" onclick="eliminar_viajes(' . $vehiculos[$i]['ID'] . ',1)"><i class="fas fa-trash-alt"></i></button>';
                           }
                           echo '</div>

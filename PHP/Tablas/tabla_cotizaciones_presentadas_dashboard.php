@@ -17,8 +17,8 @@ for ($i = 0; $i < count($datos); $i++) {
         $tr = '
 <tr>
 <td data-title="ID">'.$datos[$i]["ID"].'</td>
-<td data-title="Origen">'.$datos[$i]["BARRIO_ORIGEN"].','.$datos[$i]["LOCALIDAD_ORIGEN"].'.</td>
-<td data-title="Destino">'.$datos[$i]["DIRECCION_DESTINO"].','.$datos[$i]["BARRIO_DESTINO"].','.$datos[$i]["LOCALIDAD_DESTINO"].'.</td>
+<td data-title="Origen">'.$datos[$i]["BARRIO_ORIGEN"].', '.$datos[$i]["LOCALIDAD_ORIGEN"].'.</td>
+<td data-title="Destino">'.$datos[$i]["DIRECCION_DESTINO"].', '.$datos[$i]["BARRIO_DESTINO"].', '.$datos[$i]["LOCALIDAD_DESTINO"].'.</td>
 <td data-title="Fecha">'.$datos[$i]["FECHA_SALIDA"].'</td>
 <td data-title="ID_VIAJE_COTIZADO">'.$datos[$i]["ID_VIAJE_COTIZADO"].'</td>
 <td data-title="Estado">Cotizando</td>
@@ -32,8 +32,8 @@ for ($i = 0; $i < count($datos); $i++) {
         $tr = $tr . '
 <tr>
 <td data-title="ID">'.$datos[$i]["ID"].'</td>
-<td data-title="Origen">'.$datos[$i]["BARRIO_ORIGEN"].','.$datos[$i]["LOCALIDAD_ORIGEN"].'.</td>
-<td data-title="Destino">'.$datos[$i]["DIRECCION_DESTINO"].','.$datos[$i]["BARRIO_DESTINO"].','.$datos[$i]["LOCALIDAD_DESTINO"].'.</td>
+<td data-title="Origen">'.$datos[$i]["BARRIO_ORIGEN"].', '.$datos[$i]["LOCALIDAD_ORIGEN"].'.</td>
+<td data-title="Destino">'.$datos[$i]["DIRECCION_DESTINO"].', '.$datos[$i]["BARRIO_DESTINO"].', '.$datos[$i]["LOCALIDAD_DESTINO"].'.</td>
 <td data-title="Fecha">'.$datos[$i]["FECHA_SALIDA"].'</td>
 <td data-title="ID_VIAJE_COTIZADO">'.$datos[$i]["ID_VIAJE_COTIZADO"].'</td>
 <td data-title="Estado">Cotizando</td>
@@ -47,8 +47,8 @@ for ($i = 0; $i < count($datos); $i++) {
         $tr = $tr . '
 <tr>
 <td data-title="ID">'.$datos[$i]["ID"].'</td>
-<td data-title="Origen">'.$datos[$i]["DIRECCION_ORIGEN"].','.$datos[$i]["BARRIO_ORIGEN"].','.$datos[$i]["LOCALIDAD_ORIGEN"].'.</td>
-<td data-title="Destino">'.$datos[$i]["DIRECCION_DESTINO"].','.$datos[$i]["BARRIO_DESTINO"].','.$datos[$i]["LOCALIDAD_DESTINO"].'.</td>
+<td data-title="Origen">'.$datos[$i]["DIRECCION_ORIGEN"].', '.$datos[$i]["BARRIO_ORIGEN"].', '.$datos[$i]["LOCALIDAD_ORIGEN"].'.</td>
+<td data-title="Destino">'.$datos[$i]["DIRECCION_DESTINO"].', '.$datos[$i]["BARRIO_DESTINO"].', '.$datos[$i]["LOCALIDAD_DESTINO"].'.</td>
 <td data-title="Fecha">'.$datos[$i]["FECHA_SALIDA"].'</td>
 <td data-title="ID_VIAJE_COTIZADO">'.$datos[$i]["ID_VIAJE_COTIZADO"].'</td>
 <td data-title="Estado">Cotizando</td>
@@ -63,8 +63,8 @@ for ($i = 0; $i < count($datos); $i++) {
         $tr = $tr . '
 <tr>
 <td data-title="ID">'.$datos[$i]["ID"].'</td>
-<td data-title="Origen">'.$datos[$i]["DIRECCION_ORIGEN"].','.$datos[$i]["BARRIO_ORIGEN"].','.$datos[$i]["LOCALIDAD_ORIGEN"].'.</td>
-<td data-title="Destino">'.$datos[$i]["DIRECCION_DESTINO"].','.$datos[$i]["BARRIO_DESTINO"].','.$datos[$i]["LOCALIDAD_DESTINO"].'.</td>
+<td data-title="Origen">'.$datos[$i]["DIRECCION_ORIGEN"].', '.$datos[$i]["BARRIO_ORIGEN"].', '.$datos[$i]["LOCALIDAD_ORIGEN"].'.</td>
+<td data-title="Destino">'.$datos[$i]["DIRECCION_DESTINO"].', '.$datos[$i]["BARRIO_DESTINO"].', '.$datos[$i]["LOCALIDAD_DESTINO"].'.</td>
 <td data-title="Fecha">'.$datos[$i]["FECHA_SALIDA"].'</td>
 <td data-title="ID_VIAJE_COTIZADO">'.$datos[$i]["ID_VIAJE_COTIZADO"].'</td>
 <td data-title="Estado">Cotizando</td>
