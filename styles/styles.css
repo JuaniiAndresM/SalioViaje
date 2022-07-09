@@ -20668,6 +20668,7 @@ footer .totum p a:hover {
           align-items: center;
   -webkit-transition: 1s ease all;
   transition: 1s ease all;
+  z-index: 10;
 }
 
 #flotant-promo .close {

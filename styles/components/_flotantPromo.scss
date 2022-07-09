@@ -16,7 +16,8 @@
 
 
     transition: 1s ease all;
-
+    z-index: 10;
+    
     .close{
         position: absolute;
         left: 7px;
