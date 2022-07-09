@@ -1,6 +1,7 @@
 $(document).ready(function () {
     $('#header').load('/web/foreman/header.php');
     $('#footer').load('/web/footer.html');
+    $('#flotant-promo').load('/web/flotant-promo.html');
     agregar_visita();
     traer_oportunidades();
     document.getElementById('pre-loader').classList.toggle('load');
@@ -9,8 +10,10 @@ $(document).ready(function () {
 
     setTimeout(() => {
         datavalue_oportunidades();
-        flotantPromo();
     }, 1000);
+    setTimeout(() => {
+        flotantPromo();
+    }, 3000);
 });
 
 function datavalue_oportunidades(){

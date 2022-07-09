@@ -96,6 +96,12 @@
   <body>
     <div id="header"></div>
 
+    <?php
+    if(!isset($_SESSION['usuario'])){
+      echo '<div id="flotant-promo"></div>';
+    }
+    ?> 
+
     <div id="pre-loader">
       <div class="lds-ellipsis">
         <div></div>

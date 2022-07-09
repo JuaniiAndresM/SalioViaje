@@ -80,6 +80,13 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
         <div></div>
       </div>
     </div>
+
+    <?php
+    if(!isset($_SESSION['usuario'])){
+      echo '<div id="flotant-promo"></div>';
+    }
+    ?> 
+    
     <div id="modal"></div>
     <div id="gurucuteco"></div>
       <a href="https://www.salioviaje.com.uy/FAQ" title="Frequently Asked Questions"  target="_BLANK" id="faq-float" >
