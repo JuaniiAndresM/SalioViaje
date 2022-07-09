@@ -149,16 +149,16 @@ session_set_cookie_params($ttl);
                     <a class="card button" href="">
                         <div class="number">
                             <h2>+</h2>
-                            <i class="fa-solid fa-bullhorn"></i>
+                            <i class="fa-solid fa-handshake"></i>
                         </div>
-                        <p>Nueva Promo</p>
+                        <p>Convenios</p>
                     </a>
                     <a class="card button" href="">
                         <div class="number">
                             <h2>-</h2>
-                            <i class="fa-solid fa-sack-dollar"></i>
+                            <i class="fa-solid fa-hotel"></i>
                         </div>
-                        <p>Incentivos</p>
+                        <p>Modulos Especiaes:<br>Fiestas y Hoteles.</p>
                     </a>
                     <a class="card button" href="Vouchers">
                         <div class="number">
