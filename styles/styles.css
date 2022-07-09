@@ -20603,6 +20603,25 @@ footer .totum p a:hover {
   border-radius: 10px;
 }
 
+.checkbox {
+  margin: 15px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #555;
+  font-size: .8em;
+}
+
+.checkbox input {
+  margin-right: 5px;
+}
+
 .gurucuteco-button {
   background-color: transparent;
   border: none;
@@ -20753,6 +20772,10 @@ footer .totum p a:hover {
   opacity: 1;
   -webkit-transform: translateX(0px);
           transform: translateX(0px);
+}
+
+#flotant-promo.secondary {
+  top: 170px;
 }
 
 * {

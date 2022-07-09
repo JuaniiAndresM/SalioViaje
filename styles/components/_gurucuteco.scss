@@ -61,6 +61,18 @@
     }
 }
 
+.checkbox{
+    margin: 15px 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: #555;
+    font-size: .8em;
+    input{
+        margin-right: 5px;
+    }
+}
+
 .gurucuteco-button{
     background-color: transparent;
     border: none;

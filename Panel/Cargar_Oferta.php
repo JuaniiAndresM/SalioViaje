@@ -97,7 +97,10 @@ session_set_cookie_params($ttl);
     <script src="https://www.salioviaje.com.uy/Javascript/gurucuteco.js"></script>
     <script type="text/javascript">
         window.onload = function(){
+          let cookieValue = getCookie(`g3`)
+          if(cookieValue != 1){
           openGurucuteco(3);
+          }
         }
     </script>
   </head>

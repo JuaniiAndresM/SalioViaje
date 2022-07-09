@@ -83,7 +83,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
     <?php
     if(!isset($_SESSION['usuario'])){
-      echo '<div id="flotant-promo"></div>';
+      echo '<div id="flotant-promo" class="secondary"></div>';
     }
     ?> 
     
@@ -1278,7 +1278,10 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
             element: document.getElementById('Cotizacion'),
             handler: function(direction) {
               if($(`.session-output`).val() == 0 && $("#select_users").val() == null){
-                openGurucuteco(2);
+                let cookieValue = getCookie(`g2`)
+                if(cookieValue != 1){
+                  openGurucuteco(2);
+                } 
               }
             },
             offset: 300 

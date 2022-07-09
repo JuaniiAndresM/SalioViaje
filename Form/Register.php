@@ -79,8 +79,8 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
     ></script>
 
     <script src="https://www.salioviaje.com.uy/Javascript/web.js"></script>
-    <script src="https://www.salioviaje.com.uy/Javascript/form.js"></script>
     <script src="https://www.salioviaje.com.uy/Javascript/gurucuteco.js"></script>
+    <script src="https://www.salioviaje.com.uy/Javascript/form.js"></script>
     <script type="text/javascript">  
       Empresas(); 
       Hoteles_select();

@@ -819,14 +819,20 @@ function steps(step) {
                     $(".step_2_traslado").show();
                     $(".session-input").val()
                     $(".session-input").val("");
-                    openGurucuteco(7)
+                    let cookieValue = getCookie(`g7`)
+                    if(cookieValue != 1){
+                    openGurucuteco(7);
+                    }
                     break;
 
                 case "2":
                     $(".step_2_tour").show();
                     $(".session-input").val()
                     $(".session-input").val("");
-                    openGurucuteco(6)
+                    let cookieValue2 = getCookie(`g6`)
+                    if(cookieValue2 != 1){
+                    openGurucuteco(6);
+                    }
                     break;
 
                 case "3":
@@ -834,7 +840,10 @@ function steps(step) {
                     $(".session-input").val()
                     $(".session-input").val("");
                     $('.step_3').hide();
-                    openGurucuteco(5)
+                    let cookieValue3 = getCookie(`g5`)
+                    if(cookieValue3 != 1){
+                    openGurucuteco(5);
+                    }
                     break;
 
                 case "4":
@@ -842,7 +851,10 @@ function steps(step) {
                     $(".session-input").val()
                     $(".session-input").val("");
                     $('.step_3').hide();
-                    openGurucuteco(4)
+                    let cookieValue4 = getCookie(`g4`)
+                    if(cookieValue4 != 1){
+                    openGurucuteco(4);
+                    }
                     break;
             }
 

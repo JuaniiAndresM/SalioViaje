@@ -83,7 +83,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
     <?php
     if(!isset($_SESSION['usuario'])){
-      echo '<div id="flotant-promo"></div>';
+      echo '<div id="flotant-promo" class="secondary"></div>';
     }
     ?> 
 
