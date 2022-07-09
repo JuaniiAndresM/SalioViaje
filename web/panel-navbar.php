@@ -193,6 +193,12 @@ session_set_cookie_params($ttl);
                 <span class="icon"><i class="fa-solid fa-file-signature"></i></span>
                 <span class="title">Permisos MTOP</span>
               </a>
+            </li>
+            <li>
+              <a class href="https://www.salioviaje.com.uy/Settings">
+                <span class="icon"><i class="fa-solid fa-gears"></i></span>
+                <span class="title">Configuración</span>
+              </a>
             </li>';
     }
 

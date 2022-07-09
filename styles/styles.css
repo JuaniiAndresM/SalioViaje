@@ -7070,6 +7070,9 @@ footer .totum p a:hover {
   top: 0;
   left: 0;
   width: 100%;
+  overflow: hidden;
+  overflow-y: auto;
+  height: 100vh;
 }
 
 #panel-navbar ul li {
@@ -7098,6 +7101,7 @@ footer .totum p a:hover {
   height: 43px;
   line-height: 43px;
   text-align: center;
+  z-index: 2;
 }
 
 #panel-navbar ul li a .icon img {
@@ -7203,6 +7207,10 @@ footer .totum p a:hover {
 
 #panel-navbar ul li:nth-child(1):hover a::before {
   content: none;
+}
+
+#panel-navbar ul::-webkit-scrollbar {
+  width: 7px;
 }
 
 #panel-navbar.active {
@@ -7787,7 +7795,6 @@ footer .totum p a:hover {
 }
 
 .panel .panel-settings-header {
-  width: 100%;
   padding: 20px;
   margin: 20px;
   display: -webkit-box;
@@ -7885,7 +7892,7 @@ footer .totum p a:hover {
 
 #settings-menu {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   position: fixed;
   z-index: 30;
   background-color: #3844bc;
@@ -7934,7 +7941,8 @@ footer .totum p a:hover {
 #settings-menu #editar-info,
 #settings-menu #editar-contra,
 #settings-menu #editar-idioma,
-#settings-menu #administrar-usuarios {
+#settings-menu #administrar-usuarios,
+#settings-menu #configuracion-filtrado {
   max-width: 350px;
   width: 100%;
   padding: 20px;
@@ -7956,16 +7964,19 @@ footer .totum p a:hover {
 #settings-menu #editar-info h2,
 #settings-menu #editar-contra h2,
 #settings-menu #editar-idioma h2,
-#settings-menu #administrar-usuarios h2 {
+#settings-menu #administrar-usuarios h2,
+#settings-menu #configuracion-filtrado h2 {
   color: white;
   font-size: 1.5em;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 #settings-menu #editar-info label,
 #settings-menu #editar-contra label,
 #settings-menu #editar-idioma label,
-#settings-menu #administrar-usuarios label {
+#settings-menu #administrar-usuarios label,
+#settings-menu #configuracion-filtrado label {
   width: 100%;
   color: white;
   text-align: left;
@@ -7974,7 +7985,8 @@ footer .totum p a:hover {
 #settings-menu #editar-info .input,
 #settings-menu #editar-contra .input,
 #settings-menu #editar-idioma .input,
-#settings-menu #administrar-usuarios .input {
+#settings-menu #administrar-usuarios .input,
+#settings-menu #configuracion-filtrado .input {
   position: relative;
   width: 100%;
 }
@@ -7982,7 +7994,8 @@ footer .totum p a:hover {
 #settings-menu #editar-info .input i,
 #settings-menu #editar-contra .input i,
 #settings-menu #editar-idioma .input i,
-#settings-menu #administrar-usuarios .input i {
+#settings-menu #administrar-usuarios .input i,
+#settings-menu #configuracion-filtrado .input i {
   position: absolute;
   top: 17px;
   left: 5px;
@@ -7996,7 +8009,9 @@ footer .totum p a:hover {
 #settings-menu #editar-idioma .input input,
 #settings-menu #editar-idioma .input select,
 #settings-menu #administrar-usuarios .input input,
-#settings-menu #administrar-usuarios .input select {
+#settings-menu #administrar-usuarios .input select,
+#settings-menu #configuracion-filtrado .input input,
+#settings-menu #configuracion-filtrado .input select {
   width: 100%;
   height: 40px;
   margin: 5px 0;
@@ -8009,10 +8024,45 @@ footer .totum p a:hover {
   background-color: #fff;
 }
 
+#settings-menu #editar-info .input.check,
+#settings-menu #editar-contra .input.check,
+#settings-menu #editar-idioma .input.check,
+#settings-menu #administrar-usuarios .input.check,
+#settings-menu #configuracion-filtrado .input.check {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#settings-menu #editar-info .input.check input,
+#settings-menu #editar-contra .input.check input,
+#settings-menu #editar-idioma .input.check input,
+#settings-menu #administrar-usuarios .input.check input,
+#settings-menu #configuracion-filtrado .input.check input {
+  width: 20px;
+  height: 20px;
+  margin: 10px;
+}
+
+#settings-menu #editar-info .input.check p,
+#settings-menu #editar-contra .input.check p,
+#settings-menu #editar-idioma .input.check p,
+#settings-menu #administrar-usuarios .input.check p,
+#settings-menu #configuracion-filtrado .input.check p {
+  color: #ffffff;
+}
+
 #settings-menu #editar-info button,
 #settings-menu #editar-contra button,
 #settings-menu #editar-idioma button,
-#settings-menu #administrar-usuarios button {
+#settings-menu #administrar-usuarios button,
+#settings-menu #configuracion-filtrado button {
   background-color: #2b3179;
   width: 100%;
   height: 40px;
@@ -8030,7 +8080,8 @@ footer .totum p a:hover {
 #settings-menu #editar-info button:hover,
 #settings-menu #editar-contra button:hover,
 #settings-menu #editar-idioma button:hover,
-#settings-menu #administrar-usuarios button:hover {
+#settings-menu #administrar-usuarios button:hover,
+#settings-menu #configuracion-filtrado button:hover {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
 }

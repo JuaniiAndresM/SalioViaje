@@ -8,7 +8,7 @@ session_set_cookie_params($ttl);
     header('Location: https://www.salioviaje.com.uy/Login');
 
   }else{
-    if($_SESSION['tipo_usuario'] == "Pasajero"){
+    if($_SESSION['tipo_usuario'] != "Administrador"){
       header('Location: https://www.salioviaje.com.uy/');
     }
   }
@@ -104,20 +104,25 @@ session_set_cookie_params($ttl);
 
       <div id="editar-info">
         <h2><i class="fas fa-user-edit"></i> Editar Información</h2>
-        <label for="">Usuario</label>
+        <label for="">C.I</label>
         <div class="input">
           <i class="fas fa-user"></i>
-          <input type="text" placeholder="Nuevo Usuario" value="johndoe_" />
+          <input type="number" placeholder="Nueva Cedula" value="22222222" maxlength="8" />
         </div>
         <label for="">Nombre</label>
         <div class="input">
           <i class="fas fa-signature"></i>
-          <input type="text" placeholder="Nuevo Nombre" value="Jhon Doe" />
+          <input type="text" placeholder="Nuevo Nombre" value="Jhon" />
+        </div>
+        <label for="">Apellido</label>
+        <div class="input">
+          <i class="fas fa-signature"></i>
+          <input type="text" placeholder="Nuevo Apellido" value="Doe" />
         </div>
         <label for="">Teléfono</label>
         <div class="input">
           <i class="fas fa-phone"></i>
-          <input type="number" placeholder="Nuevo Teléfono" value="098234717" />
+          <input type="number" placeholder="Nuevo Teléfono" value="099999999" />
         </div>
         <label for="">Correo Electrónico</label>
         <div class="input">
@@ -125,7 +130,7 @@ session_set_cookie_params($ttl);
           <input
             type="text"
             placeholder="Nuevo Correo Electrónico"
-            value="thewolfmodzyt@gmail.com"
+            value="johndoe@gmail.com"
           />
         </div>
         <button><i class="fas fa-save"></i> Guardar</button>
@@ -264,6 +269,47 @@ session_set_cookie_params($ttl);
         </div>
         <button><i class="fas fa-save"></i> Cambiar</button>
       </div>
+
+      <div id="configuracion-filtrado">
+        <h2><i class="fa-solid fa-arrow-down-short-wide"></i> Configuración Filtrado</h2>
+        <div class="input check">
+          <input type="checkbox" name="" id="" checked>
+          <p>Nocturno</p>
+        </div>
+        <div class="input check">
+          <input type="checkbox" name="" id="" checked>
+          <p>Fiestas</p>
+        </div>
+        <div class="input check">
+          <input type="checkbox" name="" id="" checked>
+          <p>Día Libre</p>
+        </div>
+        <div class="input check">
+          <input type="checkbox" name="" id="" checked>
+          <p>Precio del Coche</p>
+        </div>
+        <div class="input check">
+          <input type="checkbox" name="" id="" checked>
+          <p>Moroso</p>
+        </div>
+        <div class="input check">
+          <input type="checkbox" name="" id="" checked>
+          <p>Capacidad</p>
+        </div>
+        <div class="input check">
+          <input type="checkbox" name="" id="" checked>
+          <p>Pet Friendly</p>
+        </div>
+        <div class="input check">
+          <input type="checkbox" name="" id="" checked>
+          <p>Ocupado</p>
+        </div>
+        <div class="input check">
+          <input type="checkbox" name="" id="" checked>
+          <p>Pata del Viaje</p>
+        </div>
+        <button><i class="fas fa-save"></i> Guardar</button>
+      </div>
     </div>
 
     <header class="panel-header" id="header">
@@ -297,33 +343,31 @@ session_set_cookie_params($ttl);
         <div class="settings-info">
           <h2>Configuración</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam ad
-            praesentium modi cupiditate in vitae? Non ducimus neque tenetur
-            molestias.
+            Utilice este panel tanto para realizar cambios en su usuario, como en el sitio web.
           </p>
         </div>
       </div>
 
       <div class="panel-settings">
-        <button onclick="settings(1)" class="settings-button" disabled>
+        <button onclick="settings(1)" class="settings-button">
           <i class="fas fa-user-edit"></i>
           <p>Editar Información</p>
         </button>
-        <button onclick="settings(2)" class="settings-button" disabled>
+        <button onclick="settings(2)" class="settings-button">
           <i class="fas fa-key"></i>
           <p>Cambiar Contraseña</p>
         </button>
-        <button onclick="settings(3)" class="settings-button" disabled>
+        <!-- <button onclick="settings(3)" class="settings-button">
           <i class="fas fa-users-cog"></i>
           <p>Administrar Usuarios</p>
         </button>
-        <button onclick="settings(4)" class="settings-button" disabled>
+        <button onclick="settings(4)" class="settings-button">
           <i class="fas fa-globe-americas"></i>
           <p>Cambiar Idioma</p>
-        </button>
-        <button onclick="settings(5)" class="settings-button" disabled>
-          <i class="fas fa-wrench"></i>
-          <p>Configuración Panel</p>
+        </button> -->
+        <button onclick="settings(5)" class="settings-button">
+          <i class="fa-solid fa-arrow-down-short-wide"></i>
+          <p>Configuración Filtrado</p>
         </button>
       </div>
     </section>
