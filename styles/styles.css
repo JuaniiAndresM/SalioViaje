@@ -20187,6 +20187,7 @@ footer .totum p a:hover {
   border: 5px solid transparent;
   -webkit-transition: 0.2s ease all;
   transition: 0.2s ease all;
+  text-align: center;
 }
 
 .tooltip:hover::before,
