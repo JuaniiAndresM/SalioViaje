@@ -20644,6 +20644,116 @@ footer .totum p a:hover {
   }
 }
 
+#flotant-promo {
+  position: fixed;
+  top: 90px;
+  left: 0;
+  width: 300px;
+  min-height: 80px;
+  background-color: #ffffff;
+  -webkit-box-shadow: 5px 3px 10px 0 rgba(0, 0, 0, 0.5);
+          box-shadow: 5px 3px 10px 0 rgba(0, 0, 0, 0.5);
+  border-radius: 0 4em 4em 0;
+  opacity: 0;
+  -webkit-transform: translateX(-150%);
+          transform: translateX(-150%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: 1s ease all;
+  transition: 1s ease all;
+}
+
+#flotant-promo .close {
+  position: absolute;
+  left: 7px;
+  top: 7px;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  color: #555;
+  cursor: pointer;
+  -webkit-transition: .2s;
+  transition: .2s;
+  z-index: 2;
+}
+
+#flotant-promo .promo-content {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: none;
+  border-radius: 0 4em 4em 0;
+}
+
+#flotant-promo .promo-content .promo-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #3844bc;
+  margin: 0 10px;
+}
+
+#flotant-promo .promo-content .promo-icon .icon {
+  margin: auto;
+  font-size: 2em;
+  color: #ffffff;
+}
+
+#flotant-promo .promo-content .promo-body {
+  max-width: 210px;
+  padding: 10px 10px;
+  padding-left: 30px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  text-align: left;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#flotant-promo .promo-content .promo-body h4 {
+  color: #3844bc;
+}
+
+#flotant-promo .promo-content .promo-body p {
+  color: #555;
+  font-size: .8em;
+}
+
+#flotant-promo.active {
+  opacity: 1;
+  -webkit-transform: translateX(0px);
+          transform: translateX(0px);
+}
+
 * {
   margin: 0;
   padding: 0;

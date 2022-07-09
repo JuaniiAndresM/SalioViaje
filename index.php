@@ -83,6 +83,19 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
       <a href="https://wa.link/mxnwzm" title="WhatsApp | Salió Viaje"  target="_BLANK" id="whatsapp-float">
         <img src="https://www.salioviaje.com.uy/media/images/whatsapp.webp" title="WhatsApp | Salió Viaje" alt="Logo WhatsApp | Salió Viaje" /> 
       </a>
+          
+    <div id="flotant-promo">
+      <button class="close" onclick="flotantPromo()"><i class="fa-solid fa-xmark"></i></button>
+      <a class="promo-content" href="https://www.salioviaje.com.uy/Register">
+        <div class="promo-body">
+          <h4>PROMO REGISTRO</h4>
+          <p>Lorem ipsum dolor sit amet consectetur.</p>
+        </div>
+        <div class="promo-icon">
+          <i class="fa-solid fa-bullhorn icon"></i>
+        </div>
+      </a>
+    </div>
 
     <section class="landing">
       <div class="landing-wrapper-grid">

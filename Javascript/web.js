@@ -9,6 +9,7 @@ $(document).ready(function () {
 
     setTimeout(() => {
         datavalue_oportunidades();
+        flotantPromo();
     }, 1000);
 });
 
@@ -336,4 +337,10 @@ function filtrar_divs(tipo) {
       fecha = fecha_split[2]+"-"+fecha_split[1]+"-"+fecha_split[0];
       
       console.log(nombreDelDiaSegunFecha(fecha+" 00:00:00"))
+ }
+
+ let flotantPromo = () => {
+    const promo = document.getElementById(`flotant-promo`);
+
+    promo.classList.toggle(`active`)
  }
