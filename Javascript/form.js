@@ -115,7 +115,7 @@ function steps(step) {
 
          setTimeout(() => {
             let cookieValue = getCookie(`g1`)
-            if(cookieValue != 0){
+            if(cookieValue != 1){
                openGurucuteco(1);
             }                        
          }, 300);
