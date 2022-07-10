@@ -77,6 +77,7 @@ for($a = 0; $a < count($cotizaciones); $a++){
     </div>
  
     <?php
+    session_start();
     if(!isset($_SESSION['usuario'])){
       echo '<div id="flotant-promo"></div>';
     }
