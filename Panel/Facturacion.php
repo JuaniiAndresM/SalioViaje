@@ -205,6 +205,8 @@ $viajes = json_decode($viajes, true);
                     }else {
                       $comision = 150;
                     }
+
+                    $PRECIO_CON_DESCUENTO_APLICADO = round($viajes[$i]['PRECIO'] - $viajes[$i]['PRECIO'] * ($viajes[$i]['DESCUENTO'] / 100));
                     
                     ?>
                     <tr>
@@ -212,7 +214,7 @@ $viajes = json_decode($viajes, true);
                       <td><?php echo $viajes[$i]['FECHA']; ?></td>
                       <td><?php echo $viajes[$i]['MODALIDAD']; ?></td>
                       <td><?php echo $viajes[$i]['DESTINO']; ?></td>
-                      <td>$<?php echo $viajes[$i]['PRECIO']; ?></td>
+                      <td>$<?php echo $PRECIO_CON_DESCUENTO_APLICADO; ?></td>
                       <td>$<?php echo $comision; ?></td>
                       <td>000000</td>
                       <td>-</td>
