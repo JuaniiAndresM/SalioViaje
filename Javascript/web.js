@@ -344,6 +344,7 @@ function filtrar_divs(tipo) {
 
  let flotantPromo = () => {
     const promo = document.getElementById(`flotant-promo`);
-
-    promo.classList.toggle(`active`)
+    if(promo != null){
+        promo.classList.toggle(`active`)
+    }
  }
