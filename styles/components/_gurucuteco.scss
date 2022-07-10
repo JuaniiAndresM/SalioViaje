@@ -26,6 +26,8 @@
         position: relative;
 
         .gurucuteco-body{
+            max-height: 300px;
+            overflow-y: auto;
             h3{
                 color: $main_1;
                 margin-bottom: 10px;

@@ -161,10 +161,10 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
             <p>Lo sentimos, de momento no hay ofertas disponibles.</p>
           </div>
 
-          <div class="ofertas-list">
+          <div class="container-list">
 
-            <div class="oportunidad_oferta">
-              <div class="oportunidad-left">
+            <div class="item">
+              <div class="col-l">
                 <div class="id">
                   <h3>#034</h3>
                 </div>
@@ -181,7 +181,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                 </div>
               </div>
 
-              <div class="oportunidad-right">
+              <div class="col-r">
 
                 <div class="travel">
                   <h2 class="discount">
@@ -1220,7 +1220,10 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
             element: document.getElementById('Cotizacion'),
             handler: function(direction) {
               if($(`.session-output`).val() == 0 && $("#select_users").val() == null){
-                openGurucuteco(2);
+                let cookieValue = getCookie(`g2`)
+                if(cookieValue != 1){
+                  openGurucuteco(2);
+                } 
               }
             },
             offset: 300 
