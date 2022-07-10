@@ -97,6 +97,7 @@
     <div id="header"></div>
 
     <?php
+    session_start();
     if(!isset($_SESSION['usuario'])){
       echo '<div id="flotant-promo"></div>';
     }
