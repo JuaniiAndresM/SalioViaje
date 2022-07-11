@@ -129,8 +129,7 @@
     </a>
 
     <div class="titulo-experiencias">
-      <h1><i class="fas fa-mountain"></i> Experiencias</h1>
-      <hr />
+      <h1 class="title"><i class="fas fa-mountain"></i> Experiencias</h1>
       <p>Para disfrutar en Uruguay</p>
     </div>
 
@@ -165,7 +164,9 @@
       </div>
     </section>
     <!-- Termina Sección -->
-
+    <div class="experiencias-separador">
+      <hr>
+    </div>
     <!-- Sección -->
     <section class="sobre-nosotros-experiencias">
       <div class="nosotros-wrapper-grid">
@@ -199,7 +200,9 @@
       </div>
     </section>
     <!-- Termina Sección -->
-
+    <div class="experiencias-separador">
+      <hr>
+    </div>
     <!-- Sección -->
     <section class="sobre-nosotros-experiencias">
       <div class="nosotros-wrapper-grid">
@@ -236,6 +239,7 @@
       </div>
     </section>
     <!-- Termina Sección -->
+    
     <!-- <button class=Botones caseros -->
     <div class="agendarViaje">
       <div id="step_1">

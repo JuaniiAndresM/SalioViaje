@@ -9308,6 +9308,10 @@ footer .totum p a:hover {
           transform: scale(1.1);
 }
 
+.sobre-nosotros-experiencias {
+  margin-top: 20px;
+}
+
 .sobre-nosotros-experiencias .nosotros-wrapper-grid {
   -ms-grid-columns: 30% 1fr;
       grid-template-columns: 30% 1fr;
@@ -9322,6 +9326,16 @@ footer .totum p a:hover {
 
 .sobre-nosotros-experiencias .nosotros-wrapper-grid .nosotros-right .nosotros-info .info {
   margin-bottom: 30px;
+}
+
+.experiencias-separador {
+  width: 100%;
+  margin: 20px;
+}
+
+.experiencias-separador hr {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .dep-inf {
@@ -9348,8 +9362,10 @@ footer .totum p a:hover {
 }
 
 .titulo-experiencias h2, .titulo-experiencias h1 {
-  color: #3844bc;
-  font-size: 2em;
+  text-align: center;
+  margin: 10px 20px;
+  color: #2b3179;
+  font-size: 2.6em;
 }
 
 .titulo-experiencias hr {

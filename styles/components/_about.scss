@@ -99,6 +99,7 @@
 }
 
 .sobre-nosotros-experiencias{
+  margin-top: 20px;
   .nosotros-wrapper-grid{
     grid-template-columns: 30% 1fr;
 
@@ -121,6 +122,15 @@
   }
 }
 
+.experiencias-separador{
+  width: 100%;
+  margin: 20px;
+  hr{
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}
+
 .dep-inf{
   margin-top: 110px;
 }
@@ -134,8 +144,10 @@
 
   text-align: center;
   h2,h1 {
-    color: $main_1;
-    font-size: 2em;
+    text-align: center;
+    margin: 10px 20px;
+    color: $main_2;
+    font-size: 2.6em;
   }
   hr {
     width: 100px;
