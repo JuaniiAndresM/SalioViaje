@@ -81,6 +81,13 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
       </div>
     </div>
 
+    <?php
+    session_start();
+    if(!isset($_SESSION['usuario'])){
+      echo '<div id="flotant-promo" class="secondary"></div>';
+    }
+    ?> 
+    
     <div id="modal"></div>
     <div id="gurucuteco"></div>
       <a href="https://www.salioviaje.com.uy/FAQ" title="Frequently Asked Questions"  target="_BLANK" id="faq-float" >
@@ -91,7 +98,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
       </a>
 
     <div class="viajar-wrapper">
-      <h1 class="title">¡No se pierda nuestras ofertas y oportunidades!</h1>
+      <h1 class="title">¡No se pierda nuestras oportunidades y ofertas!</h1>
       <section class="oportunidades-viajar" id="Oportunidades">
         <h2>
         <i class="fa-solid fa-tags" id="icon"></i> Oportunidades (<span id="contador-oportunidades"></span>)
@@ -144,7 +151,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
           <div class="list-empty">
             <p>Lo sentimos, no hay oportunidades disponibles.</p>
           </div>
-          <div class="oportunidades-list">
+          <div class="container-list">
           </div>
         </div>
       </section>
@@ -174,9 +181,9 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
           <div id="filters2">
 
-            <div class="input" id="destino">
+            <div class="input" id="origen">
               <i class="fas fa-location-dot" id="icon"></i>
-              <input list="Origen" id="destino_2" placeholder="Origen" />
+              <input list="Origen" id="origen_2" placeholder="Origen" />
               <datalist id="Origen">
                 <option value="Canelones"></option>
                 <option value="Montevideo"></option>
@@ -198,7 +205,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
               </datalist>
             </div>
 
-            <div class="input" id="origen">
+            <div class="input" id="fecha">
               <i class="far fa-calendar-alt" id="icon"></i>
               <input type="date" id="fecha_2" placeholder="Fecha y Hora" />
             </div>
@@ -211,10 +218,10 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
             <p>Lo sentimos, de momento no hay ofertas disponibles.</p>
           </div>
 
-          <div class="ofertas-list">
+          <div class="container-list">
 
-            <div class="oportunidad_oferta">
-              <div class="oportunidad-left">
+            <div class="item">
+              <div class="col-l">
                 <div class="id">
                   <h3>#034</h3>
                 </div>
@@ -231,7 +238,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                 </div>
               </div>
 
-              <div class="oportunidad-right">
+              <div class="col-r">
 
                 <div class="travel">
                   <h2 class="discount">
@@ -1272,7 +1279,10 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
             element: document.getElementById('Cotizacion'),
             handler: function(direction) {
               if($(`.session-output`).val() == 0 && $("#select_users").val() == null){
-                openGurucuteco(2);
+                let cookieValue = getCookie(`g2`)
+                if(cookieValue != 1){
+                  openGurucuteco(2);
+                } 
               }
             },
             offset: 300 

@@ -27,7 +27,7 @@ $(document).ready(function () {
         window.location.href = "https://www.salioviaje.com.uy/Viajar/?opcion=1"
     });
 
-    if ($(".session-input").val() = 5) {
+    if ($(".session-input").val() == 5) {
         setTimeout(() => {
             timeoutformulario(5);
         }, 500);
@@ -819,14 +819,20 @@ function steps(step) {
                     $(".step_2_traslado").show();
                     $(".session-input").val()
                     $(".session-input").val("");
-                    openGurucuteco(7)
+                    let cookieValue = getCookie(`g7`)
+                    if(cookieValue != 1){
+                    openGurucuteco(7);
+                    }
                     break;
 
                 case "2":
                     $(".step_2_tour").show();
                     $(".session-input").val()
                     $(".session-input").val("");
-                    openGurucuteco(6)
+                    let cookieValue2 = getCookie(`g6`)
+                    if(cookieValue2 != 1){
+                    openGurucuteco(6);
+                    }
                     break;
 
                 case "3":
@@ -834,7 +840,10 @@ function steps(step) {
                     $(".session-input").val()
                     $(".session-input").val("");
                     $('.step_3').hide();
-                    openGurucuteco(5)
+                    let cookieValue3 = getCookie(`g5`)
+                    if(cookieValue3 != 1){
+                    openGurucuteco(5);
+                    }
                     break;
 
                 case "4":
@@ -842,7 +851,10 @@ function steps(step) {
                     $(".session-input").val()
                     $(".session-input").val("");
                     $('.step_3').hide();
-                    openGurucuteco(4)
+                    let cookieValue4 = getCookie(`g4`)
+                    if(cookieValue4 != 1){
+                    openGurucuteco(4);
+                    }
                     break;
             }
 
@@ -1407,6 +1419,11 @@ function eliminar_filtros(tipo) {
             $("#origen_oportunidad").val("");
             $("#destino_oportunidad").val("");
             $("#fecha_oportunidad").val("");
+            break;
+        case "Ofertas": case "Promociones":
+            $("#origen_2").val("");
+            $("#destino_2").val("");
+            $("#fecha_2").val("");
             break;
     }
 

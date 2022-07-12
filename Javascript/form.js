@@ -113,7 +113,12 @@ function steps(step) {
          $('.progress-bar').hide();
          $('.progress-bar2').hide();
 
-         openGurucuteco(1);
+         setTimeout(() => {
+            let cookieValue = getCookie(`g1`)
+            if(cookieValue != 1){
+               openGurucuteco(1);
+            }                        
+         }, 300);
          break;
 
       case 2:

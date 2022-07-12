@@ -42,7 +42,7 @@ session_set_cookie_params($ttl);
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.salioviaje.com/Soporte" />
+    <meta property="og:url" content="https://www.salioviaje.com.uySoporte" />
     <meta property="og:title" content="SalióViaje | Soporte" />
     <meta
       property="og:description"
@@ -55,7 +55,7 @@ session_set_cookie_params($ttl);
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://www.salioviaje.com/Soporte" />
+    <meta property="twitter:url" content="https://www.salioviaje.com.uySoporte" />
     <meta property="twitter:title" content="SalióViaje | Soporte" />
     <meta
       property="twitter:description"

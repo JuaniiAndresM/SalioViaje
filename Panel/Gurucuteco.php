@@ -13,8 +13,11 @@ switch($opcion){
                 <h3>G<span>'.$opcion.'</span></h3>
                 <p text="g'.$opcion.'-text">'.$faq[6]['RESPUESTA'].'</p>
             </div>
+            <div class="checkbox">
+                <input type="checkbox" id="check-g-'.$opcion.'">No volver a mostrar.
+            </div>
             <div class="button-wrapper">
-                <button onclick="closeGurucuteco()"><i class="fa-solid fa-xmark"></i> Cerrar</button> 
+                <button onclick="closeGurucuteco('.$opcion.')"><i class="fa-solid fa-xmark"></i> Cerrar</button> 
             </div>
         </div>';
         break;
@@ -25,8 +28,11 @@ switch($opcion){
                 <h3>G<span>'.$opcion.'</span></h3>
                 <p text="g'.$opcion.'-text">'.$faq[7]['RESPUESTA'].'</p>
             </div>
+            <div class="checkbox">
+                <input type="checkbox" id="check-g-'.$opcion.'">No volver a mostrar.
+            </div>
             <div class="button-wrapper">
-                <button onclick="closeGurucuteco()"><i class="fa-solid fa-xmark"></i> Cerrar</button> 
+                <button onclick="closeGurucuteco('.$opcion.')"><i class="fa-solid fa-xmark"></i> Cerrar</button> 
             </div>
         </div>';
         break;
@@ -39,8 +45,11 @@ switch($opcion){
                 <br>
                 <p text="g'.$opcion.'-text"><b>Oferta de Paquete</b>: Oferta que incluye un agregado de valor.</p>
             </div>
+            <div class="checkbox">
+                <input type="checkbox" id="check-g-'.$opcion.'">No volver a mostrar.
+            </div>
             <div class="button-wrapper">
-                <button onclick="closeGurucuteco()"><i class="fa-solid fa-xmark"></i> Cerrar</button> 
+                <button onclick="closeGurucuteco('.$opcion.')"><i class="fa-solid fa-xmark"></i> Cerrar</button> 
             </div>
         </div>';
         break;
@@ -51,8 +60,11 @@ switch($opcion){
                 <h3>G<span>'.$opcion.'</span></h3>
                 <p text="g'.$opcion.'-text">Elija <b>Fiesta o Evento</b>, complete los datos y viaje feliz.</p>
             </div>
+            <div class="checkbox">
+                <input type="checkbox" id="check-g-'.$opcion.'">No volver a mostrar.
+            </div>
             <div class="button-wrapper">
-                <button onclick="closeGurucuteco()"><i class="fa-solid fa-xmark"></i> Cerrar</button> 
+                <button onclick="closeGurucuteco('.$opcion.')"><i class="fa-solid fa-xmark"></i> Cerrar</button> 
             </div>
         </div>';
         break;
@@ -63,8 +75,11 @@ switch($opcion){
                 <h3>G<span>'.$opcion.'</span></h3>
                 <p text="g'.$opcion.'-text">Elija si <b>parte o arriva</b>, complete los datos y viaje feliz.</p>
             </div>
+            <div class="checkbox">
+                <input type="checkbox" id="check-g-'.$opcion.'">No volver a mostrar.
+            </div>
             <div class="button-wrapper">
-                <button onclick="closeGurucuteco()"><i class="fa-solid fa-xmark"></i> Cerrar</button> 
+                <button onclick="closeGurucuteco('.$opcion.')"><i class="fa-solid fa-xmark"></i> Cerrar</button> 
             </div>
         </div>';
         break;
@@ -75,8 +90,11 @@ switch($opcion){
                 <h3>G<span>'.$opcion.'</span></h3>
                 <p text="g'.$opcion.'-text"><b>Tour:</b> Complete los datos y viaje feliz.</p>
             </div>
+            <div class="checkbox">
+                <input type="checkbox" id="check-g-'.$opcion.'">No volver a mostrar.
+            </div>
             <div class="button-wrapper">
-                <button onclick="closeGurucuteco()"><i class="fa-solid fa-xmark"></i> Cerrar</button> 
+                <button onclick="closeGurucuteco('.$opcion.')"><i class="fa-solid fa-xmark"></i> Cerrar</button> 
             </div>
         </div>';
         break;
@@ -87,8 +105,11 @@ switch($opcion){
                 <h3>G<span>'.$opcion.'</span></h3>
                 <p text="g'.$opcion.'-text"><b>Traslado:</b> Complete los datos y viaje feliz.</p>
             </div>
+            <div class="checkbox">
+                <input type="checkbox" id="check-g-'.$opcion.'">No volver a mostrar.
+            </div>
             <div class="button-wrapper">
-                <button onclick="closeGurucuteco()"><i class="fa-solid fa-xmark"></i> Cerrar</button> 
+                <button onclick="closeGurucuteco('.$opcion.')"><i class="fa-solid fa-xmark"></i> Cerrar</button> 
             </div>
         </div>';
         break;

@@ -506,13 +506,13 @@ class procedimientosBD
         // ORIGEN DESTINO FECHA HORA PASAJEROS MARCA Y MODELO DEL VEHICULO nombre de transportista
         $oportunidades = array();
         $conn = $this->conexion();
-        $query = "SELECT idViaje,Destino,Fecha,Modalidad,Precio FROM viajes where idTransportista = $id and visivilidad != 0 and Estado = 'Reconfirmado' and Modalidad = 'Oportunidad';";
+        $query = "SELECT idViaje,Descuento,Destino,Fecha,Modalidad,Precio FROM viajes where idTransportista = $id and visivilidad != 0 and Estado = 'Reconfirmado' and Modalidad = 'Oportunidad';";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($idOportunidad, $destino, $fecha, $modalidad, $precio);
+            $stmt->bind_result($idOportunidad, $descuento, $destino, $fecha, $modalidad, $precio);
             while ($stmt->fetch()) {
-                $result = array('ID' => $idOportunidad, 'DESTINO' => $destino, 'FECHA' => $fecha, 'MODALIDAD' => $modalidad, 'PRECIO' => $precio);
+                $result = array('ID' => $idOportunidad, 'DESCUENTO' => $descuento, 'DESTINO' => $destino, 'FECHA' => $fecha, 'MODALIDAD' => $modalidad, 'PRECIO' => $precio);
                 $fecha = $result["FECHA"];
                 $timestamp = strtotime($fecha);
                 $newDate = date("d-m-Y H:i", $timestamp);
@@ -529,13 +529,13 @@ class procedimientosBD
         // ORIGEN DESTINO FECHA HORA PASAJEROS MARCA Y MODELO DEL VEHICULO
         $oportunidades = array();
         $conn = $this->conexion();
-        $query = "SELECT idViaje,Destino,Fecha,Modalidad,Precio FROM viajes where visivilidad != 0 and Estado = 'Reconfirmado' and Modalidad = 'Oportunidad';";
+        $query = "SELECT idViaje,Descuento,Destino,Fecha,Modalidad,Precio FROM viajes where visivilidad != 0 and Estado = 'Reconfirmado' and Modalidad = 'Oportunidad';";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($idOportunidad, $destino, $fecha, $modalidad, $precio);
+            $stmt->bind_result($idOportunidad, $descuento, $destino, $fecha, $modalidad, $precio);
             while ($stmt->fetch()) {
-                $result = array('ID' => $idOportunidad, 'DESTINO' => $destino, 'FECHA' => $fecha, 'MODALIDAD' => $modalidad, 'PRECIO' => $precio);
+                $result = array('ID' => $idOportunidad, 'DESCUENTO' => $descuento, 'DESTINO' => $destino, 'FECHA' => $fecha, 'MODALIDAD' => $modalidad, 'PRECIO' => $precio);
                 $fecha = $result["FECHA"];
                 $timestamp = strtotime($fecha);
                 $newDate = date("d-m-Y H:i", $timestamp);

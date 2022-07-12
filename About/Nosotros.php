@@ -100,6 +100,13 @@
       </div>
     </div>
 
+    <?php
+    session_start();
+    if(!isset($_SESSION['usuario'])){
+      echo '<div id="flotant-promo"></div>';
+    }
+    ?> 
+
     <a
       href="https://www.salioviaje.com.uy/FAQ"
       title="Frequently Asked Questions"

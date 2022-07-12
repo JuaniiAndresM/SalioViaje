@@ -1,0 +1,89 @@
+#flotant-promo{
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 300px;
+    min-height: 80px;
+    background-color: $contraste_2;
+    box-shadow: 5px 3px 10px 0 rgba($color: #000000, $alpha: .5);
+    border-radius: 0 4em 4em 0;
+    opacity: 0;
+    transform: translateX(-150%);
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+
+    transition: 1s ease all;
+    z-index: 50;
+    
+    .close{
+        position: absolute;
+        left: 7px;
+        top: 7px;
+
+        width: 20px;
+        height: 20px;
+        background: transparent;
+        border: none;
+
+        color: #555;
+        cursor: pointer;
+        transition: .2s;
+        z-index: 2;
+    }
+
+    .promo-content{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        border-radius: 0 4em 4em 0;
+
+        .promo-icon{
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            background-color: $main_1;
+            margin: 0 10px;
+    
+            .icon{
+                margin: auto;
+                font-size: 2em;
+                color: $contraste_2;
+            }
+        }
+    
+        .promo-body{
+            max-width: 210px;
+            padding: 10px 10px;
+            padding-left: 30px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            text-align: left;
+            flex-direction: column;
+    
+            h4{
+                color: $main_1;
+            }
+            p{
+                color: #555;
+                font-size: .8em;
+            }
+        }
+    }
+}
+
+#flotant-promo.active{
+    opacity: 1;
+    transform: translateX(0px);
+}
+#flotant-promo.secondary{
+    top: 170px;
+}

@@ -180,7 +180,7 @@
     .Cotizaciones {
       width: calc(100% - 20px);
       border-radius: 20px;
-      background-color: $main_1;
+      background-color: $main_2;
 
       margin: 15px auto;
 
@@ -203,7 +203,7 @@
           align-items: center;
           margin: 10px;
 
-          background-color: $main_2;
+          background-color: $main_4;
 
           border-radius: 20px;
 
@@ -220,9 +220,11 @@
           p {
             margin: 5px 10px;
             color: $contraste_2;
-            font-size: 14px;
+            font-size: 13px;
             max-width: 500px;
             i {
+              width: 15px;
+              text-align: center;
               font-size: 1.1em;
               margin-right: 10px;
             }

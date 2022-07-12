@@ -77,12 +77,19 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
 
     <div id="header"></div>
 
-       <a href="https://www.salioviaje.com.uy/FAQ" title="Frequently Asked Questions"  target="_BLANK" id="faq-float" >
-        <i class="fas fa-question" > </i> </a>
-      
-      <a href="https://wa.link/mxnwzm" title="WhatsApp | Salió Viaje"  target="_BLANK" id="whatsapp-float">
-        <img src="https://www.salioviaje.com.uy/media/images/whatsapp.webp" title="WhatsApp | Salió Viaje" alt="Logo WhatsApp | Salió Viaje" /> 
-      </a>
+    <a href="https://www.salioviaje.com.uy/FAQ" title="Frequently Asked Questions"  target="_BLANK" id="faq-float" >
+      <i class="fas fa-question" ></i>
+    </a>
+    
+    <a href="https://wa.link/mxnwzm" title="WhatsApp | Salió Viaje"  target="_BLANK" id="whatsapp-float">
+      <img src="https://www.salioviaje.com.uy/media/images/whatsapp.webp" title="WhatsApp | Salió Viaje" alt="Logo WhatsApp | Salió Viaje" /> 
+    </a>
+  
+    <?php
+    if(!isset($_SESSION['usuario'])){
+      echo '<div id="flotant-promo"></div>';
+    }
+    ?>    
 
     <section class="landing">
       <div class="landing-wrapper-grid">
@@ -356,7 +363,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
           <p>Lo sentimos, de momento no hay oportunidades disponibles.</p>
         </div>
 
-        <div class="oportunidades-list"></div>
+        <div class="container-list"></div>
       </div>
     </section>
 

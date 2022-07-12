@@ -47,6 +47,8 @@ RewriteRule ^Success /Form/Success.html
 RewriteRule ^Failed /Form/Failed.html
 
 RewriteRule ^Viajar /Agenda/Viajar.php
+RewriteRule ^Ofertas /Agenda/Ofertas.php
+RewriteRule ^Promociones /Agenda/Promociones.php
 RewriteRule ^Oportunidad/([a-zA-Z0-9_\.]+)$ /Agenda/Oportunidad.php?ID=$1
 RewriteRule ^Solicitud/([a-zA-Z0-9_\.]+)$ /Agenda/Oportunidad_Solicitud.php?ID=$1
 RewriteRule ^Solicitud_C/([a-zA-Z0-9_\.]+)$ /Agenda/Cotizacion_Solicitud.php?ID=$1
@@ -55,9 +57,9 @@ RewriteRule ^Espera/([a-zA-Z0-9_\.]+)$ /Agenda/Espera.php?ID=$1
 RewriteRule ^Central /About/Servicios.php
 RewriteRule ^Cotizacion/([a-zA-Z0-9_\.]+)$ /About/Detalles_Cotizacion.php?ID=$1
 RewriteRule ^Cotizar/([a-zA-Z0-9_\.]+)$ /About/Cotizar.php?ID=$1
-RewriteRule ^Nosotros /About/Nosotros.html
-RewriteRule ^FAQ /About/FAQ.html
-RewriteRule ^Experiencias /00_Experiencias.html
+RewriteRule ^Nosotros /About/Nosotros.php
+RewriteRule ^FAQ /About/FAQ.php
+RewriteRule ^Experiencias /00_Experiencias.php
 RewriteRule ^Arequita /00_Arequita.html
 RewriteRule ^Gruta_del_Palacio /00_Gruta_del_Palacio.html
 RewriteRule ^Penitente /00_Penitente.html

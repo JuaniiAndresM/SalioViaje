@@ -197,6 +197,10 @@ $main_3: #6d76db;
     left: 0;
     width: 100%;
 
+    overflow: hidden;
+    overflow-y: auto;
+    height: 100vh;
+
     li {
       position: relative;
       width: 100%;
@@ -221,6 +225,8 @@ $main_3: #6d76db;
           height: 43px;
           line-height: 43px;
           text-align: center;
+
+          z-index: 2;
 
           img {
             width: 40px;
@@ -321,6 +327,9 @@ $main_3: #6d76db;
     li:nth-child(1):hover a::before{
       content: none;
     }
+  }
+  ul::-webkit-scrollbar {
+    width: 7px;
   }
 }
 #panel-navbar.active {
@@ -714,7 +723,6 @@ $main_3: #6d76db;
     grid-template-columns: 100%;
   }
   .panel-settings-header {
-    width: 100%;
     padding: 20px;
 
     margin: 20px;
@@ -790,7 +798,7 @@ $main_3: #6d76db;
 
 #settings-menu {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   position: fixed;
   z-index: 30;
   background-color: $main_1;
@@ -824,7 +832,8 @@ $main_3: #6d76db;
   #editar-info,
   #editar-contra,
   #editar-idioma,
-  #administrar-usuarios {
+  #administrar-usuarios,
+  #configuracion-filtrado {
     max-width: 350px;
     width: 100%;
     padding: 20px;
@@ -837,6 +846,7 @@ $main_3: #6d76db;
       color: white;
       font-size: 1.5em;
       margin-bottom: 20px;
+      text-align: center;
     }
 
     label {
@@ -869,6 +879,20 @@ $main_3: #6d76db;
 
         color: $main_1;
         background-color: #fff;
+      }
+    }
+    .input.check{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      input{
+        width: 20px;
+        height: 20px;
+        margin: 10px;
+      }
+      p{
+        color: $contraste_2;
       }
     }
     button {

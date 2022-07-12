@@ -146,20 +146,42 @@ session_set_cookie_params($ttl);
                         </div>
                         <p>Cargar Oferta</p>
                     </a>
-                    <a class="card button" href="">
+                    <?php
+                    if($_SESSION['datos_usuario']['TIPO_USUARIO'] == "TTA"){
+                      echo '
+                      <a class="card button tooltip bottom" data-tooltip="Proximamente convenios para nuestros asociados.">
+                        <div class="number">
+                            <h2>+</h2>
+                            <i class="fa-solid fa-handshake"></i>
+                        </div>
+                        <p>Convenios</p>
+                      </a>
+                      <a class="card button tooltip bottom" data-tooltip="Proximamente nuevas funcionalidades para Fiestas y Hoteles.">
+                          <div class="number">
+                              <h2>-</h2>
+                              <i class="fa-solid fa-hotel"></i>
+                          </div>
+                          <p>Modulos Especiaes:<br>Fiestas y Hoteles</p>
+                      </a>';
+                    }else if($_SESSION['datos_usuario']['TIPO_USUARIO'] == "AGT" || $_SESSION['datos_usuario']['TIPO_USUARIO'] == "HTL" || $_SESSION['datos_usuario']['TIPO_USUARIO'] == "ANF" || $_SESSION['datos_usuario']['TIPO_USUARIO'] == "ADM"){
+                      echo '
+                      <a class="card button tooltip bottom" data-tooltip="Proximamente podrás exponer aquí tus promociones.">
                         <div class="number">
                             <h2>+</h2>
                             <i class="fa-solid fa-bullhorn"></i>
                         </div>
                         <p>Nueva Promo</p>
-                    </a>
-                    <a class="card button" href="">
-                        <div class="number">
-                            <h2>-</h2>
-                            <i class="fa-solid fa-sack-dollar"></i>
-                        </div>
-                        <p>Incentivos</p>
-                    </a>
+                      </a>
+                      <a class="card button tooltip bottom" data-tooltip="Proximamente podrás exponer aquí tus incentivos.">
+                          <div class="number">
+                              <h2>-</h2>
+                              <i class="fa-solid fa-sack-dollar"></i>
+                          </div>
+                          <p>Incentivos</p>
+                      </a>';
+                    }
+                    ?>
+                    
                     <a class="card button" href="Vouchers">
                         <div class="number">
                             <h2>-</h2>

@@ -97,7 +97,10 @@ session_set_cookie_params($ttl);
     <script src="https://www.salioviaje.com.uy/Javascript/gurucuteco.js"></script>
     <script type="text/javascript">
         window.onload = function(){
+          let cookieValue = getCookie(`g3`)
+          if(cookieValue != 1){
           openGurucuteco(3);
+          }
         }
     </script>
   </head>
@@ -163,6 +166,10 @@ session_set_cookie_params($ttl);
                     <button class="gurucuteco-button" onclick="openGurucuteco(3)"><i class="fa-solid fa-circle-question"></i></button>
                 </div>
             </div>
+
+            <!-- 
+              Transporte
+             -->
 
             <div class="main-form-container transporte">
                 <h3><i class="fa-solid fa-van-shuttle"></i> Transporte</h3>
@@ -251,17 +258,158 @@ session_set_cookie_params($ttl);
 
                         <div class="input">
                             <i class="far fa-calendar-alt icon"></i>
-                            <input type="date" id="fechaPromocion" placeholder="Fecha de Promoción" onchange="addFecha()"/>
+                            <input type="date" id="fechaPromocion_1" placeholder="Fecha de Promoción" onchange="addFecha('Transporte')"/>
                         </div>
 
-                        <div class="date-container">
+                        <div class="date-container" id="date_Transporte">
                             
                         </div>
 
                     </div>
                 </div>
 
-                <p class="info-msg error"><i class="fa-solid fa-triangle-exclamation"></i> Debe completar todos los campos.</p>
+                <p class="info-msg error" id="info_Transporte"><i class="fa-solid fa-triangle-exclamation"></i> Debe completar todos los campos.</p>
+
+                <div class="main-bottom-container">
+                    <a href="https://www.salioviaje.com.uy/Ofertas_Dashboard"><i class="fa-solid fa-chevron-left"></i> Volver</a>
+                    <button><i class="fa-solid fa-file-circle-plus"></i> Cargar Oferta</button>
+                    <button><i class="fa-solid fa-broom"></i> Limpiar Campos</button>
+                </div>
+            </div>
+
+            <!-- 
+              Paquetes
+             -->
+
+            <div class="main-form-container paquetes">
+                <h3><i class="fa-solid fa-boxes-packing"></i> Paquetes</h3>
+                <hr>
+                <div class="columns-divider">
+                    <div class="col-l">
+                        
+                        <div class="input">
+                            <i class="fa-solid fa-van-shuttle icon"></i>
+                            <select name="ofertaType">
+                                <option value="0" disabled hidden selected>Seleccione una matrícula</option>
+                                <option value="1">AAT 1234</option>
+                                <option value="2">AAU 8976</option>
+                            </select>
+                        </div>
+
+                        <div class="input">
+                            <i class="fa-solid fa-people-group icon"></i>
+                            <input type="number" id="capacidadVehiculo" placeholder="Capacidad del Vehículo">
+                        </div>
+
+                        <div class="input" id="km">
+                            <i class="fas fa-road icon"></i>
+                            <input type="number" pattern="[1-9]" class="right-i" min="0" id="distanciaKm" placeholder="Distancia" oninput="this.value = Math.abs(this.value)"/>
+                            <p id="end-text">km</p>
+                        </div>
+
+                        <div class="input">
+                            <i class="fa-solid fa-location-dot icon"></i>
+                            <input list="RegionesMTOP" id="origen" placeholder="Origen">
+                        </div>
+
+                        <div class="input">
+                            <i class="fa-solid fa-route icon"></i>
+                            <input list="RegionesMTOP" id="destino" placeholder="Destino">
+                        </div>
+
+                    </div>
+
+                    <div class="col-r">
+                        
+                        <div class="input">
+                            <i class="fa-solid fa-hand-holding-dollar icon"></i>
+                            <input type="number" id="precioViaje" placeholder="Precio del Viaje">
+                        </div>
+
+                        <div class="input">
+                            <i class="fa-solid fa-stopwatch icon"></i>
+                            <input type="number" id="precioParada" placeholder="Precio por Parada">
+                        </div>
+
+                        <div class="input">
+                            <i class="fa-solid fa-percent icon"></i>
+                            <select name="descuentoOferta">
+                                <option value="0" disabled hidden selected>Seleccione un Descuento</option>
+                                <option value="1">10%</option>
+                                <option value="2">20%</option>
+                                <option value="3">30%</option>
+                                <option value="4">40%</option>
+                            </select>
+                        </div>
+
+                        <div class="input">
+                            <i class="far fa-calendar-alt icon"></i>
+                            <input type="date" id="fechaPromocion_2" placeholder="Fecha de Promoción" onchange="addFecha('Paquetes')"/>
+                        </div>
+
+                        <div class="date-container" id="date_Paquetes">
+                            
+                        </div>
+
+                    </div>
+                </div>
+
+                <h3><i class="fa-solid fa-file-invoice-dollar"></i> Agregado de Valor</h3>
+                <hr>
+                <div class="secondary-form">
+
+                  <div class="form-section">
+                    <div class="input">
+                      <h4><i class="fa-solid fa-clock"></i> Hora de Salida:</h4>
+                      <input type="time">
+                    </div>
+                    
+                    <div class="input">
+                      <h4><i class="fa-solid fa-clock"></i> Hora de Regreso:</h4>
+                      <input type="time">
+                    </div>
+                  </div>
+
+                  <div class="form-section">
+                    <h3><i class="fa-solid fa-list-check"></i> Servicios Incluidos</h3>
+                    
+                    <div class="input check">
+                      <input type="checkbox">
+                      <p>Desayuno</p>
+                    </div>
+                    
+                    <div class="input check">
+                      <input type="checkbox">
+                      <p>Almuerzo</p>
+                    </div>
+                    
+                    <div class="input check">
+                      <input type="checkbox">
+                      <p>Merienda</p>
+                    </div>
+                    
+                    <div class="input check">
+                      <input type="checkbox">
+                      <p>Cena</p>
+                    </div>
+                    
+                    <div class="input textarea">
+                      <h4><i class="fa-solid fa-comment-dots"></i> Otros:</h4>
+                      <textarea></textarea>
+                    </div>
+
+                    <div class="subsection">
+                      <h4>Precio por persona de los servicios incluidos:</h4>
+
+                      <div class="input">
+                        <i class="fa-solid fa-dollar-sign icon"></i>
+                        <input type="number">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <p class="info-msg error" id="info_Paquetes"><i class="fa-solid fa-triangle-exclamation"></i> Debe completar todos los campos.</p>
 
                 <div class="main-bottom-container">
                     <a href="https://www.salioviaje.com.uy/Ofertas_Dashboard"><i class="fa-solid fa-chevron-left"></i> Volver</a>

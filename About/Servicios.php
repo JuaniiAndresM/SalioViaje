@@ -18,7 +18,7 @@ for($a = 0; $a < count($cotizaciones); $a++){
       
      <!-- ==================================================================== -->   
      
-    <title>Cotizaciones Viajes(<?php echo $contador_cotizaciones; ?>) | Trabajo Para Choferes | SalióViaje</title>
+    <title>Cotizaciones Viajes (<?php echo $contador_cotizaciones; ?>) | Trabajo Para Choferes | SalióViaje</title>
     <meta name="description" content="Solución gratuita para contratar tu traslado en camionetas. No te pierdas  nuestra sección de Opotunidades y Ofertas  con grandes descuentos"/>
     <meta name="keywords" content="Cotizaciones Viajes | Trabajo Para Choferes | Salió Viaje"/>
     <meta name="robots" content="index,follow"/>
@@ -76,7 +76,13 @@ for($a = 0; $a < count($cotizaciones); $a++){
       </div>
     </div>
  
-                                    
+    <?php
+    session_start();
+    if(!isset($_SESSION['usuario'])){
+      echo '<div id="flotant-promo"></div>';
+    }
+    ?>         
+
       <a href="https://www.salioviaje.com.uy/FAQ" title="Frequently Asked Questions"  target="_BLANK" id="faq-float" >
         <i class="fas fa-question" > </i> </a>
       
@@ -192,11 +198,17 @@ if ($cotizaciones != null) {
 
   <div class="travel">
     <p><i class="fas fa-van-shuttle"></i><?php echo $TIPO_VIAJE; ?>.</p>
-    <p><i class="fas fa-map-marker-alt"></i>Origen: <?php echo $cotizaciones[$i]['LOCALIDAD_ORIGEN']; ?>, <?php echo $cotizaciones[$i]['BARRIO_ORIGEN']; ?>.</p>
-    <p><i class="fas fa-route"></i>Destino: <?php
+    <p><i class="fas fa-map-marker-alt"></i><b>Origen</b>: <?php echo $cotizaciones[$i]['LOCALIDAD_ORIGEN']; ?>, <?php echo $cotizaciones[$i]['BARRIO_ORIGEN']; ?>.</p>
+    <p><i class="fas fa-route"></i><b>Destino</b>: <?php
             if ($cotizaciones[$i]['LOCALIDAD_DESTINO'] != null) {
-                echo $cotizaciones[$i]['LOCALIDAD_DESTINO'] . ", " . $cotizaciones[$i]['BARRIO_DESTINO']. ", " . $cotizaciones[$i]['DIRECCION_DESTINO'];
-            } else {
+                echo $cotizaciones[$i]['LOCALIDAD_DESTINO'];
+                if($cotizaciones[$i]['BARRIO_DESTINO'] != null){
+                  echo ", " . $cotizaciones[$i]['BARRIO_DESTINO'];
+                }
+                if($cotizaciones[$i]['DIRECCION_DESTINO'] != null) {
+                  echo ", " . $cotizaciones[$i]['DIRECCION_DESTINO'];
+                }
+            }else {
                 echo $cotizaciones[$i]['BARRIO_DESTINO'];
             }
 

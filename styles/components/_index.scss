@@ -548,7 +548,7 @@ $contraste_2: #ffffff;
 
   .list-empty {
     width: 100%;
-    height: 400px;
+    min-height: 200px;
 
     display: flex;
     justify-content: center;
@@ -560,7 +560,7 @@ $contraste_2: #ffffff;
     }
   }
 
-  .oportunidades-list {
+  .container-list {
     width: 100%;
     max-height: 400px;
     display: none;
@@ -569,10 +569,10 @@ $contraste_2: #ffffff;
     overflow: hidden;
     overflow-y: auto;
 
-    .oportunidad {
+    .item {
       width: calc(100% - 20px);
       border-radius: 20px;
-      background-color: $main_1;
+      background-color: $main_2;
 
       margin: 15px auto;
 
@@ -580,7 +580,7 @@ $contraste_2: #ffffff;
       justify-content: space-between;
       align-items: center;
 
-      .oportunidad-left {
+      .col-l {
         display: flex;
         justify-content: flex-start;
         align-items: center;
@@ -594,7 +594,7 @@ $contraste_2: #ffffff;
           align-items: center;
           margin: 10px;
 
-          background-color: $main_2;
+          background-color: $main_4;
 
           border-radius: 20px;
 
@@ -631,7 +631,7 @@ $contraste_2: #ffffff;
           p {
             margin: 5px 10px;
             color: $contraste_2;
-            font-size: 14px;
+            font-size: 13px;
             max-width: 500px;
             i {
               font-size: 1.1em;
@@ -640,7 +640,7 @@ $contraste_2: #ffffff;
         }
       }
 
-      .oportunidad-right {
+      .col-r {
         display: flex;
         justify-content: flex-end;
         align-items: center;

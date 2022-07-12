@@ -8,7 +8,7 @@ function settings(setting_name){
     $('#editar-contra').hide();
     $('#administrar-usuarios').hide();
     $('#editar-idioma').hide();
-    $('#configuracion-panel').hide();
+    $('#configuracion-filtrado').hide();
 
     switch(setting_name){
         case 1:
@@ -46,7 +46,7 @@ function settings(setting_name){
             break;
 
         case 5:
-            $('#configuracion-panel').show();
+            $('#configuracion-filtrado').show();
             break;
         
         default:
@@ -54,7 +54,7 @@ function settings(setting_name){
             $('#editar-contra').hide();
             $('#administrar-usuarios').hide();
             $('#editar-idioma').hide();
-            $('#configuracion-panel').hide();
+            $('#configuracion-filtrado').hide();
             break;
 
     }

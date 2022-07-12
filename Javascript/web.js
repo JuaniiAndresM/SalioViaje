@@ -1,6 +1,7 @@
 $(document).ready(function () {
     $('#header').load('/web/foreman/header.php');
     $('#footer').load('/web/footer.html');
+    $('#flotant-promo').load('/web/flotant-promo.html');
     agregar_visita();
     traer_oportunidades();
     document.getElementById('pre-loader').classList.toggle('load');
@@ -10,6 +11,9 @@ $(document).ready(function () {
     setTimeout(() => {
         datavalue_oportunidades();
     }, 1000);
+    setTimeout(() => {
+        flotantPromo();
+    }, 3000);
 });
 
 function datavalue_oportunidades(){
@@ -336,4 +340,11 @@ function filtrar_divs(tipo) {
       fecha = fecha_split[2]+"-"+fecha_split[1]+"-"+fecha_split[0];
       
       console.log(nombreDelDiaSegunFecha(fecha+" 00:00:00"))
+ }
+
+ let flotantPromo = () => {
+    const promo = document.getElementById(`flotant-promo`);
+    if(promo != null){
+        promo.classList.toggle(`active`)
+    }
  }
