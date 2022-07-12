@@ -9357,7 +9357,7 @@ footer .totum p a:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-top: 100px;
+  margin-top: 80px;
   text-align: center;
 }
 
@@ -9379,7 +9379,7 @@ footer .totum p a:hover {
   font-size: 1em;
   max-width: 630px;
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .experiencias-button-wrapper {
@@ -9430,7 +9430,7 @@ footer .totum p a:hover {
   }
   .sobre-nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info, .sobre-nosotros-experiencias .nosotros-wrapper-grid .nosotros-right .nosotros-info {
     width: 100%;
-    margin-top: 20px;
+    margin-top: 0px;
     text-align: center;
   }
   .sobre-nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info h1, .sobre-nosotros-experiencias .nosotros-wrapper-grid .nosotros-right .nosotros-info h1 {
@@ -9439,7 +9439,7 @@ footer .totum p a:hover {
   .sobre-nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info hr, .sobre-nosotros-experiencias .nosotros-wrapper-grid .nosotros-right .nosotros-info hr {
     margin: 10px auto;
   }
-  .sobre-nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info p, .sobre-nosotros-experiencias .nosotros-wrapper-grid .nosotros-right .nosotros-info p {
+  .sobre-nosotros .nosotros-wrapper-grid .nosotros-right .nosotros-info h3, .sobre-nosotros-experiencias .nosotros-wrapper-grid .nosotros-right .nosotros-info h3 {
     font-size: 1em;
     margin: 10px auto;
   }
