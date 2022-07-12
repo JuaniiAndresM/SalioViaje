@@ -1220,16 +1220,30 @@ function preferenciasVehiculos(id, step, matricula) {
     MTOP VIAJES
 */
 
-function mtop_viaje(datos_viaje_mtop, id_viaje) {
+function mtop_viaje(numero_mtop, pass_mtop, matricula, id_viaje) {
+
+    datos_viaje = {
+        "NRO_MTOP": numero_mtop,
+        "PASS_MTOP": pass_mtop,
+        "MATRICULA": matricula,
+        "ID": id_viaje,
+        "ORIGEN_TRAMO_1": $("#origen_1").val(),
+        "DESTINO_TRAMO_1": $("#destino_1").val(),
+        "ORIGEN_TRAMO_2": $("#origen_2").val(),
+        "DESTINO_TRAMO_2": $("#destino_2").val(),
+        "DISTANCIA": $("#distancia-input").val(),
+        "FECHA_SALIDA": $("#fecha_1").val(),
+        "FECHA_LLEGADA": $("#fecha_2").val(),
+    }
     $.ajax({
         type: "POST",
         url: "https://www.salioviaje.com.uy/Mail/mail-ViajeMTOP.php",
-        data: { datos_viaje: JSON.stringify(datos_viaje_mtop) },
+        data: { datos_viaje: JSON.stringify(datos_viaje) },
         success: function (response) {
             console.log(response);
         },
         complete: function () {
-            actualizar_mtop(1, id_viaje)
+            //actualizar_mtop(1, id_viaje)
         }
     });
 }

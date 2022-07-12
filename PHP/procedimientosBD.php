@@ -1846,4 +1846,22 @@ class procedimientosBD
         $stmt->close();
         return json_encode($result);
     }
+
+    //
+
+    public function obtener_codigos_localidad_mtop($localidad, $dpto){
+        $conn = $this->conexion();
+        $query = "SELECT cod_dpto, cod_localidad FROM `regiones-mtop` where dpto = '$dpto' and localidad = '$localidad'; ";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($codigo_departamento, $codigo_localidad);
+            while ($stmt->fetch()) {
+                $result = array("CODIGO_DEPARTAMENTO" => $codigo_departamento, "CODIGO_LOCALIDAD" => $codigo_localidad);
+            }
+        }
+        $stmt->close();
+        return json_encode($result);
+    }
+
 }

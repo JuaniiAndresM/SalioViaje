@@ -259,7 +259,7 @@ session_set_cookie_params($ttl);
                           if (isset($regiones_mtop)) {
                             for ($i=0; $i < count($regiones_mtop); $i++) { 
                             ?>
-                            <option value="<?php echo $regiones_mtop[$i]['REGION'].", ".$regiones_mtop[$i]['DPTO'] ?>">
+                            <option value="<?php echo $regiones_mtop[$i]['REGION'].", ".$regiones_mtop[$i]['DPTO'];?>">
                             <?php
                             }
                           }

@@ -1257,18 +1257,21 @@ class validaciones
 
     private function validar_origen_destino_input($dato){
         // dato: guarda el origen o destino ingresado por el usuario para verificar si es uno de la lista
+        
         require_once '../PHP/procedimientosBD.php';
         $existe = array();
         $regiones_mtop = new procedimientosBD();
         $regiones_mtop = json_decode($regiones_mtop->traer_regiones_mtop(), true);
         if (isset($regiones_mtop)) {
+            
             for ($i=0; $i < count($regiones_mtop); $i++) { 
-                if ($regiones_mtop[$i]['REGION'].",".$regiones_mtop[$i]['DPTO'] == $dato) {
+                if ($regiones_mtop[$i]['REGION'].", ".$regiones_mtop[$i]['DPTO'] == $dato) {
                     $existe[] = 1;
                 }else{
                     $existe[] = 0; 
                 }
             }
+
         }
         $valido = 0;
         for ($i=0; $i < count($existe); $i++) { 
@@ -1279,4 +1282,6 @@ class validaciones
         return $valido;
     }
 }
+
+
 $Validar = new validaciones($_POST['tipo'], $_POST['datos']);

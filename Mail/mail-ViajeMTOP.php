@@ -10,32 +10,24 @@ require_once '../PHP/procedimientosBD.php';
 
 /*------------------------------------------------------------------------------------------*/
 // ? Importar Variables (Opcional)
-//
 
-$bd = new procedimientosBD();
-session_start();
+$BD = new procedimientosBD();
 
+$DATOS = json_decode($_POST['datos_viaje'], true);
 
-$datos_viajeMTOP = json_decode($_POST['datos_viaje'],true);
-$datos_transportista =  $_POST['datos_tta'];
+$fecha_salida = explode("T", $DATOS['FECHA_SALIDA']);
+$fecha_llegada = explode("T", $DATOS['FECHA_LLEGADA']);
 
-$fecha_salida = explode(" ", $datos_viajeMTOP['FECHA_SALIDA']);
-$fecha_llegada = explode(" ", $datos_viajeMTOP['FECHA_LLEGADA']);
+$ORIGEN = explode(" ,", $DATOS['ORIGEN_TRAMO_1']);
+$DESTINO = explode(" ,", $DATOS['DESTINO_TRAMO_1']);
 
-$origen = explode(",", $datos_viajeMTOP['ORIGEN']);
-$datos_viajeMTOP['DEPARTAMENTO_ORIGEN'] = $origen[1];
-$datos_viajeMTOP['LOCALIDAD_ORIGEN'] = $origen[0];
+$CODIGOS_MTOP_ORIGEN = json_decode($BD->obtener_codigos_localidad_mtop($ORIGEN[0], $ORIGEN[1]), true);
 
-$destino = explode(",", $datos_viajeMTOP['DESTINO']);
-$datos_viajeMTOP['DEPARTAMENTO_DESTINO'] = $destino[1];
-$datos_viajeMTOP['LOCALIDAD_DESTINO'] = $destino[0];
+$CODIGOS_MTOP_DESTINO = json_decode($BD->obtener_codigos_localidad_mtop($DESTINO[0], $DESTINO[1]), true);
 
-/**
- * guardar datos de la paticion de permiso
- */
+echo json_encode($CODIGOS_MTOP_DESTINO);
 
-
-echo json_encode($datos_viajeMTOP);
+echo json_encode($CODIGOS_MTOP_ORIGEN);
 
 //
 /*------------------------------------------------------------------------------------------*/
@@ -94,17 +86,17 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                                 <td>
                                     <div class="mail-content" style="width: 500px; margin: 20px auto; background: #fff; font-family: Montserrat; color: #3844bc;">
                                         <h1 style="font-size: 20px;">Información de la Oportunidad</h1>
-                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">ID Viaje: </b>#'.$datos_viajeMTOP['ID'].'</p>
-                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">N° Usuario MTOP: </b>'.$datos_viajeMTOP['NRO_MTOP'].'</p>
-                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Contraseña MTOP: </b>'.$datos_viajeMTOP['PASS_MTOP'].'</p>
-                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Origen: </b>URUGUAY, '.$datos_viajeMTOP['DEPARTAMENTO_ORIGEN'].', '.$datos_viajeMTOP['LOCALIDAD_ORIGEN'].'.</p>
-                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Destino: </b> 7 - URUGUAY, '.$datos_viajeMTOP['DEPARTAMENTO_DESTINO'].', '.$datos_viajeMTOP['LOCALIDAD_DESTINO'].'.</p>
-                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Kilometros: </b>'.$datos_viajeMTOP['DISTANCIA'].'</p>
+                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">ID Viaje: </b>#'.$DATOS['ID'].'</p>
+                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">N° Usuario MTOP: </b>'.$DATOS['NRO_MTOP'].'</p>
+                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Contraseña MTOP: </b>'.$DATOS['PASS_MTOP'].'</p>
+                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Origen: </b>7 - URUGUAY, '.$CODIGOS_MTOP_ORIGEN['CODIGO_DEPARTAMENTO'].' - '.$ORIGEN[1].', '.$CODIGOS_MTOP_ORIGEN['CODIGO_LOCALIDAD'].' - '.$ORIGEN[0].'.</p>
+                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Destino: </b> 7 - URUGUAY, '.$CODIGOS_MTOP_DESTINO['CODIGO_DEPARTAMENTO'].' - '.$DESTINO[1].', '.$CODIGOS_MTOP_DESTINO['CODIGO_LOCALIDAD'].' - '.$DESTINO[0].'.</p>
+                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Kilometros: </b>'.$DATOS['DISTANCIA'].'</p>
                                         <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Fecha de Salida: </b>'.$fecha_salida[0].'</p>
                                         <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Hora de Salida: </b>'.$fecha_salida[1].'</p>
                                         <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Fecha de Llegada: </b>'.$fecha_llegada[0].'</p>
                                         <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Hora de Llegada: </b>'.$fecha_llegada[1].'</p>
-                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Matrícula: </b>'.$datos_viajeMTOP['MATRICULA'].'</p>';
+                                        <p style="font-size: 14px;"><b style="color: #444; margin-right: 5px;">Matrícula: </b>'.$DATOS['MATRICULA'].'</p>';
 
                                         if(isset($rutas_viajeMTOP)){
                                             if(count($rutas_viajeMTOP,true) > 0){
@@ -149,3 +141,4 @@ if(!$mail->send()){
 }else{
     echo 1;
 }
+

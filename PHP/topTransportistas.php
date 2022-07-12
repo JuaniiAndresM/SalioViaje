@@ -59,6 +59,7 @@ if ($_POST['fiesta_ida_vuelta']) {
 
     for ($i=0; $i < count($PREFERENCIAS); $i++) { 
 
+        /*
         if ($RAW_PREFERENCIAS != "[]" && $PREFERENCIAS[$i]["NOCTURNO"] == $nocturno && $PREFERENCIAS[$i]["FIESTAS"] == $fiesta && $PREFERENCIAS[$i]["DIA_LIBRE"] != $dia && $PREFERENCIAS[$i]["PRECIO_DE_COCHE"] == $hasta_4_pax) {
           //encaja
           $encaja_en_preferencias = 1;
@@ -69,6 +70,9 @@ if ($_POST['fiesta_ida_vuelta']) {
           //no encaja
           $encaja_en_preferencias = 0;
         }
+        */
+
+        $encaja_en_preferencias = 1;
 
         if ($RAW_PREFERENCIAS == "[]" || $encaja_en_preferencias == 1) {
             $transportistas_ya_evaluados[] = $PREFERENCIAS[$i]['TRANSPORTISTA'];
