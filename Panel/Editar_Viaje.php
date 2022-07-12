@@ -13,7 +13,18 @@ session_set_cookie_params($ttl);
     }
   }
 
-  $ID_Viaje = $_POST[`ID`];
+  require_once '../PHP/procedimientosBD.php';
+
+  $ID_Viaje = $_GET['ID'];
+
+  $bd = new  procedimientosBD();
+
+  $viaje = $bd->traer_viajes_por_id($ID_Viaje);
+
+  $regiones_mtop = json_decode($bd->traer_regiones_mtop(), true);
+
+  $datos_ministerio_tta = json_decode($bd->datos_mtop_tta($viaje[0]["MATRICULA"]), true);
+
 ?>
 
 <!DOCTYPE html>
@@ -201,15 +212,15 @@ session_set_cookie_params($ttl);
                     <option value="90">90%</option>
                   </select>
                 </div>
-
+                
                 <div class="input" id="origen">
                   <i class="far fa-calendar-alt" id="icon"></i>
-                  <input type="datetime-local" id="fecha_1" placeholder="Fecha y Hora" onchange="calcular_hora()" />
+                  <input type="datetime-local" id="fecha_1" placeholder="Fecha y Hora" onchange="calcular_hora()" value="<?php echo date('Y-m-d\TH:i', strtotime($viaje[0]['FECHA'])); ?>"/>
                 </div>
 
                 <div class="input" id="origen">
                   <i class="fas fa-map-marker-alt" id="icon"></i>
-                  <input list="RegionesMTOP" id="origen_1" placeholder="Origen" onchange="select_origen_destino(1)">
+                  <input list="RegionesMTOP" id="origen_1" placeholder="Origen" onchange="select_origen_destino(1)" value="<?php echo $viaje[0]['ORIGEN']; ?>" />
                   <datalist id="RegionesMTOP">
                         <?php
                           if (isset($regiones_mtop)) {
@@ -225,7 +236,7 @@ session_set_cookie_params($ttl);
 
                 <div class="input" id="destino">
                   <i class="fas fa-route" id="icon"></i>
-                  <input list="RegionesMTOP" id="destino_1" placeholder="Destino" onchange="select_origen_destino(2)"> 
+                  <input list="RegionesMTOP" id="destino_1" placeholder="Destino" onchange="select_origen_destino(2)" value="<?php echo $viaje[0]['DESTINO']; ?>"  /> 
                 </div>
 
                 <div class="input" id="precioref">
@@ -265,12 +276,12 @@ session_set_cookie_params($ttl);
 
                 <div class="input" id="origen">
                   <i class="fas fa-map-marker-alt" id="icon"></i>
-                  <input list="RegionesMTOP" id="origen_2" placeholder="Origen" onchange="select_origen_destino(3)">
+                  <input list="RegionesMTOP" id="origen_2" placeholder="Origen" onchange="select_origen_destino(3)" value="<?php echo $viaje[0]['DESTINO']; ?>">
                 </div>
 
                 <div class="input" id="destino">
                   <i class="fas fa-route" id="icon"></i>
-                  <input list="RegionesMTOP" id="destino_2" placeholder="Destino" onchange="select_origen_destino(4)">
+                  <input list="RegionesMTOP" id="destino_2" placeholder="Destino" onchange="select_origen_destino(4)" value="<?php echo $viaje[0]['ORIGEN']; ?>">
                 </div>
 
                 <div class="input" id="precioref">
@@ -285,7 +296,7 @@ session_set_cookie_params($ttl);
 
           <div id="step_3">
 
-            <button class="button-agendar" id="step-agendar" onclick="cargar_vista_previa()">
+            <button class="button-agendar" id="step-agendar" onclick="mtop_viaje('<?php echo $datos_ministerio_tta[0]['NUMERO_MTOP'];?>', '<?php echo $datos_ministerio_tta[0]['PASS_MTOP'];?>', '<?php echo $viaje[0]['MATRICULA'];?>', <?php echo $ID_Viaje?>)">
               <i class="fas fa-save"></i> Editar Viaje
             </button>
           </div>

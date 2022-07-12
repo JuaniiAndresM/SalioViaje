@@ -793,7 +793,6 @@ function validacion(TIPO, DATOS) {
 }
 
 function marcar_errores(resultado_validacion, TRAMO) {
-    console.log("hola")
     $('.mensaje-error').show();
 
     console.log(resultado_validacion)

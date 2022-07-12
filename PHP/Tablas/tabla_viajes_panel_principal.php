@@ -280,7 +280,9 @@ for ($i = 0; $i < count($oportunidades); $i++) {
                 break;
             //azul
             default:
-                $button_mtop = "<button class='button tooltip left' data-tooltip='Permiso MTOP' onclick='mtop_viaje(" . $datos_mtop . ",". $oportunidades[$i]['ID'] .")'><i class='fas fa-file-contract'></i></button>";
+                $link = '"https://www.salioviaje.com.uy/Editar_Viaje/'.$oportunidades[$i]['ID'].'"';
+                //$button_mtop = "<button class='button tooltip left' data-tooltip='Permiso MTOP' onclick='mtop_viaje(" . $datos_mtop . ",". $oportunidades[$i]['ID'] .")'><i class='fas fa-file-contract'></i></button>";
+                $button_mtop = "<button class='button tooltip left' data-tooltip='Permiso MTOP' onclick='window.location.href = ".$link."'><i class='fas fa-file-contract'></i></button>";
                 break;
         }
     } else {

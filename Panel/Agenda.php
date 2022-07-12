@@ -18,7 +18,7 @@ session_set_cookie_params($ttl);
       $vehiculos = $info_usuario->traer_agenda_usuario_no_tta($_SESSION['datos_usuario']["ID"]);
     } else{
       $vehiculos = $info_usuario->traer_agenda_usuario($_SESSION['datos_usuario']["ID"]);
-      // $oportunidades = $info_usuario->traer_oportunidades_usuario($_SESSION['datos_usuario']["ID"]);
+      //$oportunidades = $info_usuario->traer_oportunidades_usuario($_SESSION['datos_usuario']["ID"]);
     }
 
   }
@@ -220,7 +220,7 @@ session_set_cookie_params($ttl);
                             break;
                         //rojo
                         case 2:
-                            $button_mtop = '<button class="rojo tooltip left" data-tooltip="Permiso MTOP Rechazado"><i class"fas fa-file-contract"></i></button>';
+                            $button_mtop = '<button class="rojo tooltip left" data-tooltip="Permiso MTOP Rechazado"><i class="fas fa-file-contract"></i></button>';
                             break;
                         //verde
                         case 3:
@@ -253,6 +253,7 @@ session_set_cookie_params($ttl);
                             <div class="button-wrapper"> ';
 
                           if($_SESSION['datos_usuario']['TIPO_USUARIO'] != "PAX" && $vehiculos[$i]['MODALIDAD'] == "Oportunidad"){
+
                             if($vehiculos[$i]['ESTADO'] != "Cancelado" && $vehiculos[$i]['ESTADO'] != "Reconfirmado" && $vehiculos[$i]['ESTADO'] != "Vencido" && $vehiculos[$i]['ESTADO'] != "Vencida"){
                               echo $button_mtop.'
                                     <button class="button tooltip left" data-tooltip="Editar Oportunidad" onclick="abrir_editar_oportunidad('.$vehiculos[$i]['ID'].')"><i class="fas fa-edit"></i></button>
@@ -261,8 +262,8 @@ session_set_cookie_params($ttl);
                               echo $button_mtop.'
                                     <button class="button tooltip left" data-tooltip="Eliminar Oportunidad" onclick="eliminar_viajes('.$vehiculos[$i]['ID'].',1)"><i class="fas fa-trash-alt"></i></button>';
                             }
-                            
-                          }else if($_SESSION['datos_usuario']['TIPO_USUARIO'] != "PAX" && $vehiculos[$i]['MODALIDAD'] == "Agendado"){
+
+                          }else if($_SESSION['datos_usuario']['TIPO_USUARIO'] != "PAX" && $vehiculos[$i]['MODALIDAD'] == "Agendado" || $_SESSION['datos_usuario']['TIPO_USUARIO'] != "PAX" && $vehiculos[$i]['MODALIDAD'] != "Oportunidad"){
                             echo $button_mtop.'
                                   <button class="button tooltip left" data-tooltip="Eliminar Viaje" onclick="eliminar_viajes(' . $vehiculos[$i]['ID'] . ',1)"><i class="fas fa-trash-alt"></i></button>';
                           }
@@ -271,6 +272,7 @@ session_set_cookie_params($ttl);
                       </tr>';
                     }
                   }
+
                   if($oportunidades === null){
                     
                   }else{
@@ -297,8 +299,10 @@ session_set_cookie_params($ttl);
                             echo '<div class="tooltip"><button class="button" onclick="mtop_oportunidad('.$oportunidades[$i]['ID'].')"><i class="fas fa-file-contract"></i></button><span class="tooltiptext">Permiso MTOP</span></div>
                                   <button class="button" onclick="abrir_editar_oportunidad('.$oportunidades[$i]['ID'].')"><i class="fas fa-edit"></i></button>
                                   <button class="button" onclick="eliminar_viajes('.$oportunidades[$i]['ID'].',1)"><i class="fas fa-trash-alt"></i></button>';
+                          }else{
+                            echo '<button class="button tooltip left" data-tooltip="Contacto Transportista" onclick="modal_contacto(\'' . $oportunidades[$i]['NOMBRE'] . '\',' . $oportunidades[$i]['TELEFONO'] . ')"><i class="fa-solid fa-address-card"></i></button> '; 
                           }
-                          echo '
+                          echo '</div>
                           </td>
                       </tr>';
                     }
