@@ -124,7 +124,7 @@ session_set_cookie_params($ttl);
     <nav class="nav-hidden active" id="panel-navbar"></nav>
     <section class="panel" id="panel">
       <section class="faq">
-        <h1><i class="fa-solid fa-person-circle-question" id="icon"></i> Preguntas <span>Frecuentes (FAQs)</span></h1>
+        <h1><i class="fa-solid fa-person-circle-question" id="icon"></i> Preguntas Frecuentes (FAQs)</h1>
         <h2>
           Si nos falta su respuesta, no dude en consultarnos, en menos de 24hs
           tendrá respuesta
