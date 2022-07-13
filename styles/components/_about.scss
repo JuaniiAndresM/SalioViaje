@@ -143,23 +143,24 @@
   margin-top: 80px;
 
   text-align: center;
-  h2,h1 {
-    text-align: center;
-    margin: 10px 20px;
-    color: $main_2;
+  h1 {
     font-size: 2.6em;
+    margin: 0 10px;
+    text-align: center;
+    color: $main_2;
   }
   hr {
     width: 100px;
     border: 1px solid $main_1;
     margin: 10px 0;
   }
-  p {
+  h2 {
     color: #666;
     font-size: 1em;
     max-width: 630px;
     width: 100%;
     margin-bottom: 10px;
+    font-weight: 500;
   }
 }
 

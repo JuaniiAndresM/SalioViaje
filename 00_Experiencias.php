@@ -128,11 +128,16 @@
       />
     </a>
 
-    <div class="titulo-experiencias">
-      <h1 class="title"><i class="fas fa-mountain"></i> Experiencias</h1>
-      <p>Para disfrutar en Uruguay</p>
-    </div>
+  
+ <section class="titulo-experiencias" id="Cotizaciones">
+       <h1 class="title"><i class="fas fa-mountain"></i> Experiencias</h1>
+      <hr />
+      <h2 class="description">
+      Sólo traslado o con todo incluido.
+      </h2>
 
+    
+    </section>
     <!-- Sección -->
     <section class="sobre-nosotros-experiencias">
       <div class="nosotros-wrapper-grid">
