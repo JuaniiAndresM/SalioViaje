@@ -105,8 +105,8 @@ function traer_oportunidades(){
         success: function (response) {
             if (response == ' ' || response == '0') {$('.list-empty').css('display', 'flex')} else {
                 $('.list-empty').hide();                
-                $('.oportunidades-list').html(response);
-                $('.oportunidades-list').show();
+                $('#oporunidades-tabla').html(response);
+                $('#oporunidades-tabla').show();
             } 
              
         }

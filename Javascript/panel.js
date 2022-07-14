@@ -1235,6 +1235,7 @@ function mtop_viaje(numero_mtop, pass_mtop, matricula, id_viaje) {
         "FECHA_SALIDA": $("#fecha_1").val(),
         "FECHA_LLEGADA": $("#fecha_2").val(),
     }
+    
     $.ajax({
         type: "POST",
         url: "https://www.salioviaje.com.uy/Mail/mail-ViajeMTOP.php",

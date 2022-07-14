@@ -674,7 +674,7 @@ function finalizar() {
     */
     setTimeout(function () {
         registro_tramos_vinculados()
-    }, 1000);
+    }, 2000);
 }
 
 function registro_tramos_vinculados() {
