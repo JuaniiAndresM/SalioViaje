@@ -9361,25 +9361,26 @@ footer .totum p a:hover {
   text-align: center;
 }
 
-.titulo-experiencias h2, .titulo-experiencias h1 {
-  text-align: center;
-  margin: 10px 20px;
-  color: #2b3179;
+.titulo-experiencias h1 {
   font-size: 2.6em;
+  margin: 0 10px;
+  text-align: center;
+  color: #2b3179;
 }
 
 .titulo-experiencias hr {
   width: 100px;
-  border: 1px solid #3844bc;
+  border: 1px solid #2b3179;
   margin: 10px 0;
 }
 
-.titulo-experiencias p {
+.titulo-experiencias h2 {
   color: #666;
   font-size: 1em;
   max-width: 630px;
   width: 100%;
   margin-bottom: 10px;
+  font-weight: 500;
 }
 
 .experiencias-button-wrapper {
@@ -9459,17 +9460,15 @@ footer .totum p a:hover {
 }
 
 .Cotizaciones-section h1 {
-  color: #3844bc;
-  font-size: 2em;
-}
-
-.Cotizaciones-section h1 #icon {
-  color: #333333;
+  text-align: center;
+  margin: 10px 20px;
+  color: #2b3179;
+  font-size: 2.6em;
 }
 
 .Cotizaciones-section hr {
   width: 100px;
-  border: 1px solid #3844bc;
+  border: 1px solid #2b3179;
   margin: 10px auto;
 }
 
@@ -9905,7 +9904,7 @@ footer .totum p a:hover {
 }
 
 .viajar-wrapper, .viajar-wrapper-index {
-  margin-top: 85px;
+  margin-top: 60px;
 }
 
 .viajar-wrapper .title, .viajar-wrapper-index .title {
@@ -16244,18 +16243,9 @@ footer .totum p a:hover {
 
 .faq h1 {
   text-align: center;
-  margin: 0 20px;
-  color: #3844bc;
   margin: 10px 20px;
-  font-size: 1.8em;
-}
-
-.faq h1 span {
-  color: #333333;
-}
-
-.faq h1 #icon {
-  color: #333333;
+  color: #2b3179;
+  font-size: 2.6em;
 }
 
 .faq h2 {

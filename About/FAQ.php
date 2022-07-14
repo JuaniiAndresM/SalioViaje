@@ -127,8 +127,7 @@
 
     <section class="faq">
       <h1>
-        <i class="fa-solid fa-person-circle-question" id="icon"></i> Preguntas
-        <span>Frecuentes (FAQs)</span>
+        <i class="fa-solid fa-person-circle-question" id="icon"></i> Preguntas Frecuentes (FAQs)
       </h1>
       <h2>
         Si nos falta su respuesta, no dude en consultarnos, en menos de 24hs

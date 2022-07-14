@@ -128,11 +128,16 @@
       />
     </a>
 
-    <div class="titulo-experiencias">
-      <h1 class="title"><i class="fas fa-mountain"></i> Experiencias</h1>
-      <p>Para disfrutar en Uruguay</p>
-    </div>
+  
+ <section class="titulo-experiencias" id="Cotizaciones">
+       <h1 class="title"><i class="fas fa-mountain"></i> Experiencias</h1>
+      <hr />
+      <h2 class="description">
+      Sólo traslado o con todo incluido.
+      </h2>
 
+    
+    </section>
     <!-- Sección -->
     <section class="sobre-nosotros-experiencias">
       <div class="nosotros-wrapper-grid">
@@ -163,6 +168,7 @@
         </div>
       </div>
     </section>
+    <!--=====================================================================-->
     <!-- Termina Sección -->
     <div class="experiencias-separador">
       <hr>
@@ -199,6 +205,7 @@
         </div>
       </div>
     </section>
+    <!--=====================================================================-->    
     <!-- Termina Sección -->
     <div class="experiencias-separador">
       <hr>
@@ -238,6 +245,42 @@
         </div>
       </div>
     </section>
+        <!--=====================================================================-->
+    <!-- Termina Sección -->
+    <div class="experiencias-separador">
+      <hr>
+    </div>
+    <!-- Sección -->
+    <section class="sobre-nosotros-experiencias">
+      <div class="nosotros-wrapper-grid">
+        <div class="nosotros-left">
+          <div class="nosotros-img-wrapper">
+            <img
+              class=""
+              src="https://www.salioviaje.com.uy/media/images/Fiesta 1.webp" alt="Una fiesta" title="Disfrutar la fiesta sin preocupaciones" />  
+          
+          </div>
+        </div>
+        <div class="nosotros-right">
+          <div class="nosotros-info">
+            <h2>Sobre nuestro sevicio de <span>traslado para fiestas y eventos</span></h2>
+            <hr />
+            <h3 class="info">
+              Para trasladarse con un servicio de alta calidad y puntualidad
+            </h3>
+
+            <a
+              class="button-nosotros"
+              href="https://www.salioviaje.com.uy/Eventos_Fiestas"
+              title="Eventos_Fiestas | Salió Viaje"
+            >
+              <i class="fas fa-info"></i> Más Información
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--=====================================================================-->  
     <!-- Termina Sección -->
     
     <!-- <button class=Botones caseros -->
