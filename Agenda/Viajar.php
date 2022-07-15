@@ -327,7 +327,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                     <hr>
 
                     <div class="input">
-                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes <span class="obligatorio">*</span></p>
+                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interés <span class="obligatorio">*</span></p>
                       <input type="text" id="direccion_traslado_origen" value="<?php echo $_SESSION['datos_usuario']['DIRECCION']; ?>"/>
                     </div>
 
@@ -403,7 +403,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                     <hr>
 
                     <div class="input">
-                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes <span class="obligatorio">*</span></p>
+                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interés <span class="obligatorio">*</span></p>
                       <input type="text" id="direccion_traslado_destino"/>
                     </div>
 
@@ -467,7 +467,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                     <hr>
 
                     <div class="input">
-                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes <span class="obligatorio">*</span></p>
+                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interés <span class="obligatorio">*</span></p>
                       <input type="text" id="direccion_salida_tour" value="<?php echo $_SESSION['datos_usuario']['DIRECCION']; ?>"/>
                     </div>
 
@@ -626,7 +626,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                     <hr>
 
                     <div class="input">
-                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes <span class="obligatorio">*</span></p>
+                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interés <span class="obligatorio">*</span></p>
                       <input type="text" id="direccion_transfer_in" value="<?php echo $_SESSION['datos_usuario']['DIRECCION']; ?>"/>
                     </div>
 
@@ -679,7 +679,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                     <hr>
 
                     <div class="input">
-                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes <span class="obligatorio">*</span></p>
+                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interés <span class="obligatorio">*</span></p>
                       <input type="text" id="direccion_transfer_out" value="<?php echo $_SESSION['datos_usuario']['DIRECCION']; ?>"/>
                     </div>
 
@@ -790,7 +790,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                     <hr>
 
                     <div class="input">
-                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes <span class="obligatorio">*</span></p>
+                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interés <span class="obligatorio">*</span></p>
                       <input type="text" id="direccion_fiestas_ida" value="<?php echo $_SESSION['datos_usuario']['DIRECCION']; ?>"/>
                     </div>
 
@@ -950,7 +950,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                     <hr>
 
                     <div class="input">
-                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes <span class="obligatorio">*</span></p>
+                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interés <span class="obligatorio">*</span></p>
                       <input type="text" id="direccion_fiesta_vuelta" value="<?php echo $_SESSION['datos_usuario']['DIRECCION']; ?>"/>
                     </div>
 
@@ -999,7 +999,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                     <hr>
 
                     <div class="input">
-                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes <span class="obligatorio">*</span></p>
+                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interés <span class="obligatorio">*</span></p>
                       <input type="text" id="direccion_ida_origen_fiestas_idavuelta" onchange="rellenar('Direccion_Origen')" value="<?php echo $_SESSION['datos_usuario']['DIRECCION']; ?>"/>
                     </div>
 
@@ -1035,7 +1035,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                     <hr>
 
                     <div class="input">
-                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes <span class="obligatorio">*</span></p>
+                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interés <span class="obligatorio">*</span></p>
                       <input type="text" id="direccion_ida_destino_fiestas_idavuelta" onchange="rellenar('Direccion_Destino')"/>
                     </div>
 
@@ -1097,7 +1097,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                     <hr>
 
                     <div class="input">
-                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes <span class="obligatorio">*</span></p>
+                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interés <span class="obligatorio">*</span></p>
                       <input type="text" id="direccion_vuelta_origen_fiestas_idavuelta"/>
                     </div>
 
@@ -1133,7 +1133,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                     <hr>
 
                     <div class="input">
-                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interes <span class="obligatorio">*</span></p>
+                      <p><i class="fa fa-location-dot"></i> Dirección o Punto de Interés <span class="obligatorio">*</span></p>
                       <input type="text" id="direccion_vuelta_destino_fiestas_idavuelta" value="<?php echo $_SESSION['datos_usuario']['DIRECCION']; ?>"/>
                     </div>
 
