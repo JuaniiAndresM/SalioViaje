@@ -55,7 +55,7 @@ $(document).ready(function () {
     });
 
     setTimeout(() => {
-        if((document.getElementById(`cotz-reci`).rows.length - 1) <= 5){
+        if((document.getElementById(`cotz-reci`).rows.length - 1) >= 5){
             document.getElementById(`full-cotiz-reci`).style.display = 'flex';
         }else{
             document.getElementById(`full-cotiz-reci`).style.display = 'none';
