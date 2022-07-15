@@ -63,6 +63,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
   <body>
     <input type="text" class="session-output" value='<?php if(isset($_SESSION['usuario'])){ echo 0; }else{ echo 1; }; ?>' >
     <input type="text" class="session-input" value='<?php echo $_GET['opcion']; ?>'>
+    <input type="text" class="scroll-input" value='<?php echo $_GET['scroll']; ?>'>
 
     <script>
       window.onload = function (){
@@ -1263,7 +1264,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
       </section>
     </div>
     <script>
-          if($(`.session-input`).val() == `` && $(`.session-output`).val() == 0){
+          if(($(`.session-input`).val() == `` || $(`.session-input`).val() == `5`) && $(`.session-output`).val() == 0){
                 desplegar(document.getElementById("agendar"), $(".session-output").val());
           }else{
               if (localStorage.getItem("origen") == 1) {

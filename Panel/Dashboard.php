@@ -302,14 +302,14 @@ session_set_cookie_params($ttl);
                           </div>
                           <p>Agendar Viaje</p>
                         </a>
-                        <a class="card button" href="https://www.salioviaje.com.uy/Viajar/#Oportunidades">
+                        <a class="card button" href="https://www.salioviaje.com.uy/Viajar?scroll=Oportunidades">
                           <div class="number">
                               <h2>'.$bd->numero_oportunidades().'</h2>
                               <i class="fa-solid fa-tags"></i>
                           </div>
                           <p>Oportunidades Disponibles</p>
                         </a>
-                        <a class="card button" href="https://www.salioviaje.com.uy/Viajar/#Ofertas">
+                        <a class="card button" href="https://www.salioviaje.com.uy/Viajar?scroll=Ofertas">
                           <div class="number">
                               <h2>-</h2>
                               <i class="fa-solid fa-percent"></i>
@@ -460,14 +460,14 @@ session_set_cookie_params($ttl);
                 </div>
                 <p>Agendar Viaje</p>
               </a>
-              <a class="card button" href="https://www.salioviaje.com.uy/Viajar/#Oportunidades">
+              <a class="card button" href="https://www.salioviaje.com.uy/Viajar?scroll=Oportunidades">
                 <div class="number">
                     <h2>'.$bd->numero_oportunidades().'</h2>
                     <i class="fa-solid fa-tags"></i>
                 </div>
                 <p>Oportunidades Disponibles</p>
               </a>
-              <a class="card button" href="https://www.salioviaje.com.uy/Viajar/#Ofertas">
+              <a class="card button" href="https://www.salioviaje.com.uy/Viajar?scroll=Ofertas">
                 <div class="number">
                     <h2>-</h2>
                     <i class="fa-solid fa-percent"></i>
@@ -548,14 +548,14 @@ session_set_cookie_params($ttl);
                         </div>
                         <p>Solicitar Cotización</p>
                       </a>
-                      <a class="card button" href="https://www.salioviaje.com.uy/Viajar/#Oportunidades">
+                      <a class="card button" href="https://www.salioviaje.com.uy/Viajar?scroll=Oportunidades">
                         <div class="number">
                             <h2>'.$bd->numero_oportunidades().'</h2>
                             <i class="fa-solid fa-tags"></i>
                         </div>
                         <p>Oportunidades Disponibles</p>
                       </a>
-                      <a class="card button" href="https://www.salioviaje.com.uy/Viajar/#Ofertas">
+                      <a class="card button" href="https://www.salioviaje.com.uy/Viajar?scroll=Ofertas">
                         <div class="number">
                             <h2>-</h2>
                             <i class="fa-solid fa-percent"></i>
@@ -666,14 +666,14 @@ session_set_cookie_params($ttl);
                         </div>
                         <p>Solicitar Cotización</p>
                       </a>
-                      <a class="card button" href="https://www.salioviaje.com.uy/Viajar/#Oportunidades">
+                      <a class="card button" href="https://www.salioviaje.com.uy/Viajar?scroll=Oportunidades">
                         <div class="number">
                             <h2>'.$bd->numero_oportunidades().'</h2>
                             <i class="fa-solid fa-tags"></i>
                         </div>
                         <p>Oportunidades Disponibles</p>
                       </a>
-                      <a class="card button" href="https://www.salioviaje.com.uy/Viajar/#Ofertas">
+                      <a class="card button" href="https://www.salioviaje.com.uy/Viajar?scroll=Ofertas">
                         <div class="number">
                             <h2>-</h2>
                             <i class="fa-solid fa-percent"></i>
@@ -750,14 +750,14 @@ session_set_cookie_params($ttl);
                         </div>
                         <p>Solicitar Cotización</p>
                       </a>
-                      <a class="card button" href="https://www.salioviaje.com.uy/Viajar/#Oportunidades">
+                      <a class="card button" href="https://www.salioviaje.com.uy/Viajar?scroll=Oportunidades">
                         <div class="number">
                             <h2>'.$bd->numero_oportunidades().'</h2>
                             <i class="fa-solid fa-tags"></i>
                         </div>
                         <p>Oportunidades Disponibles</p>
                       </a>
-                      <a class="card button" href="https://www.salioviaje.com.uy/Viajar/#Ofertas">
+                      <a class="card button" href="https://www.salioviaje.com.uy/Viajar?scroll=Ofertas">
                         <div class="number">
                             <h2>-</h2>
                             <i class="fa-solid fa-percent"></i>

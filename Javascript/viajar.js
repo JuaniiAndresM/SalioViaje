@@ -8,6 +8,10 @@ $(document).ready(function () {
     select_transfer();
 
     setTimeout(() => {
+        checkScroll();
+    }, 400);
+
+    setTimeout(() => {
         datavalue_oportunidades();
     }, 1000);
 
@@ -36,6 +40,15 @@ $(document).ready(function () {
     $("#contador-oportunidades").html(document.getElementsByClassName("oportunidad").length);
 });
 
+let checkScroll = () => {
+    const scrollInput = document.querySelector(`.scroll-input`).value;
+
+    if(scrollInput != null || scrollInput != ``){
+        let elementTop = document.getElementById(`${scrollInput}`).getBoundingClientRect().top + window.pageYOffset - 100;
+        window.scrollTo({top: elementTop, behavior: 'smooth'});
+    }
+}
+
 function datavalue_oportunidades() {
     var oportunidades = document.getElementsByClassName("oportunidad").length;
 
@@ -62,8 +75,8 @@ function timeoutformulario(opcion) {
     setTimeout(() => {
         if (opcion != "") {
             window.location.hash = "Cotizacion";
-            desplegar(document.getElementById("agendar"), $(".session-output").val());
             if (opcion != 5) {
+                desplegar(document.getElementById("agendar"), $(".session-output").val());
                 select_usuario();
             }
 
@@ -916,6 +929,7 @@ function desplegar(button, session) {
         }, 500);
 
     } else {
+        
         button.classList.toggle("active");
         button.nextElementSibling.classList.toggle("show");
 
