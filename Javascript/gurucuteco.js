@@ -1,9 +1,11 @@
 let closeGurucuteco = opcion =>{
-    let cookieName = `g${opcion}`
-    if(document.getElementById(`check-g-${opcion}`).checked){
-        document.cookie = cookieName+'=1';
-    }else{
-        document.cookie = cookieName+'=0';
+    if(document.getElementById(`check-g-${opcion}`) != null){
+        let cookieName = `g${opcion}`
+        if(document.getElementById(`check-g-${opcion}`).checked){
+            document.cookie = cookieName+'=1';
+        }else{
+            document.cookie = cookieName+'=0';
+        }
     }
     
     $(`#gurucuteco`).css(`display`,`none`);

@@ -628,7 +628,7 @@ $main_3: #6d76db;
         }
       }
 
-      .empty-table{
+      .empty-table,.full-table{
         height: 100px;
         text-align: center;
         color: $main_1;
@@ -636,6 +636,16 @@ $main_3: #6d76db;
         display: flex;
         justify-content: center;
         align-items: center;
+      }
+      .full-table{
+        height: unset;
+        padding: 20px 0;
+
+        p{
+          button{
+            display: inline-block;
+          }
+        }
       }
     }
     .usuarios-propietarios {
@@ -1236,7 +1246,7 @@ $main_3: #6d76db;
       
     }
     .empty-table{
-      height: 200px;
+      min-height: 200px;
       text-align: center;
       color: $main_1;
 
