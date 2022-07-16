@@ -802,9 +802,9 @@ $contraste_2: #ffffff;
 @media screen and(max-width: 1226px) {
   .oportunidades {
     .oportunidades-wrapper {
-      .oportunidades-list {
-        .oportunidad {
-          .oportunidad-left {
+      .container-list {
+        .item {
+          .col-l {
             .travel:nth-child(4) {
               display: none;
             }
@@ -818,9 +818,9 @@ $contraste_2: #ffffff;
 @media screen and(max-width: 1031px) {
   .oportunidades {
     .oportunidades-wrapper {
-      .oportunidades-list {
-        .oportunidad {
-          .oportunidad-right {
+      .container-list {
+        .item {
+          .col-r {
             .travel {
               display: none;
             }
@@ -834,13 +834,13 @@ $contraste_2: #ffffff;
 @media screen and(max-width: 842px) {
   .oportunidades {
     .oportunidades-wrapper {
-      .oportunidades-list {
+      .container-list {
         max-height: 600px;
-        .oportunidad {
+        .item {
           flex-direction: column;
           width: calc(100% - 20px);
           margin: 20px auto;
-          .oportunidad-left {
+          .col-l {
             flex-direction: column;
 
             .travel {
@@ -850,7 +850,7 @@ $contraste_2: #ffffff;
               }
             }
           }
-          .oportunidad-right {
+          .col-r {
             width: 100%;
             flex-direction: column;
             margin: 10px 0;

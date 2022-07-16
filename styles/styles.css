@@ -967,22 +967,22 @@
 }
 
 @media screen and (max-width: 1226px) {
-  .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel:nth-child(4) {
+  .oportunidades .oportunidades-wrapper .container-list .item .col-l .travel:nth-child(4) {
     display: none;
   }
 }
 
 @media screen and (max-width: 1031px) {
-  .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .travel {
+  .oportunidades .oportunidades-wrapper .container-list .item .col-r .travel {
     display: none;
   }
 }
 
 @media screen and (max-width: 842px) {
-  .oportunidades .oportunidades-wrapper .oportunidades-list {
+  .oportunidades .oportunidades-wrapper .container-list {
     max-height: 600px;
   }
-  .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad {
+  .oportunidades .oportunidades-wrapper .container-list .item {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -990,19 +990,19 @@
     width: calc(100% - 20px);
     margin: 20px auto;
   }
-  .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left {
+  .oportunidades .oportunidades-wrapper .container-list .item .col-l {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel {
+  .oportunidades .oportunidades-wrapper .container-list .item .col-l .travel {
     text-align: center;
   }
-  .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel p {
+  .oportunidades .oportunidades-wrapper .container-list .item .col-l .travel p {
     margin: 10px 5px;
   }
-  .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right {
+  .oportunidades .oportunidades-wrapper .container-list .item .col-r {
     width: 100%;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -1010,7 +1010,7 @@
             flex-direction: column;
     margin: 10px 0;
   }
-  .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper {
+  .oportunidades .oportunidades-wrapper .container-list .item .col-r .button-wrapper {
     width: 100%;
     margin: 10px 0;
     display: -webkit-box;
@@ -1029,7 +1029,7 @@
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }
-  .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper button {
+  .oportunidades .oportunidades-wrapper .container-list .item .col-r .button-wrapper button {
     margin: 5px 10px;
   }
 }
