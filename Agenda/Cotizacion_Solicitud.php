@@ -34,7 +34,7 @@ if($array_oportuidad[0]['ID_TRANSPORTISTA'] != $_SESSION['datos_usuario']['ID'])
 
 $array_cotizacion = json_decode($datos->traer_viajes_cotizando_por_id($ID), true);
 
-if($array_cotizacion[0]['ESTADO'] != "1"){
+if($array_cotizacion[0]['ESTADO'] != 2){
   $expired = 1;
 }
 
