@@ -3,11 +3,11 @@ $(document).ready(function () {
     let Datos = ID.split("_");
     var ID_Slice = Datos[1].slice(0,-1);
     
-        // if($("#expired_get").val() == "1"){
-        //     solicitud_response = "E";
-        // }else{
-        //     solicitud_response = ID.charAt(ID.length-1);
-        // }
+        if($("#expired_get").val() == "1"){
+             solicitud_response = "E";
+        }else{
+             solicitud_response = ID.charAt(ID.length-1);
+        }
 
         solicitud_response = Datos[1].charAt(Datos[1].length-1);
 
