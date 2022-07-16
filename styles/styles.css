@@ -967,22 +967,22 @@
 }
 
 @media screen and (max-width: 1226px) {
-  .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel:nth-child(4) {
+  .oportunidades .oportunidades-wrapper .container-list .item .col-l .travel:nth-child(4) {
     display: none;
   }
 }
 
 @media screen and (max-width: 1031px) {
-  .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .travel {
+  .oportunidades .oportunidades-wrapper .container-list .item .col-r .travel {
     display: none;
   }
 }
 
 @media screen and (max-width: 842px) {
-  .oportunidades .oportunidades-wrapper .oportunidades-list {
+  .oportunidades .oportunidades-wrapper .container-list {
     max-height: 600px;
   }
-  .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad {
+  .oportunidades .oportunidades-wrapper .container-list .item {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -990,19 +990,19 @@
     width: calc(100% - 20px);
     margin: 20px auto;
   }
-  .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left {
+  .oportunidades .oportunidades-wrapper .container-list .item .col-l {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel {
+  .oportunidades .oportunidades-wrapper .container-list .item .col-l .travel {
     text-align: center;
   }
-  .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-left .travel p {
+  .oportunidades .oportunidades-wrapper .container-list .item .col-l .travel p {
     margin: 10px 5px;
   }
-  .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right {
+  .oportunidades .oportunidades-wrapper .container-list .item .col-r {
     width: 100%;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -1010,7 +1010,7 @@
             flex-direction: column;
     margin: 10px 0;
   }
-  .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper {
+  .oportunidades .oportunidades-wrapper .container-list .item .col-r .button-wrapper {
     width: 100%;
     margin: 10px 0;
     display: -webkit-box;
@@ -1029,7 +1029,7 @@
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }
-  .oportunidades .oportunidades-wrapper .oportunidades-list .oportunidad .oportunidad-right .button-wrapper button {
+  .oportunidades .oportunidades-wrapper .container-list .item .col-r .button-wrapper button {
     margin: 5px 10px;
   }
 }
@@ -7657,9 +7657,11 @@ footer .totum p a:hover {
   background-color: #eee;
 }
 
-.panel .panel-tables .usuarios-recientes .empty-table,
-.panel .panel-tables .usuarios-propietarios .empty-table, .panel .panel-tables-2 .usuarios-recientes .empty-table,
-.panel .panel-tables-2 .usuarios-propietarios .empty-table {
+.panel .panel-tables .usuarios-recientes .empty-table, .panel .panel-tables .usuarios-recientes .full-table,
+.panel .panel-tables .usuarios-propietarios .empty-table,
+.panel .panel-tables .usuarios-propietarios .full-table, .panel .panel-tables-2 .usuarios-recientes .empty-table, .panel .panel-tables-2 .usuarios-recientes .full-table,
+.panel .panel-tables-2 .usuarios-propietarios .empty-table,
+.panel .panel-tables-2 .usuarios-propietarios .full-table {
   height: 100px;
   text-align: center;
   color: #3844bc;
@@ -7672,6 +7674,19 @@ footer .totum p a:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.panel .panel-tables .usuarios-recientes .full-table,
+.panel .panel-tables .usuarios-propietarios .full-table, .panel .panel-tables-2 .usuarios-recientes .full-table,
+.panel .panel-tables-2 .usuarios-propietarios .full-table {
+  height: unset;
+  padding: 20px 0;
+}
+
+.panel .panel-tables .usuarios-recientes .full-table p button,
+.panel .panel-tables .usuarios-propietarios .full-table p button, .panel .panel-tables-2 .usuarios-recientes .full-table p button,
+.panel .panel-tables-2 .usuarios-propietarios .full-table p button {
+  display: inline-block;
 }
 
 .panel .panel-tables .usuarios-propietarios .propietarios, .panel .panel-tables-2 .usuarios-propietarios .propietarios {
@@ -8550,7 +8565,7 @@ footer .totum p a:hover {
 }
 
 .section-usuarios .usuarios-recientes .empty-table {
-  height: 200px;
+  min-height: 200px;
   text-align: center;
   color: #3844bc;
   display: -webkit-box;
@@ -18039,6 +18054,14 @@ footer .totum p a:hover {
   color: #777;
   border-bottom: 1px solid #999;
   margin: 5px 0;
+  outline: none;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+#modal .modal-container .modal-body .input select:focus,
+#modal .modal-container .modal-body .input input:focus {
+  border-bottom: 1px solid #3844bc;
 }
 
 #modal .modal-container .modal-body .button-wrapper {
@@ -18622,6 +18645,7 @@ footer .totum p a:hover {
   background-color: #3844bc;
   border: none;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .checkbox {

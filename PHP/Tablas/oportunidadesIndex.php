@@ -27,7 +27,7 @@ for ($i = 0; $i < count($datos); $i++) {
     $PRECIO_CON_DESCUENTO_APLICADO = round($datos[$i]['PRECIO'] - $datos[$i]['PRECIO'] * ($datos[$i]['DESCUENTO'] / 100));
     if ($i == 0 && $datos[$i]['ESTADO'] == 'En venta') {
         $contenido_oportunidades = '
-					<div class="item" id="Opo-'.$contador.'" data-value="'.$datos[$i]['ORIGEN'].','.$datos[$i]['DESTINO'].','.$fecha[0].'">
+					<div class="item oportunidad" id="Opo-'.$contador.'" data-value="'.$datos[$i]['ORIGEN'].','.$datos[$i]['DESTINO'].','.$fecha[0].'">
 
               <div class="col-l">
                 <div class="discount">
@@ -77,7 +77,7 @@ for ($i = 0; $i < count($datos); $i++) {
 
     } else if ($datos[$i]['ESTADO'] == 'En venta') {
         $contenido_oportunidades = $contenido_oportunidades . '
-					<div class="item" id="Opo-'.$contador.'" data-value="'.$datos[$i]['ORIGEN'].','.$datos[$i]['DESTINO'].','.$fecha[0].'">
+					<div class="item oportunidad" id="Opo-'.$contador.'" data-value="'.$datos[$i]['ORIGEN'].','.$datos[$i]['DESTINO'].','.$fecha[0].'">
 
               <div class="col-l">
                 <div class="discount">

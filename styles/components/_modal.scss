@@ -117,6 +117,12 @@
           color: #777;
           border-bottom: 1px solid #999;
           margin: 5px 0;
+          outline: none;
+          transition: .2s;
+        }
+        select:focus,
+        input:focus{
+          border-bottom: 1px solid $main_1;
         }
       }
 

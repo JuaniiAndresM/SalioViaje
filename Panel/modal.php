@@ -272,6 +272,10 @@ switch($opcion){
                 <div class="input">
                     <input type="time" id="hora_copia"/>
                 </div>
+                <div class="input pasajeros">
+                    <p class="input-desc">Cantidad de Pasajeros:</p>
+                    <input type="number" id="cant_pasaj"/>
+                </div>
                 <div class="button-wrapper">
                     <button class="modal-button" onclick="copiar_solicitud('.$data.',2)">
                         <i class="fa-solid fa-check"></i> Copiar Viaje

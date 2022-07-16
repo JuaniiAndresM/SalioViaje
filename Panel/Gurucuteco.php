@@ -73,7 +73,7 @@ switch($opcion){
         <div class="gurucuteco-container">
             <div class="gurucuteco-body">
                 <h3>G<span>'.$opcion.'</span></h3>
-                <p text="g'.$opcion.'-text">Elija si <b>parte o arriva</b>, complete los datos y viaje feliz.</p>
+                <p text="g'.$opcion.'-text">Elija si <b>parte o arriba</b>, complete los datos y viaje feliz.</p>
             </div>
             <div class="checkbox">
                 <input type="checkbox" id="check-g-'.$opcion.'">No volver a mostrar.
@@ -107,6 +107,18 @@ switch($opcion){
             </div>
             <div class="checkbox">
                 <input type="checkbox" id="check-g-'.$opcion.'">No volver a mostrar.
+            </div>
+            <div class="button-wrapper">
+                <button onclick="closeGurucuteco('.$opcion.')"><i class="fa-solid fa-xmark"></i> Cerrar</button> 
+            </div>
+        </div>';
+        break;
+    case "8":
+        $gurucuteco_body = '
+        <div class="gurucuteco-container">
+            <div class="gurucuteco-body">
+                <h3>G<span>'.$opcion.'</span></h3>
+                <p text="g'.$opcion.'-text">Otros pasajeros, al igual que tú, esta pidiendo precios.</p>
             </div>
             <div class="button-wrapper">
                 <button onclick="closeGurucuteco('.$opcion.')"><i class="fa-solid fa-xmark"></i> Cerrar</button> 

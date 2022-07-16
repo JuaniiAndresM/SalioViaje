@@ -126,6 +126,7 @@ session_set_cookie_params($ttl);
         <script src="https://www.salioviaje.com.uy/Javascript/settings.js"></script>
         <script src="https://www.salioviaje.com.uy/Javascript/loader.js"></script>
         <script src="https://www.salioviaje.com.uy/Javascript/cotizaciones.js"></script>
+        <script src="https://www.salioviaje.com.uy/Javascript/gurucuteco.js"></script>
         <script src="https://www.salioviaje.com.uy/t2voice/functionsJS.js"></script>
         <script src="https://www.salioviaje.com.uy/t2voice/send_data.js"></script>
         </script>
@@ -151,6 +152,7 @@ session_set_cookie_params($ttl);
         </div>
 
         <div id="modal"></div>
+        <div id="gurucuteco"></div>
         
         <header class="panel-header" id="header">
           <div class="header-left">
@@ -300,14 +302,14 @@ session_set_cookie_params($ttl);
                           </div>
                           <p>Agendar Viaje</p>
                         </a>
-                        <a class="card button" href="https://www.salioviaje.com.uy/Viajar/#Oportunidades">
+                        <a class="card button" href="https://www.salioviaje.com.uy/Viajar?scroll=Oportunidades">
                           <div class="number">
                               <h2>'.$bd->numero_oportunidades().'</h2>
                               <i class="fa-solid fa-tags"></i>
                           </div>
                           <p>Oportunidades Disponibles</p>
                         </a>
-                        <a class="card button" href="https://www.salioviaje.com.uy/Viajar/#Ofertas">
+                        <a class="card button" href="https://www.salioviaje.com.uy/Ofertas">
                           <div class="number">
                               <h2>-</h2>
                               <i class="fa-solid fa-percent"></i>
@@ -423,6 +425,9 @@ session_set_cookie_params($ttl);
                                 </tbody>
                               </table>
                             </div>
+                            <div class="full-table" id="full-cotiz-reci">
+                              <p><i class="fas fa-info-circle"></i> Estas son todas las cotizaciones que tenemos para ti. En una hora pierden validez y se borrarán de aquí.</p>
+                            </div>
                             <div class="empty-table" id="empty-cotiz-reci">
                               <p><i class="fas fa-info-circle"></i> No hay cotizaciones recibidas.</p>
                             </div>
@@ -455,14 +460,14 @@ session_set_cookie_params($ttl);
                 </div>
                 <p>Agendar Viaje</p>
               </a>
-              <a class="card button" href="https://www.salioviaje.com.uy/Viajar/#Oportunidades">
+              <a class="card button" href="https://www.salioviaje.com.uy/Viajar?scroll=Oportunidades">
                 <div class="number">
                     <h2>'.$bd->numero_oportunidades().'</h2>
                     <i class="fa-solid fa-tags"></i>
                 </div>
                 <p>Oportunidades Disponibles</p>
               </a>
-              <a class="card button" href="https://www.salioviaje.com.uy/Viajar/#Ofertas">
+              <a class="card button" href="https://www.salioviaje.com.uy/Ofertas">
                 <div class="number">
                     <h2>-</h2>
                     <i class="fa-solid fa-percent"></i>
@@ -543,14 +548,14 @@ session_set_cookie_params($ttl);
                         </div>
                         <p>Solicitar Cotización</p>
                       </a>
-                      <a class="card button" href="https://www.salioviaje.com.uy/Viajar/#Oportunidades">
+                      <a class="card button" href="https://www.salioviaje.com.uy/Viajar?scroll=Oportunidades">
                         <div class="number">
                             <h2>'.$bd->numero_oportunidades().'</h2>
                             <i class="fa-solid fa-tags"></i>
                         </div>
                         <p>Oportunidades Disponibles</p>
                       </a>
-                      <a class="card button" href="https://www.salioviaje.com.uy/Viajar/#Ofertas">
+                      <a class="card button" href="https://www.salioviaje.com.uy/Ofertas">
                         <div class="number">
                             <h2>-</h2>
                             <i class="fa-solid fa-percent"></i>
@@ -628,6 +633,9 @@ session_set_cookie_params($ttl);
                                 </tbody>
                               </table>
                             </div>
+                            <div class="full-table" id="full-cotiz-reci">
+                              <p><i class="fas fa-info-circle"></i> Estas son todas las cotizaciones que tenemos para ti. En una hora pierden validez y se borrarán de aquí.</p>
+                            </div>
                             <div class="empty-table" id="empty-cotiz-reci">
                               <p><i class="fas fa-info-circle"></i> No hay cotizaciones recibidas.</p>
                             </div>
@@ -658,14 +666,14 @@ session_set_cookie_params($ttl);
                         </div>
                         <p>Solicitar Cotización</p>
                       </a>
-                      <a class="card button" href="https://www.salioviaje.com.uy/Viajar/#Oportunidades">
+                      <a class="card button" href="https://www.salioviaje.com.uy/Viajar?scroll=Oportunidades">
                         <div class="number">
                             <h2>'.$bd->numero_oportunidades().'</h2>
                             <i class="fa-solid fa-tags"></i>
                         </div>
                         <p>Oportunidades Disponibles</p>
                       </a>
-                      <a class="card button" href="https://www.salioviaje.com.uy/Viajar/#Ofertas">
+                      <a class="card button" href="https://www.salioviaje.com.uy/Ofertas">
                         <div class="number">
                             <h2>-</h2>
                             <i class="fa-solid fa-percent"></i>
@@ -709,6 +717,9 @@ session_set_cookie_params($ttl);
                                 </tbody>
                               </table>
                             </div>
+                            <div class="full-table" id="full-cotiz-reci">
+                              <p><i class="fas fa-info-circle"></i> Estas son todas las cotizaciones que tenemos para ti. En una hora pierden validez y se borrarán de aquí.</p>
+                            </div>
                             <div class="empty-table" id="empty-cotiz-reci">
                               <p><i class="fas fa-info-circle"></i> No hay cotizaciones recibidas.</p>
                             </div>
@@ -739,14 +750,14 @@ session_set_cookie_params($ttl);
                         </div>
                         <p>Solicitar Cotización</p>
                       </a>
-                      <a class="card button" href="https://www.salioviaje.com.uy/Viajar/#Oportunidades">
+                      <a class="card button" href="https://www.salioviaje.com.uy/Viajar?scroll=Oportunidades">
                         <div class="number">
                             <h2>'.$bd->numero_oportunidades().'</h2>
                             <i class="fa-solid fa-tags"></i>
                         </div>
                         <p>Oportunidades Disponibles</p>
                       </a>
-                      <a class="card button" href="https://www.salioviaje.com.uy/Viajar/#Ofertas">
+                      <a class="card button" href="https://www.salioviaje.com.uy/Ofertas">
                         <div class="number">
                             <h2>-</h2>
                             <i class="fa-solid fa-percent"></i>
@@ -826,6 +837,9 @@ session_set_cookie_params($ttl);
 
                             </tbody>
                           </table>
+                        </div>
+                        <div class="full-table" id="full-cotiz-reci">
+                          <p>Estas son todas las cotizaciones que tenemos para ti. En una hora pierden validez y se borrarán de aquí. <button class="gurucuteco-button" onclick="openGurucuteco(8)"><i class="fa-solid fa-circle-question"></i></button></p>
                         </div>
                         <div class="empty-table" id="empty-cotiz-reci">
                             <p><i class="fas fa-info-circle"></i> No hay cotizaciones recibidas.</p>
