@@ -306,7 +306,7 @@ function filtrar_divs(tipo) {
     */
  }
 
- const eliminar_filtros = tipo => {
+ function eliminar_filtros(tipo){
 
     if(tipo == 'Oportunidad'){
         document.getElementById('origen_oportunidad').value = '';
