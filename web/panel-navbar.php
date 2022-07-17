@@ -79,9 +79,17 @@ session_set_cookie_params($ttl);
     }
     if($tipo == 2){
       echo '<li>
-              <a href="https://www.salioviaje.com.uy/Cotizaciones">
+              <a href="https://www.salioviaje.com.uy/Cotizaciones_Presentadas">
                 <span class="icon"><i class="fa-solid fa-money-check-dollar"></i></span>
                 <span class="title">Mis Cotizaciones</span>
+              </a>
+            </li>';
+    }
+    if($tipo != 1 && $tipo != 3){
+      echo '<li>
+              <a href="https://www.salioviaje.com.uy/Cotizaciones_Recibidas">
+                <span class="icon"><i class="fa-solid fa-hand-holding-dollar"></i></span>
+                <span class="title">Cotizaciones Recibidas</span>
               </a>
             </li>';
     }

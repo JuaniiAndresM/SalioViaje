@@ -33,14 +33,11 @@ function datavalue_oportunidades(){
 }
 
 
-function cerrarsesion(){
-    $.ajax({ 
-        url: "https://www.salioviaje.com.uy/PHP/cerrarSession.php",
-        success: function(response){
-            $('#header').load('/web/foreman/header.php');
-            location.reload()
-        }
-    });
+const cerrarsesion = () =>{
+    fetch("https://www.salioviaje.com.uy/PHP/cerrarSession.php").then(() =>{
+        $('#header').load('/web/foreman/header.php');
+        location.reload();
+    })
 }
 
 function dashboard(){
@@ -309,14 +306,12 @@ function filtrar_divs(tipo) {
     */
  }
 
- function eliminar_filtros(tipo) {
+ const eliminar_filtros = tipo => {
 
-    switch(tipo){
-        case "Oportunidad":
-            $("#origen_oportunidad").val("");
-            $("#destino_oportunidad").val("");
-            $("#fecha_oportunidad").val("");
-            break;
+    if(tipo == 'Oportunidad'){
+        document.getElementById('origen_oportunidad').value = '';
+        document.getElementById('destino_oportunidad').value = '';
+        document.getElementById('fecha_oportunidad').value = '';
     }
  
     filtrar_divs(tipo);
@@ -343,7 +338,7 @@ function filtrar_divs(tipo) {
       console.log(nombreDelDiaSegunFecha(fecha+" 00:00:00"))
  }
 
- let flotantPromo = () => {
+ const flotantPromo = () => {
     const promo = document.getElementById(`flotant-promo`);
     if(promo != null){
         promo.classList.toggle(`active`)
