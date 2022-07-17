@@ -25,7 +25,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
 
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <meta name="author" content="Daniel Schlebinger" />
 
@@ -47,15 +47,15 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
 
     <!-- Links -->
     <link rel="shortcut icon" href="https://www.salioviaje.com.uy/media/svg/Favicon-SalioViaje.svg" type="image/x-icon">
-    <link rel="stylesheet" href="https://www.salioviaje.com.uy/styles/styles.min.css">
+    <link rel="stylesheet" href="https://www.salioviaje.com.uy/styles/styles.min.css" media="all">
     <link rel="publisher" href="https://www.salioviaje.com.uy" />
     <link rel="canonical" href="https://www.salioviaje.com.uy"/>
     <!-- Scripts -->
-    <script src="https://kit.fontawesome.com/1e193e3a23.js" crossorigin="anonymous"></script>    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="Javascript/web.js"></script>
-    <script src="Javascript/viajar.js"></script>
-    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
+    <script defer src="https://kit.fontawesome.com/1e193e3a23.js" crossorigin="anonymous"></script>    
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="Javascript/web.js"></script>
+    <script defer src="Javascript/viajar.js"></script>
+    <script rel="preconnect" src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
     <script>
       var OneSignal = window.OneSignal || [];
       OneSignal.push(function () {
