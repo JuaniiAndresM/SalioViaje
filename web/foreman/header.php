@@ -9,7 +9,7 @@ session_start();
     <div class="header-wrapper">
         <div class="header-logo">
             <a href="https://www.salioviaje.com.uy/" title="Home | Salió Viaje">
-                <img src="https://www.salioviaje.com.uy/media/svg/Logo-SalioViaje.svg" alt="Logo SalióViaje" title="Home | Salió Viaje" /></a>
+                <img src="https://www.salioviaje.com.uy/media/svg/Logo-SalioViaje.svg" alt="Logo SalióViaje" title="Home | Salió Viaje" width="60" height="60"/></a>
         </div>
         <div class="header-right">
             <div class="header-links">
@@ -63,7 +63,7 @@ session_start();
 
                 <div class="links-wrapper">
 
-                    <img src="https://www.salioviaje.com.uy/media/svg/Logo-SalioViaje.svg" alt="Logo | SalióViaje" title="Home | SalióViaje"/>
+                    <img src="https://www.salioviaje.com.uy/media/svg/Logo-SalioViaje.svg" alt="Logo | SalióViaje" title="Home | SalióViaje"width="60" height="60"/>
 
                     <?php
 
