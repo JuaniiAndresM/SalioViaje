@@ -12,9 +12,6 @@ window.addEventListener('load',()=>{
     document.getElementById(`filters2`).style.display = 'none';
 
     setTimeout(() => {
-        datavalue_oportunidades();
-    }, 1000);
-    setTimeout(() => {
         flotantPromo();
     }, 3000);
 });
@@ -101,18 +98,16 @@ function traer_oportunidades(){
         type: "POST",
         url: "/PHP/Tablas/oportunidadesIndex.php",
         success: function (response) {
-            if (response == ' ' || response == '0') {$('.list-empty').css('display', 'flex')} else {
+            if (response == ' ' || response == '0') $('.list-empty').css('display', 'flex');
+            else {
                 $('.list-empty').hide();                
-                $('#oporunidades-tabla').html(response);
-                $('#oporunidades-tabla').show();
-            } 
-             
+                $('#oportunidades-tabla').html(response);
+                $('#oportunidades-tabla').show();
+                datavalue_oportunidades();
+            }
+            
         }
     });
-
-    setTimeout(() => {
-        $("#contador-oportunidades").html(document.getElementsByClassName('oportunidad').length);
-    }, 500);
 }
 
 function traer_cotizacion(){

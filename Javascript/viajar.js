@@ -11,10 +11,6 @@ $(document).ready(function () {
         checkScroll();
     }, 400);
 
-    setTimeout(() => {
-        datavalue_oportunidades();
-    }, 1000);
-
 
     $('.mensaje-error').hide();
 
@@ -36,8 +32,6 @@ $(document).ready(function () {
             timeoutformulario(5);
         }, 500);
     }
-
-    $("#contador-oportunidades").html(document.getElementsByClassName("oportunidad").length);
 });
 
 let checkScroll = () => {

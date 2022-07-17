@@ -363,7 +363,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
           <p>Lo sentimos, de momento no hay oportunidades disponibles.</p>
         </div>
 
-        <div class="container-list" id="oporunidades-tabla"></div>
+        <div class="container-list" id="oportunidades-tabla"></div>
       </div>
     </section>
 
