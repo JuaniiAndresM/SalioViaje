@@ -426,7 +426,7 @@ session_set_cookie_params($ttl);
                               </table>
                             </div>
                             <div class="full-table" id="full-cotiz-reci">
-                              <p><i class="fas fa-info-circle"></i> Estas son todas las cotizaciones que tenemos para ti. En una hora pierden validez y se borrarán de aquí.</p>
+                              <p><i class="fas fa-info-circle"></i> Los conductores están atendiendo muchos pedidos como el tuyo. Te sugerimos elijas a la brevedad. Si tu elección perdió vigencia, podes elegir otra o podes pedir una nueva cotización. Con el botón "Copiar Viaje" te lo facilitamos.</p>
                             </div>
                             <div class="empty-table" id="empty-cotiz-reci">
                               <p><i class="fas fa-info-circle"></i> No hay cotizaciones recibidas.</p>
@@ -634,7 +634,7 @@ session_set_cookie_params($ttl);
                               </table>
                             </div>
                             <div class="full-table" id="full-cotiz-reci">
-                              <p><i class="fas fa-info-circle"></i> Estas son todas las cotizaciones que tenemos para ti. En una hora pierden validez y se borrarán de aquí.</p>
+                              <p><i class="fas fa-info-circle"></i> Los conductores están atendiendo muchos pedidos como el tuyo. Te sugerimos elijas a la brevedad. Si tu elección perdió vigencia, podes elegir otra o podes pedir una nueva cotización. Con el botón "Copiar Viaje" te lo facilitamos.</p>
                             </div>
                             <div class="empty-table" id="empty-cotiz-reci">
                               <p><i class="fas fa-info-circle"></i> No hay cotizaciones recibidas.</p>
@@ -718,7 +718,7 @@ session_set_cookie_params($ttl);
                               </table>
                             </div>
                             <div class="full-table" id="full-cotiz-reci">
-                              <p><i class="fas fa-info-circle"></i> Estas son todas las cotizaciones que tenemos para ti. En una hora pierden validez y se borrarán de aquí.</p>
+                              <p><i class="fas fa-info-circle"></i> Los conductores están atendiendo muchos pedidos como el tuyo. Te sugerimos elijas a la brevedad. Si tu elección perdió vigencia, podes elegir otra o podes pedir una nueva cotización. Con el botón "Copiar Viaje" te lo facilitamos.</p>
                             </div>
                             <div class="empty-table" id="empty-cotiz-reci">
                               <p><i class="fas fa-info-circle"></i> No hay cotizaciones recibidas.</p>
@@ -839,7 +839,7 @@ session_set_cookie_params($ttl);
                           </table>
                         </div>
                         <div class="full-table" id="full-cotiz-reci">
-                          <p>Estas son todas las cotizaciones que tenemos para ti. En una hora pierden validez y se borrarán de aquí. <button class="gurucuteco-button" onclick="openGurucuteco(8)"><i class="fa-solid fa-circle-question"></i></button></p>
+                          <p>Los conductores están atendiendo muchos pedidos como el tuyo. Te sugerimos elijas a la brevedad. Si tu elección perdió vigencia, podes elegir otra o podes pedir una nueva cotización. Con el botón "Copiar Viaje" te lo facilitamos. <button class="gurucuteco-button" onclick="openGurucuteco(8)"><i class="fa-solid fa-circle-question"></i></button></p>
                         </div>
                         <div class="empty-table" id="empty-cotiz-reci">
                             <p><i class="fas fa-info-circle"></i> No hay cotizaciones recibidas.</p>
@@ -853,3 +853,7 @@ session_set_cookie_params($ttl);
 
       </body>
 </html>
+
+<!-- Estas son todas las cotizaciones que tenemos para ti. En una hora pierden validez y se borrarán de aquí. -->
+
+<!-- Los conductores están atendiendo muchos pedidos como el tuyo. Te sugerimos elijas a la brevedad. Si tu elección perdió vigencia, podes elegir otra o podes pedir una nueva cotización. Con el botón "Copiar Viaje" te lo facilitamos. -->

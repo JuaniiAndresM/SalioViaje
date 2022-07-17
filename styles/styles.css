@@ -18671,8 +18671,7 @@ footer .totum p a:hover {
   background-color: transparent;
   border: none;
   border-radius: 50%;
-  width: 30px;
-  height: 30px;
+  margin: 0 3px;
   cursor: pointer;
   display: -webkit-box;
   display: -ms-flexbox;

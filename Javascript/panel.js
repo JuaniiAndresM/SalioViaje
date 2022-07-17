@@ -55,12 +55,13 @@ $(document).ready(function () {
     });
 
     setTimeout(() => {
+        console.log(document.getElementById(`cotz-reci`).rows.length - 1);
         if((document.getElementById(`cotz-reci`).rows.length - 1) >= 5){
             document.getElementById(`full-cotiz-reci`).style.display = 'flex';
         }else{
             document.getElementById(`full-cotiz-reci`).style.display = 'none';
         }
-    }, 100);
+    }, 500);
 });
 
 function navbar() {
