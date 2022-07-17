@@ -1,12 +1,15 @@
-$(document).ready(function () {
+window.addEventListener('load',()=>{
     $('#header').load('/web/foreman/header.php');
     $('#footer').load('/web/footer.html');
     $('#flotant-promo').load('/web/flotant-promo.html');
+
     agregar_visita();
     traer_oportunidades();
+
     document.getElementById('pre-loader').classList.toggle('load');
-    $('#filters').hide();
-    $('#filters2').hide();
+
+    document.getElementById(`filters`).style.display = 'none';
+    document.getElementById(`filters2`).style.display = 'none';
 
     setTimeout(() => {
         datavalue_oportunidades();
@@ -26,8 +29,6 @@ function datavalue_oportunidades(){
             let data_value_info = $("#Opo-" + a).data('value');
             atributos.push(data_value_info);
         }
-
-        console.log(atributos);
     }
 }
 
