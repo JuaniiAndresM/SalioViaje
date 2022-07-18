@@ -441,7 +441,7 @@ const inuputPrecio = () => {
 
    if(precio.value != '' && precio.value != 0){
       seniaInput.style.display = '';
-      let calculatedSenia = precio.value * 0.20;
+      let calculatedSenia = Math.round(precio.value * 0.20);
       seniaInput.querySelectorAll('#senia')[0].setAttribute('placeholder',calculatedSenia);
    }else{
       seniaInput.style.display = 'none';
