@@ -1,16 +1,16 @@
-$(document).ready(function () {
+window.addEventListener('load',()=>{
     $('#header').load('/web/foreman/header.php');
     $('#footer').load('/web/footer.html');
     $('#flotant-promo').load('/web/flotant-promo.html');
+
     agregar_visita();
     traer_oportunidades();
-    document.getElementById('pre-loader').classList.toggle('load');
-    $('#filters').hide();
-    $('#filters2').hide();
 
-    setTimeout(() => {
-        datavalue_oportunidades();
-    }, 1000);
+    document.getElementById('pre-loader').classList.toggle('load');
+
+    document.getElementById(`filters`).style.display = 'none';
+    document.getElementById(`filters2`).style.display = 'none';
+
     setTimeout(() => {
         flotantPromo();
     }, 3000);
@@ -26,20 +26,15 @@ function datavalue_oportunidades(){
             let data_value_info = $("#Opo-" + a).data('value');
             atributos.push(data_value_info);
         }
-
-        console.log(atributos);
     }
 }
 
 
-function cerrarsesion(){
-    $.ajax({ 
-        url: "https://www.salioviaje.com.uy/PHP/cerrarSession.php",
-        success: function(response){
-            $('#header').load('/web/foreman/header.php');
-            location.reload()
-        }
-    });
+const cerrarsesion = () =>{
+    fetch("https://www.salioviaje.com.uy/PHP/cerrarSession.php").then(() =>{
+        $('#header').load('/web/foreman/header.php');
+        location.reload();
+    })
 }
 
 function dashboard(){
@@ -103,18 +98,16 @@ function traer_oportunidades(){
         type: "POST",
         url: "/PHP/Tablas/oportunidadesIndex.php",
         success: function (response) {
-            if (response == ' ' || response == '0') {$('.list-empty').css('display', 'flex')} else {
+            if (response == ' ' || response == '0') $('.list-empty').css('display', 'flex');
+            else {
                 $('.list-empty').hide();                
-                $('#oporunidades-tabla').html(response);
-                $('#oporunidades-tabla').show();
-            } 
-             
+                $('#oportunidades-tabla').html(response);
+                $('#oportunidades-tabla').show();
+                datavalue_oportunidades();
+            }
+            
         }
     });
-
-    setTimeout(() => {
-        $("#contador-oportunidades").html(document.getElementsByClassName('oportunidad').length);
-    }, 500);
 }
 
 function traer_cotizacion(){
@@ -308,14 +301,12 @@ function filtrar_divs(tipo) {
     */
  }
 
- function eliminar_filtros(tipo) {
+ function eliminar_filtros(tipo){
 
-    switch(tipo){
-        case "Oportunidad":
-            $("#origen_oportunidad").val("");
-            $("#destino_oportunidad").val("");
-            $("#fecha_oportunidad").val("");
-            break;
+    if(tipo == 'Oportunidad'){
+        document.getElementById('origen_oportunidad').value = '';
+        document.getElementById('destino_oportunidad').value = '';
+        document.getElementById('fecha_oportunidad').value = '';
     }
  
     filtrar_divs(tipo);
@@ -342,7 +333,7 @@ function filtrar_divs(tipo) {
       console.log(nombreDelDiaSegunFecha(fecha+" 00:00:00"))
  }
 
- let flotantPromo = () => {
+ const flotantPromo = () => {
     const promo = document.getElementById(`flotant-promo`);
     if(promo != null){
         promo.classList.toggle(`active`)

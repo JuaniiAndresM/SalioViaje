@@ -152,7 +152,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
           <div class="list-empty">
             <p>Lo sentimos, no hay oportunidades disponibles.</p>
           </div>
-          <div class="container-list" id="oporunidades-tabla">
+          <div class="container-list" id="oportunidades-tabla">
           </div>
         </div>
       </section>

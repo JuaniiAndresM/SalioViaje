@@ -330,7 +330,7 @@ session_set_cookie_params($ttl);
           <div id="step_3">
             <div class="inputs-wrapper-agendar-rutas">
               <div class="column">
-                <h2 class="step_title"><i class="fas fa-road"></i> Rutas N° 1</h2>
+                <h2 class="step_title"><i class="fas fa-road"></i> Rutas</h2>
                 
                 <div class="input" id="rutas">
                   <i class="fas fa-road" id="icon"></i>
