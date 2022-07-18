@@ -12873,7 +12873,7 @@ footer .totum p a:hover {
 }
 
 @media screen and (max-width: 1001px) {
-  .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .container-list .item .item-left .travel:nth-child(3), .viajar-wrapper .oportunidades-viajar .ofertas-wrapper .container-list .item .item-left .travel:nth-child(3), .viajar-wrapper .ofertas-viajar .oportunidades-wrapper .container-list .item .item-left .travel:nth-child(3), .viajar-wrapper .ofertas-viajar .ofertas-wrapper .container-list .item .item-left .travel:nth-child(3) {
+  .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .container-list .item .col-l .travel:nth-child(3), .viajar-wrapper .oportunidades-viajar .ofertas-wrapper .container-list .item .col-l .travel:nth-child(3), .viajar-wrapper .ofertas-viajar .oportunidades-wrapper .container-list .item .col-l .travel:nth-child(3), .viajar-wrapper .ofertas-viajar .ofertas-wrapper .container-list .item .col-l .travel:nth-child(3) {
     display: none;
   }
 }
@@ -12894,7 +12894,17 @@ footer .totum p a:hover {
         -ms-flex-direction: column;
             flex-direction: column;
   }
+  .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .container-list .item .col-l .travel, .viajar-wrapper .oportunidades-viajar .ofertas-wrapper .container-list .item .col-l .travel, .viajar-wrapper .ofertas-viajar .oportunidades-wrapper .container-list .item .col-l .travel, .viajar-wrapper .ofertas-viajar .ofertas-wrapper .container-list .item .col-l .travel {
+    width: 90%;
+    text-align: center;
+  }
+  .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .container-list .item .col-l .travel p, .viajar-wrapper .oportunidades-viajar .ofertas-wrapper .container-list .item .col-l .travel p, .viajar-wrapper .ofertas-viajar .oportunidades-wrapper .container-list .item .col-l .travel p, .viajar-wrapper .ofertas-viajar .ofertas-wrapper .container-list .item .col-l .travel p {
+    margin: 10px 5px;
+  }
   .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .container-list .item .col-l .travel:nth-child(3), .viajar-wrapper .oportunidades-viajar .ofertas-wrapper .container-list .item .col-l .travel:nth-child(3), .viajar-wrapper .ofertas-viajar .oportunidades-wrapper .container-list .item .col-l .travel:nth-child(3), .viajar-wrapper .ofertas-viajar .ofertas-wrapper .container-list .item .col-l .travel:nth-child(3) {
+    display: unset;
+  }
+  .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .container-list .item .col-l .travel:nth-child(4), .viajar-wrapper .oportunidades-viajar .ofertas-wrapper .container-list .item .col-l .travel:nth-child(4), .viajar-wrapper .ofertas-viajar .oportunidades-wrapper .container-list .item .col-l .travel:nth-child(4), .viajar-wrapper .ofertas-viajar .ofertas-wrapper .container-list .item .col-l .travel:nth-child(4) {
     display: none;
   }
   .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .container-list .item .col-r, .viajar-wrapper .oportunidades-viajar .ofertas-wrapper .container-list .item .col-r, .viajar-wrapper .ofertas-viajar .oportunidades-wrapper .container-list .item .col-r, .viajar-wrapper .ofertas-viajar .ofertas-wrapper .container-list .item .col-r {

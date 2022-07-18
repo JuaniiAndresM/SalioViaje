@@ -772,7 +772,7 @@
       .oportunidades-wrapper,.ofertas-wrapper {
         .container-list {
           .item {
-            .item-left {
+            .col-l {
               .travel:nth-child(3) {
                 display: none;
               }
@@ -794,7 +794,17 @@
             flex-direction: column;
             .col-l {
               flex-direction: column;
+              .travel{
+                width: 90%;
+                text-align: center;
+                p{
+                  margin: 10px 5px;
+                }
+              }
               .travel:nth-child(3) {
+                display: unset;
+              }
+              .travel:nth-child(4) {
                 display: none;
               }
             }
