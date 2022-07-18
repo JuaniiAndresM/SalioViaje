@@ -18,7 +18,6 @@ if(!isset($_SESSION['usuario'])){
 $GET = explode("_", $_GET['ID']);
 
 $ID = $GET[1];
-echo $ID;
 $ID = substr($ID, 0, -1);
 
 require_once "../PHP/procedimientosBD.php";
