@@ -487,12 +487,13 @@
 
                     <div class="input">
                         <p><i class="fa-solid fa-money-bill"></i> Precio</p>
-                        <input type="number" id="precio" min="1" oninput="this.value = Math.abs(this.value)">
+                        <input type="number" id="precio" min="1" oninput="this.value = Math.abs(this.value)" onkeyup="inuputPrecio()">
                     </div>
                     
-                    <div class="input">
+                    <div class="input" id='senia-input'>
                         <p><i class="fa-solid fa-hand-holding-dollar"></i> Seña Requerida</p>
-                        <input type="number" id="senia" min="1" oninput="this.value = Math.abs(this.value)">
+                        <p class="description">(Sugerido 20%. Puede Editarlo)</p>
+                        <input type="number" id="senia" min="1">
                     </div>
                     <div class="cotizacion-buttons">
                         <button class='cotizar-button' onclick="presentarCotizacion(<?php echo $_GET['ID'];?>, <?php echo $_SESSION['datos_usuario']['ID']; ?>)"><i class='fas fa-chart-line'></i> Cotizar</button>

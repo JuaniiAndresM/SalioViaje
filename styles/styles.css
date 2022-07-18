@@ -17807,6 +17807,12 @@ footer .totum p a:hover {
   font-size: 14px;
 }
 
+.cotizacion-detalles-wrapper .cotizacion .cotizacion-content .cotizacion-info .cotizar-container .input .description, .cotizacion-detalles-wrapper .cotizacion .cotizacion-content .cotizacion-info-grid .cotizar-container .input .description {
+  color: #555;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
 .cotizacion-detalles-wrapper .cotizacion .cotizacion-content .cotizacion-info .cotizar-container .input input,
 .cotizacion-detalles-wrapper .cotizacion .cotizacion-content .cotizacion-info .cotizar-container .input select, .cotizacion-detalles-wrapper .cotizacion .cotizacion-content .cotizacion-info-grid .cotizar-container .input input,
 .cotizacion-detalles-wrapper .cotizacion .cotizacion-content .cotizacion-info-grid .cotizar-container .input select {

@@ -366,7 +366,7 @@ session_set_cookie_params($ttl);
                             <div class="usuarios-info">
                               <h2><i class="fas fa-hand-holding-dollar"></i> Cotizaciones Presentadas</h2>
                               <div class="button-wrapper">
-                                <a href="Cotizaciones"><i class="fas fa-list-ul"></i></a>
+                                <a href="Cotizaciones_Presentadas"><i class="fas fa-list-ul"></i></a>
                               </div>
                             </div>
                             <div class="search">

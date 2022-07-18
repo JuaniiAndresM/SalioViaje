@@ -17,6 +17,8 @@ $(document).ready(function () {
          console.log(atributos)
       }
    });
+
+   inuputPrecio();
 });
 
 
@@ -243,7 +245,11 @@ function eliminar_filtros() {
 function presentarCotizacion(id_viaje_cotizado, id_tta) {
    let matricula = $("#vehiculosCotizar").val();
    let precio = $("#precio").val();
-   let senia = $("#senia").val();
+   let senia;
+   
+   if($("#senia").val() == '') senia = parseInt(document.getElementById('senia').getAttribute('placeholder'));
+   else senia = $("#senia").val();
+   
 
    $.ajax({
       type: "POST",
@@ -427,6 +433,19 @@ function enviarMail(mail) {
          console.log(response);
       }
   });
+}
+
+const inuputPrecio = () => {
+   let precio = document.getElementById('precio');
+   let seniaInput = document.getElementById('senia-input');
+
+   if(precio.value != '' && precio.value != 0){
+      seniaInput.style.display = '';
+      let calculatedSenia = precio.value * 0.20;
+      seniaInput.querySelectorAll('#senia')[0].setAttribute('placeholder',calculatedSenia);
+   }else{
+      seniaInput.style.display = 'none';
+   }
 }
 
 /*
