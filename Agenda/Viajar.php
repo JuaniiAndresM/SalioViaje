@@ -102,7 +102,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
       <h1 class="title">¡No se pierda nuestras oportunidades y ofertas!</h1>
       <section class="oportunidades-viajar" id="Oportunidades">
         <h2>
-        <i class="fa-solid fa-tags" id="icon"></i> Oportunidades (<span id="contador-oportunidades"></span>)
+        <i class="fa-solid fa-tags" id="icon"></i> Oportunidades (<span id="contador-oportunidades">0</span>)
         </h2>
         <hr />
         <h3 class="description">

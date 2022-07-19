@@ -91,6 +91,7 @@ function comprar_oportunidad(id, step){
     }else{
         abrir_ventana(id);
         comprar_oportunidad_function(id);
+        closeModal();
     }
     
 }
@@ -353,3 +354,8 @@ function filtrar_divs(tipo) {
         promo.classList.toggle(`active`)
     }
  }
+
+ function closeModal() {
+    $('#modal').hide();
+    $('#modal').html("");
+}
