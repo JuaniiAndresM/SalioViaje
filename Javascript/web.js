@@ -76,9 +76,23 @@ function suscripcion(){
     });
 }
 
-function comprar_oportunidad(id){
-    abrir_ventana(id);
-    comprar_oportunidad_function(id)
+function comprar_oportunidad(id, step){
+    if(step == 1){
+        $.ajax({
+            type: "POST",
+            url: "https://www.salioviaje.com.uy/Panel/modal.php",
+            data: { opcion: 6, data: id },
+            success: function (response) {
+                console.log(response);
+                document.getElementById('modal').style.display = 'flex';
+                $('#modal').html(response);
+            }
+        });
+    }else{
+        abrir_ventana(id);
+        comprar_oportunidad_function(id);
+    }
+    
 }
 
 function abrir_ventana(id) { 
