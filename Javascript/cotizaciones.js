@@ -303,19 +303,34 @@ function mostrar_cotizaciones_recibidas_dashboard() {
    });
 }
 
-function aceptarCotizacion(id, id_viaje_cotizado) {
-   id_llamada = Math.floor(Math.random() * 100000);
-   $.ajax({
-      type: "POST",
-      url: "/PHP/procedimientosForm.php",
-      data: { tipo: 'aceptar_cotizacion', idCotizacion: id, id_viaje_cotizado: id_viaje_cotizado },
-      success: function (response) {
-         response = response.split("-");
-         reconfirmar_cotizacion_llamada(id, id_viaje_cotizado, response[0], response[1]);
-      },
-      complete: function () {
-      }
-   });
+function aceptarCotizacion(id, id_viaje_cotizado,step) {
+   if(step == 1){
+      $.ajax({
+         type: "POST",
+         url: "https://www.salioviaje.com.uy/Panel/modal.php",
+         data: { opcion: 7, data: {id, id_viaje_cotizado} },
+         success: function (response) {
+             console.log(response);
+             document.getElementById('modal').style.display = 'flex';
+             $('#modal').html(response);
+         }
+     });
+   }else{
+      id_llamada = Math.floor(Math.random() * 100000);
+      $.ajax({
+         type: "POST",
+         url: "/PHP/procedimientosForm.php",
+         data: { tipo: 'aceptar_cotizacion', idCotizacion: id, id_viaje_cotizado: id_viaje_cotizado },
+         success: function (response) {
+            response = response.split("-");
+            reconfirmar_cotizacion_llamada(id, id_viaje_cotizado, response[0], response[1]);
+            closeModal();
+         },
+         complete: function () {
+         }
+      });
+   }
+   
 }
 
 function rechazarCotizacion(id) {

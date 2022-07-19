@@ -308,6 +308,27 @@ switch($opcion){
             </div>
         </div>';
         break;
+    case 7:
+        $modal_body = '
+        <div class="modal-container">
+            <button class="close-modal" onclick="closeModal()"><i class="fas fa-xmark"></i></button>
+            <div class="modal-img-logo">
+                <img src="https://www.salioviaje.com.uy/media/svg/Logo-SalioViaje.svg" alt="Logo SalióViaje">
+            </div>
+            <div class="modal-body">
+                <p class="msg1">¿Seguro que quiere aceptar la siguiente cotizacion?</p>
+                <p class="msg2">#'.$data['id'].'</p>
+                <div class="button-wrapper">
+                    <button class="modal-button" onclick="aceptarCotizacion('.$data['id'].','.$data['id_viaje_cotizado'].',2)">
+                    <i class="fa-solid fa-check"></i> Si
+                    </button>
+                    <button class="modal-button" onclick="closeModal()">
+                        <i class="fa-solid fa-xmark"></i> No
+                    </button>
+                </div>
+            </div>
+        </div>';
+        break;
 }
 
 
