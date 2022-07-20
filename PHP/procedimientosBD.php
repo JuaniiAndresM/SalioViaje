@@ -1864,4 +1864,39 @@ class procedimientosBD
         return json_encode($result);
     }
 
+
+    public function traer_id_viaje_por_id_solicitud($id)
+    {
+        $viajes = array();
+        $conn = $this->conexion();
+        $query = "SELECT ID_VIAJE_COTIZADO FROM cotizaciones_presentadas where ID = $id;";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($id_viaje_cotizado);
+            while ($stmt->fetch()) {
+                $result = $id_viaje_cotizado;
+            }
+        }
+        $stmt->close();
+        return $result;
+    }
+
+
+    public function traer_id_solicitante_por_id_viaje($id)
+    {
+        $viajes = array();
+        $conn = $this->conexion();
+        $query = "SELECT ID_SOLICITANTE FROM cotizaciones where ID = $id;";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($id_solicitante);
+            while ($stmt->fetch()) {
+                $result = $id_solicitante;
+            }
+        }
+        $stmt->close();
+        return $result;
+    }
 }
