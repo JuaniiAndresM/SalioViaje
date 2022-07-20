@@ -1369,13 +1369,13 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
                </div>
 
             </div>
-            </div>
-  </section>
-  <script>
-            if($(`.session-output`).val() == 0){ 
-              desplegar(document.getElementById("agendar"), $(".session-output").val());
-            }
-          </script>
+        </div>
+    </section>
+    <script>
+      window.addEventListener('load',() => {
+        if(document.querySelector(`.session-output`).value == 0) desplegar(document.getElementById("agendar"), document.querySelector(`.session-output`).value);
+      });
+    </script>
     <div id="footer"></div>
   </body>
 </html>
