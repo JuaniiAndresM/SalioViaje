@@ -9,8 +9,8 @@ window.addEventListener('load',()=>{
     setTimeout(() => {
         flotantPromo();
     }, 3000);
-    $(`filters`).hide();
-    $(`filters2`).hide();
+    $(`#filters`).hide();
+    $(`#filters2`).hide();
 
     document.getElementById('pre-loader').classList.toggle('load');
 });
