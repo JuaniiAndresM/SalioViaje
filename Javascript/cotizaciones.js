@@ -386,7 +386,7 @@ function reconfirmar_cotizacion_llamada(id, id_viaje_cotizado, telefono_tta, mai
    mail_aprobar_rechazar_cotizacion(id, id_viaje_cotizado, mail_tta)
 
    var features = 'directories=no,menubar=no,status=no,titlebar=no,toolbar=no,width=550,height=700';
-   window.open("https://www.salioviaje.com.uy/Espera/"+id_viaje_cotizado+'C', 'mypopup', features);
+   window.open("https://www.salioviaje.com.uy/Espera/"+id+'C', 'mypopup', features);
 }
 
 function mail_aprobar_rechazar_cotizacion(id, id_viaje_cotizado, mail) {

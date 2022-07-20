@@ -35,7 +35,7 @@ $(document).ready(function () {
 });
 
 let checkScroll = () => {
-    const scrollInput = document.querySelector(`.scroll-input`).value;
+    const scrollInput = $(`.scroll-input`).val();
 
     if(scrollInput != null || scrollInput != ``){
         let elementTop = document.getElementById(`${scrollInput}`).getBoundingClientRect().top + window.pageYOffset - 100;

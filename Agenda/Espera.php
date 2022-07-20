@@ -149,7 +149,7 @@ session_set_cookie_params($ttl);
                   <div class="loader">
                     <i class="fas fa-spinner"></i>
                   </div>
-                  <input id="id_oportunidad" type="hidden" name="" value="'.$ID_C.'">
+                  <input id="id_oportunidad" type="hidden" name="" value="'.$ID_VIAJE_COTIZADO.'">
                   <h2>Elegiste una Cotización</h2>
                   <h3>Viaje #'.$ID_VIAJE_COTIZADO.'</h3>
                   <p>

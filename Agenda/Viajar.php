@@ -1264,6 +1264,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
       </section>
     </div>
     <script>
+        window.addEventListener('load',() => {
           if(($(`.session-input`).val() == `` || $(`.session-input`).val() == `5`) && $(`.session-output`).val() == 0){
                 desplegar(document.getElementById("agendar"), $(".session-output").val());
           }else{
@@ -1288,11 +1289,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
             },
             offset: 300 
           })
-
-
-          
-
-
+        })
     </script>
 
     <div id="footer"></div>
