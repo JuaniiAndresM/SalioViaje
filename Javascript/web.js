@@ -6,14 +6,13 @@ window.addEventListener('load',()=>{
     agregar_visita();
     traer_oportunidades();
 
-    document.getElementById('pre-loader').classList.toggle('load');
-
-    document.getElementById(`filters`).style.display = 'none';
-    document.getElementById(`filters2`).style.display = 'none';
-
     setTimeout(() => {
         flotantPromo();
     }, 3000);
+    $(`filters`).hide();
+    $(`filters2`).hide();
+
+    document.getElementById('pre-loader').classList.toggle('load');
 });
 
 function datavalue_oportunidades(){
@@ -350,6 +349,7 @@ function filtrar_divs(tipo) {
 
  const flotantPromo = () => {
     const promo = document.getElementById(`flotant-promo`);
+    console.log(promo);
     if(promo != null){
         promo.classList.toggle(`active`)
     }
