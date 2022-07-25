@@ -6,7 +6,6 @@ $data = json_decode($_POST['data'], true);
 
 
 $preferencias_bd = new procedimientosBD();
-//traer_tranportistas
 
 $transportistas = json_decode($preferencias_bd->traer_tranportistas(), true);
 /**
@@ -86,8 +85,11 @@ if ($_POST['fiesta_ida_vuelta']) {
                         );
 
                         $top[] = $result;
-                    
-                    
+
+                        echo " ".$transportistas[$i]['ID']." ".$_POST['id_viaje']." ".$PREFERENCIAS[$i]["MATRICULA"];
+
+                        $preferencias_bd->guardar_seleccion_de_transportistas($transportistas[$i]['ID'], $_POST['id_viaje'], $PREFERENCIAS[$i]["MATRICULA"]);
+
                     }
                 }
             }
@@ -111,8 +113,9 @@ for ($i=0; $i < count($transportistas); $i++) {
             );
 
             $top[] = $result;
-        
-        
+
+            $preferencias_bd->guardar_seleccion_de_transportistas($transportistas[$i]['ID'], intval($_POST['id_viaje']), null);
+
         }
     }
 }

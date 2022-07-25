@@ -1556,13 +1556,14 @@ class procedimientosBD
     {
         $preferencias = array();
         $conn = $this->conexion();
-        $query = "SELECT NOCTURNO,FIESTAS,DIA_LIBRE,PRECIO_DE_COCHE,id_tta FROM `prefecrenciasVehiculos`;";
+        $query = "SELECT MATRICULA,NOCTURNO,FIESTAS,DIA_LIBRE,PRECIO_DE_COCHE,id_tta FROM `prefecrenciasVehiculos`;";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($nocturno, $fiestas, $dia_libre, $precio_coche, $idtta);
+            $stmt->bind_result($matricula,$nocturno, $fiestas, $dia_libre, $precio_coche, $idtta);
             while ($stmt->fetch()) {
                 $result = array(
+                    "MATRICULA" => $matricula,
                     "NOCTURNO" => $nocturno,
                     "FIESTAS" => $fiestas,
                     "DIA_LIBRE" => $dia_libre,
@@ -1862,6 +1863,16 @@ class procedimientosBD
         }
         $stmt->close();
         return json_encode($result);
+    }
+
+    public function guardar_seleccion_de_transportistas($idtta, $id_viaje, $matricula){
+        $conn = $this->conexion();
+        $query = "CALL guardar_top_30(?,?,?);";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("iis", $idtta, $id_viaje, $matricula);
+        $stmt->execute();
+        echo $stmt->error;
+        $stmt->close();
     }
 
 }
