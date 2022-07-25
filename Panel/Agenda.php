@@ -209,9 +209,9 @@ session_set_cookie_params($ttl);
                   if($vehiculos === null){
                     
                   }else{
+
                     $size = sizeof($vehiculos);
                     for($i = 0; $i< sizeof($vehiculos); $i++){
-
 
                       switch ($vehiculos[$i]['MTOP']) {
                         //amarillo
@@ -240,8 +240,16 @@ session_set_cookie_params($ttl);
                       $info = explode(" ", $vehiculos[$i]['FECHA']);
                       $FECHA =$info[0];
                       $HORA = $info[1];
+
+                      
+                      if($vehiculos[$i]['MODALIDAD'] != "Oportunidad" && $vehiculos[$i]['MODALIDAD'] != "Agendado"){
+                        $id_viaje = $vehiculos[$i]['ID_SOLICITUD'];
+                      }else{
+                        $id_viaje = $vehiculos[$i]['ID'];
+                      }
+
                       echo '<tr>
-                          <td>'.$vehiculos[$i]['ID'].'</td>
+                          <td>'.$id_viaje.'</td>
                           <td>'.$FECHA.'</td>
                           <td>'.$HORA.'</td>
                           <td>'.$vehiculos[$i]['VEHICULO'] .'</td>

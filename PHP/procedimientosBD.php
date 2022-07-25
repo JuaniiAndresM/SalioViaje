@@ -601,13 +601,13 @@ class procedimientosBD
     {
         $viajes = array();
         $conn = $this->conexion();
-        $query = "SELECT idViaje,Descuento,Origen,Destino,Fecha,Nombre,Apellido,Marca,Modelo,CantidadPasajeros,Estado,Matricula,Distancia,Precio FROM viajes,usuarios,vehiculos where idTransportista = usuarios.ID and Vehiculo = Matricula and Modalidad = 'Agendado' and visivilidad != 0;";
+        $query = "SELECT idViaje,Descuento,Origen,Destino,Fecha,Nombre,Apellido,Marca,Modelo,CantidadPasajeros,Estado,Matricula,Distancia,Precio,id_solicitud FROM viajes,usuarios,vehiculos where idTransportista = usuarios.ID and Vehiculo = Matricula and Modalidad = 'Agendado' and visivilidad != 0;";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($id, $descuento, $origen, $destino, $fecha, $nombre, $apellido, $marca, $modelo, $cantidad_pasajeros, $estado, $matricula, $distancia, $precio);
+            $stmt->bind_result($id, $descuento, $origen, $destino, $fecha, $nombre, $apellido, $marca, $modelo, $cantidad_pasajeros, $estado, $matricula, $distancia, $precio, $id_solicitud);
             while ($stmt->fetch()) {
-                $result = array('ID' => $id, 'DESCUENTO' => $descuento, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'FECHA' => $fecha, 'NOMBRE' => $nombre, 'APELLIDO' => $apellido, 'MARCA' => $marca, 'MODELO' => $modelo, 'CANTIDAD_PASAJEROS' => $cantidad_pasajeros, 'ESTADO' => $estado, 'MATRICULA' => $matricula, 'DISTANCIA' => $distancia, 'PRECIO' => $precio);
+                $result = array('ID' => $id, 'DESCUENTO' => $descuento, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'FECHA' => $fecha, 'NOMBRE' => $nombre, 'APELLIDO' => $apellido, 'MARCA' => $marca, 'MODELO' => $modelo, 'CANTIDAD_PASAJEROS' => $cantidad_pasajeros, 'ESTADO' => $estado, 'MATRICULA' => $matricula, 'DISTANCIA' => $distancia, 'PRECIO' => $precio, 'ID_SOLICITUD' => $id_solicitud);
                 $fecha = $result["FECHA"];
                 $timestamp = strtotime($fecha);
                 $newDate = date("d-m-Y H:i", $timestamp);
@@ -848,13 +848,13 @@ class procedimientosBD
         $return = null;
         $size = 0;
         $conn = $this->conexion();
-        $query = "SELECT idViaje,Descuento,Vehiculo,Distancia,CantidadPasajeros,Fecha,Origen,Destino,Precio,Estado,Modalidad,idTransportista,id_viaje_vinculado,ESTADO_MTOP FROM viajes WHERE $id = idTransportista OR $id = idComprador and visivilidad = 1 ORDER BY Fecha;";
+        $query = "SELECT idViaje,Descuento,Vehiculo,Distancia,CantidadPasajeros,Fecha,Origen,Destino,Precio,Estado,Modalidad,idTransportista,id_viaje_vinculado,ESTADO_MTOP,id_solicitud FROM viajes WHERE $id = idTransportista OR $id = idComprador and visivilidad = 1 ORDER BY Fecha;";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
-            $stmt->bind_result($id, $descuento, $vehiculo, $distancia, $cantidad_pasajeros, $fecha, $origen, $destino, $precio, $estado, $modalidad, $id_transportista, $id_tramo_vinculado, $mtop);
+            $stmt->bind_result($id, $descuento, $vehiculo, $distancia, $cantidad_pasajeros, $fecha, $origen, $destino, $precio, $estado, $modalidad, $id_transportista, $id_tramo_vinculado, $mtop, $id_solicitud);
             while ($stmt->fetch()) {
-                $result = array('ID' => $id, 'DESCUENTO' => $descuento, 'VEHICULO' => $vehiculo, 'DISTANCIA' => $distancia, 'CANTIDAD_PASAJERO' => $cantidad_pasajeros, 'FECHA' => $fecha, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'PRECIO' => $precio, 'RUTAS' => $rutas, 'ESTADO' => $estado, 'MODALIDAD' => $modalidad, 'ID_TRANSPORTISTA' => $id_transportista, "MTOP" => $mtop);
+                $result = array('ID' => $id, 'DESCUENTO' => $descuento, 'VEHICULO' => $vehiculo, 'DISTANCIA' => $distancia, 'CANTIDAD_PASAJERO' => $cantidad_pasajeros, 'FECHA' => $fecha, 'ORIGEN' => $origen, 'DESTINO' => $destino, 'PRECIO' => $precio, 'RUTAS' => $rutas, 'ESTADO' => $estado, 'MODALIDAD' => $modalidad, 'ID_TRANSPORTISTA' => $id_transportista, "MTOP" => $mtop, "ID_SOLICITUD" => $id_solicitud);
                 $fecha = $result["FECHA"];
                 $timestamp = strtotime($fecha);
                 $newDate = date("d-m-Y H:i A", $timestamp);
