@@ -17,6 +17,8 @@ $(document).ready(function () {
          console.log(atributos)
       }
    });
+
+   inuputPrecio();
 });
 
 
@@ -243,7 +245,11 @@ function eliminar_filtros() {
 function presentarCotizacion(id_viaje_cotizado, id_tta) {
    let matricula = $("#vehiculosCotizar").val();
    let precio = $("#precio").val();
-   let senia = $("#senia").val();
+   let senia;
+   
+   if($("#senia").val() == '') senia = parseInt(document.getElementById('senia').getAttribute('placeholder'));
+   else senia = $("#senia").val();
+   
 
    $.ajax({
       type: "POST",
@@ -297,19 +303,34 @@ function mostrar_cotizaciones_recibidas_dashboard() {
    });
 }
 
-function aceptarCotizacion(id, id_viaje_cotizado) {
-   id_llamada = Math.floor(Math.random() * 100000);
-   $.ajax({
-      type: "POST",
-      url: "/PHP/procedimientosForm.php",
-      data: { tipo: 'aceptar_cotizacion', idCotizacion: id, id_viaje_cotizado: id_viaje_cotizado },
-      success: function (response) {
-         response = response.split("-");
-         reconfirmar_cotizacion_llamada(id, id_viaje_cotizado, response[0], response[1]);
-      },
-      complete: function () {
-      }
-   });
+function aceptarCotizacion(id, id_viaje_cotizado,step) {
+   if(step == 1){
+      $.ajax({
+         type: "POST",
+         url: "https://www.salioviaje.com.uy/Panel/modal.php",
+         data: { opcion: 7, data: {id, id_viaje_cotizado} },
+         success: function (response) {
+             console.log(response);
+             document.getElementById('modal').style.display = 'flex';
+             $('#modal').html(response);
+         }
+     });
+   }else{
+      id_llamada = Math.floor(Math.random() * 100000);
+      $.ajax({
+         type: "POST",
+         url: "/PHP/procedimientosForm.php",
+         data: { tipo: 'aceptar_cotizacion', idCotizacion: id, id_viaje_cotizado: id_viaje_cotizado },
+         success: function (response) {
+            response = response.split("-");
+            reconfirmar_cotizacion_llamada(id, id_viaje_cotizado, response[0], response[1]);
+            closeModal();
+         },
+         complete: function () {
+         }
+      });
+   }
+   
 }
 
 function rechazarCotizacion(id) {
@@ -365,7 +386,7 @@ function reconfirmar_cotizacion_llamada(id, id_viaje_cotizado, telefono_tta, mai
    mail_aprobar_rechazar_cotizacion(id, id_viaje_cotizado, mail_tta)
 
    var features = 'directories=no,menubar=no,status=no,titlebar=no,toolbar=no,width=550,height=700';
-   window.open("https://www.salioviaje.com.uy/Espera/"+id_viaje_cotizado, 'mypopup', features);
+   window.open("https://www.salioviaje.com.uy/Espera/"+id+'C', 'mypopup', features);
 }
 
 function mail_aprobar_rechazar_cotizacion(id, id_viaje_cotizado, mail) {
@@ -427,6 +448,19 @@ function enviarMail(mail) {
          console.log(response);
       }
   });
+}
+
+const inuputPrecio = () => {
+   let precio = document.getElementById('precio');
+   let seniaInput = document.getElementById('senia-input');
+
+   if(precio.value != '' && precio.value != 0){
+      seniaInput.style.display = '';
+      let calculatedSenia = Math.round(precio.value * 0.20);
+      seniaInput.querySelectorAll('#senia')[0].setAttribute('placeholder',calculatedSenia);
+   }else{
+      seniaInput.style.display = 'none';
+   }
 }
 
 /*

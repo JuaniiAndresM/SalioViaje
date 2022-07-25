@@ -446,6 +446,8 @@ function verificar_rutas_para_MTOP() {
         $('#mensaje-error3').text("Para agendar con MTOP debe ingresar almenos una ruta.")
 
     } else {
+        $('#mensaje-error3').text("")
+        $('#mensaje-error3').hide();
         if(etapa_1()){
             if(etapa_2()){
                 $('#mensaje-error3').hide();

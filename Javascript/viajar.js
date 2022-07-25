@@ -35,9 +35,9 @@ $(document).ready(function () {
 });
 
 let checkScroll = () => {
-    const scrollInput = document.querySelector(`.scroll-input`).value;
+    const scrollInput = $(`.scroll-input`).val();
 
-    if(scrollInput != null || scrollInput != ``){
+    if(scrollInput != null && scrollInput != ``){
         let elementTop = document.getElementById(`${scrollInput}`).getBoundingClientRect().top + window.pageYOffset - 100;
         window.scrollTo({top: elementTop, behavior: 'smooth'});
     }
@@ -48,15 +48,11 @@ function datavalue_oportunidades() {
 
     $("#contador-oportunidades").html(oportunidades);
 
-    console.log(oportunidades);
-
     if (oportunidades != 0) {
         for (var a = 0; a < oportunidades; a++) {
             let data_value_info = $("#Opo-" + a).data('value');
             atributos.push(data_value_info);
         }
-
-        console.log(atributos);
     }
 }
 

@@ -6,14 +6,13 @@ window.addEventListener('load',()=>{
     agregar_visita();
     traer_oportunidades();
 
-    document.getElementById('pre-loader').classList.toggle('load');
-
-    document.getElementById(`filters`).style.display = 'none';
-    document.getElementById(`filters2`).style.display = 'none';
-
     setTimeout(() => {
         flotantPromo();
     }, 3000);
+    $(`#filters`).hide();
+    $(`#filters2`).hide();
+
+    document.getElementById('pre-loader').classList.toggle('load');
 });
 
 function datavalue_oportunidades(){
@@ -76,9 +75,24 @@ function suscripcion(){
     });
 }
 
-function comprar_oportunidad(id){
-    abrir_ventana(id);
-    comprar_oportunidad_function(id)
+function comprar_oportunidad(id, step){
+    if(step == 1){
+        $.ajax({
+            type: "POST",
+            url: "https://www.salioviaje.com.uy/Panel/modal.php",
+            data: { opcion: 6, data: id },
+            success: function (response) {
+                console.log(response);
+                document.getElementById('modal').style.display = 'flex';
+                $('#modal').html(response);
+            }
+        });
+    }else{
+        abrir_ventana(id);
+        comprar_oportunidad_function(id);
+        closeModal();
+    }
+    
 }
 
 function abrir_ventana(id) { 
@@ -339,3 +353,8 @@ function filtrar_divs(tipo) {
         promo.classList.toggle(`active`)
     }
  }
+
+ function closeModal() {
+    $('#modal').hide();
+    $('#modal').html("");
+}

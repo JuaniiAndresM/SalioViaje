@@ -16,7 +16,7 @@ $contador = 0;
 for ($i = 0; $i < count($datos); $i++) {
     if (isset($_SESSION['usuario'])) {
       if($_SESSION['datos_usuario']['TIPO_USUARIO'] != "CHO"){
-        $boton = '<button class="comprar-button" type="submit" onclick="comprar_oportunidad('.$datos[$i]['ID'].')"><i class="fas fa-comments-dollar"></i> Comprar</button>';
+        $boton = '<button class="comprar-button" type="submit" onclick="comprar_oportunidad('.$datos[$i]['ID'].',1)"><i class="fas fa-comments-dollar"></i> Comprar</button>';
       }
     } else if (!isset($_SESSION['usuario'])) {
         $boton = '<button class="comprar-button" type="submit" onclick="location.href=\'https://www.salioviaje.com.uy/Login\'"><i class="fas fa-comments-dollar"></i> Comprar</button>';

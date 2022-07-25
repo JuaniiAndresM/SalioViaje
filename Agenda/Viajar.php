@@ -102,7 +102,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
       <h1 class="title">¡No se pierda nuestras oportunidades y ofertas!</h1>
       <section class="oportunidades-viajar" id="Oportunidades">
         <h2>
-        <i class="fa-solid fa-tags" id="icon"></i> Oportunidades (<span id="contador-oportunidades"></span>)
+        <i class="fa-solid fa-tags" id="icon"></i> Oportunidades (<span id="contador-oportunidades">0</span>)
         </h2>
         <hr />
         <h3 class="description">
@@ -1264,6 +1264,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
       </section>
     </div>
     <script>
+        window.addEventListener('load',() => {
           if(($(`.session-input`).val() == `` || $(`.session-input`).val() == `5`) && $(`.session-output`).val() == 0){
                 desplegar(document.getElementById("agendar"), $(".session-output").val());
           }else{
@@ -1288,11 +1289,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
             },
             offset: 300 
           })
-
-
-          
-
-
+        })
     </script>
 
     <div id="footer"></div>
