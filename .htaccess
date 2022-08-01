@@ -68,6 +68,8 @@ RewriteRule ^Eventos_Fiestas /00_Fiesta_Evento.html
 
 
 
+
+
 ErrorDocument 404 /Error/404.html
 ErrorDocument 403 /Error/403.html
 

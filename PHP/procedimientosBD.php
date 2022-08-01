@@ -1579,6 +1579,33 @@ class procedimientosBD
         return json_encode($preferencias);
     }
 
+    public function traer_preferencias_por_id_tta($idtta)
+    {
+        $preferencias = array();
+        $conn = $this->conexion();
+        $query = "SELECT MATRICULA,NOCTURNO,FIESTAS,DIA_LIBRE,PRECIO_DE_COCHE,id_tta FROM `prefecrenciasVehiculos` WHERE id_tta = $idtta;";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($matricula,$nocturno, $fiestas, $dia_libre, $precio_coche, $idtta);
+            while ($stmt->fetch()) {
+                $result = array(
+                    "MATRICULA" => $matricula,
+                    "NOCTURNO" => $nocturno,
+                    "FIESTAS" => $fiestas,
+                    "DIA_LIBRE" => $dia_libre,
+                    "PRECIO_DE_COCHE" => $precio_coche,
+                    "TRANSPORTISTA" => $idtta,
+                );
+                $preferencias[] = $result;
+            }
+        }
+        echo $stmt->error;
+        $stmt->close();
+
+        return json_encode($preferencias);
+    }
+    
     public function traer_tranportistas()
     {
         $transportistas = array();
@@ -1875,6 +1902,16 @@ class procedimientosBD
         $stmt->close();
     }
 
+    public function guardar_seleccion_de_transportistas_ya_notificados($idtta, $id_viaje, $matricula){
+        $conn = $this->conexion();
+        $query = "CALL guardar_top_30_notificados(?,?,?);";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("iis", $idtta, $id_viaje, $matricula);
+        $stmt->execute();
+        echo $stmt->error;
+        $stmt->close();
+    }
+
 
     public function traer_id_viaje_por_id_solicitud($id)
     {
@@ -1909,5 +1946,71 @@ class procedimientosBD
         }
         $stmt->close();
         return $result;
+    }
+    //SELECT count(*) FROM `cotizaciones_presentadas` where ID_VIAJE_COTIZADO = 397
+
+    public function numero_de_cotizaciones_presentadas_para_una_solicitud_de_viaje($id)
+    {
+        $conn = $this->conexion();
+        $query = "SELECT count(*) FROM `cotizaciones_presentadas` where ID_VIAJE_COTIZADO = $id;";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($num);
+            while ($stmt->fetch()) {
+                $result = $num;
+            }
+        }
+        $stmt->close();
+        return $result;
+    }
+
+    //select id from cotizaciones where ESTADO = 1 
+    public function id_solicitudes_cotizando()
+    {
+        $id_viajes = array();
+        $conn = $this->conexion();
+        $query = "SELECT id FROM cotizaciones WHERE ESTADO = 1 ";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($id);
+            while ($stmt->fetch()) {
+                $result = array("ID" => $id);
+                $id_viajes[] = $result;
+            }
+        }
+        $stmt->close();
+        return json_encode($id_viajes);
+    }
+
+    //SELECT id_tta,Email FROM `top30`,`usuarios` where ID = ID_TTA;
+    public function transportistas_top_30($id)
+    {
+        $top = array();
+        $conn = $this->conexion();
+        $query = "SELECT id_tta,Email FROM `top30`,`usuarios` where ID = ID_TTA and ID_VIAJE = $id and NOTIFICADO = 0;";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($id,$mail);
+            while ($stmt->fetch()) {
+                $result = array("ID" => $id, "MAIL" => $mail);
+                $top[] = $result;
+            }
+        }
+        $stmt->close();
+        return json_encode($top);
+    }
+
+    //UPDATE `top30` SET `NOTIFICADO`= 1 WHERE ID_TTA = $id_tta and ID_VIAJE = $id_viaje;
+
+    public function set_notificado($idtta, $id_viaje){
+        $conn = $this->conexion();
+        $query = "UPDATE `top30` SET `NOTIFICADO`= 1 WHERE ID_TTA = $idtta and ID_VIAJE = $id_viaje;";
+        $stmt = $conn->prepare($query);
+        $stmt->execute();
+        echo $stmt->error;
+        $stmt->close();
     }
 }

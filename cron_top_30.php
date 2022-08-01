@@ -5,54 +5,72 @@ use PHPMailer\PHPMailer\PHPMailer;
 require '../Plugins/PHPMailer/src/Exception.php';
 require '../Plugins/PHPMailer/src/PHPMailer.php';
 require '../Plugins/PHPMailer/src/SMTP.php';
+require_once 'procedimientosBD.php';
+//include '../Mail/mail-Cotizacion-Invitacion.php';
 
-/*------------------------------------------------------------------------------------------*/
-// ? Importar Variables (Opcional)
-//
 
-if (isset($_GET['id_viaje']) && isset($_GET['id_viaje'])) {
-    $id = $_GET['id_viaje'];
-    $mail_TTA = $_GET['mail'];
-} else {
-    $id = $_POST['id_viaje'];
-    $mail_TTA = $_POST['mail'];
-}
+$datos = new procedimientosBD();
 
-//
-/*------------------------------------------------------------------------------------------*/
+$id_viajes = json_decode($datos->id_solicitudes_cotizando(), true);
 
-$mail = new PHPMailer(true);
 
-$mail->SMTPDebug = 0;
-// $mail->IsSMTP();
+for ($i=0; $i < count($id_viajes); $i++) { 
 
-// $mail->Host = 'mail.salioviaje.com.uy';
-// $mail->SMTPAuth = true;
-// $mail->Username ='sv_info@salioviaje.com.uy';
-// $mail->Password = 'SalioViaje_avisa_para_exito';
-// $mail->SMTPSecure = 'ssl';
-// $mail->Port = 465;
 
-$mail->Host = 'smtp.gmail.com';
-$mail->SMTPAuth = true;
-$mail->Username = 'promouruguay010@gmail.com';
-$mail->Password = 'El trabajo es la respuesta';
-$mail->SMTPSecure = 'tls';
-$mail->Port = 587;
+    $cotizaciones_presentadas_para_esta_solicitud = $datos->numero_de_cotizaciones_presentadas_para_una_solicitud_de_viaje($id_viajes[$i]['ID']);
 
-/*
-? -------- MAIL TRANSPORTISTA --------
- */
+    //verifico si tiene menos de 5 cotizaciones presentadas
 
-$mail->CharSet = 'UTF-8';
-$mail->From = 'promouruguay010@gmail.com';
-$mail->FromName = 'SalióViaje';
-$mail->addAddress($mail_TTA);
-$mail->isHTML(true);
-$mail->Subject = "Te invitamos a cotizar el viaje N° " . $id . ". - SalióViaje";
+    if ($cotizaciones_presentadas_para_esta_solicitud < 5) {
+        
+        //verifico top de transportistas
 
-$mail->Body = '  <div class="mail" style="max-width: 600px; background: white;">
-                        <table style="width: 100%; background: linear-gradient(120deg, #3844bc, #2b3179); border: none;" cellspacing="0" cellpadding="0">
+        $TRANSPORTISTAS_TOP = json_decode($datos->transportistas_top_30($id_viajes[$i]['ID']), true);
+
+        if($TRANSPORTISTAS_TOP != []){
+
+            if (count($TRANSPORTISTAS_TOP) > 5) {
+                $size = 5;
+            }else{
+                $size = count($TRANSPORTISTAS_TOP);
+            }
+
+            for($x = 0; $x < $size; $x++) {
+
+                $id = $id_viajes[$i]['ID'];
+
+                $mail = new PHPMailer(true);
+
+                $mail->SMTPDebug = 0;
+                // $mail->IsSMTP();
+
+                // $mail->Host = 'mail.salioviaje.com.uy';
+                // $mail->SMTPAuth = true;
+                // $mail->Username ='sv_info@salioviaje.com.uy';
+                // $mail->Password = 'SalioViaje_avisa_para_exito';
+                // $mail->SMTPSecure = 'ssl';
+                // $mail->Port = 465;
+
+                $mail->Host = 'smtp.gmail.com';
+                $mail->SMTPAuth = true;
+                $mail->Username = 'promouruguay010@gmail.com';
+                $mail->Password = 'El trabajo es la respuesta';
+                $mail->SMTPSecure = 'tls';
+                $mail->Port = 587;
+
+                /*
+                ? -------- MAIL TRANSPORTISTA --------              
+                */
+
+                $mail->CharSet = 'UTF-8';
+                $mail->From = 'promouruguay010@gmail.com';
+                $mail->FromName = 'SalióViaje';
+                $mail->addAddress($TRANSPORTISTAS_TOP[$x]['MAIL']);
+                $mail->isHTML(true);
+                $mail->Subject = "Te invitamos a cotizar el viaje N° " . $id . ". - SalióViaje";
+
+                $mail->Body = '  <div class="mail" style="max-width: 600px; background: white;">
+                                       <table style="width: 100%; background: linear-gradient(120deg, #3844bc, #2b3179); border: none;" cellspacing="0" cellpadding="0">
                             <tr>
                                 <td style="height: 150px; text-align: center;">
                                     <img src="https://i.imgur.com/iCfeHtM.png" alt="" style="max-width: 100px;" />
@@ -104,8 +122,16 @@ $mail->Body = '  <div class="mail" style="max-width: 600px; background: white;">
                         </table>
                     </div>';
 
-if (!$mail->send()) {
-    echo "Mailer Error: " . $mail->ErrorInfo;
-} else {
-    echo 1;
+                if (!$mail->send()) {
+                    echo "Mailer Error: " . $mail->ErrorInfo;
+                }else{
+                    $datos->set_notificado($TRANSPORTISTAS_TOP[$x]['ID'], $id_viajes[$i]['ID']);
+                }
+            
+            }
+
+        }
+        
+    }
+
 }
