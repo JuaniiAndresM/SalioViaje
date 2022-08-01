@@ -112,11 +112,15 @@ if ($segundo_filtro != []) {
             $tercer_filtro[] = $segundo_filtro[$y];
             //$top['Tercer filtro'] = $tercer_filtro;
         } else {
-            $top[] = array(
-                "ID" => $segundo_filtro[$y]['ID'],
-                "MAIL" => $segundo_filtro[$y]['MAIL'],
-            );
-            $preferencias_bd->guardar_seleccion_de_transportistas($segundo_filtro[$y]['ID'], intval($_POST['id_viaje']), null);
+            if (count($top) < 5) {
+                $top[] = array(
+                    "ID" => $segundo_filtro[$y]['ID'],
+                    "MAIL" => $segundo_filtro[$y]['MAIL'],
+                );
+                $preferencias_bd->guardar_seleccion_de_transportistas_ya_notificados($segundo_filtro[$y]['ID'], intval($_POST['id_viaje']), null);
+            }else if(count($top) < 30){
+                $preferencias_bd->guardar_seleccion_de_transportistas($segundo_filtro[$y]['ID'], intval($_POST['id_viaje']), null);
+            }
         }
 
     }
@@ -172,23 +176,25 @@ if ($sexto_filtro != []) {
         $PREFERENCIA_PRECIO_COCHE = json_decode($preferencias_bd->traer_preferencias_por_id_tta($sexto_filtro[$m]['ID']), true)[0]['PRECIO_DE_COCHE'];
         $MATRICULA = json_decode($preferencias_bd->traer_preferencias_por_id_tta($sexto_filtro[$m]['ID']), true)[0]['MATRICULA'];
 
-        echo $MATRICULA;
-
         if ($PREFERENCIA_PRECIO_COCHE == $hasta_4_pax) {
 
             $septimo_filtro[] = $sexto_filtro[$m];
             //$top['Septimo filtro'] = $septimo_filtro;
             //temporal
-            $top[] = array(
-                "ID" => $sexto_filtro[$m]['ID'],
-                "MAIL" => $sexto_filtro[$m]['MAIL'],
-            );
-            $preferencias_bd->guardar_seleccion_de_transportistas($sexto_filtro[$m]['ID'], intval($_POST['id_viaje']), $MATRICULA);
+            if (count($top) < 5) {
+                $top[] = array(
+                    "ID" => $sexto_filtro[$m]['ID'],
+                    "MAIL" => $sexto_filtro[$m]['MAIL'],
+                );
+                $preferencias_bd->guardar_seleccion_de_transportistas_ya_notificados($sexto_filtro[$m]['ID'], intval($_POST['id_viaje']), $MATRICULA);
+            }else if(count($top) < 30){
+                $preferencias_bd->guardar_seleccion_de_transportistas($sexto_filtro[$m]['ID'], intval($_POST['id_viaje']), $MATRICULA);
+            }
         }
     }
 }
 
-//echo json_encode($top);
+echo json_encode($top);
 
 /*
 //RECORRE EL RESUTADO DEL SEPTIMO FILTRO
