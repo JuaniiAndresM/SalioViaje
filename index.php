@@ -353,7 +353,6 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
             <input
               type="date"
               id="fecha_oportunidad"
-              placeholder="Fecha y Hora"
               onchange="filtrar_divs('Oportunidad')"
             />
           </div>
@@ -391,7 +390,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
           <input type="hidden" class="session-input" value="<?php echo $_GET['opcion']; ?>">  
           
     <!-- ==================================================================== -->      
-          <button id="agendar" class="button-agendar"onclick="desplegar(this, <?php if (!isset($_SESSION['usuario'])) {echo 1;} else {echo 2;}?>)">
+          <button id="agendar" class="button-agendar" onclick="desplegar(this, <?php if (!isset($_SESSION['usuario'])) {echo 1;} else {echo 2;}?>)">
             <i class="fas fa-clipboard-list"></i> Formulario
           </button>
           <div class="salioviaje-desplegable">
@@ -402,8 +401,12 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
                   <img src="https://www.salioviaje.com.uy/media/svg/Logo-SalioViaje-White.svg" alt="Logo SalióViaje" title="Logo-SalioViaje | Salió Viaje">
                 </div>
                 <div class="info">
-                  <h3><?php echo $_SESSION['usuario']; ?></h3>
-                  <p><i class="fas fa-user"></i> <?php echo $_SESSION['tipo_usuario']; ?></p>
+                  <?php 
+                    if(isset($_SESSION['usuario'])){
+                      echo  '<h3>'.$_SESSION['usuario'].'</h3>
+                             <p><i class="fas fa-user"></i>'.$_SESSION['tipo_usuario'].'</p>';
+                    }
+                  ?>
                 </div>
               </div>
       
@@ -420,7 +423,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
       
                 <div class="input">
                   <i class="fas fa-suitcase-rolling icon"></i>
-                  <select name="" id="select_users" onchange="select_usuario(1)">
+                  <select  id="select_users" onchange="select_usuario(1)">
                     <option value="0" selected disabled hidden >Tipo de Viaje</option>
                     <option value="1">Traslado</option>
                     <option value="2">Tour o Servicio por Horas.</option>
@@ -558,9 +561,9 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas <span class="obligatorio">*</span></p>
+                    <p><i class="fas fa-solid fa-dog"></i>&nbsp; Mascotas <span class="obligatorio">*</span></p>
                   <select name="mascota" id="mascotas_traslado">
-                  <option vlaue="1">Con mascota</option>
+                  <option value="1">Con mascota</option>
                    <option value="2" selected>Sin mascota</option>
                   </select>
                   </div>
@@ -655,9 +658,9 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas <span class="obligatorio">*</span></p>
+                    <p><i class="fas fa-solid fa-dog"></i>&nbsp; Mascotas <span class="obligatorio">*</span></p>
                   <select name="mascota" id="mascota_tour">
-                  <option vlaue="1">Con mascota</option>
+                   <option value="1">Con mascota</option>
                    <option value="2" selected>Sin mascota</option>
                   </select>
                   </div>
@@ -681,7 +684,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
 
               <div class="input">
                 <i class="fas fa-plane icon"></i>
-                <select name="" id="select_transfer" onchange="select_transfer()">
+                <select id="select_transfer" onchange="select_transfer()">
                   <option value="0" selected disabled hidden >Seleccione una Tipo de Transfer</option>
                   <option value="1">Transfer de Arribos</option>
                   <option value="2">Transfer de Partidas</option>
@@ -722,9 +725,9 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas <span class="obligatorio">*</span></p>
+                    <p><i class="fas fa-solid fa-dog"></i>&nbsp; Mascotas <span class="obligatorio">*</span></p>
                   <select name="mascota" id="mascotas_transfer_in">
-                  <option vlaue="1">Con mascota</option>
+                  <option value="1">Con mascota</option>
                    <option value="2" selected>Sin mascota</option>
                   </select>
                   </div>
@@ -862,9 +865,9 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas <span class="obligatorio">*</span></p>
+                    <p><i class="fas fa-solid fa-dog"></i>&nbsp; Mascotas <span class="obligatorio">*</span></p>
                     <select name="mascota" id="mascotas_transfer_out">
-                    <option vlaue="1">Con mascota</option>
+                    <option value="1">Con mascota</option>
                    <option value="2" selected>Sin mascota</option>
                   </select>
                   </div>
@@ -888,7 +891,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
 
               <div class="input">
                 <i class="fas fa-exchange-alt icon"></i>
-                <select name="" id="select_fiesta" onchange="select_fiesta()">
+                <select  id="select_fiesta" onchange="select_fiesta()">
                   <option value="0" selected disabled hidden >Seleccione un Tramo</option>
                   <option value="1">Solo Ida</option>
                   <option value="2">Solo Vuelta</option>
@@ -991,9 +994,9 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas <span class="obligatorio">*</span></p>
+                    <p><i class="fas fa-solid fa-dog"></i>&nbsp; Mascotas <span class="obligatorio">*</span></p>
                     <select name="mascota" id="mascotas_fiestas_ida">
-                    <option vlaue="1">Con mascota</option>
+                    <option value="1">Con mascota</option>
                    <option value="2" selected>Sin mascota</option>
                   </select>
                   </div>
@@ -1045,9 +1048,9 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas <span class="obligatorio">*</span></p>
+                    <p><i class="fas fa-solid fa-dog"></i>&nbsp; Mascotas <span class="obligatorio">*</span></p>
                     <select name="mascota" id="mascotas_fiestas_vuelta">
-                    <option vlaue="1">Con mascota</option>
+                    <option value="1">Con mascota</option>
                    <option value="2" selected>Sin mascota</option>
                   </select>
                   </div>
@@ -1296,9 +1299,9 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
                   </div>
 
                   <div class="input">
-                    <p><i class="fas fa-solid fa-dog"></i>&nbsp Mascotas <span class="obligatorio">*</span></p>
+                    <p><i class="fas fa-solid fa-dog"></i>&nbsp; Mascotas <span class="obligatorio">*</span></p>
                     <select name="mascota" id="mascotas_fiestas_idavuelta">
-                    <option vlaue="1">Con mascota</option>
+                    <option value="1">Con mascota</option>
                    <option value="2" selected>Sin mascota</option>
                   </select>
                   </div>

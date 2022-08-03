@@ -90,7 +90,6 @@
                         margin-right: 20px;
                         text-align: left;
                         
-                        white-space: break-word; 
                         overflow-wrap: break-word;
                         word-break: break-all;
                     }
@@ -137,7 +136,7 @@
                 }
             }
             .content.show{
-                overflow: show;
+                overflow: visible;
                 max-height: 20rem;
             }
             .content::before{
