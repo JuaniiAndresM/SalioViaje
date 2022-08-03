@@ -76,6 +76,8 @@ RewriteRule ^Traslado_Equipo_Futbol /00_Apoyo_TrasEvDeport.html
 RewriteRule ^Traslado_Montevideo /00_Apoyo_TraslMontev.html
 RewriteRule ^Traslado_PuntaDelEste /00_Apoyo_TraslPunta.html
 
+
+
 ErrorDocument 404 /Error/404.html
 ErrorDocument 403 /Error/403.html
 

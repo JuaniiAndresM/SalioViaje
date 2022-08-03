@@ -1219,6 +1219,7 @@ function preferenciasVehiculos(id, step, matricula) {
                 data: { tipo: "guardarPreferencias", preferencias: JSON.stringify(preferencias) },
                 success: function (response) {
                     console.log(response);
+                    closeModal()
                 }
             });
             break;

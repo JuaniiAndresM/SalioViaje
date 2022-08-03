@@ -1451,14 +1451,16 @@ function closeModal() {
  * 
  */
 
-
+let viaje_de_tipo_fiesta = 0;
 
 
 function notificarTransportistas() {
 
+    //id_cotizacion
+
     const id_inputs = tipoViaje(document.getElementById("select_users").value)
     let datos
-    console.log(id_inputs)
+    console.log(viaje_de_tipo_fiesta)
 
     if (id_inputs.length == 6) {
         datos = {
@@ -1467,7 +1469,9 @@ function notificarTransportistas() {
             "cantidad_pasajeros": document.getElementById(id_inputs[2]).value,
             "mascotas": document.getElementById(id_inputs[3]).value,
             "origen": document.getElementById(id_inputs[4]).value,
-            "destino": document.getElementById(id_inputs[5]).value
+            "destino": document.getElementById(id_inputs[5]).value,
+            "pet_friendly": document.getElementById(id_inputs[6]).value,
+            "fiesta": viaje_de_tipo_fiesta
         }
         transportistasAptos(datos, false)
     } else {
@@ -1482,7 +1486,8 @@ function notificarTransportistas() {
             "origen": document.getElementById(id_inputs[4]).value,
             "destino": document.getElementById(id_inputs[5]).value,
             "origen_vuelta": document.getElementById(id_inputs[4]).value,
-            "destino_vuelta": document.getElementById(id_inputs[5]).value
+            "destino_vuelta": document.getElementById(id_inputs[5]).value,
+            "fiesta": viaje_de_tipo_fiesta
         }
         transportistasAptos(datos, true)
     }
@@ -1490,21 +1495,33 @@ function notificarTransportistas() {
 }
 
 const transportistasAptos = (datos_filtros, fiesta_ida_vuelta) => {
-    $.ajax({
-        type: "POST",
-        url: "/PHP/topTransportistas.php",
-        data: { data: JSON.stringify(datos_filtros), fiesta_ida_vuelta: fiesta_ida_vuelta },
-        success: function (response) {
-            var transportistas = JSON.parse(response)
-            console.log(transportistas)
-            enviarMailsTransportistas(transportistas)
-        }
-    });
+    setTimeout(() => {
+        $.ajax({
+            type: "POST",
+            url: "/PHP/topTransportistas.php",
+            data: { data: JSON.stringify(datos_filtros), fiesta_ida_vuelta: fiesta_ida_vuelta, id_viaje : id_cotizacion },
+            success: function (response) {
+                console.log(response)
+                var transportistas = JSON.parse(response)
+                console.log(transportistas)
+                enviarMailsTransportistas(transportistas)
+            }
+        });
+    }, 1000);
 }
 
 function enviarMailsTransportistas(transportistas) {
     setTimeout(() => {
-        for (let index = 0; index < transportistas.length; index++) {
+
+        let length
+
+        if (transportistas.length > 5) {
+            length = 5
+        } else {
+            length = transportistas.length
+        }
+
+        for (let index = 0; index < length; index++) {
             $.ajax({
                 type: "POST",
                 url: "/Mail/mail-Cotizacion-Invitacion.php",
@@ -1521,10 +1538,10 @@ function enviarMailsTransportistas(transportistas) {
 function tipoViaje(tipo) {
     switch (tipo) {
         case "1":
-            inputs = ['fecha_salida', 'hora', 'cant_pasajeros', 'mascotas_traslado', 'localidad_traslado_origen', 'localidad_traslado_destino']
+            inputs = ['fecha_salida', 'hora', 'cant_pasajeros', 'mascotas_traslado', 'localidad_traslado_origen', 'localidad_traslado_destino', 'mascotas_traslado']
             break;
         case "2":
-            inputs = ['fecha_salida_tour', 'hora_tour', 'cant_pasajeros_tour', 'mascota_tour', 'localidad_tour', 'destino_tour']
+            inputs = ['fecha_salida_tour', 'hora_tour', 'cant_pasajeros_tour', 'mascota_tour', 'localidad_tour', 'destino_tour', 'mascota_tour']
             break;
         case "3":
             if (document.getElementById("select_transfer").value == 1) {
@@ -1541,6 +1558,7 @@ function tipoViaje(tipo) {
             } else {
                 inputs = ['fecha_salida_fiestas_idavuelta', 'hora_ida_fiestas_idavuelta', 'cant_pasajeros_ida_fiestas_idavuelta', 'fecha_regreso_fiestas_idavuelta', 'hora_vuelta_fiestas_idavuelta', 'cant_pasajeros_vuelta_fiestas_idavuelta', 'mascotas_fiestas_idavuelta', 'localidad_ida_origen_fiestas_idavuelta', 'localidad_ida_destino_fiestas_idavuelta', 'localidad_vuelta_origen_fiestas_idavuelta', 'localidad_vuelta_destino_fiestas_idavuelta']
             }
+            viaje_de_tipo_fiesta = 1;
             break;
     }
     return inputs

@@ -22,6 +22,7 @@ for ($i=0; $i < count($datos); $i++) {
           }else{
             $datos[$i]['DESCUENTO'] = '-';
           }
+
           $oportunidades_dashboard = '
                   <tr>
                       <td>'.$datos[$i]['ID'].'</td>
