@@ -102,7 +102,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
       <h1 class="title">¡No se pierda nuestras oportunidades y ofertas!</h1>
       <section class="oportunidades-viajar" id="Oportunidades">
         <h2>
-        <i class="fa-solid fa-tags" id="icon"></i> Oportunidades (<span id="contador-oportunidades">0</span>)
+        <i class="fa-solid fa-tags icon"></i> Oportunidades (<span id="contador-oportunidades">0</span>)
         </h2>
         <hr />
         <h3 class="description">
@@ -120,7 +120,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
           <div id="filters">
 
             <div class="input" id="destino">
-              <i class="fas fa-location-dot" id="icon"></i>
+              <i class="fas fa-location-dot icon"></i>
               <input list="RegionesMTOP" id="origen_oportunidad" placeholder="Origen" onkeyup="filtrar_divs('Oportunidad')" />
               <datalist id="RegionesMTOP">
                         <?php
@@ -136,12 +136,12 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
             </div>
 
             <div class="input" id="destino">
-              <i class="fas fa-route" id="icon"></i>
+              <i class="fas fa-route icon"></i>
               <input list="RegionesMTOP" id="destino_oportunidad" placeholder="Destino" onkeyup="filtrar_divs('Oportunidad')" >
             </div>
 
             <div class="input" id="origen">
-              <i class="far fa-calendar-alt" id="icon"></i>
+              <i class="far fa-calendar-alt icon"></i>
               <input type="date" id="fecha_oportunidad" placeholder="Fecha y Hora" onchange="filtrar_divs('Oportunidad')" />
             </div>
 
@@ -158,7 +158,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
       </section>
       <section class="ofertas-viajar" id="Ofertas">
         <h2>
-          <i class="fa-solid fa-percent" id="icon"></i> Ofertas (0)
+          <i class="fa-solid fa-percent icon"></i> Ofertas (0)
         </h2>
         <hr />
         <h3 class="description">Conseguí las mejores ofertas con nosotros.</h3>
@@ -183,7 +183,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
           <div id="filters2">
 
             <div class="input" id="origen">
-              <i class="fas fa-location-dot" id="icon"></i>
+              <i class="fas fa-location-dot icon"></i>
               <input list="Origen" id="origen_2" placeholder="Origen" />
               <datalist id="Origen">
                 <option value="Canelones"></option>
@@ -195,7 +195,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
             </div>
 
             <div class="input" id="destino">
-              <i class="fas fa-route" id="icon"></i>
+              <i class="fas fa-route icon"></i>
               <input list="Destino" id="destino_2" placeholder="Destino">
               <datalist id="Destino">
                 <option value="Canelones">
@@ -207,7 +207,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
             </div>
 
             <div class="input" id="fecha">
-              <i class="far fa-calendar-alt" id="icon"></i>
+              <i class="far fa-calendar-alt icon"></i>
               <input type="date" id="fecha_2" placeholder="Fecha y Hora" />
             </div>
 
@@ -261,7 +261,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
       <section class="salioviaje" id="Cotizacion">
         <h2>
-        <i class="fa-solid fa-hand-holding-dollar" id="icon"></i> Solicitar una Cotización
+        <i class="fa-solid fa-hand-holding-dollar icon"></i> Solicitar una Cotización
         </h2>
         <hr />
         <h3 class="description">
@@ -295,7 +295,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
             <div class="step_1">
 
               <div class="input flex">
-                <i class="fas fa-suitcase-rolling" id="icon"></i>
+                <i class="fas fa-suitcase-rolling icon"></i>
                 <select name="" id="select_users" onchange="select_usuario()">
                   <option value="0" selected disabled hidden >Tipo de Viaje</option>
                   <option value="1">Traslado</option>
@@ -557,7 +557,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
               <h3 class="title"><i class="fas fa-plane-departure"></i> Transfer (Aeropuerto / Puerto)</h3>
 
               <div class="input flex">
-                <i class="fas fa-plane" id="icon"></i>
+                <i class="fas fa-plane icon"></i>
                 <select name="" id="select_transfer" onchange="select_transfer()">
                   <option value="0" selected disabled hidden >Seleccione una Tipo de Transfer</option>
                   <option value="1">Transfer de Arribos</option>
@@ -765,7 +765,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
               <h3 class="title"><i class="fas fa-glass-cheers"></i> Fiestas o Eventos</h3>
 
               <div class="input flex">
-                <i class="fas fa-exchange-alt" id="icon"></i>
+                <i class="fas fa-exchange-alt icon"></i>
                 <select name="" id="select_fiesta" onchange="select_fiesta()">
                   <option value="0" selected disabled hidden >Seleccione un Tramo</option>
                   <option value="1">Solo Ida</option>

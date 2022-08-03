@@ -35,14 +35,14 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
     <meta property="og:url" content="https://www.salioviaje.com.uy" />
     <meta property="og:title" content="Salió Viaje | Plataforma que optimiza el traslado ocasional de personas" />
     <meta property="og:description" content="Plataforma que optimiza el traslado ocasional de personas."/>
-    <meta property="og:image" content="https://www.salioviaje.com.uy/media/svg/Favicon-SalioViaje.svg" type="image/x-icon"  title="Logo | Salió Viaje" >
+    <meta property="og:image" content="https://www.salioviaje.com.uy/media/svg/Favicon-SalioViaje.svg" title="Logo | Salió Viaje" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://www.salioviaje.com.uy" />
     <meta property="twitter:title" content="Salió Viaje | Plataforma que optimiza el traslado ocasional de personas"/>
     <meta property="twitter:description" content="Plataforma que optimiza el traslado ocasional de personas."/>
-    <meta property="twitter:image" content="https://www.salioviaje.com.uy/media/svg/Favicon-SalioViaje.svg" type="image/x-icon"  title="Logo | Salió Viaje" >
+    <meta property="twitter:image" content="https://www.salioviaje.com.uy/media/svg/Favicon-SalioViaje.svg"  title="Logo | Salió Viaje" />
 
 
     <!-- Links -->
@@ -66,6 +66,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
     </script>
   </head>
   <body>
+ 
     <div id="pre-loader">
       <div class="lds-ellipsis">
         <div></div>
@@ -75,7 +76,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
       </div>
     </div>
 
-    <div id="header"></div>
+      <div id="header"></div>   
     <div id="modal"></div>
 
     <a href="https://www.salioviaje.com.uy/FAQ" title="Frequently Asked Questions"  target="_BLANK" id="faq-float" >
@@ -115,7 +116,9 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
         </div>
         <div class="landing-right">
           <div class="landing-img-wrapper">
-            <img class="" src="media/images/Van2.webp" alt="Van de traslado Profesional" title="Van de traslado Profesional | Salió Viaje" />
+            <a href="https://www.salioviaje.com.uy/Fiestas_Eventos">  
+              <img class="" src="media/images/Van2.webp" alt="Van de traslado Profesional" title="Van de traslado Profesional | Salió Viaje" />
+            </a>
           </div>
         </div>
       </div>
@@ -286,7 +289,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
     </div>
 
     <section class="oportunidades" id="Oportunidades">
-      <h2><i class="fa-solid fa-tags" id="icon"></i> Oportunidades (<span id="contador-oportunidades"></span>)</h2>
+      <h2><i class="fa-solid fa-tags icon"></i> Oportunidades (<span id="contador-oportunidades"></span>)</h2>
       <hr />
       <p class="description">
         Conseguí las mejores oportunidades con nosotros.
@@ -305,7 +308,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
 
         <div id="filters">
           <div class="input" id="destino">
-            <i class="fas fa-location-dot" id="icon"></i>
+            <i class="fas fa-location-dot icon"></i>
             <input
               list="Localidad"
               id="origen_oportunidad"
@@ -336,7 +339,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
           </div>
 
           <div class="input" id="destino">
-            <i class="fas fa-route" id="icon"></i>
+            <i class="fas fa-route icon"></i>
             <input
               list="Localidad"
               id="destino_oportunidad"
@@ -346,7 +349,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
           </div>
 
           <div class="input" id="origen">
-            <i class="far fa-calendar-alt" id="icon"></i>
+            <i class="far fa-calendar-alt icon"></i>
             <input
               type="date"
               id="fecha_oportunidad"
@@ -377,7 +380,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
     <section class="viajar-wrapper-index">
       <div class="salioviaje" id="Cotizacion">
           <h2>
-          <i class="fa-solid fa-hand-holding-dollar" id="icon"></i> Solicitar una Cotización
+          <i class="fa-solid fa-hand-holding-dollar icon"></i> Solicitar una Cotización
           </h2>
           <hr />
           <p class="description">
@@ -416,7 +419,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
               <div class="step_1">
       
                 <div class="input">
-                  <i class="fas fa-suitcase-rolling" id="icon"></i>
+                  <i class="fas fa-suitcase-rolling icon"></i>
                   <select name="" id="select_users" onchange="select_usuario(1)">
                     <option value="0" selected disabled hidden >Tipo de Viaje</option>
                     <option value="1">Traslado</option>
@@ -677,7 +680,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
               <h3 class="title"><i class="fas fa-plane-departure"></i> Transfer (Aeropuerto / Puerto)</h3>
 
               <div class="input">
-                <i class="fas fa-plane" id="icon"></i>
+                <i class="fas fa-plane icon"></i>
                 <select name="" id="select_transfer" onchange="select_transfer()">
                   <option value="0" selected disabled hidden >Seleccione una Tipo de Transfer</option>
                   <option value="1">Transfer de Arribos</option>
@@ -884,7 +887,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
               <h3 class="title"><i class="fas fa-glass-cheers"></i> Fiestas o Eventos</h3>
 
               <div class="input">
-                <i class="fas fa-exchange-alt" id="icon"></i>
+                <i class="fas fa-exchange-alt icon"></i>
                 <select name="" id="select_fiesta" onchange="select_fiesta()">
                   <option value="0" selected disabled hidden >Seleccione un Tramo</option>
                   <option value="1">Solo Ida</option>

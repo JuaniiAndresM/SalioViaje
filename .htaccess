@@ -64,14 +64,24 @@ RewriteRule ^Experiencias /00_Experiencias.php
 RewriteRule ^Arequita /00_Arequita.html
 RewriteRule ^Gruta_del_Palacio /00_Gruta_del_Palacio.html
 RewriteRule ^Penitente /00_Penitente.html
+
 RewriteRule ^Eventos_Fiestas /00_Fiesta_Evento.html
-
-
+RewriteRule ^Fiestas_Eventos /00_Apoyo_Evento_1.html
+RewriteRule ^¿Cómo_funciona_Salió_Viaje? /00_apoyo_seo.html
+RewriteRule ^Paseos_Tours /00_Apoyo_Paseo.html
+RewriteRule ^ServicioXHoras_Gestiones /00_Apoyo_ServHoras.html
+RewriteRule ^Aeropuerto_Puerto /00_Apoyo_Aeropuerto.html
+RewriteRule ^Paseo_Colonia /00_Apoyo_TrasColonia.html
+RewriteRule ^Traslado_Equipo_Futbol /00_Apoyo_TrasEvDeport.html
+RewriteRule ^Traslado_Montevideo /00_Apoyo_TraslMontev.html
+RewriteRule ^Traslado_PuntaDelEste /00_Apoyo_TraslPunta.html
 
 ErrorDocument 404 /Error/404.html
 ErrorDocument 403 /Error/403.html
 
 Options All -Indexes
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^/?$ "https\:\/\/www\.salioviaje\.com\.uy\/" [R=301,L]
 
 # php -- BEGIN cPanel-generated handler, do not edit
 # Set the “ea-php74” package as the default “PHP” programming language.
@@ -79,5 +89,3 @@ Options All -Indexes
   AddHandler application/x-httpd-ea-php74 .php .php7 .phtml
 </IfModule>
 # php -- END cPanel-generated handler, do not edit
-RewriteCond %{HTTP_HOST} ^.*$
-RewriteRule ^/?$ "https\:\/\/www\.salioviaje\.com\.uy\/" [R=301,L]
