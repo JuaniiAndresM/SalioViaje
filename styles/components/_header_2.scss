@@ -16,18 +16,13 @@ header_2 {
     padding: 10px 10px;
 
     display: flex;
-   display: flex-start;
     .header_2-logo {
       width: 70px;
       height: 70px;
     }
 
     .header_2-right {
-       display: flex-start;
-
-      .header_2-links {
-        display: flex-start;
-       
+      .header_2-links {       
         .links {
           margin-right: 1em;
           a {

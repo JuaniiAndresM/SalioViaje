@@ -339,7 +339,6 @@
 .servicios .servicios-wrapper .card:hover .card-bottom .info_2,
 .servicios .servicios-wrapper .card:hover .card-bottom .info_3 {
   color: #3844bc;
-  border-radius: #3844bc;
 }
 
 .servicios .servicios-wrapper .card:hover .card-bottom .info_2 a,
@@ -1380,20 +1379,11 @@ header_2 .header_2-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  display: flex-start;
 }
 
 header_2 .header_2-wrapper .header_2-logo {
   width: 70px;
   height: 70px;
-}
-
-header_2 .header_2-wrapper .header_2-right {
-  display: flex-start;
-}
-
-header_2 .header_2-wrapper .header_2-right .header_2-links {
-  display: flex-start;
 }
 
 header_2 .header_2-wrapper .header_2-right .header_2-links .links {
@@ -9951,11 +9941,11 @@ footer .totum p a:hover {
   font-size: 2em;
 }
 
-.viajar-wrapper .oportunidades-viajar h2 #icon,
-.viajar-wrapper .ofertas-viajar h2 #icon,
-.viajar-wrapper .salioviaje h2 #icon, .viajar-wrapper-index .oportunidades-viajar h2 #icon,
-.viajar-wrapper-index .ofertas-viajar h2 #icon,
-.viajar-wrapper-index .salioviaje h2 #icon {
+.viajar-wrapper .oportunidades-viajar h2 .icon,
+.viajar-wrapper .ofertas-viajar h2 .icon,
+.viajar-wrapper .salioviaje h2 .icon, .viajar-wrapper-index .oportunidades-viajar h2 .icon,
+.viajar-wrapper-index .ofertas-viajar h2 .icon,
+.viajar-wrapper-index .salioviaje h2 .icon {
   color: #333333;
 }
 
@@ -10490,27 +10480,27 @@ footer .totum p a:hover {
   color: #888;
 }
 
-.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper #filters .input #icon, .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper #filters2 .input #icon,
-.viajar-wrapper .oportunidades-viajar .ofertas-wrapper #filters .input #icon,
-.viajar-wrapper .oportunidades-viajar .ofertas-wrapper #filters2 .input #icon,
-.viajar-wrapper .ofertas-viajar .oportunidades-wrapper #filters .input #icon,
-.viajar-wrapper .ofertas-viajar .oportunidades-wrapper #filters2 .input #icon,
-.viajar-wrapper .ofertas-viajar .ofertas-wrapper #filters .input #icon,
-.viajar-wrapper .ofertas-viajar .ofertas-wrapper #filters2 .input #icon,
-.viajar-wrapper .salioviaje .oportunidades-wrapper #filters .input #icon,
-.viajar-wrapper .salioviaje .oportunidades-wrapper #filters2 .input #icon,
-.viajar-wrapper .salioviaje .ofertas-wrapper #filters .input #icon,
-.viajar-wrapper .salioviaje .ofertas-wrapper #filters2 .input #icon, .viajar-wrapper-index .oportunidades-viajar .oportunidades-wrapper #filters .input #icon, .viajar-wrapper-index .oportunidades-viajar .oportunidades-wrapper #filters2 .input #icon,
-.viajar-wrapper-index .oportunidades-viajar .ofertas-wrapper #filters .input #icon,
-.viajar-wrapper-index .oportunidades-viajar .ofertas-wrapper #filters2 .input #icon,
-.viajar-wrapper-index .ofertas-viajar .oportunidades-wrapper #filters .input #icon,
-.viajar-wrapper-index .ofertas-viajar .oportunidades-wrapper #filters2 .input #icon,
-.viajar-wrapper-index .ofertas-viajar .ofertas-wrapper #filters .input #icon,
-.viajar-wrapper-index .ofertas-viajar .ofertas-wrapper #filters2 .input #icon,
-.viajar-wrapper-index .salioviaje .oportunidades-wrapper #filters .input #icon,
-.viajar-wrapper-index .salioviaje .oportunidades-wrapper #filters2 .input #icon,
-.viajar-wrapper-index .salioviaje .ofertas-wrapper #filters .input #icon,
-.viajar-wrapper-index .salioviaje .ofertas-wrapper #filters2 .input #icon {
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper #filters .input .icon, .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper #filters2 .input .icon,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper #filters .input .icon,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper #filters2 .input .icon,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper #filters .input .icon,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper #filters2 .input .icon,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper #filters .input .icon,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper #filters2 .input .icon,
+.viajar-wrapper .salioviaje .oportunidades-wrapper #filters .input .icon,
+.viajar-wrapper .salioviaje .oportunidades-wrapper #filters2 .input .icon,
+.viajar-wrapper .salioviaje .ofertas-wrapper #filters .input .icon,
+.viajar-wrapper .salioviaje .ofertas-wrapper #filters2 .input .icon, .viajar-wrapper-index .oportunidades-viajar .oportunidades-wrapper #filters .input .icon, .viajar-wrapper-index .oportunidades-viajar .oportunidades-wrapper #filters2 .input .icon,
+.viajar-wrapper-index .oportunidades-viajar .ofertas-wrapper #filters .input .icon,
+.viajar-wrapper-index .oportunidades-viajar .ofertas-wrapper #filters2 .input .icon,
+.viajar-wrapper-index .ofertas-viajar .oportunidades-wrapper #filters .input .icon,
+.viajar-wrapper-index .ofertas-viajar .oportunidades-wrapper #filters2 .input .icon,
+.viajar-wrapper-index .ofertas-viajar .ofertas-wrapper #filters .input .icon,
+.viajar-wrapper-index .ofertas-viajar .ofertas-wrapper #filters2 .input .icon,
+.viajar-wrapper-index .salioviaje .oportunidades-wrapper #filters .input .icon,
+.viajar-wrapper-index .salioviaje .oportunidades-wrapper #filters2 .input .icon,
+.viajar-wrapper-index .salioviaje .ofertas-wrapper #filters .input .icon,
+.viajar-wrapper-index .salioviaje .ofertas-wrapper #filters2 .input .icon {
   position: absolute;
   top: 10px;
   left: 0;
@@ -11742,21 +11732,21 @@ footer .totum p a:hover {
   padding: 10px 0;
 }
 
-.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input #icon,
-.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .input #icon,
-.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .input #icon,
-.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .input #icon,
-.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .input #icon,
-.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .input #icon,
-.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input #icon,
-.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_5 .input #icon, .viajar-wrapper-index .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input #icon,
-.viajar-wrapper-index .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .input #icon,
-.viajar-wrapper-index .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .input #icon,
-.viajar-wrapper-index .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .input #icon,
-.viajar-wrapper-index .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .input #icon,
-.viajar-wrapper-index .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .input #icon,
-.viajar-wrapper-index .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input #icon,
-.viajar-wrapper-index .salioviaje .salioviaje-desplegable .formulario-viaje .step_5 .input #icon {
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input .icon,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .input .icon,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .input .icon,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .input .icon,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .input .icon,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .input .icon,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input .icon,
+.viajar-wrapper .salioviaje .salioviaje-desplegable .formulario-viaje .step_5 .input .icon, .viajar-wrapper-index .salioviaje .salioviaje-desplegable .formulario-viaje .step_1 .input .icon,
+.viajar-wrapper-index .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_traslado .input .icon,
+.viajar-wrapper-index .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_tour .input .icon,
+.viajar-wrapper-index .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_transfer .input .icon,
+.viajar-wrapper-index .salioviaje .salioviaje-desplegable .formulario-viaje .step_2_fiestas .input .icon,
+.viajar-wrapper-index .salioviaje .salioviaje-desplegable .formulario-viaje .step_3 .input .icon,
+.viajar-wrapper-index .salioviaje .salioviaje-desplegable .formulario-viaje .step_4 .input .icon,
+.viajar-wrapper-index .salioviaje .salioviaje-desplegable .formulario-viaje .step_5 .input .icon {
   position: absolute;
   top: 10px;
   left: 0;
@@ -15102,7 +15092,6 @@ footer .totum p a:hover {
   margin-top: 10px;
   margin-left: 30px;
   color: #555;
-  white-space: break-word;
   overflow-wrap: break-word;
   text-align: right;
 }
@@ -16360,7 +16349,6 @@ footer .totum p a:hover {
   font-size: 1.1em;
   margin-right: 20px;
   text-align: left;
-  white-space: break-word;
   overflow-wrap: break-word;
   word-break: break-all;
 }
@@ -16401,7 +16389,7 @@ footer .totum p a:hover {
 }
 
 .faq .accordion-container .accordion-item .content.show {
-  overflow: show;
+  overflow: visible;
   max-height: 20rem;
 }
 
@@ -18193,7 +18181,6 @@ footer .totum p a:hover {
 .tooltip.top::after {
   bottom: 100%;
   border-top-color: #444;
-  border-bottom-width: -10px;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
@@ -18210,7 +18197,6 @@ footer .totum p a:hover {
 .tooltip.right::after {
   left: 100%;
   border-right-color: #444;
-  border-right-width: -10px;
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
@@ -18227,7 +18213,6 @@ footer .totum p a:hover {
 .tooltip.left::after {
   right: 100%;
   border-left-color: #444;
-  border-left-width: -10px;
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
@@ -18244,7 +18229,6 @@ footer .totum p a:hover {
 .tooltip.bottom::after {
   top: 100%;
   border-bottom-color: #444;
-  border-bottom-width: -10px;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);

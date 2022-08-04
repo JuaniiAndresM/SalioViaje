@@ -153,9 +153,9 @@
         </div>
         <div class="nosotros-right">
           <div class="nosotros-info">
-            <h2>Sobre nuestro paseo <span>por la Gruta del Palacio</span></h2>
+            <h2>No te pierdas nuestro paseo por <span>la Gruta del Palacio.</span></h2>
             <hr />
-            <h3 class="info">Para aventureros por la Gruta del Palacio</h3>
+            <h3 class="info">Gruta del Palacio, un día de pura aventura.</h3>
 
             <a
               class="button-nosotros"
@@ -188,12 +188,10 @@
         </div>
         <div class="nosotros-right">
           <div class="nosotros-info">
-            <h2>Sobre nuestro paseo <span>por la Gruta de Arequita</span></h2>
+            <h2>Un paseo para toda la familia. <span>La Gruta de Arequita.</span></h2>
             <hr />
-            <h3 class="info">
-              Para grandes paseanderos por la Gruta de Arequita
-            </h3>
-
+            <h3 class="info">Gruta de Arequita, un paseo imperdible.</h3>
+            
             <a
               class="button-nosotros"
               href="https://www.salioviaje.com.uy/Arequita"
@@ -225,13 +223,13 @@
         </div>
         <div class="nosotros-right">
           <div class="nosotros-info">
-            <h2>Sobre nuestro paseo <span>por el Salto del Penitente</span></h2>
+            <h2>Sobre nuestro paseo <span>por el Salto del Penitente.</span></h2>
             <hr />
             <!--      <p class="info">
               Para valientes exploradores por el Salto del Penitente
             </p> -->
             <h3 class="info">
-              Para valientes exploradores por el Salto del Penitente
+              Para valientes exploradores por el Salto del Penitente.
             </h3>
 
             <a
@@ -245,8 +243,8 @@
         </div>
       </div>
     </section>
-        <!--=====================================================================-->
-    <!-- Termina Sección -->
+    <!--=====================================================================-->
+    <!-- Termina Sección Eventos_Fiestas -->
     <div class="experiencias-separador">
       <hr>
     </div>
@@ -257,22 +255,23 @@
           <div class="nosotros-img-wrapper">
             <img
               class=""
-              src="https://www.salioviaje.com.uy/media/images/Fiesta 1.webp" alt="Una fiesta" title="Disfrutar la fiesta sin preocupaciones" />  
+              src="https://www.salioviaje.com.uy/media/images/Fiesta 1.webp" 
+              alt="Una fiesta" title="Disfrutar la fiesta sin preocupaciones" />  
           
           </div>
         </div>
         <div class="nosotros-right">
           <div class="nosotros-info">
-            <h2>Sobre nuestro sevicio de <span>traslado para fiestas y eventos</span></h2>
+            <h2>¿Estás buscando traslado para una <span>Fiesta o Evento?</span></h2>
             <hr />
             <h3 class="info">
-              Para trasladarse con un servicio de alta calidad y puntualidad
+              Mirá qué fácil es contratar un servicio de alta calidad y puntualidad.
             </h3>
 
             <a
               class="button-nosotros"
               href="https://www.salioviaje.com.uy/Eventos_Fiestas"
-              title="Eventos_Fiestas | Salió Viaje"
+              title="¿Cómo contratar para Eventos y Fiestas? | Salió Viaje"
             >
               <i class="fas fa-info"></i> Más Información
             </a>
@@ -281,7 +280,329 @@
       </div>
     </section>
     <!--=====================================================================-->  
-    <!-- Termina Sección -->
+    <!-- Termina Sección Fiestas_Eventos-->
+    <div class="experiencias-separador">
+      <hr>
+    </div>
+    <!-- Sección -->
+    <section class="sobre-nosotros-experiencias">
+      <div class="nosotros-wrapper-grid">
+        <div class="nosotros-left">
+          <div class="nosotros-img-wrapper">
+            <img
+              class=""
+              src="https://www.salioviaje.com.uy/media/images/Fiesta 2.webp" 
+              alt="Día de Fiesta" title="Un día de fiesta en familia">
+          
+          </div>
+        </div>
+        <div class="nosotros-right">
+          <div class="nosotros-info">
+            <h2>Sobre nuestro servicio de <span>traslado para fiestas y eventos.</span></h2>
+            <hr />
+            <h3 class="info">
+              La previa, la fiesta y el after, se disfrutan también durante los traslados porque Salió Viaje se encarga de todo.
+            </h3>
+
+            <a
+              class="button-nosotros"
+              href="https://www.salioviaje.com.uy/Fiestas_Eventos"
+              title="¿Cómo contratar para Eventos y Fiestas? | Salió Viaje"
+            >
+              <i class="fas fa-info"></i> Más Información
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--=====================================================================-->  
+    <!-- Termina Sección ¿Cómo_funciona_Salió_Viaje? -->
+    <div class="experiencias-separador">
+      <hr>
+    </div>
+    <!-- Sección -->
+    <section class="sobre-nosotros-experiencias">
+      <div class="nosotros-wrapper-grid">
+        <div class="nosotros-left">
+          <div class="nosotros-img-wrapper">
+            <img
+              class=""
+              src="https://www.salioviaje.com.uy/media/images/SV_.webp" 
+              alt="SalióViaje" title="Salió Viaje. Bievenidos">
+          
+          </div>
+        </div>
+        <div class="nosotros-right">
+          <div class="nosotros-info">
+           <h2>¿Cómo funciona Salió Viaje y en qué me puede ayudar? <span>Te lo explicamos aquí.</span></h2>
+            <hr />
+            <h3 class="info">
+              Te mostramos paso a paso cómo aprovechar nuestro servicios.
+            </h3>
+
+            <a
+              class="button-nosotros"
+              href="https://www.salioviaje.com.uy/¿Cómo_funciona_Salió_Viaje?"
+              title="Explicativo del funcionamiento de Salió Viaje"
+           
+            >
+              <i class="fas fa-info"></i> Más Información
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--=====================================================================-->  
+ <!-- Termina Sección Paseos_Tours -->
+    <div class="experiencias-separador">
+      <hr>
+    </div>
+    <!-- Sección -->
+    <section class="sobre-nosotros-experiencias">
+      <div class="nosotros-wrapper-grid">
+        <div class="nosotros-left">
+          <div class="nosotros-img-wrapper">
+            <img
+              class=""
+              src="https://www.salioviaje.com.uy/media/images/Faro La Paloma.webp" 
+              alt="La Paloma" title="La Paloma, Rocha">  
+          
+          </div>
+        </div>
+        <div class="nosotros-right">
+          <div class="nosotros-info">
+            <h2>Turismo en Uruguay. Te ayudamos a conseguir excelentes <span>Paseos y Tours.</span></h2>
+            <hr />
+            <h3 class="info">
+              Mirá cómo Salió Viaje te soluciona la contratación de un servicio de calidad.
+            </h3>
+
+            <a
+              class="button-nosotros"
+              href="https://www.salioviaje.com.uy/Paseos_Tours"
+              title="Aquí te explicamos cómo te ayuda Salió Viaje"
+            >
+              <i class="fas fa-info"></i> Más Información
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--=====================================================================-->  
+     <!-- Termina Sección ServicioXHoras_Gestiones -->
+    <div class="experiencias-separador">
+      <hr>
+    </div>
+    <!-- Sección -->
+    <section class="sobre-nosotros-experiencias">
+      <div class="nosotros-wrapper-grid">
+        <div class="nosotros-left">
+          <div class="nosotros-img-wrapper">
+            <img
+              class=""
+              src="https://www.salioviaje.com.uy/media/images/Gestiones.webp" 
+              alt="Gestiones" title="Trámites y Gestiones">  
+          
+          </div>
+        </div>
+        <div class="nosotros-right">
+          <div class="nosotros-info">
+            <h2>¿Tocó hacer gestiones y trámites por la ciudad? <span>Mejor en un coche que te lleve y te espere.</span></h2>
+            <hr />
+            <h3 class="info">
+              Aprovechá bien el tiempo, y no te preocupes de estacionar. Servicio por Horas.
+            </h3>
+
+            <a
+              class="button-nosotros"
+              href="https://www.salioviaje.com.uy/ServicioXHoras_Gestiones"
+              title="Aquí te explicamos cómo te ayuda Salió Viaje"
+            >
+              <i class="fas fa-info"></i> Más Información
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--=====================================================================-->  
+ <!-- Termina Sección Aeropuerto_Puerto -->
+    <div class="experiencias-separador">
+      <hr>
+    </div>
+    <!-- Sección -->
+    <section class="sobre-nosotros-experiencias">
+      <div class="nosotros-wrapper-grid">
+        <div class="nosotros-left">
+          <div class="nosotros-img-wrapper">
+            <img
+              class=""
+                src="https://www.salioviaje.com.uy/media/images/aeropuerto.webp" 
+                alt="Espera en Aeropuerto" title="Esperando mi viaje en el aeropuerto.">
+          </div>
+        </div>
+        <div class="nosotros-right">
+          <div class="nosotros-info">
+            <h2>A tiempo para tu vuelo, puntual y cómoda. <span>Transfer al aeropuerto.</span></h2>
+            <hr />
+            <h3 class="info">
+              ¿Un transporte al aeropuerto? Más fácil con Salió Viaje.
+            </h3>
+
+            <a
+              class="button-nosotros"
+              href="https://www.salioviaje.com.uy/Aeropuerto_Puerto"
+              title="Aquí te explicamos cómo te ayuda Salió Viaje"
+            >
+              <i class="fas fa-info"></i> Más Información
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--=====================================================================-->  
+ <!-- Termina Sección Paseo_Colonia-->
+    <div class="experiencias-separador">
+      <hr>
+    </div>
+    <!-- Sección -->
+    <section class="sobre-nosotros-experiencias">
+      <div class="nosotros-wrapper-grid">
+        <div class="nosotros-left">
+          <div class="nosotros-img-wrapper">
+            <img
+              class=""
+                <img class="" src="https://www.salioviaje.com.uy/media/images/Real de San Carlos.webp" 
+                alt="Real de San Carlos" title="Real de San Carlos, en Colonia">  
+           </div>
+        </div>
+        <div class="nosotros-right">
+          <div class="nosotros-info">
+            <h2>Colonia te espera, con su historia y todos sus museos. <span>Salió Viaje lo hace más fácil.</span></h2>
+            <hr />
+            <h3 class="info">
+              Solamente disfrutar, de un paseo que tiene mucho para ver y aprender.
+            </h3>
+
+            <a
+              class="button-nosotros"
+              href="https://www.salioviaje.com.uy/Paseo_Colonia"
+              title="Aquí te explicamos cómo te ayuda Salió Viaje"
+            >
+              <i class="fas fa-info"></i> Más Información
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--=====================================================================-->  
+ <!-- Termina Sección Traslado_Equipo_Futbol -->
+    <div class="experiencias-separador">
+      <hr>
+    </div>
+    <!-- Sección -->
+    <section class="sobre-nosotros-experiencias">
+      <div class="nosotros-wrapper-grid">
+        <div class="nosotros-left">
+          <div class="nosotros-img-wrapper">
+            <img
+              class=""
+              src="https://www.salioviaje.com.uy/media/images/Futbol.webp" 
+              alt="Partido de Futbol" title="Partido de futbol"> 
+          </div>
+        </div>
+        <div class="nosotros-right">
+          <div class="nosotros-info">
+            <h2>Se juega la final del campeonato. El equipo está concentrado.<span> Salió Viaje te soluciona la movilidad a la cancha.</span></h2>
+            <hr />
+            <h3 class="info">
+              Jugadores, cuerpo técnico y familiares. Hay lugar para todos.
+            </h3>
+
+            <a
+              class="button-nosotros"
+              href="https://www.salioviaje.com.uy/Traslado_Equipo_Futbol"
+              title="Aquí te explicamos cómo te ayuda Salió Viaje"
+            >
+              <i class="fas fa-info"></i> Más Información
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--=====================================================================-->  
+ <!-- Termina Sección Traslado_Montevideo -->
+    <div class="experiencias-separador">
+      <hr>
+    </div>
+    <!-- Sección -->
+    <section class="sobre-nosotros-experiencias">
+      <div class="nosotros-wrapper-grid">
+        <div class="nosotros-left">
+          <div class="nosotros-img-wrapper">
+            <img
+              class=""
+              src="https://www.salioviaje.com.uy/media/images/Montevideo Letras.webp" 
+              alt="Cartel de Montevideo" title="Montevideo, rambla de Pocitos">
+          </div>
+        </div>
+        <div class="nosotros-right">
+          <div class="nosotros-info">
+            <h2>Traslado a Montevideo de turismo o de negocios,<span> Salió Viaje te lo hace muy fácil. </span></h2>
+            <hr />
+            <h3 class="info">
+              Montevideo te recibe con su tradicional hospitalidad, y Salió Viaje te facilita la ida y la vuelta de tu ciudad.
+              </h3>
+
+            <a
+              class="button-nosotros"
+              href="https://www.salioviaje.com.uy/Traslado_Montevideo"
+              title="Aquí te explicamos cómo te ayuda Salió Viaje"
+            >
+              <i class="fas fa-info"></i> Más Información
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--=====================================================================-->  
+     <!-- Termina Sección Traslado_PuntaDelEste -->
+    <div class="experiencias-separador">
+      <hr>
+    </div>
+    <!-- Sección -->
+    <section class="sobre-nosotros-experiencias">
+      <div class="nosotros-wrapper-grid">
+        <div class="nosotros-left">
+          <div class="nosotros-img-wrapper">
+            <img
+              class=""
+              src="https://www.salioviaje.com.uy/media/images/Interior H1.webp" 
+              alt="Interior Hyudai H1" title="Lujoso interior de una Hyundai H1">
+          </div>
+        </div>
+        <div class="nosotros-right">
+          <div class="nosotros-info">
+            <h2>Punta del Este, siempre es un paseo increíble, <span>y Salió Viaje te simplifica la ida y la vuelta.</span></h2>
+            <hr />
+            
+            <h3 class="info">
+              Para trasladarse con un servicio de alta calidad y puntualidad. Por trabajo o por placer con nosotros Punta del Este es tuya.
+            </h3>
+
+            <a
+              class="button-nosotros"
+              href="https://www.salioviaje.com.uy/Traslado_PuntaDelEste"
+              title="Aquí te explicamos cómo te ayuda Salió Viaje"
+            >
+              <i class="fas fa-info"></i> Más Información
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--=====================================================================-->  
+    
+    
     
     <!-- <button class=Botones caseros -->
     <div class="agendarViaje">
