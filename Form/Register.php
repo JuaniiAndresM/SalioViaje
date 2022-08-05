@@ -72,7 +72,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
     <link rel="stylesheet" href="https://www.salioviaje.com.uy/styles/styles.min.css" />
 
     <!-- Scripts -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.salioviaje.com.uy/Plugins/JQuery/jquery.min.js"></script>
     <script
       src="https://kit.fontawesome.com/1e193e3a23.js"
       crossorigin="anonymous"

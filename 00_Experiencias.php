@@ -83,7 +83,7 @@
       src="https://kit.fontawesome.com/1e193e3a23.js"
       crossorigin="anonymous"
     ></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.salioviaje.com.uy/Plugins/JQuery/jquery.min.js"></script>
     <script src="https://www.salioviaje.com.uy/Javascript/web.js"></script>
     <!--//<script src="https://www.salioviaje.com.uy/Javascript/viajar.js"></script>-->
   </head>
@@ -139,6 +139,38 @@
     
     </section>
     <!-- Sección -->
+    <!--=====================================================================-->
+
+    <!-- Sección -->
+    <section class="sobre-nosotros-experiencias">
+      <div class="nosotros-wrapper-grid">
+        <div class="nosotros-left">
+          <div class="nosotros-img-wrapper">
+            <img class="" src="https://www.salioviaje.com.uy/media/images/Hotel Impala.webp" alt="Buenos Aires" title="Ciudad de Buenos Aires" />   
+          </div>
+        </div>
+        <div class="nosotros-right">
+          <div class="nosotros-info">
+            <h2>Buenos Aires a U$S 135. Escapada de fin de semana. Hotel incluido <span>| Salió Viaje.</span></h2>
+            <hr />
+            <h3 class="info">A un precio increíble, un paseo inolvidable.</h3>
+            
+            <a
+              class="button-nosotros"
+              href="https://www.salioviaje.com.uy/Reservas_Promo_Buenos_Aires"
+              title="Promo Buenos Aires | Salió Viaje"
+            >
+              <i class="fas fa-info"></i> Más Información
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--=====================================================================-->
+       <div class="experiencias-separador">
+      <hr>
+    </div>
+        <!-- Termina Sección -->
     <section class="sobre-nosotros-experiencias">
       <div class="nosotros-wrapper-grid">
         <div class="nosotros-left">
@@ -600,17 +632,15 @@
         </div>
       </div>
     </section>
-    <!--=====================================================================-->  
-    
-    
-    
+    <!-- ==================================================================== -->                
+
     <!-- <button class=Botones caseros -->
     <div class="agendarViaje">
       <div id="step_1">
         <button
           class="button-agendar"
           id="button_volver"
-          onclick="history.go(-1);"
+          onclick="history.go(-1);" title="Volver"
         >
           <i class="fas fa-arrow-circle-left"></i> Volver
         </button>
@@ -622,10 +652,10 @@
         >
           <i class="fas fa-arrow-circle-right"></i> Home
         </button>
-        <br />
+
       </div>
-      <!-- ==================================================================== -->
-    </div>
+    </div>         
+         <!-- ==================================================================== -->      
 
     <div id="footer"></div>
   </body>
