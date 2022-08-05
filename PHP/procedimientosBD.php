@@ -2013,4 +2013,25 @@ class procedimientosBD
         echo $stmt->error;
         $stmt->close();
     }
+
+    //traer_vehiculos_por_id_tta
+    public function traer_vehiculos_por_id_tta($id)
+    {
+        $raw_capacidades = array();
+        $vehiculos_capacidad = array();
+        $conn = $this->conexion();
+        $query = "SELECT Capacidad FROM `vehiculos` where ID_EMPRESA IN (SELECT ID from empresas where Usuario_ID = $id);";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($capacidad);
+            while ($stmt->fetch()) {
+                $result = array("CAPACIDAD" => $capacidad);
+                $raw_capacidades[] = $result;
+            }
+            $vehiculos_capacidad[$id] = $raw_capacidades;
+        }
+        $stmt->close();
+        return json_encode($vehiculos_capacidad);
+    }
 }

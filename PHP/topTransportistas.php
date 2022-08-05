@@ -108,21 +108,44 @@ if ($segundo_filtro != []) {
 
         $preferencias = json_decode($preferencias_bd->traer_preferencias_por_id_tta($segundo_filtro[$y]['ID']), true);
 
+        $capacidad_vehiculos = json_decode($preferencias_bd->traer_vehiculos_por_id_tta($segundo_filtro[$y]['ID']), true);
+
         if ($preferencias != []) {
             $tercer_filtro[] = $segundo_filtro[$y];
             //$top['Tercer filtro'] = $tercer_filtro;
         } else {
-            if (count($top) < 5) {
-                $top[] = array(
-                    "ID" => $segundo_filtro[$y]['ID'],
-                    "MAIL" => $segundo_filtro[$y]['MAIL'],
-                );
-                $preferencias_bd->guardar_seleccion_de_transportistas_ya_notificados($segundo_filtro[$y]['ID'], intval($_POST['id_viaje']), null);
-            }else if(count($top) < 30){
-                $preferencias_bd->guardar_seleccion_de_transportistas($segundo_filtro[$y]['ID'], intval($_POST['id_viaje']), null);
+
+            /**
+             * VERIFICAR CAPACIDADES DE VEHICULOS
+             */
+            $capacidad_valida = false;
+
+            if ($capacidad_vehiculos[$segundo_filtro[$y]['ID']] != null) {
+
+                for ($i = 0; $i < count($capacidad_vehiculos[$segundo_filtro[$y]['ID']]); $i++) {
+                    $capacidad = $capacidad_vehiculos[$segundo_filtro[$y]['ID']][$i]['CAPACIDAD'];
+
+                    if (intval($capacidad) >= intval($data["cantidad_pasajeros"])) {
+                        $capacidad_valida = true;
+                    }
+                }
+
+            }
+
+            if ($capacidad_valida == true) {
+                /**
+                 * GUARDAR TRANSPORTISTAS
+                 */
+                if (count($top) < 30) {
+                    $top[] = array(
+                        "ID" => $segundo_filtro[$y]['ID'],
+                        "MAIL" => $segundo_filtro[$y]['MAIL'],
+                        "ID_VIAJE" => intval($_POST['id_viaje']),
+                        "MATRICULA" => null
+                    );
+                }
             }
         }
-
     }
 }
 
@@ -175,38 +198,93 @@ if ($sexto_filtro != []) {
         //FILTRO PRECIO
         $PREFERENCIA_PRECIO_COCHE = json_decode($preferencias_bd->traer_preferencias_por_id_tta($sexto_filtro[$m]['ID']), true)[0]['PRECIO_DE_COCHE'];
         $MATRICULA = json_decode($preferencias_bd->traer_preferencias_por_id_tta($sexto_filtro[$m]['ID']), true)[0]['MATRICULA'];
+        //VERIFICAR CAPACIDAD
+        $capacidad_vehiculos = json_decode($preferencias_bd->traer_vehiculos_por_id_tta($sexto_filtro[$m]['ID']), true);
 
         if ($PREFERENCIA_PRECIO_COCHE == $hasta_4_pax) {
 
             $septimo_filtro[] = $sexto_filtro[$m];
             //$top['Septimo filtro'] = $septimo_filtro;
             //temporal
-            if (count($top) < 5) {
-                $top[] = array(
-                    "ID" => $sexto_filtro[$m]['ID'],
-                    "MAIL" => $sexto_filtro[$m]['MAIL'],
-                );
-                $preferencias_bd->guardar_seleccion_de_transportistas_ya_notificados($sexto_filtro[$m]['ID'], intval($_POST['id_viaje']), $MATRICULA);
-            }else if(count($top) < 30){
-                $preferencias_bd->guardar_seleccion_de_transportistas($sexto_filtro[$m]['ID'], intval($_POST['id_viaje']), $MATRICULA);
+
+            /**
+             * VERIFICAR CAPACIDADES DE VEHICULOS
+             */
+
+            $capacidad_valida = false;
+
+            if ($capacidad_vehiculos[$sexto_filtro[$m]['ID']] != null) {
+
+                for ($i = 0; $i < count($capacidad_vehiculos[$sexto_filtro[$m]['ID']]); $i++) {
+                    $capacidad = $capacidad_vehiculos[$sexto_filtro[$m]['ID']][$i]['CAPACIDAD'];
+
+                    if (intval($capacidad) >= intval($data["cantidad_pasajeros"])) {
+                        $capacidad_valida = true;
+                    }
+                }
+
             }
+
+            if ($capacidad_valida == true) {
+                /**
+                 * GUARDAR TRANSPORTISTAS
+                 */
+                if (count($top) < 30) {
+                    $top[] = array(
+                        "ID" => $sexto_filtro[$m]['ID'],
+                        "MAIL" => $sexto_filtro[$m]['MAIL'],
+                        "ID_VIAJE" => intval($_POST['id_viaje']),
+                        "MATRICULA" => $MATRICULA
+                    );    
+                }
+            }
+            /**
+             * FIN DE GUARDADO
+             */
         }
+    }
+}
+
+for ($i=0; $i < count($top); $i++) { 
+    if ($i < 5) {
+        $preferencias_bd->guardar_seleccion_de_transportistas_ya_notificados($top[$i]['ID'], $top[$i]['ID_VIAJE'], $MATRICULA);
+    } else {
+        $preferencias_bd->guardar_seleccion_de_transportistas($top[$i]['ID'], $top[$i]['ID_VIAJE'], $MATRICULA);
     }
 }
 
 echo json_encode($top);
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
 //RECORRE EL RESUTADO DEL SEPTIMO FILTRO
 if (isset($sexto_filtro)) {
-    for ($j = 0; $j < count($sexto_filtro); $j++) {
-        //FILTRO CAPACIDAD
-        $PREFERENCIA_PRECIO_COCHE = json_decode($preferencias_bd->traer_preferencias_por_id_tta($sexto_filtro[$j]['ID']), true)[0]['PRECIO_DE_COCHE'];
+for ($j = 0; $j < count($sexto_filtro); $j++) {
+//FILTRO CAPACIDAD
+$PREFERENCIA_PRECIO_COCHE = json_decode($preferencias_bd->traer_preferencias_por_id_tta($sexto_filtro[$j]['ID']), true)[0]['PRECIO_DE_COCHE'];
 
-        if ($PREFERENCIA_PRECIO_COCHE == $hasta_4_pax) {
-            $septimo_filtro[] = $sexto_filtro[$j];
-        }
-    }
+if ($PREFERENCIA_PRECIO_COCHE == $hasta_4_pax) {
+$septimo_filtro[] = $sexto_filtro[$j];
+}
+}
 }
 
 echo json_encode($top);
