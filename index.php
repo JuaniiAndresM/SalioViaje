@@ -404,7 +404,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
     </div>
 
     <section class="oportunidades" id="Oportunidades">
-      <h2><i class="fa-solid fa-tags icon"></i> Oportunidades (<span id="contador-oportunidades"></span>)</h2>
+      <h2><i class="fa-solid fa-tags icon"></i> Oportunidades (<span id="contador-oportunidades">0</span>)</h2>
       <hr />
       <p class="description">
         Conseguí las mejores oportunidades con nosotros.
