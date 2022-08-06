@@ -141,7 +141,7 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
 
                         <div class="links-wrapper">
 
-                            <img loading="lazy" src="https://www.salioviaje.com.uy/media/svg/Logo-SalioViaje.svg" alt="Logo | SalióViaje" title="Home | SalióViaje"width="60" height="60"/>
+                            <img loading="lazy" src="https://www.salioviaje.com.uy/media/svg/Logo-SalioViaje.svg" alt="Logo | SalióViaje" title="Home | SalióViaje" width="60" height="60"/>
 
                             <?php
 
@@ -1000,13 +1000,6 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
                   <div class="input">
                     <p><i class="fa-solid fa-globe"></i> Localidad</p>
                     <input list="Localidad" id="fiestasida_origen_localidad">
-                    <datalist id="Localidad">
-                      <option value="Localidad 1">
-                      <option value="Localidad 2">
-                      <option value="Localidad 3">
-                      <option value="Localidad 4">
-                      <option value="Localidad 5">
-                    </datalist>
                   </div>
 
                   <div class="input">
@@ -1047,13 +1040,6 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
                   <div class="input">
                     <p><i class="fa-solid fa-globe"></i> Localidad</p>
                     <input list="Localidad" id="fiestasvuelta_origen_localidad">
-                    <datalist id="Localidad">
-                      <option value="Localidad 1">
-                      <option value="Localidad 2">
-                      <option value="Localidad 3">
-                      <option value="Localidad 4">
-                      <option value="Localidad 5">
-                    </datalist>
                   </div>
 
                   <div class="input">
