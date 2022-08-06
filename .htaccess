@@ -75,6 +75,7 @@ RewriteRule ^Paseo_Colonia /00_Apoyo_TrasColonia.html
 RewriteRule ^Traslado_Equipo_Futbol /00_Apoyo_TrasEvDeport.html
 RewriteRule ^Traslado_Montevideo /00_Apoyo_TraslMontev.html
 RewriteRule ^Traslado_PuntaDelEste /00_Apoyo_TraslPunta.html
+RewriteRule ^Reservas_Promo_Buenos_Aires /00_Servicio_al_cliente_bue.html
 
 
 
