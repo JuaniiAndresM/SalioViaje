@@ -231,6 +231,9 @@ if ($_POST['tipo'] == 1) {
         case 'reconfirmar_cotizacion':
             echo $procedimientosForm->rechazarCotizacion($_POST['id'], $_POST['id_viaje']);
             break;
+        case 'filtros-admin':
+            echo $procedimientosForm->set_filtros_activos_admin($_POST['filtros']);
+            break;
     }
 
 }
