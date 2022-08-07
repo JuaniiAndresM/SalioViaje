@@ -87,7 +87,7 @@ $viajes = json_decode($viajes, true);
     <!-- Scripts -->
     <script src="https://unpkg.com/xlsx@0.16.9/dist/xlsx.full.min.js"></script>
     
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.salioviaje.com.uy/Plugins/JQuery/jquery.min.js"></script>
     <script
       src="https://kit.fontawesome.com/1e193e3a23.js"
       crossorigin="anonymous"

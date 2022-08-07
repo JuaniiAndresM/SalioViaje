@@ -10,7 +10,7 @@ $contraste_2: #ffffff;
 
 //------[Imports]------
 
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500;600;700;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500;600;700;900&display=swap');
 
 @import "components/index";
 @import "components/header";
@@ -105,3 +105,42 @@ body {
   transform: rotate(45deg) translate(-8px, -8px);
 
 }
+
+//------[Fonts]------
+
+// @font-face {
+//   font-family: "Montserrat";
+//   src: url("/media/fonts/Montserrat-Thin.ttf") format("truetype");
+//   font-display: swap;
+//   font-weight: 100;
+// }
+// @font-face {
+//   font-family: "Montserrat";
+//   src: url("/media/fonts/Montserrat-Light.ttf") format("truetype");
+//   font-display: swap;
+//   font-weight: 300;
+// }
+// @font-face {
+//   font-family: "Montserrat";
+//   src: url("/media/fonts/Montserrat-Medium.ttf") format("truetype");
+//   font-display: swap;
+//   font-weight: 500;
+// }
+// @font-face {
+//   font-family: "Montserrat";
+//   src: url("/media/fonts/Montserrat-SemiBold.ttf") format("truetype");
+//   font-display: swap;
+//   font-weight: 600;
+// }
+// @font-face {
+//   font-family: "Montserrat";
+//   src: url("/media/fonts/Montserrat-Bold.ttf") format("truetype");
+//   font-display: swap;
+//   font-weight: 700;
+// }
+// @font-face {
+//   font-family: "Montserrat";
+//   src: url("/media/fonts/Montserrat-Black.ttf") format("truetype");
+//   font-display: swap;
+//   font-weight: 800;
+// }

@@ -75,6 +75,8 @@ RewriteRule ^Paseo_Colonia /00_Apoyo_TrasColonia.html
 RewriteRule ^Traslado_Equipo_Futbol /00_Apoyo_TrasEvDeport.html
 RewriteRule ^Traslado_Montevideo /00_Apoyo_TraslMontev.html
 RewriteRule ^Traslado_PuntaDelEste /00_Apoyo_TraslPunta.html
+RewriteRule ^Reservas_Promo_Buenos_Aires /Promo_BUE.html
+RewriteRule ^Info_Promo_Buenos_Aires /00_Servicio_al_cliente_bue.html
 
 
 
@@ -89,5 +91,16 @@ RewriteRule ^/?$ "https\:\/\/www\.salioviaje\.com\.uy\/" [R=301,L]
 # Set the “ea-php74” package as the default “PHP” programming language.
 <IfModule mime_module>
   AddHandler application/x-httpd-ea-php74 .php .php7 .phtml
+</IfModule>
+<IfModule mod_headers.c>
+    # WEEK
+    <FilesMatch "\.(jpg|jpeg|png|gif|swf)$">
+        Header set Cache-Control "max-age=31536000, public"
+    </FilesMatch>
+
+    # WEEK
+    <FilesMatch "\.(js|css|swf)$">
+        Header set Cache-Control "max-age=31536000"
+    </FilesMatch>
 </IfModule>
 # php -- END cPanel-generated handler, do not edit
