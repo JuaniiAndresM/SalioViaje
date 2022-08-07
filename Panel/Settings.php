@@ -280,11 +280,11 @@ session_set_cookie_params($ttl);
           <?php 
           if($checkFiltros['NOCTURNO'] == 1){
             ?>
-            <input type="checkbox" name="" id="nocturno" checked>
+            <input type="checkbox" name="" class="checkbox-filtros" id="nocturno" checked>
             <?php 
           }else {
             ?>
-            <input type="checkbox" name="" id="nocturno">
+            <input type="checkbox" name="" class="checkbox-filtros" id="nocturno">
             <?php 
           }
           ?>
@@ -294,11 +294,11 @@ session_set_cookie_params($ttl);
         <?php 
           if($checkFiltros['FIESTAS'] == 1){
             ?>
-            <input type="checkbox" name="" id="fiestas" checked>
+            <input type="checkbox" name="" class="checkbox-filtros" id="fiestas" checked>
             <?php 
           }else {
             ?>
-            <input type="checkbox" name="" id="fiestas" >
+            <input type="checkbox" name="" class="checkbox-filtros" id="fiestas" >
             <?php 
           }
           ?>
@@ -308,11 +308,11 @@ session_set_cookie_params($ttl);
         <?php 
           if($checkFiltros['DIA_LIBRE'] == 1){
             ?>
-            <input type="checkbox" name="" id="dia_libre" checked>
+            <input type="checkbox" name="" class="checkbox-filtros" id="dia_libre" checked>
             <?php 
           }else {
             ?>
-            <input type="checkbox" name="" id="dia_libre" >
+            <input type="checkbox" name="" class="checkbox-filtros" id="dia_libre" >
             <?php 
           }
           ?>
@@ -322,11 +322,11 @@ session_set_cookie_params($ttl);
         <?php 
           if($checkFiltros['PRECIO'] == 1){
             ?>
-            <input type="checkbox" name="" id="precio" checked>
+            <input type="checkbox" name="" class="checkbox-filtros" id="precio" checked>
             <?php 
           }else {
             ?>
-            <input type="checkbox" name="" id="precio" >
+            <input type="checkbox" name="" class="checkbox-filtros" id="precio" >
             <?php 
           }
           ?>
@@ -336,11 +336,11 @@ session_set_cookie_params($ttl);
         <?php 
           if($checkFiltros['MOROSO'] == 1){
             ?>
-            <input type="checkbox" name="" id="moroso" checked>
+            <input type="checkbox" name="" class="checkbox-filtros" id="moroso" checked>
             <?php 
           }else {
             ?>
-            <input type="checkbox" name="" id="moroso" >
+            <input type="checkbox" name="" class="checkbox-filtros" id="moroso" >
             <?php 
           }
           ?>
@@ -350,11 +350,11 @@ session_set_cookie_params($ttl);
         <?php 
           if($checkFiltros['CAPACIDAD'] == 1){
             ?>
-          <input type="checkbox" name="" id="capacidad" checked>
+          <input type="checkbox" name="" class="checkbox-filtros" id="capacidad" checked>
             <?php 
           }else {
             ?>
-          <input type="checkbox" name="" id="capacidad" >
+          <input type="checkbox" name="" class="checkbox-filtros" id="capacidad" >
             <?php 
           }
           ?>
@@ -364,11 +364,11 @@ session_set_cookie_params($ttl);
         <?php 
           if($checkFiltros['PET_FRIENDLY'] == 1){
             ?>
-          <input type="checkbox" name="" id="pet_friendly" checked>
+          <input type="checkbox" name="" class="checkbox-filtros" id="pet_friendly" checked>
             <?php 
           }else {
             ?>
-          <input type="checkbox" name="" id="pet_friendly" >
+          <input type="checkbox" name="" class="checkbox-filtros" id="pet_friendly" >
             <?php 
           }
           ?>
@@ -378,11 +378,11 @@ session_set_cookie_params($ttl);
         <?php 
           if($checkFiltros['OCUPADO'] == 1){
             ?>
-          <input type="checkbox" name="" id="ocupado" checked>
+          <input type="checkbox" name="" class="checkbox-filtros" id="ocupado" checked>
             <?php 
           }else {
             ?>
-          <input type="checkbox" name="" id="ocupado" >
+          <input type="checkbox" name="" class="checkbox-filtros" id="ocupado" >
             <?php 
           }
           ?>
@@ -392,11 +392,11 @@ session_set_cookie_params($ttl);
         <?php 
           if($checkFiltros['PATA'] == 1){
             ?>
-          <input type="checkbox" name="" id="pata" checked>
+          <input type="checkbox" name="" class="checkbox-filtros" id="pata" checked>
             <?php 
           }else {
             ?>
-          <input type="checkbox" name="" id="pata" >
+          <input type="checkbox" name="" class="checkbox-filtros" id="pata" >
             <?php 
           }
           ?>
@@ -467,8 +467,28 @@ session_set_cookie_params($ttl);
     </section>
   </body>
   <script>
-    $("checkbox").on("change", function() {
-      console.log("hola")
+    $(".checkbox-filtros").on("change", function() {
+      
+      let filtros = {
+        "NOCTURNO" : $("#nocturno").prop('checked') == true ? 1 : 0,
+        "FIESTAS" : $("#fiestas").prop('checked') == true ? 1 : 0,
+        "DIA_LIBRE" : $("#dia_libre").prop('checked') == true ? 1 : 0,
+        "PRECIO" : $("#precio").prop('checked') == true ? 1 : 0,
+        "MOROSO" : $("#moroso").prop('checked') == true ? 1 : 0,
+        "CAPACIDAD" : $("#capacidad").prop('checked') == true ? 1 : 0,
+        "PET_FRIENDLY" : $("#pet_friendly").prop('checked') == true ? 1 : 0,
+        "OCUPADO" : $("#ocupado").prop('checked') == true ? 1 : 0,
+        "PATA" : $("#pata").prop('checked') == true ? 1 : 0
+      }
+
+      $.ajax({
+        type: "POST",
+        url: "../PHP/procedimientosForm.php",
+        data: {"filtros": JSON.stringify(filtros), "tipo": "filtros-admin"},
+        success: function (response) {
+          console.log(response)
+        }
+      });
     })
   </script>
 </html>
