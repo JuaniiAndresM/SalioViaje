@@ -2034,4 +2034,42 @@ class procedimientosBD
         $stmt->close();
         return json_encode($vehiculos_capacidad);
     }
+
+    public function set_filtros_activos_admin($filtros_Activos){
+
+        $filtros_Activos = json_decode($filtros_Activos, true);
+
+        $NOCTURNO = $filtros_Activos['NOCTURNO'];
+        $FIESTAS = $filtros_Activos['FIESTAS'];
+        $DIA_LIBRE = $filtros_Activos['DIA_LIBRE'];
+        $PRECIO = $filtros_Activos['PRECIO'];
+        $MOROSO = $filtros_Activos['MOROSO'];
+        $CAPACIDAD = $filtros_Activos['CAPACIDAD'];
+        $PET_FRIENDLY = $filtros_Activos['PET_FRIENDLY'];
+        $OCUPADO = $filtros_Activos['OCUPADO'];
+        $PATA = $filtros_Activos['PATA'];
+
+        $conn = $this->conexion();
+        $query = "UPDATE `filtros_activos_admin` SET `NOCTURNO` = $NOCTURNO, `FIESTAS` = $FIESTAS, `DIA_LIBRE` = $DIA_LIBRE, `PRECIO_COCHE` = $PRECIO ,`MOROSO` = $MOROSO, `CAPACIDAD` = $CAPACIDAD, `PET_FRIENDLY` = $PET_FRIENDLY, `OCUPADO` = $OCUPADO, `PATA` = $PATA;";
+        $stmt = $conn->prepare($query);
+        $stmt->execute();
+        echo $stmt->error;
+        $stmt->close();
+    }
+
+    public function get_filtros_activos_admin()
+    {
+        $conn = $this->conexion();
+        $query = "SELECT * FROM `filtros_activos_admin`;";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($nocturno, $fiestas, $dia_libre, $precio_coche, $moroso, $capacidad, $pet_friendly, $ocupado, $pata);
+            while ($stmt->fetch()) {
+                $result = array("NOCTURNO" => $nocturno,"FIESTAS" => $fiestas,"DIA_LIBRE" => $dia_libre,"PRECIO" => $precio_coche,"MOROSO" => $moroso,"CAPACIDAD" => $capacidad,"PET_FRIENDLY" => $pet_friendly,"OCUPADO" => $ocupado,"PATA" => $pata);
+            }
+        }
+        $stmt->close();
+        return json_encode($result);
+    }
 }

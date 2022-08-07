@@ -13,6 +13,10 @@ session_set_cookie_params($ttl);
     }
   }
 
+  require_once '../PHP/procedimientosBD.php';
+  $filtros = new procedimientosBD();
+
+  $checkFiltros = json_decode($filtros->get_filtros_activos_admin(), true);
 ?>
 
 <!DOCTYPE html>
@@ -273,42 +277,132 @@ session_set_cookie_params($ttl);
       <div id="configuracion-filtrado">
         <h2><i class="fa-solid fa-arrow-down-short-wide"></i> Configuración Filtrado</h2>
         <div class="input check">
-          <input type="checkbox" name="" id="" checked>
+          <?php 
+          if($checkFiltros['NOCTURNO'] == 1){
+            ?>
+            <input type="checkbox" name="" id="nocturno" checked>
+            <?php 
+          }else {
+            ?>
+            <input type="checkbox" name="" id="nocturno">
+            <?php 
+          }
+          ?>
           <p>Nocturno</p>
         </div>
         <div class="input check">
-          <input type="checkbox" name="" id="" checked>
+        <?php 
+          if($checkFiltros['FIESTAS'] == 1){
+            ?>
+            <input type="checkbox" name="" id="fiestas" checked>
+            <?php 
+          }else {
+            ?>
+            <input type="checkbox" name="" id="fiestas" >
+            <?php 
+          }
+          ?>
           <p>Fiestas</p>
         </div>
         <div class="input check">
-          <input type="checkbox" name="" id="" checked>
+        <?php 
+          if($checkFiltros['DIA_LIBRE'] == 1){
+            ?>
+            <input type="checkbox" name="" id="dia_libre" checked>
+            <?php 
+          }else {
+            ?>
+            <input type="checkbox" name="" id="dia_libre" >
+            <?php 
+          }
+          ?>
           <p>Día Libre</p>
         </div>
         <div class="input check">
-          <input type="checkbox" name="" id="" checked>
+        <?php 
+          if($checkFiltros['PRECIO'] == 1){
+            ?>
+            <input type="checkbox" name="" id="precio" checked>
+            <?php 
+          }else {
+            ?>
+            <input type="checkbox" name="" id="precio" >
+            <?php 
+          }
+          ?>
           <p>Precio del Coche</p>
         </div>
         <div class="input check">
-          <input type="checkbox" name="" id="" checked>
+        <?php 
+          if($checkFiltros['MOROSO'] == 1){
+            ?>
+            <input type="checkbox" name="" id="moroso" checked>
+            <?php 
+          }else {
+            ?>
+            <input type="checkbox" name="" id="moroso" >
+            <?php 
+          }
+          ?>
           <p>Moroso</p>
         </div>
         <div class="input check">
-          <input type="checkbox" name="" id="" checked>
+        <?php 
+          if($checkFiltros['CAPACIDAD'] == 1){
+            ?>
+          <input type="checkbox" name="" id="capacidad" checked>
+            <?php 
+          }else {
+            ?>
+          <input type="checkbox" name="" id="capacidad" >
+            <?php 
+          }
+          ?>
           <p>Capacidad</p>
         </div>
         <div class="input check">
-          <input type="checkbox" name="" id="" checked>
+        <?php 
+          if($checkFiltros['PET_FRIENDLY'] == 1){
+            ?>
+          <input type="checkbox" name="" id="pet_friendly" checked>
+            <?php 
+          }else {
+            ?>
+          <input type="checkbox" name="" id="pet_friendly" >
+            <?php 
+          }
+          ?>
           <p>Pet Friendly</p>
         </div>
         <div class="input check">
-          <input type="checkbox" name="" id="" checked>
+        <?php 
+          if($checkFiltros['OCUPADO'] == 1){
+            ?>
+          <input type="checkbox" name="" id="ocupado" checked>
+            <?php 
+          }else {
+            ?>
+          <input type="checkbox" name="" id="ocupado" >
+            <?php 
+          }
+          ?>
           <p>Ocupado</p>
         </div>
         <div class="input check">
-          <input type="checkbox" name="" id="" checked>
+        <?php 
+          if($checkFiltros['PATA'] == 1){
+            ?>
+          <input type="checkbox" name="" id="pata" checked>
+            <?php 
+          }else {
+            ?>
+          <input type="checkbox" name="" id="pata" >
+            <?php 
+          }
+          ?>
           <p>Pata del Viaje</p>
         </div>
-        <button><i class="fas fa-save"></i> Guardar</button>
+        <!-- <button><i class="fas fa-save"></i> Guardar</button> -->
       </div>
     </div>
 
@@ -372,4 +466,9 @@ session_set_cookie_params($ttl);
       </div>
     </section>
   </body>
+  <script>
+    $("checkbox").on("change", function() {
+      console.log("hola")
+    })
+  </script>
 </html>
