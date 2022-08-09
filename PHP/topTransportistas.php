@@ -257,36 +257,6 @@ for ($i = 0; $i < count($top); $i++) {
 echo json_encode($top);
 
 /*
-//RECORRE EL RESUTADO DEL SEPTIMO FILTRO
-if (isset($sexto_filtro)) {
-for ($j = 0; $j < count($sexto_filtro); $j++) {
-//FILTRO CAPACIDAD
-$PREFERENCIA_PRECIO_COCHE = json_decode($preferencias_bd->traer_preferencias_por_id_tta($sexto_filtro[$j]['ID']), true)[0]['PRECIO_DE_COCHE'];
-
-if ($PREFERENCIA_PRECIO_COCHE == $hasta_4_pax) {
-$septimo_filtro[] = $sexto_filtro[$j];
-}
-}
-}
-
-echo json_encode($top);
-
-/*
-
-if ($i <= 5) {
-$preferencias_bd->guardar_seleccion_de_transportistas_ya_notificados($transportistas[$i]['ID'], intval($_POST['id_viaje']), null);
-} else {
-$preferencias_bd->guardar_seleccion_de_transportistas($transportistas[$i]['ID'], intval($_POST['id_viaje']), null);
-}
-
-$preferencias_bd->traer_tranportistas()
-
-$result = array(
-"ID" => $transportistas[$i]['ID'],
-"MAIL" => $transportistas[$i]['MAIL']
-);
-
-$top[] = $result;
 
 verifico dos situaciones:
 
