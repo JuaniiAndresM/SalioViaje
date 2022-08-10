@@ -50,6 +50,8 @@ if (isset($data['fecha_vuelta'])) {
     $dia = $dias[(date('N', strtotime($data['fecha']))) - 1];
 }
 
+echo $data['mascotas'];
+
 $top = array();
 
 if ($checkFiltros['MOROSO'] == 1) {
@@ -164,6 +166,20 @@ if ($checkFiltros['OCUPADO'] == 1) {
 
         if ($OCUPADO == 0) {
             $result[] = $transportistas[$h];
+        }
+    }
+    $transportistas = $result;
+}
+
+if ($checkFiltros['PET_FRIENDLY'] == 1) {
+    $result = array();
+    for ($h = 0; $h < count($transportistas); $h++) {
+        //FILTRO NOCTURNO
+        $PREFERENCIA_NOCTURNO = json_decode($preferencias_bd->traer_preferencias_por_id_tta($transportistas[$h]['ID']), true)[0]['NOCTURNO'];
+
+        if ($PREFERENCIA_NOCTURNO == $nocturno) {
+            $result[] = $transportistas[$h];
+            //$top['Cuarto filtro'] = $cuarto_filtro;
         }
     }
     $transportistas = $result;

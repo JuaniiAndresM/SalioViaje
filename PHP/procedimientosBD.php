@@ -2076,7 +2076,7 @@ class procedimientosBD
     public function filtrar_ocupados($OCUPADO_IDA, $OCUPADO_VUELTA, $TTA)
     {
         $conn = $this->conexion();
-        $query = "SELECT count(*) FROM `viajes` where Fecha = '$OCUPADO_IDA' OR Fecha = '$OCUPADO_VUELTA' AND idTransportista = $TTA;";
+        $query = "SELECT count(*) FROM `viajes` where Fecha >= '$OCUPADO_IDA' AND Fecha <= '$OCUPADO_VUELTA' AND idTransportista = $TTA;";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
@@ -2089,4 +2089,19 @@ class procedimientosBD
         return $result;
     }
 
+    public function filtro_vehiculo_pet_friendly($TTA)
+    {
+        $conn = $this->conexion();
+        $query = "SELECT count(*) FROM `viajes` where Fecha = '$OCUPADO_IDA' OR Fecha = '$OCUPADO_VUELTA' AND idTransportista = $TTA;";
+        $stmt = $conn->prepare($query);
+        if ($stmt->execute()) {
+            $stmt->store_result();
+            $stmt->bind_result($OCUPADO);
+            while ($stmt->fetch()) {
+                $result = $OCUPADO;
+            }
+        }
+        $stmt->close();
+        return $result;
+    }
 }

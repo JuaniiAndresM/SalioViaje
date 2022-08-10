@@ -1470,7 +1470,6 @@ function notificarTransportistas() {
             "mascotas": document.getElementById(id_inputs[3]).value,
             "origen": document.getElementById(id_inputs[4]).value,
             "destino": document.getElementById(id_inputs[5]).value,
-            "pet_friendly": document.getElementById(id_inputs[6]).value,
             "fiesta": viaje_de_tipo_fiesta
         }
         transportistasAptos(datos, false)
@@ -1538,10 +1537,10 @@ function enviarMailsTransportistas(transportistas) {
 function tipoViaje(tipo) {
     switch (tipo) {
         case "1":
-            inputs = ['fecha_salida', 'hora', 'cant_pasajeros', 'mascotas_traslado', 'localidad_traslado_origen', 'localidad_traslado_destino', 'mascotas_traslado']
+            inputs = ['fecha_salida', 'hora', 'cant_pasajeros', 'mascotas_traslado', 'localidad_traslado_origen', 'localidad_traslado_destino']
             break;
         case "2":
-            inputs = ['fecha_salida_tour', 'hora_tour', 'cant_pasajeros_tour', 'mascota_tour', 'localidad_tour', 'destino_tour', 'mascota_tour']
+            inputs = ['fecha_salida_tour', 'hora_tour', 'cant_pasajeros_tour', 'mascota_tour', 'localidad_tour', 'destino_tour']
             break;
         case "3":
             if (document.getElementById("select_transfer").value == 1) {
