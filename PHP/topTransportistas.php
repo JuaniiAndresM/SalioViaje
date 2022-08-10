@@ -52,7 +52,6 @@ if (isset($data['fecha_vuelta'])) {
 
 $top = array();
 
-//RECORRE ARRAY DE TRANSPORTISTAS
 if ($checkFiltros['MOROSO'] == 1) {
     $result = array();
     for ($i = 0; $i < count($transportistas); $i++) {
@@ -65,8 +64,7 @@ if ($checkFiltros['MOROSO'] == 1) {
     }
     $transportistas = $result;
 }
-//RECORRE EL RESULTADO DEL PRIMER FILTRADO
-//echo json_encode($primer_filtro);
+
 if ($checkFiltros['PATA'] == 1) {
     $result = array();
     for ($x = 0; $x < count($transportistas); $x++) {
@@ -83,8 +81,6 @@ if ($checkFiltros['PATA'] == 1) {
     $transportistas = $result;
 }
 
-//RECORRE EL RESULTADO DEL SEGUNDO FILTRO
-//echo json_encode($segundo_filtro);
 if ($transportistas != []) {
     $result = array();
     for ($y = 0; $y < count($transportistas); $y++) {
@@ -137,8 +133,6 @@ if ($transportistas != []) {
     $transportistas = $result;
 }
 
-//RECORRE EL RESUTADO DEL TERCER FILTRO
-//echo json_encode($tercer_filtro);
 if ($checkFiltros['NOCTURNO'] == 1) {
     $result = array();
     for ($h = 0; $h < count($transportistas); $h++) {
@@ -153,8 +147,28 @@ if ($checkFiltros['NOCTURNO'] == 1) {
     $transportistas = $result;
 }
 
-//RECORRE EL RESUTADO DEL CUARTO FILTRO
-//echo json_encode($cuarto_filtro);
+if ($checkFiltros['OCUPADO'] == 1) {
+    $result = array();
+
+    if ($data['origen'] == "MONTEVIDEO" || $data['origen'] == "CANELONES" || $data['origen'] == "SAN JOSE" && $data['destino'] == "MONTEVIDEO" || $data['destino'] == "CANELONES" || $data['destino'] == "SAN JOSE") {
+        $OCUPADO_IDA = date('Y-m-d h:i', strtotime($data['fecha']." ".$data['hora']." -30 minutes"));
+        $OCUPADO_VUELTA = date('Y-m-d h:i', strtotime($data['fecha']." ".$data['hora']." +2 hours"));
+    }else{
+        $OCUPADO_IDA = date('Y-m-d h:i', strtotime($data['fecha']." ".$data['hora']." -1 hours"));
+        $OCUPADO_VUELTA = date('Y-m-d h:i', strtotime($data['fecha']." ".$data['hora']." +5 hours"));
+    }
+
+    for ($h = 0; $h < count($transportistas); $h++) {
+        //FILTRO OCUPADO
+        $OCUPADO = $preferencias_bd->filtrar_ocupados($OCUPADO_IDA, $OCUPADO_VUELTA, $transportistas[$h]['ID']);
+
+        if ($OCUPADO == 0) {
+            $result[] = $transportistas[$h];
+        }
+    }
+    $transportistas = $result;
+}
+
 if ($checkFiltros['FIESTAS'] == 1) {
     $result = array();
     for ($l = 0; $l < count($transportistas); $l++) {
@@ -169,8 +183,6 @@ if ($checkFiltros['FIESTAS'] == 1) {
     $transportistas = $result;
 }
 
-//RECORRE EL RESUTADO DEL QUINTO FILTRO
-//echo json_encode($quinto_filtro);
 if ($checkFiltros['DIA_LIBRE'] == 1) {
     $result = array();
     for ($v = 0; $v < count($transportistas); $v++) {
@@ -185,8 +197,6 @@ if ($checkFiltros['DIA_LIBRE'] == 1) {
     $transportistas = $result;
 }
 
-//RECORRE EL RESUTADO DEL SEXTO FILTRO
-//echo json_encode($sexto_filtro);
 if ($checkFiltros['PRECIO'] == 1) {
     $result = array();
     for ($m = 0; $m < count($transportistas); $m++) {
@@ -202,6 +212,10 @@ if ($checkFiltros['PRECIO'] == 1) {
     }
     $transportistas = $result;
 }
+
+
+
+
 
 /**
  * creo array top
