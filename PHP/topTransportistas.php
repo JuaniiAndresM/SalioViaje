@@ -50,8 +50,6 @@ if (isset($data['fecha_vuelta'])) {
     $dia = $dias[(date('N', strtotime($data['fecha']))) - 1];
 }
 
-echo $data['mascotas'];
-
 $top = array();
 
 if ($checkFiltros['MOROSO'] == 1) {
