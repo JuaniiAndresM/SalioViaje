@@ -175,11 +175,10 @@ if ($checkFiltros['PET_FRIENDLY'] == 1) {
     $result = array();
     for ($h = 0; $h < count($transportistas); $h++) {
         //FILTRO NOCTURNO
-        $PREFERENCIA_NOCTURNO = json_decode($preferencias_bd->traer_preferencias_por_id_tta($transportistas[$h]['ID']), true)[0]['NOCTURNO'];
+        $PREFERENCIA_PET_FRIENDLY = $preferencias_bd->traer_preferencias_por_id_tta($data['mascotas'], $transportistas[$h]['ID']);
 
-        if ($PREFERENCIA_NOCTURNO == $nocturno) {
+        if ($PREFERENCIA_PET_FRIENDLY != 0 ) {
             $result[] = $transportistas[$h];
-            //$top['Cuarto filtro'] = $cuarto_filtro;
         }
     }
     $transportistas = $result;
