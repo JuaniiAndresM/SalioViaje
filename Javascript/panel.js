@@ -128,6 +128,10 @@ function buscarUsuarios(buscador, filter) {
             table = document.getElementById("search-table-permisosmtop");
             tdlength = 4;
             break;
+        case 12:
+            table = document.getElementById("tbody-cotizaciones-recibidas");
+            tdlength = 7;
+            break;
     }
 
     tr = table.getElementsByTagName("tr");

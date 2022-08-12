@@ -143,7 +143,7 @@ $COTIZACIONES = json_decode($BD->traer_cotizaciones_recibidas_por_id_solicitante
                 type="text"
                 placeholder="Buscar"
                 id="searchbar"
-                onkeyup="buscarUsuarios(5)"
+                onkeyup="buscarUsuarios(12)"
               />
             </div>
             <!-- <div class="filters2">
