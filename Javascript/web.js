@@ -89,8 +89,8 @@ function comprar_oportunidad(id, step){
         });
     }else{
         abrir_ventana(id);
-        comprar_oportunidad_function(id);
         closeModal();
+        comprar_oportunidad_function(id);
     }
     
 }
