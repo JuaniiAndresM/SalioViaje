@@ -995,12 +995,14 @@ function select_fiesta() {
     $('#fiesta_ida').hide();
     $('#fiesta_vuelta').hide();
     $('#fiesta_idavuelta').hide();
+    $("#paradas_ida").show();
 
     switch (tipo) {
         case "1":
             $('#fiesta_ida').show();
             $('#fiesta_vuelta').hide();
             $('#fiesta_idavuelta').hide();
+            $("#paradas_vuelta").hide();
             $('.step_3').show();
             break;
 
@@ -1008,6 +1010,8 @@ function select_fiesta() {
             $('#fiesta_ida').hide();
             $('#fiesta_vuelta').show();
             $('#fiesta_idavuelta').hide();
+            $("#paradas_ida").hide();
+            $("#paradas_vuelta").show();
             $('.step_3').show();
             break;
 
@@ -1015,6 +1019,7 @@ function select_fiesta() {
             $('#fiesta_ida').hide();
             $('#fiesta_vuelta').hide();
             $('#fiesta_idavuelta').show();
+            $("#paradas_vuelta").show();
             $('.step_3').show();
             break;
 
