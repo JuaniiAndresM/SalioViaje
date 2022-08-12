@@ -13,7 +13,7 @@ session_set_cookie_params($ttl);
 
 $BD = new procedimientosBD();
 
-$COTIZACIONES = json_decode($BD->traer_cotizaciones_presentadas_por_id_tta($_SESSION['datos_usuario']['ID']), true);
+$COTIZACIONES = json_decode($BD->traer_cotizaciones_recibidas_por_id_solicitante($_SESSION['datos_usuario']['ID']), true);
 
 ?>
 
@@ -91,6 +91,7 @@ $COTIZACIONES = json_decode($BD->traer_cotizaciones_presentadas_por_id_tta($_SES
     <script src="https://www.salioviaje.com.uy/Javascript/panel.js"></script>
     <script src="https://www.salioviaje.com.uy/Javascript/settings.js"></script>
     <script src="https://www.salioviaje.com.uy/Javascript/loader.js"></script>
+    <script src="https://www.salioviaje.com.uy/Javascript/cotizaciones.js"></script>
     <script type="text/javascript">
     </script>
   </head>
@@ -103,6 +104,8 @@ $COTIZACIONES = json_decode($BD->traer_cotizaciones_presentadas_por_id_tta($_SES
         <div></div>
       </div>
     </div>
+
+    <div id="modal"></div>
 
     <header class="panel-header" id="header">
       <div class="header-left">
@@ -176,18 +179,46 @@ $COTIZACIONES = json_decode($BD->traer_cotizaciones_presentadas_por_id_tta($_SES
             <table class="usuarios-table" id="search-cotizaciones-recibidas-table">
               <thead>
                 <tr>
-                  <th id="ID">ID <i class="fas fa-angle-down"></i></th>
-                  <th>Origen <i class="fas fa-angle-down"></i></th>
-                  <th>Destino <i class="fas fa-angle-down"></i></th>
-                  <th>Fecha <i class="fas fa-angle-down"></i></th>
+                  <th id="ID">ID Viaje<i class="fas fa-angle-down"></i></th>
+                  <th>ID Cotización<i class="fas fa-angle-down"></i></th>
+                  <th>Reputación <i class="fas fa-angle-down"></i></th>
+                  <th>Marca / Modelo <i class="fas fa-angle-down"></i></th>
                   <th>Capacidad <i class="fas fa-angle-down"></i></th>
                   <th>Seña <i class="fas fa-angle-down"></i></th>
                   <th>Precio <i class="fas fa-angle-down"></i></th>
-                  <th>Reputación <i class="fas fa-angle-down"></i></th>
                   <th></th>
                 </tr>
               </thead>
               <tbody id="tbody-cotizaciones-recibidas">
+              <?php
+                for ($i=0; $i < count($COTIZACIONES); $i++) { 
+                  ?>
+                  <tr>
+                    <td><?php echo $COTIZACIONES[$i]['ID_VIAJE_COTIZADO']; ?></td>
+                    <td><?php echo $COTIZACIONES[$i]['ID']; ?></td>
+                    <td>
+                      <div class="reputacion">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half"></i>
+                      </div>
+                    </td>
+                    <td><?php echo $COTIZACIONES[$i]['MARCA']; ?>, <?php echo $COTIZACIONES[$i]['MODELO']; ?></td>
+                    <td><?php echo $COTIZACIONES[$i]['CAPACIDAD']; ?></td>
+                    <td>$<?php echo number_format( $COTIZACIONES[$i]["SENIA"], 0,'','.') ?></td>
+                    <td>$<?php echo number_format( $COTIZACIONES[$i]["PRECIO"], 0,'','.') ?></td>
+                    <td>
+                      <div class="button-wrapper">
+                        <button class="button tooltip left" data-tooltip="Aceptar Cotización" onclick="aceptarCotizacion(<?php echo $COTIZACIONES[$i]['ID']. ',' . $COTIZACIONES[$i]['ID_VIAJE_COTIZADO'] . ',1' ?>)"><i class="fas fa-dollar-sign"></i></button>
+                        <button class="button tooltip left" data-tooltip="Rechazar Cotización" onclick="eliminarCotizacion(<?php echo $COTIZACIONES[$i]['ID'] ?>)"><i class="fas fa-ban"></i></button>
+                      </div>
+                    </td>
+                  </tr>
+                <?php
+                }
+                ?>
               </tbody>
             </table>
           </div>
