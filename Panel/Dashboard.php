@@ -511,8 +511,11 @@ session_set_cookie_params($ttl);
                           </th>
                           <th>Destino <i class="fas fa-angle-down"></i></th>
                           <th>Fecha <i class="fas fa-angle-down"></i></th>
-                          <th>Estado <i class="fas fa-angle-down"></i></th>
+                          <th>Hora <i class="fas fa-angle-down"></i></th>
+                          <th>Cantidad Pasajeros <i class="fas fa-angle-down"></i></th>
                           <th>Modalidad <i class="fas fa-angle-down"></i></th>
+                          <th>Estado <i class="fas fa-angle-down"></i></th>
+                          <th>Precio <i class="fas fa-angle-down"></i></th>
                           <th></th>
                         </tr>
                       </thead>
@@ -590,15 +593,17 @@ session_set_cookie_params($ttl);
                             <div class="table-container">
                               <table class="usuarios-table" id="search-table-agenda">
                                 <thead>
-                                  <tr>
-                                    <th>ID <i class="fas fa-angle-down"></i></th>
+                                  <th>ID <i class="fas fa-angle-down"></i></th>
                                     <th>
                                       Origen <i class="fas fa-angle-down"></i>
                                     </th>
                                     <th>Destino <i class="fas fa-angle-down"></i></th>
                                     <th>Fecha <i class="fas fa-angle-down"></i></th>
-                                    <th>Estado <i class="fas fa-angle-down"></i></th>
+                                    <th>Hora <i class="fas fa-angle-down"></i></th>
+                                    <th>Cantidad Pasajeros <i class="fas fa-angle-down"></i></th>
                                     <th>Modalidad <i class="fas fa-angle-down"></i></th>
+                                    <th>Estado <i class="fas fa-angle-down"></i></th>
+                                    <th>Precio <i class="fas fa-angle-down"></i></th>
                                     <th></th>
                                   </tr>
                                 </thead>
