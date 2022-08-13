@@ -37,9 +37,9 @@ $(document).ready(function () {
 let checkScroll = () => {
     const scrollInput = $(`.scroll-input`).val();
 
-    if(scrollInput != null && scrollInput != ``){
+    if (scrollInput != null && scrollInput != ``) {
         let elementTop = document.getElementById(`${scrollInput}`).getBoundingClientRect().top + window.pageYOffset - 100;
-        window.scrollTo({top: elementTop, behavior: 'smooth'});
+        window.scrollTo({ top: elementTop, behavior: 'smooth' });
     }
 }
 
@@ -744,7 +744,7 @@ function restarHoras(inicio, fin) {
     if (horas.length < 2) {
         horas = "0" + horas;
     }
-    
+
     return parseInt(horas);
 
 
@@ -823,8 +823,8 @@ function steps(step) {
                     $(".session-input").val()
                     $(".session-input").val("");
                     let cookieValue = getCookie(`g7`)
-                    if(cookieValue != 1){
-                    openGurucuteco(7);
+                    if (cookieValue != 1) {
+                        openGurucuteco(7);
                     }
                     break;
 
@@ -833,8 +833,8 @@ function steps(step) {
                     $(".session-input").val()
                     $(".session-input").val("");
                     let cookieValue2 = getCookie(`g6`)
-                    if(cookieValue2 != 1){
-                    openGurucuteco(6);
+                    if (cookieValue2 != 1) {
+                        openGurucuteco(6);
                     }
                     break;
 
@@ -844,8 +844,8 @@ function steps(step) {
                     $(".session-input").val("");
                     $('.step_3').hide();
                     let cookieValue3 = getCookie(`g5`)
-                    if(cookieValue3 != 1){
-                    openGurucuteco(5);
+                    if (cookieValue3 != 1) {
+                        openGurucuteco(5);
                     }
                     break;
 
@@ -855,8 +855,8 @@ function steps(step) {
                     $(".session-input").val("");
                     $('.step_3').hide();
                     let cookieValue4 = getCookie(`g4`)
-                    if(cookieValue4 != 1){
-                    openGurucuteco(4);
+                    if (cookieValue4 != 1) {
+                        openGurucuteco(4);
                     }
                     break;
             }
@@ -919,7 +919,7 @@ function desplegar(button, session) {
         }, 500);
 
     } else {
-        
+
         button.classList.toggle("active");
         button.nextElementSibling.classList.toggle("show");
 
@@ -1503,7 +1503,7 @@ const transportistasAptos = (datos_filtros, fiesta_ida_vuelta) => {
         $.ajax({
             type: "POST",
             url: "/PHP/topTransportistas.php",
-            data: { data: JSON.stringify(datos_filtros), fiesta_ida_vuelta: fiesta_ida_vuelta, id_viaje : id_cotizacion },
+            data: { data: JSON.stringify(datos_filtros), fiesta_ida_vuelta: fiesta_ida_vuelta, id_viaje: id_cotizacion },
             success: function (response) {
                 console.log(response)
                 var transportistas = JSON.parse(response)
@@ -1551,7 +1551,7 @@ function tipoViaje(tipo) {
             if (document.getElementById("select_transfer").value == 1) {
                 inputs = ['fecha_regreso_transfer_in', 'hora_transfer_in', 'cant_pasajeros_transfer_in', 'mascotas_transfer_in', 'aeropuerto_transfer_in', 'localidad_transfer_in']
             } else {
-                inputs = ['fecha_regreso_transfer_out', 'hora_transfer_out', 'cant_pasajeros_transfer_out', 'mascotas_transfer_out', 'localidad_transfer_out', 'aeropuerto_transfer_out']
+                inputs = ['fecha_salida_transfer_out', 'hora_transfer_out', 'cant_pasajeros_transfer_out', 'mascotas_transfer_out', 'localidad_transfer_out', 'aeropuerto_transfer_out']
             }
             break;
         default:
