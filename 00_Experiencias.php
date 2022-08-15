@@ -77,7 +77,7 @@
 
     <link rel="publisher" href="https://www.salioviaje.com.uy" />
     <!--  <link rel="image_src" href="https://www.salioviaje.com.uy/media/svg/Favicon-SalioViaje.svg" type="image/x-icon"  title="Logo | Salió Viaje" >-->
-    <link rel="canonical" href="https://www.salioviaje.com.uy" />
+    <link rel="canonical" href="https://www.salioviaje.com.uy/00_Experiencias.php" />
     <!-- Scripts -->
     <script
       src="https://kit.fontawesome.com/1e193e3a23.js"
@@ -139,10 +139,10 @@
     
     </section>
     <!-- Sección -->
-    <!--=====================================================================-->
+    <!--===================================================================
 
-    <!-- Sección -->
-    <section class="sobre-nosotros-experiencias">
+       <!--= <!-- Sección -->
+     <!--=   <section class="sobre-nosotros-experiencias">
       <div class="nosotros-wrapper-grid">
         <div class="nosotros-left">
           <div class="nosotros-img-wrapper">
@@ -166,7 +166,7 @@
         </div>
       </div>
     </section>
-    <!--=====================================================================-->
+   ===================================================================-->
        <div class="experiencias-separador">
       <hr>
     </div>

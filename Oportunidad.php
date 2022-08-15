@@ -42,7 +42,8 @@ echo $array_oportuidad;
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
 
-    <meta name="author" content="Daniel Schlebinger" />
+      <meta name="robots" content="index,follow"/>
+      <meta name="author" content="Daniel Schlebinger" />
 
     <meta
       name="description"

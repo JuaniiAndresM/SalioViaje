@@ -330,7 +330,7 @@ for ($i = 0; $i < count($oportunidades); $i++) {
 /*
 pax
  */
-if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "PAX") {
+if ($_SESSION['datos_usuario']['TIPO_USUARIO'] == "PAX" || $_SESSION['datos_usuario']['TIPO_USUARIO'] == "ANF" || $_SESSION['datos_usuario']['TIPO_USUARIO'] == "AGT") {
     /*
      * agendados
      */

@@ -40,7 +40,7 @@ switch($opcion){
             /**
              * SELECT NOCTURNO
              */
-            if ($preferencias['NOCTURNO'] == 1) {
+            if ($preferencias['NOCTURNO'] != 1) {
                 $select_nocturno = '<option value="1" selected>Si</option>
                                     <option value="0">No</option>';
             }else{
@@ -50,7 +50,7 @@ switch($opcion){
             /**
              * SELECT FIESTAS
              */
-            if ($preferencias['FIESTAS'] == 1) {
+            if ($preferencias['FIESTAS'] != 1) {
                 $select_fiestas = '<option value="1" selected>Si</option>
                 <option value="0">No</option>';
             }else{
@@ -122,14 +122,14 @@ switch($opcion){
                     <option value="SAB">Sábado</option>';
                     break;
                 default:
-                $select_dia_libre = '<option value="0" >Ninguno</option>
+                $select_dia_libre = '<option value="0" selected>Ninguno</option>
                 <option value="DOM">Domingo</option>
                 <option value="LUN">Lunes</option>
                 <option value="MAR">Martes</option>
                 <option value="MIE">Miércoles</option>
                 <option value="JUE">Jueves</option>
                 <option value="VIE">Viernes</option>
-                <option value="SAB" selected>Sábado</option>';
+                <option value="SAB">Sábado</option>';
                     break;
             }
             /**
@@ -159,8 +159,8 @@ switch($opcion){
             $select_fiestas = '<option value="1" selected>Si</option>
                                 <option value="0">No</option>';
 
-            $select_precio_coche = '<option value="1" selected>Si</option>
-                                <option value="0">No</option>';
+            $select_precio_coche = '<option value="1">Si</option>
+                                <option value="0" selected>No</option>';
         }
 
         $modal_body = '

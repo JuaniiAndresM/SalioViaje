@@ -61,27 +61,34 @@ RewriteRule ^Cotizar/([a-zA-Z0-9_\.]+)$ /About/Cotizar.php?ID=$1
 RewriteRule ^Nosotros /About/Nosotros.php
 RewriteRule ^FAQ /About/FAQ.php
 RewriteRule ^Experiencias /00_Experiencias.php
-RewriteRule ^Arequita /00_Arequita.html
-RewriteRule ^Gruta_del_Palacio /00_Gruta_del_Palacio.html
-RewriteRule ^Penitente /00_Penitente.html
 
-RewriteRule ^Eventos_Fiestas /00_Fiesta_Evento.html
-RewriteRule ^Fiestas_Eventos /00_Apoyo_Evento_1.html
-RewriteRule ^¿Cómo_funciona_Salió_Viaje? /00_apoyo_seo.html
-RewriteRule ^Paseos_Tours /00_Apoyo_Paseo.html
-RewriteRule ^ServicioXHoras_Gestiones /00_Apoyo_ServHoras.html
-RewriteRule ^Aeropuerto_Puerto /00_Apoyo_Aeropuerto.html
-RewriteRule ^Paseo_Colonia /00_Apoyo_TrasColonia.html
-RewriteRule ^Traslado_Equipo_Futbol /00_Apoyo_TrasEvDeport.html
-RewriteRule ^Traslado_Montevideo /00_Apoyo_TraslMontev.html
-RewriteRule ^Traslado_PuntaDelEste /00_Apoyo_TraslPunta.html
-RewriteRule ^Reservas_Promo_Buenos_Aires /Promo_BUE.html
-RewriteRule ^Info_Promo_Buenos_Aires /00_Servicio_al_cliente_bue.html
+# php -- Referencia
+RewriteRule ^Gruta_del_Palacio /Referencia/00_Gruta_del_Palacio.html
+RewriteRule ^Arequita /Referencia/00_Arequita.html
+RewriteRule ^Penitente /Referencia/00_Penitente.html
+
+# php -- Servicios
+RewriteRule ^Eventos_Fiestas /Servicios/00_Fiesta_Evento.html
+RewriteRule ^Fiestas_Eventos /Servicios/00_Apoyo_Evento_1.html
+RewriteRule ^Paseos_Tours /Servicios/00_Apoyo_Paseo.html
+RewriteRule ^ServicioXHoras_Gestiones /Servicios/00_Apoyo_ServHoras.html
+RewriteRule ^Aeropuerto_Puerto /Servicios/00_Apoyo_Aeropuerto.html
+RewriteRule ^Paseo_Colonia /Servicios/00_Apoyo_TrasColonia.html
+RewriteRule ^Traslado_Equipo_Futbol /Servicios/00_Apoyo_TrasEvDeport.html
+RewriteRule ^Traslado_Montevideo /Servicios/00_Apoyo_TraslMontev.html
+RewriteRule ^Traslado_PuntaDelEste /Servicios/00_Apoyo_TraslPunta.html
+
+# php -- Soporte
+RewriteRule ^¿Cómo_funciona_Salió_Viaje? /Soporte/00_apoyo_funcionamiento.html
+RewriteRule ^Info_Promo_Buenos_Aires /Soporte/00_Servicio_al_cliente_bue.html
+RewriteRule ^Info_Salió_Viaje /Soporte/00_Servicio_al_cliente.html
+RewriteRule ^Departamento_de_informática_desarrollos_e_inversiones /Soporte/00_Dep_Inf.html
+
+# php -- Productos
+RewriteRule ^Reservas_Promo_Buenos_Aires /Productos/Promo_BUE.html
 
 
 
-ErrorDocument 404 /Error/404.html
-ErrorDocument 403 /Error/403.html
 
 Options All -Indexes
 RewriteCond %{HTTP_HOST} ^.*$
@@ -91,16 +98,5 @@ RewriteRule ^/?$ "https\:\/\/www\.salioviaje\.com\.uy\/" [R=301,L]
 # Set the “ea-php74” package as the default “PHP” programming language.
 <IfModule mime_module>
   AddHandler application/x-httpd-ea-php74 .php .php7 .phtml
-</IfModule>
-<IfModule mod_headers.c>
-    # WEEK
-    <FilesMatch "\.(jpg|jpeg|png|gif|swf)$">
-        Header set Cache-Control "max-age=31536000, public"
-    </FilesMatch>
-
-    # WEEK
-    <FilesMatch "\.(js|css|swf)$">
-        Header set Cache-Control "max-age=31536000"
-    </FilesMatch>
 </IfModule>
 # php -- END cPanel-generated handler, do not edit
