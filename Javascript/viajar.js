@@ -681,6 +681,7 @@ function guardar_cotizacion(datos_cotizacion, paradas_ida, paradas_vuelta, tipo)
         url: "/PHP/procedimientosForm.php",
         data: { tipo: "agregar_cotizacion", datos: JSON.stringify(datos_cotizacion), PARADAS_IDA: JSON.stringify(paradas_ida), PARADAS_VUELTA: JSON.stringify(paradas_vuelta), tipo_cotizacion: tipo },
         success: function (response) {
+            console.log(response)
             id_cotizacion = response;
         }
     });
@@ -1055,7 +1056,6 @@ function select_transfer() {
 }
 
 function validacion(TIPO, DATOS) {
-    console.log(DATOS)
     let validacion;
     let VALIDO = false;
 
