@@ -328,7 +328,7 @@ session_set_cookie_params($ttl);
                         <div>
                           <div class="usuarios-recientes">
                             <div class="usuarios-info">
-                              <h2><i class="fas fa-bus"></i> Mis solicitudes de cotización</h2>
+                              <h2><i class="fas fa-bus"></i>Mis Viajes</h2>
                               <div class="button-wrapper">
                                 <a href="Agendar" class="add"><i class="fas fa-plus"></i></a>
                                 <a href="Viajes"><i class="fas fa-list-ul"></i></a>
@@ -491,7 +491,7 @@ session_set_cookie_params($ttl);
 
                 <div class="usuarios-recientes">
                   <div class="usuarios-info">
-                    <h2><i class="fas fa-bus"></i> Mis solicitudes de cotización</h2>
+                    <h2><i class="fas fa-bus"></i>Mis Viajes</h2>
                     <div class="button-wrapper">
                       <a href="Agendar" class="add"><i class="fas fa-plus"></i></a>
                       <a href="Viajes"><i class="fas fa-list-ul"></i></a>
@@ -580,7 +580,7 @@ session_set_cookie_params($ttl);
                         <div>
                           <div class="usuarios-recientes">
                             <div class="usuarios-info">
-                              <h2><i class="fas fa-bus"></i> Mis solicitudes de cotización</h2>
+                              <h2><i class="fas fa-bus"></i>Mis Viajes</h2>
                               <div class="button-wrapper">
                                 <a href="Agendar" class="add"><i class="fas fa-plus"></i></a>
                                 <a href="Viajes"><i class="fas fa-list-ul"></i></a>
@@ -789,7 +789,7 @@ session_set_cookie_params($ttl);
                     <div class="panel-tables-2">
                       <div class="usuarios-recientes">
                         <div class="usuarios-info">
-                          <h2><i class="fas fa-bus"></i> Mis solicitudes de cotización</h2>
+                          <h2><i class="fas fa-bus"></i>Mis Viajes</h2>
                           <div class="button-wrapper">
                             <a href="https://www.salioviaje.com.uy/Viajar/?opcion=5" class="add"><i class="fas fa-plus"></i></a>
                             <a href="Viajes"><i class="fas fa-list-ul"></i></a>
