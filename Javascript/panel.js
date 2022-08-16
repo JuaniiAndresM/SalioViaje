@@ -1258,9 +1258,11 @@ function mtop_viaje(numero_mtop, pass_mtop, matricula, id_viaje) {
             console.log(response);
         },
         complete: function () {
-            //actualizar_mtop(1, id_viaje)
+            actualizar_mtop(1, id_viaje)
+            window.location = 'https://www.salioviaje.com.uy/Dashboard';        
         }
     });
+
 }
 
 function estadoMTOP(id) {

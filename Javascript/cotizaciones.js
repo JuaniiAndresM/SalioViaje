@@ -337,7 +337,7 @@ function rechazarCotizacion(id) {
    $.ajax({
       type: "POST",
       url: "/PHP/procedimientosForm.php",
-      data: { tipo: 'rechazar_cotizacion', idCotizacion: id },
+      data: { tipo: 'eliminar_cotizacion', idCotizacion: id },
       success: function (response) {
          console.log(response)
       },

@@ -18,8 +18,12 @@ $DATOS = json_decode($_POST['datos_viaje'], true);
 $fecha_salida = explode("T", $DATOS['FECHA_SALIDA']);
 $fecha_llegada = explode("T", $DATOS['FECHA_LLEGADA']);
 
-$ORIGEN = explode(" ,", $DATOS['ORIGEN_TRAMO_1']);
-$DESTINO = explode(" ,", $DATOS['DESTINO_TRAMO_1']);
+$ORIGEN = explode(", ", $DATOS['ORIGEN_TRAMO_1']);
+$DESTINO = explode(", ", $DATOS['DESTINO_TRAMO_1']);
+
+$ORIGEN[1] = substr($ORIGEN[1], 0, -1);
+$DESTINO[1] = substr($DESTINO[1], 0, -1);
+
 
 $CODIGOS_MTOP_ORIGEN = json_decode($BD->obtener_codigos_localidad_mtop($ORIGEN[0], $ORIGEN[1]), true);
 

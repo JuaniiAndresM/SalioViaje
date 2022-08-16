@@ -1879,7 +1879,7 @@ class procedimientosBD
 
     public function obtener_codigos_localidad_mtop($localidad, $dpto){
         $conn = $this->conexion();
-        $query = "SELECT cod_dpto, cod_localidad FROM `regiones-mtop` where dpto = '$dpto' and localidad = '$localidad'; ";
+        $query = "SELECT cod_dpto, cod_localidad FROM `regiones-mtop` where dpto = '$dpto ' and localidad = ' $localidad ' ";
         $stmt = $conn->prepare($query);
         if ($stmt->execute()) {
             $stmt->store_result();
