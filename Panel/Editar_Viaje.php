@@ -195,7 +195,7 @@ session_set_cookie_params($ttl);
               <div class="column">
                 <h2 class="step_title"><i class="fas fa-road"></i> Tramo N° 1</h2>
 
-                <div class="input" id="tipo">
+                <!-- <div class="input" id="tipo">
                   <i class="fas fa-list-ul" id="icon"></i>
                   <select name="" id="tipo-select_1" onchange="select_tipo(1)">
                     <option value="0" selected disabled hidden>Seleccione un Tipo</option>
@@ -214,7 +214,7 @@ session_set_cookie_params($ttl);
                     <option value="80">80%</option>
                     <option value="90">90%</option>
                   </select>
-                </div>
+                </div> -->
                 
                 <div class="input" id="origen">
                   <i class="far fa-calendar-alt" id="icon"></i>
@@ -251,7 +251,7 @@ session_set_cookie_params($ttl);
               <div class="column">
                 <h2 class="step_title"><i class="fas fa-road"></i> Tramo N° 2</h2>
 
-                <div class="input" id="tipo">
+                <!-- <div class="input" id="tipo">
                   <i class="fas fa-list-ul" id="icon"></i>
                   <select name="" id="tipo-select_2" onchange="select_tipo(2)">
                     <option value="0" selected disabled hidden>Seleccione un Tipo</option>
@@ -270,7 +270,7 @@ session_set_cookie_params($ttl);
                     <option value="80">80%</option>
                     <option value="90">90%</option>
                   </select>
-                </div>
+                </div> -->
 
                 <div class="input" id="origen">
                   <i class="far fa-calendar-alt" id="icon"></i>
