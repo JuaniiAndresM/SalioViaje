@@ -149,7 +149,7 @@ for($a = 0; $a < count($cotizaciones); $a++){
         <div class="list-empty-cotizacion">
           <p>Lo sentimos, no hay cotizaciones disponibles.</p>
         </div>
-
+        
         <div class="Cotizaciones-list">
           <?php
 if ($cotizaciones != null) {
@@ -264,8 +264,8 @@ if ($cotizaciones[$i]['MASCOTAS'] == 2) {
 } else {
     ?>
   <script>
-$(".list-empty-cotizacion").css('display', 'flex');
-$(".Cotizaciones-list").hide();
+      $(".list-empty-cotizacion").css('display', 'flex');
+      $(".Cotizaciones-list").hide();
 </script>
   <?php
 }

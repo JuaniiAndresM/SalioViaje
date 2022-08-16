@@ -40,22 +40,22 @@ switch($opcion){
             /**
              * SELECT NOCTURNO
              */
-            if ($preferencias['NOCTURNO'] != 1) {
-                $select_nocturno = '<option value="1" selected>Si</option>
-                                    <option value="0">No</option>';
-            }else{
+            if ($preferencias['NOCTURNO'] == 0) {
                 $select_nocturno = '<option value="1">Si</option>
                                     <option value="0" selected>No</option>';
+            }else{
+                $select_nocturno = '<option value="1" selected>Si</option>
+                                    <option value="0">No</option>';
             }
             /**
              * SELECT FIESTAS
              */
-            if ($preferencias['FIESTAS'] != 1) {
-                $select_fiestas = '<option value="1" selected>Si</option>
-                <option value="0">No</option>';
-            }else{
+            if ($preferencias['FIESTAS'] == 0) {
                 $select_fiestas = '<option value="1">Si</option>
-                <option value="0" selected>No</option>';
+                                   <option value="0" selected>No</option>';
+            }else{
+                $select_fiestas = '<option value="1" selected>Si</option>
+                                   <option value="0">No</option>';
             }
             /**
              * SELECT DIA LIBRE

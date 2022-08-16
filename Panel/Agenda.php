@@ -204,7 +204,7 @@ session_set_cookie_params($ttl);
                 </tr>
               </thead>
               <tbody id="tbody-agenda">
-              <?php 
+              <?php
                   
                   if($vehiculos === null){
                     
@@ -276,6 +276,8 @@ session_set_cookie_params($ttl);
                           }else if($_SESSION['datos_usuario']['TIPO_USUARIO'] != "PAX" && $vehiculos[$i]['MODALIDAD'] == "Agendado" || $_SESSION['datos_usuario']['TIPO_USUARIO'] != "PAX" && $vehiculos[$i]['MODALIDAD'] != "Oportunidad"){
                             echo $button_mtop.'
                                   <button class="button tooltip left" data-tooltip="Eliminar Viaje" onclick="eliminar_viajes(' . $vehiculos[$i]['ID'] . ',1)"><i class="fas fa-trash-alt"></i></button>';
+                          }else{
+                            echo '<button class="button tooltip left" data-tooltip="Contacto Transportista" onclick="modal_contacto(\'' . $vehiculos[$i]['NOMBRE'] . '\',' . $vehiculos[$i]['TELEFONO'] . ')"><i class="fa-solid fa-address-card"></i></button>';
                           }
                           echo '</div>
                           </div>

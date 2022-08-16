@@ -14,6 +14,9 @@ session_set_cookie_params($ttl);
   }
 
   require_once '../PHP/procedimientosBD.php';
+  
+  $rutas = new procedimientosBD();
+  $rutas = json_decode($rutas->traer_rutas_mtop(), true);
 
   $ID_Viaje = $_GET['ID'];
 
@@ -296,8 +299,34 @@ session_set_cookie_params($ttl);
 
           <div id="step_3">
 
+            <div class="inputs-wrapper-agendar-rutas">
+              <div class="column">
+                <h2 class="step_title"><i class="fas fa-road"></i> Rutas</h2>
+                
+                <div class="input" id="rutas">
+                  <i class="fas fa-road" id="icon"></i>
+                  <input list="Rutas" id="rutas_1" placeholder="Rutas" onchange="rutas()">
+                  <datalist id="Rutas">
+                    <?php
+                      if (isset($rutas)) {
+                        for ($i=0; $i < count($rutas); $i++) { 
+                          ?>
+                            <option value="<?php echo $rutas[$i]['RUTA'] ?>">
+                          <?php
+                        }
+                      }
+                    ?>
+                  </datalist> 
+                </div>
+
+                <div class="tags" id="tags_1">
+                </div>
+
+              </div>
+            </div>
+
             <button class="button-agendar" id="step-agendar" onclick="mtop_viaje('<?php echo $datos_ministerio_tta[0]['NUMERO_MTOP'];?>', '<?php echo $datos_ministerio_tta[0]['PASS_MTOP'];?>', '<?php echo $viaje[0]['MATRICULA'];?>', <?php echo $ID_Viaje?>)">
-              <i class="fas fa-save"></i> Editar Viaje
+              <i class="fas fa-save"></i> Hacer Permiso MTOP
             </button>
           </div>
         </div>
