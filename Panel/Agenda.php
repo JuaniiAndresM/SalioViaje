@@ -204,7 +204,7 @@ session_set_cookie_params($ttl);
                 </tr>
               </thead>
               <tbody id="tbody-agenda">
-              <?php 
+              <?php
                   
                   if($vehiculos === null){
                     
