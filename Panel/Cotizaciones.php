@@ -91,6 +91,7 @@ $COTIZACIONES = json_decode($BD->traer_cotizaciones_presentadas_por_id_tta($_SES
     <script src="https://www.salioviaje.com.uy/Javascript/panel.js"></script>
     <script src="https://www.salioviaje.com.uy/Javascript/settings.js"></script>
     <script src="https://www.salioviaje.com.uy/Javascript/loader.js"></script>
+    <script src="https://www.salioviaje.com.uy/Javascript/cotizaciones.js"></script>
     <script type="text/javascript">
     </script>
   </head>

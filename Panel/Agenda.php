@@ -17,7 +17,17 @@ session_set_cookie_params($ttl);
     } else if($_SESSION['datos_usuario']['TIPO_USUARIO'] != "TTA"){
       $vehiculos = $info_usuario->traer_agenda_usuario_no_tta($_SESSION['datos_usuario']["ID"]);
     } else{
+      $choferes = json_decode($info_usuario->traer_choferes_por_tta_id($_SESSION['datos_usuario']["ID"]), true);
       $vehiculos = $info_usuario->traer_agenda_usuario($_SESSION['datos_usuario']["ID"]);
+
+      for($i = 0; $i < count($choferes); $i++){
+        $vehiculos_cho =  $info_usuario->traer_agenda_usuario($choferes[$i]["ID"]);
+        for($i = 0; $i < count($vehiculos_cho); $i++){
+          array_push($vehiculos, $vehiculos_cho[$i]);
+        }
+
+      }
+
       //$oportunidades = $info_usuario->traer_oportunidades_usuario($_SESSION['datos_usuario']["ID"]);
     }
 
@@ -273,7 +283,7 @@ session_set_cookie_params($ttl);
                                     <button class="button tooltip left" data-tooltip="Eliminar Oportunidad" onclick="eliminar_viajes('.$vehiculos[$i]['ID'].',1)"><i class="fas fa-trash-alt"></i></button>';
                             }
 
-                          }else if($_SESSION['datos_usuario']['TIPO_USUARIO'] != "PAX" && $vehiculos[$i]['MODALIDAD'] == "Agendado" || $_SESSION['datos_usuario']['TIPO_USUARIO'] != "PAX" && $vehiculos[$i]['MODALIDAD'] != "Oportunidad"){
+                          }else if($_SESSION['datos_usuario']['TIPO_USUARIO'] == "TTA" && $vehiculos[$i]['MODALIDAD'] == "Agendado" || $_SESSION['datos_usuario']['TIPO_USUARIO'] == "TTA" && $vehiculos[$i]['MODALIDAD'] != "Oportunidad"){
                             echo $button_mtop.'
                                   <button class="button tooltip left" data-tooltip="Eliminar Viaje" onclick="eliminar_viajes(' . $vehiculos[$i]['ID'] . ',1)"><i class="fas fa-trash-alt"></i></button>';
                           }else{
