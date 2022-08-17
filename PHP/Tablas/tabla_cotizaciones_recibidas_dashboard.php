@@ -18,11 +18,11 @@ for ($i = 0; $i < count($datos); $i++) {
     
     if ($i == 5) {
       $NMC = '
-      <i class="fa-solid fa-triangle-exclamation warn tooltip left" data-tooltip="Ya no recibirás más notificaciones para este viaje."></i>
+      <span class="tooltip left warn" data-tooltip="Ya no recibirás más notificaciones para este viaje."><i class="fa-solid fa-triangle-exclamation warn"></i></span>
     ';
     }else if($NO_MAS_COTIZACIONES == 0){
       $NMC = '
-      <i class="fa-solid fa-triangle-exclamation warn tooltip left" data-tooltip="Ya se notificó a todos los transportistas."></i>
+      <span class="tooltip left info" data-tooltip="Ya se notificó a todos los transportistas."><i class="fa-solid fa-circle-info"></i></span>
       ';
     }else{
       $NMC = '1';
@@ -49,8 +49,8 @@ for ($i = 0; $i < count($datos); $i++) {
         <td data-title="Precio">$'.number_format( $datos[$i]["SENIA"], 0,'','.').'</td>
         <td data-title="Precio">$'.number_format( $datos[$i]["PRECIO"], 0,'','.').'</td>
         <td>
-        '.$NMC.'
           <div class="button-wrapper">
+            '.$NMC.'
             <button class="button tooltip left" data-tooltip="Aceptar Cotización" onclick="aceptarCotizacion('.$datos[$i]["ID"].','.$datos[$i]["ID_VIAJE_COTIZADO"].',1)"><i class="fas fa-dollar-sign"></i></button>
             <button class="button tooltip left" data-tooltip="Rechazar Cotización" onclick="eliminarCotizacion('.$datos[$i]["ID"].')"><i class="fas fa-ban"></i></button>
         </td>
@@ -75,8 +75,8 @@ for ($i = 0; $i < count($datos); $i++) {
         <td data-title="Precio">$'.number_format( $datos[$i]["SENIA"], 0,'','.').'</td>
         <td data-title="Precio">$'.number_format( $datos[$i]["PRECIO"], 0,'','.').'</td>
         <td>
-        '.$NMC.'
           <div class="button-wrapper">
+          '.$NMC.'
           <button class="button tooltip left" data-tooltip="Aceptar Cotización" onclick="aceptarCotizacion('.$datos[$i]["ID"].','.$datos[$i]["ID_VIAJE_COTIZADO"].')"><i class="fas fa-dollar-sign"></i></button>
           <button class="button tooltip left" data-tooltip="Rechazar Cotización" onclick="eliminarCotizacion('.$datos[$i]["ID"].')"><i class="fas fa-ban"></i></button>
         </td>

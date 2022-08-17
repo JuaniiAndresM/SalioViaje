@@ -138,21 +138,6 @@ for ($i = 0; $i < count($oportunidades); $i++) {
                 ';
             }
 
-        } else if ($oportunidades[$i]['MODALIDAD'] == "Oportunidad") {
-            $oportunidades_dashboard = '
-            <tr>
-                <td data-title="ID">' . $oportunidades[$i]['ID'] . '</td>
-                <td data-title="Origen">' . $oportunidades[$i]['ORIGEN'] . '</td>
-                <td data-title="Destino">' . $oportunidades[$i]['DESTINO'] . '</td>
-                <td data-title="Fecha">' . $fecha[0] . '</td>
-                <td data-title="Estado">' . $oportunidades[$i]['ESTADO'] . '</td>
-                <td data-title="Modalidad">' . $oportunidades[$i]['MODALIDAD'] . '</td>
-                <td>
-                    <div class="button-wrapper">
-                    </div>
-                  </td>
-            </tr>
-            ';
         }
 
     } else {
@@ -194,22 +179,23 @@ for ($i = 0; $i < count($oportunidades); $i++) {
             ';
             }
 
-        } elseif ($oportunidades[$i]['MODALIDAD'] == "Oportunidad") {
-            $oportunidades_dashboard = $oportunidades_dashboard . '
-            <tr>
-                <td data-title="ID">' . $oportunidades[$i]['ID'] . '</td>
-                <td data-title="Origen">' . $oportunidades[$i]['ORIGEN'] . '</td>
-                <td data-title="Destino">' . $oportunidades[$i]['DESTINO'] . '</td>
-                <td data-title="Fecha">' . $fecha[0] . '</td>
-                <td data-title="Estado">' . $oportunidades[$i]['ESTADO'] . '</td>
-                <td data-title="Modalidad">' . $oportunidades[$i]['MODALIDAD'] . '</td>
-                <td>
-                    <div class="button-wrapper">
-                    </div>
-                  </td>
-            </tr>
-            ';
-        }
+        } 
+        // elseif ($oportunidades[$i]['MODALIDAD'] == "Oportunidad") {
+        //     $oportunidades_dashboard = $oportunidades_dashboard . '
+        //     <tr>
+        //         <td data-title="ID">' . $oportunidades[$i]['ID'] . '</td>
+        //         <td data-title="Origen">' . $oportunidades[$i]['ORIGEN'] . '</td>
+        //         <td data-title="Destino">' . $oportunidades[$i]['DESTINO'] . '</td>
+        //         <td data-title="Fecha">' . $fecha[0] . '</td>
+        //         <td data-title="Estado">' . $oportunidades[$i]['ESTADO'] . '</td>
+        //         <td data-title="Modalidad">' . $oportunidades[$i]['MODALIDAD'] . '</td>
+        //         <td>
+        //             <div class="button-wrapper">
+        //             </div>
+        //           </td>
+        //     </tr>
+        //     ';
+        // }
     }
 
 }

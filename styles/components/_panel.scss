@@ -588,6 +588,20 @@ $main_3: #6d76db;
               display: flex;
               justify-content: center;
               align-items: center;
+              .warn,.info{
+                margin-right: 10px;
+                i{
+                  color: #ffaa00;
+                  font-size: 20px;
+                }
+              }
+
+              .info{
+                i{
+                  color: $main_1;
+                }
+              }
+              
               button {
                 background-color: $main_1;
                 width: 40px;

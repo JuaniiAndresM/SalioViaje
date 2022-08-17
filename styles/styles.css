@@ -7576,6 +7576,39 @@ footer .totum p a:hover {
           align-items: center;
 }
 
+.panel .panel-tables .usuarios-recientes .usuarios-table tr td .button-wrapper .warn, .panel .panel-tables .usuarios-recientes .usuarios-table tr td .button-wrapper .info, .panel .panel-tables .usuarios-recientes .viajes-table tr td .button-wrapper .warn, .panel .panel-tables .usuarios-recientes .viajes-table tr td .button-wrapper .info,
+.panel .panel-tables .usuarios-propietarios .usuarios-table tr td .button-wrapper .warn,
+.panel .panel-tables .usuarios-propietarios .usuarios-table tr td .button-wrapper .info,
+.panel .panel-tables .usuarios-propietarios .viajes-table tr td .button-wrapper .warn,
+.panel .panel-tables .usuarios-propietarios .viajes-table tr td .button-wrapper .info, .panel .panel-tables-2 .usuarios-recientes .usuarios-table tr td .button-wrapper .warn, .panel .panel-tables-2 .usuarios-recientes .usuarios-table tr td .button-wrapper .info, .panel .panel-tables-2 .usuarios-recientes .viajes-table tr td .button-wrapper .warn, .panel .panel-tables-2 .usuarios-recientes .viajes-table tr td .button-wrapper .info,
+.panel .panel-tables-2 .usuarios-propietarios .usuarios-table tr td .button-wrapper .warn,
+.panel .panel-tables-2 .usuarios-propietarios .usuarios-table tr td .button-wrapper .info,
+.panel .panel-tables-2 .usuarios-propietarios .viajes-table tr td .button-wrapper .warn,
+.panel .panel-tables-2 .usuarios-propietarios .viajes-table tr td .button-wrapper .info {
+  margin-right: 10px;
+}
+
+.panel .panel-tables .usuarios-recientes .usuarios-table tr td .button-wrapper .warn i, .panel .panel-tables .usuarios-recientes .usuarios-table tr td .button-wrapper .info i, .panel .panel-tables .usuarios-recientes .viajes-table tr td .button-wrapper .warn i, .panel .panel-tables .usuarios-recientes .viajes-table tr td .button-wrapper .info i,
+.panel .panel-tables .usuarios-propietarios .usuarios-table tr td .button-wrapper .warn i,
+.panel .panel-tables .usuarios-propietarios .usuarios-table tr td .button-wrapper .info i,
+.panel .panel-tables .usuarios-propietarios .viajes-table tr td .button-wrapper .warn i,
+.panel .panel-tables .usuarios-propietarios .viajes-table tr td .button-wrapper .info i, .panel .panel-tables-2 .usuarios-recientes .usuarios-table tr td .button-wrapper .warn i, .panel .panel-tables-2 .usuarios-recientes .usuarios-table tr td .button-wrapper .info i, .panel .panel-tables-2 .usuarios-recientes .viajes-table tr td .button-wrapper .warn i, .panel .panel-tables-2 .usuarios-recientes .viajes-table tr td .button-wrapper .info i,
+.panel .panel-tables-2 .usuarios-propietarios .usuarios-table tr td .button-wrapper .warn i,
+.panel .panel-tables-2 .usuarios-propietarios .usuarios-table tr td .button-wrapper .info i,
+.panel .panel-tables-2 .usuarios-propietarios .viajes-table tr td .button-wrapper .warn i,
+.panel .panel-tables-2 .usuarios-propietarios .viajes-table tr td .button-wrapper .info i {
+  color: #ffaa00;
+  font-size: 20px;
+}
+
+.panel .panel-tables .usuarios-recientes .usuarios-table tr td .button-wrapper .info i, .panel .panel-tables .usuarios-recientes .viajes-table tr td .button-wrapper .info i,
+.panel .panel-tables .usuarios-propietarios .usuarios-table tr td .button-wrapper .info i,
+.panel .panel-tables .usuarios-propietarios .viajes-table tr td .button-wrapper .info i, .panel .panel-tables-2 .usuarios-recientes .usuarios-table tr td .button-wrapper .info i, .panel .panel-tables-2 .usuarios-recientes .viajes-table tr td .button-wrapper .info i,
+.panel .panel-tables-2 .usuarios-propietarios .usuarios-table tr td .button-wrapper .info i,
+.panel .panel-tables-2 .usuarios-propietarios .viajes-table tr td .button-wrapper .info i {
+  color: #3844bc;
+}
+
 .panel .panel-tables .usuarios-recientes .usuarios-table tr td .button-wrapper button, .panel .panel-tables .usuarios-recientes .viajes-table tr td .button-wrapper button,
 .panel .panel-tables .usuarios-propietarios .usuarios-table tr td .button-wrapper button,
 .panel .panel-tables .usuarios-propietarios .viajes-table tr td .button-wrapper button, .panel .panel-tables-2 .usuarios-recientes .usuarios-table tr td .button-wrapper button, .panel .panel-tables-2 .usuarios-recientes .viajes-table tr td .button-wrapper button,
