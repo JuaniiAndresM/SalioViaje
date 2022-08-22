@@ -101,7 +101,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
       <h1 class="title">¡No se pierda nuestras promociones!</h1>
       <section class="ofertas-viajar" id="Ofertas">
         <h2>
-        <i class="fa-solid fa-bullhorn" id="icon"></i></i> Promociones (0)
+        <i class="fa-solid fa-bullhorn" id="icon"></i></i> Promociones (1)
         </h2>
         <hr />
         <h3 class="description">Conseguí las mejores promociones con nosotros.</h3>
@@ -158,41 +158,40 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
           </div>
 
-          <div class="list-empty2">
+          <div class="list-empty2" style="display: none;">
             <p>Proximamente habrá muchas promociones.</p>
           </div>
 
-          <div class="container-list">
+          <div class="container-list" style="display: flex;">
 
             <div class="item">
               <div class="col-l">
-                <div class="id">
-                  <h3>#034</h3>
+                <div class="discount">
+                  <div class="precio">
+                    <p class="precio_total">$4.700</p>
+                    <p class="precio_desc">$4.500</p>
+                  </div>
                 </div>
                 <div class="travel">
-                  <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Origen: Montevideo.</p>
-                  <p><i class="fas fa-route" aria-hidden="true"></i> Destino: Maldonado.</p>
-                </div>
-                <div class="travel">
-                <p><i class="fa-solid fa-road"></i> Tramo: Ida.</p>
-                  <p><i class="far fa-calendar-alt" aria-hidden="true"></i> 30/08/2022</p>
-                </div>
-                <div class="travel">
-                  <p class="precio"><i class="fa-solid fa-hand-holding-dollar"></i> $9.000</p>
+                  <p>Excursión a Gualeguaychú, el 23, 24 y 25 de septiembre.</p>
+                  <p>Termas, Bodega, Compras. 3 días y 2 noches de hotel con desayuno.</p>
                 </div>
               </div>
 
               <div class="col-r">
 
                 <div class="travel">
-                  <h2 class="discount">
-                    40%
-                  </h2>
-                  <h4>¡DE DESCUENTO!</h4>
+                  <p class="calificacion">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half"></i>
+                  </p>
                 </div>
 
                 <div class="button-wrapper">
-                    <button><i class="fas fa-info" aria-hidden="true"></i> Detalles</button>
+                  <button onclick="location.href='https:\/\/www.salioviaje.com.uy/Reservas_Promo_Argentina_Con_Descuento'"><i class="fas fa-info"></i> Detalles</button>
                 </div>
 
               </div>

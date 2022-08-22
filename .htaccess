@@ -81,12 +81,20 @@ RewriteRule ^Traslado_PuntaDelEste /Servicios/00_Apoyo_TraslPunta.html
 # php -- Soporte
 RewriteRule ^¿Cómo_funciona_Salió_Viaje? /Soporte/00_apoyo_funcionamiento.html
 RewriteRule ^Info_Promo_Buenos_Aires /Soporte/00_Servicio_al_cliente_bue.html
-RewriteRule ^Info_Salió_Viaje /Soporte/00_Servicio_al_cliente.html
+RewriteRule ^Info_Salio_Viaje /Soporte/00_Servicio_al_cliente.html
 RewriteRule ^Departamento_de_informática_desarrollos_e_inversiones /Soporte/00_Dep_Inf.html
+RewriteRule ^Registro_Generico /Soporte/00_Registro_Generico.html
+RewriteRule ^Registro_PAX /Soporte/00_Registro_pax.html
+RewriteRule ^Registro_AGT /Soporte/00_Registro_agt.html
+RewriteRule ^Registro_ASE /Soporte/00_Registro_ase.html
+RewriteRule ^Registro_HTL /Soporte/00_Registro_htl.html
+RewriteRule ^Registro_ANF /Soporte/00_Registro_anf.html
+RewriteRule ^Registro_CHO /Soporte/00_Registro_cho.html
+RewriteRule ^Registro_TTA /Soporte/00_Registro_tta.html
 
 # php -- Productos
 RewriteRule ^Reservas_Promo_Buenos_Aires /Productos/Promo_BUE.html
-
+RewriteRule ^Reservas_Promo_Argentina_Con_Descuento /Productos/Promo_Gualeguaychu.html
 
 
 
