@@ -101,7 +101,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
       <h1 class="title">¡No se pierda nuestras ofertas!</h1>
       <section class="ofertas-viajar" id="Ofertas">
         <h2>
-          <i class="fa-solid fa-percent" id="icon"></i> Ofertas (0)
+          <i class="fa-solid fa-percent icon"></i> Ofertas (1)
         </h2>
         <hr />
         <h3 class="description">Conseguí las mejores ofertas con nosotros.</h3>
@@ -126,7 +126,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
           <div id="filters2">
 
             <div class="input" id="origen">
-              <i class="fas fa-location-dot" id="icon"></i>
+              <i class="fas fa-location-dot icon"></i>
               <input list="Origen" id="origen_2" placeholder="Origen" />
               <datalist id="Origen">
                 <option value="Canelones"></option>
@@ -138,7 +138,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
             </div>
 
             <div class="input" id="destino">
-              <i class="fas fa-route" id="icon"></i>
+              <i class="fas fa-route icon"></i>
               <input list="Destino" id="destino_2" placeholder="Destino">
               <datalist id="Destino">
                 <option value="Canelones">
@@ -150,7 +150,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
             </div>
 
             <div class="input" id="fecha">
-              <i class="far fa-calendar-alt" id="icon"></i>
+              <i class="far fa-calendar-alt icon"></i>
               <input type="date" id="fecha_2" placeholder="Fecha y Hora" />
             </div>
 
@@ -158,13 +158,46 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
 
           </div>
 
-          <div class="list-empty2">
+          <div class="list-empty2" style="display: none;">
             <p>Lo sentimos, de momento no hay ofertas disponibles.</p>
           </div>
 
-          <div class="container-list">
+          <div class="container-list" style="display: flex;">
 
-            <div class="item">
+            <div class="item promo">
+              <div class="col-l">
+                <div class="discount">
+                  <div class="precio">
+                    <p class="precio_total">$4.700</p>
+                    <p class="precio_desc">$4.500</p>
+                  </div>
+                </div>
+                <div class="travel">
+                  <p>Excursión a Gualeguaychú, el 23, 24 y 25 de septiembre.</p>
+                  <p>Termas, Bodega, Compras. 3 días y 2 noches de hotel con desayuno.</p>
+                </div>
+              </div>
+
+              <div class="col-r">
+
+                <div class="travel">
+                  <p class="calificacion">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half"></i>
+                  </p>
+                </div>
+
+                <div class="button-wrapper">
+                  <button onclick="location.href='https:\/\/www.salioviaje.com.uy/Reservas_Promo_Argentina_Con_Descuento'"><i class="fas fa-info"></i> Detalles</button>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="item" style="display: none;">
               <div class="col-l">
                 <div class="id">
                   <h3>#034</h3>
@@ -203,7 +236,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
       </section>
       <section class="salioviaje" id="Cotizacion">
         <h2>
-        <i class="fa-solid fa-hand-holding-dollar" id="icon"></i> Solicitar una Cotización
+        <i class="fa-solid fa-hand-holding-dollar icon"></i> Solicitar una Cotización
         </h2>
         <hr />
         <h3 class="description">
@@ -237,7 +270,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
             <div class="step_1">
 
               <div class="input flex">
-                <i class="fas fa-suitcase-rolling" id="icon"></i>
+                <i class="fas fa-suitcase-rolling icon"></i>
                 <select name="" id="select_users" onchange="select_usuario()">
                   <option value="0" selected disabled hidden >Tipo de Viaje</option>
                   <option value="1">Traslado</option>
@@ -499,7 +532,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
               <h3 class="title"><i class="fas fa-plane-departure"></i> Transfer (Aeropuerto / Puerto)</h3>
 
               <div class="input flex">
-                <i class="fas fa-plane" id="icon"></i>
+                <i class="fas fa-plane icon"></i>
                 <select name="" id="select_transfer" onchange="select_transfer()">
                   <option value="0" selected disabled hidden >Seleccione una Tipo de Transfer</option>
                   <option value="1">Transfer de Arribos</option>
@@ -707,7 +740,7 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
               <h3 class="title"><i class="fas fa-glass-cheers"></i> Fiestas o Eventos</h3>
 
               <div class="input flex">
-                <i class="fas fa-exchange-alt" id="icon"></i>
+                <i class="fas fa-exchange-alt icon"></i>
                 <select name="" id="select_fiesta" onchange="select_fiesta()">
                   <option value="0" selected disabled hidden >Seleccione un Tramo</option>
                   <option value="1">Solo Ida</option>

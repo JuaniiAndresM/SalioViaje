@@ -103,6 +103,7 @@ $contraste_2: #ffffff;
 
         background-color: $main_2;
         img {
+          max-width: 900px;
           width: 100%;
           height: 100%;
           object-fit: cover;

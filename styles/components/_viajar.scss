@@ -332,6 +332,22 @@
             }
           }
         }
+        .item.promo{
+          .col-l{
+            .discount{
+              .precio{
+                .precio_total, .precio_desc{
+                  font-size: 18px;
+                }
+              }
+            }
+            .travel{
+              p{
+                font-size: 15px;
+              }
+            }
+          }
+        }
       }
     }
   }

@@ -117,6 +117,7 @@
 }
 
 .landing .landing-wrapper-grid .landing-right .landing-img-wrapper img {
+  max-width: 900px;
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -11203,6 +11204,44 @@ footer .totum p a:hover {
 .viajar-wrapper-index .salioviaje .ofertas-wrapper .container-list .item .col-r .button-wrapper .comprar-button {
   background-color: #70ff7c;
   color: #333333;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .container-list .item.promo .col-l .discount .precio .precio_total, .viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .container-list .item.promo .col-l .discount .precio .precio_desc,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .container-list .item.promo .col-l .discount .precio .precio_total,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .container-list .item.promo .col-l .discount .precio .precio_desc,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .container-list .item.promo .col-l .discount .precio .precio_total,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .container-list .item.promo .col-l .discount .precio .precio_desc,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper .container-list .item.promo .col-l .discount .precio .precio_total,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper .container-list .item.promo .col-l .discount .precio .precio_desc,
+.viajar-wrapper .salioviaje .oportunidades-wrapper .container-list .item.promo .col-l .discount .precio .precio_total,
+.viajar-wrapper .salioviaje .oportunidades-wrapper .container-list .item.promo .col-l .discount .precio .precio_desc,
+.viajar-wrapper .salioviaje .ofertas-wrapper .container-list .item.promo .col-l .discount .precio .precio_total,
+.viajar-wrapper .salioviaje .ofertas-wrapper .container-list .item.promo .col-l .discount .precio .precio_desc, .viajar-wrapper-index .oportunidades-viajar .oportunidades-wrapper .container-list .item.promo .col-l .discount .precio .precio_total, .viajar-wrapper-index .oportunidades-viajar .oportunidades-wrapper .container-list .item.promo .col-l .discount .precio .precio_desc,
+.viajar-wrapper-index .oportunidades-viajar .ofertas-wrapper .container-list .item.promo .col-l .discount .precio .precio_total,
+.viajar-wrapper-index .oportunidades-viajar .ofertas-wrapper .container-list .item.promo .col-l .discount .precio .precio_desc,
+.viajar-wrapper-index .ofertas-viajar .oportunidades-wrapper .container-list .item.promo .col-l .discount .precio .precio_total,
+.viajar-wrapper-index .ofertas-viajar .oportunidades-wrapper .container-list .item.promo .col-l .discount .precio .precio_desc,
+.viajar-wrapper-index .ofertas-viajar .ofertas-wrapper .container-list .item.promo .col-l .discount .precio .precio_total,
+.viajar-wrapper-index .ofertas-viajar .ofertas-wrapper .container-list .item.promo .col-l .discount .precio .precio_desc,
+.viajar-wrapper-index .salioviaje .oportunidades-wrapper .container-list .item.promo .col-l .discount .precio .precio_total,
+.viajar-wrapper-index .salioviaje .oportunidades-wrapper .container-list .item.promo .col-l .discount .precio .precio_desc,
+.viajar-wrapper-index .salioviaje .ofertas-wrapper .container-list .item.promo .col-l .discount .precio .precio_total,
+.viajar-wrapper-index .salioviaje .ofertas-wrapper .container-list .item.promo .col-l .discount .precio .precio_desc {
+  font-size: 18px;
+}
+
+.viajar-wrapper .oportunidades-viajar .oportunidades-wrapper .container-list .item.promo .col-l .travel p,
+.viajar-wrapper .oportunidades-viajar .ofertas-wrapper .container-list .item.promo .col-l .travel p,
+.viajar-wrapper .ofertas-viajar .oportunidades-wrapper .container-list .item.promo .col-l .travel p,
+.viajar-wrapper .ofertas-viajar .ofertas-wrapper .container-list .item.promo .col-l .travel p,
+.viajar-wrapper .salioviaje .oportunidades-wrapper .container-list .item.promo .col-l .travel p,
+.viajar-wrapper .salioviaje .ofertas-wrapper .container-list .item.promo .col-l .travel p, .viajar-wrapper-index .oportunidades-viajar .oportunidades-wrapper .container-list .item.promo .col-l .travel p,
+.viajar-wrapper-index .oportunidades-viajar .ofertas-wrapper .container-list .item.promo .col-l .travel p,
+.viajar-wrapper-index .ofertas-viajar .oportunidades-wrapper .container-list .item.promo .col-l .travel p,
+.viajar-wrapper-index .ofertas-viajar .ofertas-wrapper .container-list .item.promo .col-l .travel p,
+.viajar-wrapper-index .salioviaje .oportunidades-wrapper .container-list .item.promo .col-l .travel p,
+.viajar-wrapper-index .salioviaje .ofertas-wrapper .container-list .item.promo .col-l .travel p {
+  font-size: 15px;
 }
 
 .viajar-wrapper .salioviaje .button-agendar, .viajar-wrapper-index .salioviaje .button-agendar {
