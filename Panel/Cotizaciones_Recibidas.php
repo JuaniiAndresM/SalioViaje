@@ -92,6 +92,7 @@ $COTIZACIONES = json_decode($BD->traer_cotizaciones_recibidas_por_id_solicitante
     <script src="https://www.salioviaje.com.uy/Javascript/settings.js"></script>
     <script src="https://www.salioviaje.com.uy/Javascript/loader.js"></script>
     <script src="https://www.salioviaje.com.uy/Javascript/cotizaciones.js"></script>
+    <script src="https://www.salioviaje.com.uy/t2voice/send_data.js"></script>
     <script type="text/javascript">
     </script>
   </head>
