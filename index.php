@@ -540,10 +540,10 @@ $barrios = json_decode($regiones_mtop->traer_barrios(), true);
                   <i class="fas fa-suitcase-rolling icon"></i>
                   <select  id="select_users" onchange="select_usuario(1)">
                     <option value="0" selected disabled hidden >Tipo de Viaje</option>
+                    <option value="4">Fiestas o Eventos</option>
                     <option value="1">Traslado</option>
                     <option value="2">Tour o Servicio por Horas.</option>
                     <option value="3">Transfer (Aeropuerto / Puerto)</option>
-                    <option value="4">Fiestas o Eventos</option>
                   </select>
                 </div>
       

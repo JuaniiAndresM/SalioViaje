@@ -298,10 +298,10 @@ $regiones = json_decode($regiones_mtop->traer_regiones_mtop(), true);
                 <i class="fas fa-suitcase-rolling icon"></i>
                 <select name="" id="select_users" onchange="select_usuario()">
                   <option value="0" selected disabled hidden >Tipo de Viaje</option>
+                  <option value="4">Fiestas o Eventos</option>
                   <option value="1">Traslado</option>
                   <option value="2">Tour o Servicio por Horas.</option>
                   <option value="3">Transfer (Aeropuerto / Puerto)</option>
-                  <option value="4">Fiestas o Eventos</option>
                 </select>
                 <button class="gurucuteco-button" onclick="openGurucuteco(2)"><i class="fa-solid fa-circle-question"></i></button>
               </div>

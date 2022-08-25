@@ -73,7 +73,7 @@ $mail->Body    = '  <div class="mail" style="max-width: 600px; background: white
                             <tr>
                                 <td>
                                     <div class="mail-content" style="width: 500px; margin: 20px auto; background: #fff; font-family: Montserrat; color: #3844bc;">
-                                        <p style="font-size: 13px; color: #555;">Han aceptado tu cotizacion para el viaje #'.$id_viaje.'!</p>
+                                        <p style="font-size: 13px; color: #555;">Han aceptado tu cotizacion #'.$id_cot_presentada.' para el viaje #'.$id_viaje.'!</p>
                                     </div>
                                 </td>
                             </tr>

@@ -1,6 +1,7 @@
 window.addEventListener('load',()=>{
     $('#header').load('/web/foreman/header.php');
     $('#footer').load('/web/footer.html');
+    $('.salioviaje').load('/web/formulario.php');
     $('#flotant-promo').load('/web/flotant-promo.html');
 
     agregar_visita();
